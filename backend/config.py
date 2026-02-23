@@ -31,6 +31,13 @@ class Settings(BaseSettings):
     schedule_sec_edgar: str = "0 6 * * 1-5"  # Weekdays 6AM
     schedule_usitc: str = "0 8 1 * *"  # 1st of month 8AM
     schedule_companies_house: str = "0 10 * * 1"  # Mondays 10AM
+    schedule_eurostat: str = "0 8 1 * *"  # 1st of month 8AM
+    schedule_hmrc: str = "0 9 15 * *"  # 15th of month 9AM
+    schedule_ir_feeds: str = "0 7 * * 1-5"  # Weekdays 7AM
+    schedule_ttb_cola: str = "0 8 * * 4"  # Thursdays 8AM
+    schedule_faostat: str = "0 6 1 1 *"  # Jan 1st annually
+    schedule_who: str = "0 6 1 4 *"  # Apr 1st annually
+    schedule_oecd: str = "0 6 1 7 *"  # Jul 1st annually
 
     class Config:
         env_file = ".env"

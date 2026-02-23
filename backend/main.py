@@ -19,6 +19,7 @@ from api.dashboard import router as dashboard_router
 from api.companies import router as companies_router
 from api.exports import router as exports_router
 from api.chatbot import router as chatbot_router
+from api.reports import router as reports_router
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(name)s] %(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -72,6 +73,86 @@ async def run_sec_edgar():
         db.close()
 
 
+async def run_eurostat_comext():
+    from collectors.eurostat_comext import EurostatComextCollector
+    db = SessionLocal()
+    try:
+        collector = EurostatComextCollector(db)
+        await collector.run()
+    finally:
+        db.close()
+
+
+async def run_hmrc_bulletin():
+    from collectors.hmrc_bulletin import HMRCBulletinCollector
+    db = SessionLocal()
+    try:
+        collector = HMRCBulletinCollector(db)
+        await collector.run()
+    finally:
+        db.close()
+
+
+async def run_companies_house():
+    from collectors.companies_house import CompaniesHouseCollector
+    db = SessionLocal()
+    try:
+        collector = CompaniesHouseCollector(db, api_key=settings.companies_house_api_key)
+        await collector.run()
+    finally:
+        db.close()
+
+
+async def run_ir_feeds():
+    from collectors.ir_feeds import IRFeedsCollector
+    db = SessionLocal()
+    try:
+        collector = IRFeedsCollector(db)
+        await collector.run()
+    finally:
+        db.close()
+
+
+async def run_ttb_cola():
+    from collectors.ttb_cola import TTBColaCollector
+    db = SessionLocal()
+    try:
+        collector = TTBColaCollector(db)
+        await collector.run()
+    finally:
+        db.close()
+
+
+async def run_faostat_oiv():
+    from collectors.faostat_oiv import FAOSTATCollector
+    db = SessionLocal()
+    try:
+        collector = FAOSTATCollector(db)
+        await collector.run()
+    finally:
+        db.close()
+
+
+async def run_who_gho():
+    from collectors.who_gho import WHOGHOCollector
+    db = SessionLocal()
+    try:
+        collector = WHOGHOCollector(db)
+        await collector.run()
+    finally:
+        db.close()
+
+
+async def run_oecd():
+    from collectors.oecd import OECDCollector
+    db = SessionLocal()
+    try:
+        collector = OECDCollector(db)
+        await collector.run()
+    finally:
+        db.close()
+
+
 # ── App lifecycle ──
 
 @asynccontextmanager
@@ -88,8 +169,24 @@ async def lifespan(app: FastAPI):
                       id="bls_ppi", replace_existing=True)
     scheduler.add_job(run_sec_edgar, CronTrigger.from_crontab(settings.schedule_sec_edgar),
                       id="sec_edgar", replace_existing=True)
+    scheduler.add_job(run_eurostat_comext, CronTrigger.from_crontab(settings.schedule_eurostat),
+                      id="eurostat_comext", replace_existing=True)
+    scheduler.add_job(run_hmrc_bulletin, CronTrigger.from_crontab(settings.schedule_hmrc),
+                      id="hmrc_bulletin", replace_existing=True)
+    scheduler.add_job(run_companies_house, CronTrigger.from_crontab(settings.schedule_companies_house),
+                      id="companies_house", replace_existing=True)
+    scheduler.add_job(run_ir_feeds, CronTrigger.from_crontab(settings.schedule_ir_feeds),
+                      id="ir_feeds", replace_existing=True)
+    scheduler.add_job(run_ttb_cola, CronTrigger.from_crontab(settings.schedule_ttb_cola),
+                      id="ttb_cola", replace_existing=True)
+    scheduler.add_job(run_faostat_oiv, CronTrigger.from_crontab(settings.schedule_faostat),
+                      id="faostat_oiv", replace_existing=True)
+    scheduler.add_job(run_who_gho, CronTrigger.from_crontab(settings.schedule_who),
+                      id="who_gho", replace_existing=True)
+    scheduler.add_job(run_oecd, CronTrigger.from_crontab(settings.schedule_oecd),
+                      id="oecd", replace_existing=True)
     scheduler.start()
-    logger.info("Scheduler started with collectors registered")
+    logger.info("Scheduler started with 12 collectors registered")
 
     yield
 
@@ -122,22 +219,26 @@ dashboard_router.dependencies = []
 companies_router.dependencies = []
 exports_router.dependencies = []
 chatbot_router.dependencies = []
+reports_router.dependencies = []
 
 # Monkey-patch the get_db dependency in each router module
 import api.dashboard as dash_mod
 import api.companies as comp_mod
 import api.exports as exp_mod
 import api.chatbot as chat_mod
+import api.reports as rep_mod
 
 dash_mod.get_db = get_db
 comp_mod.get_db = get_db
 exp_mod.get_db = get_db
 chat_mod.get_db = get_db
+rep_mod.get_db = get_db
 
 app.include_router(dashboard_router)
 app.include_router(companies_router)
 app.include_router(exports_router)
 app.include_router(chatbot_router, prefix="/api/chat")
+app.include_router(reports_router, prefix="/api/reports")
 
 
 # ── Auth endpoints ──
@@ -172,6 +273,14 @@ async def trigger_collector(collector_name: str, username: str = Depends(get_cur
         "yahoo_finance": run_yahoo_finance,
         "bls_ppi": run_bls_ppi,
         "sec_edgar": run_sec_edgar,
+        "eurostat_comext": run_eurostat_comext,
+        "hmrc_bulletin": run_hmrc_bulletin,
+        "companies_house": run_companies_house,
+        "ir_feeds": run_ir_feeds,
+        "ttb_cola": run_ttb_cola,
+        "faostat_oiv": run_faostat_oiv,
+        "who_gho": run_who_gho,
+        "oecd": run_oecd,
     }
 
     if collector_name not in runners:

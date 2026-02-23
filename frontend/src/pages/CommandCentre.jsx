@@ -181,14 +181,14 @@ export default function CommandCentre() {
 
           {/* Collector Controls */}
           <div>
-            <h2 className="font-display text-lg text-navy mb-3">Data Collectors</h2>
-            <div className="space-y-2">
-              {['yahoo_finance', 'bls_ppi', 'sec_edgar'].map(name => (
+            <h2 className="font-display text-lg text-navy mb-3">Data Collectors (12)</h2>
+            <div className="space-y-2 max-h-96 overflow-y-auto">
+              {['yahoo_finance', 'bls_ppi', 'sec_edgar', 'usitc', 'eurostat_comext', 'hmrc_bulletin', 'companies_house', 'ir_feeds', 'ttb_cola', 'faostat_oiv', 'who_gho', 'oecd'].map(name => (
                 <button key={name} onClick={() => handleCollect(name)}
                   disabled={collecting === name}
                   className="flex items-center gap-2 w-full px-4 py-2.5 bg-white border border-gray-200 rounded-lg text-sm hover:bg-gray-50 disabled:opacity-50 transition-colors">
                   <Play size={14} className={collecting === name ? 'animate-spin text-editorial' : 'text-gray-400'} />
-                  <span className="font-medium text-navy">{name.replace(/_/g, ' ')}</span>
+                  <span className="font-medium text-navy">{name.replace(/_/g, ' ').split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}</span>
                   <span className="text-xs text-gray-400 ml-auto">
                     {collecting === name ? 'Running...' : 'Run now'}
                   </span>

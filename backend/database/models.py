@@ -235,6 +235,18 @@ class KeyMetric(Base):
     created_at = Column(DateTime, server_default=func.now())
 
 
+class Report(Base):
+    """Generated report metadata."""
+    __tablename__ = "reports"
+
+    id = Column(Integer, primary_key=True)
+    report_type = Column(String(50), nullable=False)  # "brief" or "portfolio"
+    title = Column(String(500), nullable=False)
+    created_by = Column(String(100))
+    sections_json = Column(Text)  # JSON of section configs
+    created_at = Column(DateTime, server_default=func.now())
+
+
 # ───────────────────────────────────────────
 # ARBITRAGE SIGNALS & ALERTS
 # ───────────────────────────────────────────

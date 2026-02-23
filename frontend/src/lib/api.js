@@ -74,5 +74,26 @@ export const api = {
       })
   },
 
+  // Reports
+  generateBrief: (data) =>
+    request('/reports/brief', { method: 'POST', body: JSON.stringify(data) }),
+  generatePortfolio: (data) =>
+    request('/reports/portfolio', { method: 'POST', body: JSON.stringify(data) }),
+  getReportHistory: () => request('/reports/history'),
+  downloadReport: (reportId) => {
+    const headers = {}
+    if (token) headers['Authorization'] = `Bearer ${token}`
+    return fetch(`${API_BASE}/reports/${reportId}/download`, { headers })
+      .then(r => r.blob())
+      .then(blob => {
+        const url = URL.createObjectURL(blob)
+        const a = document.createElement('a')
+        a.href = url
+        a.download = `report_${reportId}.pdf`
+        a.click()
+        URL.revokeObjectURL(url)
+      })
+  },
+
   health: () => request('/health'),
 }

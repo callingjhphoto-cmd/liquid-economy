@@ -213,26 +213,22 @@ app.add_middleware(
 )
 
 
-# ── Override get_db in routers ──
+# ── Override get_db in routers via dependency_overrides ──
+# FastAPI's Depends() captures function references at import time, so
+# monkey-patching module attributes doesn't work. dependency_overrides
+# is the correct mechanism.
 
-dashboard_router.dependencies = []
-companies_router.dependencies = []
-exports_router.dependencies = []
-chatbot_router.dependencies = []
-reports_router.dependencies = []
+from api.dashboard import get_db as dash_get_db
+from api.companies import get_db as comp_get_db
+from api.exports import get_db as exp_get_db
+from api.chatbot import get_db as chat_get_db
+from api.reports import get_db as rep_get_db
 
-# Monkey-patch the get_db dependency in each router module
-import api.dashboard as dash_mod
-import api.companies as comp_mod
-import api.exports as exp_mod
-import api.chatbot as chat_mod
-import api.reports as rep_mod
-
-dash_mod.get_db = get_db
-comp_mod.get_db = get_db
-exp_mod.get_db = get_db
-chat_mod.get_db = get_db
-rep_mod.get_db = get_db
+app.dependency_overrides[dash_get_db] = get_db
+app.dependency_overrides[comp_get_db] = get_db
+app.dependency_overrides[exp_get_db] = get_db
+app.dependency_overrides[chat_get_db] = get_db
+app.dependency_overrides[rep_get_db] = get_db
 
 app.include_router(dashboard_router)
 app.include_router(companies_router)

@@ -23,6 +23,7 @@ class Settings(BaseSettings):
     bls_api_key: str = ""  # https://data.bls.gov/registrationEngine/
     sec_user_agent: str = "Palmer Liquid Studios james@huertas.co.uk"
     companies_house_api_key: str = ""  # https://developer.company-information.service.gov.uk/
+    anthropic_api_key: str = ""
 
     # Collector schedule (cron expressions)
     schedule_yahoo_finance: str = "0 7 * * 1-5"  # Weekdays 7AM

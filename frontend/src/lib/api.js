@@ -54,6 +54,10 @@ export const api = {
   // Collectors
   runCollector: (name) => request(`/collectors/run/${name}`, { method: 'POST' }),
 
+  // Chat
+  sendChatMessage: (message) =>
+    request('/chat/message', { method: 'POST', body: JSON.stringify({ message }) }),
+
   // Exports
   downloadExcel: () => {
     const headers = {}

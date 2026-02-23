@@ -5,6 +5,7 @@ from .models import (
     Company, Brand, BrandPrice, Valuation, ArbitrageSignal,
     DataSource, DisclosureEvent, create_tables, get_engine, get_session_factory
 )
+from .excel_loader import load_additional_data
 
 
 def seed_companies(session):
@@ -294,7 +295,9 @@ def run_seed(database_url: str):
     try:
         # Check if already seeded
         if session.query(Company).count() > 0:
-            print("Database already seeded. Skipping.")
+            print("Database already seeded. Loading additional data if needed...")
+            load_additional_data(session)
+            session.commit()
             return
 
         print("Seeding Liquid Economy database...")
@@ -303,6 +306,7 @@ def run_seed(database_url: str):
         seed_valuations(session)
         seed_data_sources(session)
         seed_arbitrage_signals(session)
+        load_additional_data(session)
         session.commit()
         print("Seed complete!")
     except Exception as e:

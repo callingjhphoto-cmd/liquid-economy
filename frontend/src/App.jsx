@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Link, Navigate, useLocation } from 'react-router-dom'
-import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, Settings, LogOut, Menu, X } from 'lucide-react'
+import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, Settings, LogOut, Menu, X, MessageCircle } from 'lucide-react'
 import { api, getToken, setToken, clearToken } from './lib/api'
 import CommandCentre from './pages/CommandCentre'
 import Valuations from './pages/Valuations'
 import BrandPricing from './pages/BrandPricing'
 import Companies from './pages/Companies'
+import ChatPanel from './components/ChatPanel'
 
 function Login({ onLogin }) {
   const [username, setUsername] = useState('')
@@ -68,6 +69,7 @@ function NavItem({ to, icon: Icon, label }) {
 
 function Layout({ onLogout }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [chatOpen, setChatOpen] = useState(false)
 
   return (
     <div className="flex h-screen bg-gray-50">
@@ -88,8 +90,13 @@ function Layout({ onLogout }) {
           </nav>
 
           <div className="p-3 border-t border-white/10">
+            <button onClick={() => setChatOpen(true)}
+              className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-gray-400 hover:text-gold hover:bg-white/5 w-full text-sm font-medium transition-colors">
+              <MessageCircle size={18} />
+              <span>Analyst Chat</span>
+            </button>
             <button onClick={() => api.downloadExcel()}
-              className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 w-full text-sm font-medium transition-colors">
+              className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 w-full text-sm font-medium transition-colors mt-1">
               <Download size={18} />
               <span>Export Tracker</span>
             </button>
@@ -125,6 +132,9 @@ function Layout({ onLogout }) {
           </Routes>
         </div>
       </main>
+
+      {/* Chat Panel */}
+      <ChatPanel isOpen={chatOpen} onClose={() => setChatOpen(false)} />
     </div>
   )
 }

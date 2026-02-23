@@ -206,6 +206,35 @@ class DisclosureEvent(Base):
     company = relationship("Company", back_populates="events")
 
 
+class HSCode(Base):
+    """HS codes for trade data tracking."""
+    __tablename__ = "hs_codes"
+
+    id = Column(Integer, primary_key=True)
+    code = Column(String(20), nullable=False, unique=True)
+    description = Column(String(500), nullable=False)
+    category = Column(String(100))
+    sub_codes = Column(Text)  # comma-separated or JSON
+    tracking_use = Column(Text)
+    primary_database = Column(String(200))
+    created_at = Column(DateTime, server_default=func.now())
+
+
+class KeyMetric(Base):
+    """Industry key metrics tracking."""
+    __tablename__ = "key_metrics"
+
+    id = Column(Integer, primary_key=True)
+    metric_name = Column(String(300), nullable=False)
+    source_body = Column(String(300))
+    current_value = Column(String(300))
+    prior_period = Column(String(300))
+    trend = Column(String(200))
+    last_updated = Column(DateTime)
+    notes = Column(Text)
+    created_at = Column(DateTime, server_default=func.now())
+
+
 # ───────────────────────────────────────────
 # ARBITRAGE SIGNALS & ALERTS
 # ───────────────────────────────────────────

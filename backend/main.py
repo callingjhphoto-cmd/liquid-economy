@@ -18,6 +18,7 @@ from database.seed import run_seed
 from api.dashboard import router as dashboard_router
 from api.companies import router as companies_router
 from api.exports import router as exports_router
+from api.chatbot import router as chatbot_router
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(name)s] %(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -120,19 +121,23 @@ app.add_middleware(
 dashboard_router.dependencies = []
 companies_router.dependencies = []
 exports_router.dependencies = []
+chatbot_router.dependencies = []
 
 # Monkey-patch the get_db dependency in each router module
 import api.dashboard as dash_mod
 import api.companies as comp_mod
 import api.exports as exp_mod
+import api.chatbot as chat_mod
 
 dash_mod.get_db = get_db
 comp_mod.get_db = get_db
 exp_mod.get_db = get_db
+chat_mod.get_db = get_db
 
 app.include_router(dashboard_router)
 app.include_router(companies_router)
 app.include_router(exports_router)
+app.include_router(chatbot_router, prefix="/api/chat")
 
 
 # ── Auth endpoints ──

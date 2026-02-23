@@ -1,0 +1,19 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        navy: { DEFAULT: "#1A1F36", light: "#2D3142" },
+        gold: { DEFAULT: "#C9A96E", light: "#D4BC8E" },
+        editorial: "#2B6CB0",
+        accent: { green: "#38A169", red: "#C53030", orange: "#DD6B20" },
+      },
+      fontFamily: {
+        display: ["Georgia", "serif"],
+        body: ["Inter", "system-ui", "sans-serif"],
+      },
+    },
+  },
+  plugins: [],
+}

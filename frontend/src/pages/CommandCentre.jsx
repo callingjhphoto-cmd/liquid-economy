@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { TrendingUp, Activity, AlertTriangle, Calendar, FileText, Play } from 'lucide-react'
 import { api } from '../lib/api'
-import { MetricCard, AlertCard, SignalCard } from '../components/MetricCard'
+import MetricCard, { AlertCard, SignalCard } from '../components/MetricCard'
 import KeyMetricsWatchlist from '../components/KeyMetricsWatchlist'
 
 export default function CommandCentre() {

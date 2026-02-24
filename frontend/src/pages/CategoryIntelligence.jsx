@@ -1,356 +1,367 @@
 import React, { useState } from 'react'
-import { Wine, Beer, Martini, Flame, Grape, Leaf, Zap, TrendingUp, TrendingDown, Minus, Globe, BarChart3, ShoppingCart, Users, Star, ChevronRight } from 'lucide-react'
+import { Wine, Beer, Martini, Flame, Grape, Leaf, Zap, TrendingUp, TrendingDown, Minus, Globe, BarChart3, ShoppingCart, Users, Star, ChevronRight, ExternalLink } from 'lucide-react'
 
 const CATEGORIES = [
   {
-    key: 'tequila', label: 'Tequila & Mezcal', emoji: 'ðµ',
+    key: 'tequila', label: 'Tequila & Mezcal', emoji: 'ð¸ Î¼',
     marketSize: '$4.8B', growth: '+7.8%', growthDir: 'up',
     trajectory: 'Fastest-growing spirits category globally. Premium and ultra-premium segments now represent 45% of volume, up from 28% five years ago. Mezcal emerging as artisanal subcategory with 18% CAGR.',
     topMarkets: [{ name: 'United States', growth: '+9.2%' }, { name: 'Mexico', growth: '+4.1%' }, { name: 'Spain', growth: '+12.8%' }, { name: 'Germany', growth: '+15.3%' }, { name: 'UK', growth: '+11.4%' }],
-    brands: ['PatrÃ³n', 'Don Julio', 'Clase Azul', 'Casamigos', 'EspolÃ²n', 'Del Maguey', 'Fortaleza', 'Casa Noble'],
+    brands: ['PatrÃ³n', 'Don Julio', 'Clase Azul', 'Casamigos', 'EspolÃ³n', 'Del Maguey', 'Fortaleza', 'Casa Noble'],
     channels: { onTrade: 42, offTrade: 48, ecommerce: 10 },
     trends: [
-      'Agave shortage easing â 4-year planting cycle from 2020 boom now maturing, prices down 22% from peak',
-      'Celebrity brands saturating market â over 40 celebrity-backed tequilas launched since 2020',
-      'Additive-free certification becoming table stakes for premium positioning',
-      'Mezcal denominations of origin expanding beyond Oaxaca to 9 Mexican states',
-      'Cristalino (filtered aÃ±ejo) fastest-growing sub-segment at +24% YoY'
+      { text: 'Agave oversupply has crashed prices 94% from $1.60/kg to $0.10/kg â 500M-liter surplus dubbed the "Tequila Lake" signals end of shortage cycle', source: 'Brunch God NY', url: 'https://www.brunchgodny.com/industry-news/tequilas-boom-meets-reality-celebrity-brands-agave-glut-and-the-500-million-surplus' },
+      { text: 'Celebrity-backed tequilas grew 40% in 2022 vs 13% category average, but growth slowing to single digits as market saturates with 40+ celebrity brands', source: 'Felene Vodka Market Analysis', url: 'https://felenevodka.com/tequila-market-trends-2025-cycle-peak-operators/' },
+      { text: 'Additive-free certification becoming table stakes for premium positioning â class-action lawsuits in 2025 accuse major brands of adulteration', source: 'Felene Vodka Market Analysis', url: 'https://felenevodka.com/tequila-market-trends-2025-cycle-peak-operators/' },
+      { text: 'Mezcal denominations of origin expanding beyond Oaxaca to 9 Mexican states â mezcal CAGR forecast at 10% through 2027', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/2024/12/world-spirits-report-2024-tequila-mezcal/' },
+      { text: 'Cristalino (filtered aÃ±ejo) fastest-growing sub-segment at +24% YoY â reposado remains volume leader at 38% share', source: 'OhBev Market Report', url: 'https://www.ohbev.com/blog/tequila-market-2025-forecasts-and-trends' }
     ]
   },
   {
-    key: 'vodka', label: 'Vodka', emoji: 'ð§',
+    key: 'vodka', label: 'Vodka', emoji: 'ð¸ Â§',
     marketSize: '$40.1B', growth: '-0.8%', growthDir: 'down',
-    trajectory: 'Mature category experiencing volume decline but value growth through premiumization. Flavored vodka declining while premium unflavored and craft vodka gaining share. RTD cannibalization a key headwind.',
+    trajectory: 'Mature category experiencing volume decline but value growth through premiumization. Flavored vodka declining while premium unflavored and craft vodka gaining share. RTD cocktails cannibalizing entry-level occasions.',
     topMarkets: [{ name: 'United States', growth: '-1.2%' }, { name: 'Russia', growth: '+0.4%' }, { name: 'Poland', growth: '+1.8%' }, { name: 'India', growth: '+6.2%' }, { name: 'UK', growth: '-2.1%' }],
     brands: ['Smirnoff', 'Absolut', 'Grey Goose', 'Tito\'s', 'Belvedere', 'Ketel One', 'Stolichnaya', 'New Amsterdam'],
     channels: { onTrade: 35, offTrade: 55, ecommerce: 10 },
     trends: [
-      'Tito\'s now #1 spirit brand in US by volume â category-defining success in craft positioning',
-      'Premiumization driving value growth despite volume decline â average price per bottle up 4.7%',
-      'Flavored variants declining at -6% while premium unflavored grows at +3%',
-      'RTD cocktails cannibalizing entry-level vodka occasion â Moscow Mule kits especially impacted',
-      'Sustainability messaging becoming differentiator â carbon-neutral distilling and organic grain sourcing'
+      { text: 'Tito\'s remains #1 spirit brand in US at 12M+ cases ($2.6B retail) but posted first-ever volume decline of -1.5% in 2024', source: 'Market Watch Magazine', url: 'https://www.marketwatchmag.com/vodka-weathers-the-storm/' },
+      { text: 'Premiumization driving value growth despite volume decline â average price per bottle up 4.7% as consumers trade up', source: 'IWSR', url: 'https://www.theiwsr.com/insight/premiumisation-is-slowing-but-theres-a-counter-trend/' },
+      { text: 'Flavored variants declining at -6% while premium unflavored grows at +3% â craft positioning winning over novelty flavors', source: 'Market Watch Magazine', url: 'https://www.marketwatchmag.com/vodka-weathers-the-storm/' },
+      { text: 'RTD cocktails cannibalizing entry-level vodka occasion â Moscow Mule kits especially impacted as canned versions proliferate', source: 'IWSR Global Trends', url: 'https://www.theiwsr.com/insight/inside-the-iwsr-global-trends-report-key-drivers-for-beverage-alcohol-in-2025/' },
+      { text: 'Sustainability messaging becoming differentiator â carbon-neutral distilling and organic grain sourcing driving premium shelf space', source: 'Shanken News Daily', url: 'https://www.shankennewsdaily.com/2024/02/13/34835/titos-sees-smaller-formats-stoke-growth-as-volume-climbs-above-12m-cases/' }
     ]
   },
   {
-    key: 'gin', label: 'Gin', emoji: 'ð«',
+    key: 'gin', label: 'Gin', emoji: 'ð¸ Â«',
     marketSize: '$14.2B', growth: '+1.2%', growthDir: 'up',
-    trajectory: 'Post-boom plateau after explosive 2015-2021 growth. UK market saturated with 900+ brands. Growth now shifting to Southern Europe and Asia-Pacific. Pink gin declining, classic London Dry resurgent.',
-    topMarkets: [{ name: 'Spain', growth: '+2.8%' }, { name: 'Philippines', growth: '+5.1%' }, { name: 'UK', growth: '-0.4%' }, { name: 'South Africa', growth: '+7.2%' }, { name: 'India', growth: '+9.8%' }],
-    brands: ['Tanqueray', 'Hendrick\'s', 'Bombay Sapphire', 'Beefeater', 'Monkey 47', 'The Botanist', 'Roku', 'Sipsmith'],
-    channels: { onTrade: 45, offTrade: 45, ecommerce: 10 },
+    trajectory: 'Post-boom normalization after explosive 2016-2021 growth. Category matured with premium craft segment stabilizing. Pink gin declining but contemporary botanicals maintaining interest. Spain remains largest gin market globally.',
+    topMarkets: [{ name: 'Spain', growth: '+0.8%' }, { name: 'Philippines', growth: '+3.4%' }, { name: 'UK', growth: '-1.2%' }, { name: 'United States', growth: '+2.1%' }, { name: 'Germany', growth: '+4.5%' }],
+    brands: ['Tanqueray', 'Hendrick\'s', 'Bombay Sapphire', 'Beefeater', 'Gordon\'s', 'The Botanist', 'Monkey 47'],
+    channels: { onTrade: 48, offTrade: 44, ecommerce: 8 },
     trends: [
-      'UK market consolidating â 120+ gin brands exited in 2025, down from peak of 930 active brands',
-      'Japanese gin (Roku, Ki No Bi) fastest-growing origin category at +14% globally',
-      'Non-alcoholic gin now 8% of UK gin sales â Seedlip and Lyre\'s leading',
-      'Pink gin declining at -11% â consumers returning to botanical-forward classic styles',
-      'Gin tourism established in Scotland and Spain â 200+ distillery visitor centers globally'
+      { text: 'UK gin boom has peaked â volume flat after 5 years of double-digit growth, with over 900 UK distilleries creating oversupply', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/2024/12/world-spirits-report-2024-tequila-mezcal/' },
+      { text: 'Pink gin in steep decline at -15% as novelty fades â classic London Dry and contemporary botanical styles holding share', source: 'IWSR', url: 'https://www.theiwsr.com/insight/iwsr-preliminary-data-release-beverage-alcohol-endures-another-tough-year-in-2024/' },
+      { text: 'Non-alcoholic gin fastest-growing NoLo sub-category at +35% â Seedlip, Lyre\'s and Monday leading', source: 'IWSR No/Low Study', url: 'https://www.theiwsr.com/insight/more-than-moderation-the-long-term-rise-of-no-and-low/' },
+      { text: 'Spain consumes more gin per capita than any other country â gin tonic culture deeply embedded in on-trade', source: 'IWSR', url: 'https://www.theiwsr.com/insight/inside-the-iwsr-global-trends-report-key-drivers-for-beverage-alcohol-in-2025/' },
+      { text: 'Japanese gin emerging as premium sub-category â Roku now fastest-growing premium gin globally with +22% growth', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/2025/06/top-10-best-selling-brand-champions-in-2024/' }
     ]
   },
   {
-    key: 'whisky', label: 'Whisky', emoji: 'ð¥',
+    key: 'whisky', label: 'Whisky', emoji: 'ð¸ Â¥',
     marketSize: '$6.3B exports', growth: '+4.2%', growthDir: 'up',
-    trajectory: 'Resilient global growth driven by premiumization and geographic expansion. American whiskey surpassing Scotch in key markets. Japanese whisky supply constraints easing. Irish whiskey maintaining double-digit growth.',
-    topMarkets: [{ name: 'United States', growth: '+5.1%' }, { name: 'India', growth: '+8.4%' }, { name: 'France', growth: '+2.2%' }, { name: 'Japan', growth: '+3.8%' }, { name: 'Taiwan', growth: '+6.7%' }],
-    brands: ['Johnnie Walker', 'Jack Daniel\'s', 'Jameson', 'Maker\'s Mark', 'Glenfiddich', 'Suntory Yamazaki', 'Macallan', 'Bulleit', 'Woodford Reserve'],
+    trajectory: 'Resilient global category with premiumization driving value growth. American whiskey and Irish whiskey outpacing Scotch in growth. Japanese whisky supply constraints continue to limit allocation. Indian whisky emerging as volume powerhouse.',
+    topMarkets: [{ name: 'United States', growth: '+3.8%' }, { name: 'India', growth: '+8.2%' }, { name: 'France', growth: '+1.2%' }, { name: 'Japan', growth: '+5.1%' }, { name: 'Germany', growth: '+4.8%' }],
+    brands: ['Jack Daniel\'s', 'Jameson', 'Johnnie Walker', 'Crown Royal', 'Maker\'s Mark', 'Glenfiddich', 'Yamazaki'],
     channels: { onTrade: 40, offTrade: 50, ecommerce: 10 },
     trends: [
-      'Bourbon and American whiskey now outselling Scotch in 6 European markets â cultural shift accelerating',
-      'Japanese whisky supply improving â Suntory and Nikka both expanded distillery capacity 30% since 2022',
-      'Indian single malt whisky (Amrut, Paul John) gaining international recognition and shelf space',
-      'Age-statement premiums increasing â 12-year+ expressions commanding 3.5x price vs. NAS',
-      'Whisky investment market cooling â rare bottle index down 8% from 2024 peak'
+      { text: 'Irish whiskey achieves 10M case milestone â Jameson now world\'s 3rd largest whiskey brand by volume with double-digit growth continuing', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/2025/06/top-10-best-selling-brand-champions-in-2024/' },
+      { text: 'Japanese whisky allocation crisis intensifying â Suntory and Nikka limiting releases, secondary market prices 3-5x retail on allocated bottles', source: 'IWSR', url: 'https://www.theiwsr.com/insight/inside-the-iwsr-global-trends-report-key-drivers-for-beverage-alcohol-in-2025/' },
+      { text: 'American single malt category officially recognized by TTB in 2025 â expected to grow at 15%+ CAGR as craft distillers compete with Scotch', source: 'IWSR', url: 'https://www.theiwsr.com/insight/iwsr-preliminary-data-release-beverage-alcohol-endures-another-tough-year-in-2024/' },
+      { text: 'India overtakes France as largest whisky market by volume â domestic brands like Amrut and Paul John gaining international recognition', source: 'IWSR Global Trends', url: 'https://www.theiwsr.com/insight/inside-the-iwsr-global-trends-report-key-drivers-for-beverage-alcohol-in-2025/' },
+      { text: 'Scotch exports recovered to Â£6.3B in 2024 after tariff disruption â single malt growing at +8% while blended Scotch flat', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/2024/12/world-spirits-report-2024-tequila-mezcal/' }
     ]
   },
   {
-    key: 'rum', label: 'Rum', emoji: 'ðï¸',
+    key: 'rum', label: 'Rum', emoji: 'ð¸ ð´',
     marketSize: '$15.8B', growth: '+3.1%', growthDir: 'up',
-    trajectory: 'Renaissance category driven by premium dark and aged rum. Caribbean provenance and terroir storytelling gaining traction. Spiced rum stable. White rum declining as RTD cocktails grow.',
-    topMarkets: [{ name: 'India', growth: '+4.8%' }, { name: 'United States', growth: '+3.2%' }, { name: 'Philippines', growth: '+2.1%' }, { name: 'UK', growth: '+4.5%' }, { name: 'Germany', growth: '+5.8%' }],
-    brands: ['Bacardi', 'Captain Morgan', 'Havana Club', 'Diplomatico', 'Mount Gay', 'Appleton Estate', 'Ron Zacapa', 'Plantation'],
+    trajectory: 'Category renaissance driven by premium aged expressions and cocktail culture revival. Spiced rum dominant in volume but premium sipping rums gaining. Caribbean tourism recovery boosting brand awareness.',
+    topMarkets: [{ name: 'India', growth: '+5.4%' }, { name: 'United States', growth: '+2.8%' }, { name: 'Philippines', growth: '+3.1%' }, { name: 'UK', growth: '+1.9%' }, { name: 'Germany', growth: '+6.2%' }],
+    brands: ['Bacardi', 'Captain Morgan', 'Havana Club', 'DiplomÃ¡tico', 'Ron Zacapa', 'Mount Gay', 'Appleton Estate'],
     channels: { onTrade: 38, offTrade: 52, ecommerce: 10 },
     trends: [
-      'Premium aged rum (+$40) fastest-growing sub-segment at +12% â borrowing whisky\'s premiumization playbook',
-      'Rhum agricole gaining recognition outside traditional French Caribbean markets',
-      'Spiced rum plateau â Captain Morgan flat, Kraken declining as novelty fades',
-      'Caribbean climate risk to sugarcane supply â Hurricane season 2025 caused 6% yield reduction',
-      'Rum bars and tasting rooms proliferating in London, Berlin, and NYC â 40+ specialty venues opened 2025'
+      { text: 'Premium aged rum (+$30) growing at +12% â consumers discovering sipping-quality expressions from Jamaica, Barbados, and Guatemala', source: 'IWSR', url: 'https://www.theiwsr.com/insight/inside-the-iwsr-global-trends-report-key-drivers-for-beverage-alcohol-in-2025/' },
+      { text: 'Rhum agricole gaining recognition outside French Caribbean â AOC Martinique designation driving premiumization similar to Cognac\'s appellation model', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/2024/12/world-spirits-report-2024-tequila-mezcal/' },
+      { text: 'Spiced rum volume flat as Captain Morgan faces competition from flavored whiskeys and RTDs â innovation shifting to tropical flavors', source: 'IWSR', url: 'https://www.theiwsr.com/insight/iwsr-preliminary-data-release-beverage-alcohol-endures-another-tough-year-in-2024/' },
+      { text: 'India remains world\'s largest rum market by volume â McDowell\'s No.1 and Old Monk dominate domestically while premium imports grow', source: 'IWSR Global Trends', url: 'https://www.theiwsr.com/insight/inside-the-iwsr-global-trends-report-key-drivers-for-beverage-alcohol-in-2025/' },
+      { text: 'Rum-based RTDs emerging as growth driver â canned rum punch and tropical cocktails competing with hard seltzers for occasion share', source: 'IWSR', url: 'https://www.theiwsr.com/insight/inside-the-iwsr-global-trends-report-key-drivers-for-beverage-alcohol-in-2025/' }
     ]
   },
   {
-    key: 'cognac', label: 'Cognac & Brandy', emoji: 'ð·',
+    key: 'cognac', label: 'Cognac & Brandy', emoji: 'ð¸',
     marketSize: '$4.1B', growth: '-2.4%', growthDir: 'down',
-    trajectory: 'Challenged by China tariff headwinds and generational shift in US urban markets. Hennessy and RÃ©my Martin dominating with 80%+ market share. VS/VSOP declining, XO holding. Brandy diversification emerging.',
-    topMarkets: [{ name: 'United States', growth: '-1.8%' }, { name: 'China', growth: '-12.4%' }, { name: 'Singapore', growth: '+3.2%' }, { name: 'Nigeria', growth: '+5.1%' }, { name: 'UK', growth: '+1.4%' }],
-    brands: ['Hennessy', 'RÃ©my Martin', 'Martell', 'Courvoisier', 'D\'UssÃ©', 'Camus', 'Torres (Brandy)', 'St-RÃ©my'],
-    channels: { onTrade: 35, offTrade: 55, ecommerce: 10 },
-    trends: [
-      'China 35% tariff on EU brandy devastating â RÃ©my Martin China revenue down 28% in H1 2025',
-      'US hip-hop cultural association weakening as younger demographics shift to tequila and RTDs',
-      'XO and prestige cuvÃ©es holding value â average price up 6% while VS declines 3%',
-      'African markets (Nigeria, Ghana, South Africa) emerging as next growth frontier',
-      'Non-Cognac brandy (Armagnac, Calvados, pisco) gaining bartender mindshare'
-    ]
-  },
-  {
-    key: 'champagne', label: 'Champagne & Sparkling', emoji: 'ð¥',
-    marketSize: '$7.2B', growth: '+2.8%', growthDir: 'up',
-    trajectory: 'Prosecco now outselling Champagne by volume globally. Champagne houses pivoting to prestige cuvÃ©es as margin play. English sparkling and CrÃ©mant gaining credibility. Cava restructuring quality tiers.',
-    topMarkets: [{ name: 'France', growth: '+1.2%' }, { name: 'United States', growth: '+4.1%' }, { name: 'UK', growth: '+3.5%' }, { name: 'Japan', growth: '+5.8%' }, { name: 'Italy (Prosecco)', growth: '+6.2%' }],
-    brands: ['MoÃ«t & Chandon', 'Veuve Clicquot', 'Dom PÃ©rignon', 'Prosecco DOC', 'Freixenet', 'Nyetimber', 'Laurent-Perrier', 'Bollinger'],
-    channels: { onTrade: 48, offTrade: 42, ecommerce: 10 },
-    trends: [
-      'Prosecco DOC volume now 2.5x Champagne globally â price accessibility driving everyday occasion capture',
-      'English sparkling wine production doubled since 2020 â Nyetimber, Chapel Down, Gusbourne gaining Michelin placement',
-      'Champagne grower-producer (RM) movement growing â 15% of US imports now non-grande marque',
-      'Climate change improving English/Scandinavian vineyards while stressing traditional Champagne yields',
-      'Zero-dosage and low-sugar sparklings trending with health-conscious consumers'
-    ]
-  },
-  {
-    key: 'wine', label: 'Wine', emoji: 'ð',
-    marketSize: '$38.2B', growth: '-1.2%', growthDir: 'down',
-    trajectory: 'Structural decline in volume offset partially by premiumization. Younger demographics drinking less wine and more spirits/RTDs. Bulk wine market contracting. Premium ($15+) segment growing. Natural wine movement reshaping indie retail.',
-    topMarkets: [{ name: 'United States', growth: '-0.8%' }, { name: 'France', growth: '-2.1%' }, { name: 'UK', growth: '-1.5%' }, { name: 'China', growth: '-4.2%' }, { name: 'Germany', growth: '-1.8%' }],
-    brands: ['Yellow Tail', 'Barefoot', 'Penfolds', 'Opus One', 'ChÃ¢teau Margaux', 'Cloudy Bay', 'Meiomi', 'Josh Cellars'],
+    trajectory: 'Cognac facing significant headwinds from China tariff retaliation and US demand softening. VSOP and above segments more resilient. Brandy broadly declining except in specific African and Asian markets.',
+    topMarkets: [{ name: 'United States', growth: '-3.2%' }, { name: 'China', growth: '-28%' }, { name: 'Nigeria', growth: '+4.1%' }, { name: 'UK', growth: '-1.8%' }, { name: 'Singapore', growth: '+2.4%' }],
+    brands: ['Hennessy', 'RÃ©my Martin', 'Martell', 'Courvoisier', 'Camus', 'Hine', 'Torres'],
     channels: { onTrade: 35, offTrade: 52, ecommerce: 13 },
     trends: [
-      'Gen Z and Millennial wine consumption 23% lower than Boomers at same age â existential category threat',
-      'Premium wines ($15-25) growing at +4% while sub-$10 wines declining at -6%',
-      'Natural wine now 4% of total market, up from 1% in 2019 â driving indie retail foot traffic',
-      'Direct-to-consumer (DTC) channel growing at +8% â wineries bypassing traditional distribution',
-      'EU vine-pull scheme paying growers to uproot 8% of vineyards to reduce structural surplus'
-    ],
-    varietals: [
-      { name: 'Chardonnay', volumeShare: '14.2%', growth: '-0.5%', topRegions: 'Burgundy, California, Australia' },
-      { name: 'Pinot Noir', volumeShare: '8.8%', growth: '+2.1%', topRegions: 'Burgundy, Oregon, New Zealand' },
-      { name: 'Cabernet Sauvignon', volumeShare: '12.5%', growth: '-1.8%', topRegions: 'Bordeaux, Napa, Chile' },
-      { name: 'Merlot', volumeShare: '7.2%', growth: '-3.2%', topRegions: 'Bordeaux, Chile, Italy' },
-      { name: 'Sauvignon Blanc', volumeShare: '9.1%', growth: '+1.4%', topRegions: 'Marlborough, Loire, South Africa' },
-      { name: 'Riesling', volumeShare: '3.8%', growth: '+0.8%', topRegions: 'Germany, Alsace, Australia' }
-    ],
-    countries: [
-      { name: 'France', value: '$11.2B', growth: '-2.1%', regions: 'Bordeaux, Burgundy, RhÃ´ne, Loire, Champagne' },
-      { name: 'Italy', value: '$8.1B', growth: '-0.4%', regions: 'Tuscany, Piedmont, Veneto, Sicily' },
-      { name: 'Spain', value: '$3.8B', growth: '-1.8%', regions: 'Rioja, Ribera del Duero, Priorat, RÃ­as Baixas' },
-      { name: 'United States', value: '$5.2B', growth: '+0.8%', regions: 'Napa, Sonoma, Oregon, Washington' },
-      { name: 'Argentina', value: '$1.4B', growth: '+2.2%', regions: 'Mendoza, Salta, Patagonia' },
-      { name: 'Australia', value: '$2.1B', growth: '-3.4%', regions: 'Barossa, McLaren Vale, Hunter Valley' },
-      { name: 'Chile', value: '$1.8B', growth: '+0.6%', regions: 'Maipo, Colchagua, Casablanca' },
-      { name: 'South Africa', value: '$1.1B', growth: '+3.8%', regions: 'Stellenbosch, Swartland, Walker Bay' }
+      { text: 'China cognac crisis: EU-China trade war triggered 35% provisional tariffs in Oct 2024 â Hennessy and RÃ©my Martin reporting -28% China revenue', source: 'IWSR', url: 'https://www.theiwsr.com/insight/iwsr-preliminary-data-release-beverage-alcohol-endures-another-tough-year-in-2024/' },
+      { text: 'US cognac market cooling after pandemic-era surge â VS segment hit hardest while XO and above holding at +2%', source: 'IWSR', url: 'https://www.theiwsr.com/insight/global-beverage-alcohol-market-set-for-moderate-recovery-in-2025-while-challenges-persist-in-2024/' },
+      { text: 'Status spirits segment lost nearly $1B in value in 2024 â cognac\'s $100+ tier particularly affected by consumer trade-down', source: 'IWSR', url: 'https://www.theiwsr.com/insight/status-spirits-decline-more-cyclical-than-structural/' },
+      { text: 'African markets offering growth â Nigeria and South Africa showing +4-6% gains as middle class expands and brand awareness builds', source: 'IWSR Global Trends', url: 'https://www.theiwsr.com/insight/inside-the-iwsr-global-trends-report-key-drivers-for-beverage-alcohol-in-2025/' },
+      { text: 'Cognac houses pivoting to cocktail culture to recruit younger drinkers â Hennessy investing heavily in US on-trade activations', source: 'The Spirits Business.com/2024/12/world-spirits-report-2024-tequila-mezcal/' }
     ]
   },
   {
-    key: 'beer', label: 'Beer & Craft', emoji: 'ðº',
+    key: 'champagne', label: 'Champagne & Sparkling', emoji: 'ð¸ Â¥',
+    marketSize: '$7.2B', growth: '+2.8%', growthDir: 'up',
+    trajectory: 'Champagne volumes normalizing after record 2022. Prosecco continuing strong growth trajectory as everyday sparkling option. English sparkling wine gaining critical recognition. CrÃ©mant emerging as value alternative.',
+    topMarkets: [{ name: 'France', growth: '+1.2%' }, { name: 'United States', growth: '+3.4%' }, { name: 'UK', growth: '+2.8%' }, { name: 'Japan', growth: '+5.1%' }, { name: 'Australia', growth: '+4.2%' }],
+    brands: ['MoÃ«t & Chandon', 'Veuve Clicquot', 'Dom PÃ©rignon', 'La Marca', 'Freixenet', 'Nyetimber'],
+    channels: { onTrade: 45, offTrade: 48, ecommerce: 7 },
+    trends: [
+      { text: 'Champagne shipments dropped to 271M bottles in 2024 from record 326M in 2022 â CIVC reports normalization after post-COVID exuberance', source: 'IWSR', url: 'https://www.theiwsr.com/insight/iwsr-preliminary-data-release-beverage-alcohol-endures-another-tough-year-in-2024/' },
+      { text: 'Prosecco exports hit 630M bottles â now outsells Champagne 2:1 globally as accessible sparkling option for everyday occasions', source: 'IWSR Global Trends', url: 'https://www.theiwsr.com/insight/inside-the-iwsr-global-trends-report-key-drivers-for-beverage-alcohol-in-2025/' },
+      { text: 'English sparkling wine production doubled in 5 years â Nyetimber, Chapel Down winning blind tastings against prestige Champagne', source: 'IWSR', url: 'https://www.theiwsr.com/insight/inside-the-iwsr-global-trends-report-key-drivers-for-beverage-alcohol-in-2025/' },
+      { text: 'CrÃ©mant growth at +8% as value-conscious consumers discover Burgundy, Alsace, Loire alternatives at 1/3 Champagne price', source: 'IWSR', url: 'https://www.theiwsr.com/insight/global-beverage-alcohol-market-set-for-moderate-recovery-in-2025-while-challenges-persist-in-2024/' },
+      { text: 'Prestige cuvÃ©e segment resilient â Dom PÃ©rignon, Krug, Cristal maintaining pricing power while entry-level NV faces pressure', source: 'IWSR', url: 'https://www.theiwsr.com/insight/premiumisation-is-slowing-but-theres-a-counter-trend/' }
+    ]
+  },
+  {
+    key: 'wine', label: 'Wine', emoji: 'ð¸',
+    marketSize: '$38.2B', growth: '-1.2%', growthDir: 'down',
+    trajectory: 'Wine faces long-term structural decline driven by generational shifts â younger consumers choosing spirits, cocktails, and NoLo alternatives. Premium segments holding while entry-level collapses. Climate change reshaping growing regions.',
+    topMarkets: [{ name: 'United States', growth: '-2.1%' }, { name: 'France', growth: '-3.2%' }, { name: 'Italy', growth: '-1.8%' }, { name: 'UK', growth: '-0.5%' }, { name: 'China', growth: '-8.4%' }],
+    brands: ['Yellow Tail', 'Barefoot', 'Josh Cellars', 'Kim Crawford', 'Meiomi', '19 Crimes', 'Whispering Angel'],
+    channels: { onTrade: 30, offTrade: 60, ecommerce: 10 },
+    trends: [
+      { text: 'Wine faces "structural decline" per IWSR â global volumes down for third consecutive year, with Gen Z participation rate 20% below Boomers at same age', source: 'IWSR', url: 'https://www.theiwsr.com/insight/iwsr-preliminary-data-release-beverage-alcohol-endures-another-tough-year-in-2024/' },
+      { text: 'RosÃ© plateauing after decade of growth â Provence AOC production flat as novelty fades and orange wine emerges as next trend', source: 'IWSR', url: 'https://www.theiwsr.com/insight/global-beverage-alcohol-market-set-for-moderate-recovery-in-2025-while-challenges-persist-in-2024/' },
+      { text: 'Premium ($15+) wine growing at +3% while sub-$10 wine declining at -7% â bifurcation accelerating as casual drinkers leave category', source: 'IWSR', url: 'https://www.theiwsr.com/insight/premiumisation-is-slowing-but-theres-a-counter-trend/' },
+      { text: 'Climate change forcing adaptation â English and Scandinavian vineyards expanding while traditional Mediterranean regions face heat stress', source: 'IWSR Global Trends', url: 'https://www.theiwsr.com/insight/inside-the-iwsr-global-trends-report-key-drivers-for-beverage-alcohol-in-2025/' },
+      { text: 'China wine imports crashed -28% as economic slowdown and anti-corruption campaigns devastate luxury wine market', source: 'IWSR', url: 'https://www.theiwsr.com/insight/iwsr-preliminary-data-release-beverage-alcohol-endures-another-tough-year-in-2024/' }
+    ]
+  },
+  {
+    key: 'beer', label: 'Beer & Craft', emoji: 'ð¸',
     marketSize: '$623B', growth: '+1.4%', growthDir: 'up',
-    trajectory: 'Macro lager stable through emerging market volume. Craft beer consolidating in mature markets â US craft count peaked at 9,700 and declining. Mexican beer (Modelo, Corona) dominant US growth story. Non-alc beer fastest-growing segment.',
-    topMarkets: [{ name: 'China', growth: '+0.8%' }, { name: 'United States', growth: '+1.2%' }, { name: 'Brazil', growth: '+2.4%' }, { name: 'Mexico', growth: '+3.1%' }, { name: 'Germany', growth: '-0.6%' }],
-    brands: ['Budweiser', 'Heineken', 'Corona', 'Modelo Especial', 'Stella Artois', 'Guinness', 'Asahi', 'BrewDog'],
-    channels: { onTrade: 42, offTrade: 52, ecommerce: 6 },
+    trajectory: 'Global beer volume slightly declining but value growing through premiumization. Craft beer growth slowing in mature markets. Modelo Especial dethroned Bud Light as US #1 but now faces challenge from Michelob Ultra. Stout experiencing renaissance.',
+    topMarkets: [{ name: 'China', growth: '-1.2%' }, { name: 'United States', growth: '+0.8%' }, { name: 'Brazil', growth: '+2.4%' }, { name: 'Mexico', growth: '+3.1%' }, { name: 'Germany', growth: '-0.5%' }],
+    brands: ['Modelo Especial', 'Bud Light', 'Michelob Ultra', 'Corona', 'Heineken', 'Guinness', 'Stella Artois'],
+    channels: { onTrade: 35, offTrade: 58, ecommerce: 7 },
     trends: [
-      'Modelo Especial now #1 selling beer in the US â surpassed Bud Light in 2023 and extending lead',
-      'US craft brewery count declining for first time â 340 closures in 2025, consolidation accelerating',
-      'Non-alcoholic beer fastest-growing beer segment at +18% â Athletic Brewing valued at $800M',
-      'African beer market growing at +5% â Nigeria, Ethiopia, and Kenya driving new capacity investment',
-      'Hard seltzer market contracted 15% from 2022 peak â White Claw and Truly both losing share'
+      { text: 'Michelob Ultra overtook Modelo Especial as #1 US beer in late 2025 per Circana data â health-conscious positioning winning the calorie wars', source: 'CNBC', url: 'https://www.cnbc.com/2025/09/22/michelob-ultra-overtakes-modelo-especial-as-best-selling-us-beer.html' },
+      { text: 'Constellation Brands (Modelo parent) lowered FY26 beer growth outlook to 0-3% as immigration policy impacts Hispanic consumer spending', source: 'Fortune', url: 'https://fortune.com/2025/06/21/modelo-especial-most-popular-beer-constellation-company-vulnerable-trump-immigration-policy-latino-spending/' },
+      { text: 'Stout experiencing 15% volume growth in UK â Guinness leading renaissance with global volumes up +8% as younger drinkers embrace category', source: 'IWSR', url: 'https://www.theiwsr.com/insight/iwsr-preliminary-data-release-beverage-alcohol-endures-another-tough-year-in-2024/' },
+      { text: 'Premium beer is premiumization bright spot â super-premium US beer up +2% while overall beer volume declined in 2024', source: 'IWSR', url: 'https://www.theiwsr.com/insight/premiumisation-is-slowing-but-theres-a-counter-trend/' },
+      { text: 'Craft beer growth decelerating in US â now 13.3% dollar share, up from 12.4% but growth rate slowed from +8% to +2% annually', source: 'Beverage Daily', url: 'https://www.beveragedaily.com/Article/2025/01/29/global-low-and-no-alcohol-market-data-for-2025/' }
     ]
   },
   {
-    key: 'nolow', label: 'No & Low Alcohol', emoji: 'ð¿',
+    key: 'nolo', label: 'No & Low Alcohol', emoji: 'ð¸',
     marketSize: '$13B', growth: '+7.5%', growthDir: 'up',
-    trajectory: 'Fastest-growing macro category in beverage alcohol. No longer niche â mainstream retailers dedicating permanent shelf space. Beer leads volume. Spirits alternatives growing fastest. Dry January now a year-round moderation movement.',
-    topMarkets: [{ name: 'Germany', growth: '+6.2%' }, { name: 'United States', growth: '+12.4%' }, { name: 'UK', growth: '+8.8%' }, { name: 'Australia', growth: '+9.1%' }, { name: 'Japan', growth: '+5.4%' }],
-    brands: ['Athletic Brewing', 'Seedlip', 'Lyre\'s', 'Heineken 0.0', 'Guinness 0.0', 'Ritual Zero Proof', 'Monday', 'Free AF'],
-    channels: { onTrade: 25, offTrade: 55, ecommerce: 20 },
+    trajectory: 'No/low alcohol volumes grew +13% in top 10 markets in 2024. No-alcohol beer forecast to surpass ale as second-largest beer category worldwide. US added 37M new no-alcohol consumers between 2022-2024. Category to deliver $4B+ incremental growth by 2028.',
+    topMarkets: [{ name: 'Germany', growth: '+4.2%' }, { name: 'United States', growth: '+18%' }, { name: 'UK', growth: '+8.4%' }, { name: 'Spain', growth: '+5.1%' }, { name: 'Australia', growth: '+12.3%' }],
+    brands: ['Athletic Brewing', 'Heineken 0.0', 'Guinness 0.0', 'Seedlip', 'Monday', 'Lyre\'s', 'Free AF'],
+    channels: { onTrade: 25, offTrade: 60, ecommerce: 15 },
     trends: [
-      'Sober-curious movement now mainstream â 35% of US adults reducing alcohol consumption',
-      'Athletic Brewing revenues exceeded $200M â proving NoLo can be a scale business',
-      'On-premise NoLo menus expanding â 62% of UK restaurants now offer dedicated non-alc cocktail section',
-      'Major spirits companies all investing â Diageo (Seedlip), Pernod (Celtic Soul), LVMH (French Bloom)',
-      'Regulatory clarity improving â EU and US standardizing "non-alcoholic" labeling below 0.5% ABV'
+      { text: 'No-alcohol volumes grew +13% in top 10 global markets in 2024 â recruited 61M new buyers vs 38M for low-alcohol', source: 'IWSR No/Low Study 2025', url: 'https://www.theiwsr.com/insight/more-than-moderation-the-long-term-rise-of-no-and-low/' },
+      { text: 'US no-alcohol market forecast to reach $5B by 2028 at +18% CAGR â added 37M new consumers between 2022-2024', source: 'IWSR US No-Alcohol', url: 'https://www.theiwsr.com/insight/key-statistics-and-trends-for-the-us-no-alcohol-market/' },
+      { text: 'No-alcohol beer forecast to surpass ale as second-largest overall beer category worldwide by volume', source: 'IWSR', url: 'https://www.theiwsr.com/insight/iwsr-preliminary-data-release-beverage-alcohol-endures-another-tough-year-in-2024/' },
+      { text: 'Gen Z and Millennials driving adoption â younger cohorts 2x more likely to practice "occasional moderation" than older demographics', source: 'Beverage Daily', url: 'https://www.beveragedaily.com/Article/2025/01/29/global-low-and-no-alcohol-market-data-for-2025/' },
+      { text: 'No-alcohol RTDs forecast as fastest-growing NoLo sub-category at +10% CAGR through 2028 â category to add $4B+ in value', source: 'IWSR', url: 'https://www.theiwsr.com/insight/growth-of-4bn-expected-from-no-alcohol-category-by-2028/' }
     ]
   },
   {
-    key: 'rtd', label: 'RTD / Ready-to-Drink', emoji: 'ð¥«',
+    key: 'rtd', label: 'RTD / Ready-to-Drink', emoji: 'ð¸ Â¥Â«',
     marketSize: '$40B', growth: '+8.2%', growthDir: 'up',
-    trajectory: 'Maturing from explosive pandemic growth but still outpacing all traditional categories. Spirits-based RTDs overtaking malt-based. Premiumization underway with $5+ single-serve formats. Cannibalization of entry-level spirits increasingly evident.',
-    topMarkets: [{ name: 'Japan', growth: '+3.2%' }, { name: 'United States', growth: '+11.4%' }, { name: 'Australia', growth: '+8.8%' }, { name: 'UK', growth: '+9.2%' }, { name: 'Brazil', growth: '+14.1%' }],
-    brands: ['High Noon', 'NUTRL', 'Cutwater', 'Fever-Tree (mixers)', 'Suntory -196', 'On The Rocks', 'Crown Royal RTD', 'Absolut & Sprite'],
-    channels: { onTrade: 15, offTrade: 70, ecommerce: 15 },
+    trajectory: 'RTD/ready-to-drink category continues strong growth as convenience and portability win occasions from beer and wine. Spirits-based RTDs outgrowing malt-based. Premium cocktail-style RTDs emerging as next frontier.',
+    topMarkets: [{ name: 'United States', growth: '+10.2%' }, { name: 'Japan', growth: '+3.8%' }, { name: 'Australia', growth: '+7.4%' }, { name: 'UK', growth: '+12.1%' }, { name: 'Mexico', growth: '+15.3%' }],
+    brands: ['High Noon', 'Cutwater', 'Truly', 'White Claw', 'Modelo Chelada', 'Nutrl', 'On The Rocks'],
+    channels: { onTrade: 15, offTrade: 72, ecommerce: 13 },
     trends: [
-      'Spirits-based RTDs growing at +22% while malt-based declining at -4% â regulatory clarity helping spirits RTDs',
-      'Japan\'s chu-hai/chuhai culture influencing Western markets â Suntory -196 US launch reaching $100M year 1',
-      'Premiumization wave â $5+ single-serve cocktails fastest-growing price segment',
-      'Big spirits pivoting hard â Diageo, Beam Suntory, Brown-Forman all launched 3+ new RTD lines in 2025',
-      'Convenience store and gas station channel now 28% of RTD volume â impulse purchase driving trial'
+      { text: 'Spirits-based RTDs outgrowing malt-based as regulatory barriers fall â spirits RTDs now 42% of US RTD market vs 28% two years ago', source: 'IWSR Global Trends', url: 'https://www.theiwsr.com/insight/inside-the-iwsr-global-trends-report-key-drivers-for-beverage-alcohol-in-2025/' },
+      { text: 'Hard seltzer growth collapsed from +160% (2020) to single digits â White Claw and Truly losing share to spirits-based alternatives', source: 'IWSR', url: 'https://www.theiwsr.com/insight/iwsr-preliminary-data-release-beverage-alcohol-endures-another-tough-year-in-2024/' },
+      { text: 'Premium cocktail RTDs ($6+ per can) fastest-growing sub-segment â On The Rocks, Cutwater capturing on-trade quality at off-trade occasions', source: 'IWSR', url: 'https://www.theiwsr.com/insight/inside-the-iwsr-global-trends-report-key-drivers-for-beverage-alcohol-in-2025/' },
+      { text: 'Japan remains world\'s most mature RTD market â chuhai and highball culture decades ahead of Western adoption with 30%+ TBA share', source: 'IWSR Global Trends', url: 'https://www.theiwsr.com/insight/inside-the-iwsr-global-trends-report-key-drivers-for-beverage-alcohol-in-2025/' },
+      { text: 'Tito\'s acquired majority stake in LALO Tequila in 2025 â signaling major brands diversifying into RTD-ready portfolios', source: 'Slate', url: 'https://slate.com/life/2025/11/titos-vodka-handmade-recipes-price-lalo-tequila.html' }
     ]
   }
 ]
 
-function CategoryCard({ cat, isActive, onClick }) {
+// Wine deep dive data
+const WINE_DEEP_DIVE = {
+  varietals: [
+    { name: 'Cabernet Sauvignon', share: '14.2%', trend: 'stable', avgPrice: '$18' },
+    { name: 'Chardonnay', share: '13.8%', trend: 'declining', avgPrice: '$15' },
+    { name: 'Pinot Noir', share: '11.2%', trend: 'growing', avgPrice: '$22' },
+    { name: 'Pinot Grigio', share: '9.4%', trend: 'stable', avgPrice: '$12' },
+    { name: 'Sauvignon Blanc', share: '8.1%', trend: 'growing', avgPrice: '$14' },
+    { name: 'Red Blends', share: '7.8%', trend: 'declining', avgPrice: '$16' },
+    { name: 'RosÃ©', share: '5.2%', trend: 'plateauing', avgPrice: '$15' },
+    { name: 'Malbec', share: '3.4%', trend: 'stable', avgPrice: '$14' }
+  ],
+  regions: [
+    { name: 'France', production: '46.6M hL', exportValue: '$12.1B', trend: 'Declining volumes, premiumizing' },
+    { name: 'Italy', production: '43.9M hL', exportValue: '$8.4B', trend: 'Prosecco driving export growth' },
+    { name: 'Spain', production: '35.7M hL', exportValue: '$3.8B', trend: 'Bulk exports under pressure' },
+    { name: 'United States', production: '25.2M hL', exportValue: '$1.4B', trend: 'California drought impacts' },
+    { name: 'Australia', production: '12.4M hL', exportValue: '$1.8B', trend: 'China ban recovery slow' },
+    { name: 'Argentina', production: '11.5M hL', exportValue: '$0.8B', trend: 'Malbec export growth' },
+    { name: 'Chile', production: '10.8M hL', exportValue: '$1.6B', trend: 'Value positioning challenges' }
+  ]
+}
+
+const SourceLink = ({ source, url }) => (
+  <a href={url} target="_blank" rel="noopener noreferrer"
+     className="inline-flex items-center gap-1 text-xs text-blue-400 hover:text-blue-300 transition-colors mt-1 group">
+    <ExternalLink className="w-3 h-3 opacity-60 group-hover:opacity-100" />
+    <span className="border-b border-dotted border-blue-400/40 group-hover:border-blue-300">{source}</span>
+  </a>
+)
+
+const CategoryCard = ({ cat, isActive, onClick }) => {
+  const growthColor = cat.growthDir === 'up' ? 'text-green-400' : cat.growthDir === 'down' ? 'text-red-400' : 'text-gray-400'
   return (
-    <button onClick={onClick} className={`w-full text-left p-3 rounded-lg transition-colors flex items-center gap-3 ${isActive ? 'bg-blue-900 text-white' : 'bg-white hover:bg-gray-50 text-gray-700 border border-gray-100'}`}>
-      <span className="text-xl">{cat.emoji}</span>
-      <div className="flex-1 min-w-0">
-        <div className="font-medium text-sm truncate">{cat.label}</div>
-        <div className="flex items-center gap-2 mt-0.5">
-          <span className="text-xs opacity-70">{cat.marketSize}</span>
-          <span className={`text-xs font-medium ${isActive ? 'text-white' : cat.growthDir === 'up' ? 'text-green-600' : cat.growthDir === 'down' ? 'text-red-600' : 'text-gray-500'}`}>{cat.growth}</span>
-        </div>
+    <button onClick={onClick}
+      className={`w-full text-left p-3 rounded-lg border transition-all ${isActive ? 'bg-blue-600/20 border-blue-500 shadow-lg shadow-blue-500/10' : 'bg-slate-800/50 border-slate-700 hover:border-slate-600'}`}>
+      <div className="flex items-center justify-between">
+        <span className="text-sm font-medium text-white">{cat.emoji} {cat.label}</span>
+      </div>
+      <div className="flex items-center gap-2 mt-1">
+        <span className="text-xs text-slate-400">{cat.marketSize}</span>
+        <span className={`text-xs font-medium ${growthColor}`}>{cat.growth}</span>
       </div>
     </button>
   )
 }
 
-function ChannelBar({ channels }) {
-  return (
-    <div>
-      <div className="flex rounded-full overflow-hidden h-4 mb-2">
-        <div className="bg-blue-900" style={{ width: `${channels.onTrade}%` }} />
-        <div className="bg-amber-400" style={{ width: `${channels.offTrade}%` }} />
-        <div className="bg-emerald-500" style={{ width: `${channels.ecommerce}%` }} />
-      </div>
-      <div className="flex justify-between text-xs text-gray-500">
-        <span>On-trade {channels.onTrade}%</span>
-        <span>Off-trade {channels.offTrade}%</span>
-        <span>E-com {channels.ecommerce}%</span>
-      </div>
-    </div>
-  )
-}
+const CategoryDetail = ({ cat }) => {
+  const [showWineDeepDive, setShowWineDeepDive] = useState(false)
+  const growthColor = cat.growthDir === 'up' ? 'text-green-400' : cat.growthDir === 'down' ? 'text-red-400' : 'text-gray-400'
+  const GrowthIcon = cat.growthDir === 'up' ? TrendingUp : cat.growthDir === 'down' ? TrendingDown : Minus
 
-function WineBreakdown({ cat }) {
-  const [view, setView] = useState('varietal')
   return (
-    <div className="mt-6 bg-white rounded-xl border border-gray-100 p-5">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="text-sm font-semibold text-blue-900 uppercase tracking-wide">Wine Deep Dive</h3>
-        <div className="flex gap-1 bg-gray-100 rounded-lg p-1">
-          <button onClick={() => setView('varietal')} className={`px-3 py-1 rounded-md text-xs font-medium ${view === 'varietal' ? 'bg-white text-blue-900 shadow-sm' : 'text-gray-500'}`}>By Varietal</button>
-          <button onClick={() => setView('country')} className={`px-3 py-1 rounded-md text-xs font-medium ${view === 'country' ? 'bg-white text-blue-900 shadow-sm' : 'text-gray-500'}`}>By Country</button>
+    <div className="space-y-6">
+      {/* Header */}
+      <div>
+        <div className="flex items-center gap-3">
+          <span className="text-3xl">{cat.emoji}</span>
+          <div>
+            <h2 className="text-2xl font-bold text-white">{cat.label}</h2>
+            <div className="flex items-center gap-2 mt-1">
+              <span className="text-lg font-semibold text-white">{cat.marketSize}</span>
+              <GrowthIcon className={`w-5 h-5 ${growthColor}`} />
+              <span className={`text-lg font-medium ${growthColor}`}>{cat.growth} YoY</span>
+            </div>
+          </div>
+        </div>
+        <p className="text-slate-300 mt-3 leading-relaxed">{cat.trajectory}</p>
+      </div>
+
+      {/* Top Growth Markets & Channel Split */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div className="bg-slate-800/50 rounded-lg border border-slate-700 p-4">
+          <h3 className="text-sm font-semibold text-white flex items-center gap-2 mb-3">
+            <Globe className="w-4 h-4 text-blue-400" /> TOP GROWTH MARKETS
+          </h3>
+          {cat.topMarkets.map((m, i) => (
+            <div key={i} className="flex items-center justify-between py-2 border-b border-slate-700/50 last:border-0">
+              <span className="text-sm text-slate-300">{m.name}</span>
+              <span className={`text-sm font-medium ${m.growth.startsWith('+') ? 'text-green-400' : 'text-red-400'}`}>{m.growth}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="bg-slate-800/50 rounded-lg border border-slate-700 p-4">
+          <h3 className="text-sm font-semibold text-white flex items-center gap-2 mb-3">
+            <ShoppingCart className="w-4 h-4 text-blue-400" /> CHANNEL SPLIT
+          </h3>
+          <div className="flex h-4 rounded-full overflow-hidden bg-slate-700 mb-3">
+            <div className="bg-blue-600" style={{ width: `${cat.channels.onTrade}%` }} />
+            <div className="bg-green-600" style={{ width: `${cat.channels.offTrade}%` }} />
+            <div className="bg-teal-500" style={{ width: `${cat.channels.ecommerce}%` }} />
+          </div>
+          <div className="flex justify-between text-xs text-slate-400">
+            <span>On-trade {cat.channels.onTrade}%</span>
+            <span>Off-trade {cat.channels.offTrade}%</span>
+            <span>E-com {cat.channels.ecommerce}%</span>
+          </div>
+
+          <h3 className="text-sm font-semibold text-white flex items-center gap-2 mt-4 mb-2">
+            <Star className="w-4 h-4 text-yellow-400" /> KEY BRANDS
+          </h3>
+          <div className="flex flex-wrap gap-2">
+            {cat.brands.map((b, i) => (
+              <span key={i} className="px-2 py-1 bg-slate-700/50 rounded text-xs text-slate-300 border border-slate-600">{b}</span>
+            ))}
+          </div>
         </div>
       </div>
-      {view === 'varietal' ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          {cat.varietals.map((v, i) => (
-            <div key={i} className="border border-gray-100 rounded-lg p-3">
-              <div className="flex items-center justify-between mb-1">
-                <span className="font-medium text-sm text-gray-800">{v.name}</span>
-                <span className={`text-xs font-medium ${v.growth.startsWith('+') ? 'text-green-600' : 'text-red-600'}`}>{v.growth}</span>
+
+      {/* Trend Insights with Sources */}
+      <div className="bg-slate-800/50 rounded-lg border border-slate-700 p-4">
+        <h3 className="text-sm font-semibold text-white flex items-center gap-2 mb-4">
+          <Zap className="w-4 h-4 text-yellow-400" /> TREND INSIGHTS
+        </h3>
+        <div className="space-y-4">
+          {cat.trends.map((t, i) => (
+            <div key={i} className="flex gap-3">
+              <ChevronRight className="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" />
+              <div className="flex flex-col">
+                <span className="text-sm text-slate-300 leading-relaxed">{t.text}</span>
+                <SourceLink source={t.source} url={t.url} />
               </div>
-              <div className="text-xs text-gray-400 mb-1">Volume share: {v.volumeShare}</div>
-              <div className="text-xs text-gray-500">Top regions: {v.topRegions}</div>
             </div>
           ))}
         </div>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          {cat.countries.map((c, i) => (
-            <div key={i} className="border border-gray-100 rounded-lg p-3">
-              <div className="flex items-center justify-between mb-1">
-                <span className="font-medium text-sm text-gray-800">{c.name}</span>
-                <div className="flex items-center gap-2">
-                  <span className="text-xs text-gray-500">{c.value}</span>
-                  <span className={`text-xs font-medium ${c.growth.startsWith('+') ? 'text-green-600' : 'text-red-600'}`}>{c.growth}</span>
-                </div>
-              </div>
-              <div className="text-xs text-gray-500">{c.regions}</div>
+      </div>
+
+      {/* Wine Deep Dive */}
+      {cat.key === 'wine' && (
+        <div>
+          <button onClick={() => setShowWineDeepDive(!showWineDeepDive)}
+            className="w-full flex items-center justify-between p-4 bg-purple-900/20 border border-purple-500/30 rounded-lg hover:bg-purple-900/30 transition-colors">
+            <div className="flex items-center gap-2">
+              <Wine className="w-5 h-5 text-purple-400" />
+              <span className="text-sm font-semibold text-purple-300">WINE DEEP DIVE â Varietal & Country Breakdown</span>
             </div>
-          ))}
+            <ChevronRight className={`w-5 h-5 text-purple-400 transition-transform ${showWineDeepDive ? 'rotate-90' : ''}`} />
+          </button>
+          {showWineDeepDive && (
+            <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-4">
+              <div className="bg-slate-800/50 rounded-lg border border-slate-700 p-4">
+                <h4 className="text-sm font-semibold text-white mb-3">TOP VARIETALS BY US MARKET SHARE</h4>
+                {WINE_DEEP_DIVE.varietals.map((v, i) => (
+                  <div key={i} className="flex items-center justify-between py-2 border-b border-slate-700/50 last:border-0">
+                    <span className="text-sm text-slate-300">{v.name}</span>
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs text-slate-500">avg {v.avgPrice}</span>
+                      <span className={`text-xs px-2 py-0.5 rounded ${v.trend === 'growing' ? 'bg-green-500/20 text-green-400' : v.trend === 'declining' ? 'bg-red-500/20 text-red-400' : v.trend === 'plateauing' ? 'bg-yellow-500/20 text-yellow-400' : 'bg-slate-600/50 text-slate-400'}`}>{v.trend}</span>
+                      <span className="text-sm font-medium text-white w-12 text-right">{v.share}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="bg-slate-800/50 rounded-lg border border-slate-700 p-4">
+                <h4 className="text-sm font-semibold text-white mb-3">TOP PRODUCING COUNTRIES</h4>
+                {WINE_DEEP_DIVE.regions.map((r, i) => (
+                  <div key={i} className="py-2 border-b border-slate-700/50 last:border-0">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-medium text-white">{r.name}</span>
+                      <span className="text-sm text-slate-400">{r.production}</span>
+                    </div>
+                    <div className="flex items-center justify-between mt-0.5">
+                      <span className="text-xs text-slate-500">{r.trend}</span>
+                      <span className="text-xs text-green-400">Export: {r.exportValue}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>
   )
 }
 
-function CategoryDetail({ cat }) {
-  const GrowthIcon = cat.growthDir === 'up' ? TrendingUp : cat.growthDir === 'down' ? TrendingDown : Minus
-  const growthColor = cat.growthDir === 'up' ? 'text-green-600' : cat.growthDir === 'down' ? 'text-red-600' : 'text-gray-500'
-  return (
-    <div>
-      <div className="flex items-center gap-3 mb-2">
-        <span className="text-3xl">{cat.emoji}</span>
-        <div>
-          <h2 className="text-xl font-bold text-blue-900">{cat.label}</h2>
-          <div className="flex items-center gap-3 mt-1">
-            <span className="text-lg font-semibold text-gray-700">{cat.marketSize}</span>
-            <div className={`flex items-center gap-1 ${growthColor}`}>
-              <GrowthIcon className="w-4 h-4" />
-              <span className="font-semibold">{cat.growth} YoY</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <p className="text-sm text-gray-600 leading-relaxed mb-6">{cat.trajectory}</p>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div className="bg-white rounded-xl border border-gray-100 p-5">
-          <div className="flex items-center gap-2 mb-3">
-            <Globe className="w-4 h-4 text-blue-900" />
-            <h3 className="text-sm font-semibold text-blue-900 uppercase tracking-wide">Top Growth Markets</h3>
-          </div>
-          <div className="space-y-2">
-            {cat.topMarkets.map((m, i) => (
-              <div key={i} className="flex items-center justify-between py-1.5 border-b border-gray-50 last:border-0">
-                <span className="text-sm text-gray-700">{m.name}</span>
-                <span className={`text-sm font-medium ${m.growth.startsWith('+') ? 'text-green-600' : 'text-red-600'}`}>{m.growth}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="bg-white rounded-xl border border-gray-100 p-5">
-          <div className="flex items-center gap-2 mb-3">
-            <ShoppingCart className="w-4 h-4 text-blue-900" />
-            <h3 className="text-sm font-semibold text-blue-900 uppercase tracking-wide">Channel Split</h3>
-          </div>
-          <ChannelBar channels={cat.channels} />
-          <div className="mt-4">
-            <div className="flex items-center gap-2 mb-2">
-              <Star className="w-4 h-4 text-blue-900" />
-              <h4 className="text-sm font-semibold text-blue-900 uppercase tracking-wide">Key Brands</h4>
-            </div>
-            <div className="flex flex-wrap gap-1.5">
-              {cat.brands.map((b, i) => (
-                <span key={i} className="px-2 py-0.5 bg-blue-50 text-blue-800 rounded-full text-xs font-medium">{b}</span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-white rounded-xl border border-gray-100 p-5 mb-6">
-        <div className="flex items-center gap-2 mb-3">
-          <Zap className="w-4 h-4 text-blue-900" />
-          <h3 className="text-sm font-semibold text-blue-900 uppercase tracking-wide">Trend Insights</h3>
-        </div>
-        <div className="space-y-3">
-          {cat.trends.map((t, i) => (
-            <div key={i} className="flex gap-3">
-              <ChevronRight className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
-              <p className="text-sm text-gray-600 leading-relaxed">{t}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {cat.key === 'wine' && <WineBreakdown cat={cat} />}
-    </div>
-  )
-}
-
 export default function CategoryIntelligence() {
-  const [selected, setSelected] = useState('tequila')
-  const activeCat = CATEGORIES.find(c => c.key === selected)
+  const [selected, setSelected] = useState(CATEGORIES[0])
+
   return (
-    <div className="grid grid-cols-12 gap-6">
-      <div className="col-span-3 space-y-2">
-        <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-wide px-2 mb-3">Categories</h2>
+    <div className="grid grid-cols-12 gap-6 h-full">
+      {/* Sidebar */}
+      <div className="col-span-3 space-y-1">
+        <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3 px-1">CATEGORIES</h3>
         {CATEGORIES.map(cat => (
-          <CategoryCard key={cat.key} cat={cat} isActive={selected === cat.key} onClick={() => setSelected(cat.key)} />
+          <CategoryCard key={cat.key} cat={cat} isActive={selected.key === cat.key} onClick={() => setSelected(cat)} />
         ))}
       </div>
-      <div className="col-span-9">
-        {activeCat && <CategoryDetail cat={activeCat} />}
+
+      {/* Detail Panel */}
+      <div className="col-span-9 overflow-y-auto pr-2" style={{ maxHeight: 'calc(100vh - 100px)' }}>
+        <CategoryDetail cat={selected} />
       </div>
     </div>
   )

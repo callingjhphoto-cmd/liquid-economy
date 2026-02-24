@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import { TrendingUp, Activity, AlertTriangle, Calendar, FileText, Play } from 'lucide-react'
 import { api } from '../lib/api'
-import MetricCard, { AlertCard, SignalCard } from '../components/MetricCard'
+import { MetricCard, AlertCard, SignalCard } from '../components/MetricCard'
+import KeyMetricsWatchlist from '../components/KeyMetricsWatchlist'
 
 export default function CommandCentre() {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [collecting, setCollecting] = useState(null)
 
-  useEffect(() => {
-    loadData()
-  }, [])
+  useEffect(() => { loadData() }, [])
 
   const loadData = async () => {
     try {
       const summary = await api.getSummary()
       setData(summary)
-    } catch (e) {
-      console.error('Failed to load dashboard:', e)
+    } catch (err) {
+      console.error('Failed to load dashboard:', err)
     }
     setLoading(false)
   }
@@ -27,8 +26,8 @@ export default function CommandCentre() {
     try {
       await api.runCollector(name)
       await loadData()
-    } catch (e) {
-      console.error(`Collector ${name} failed:`, e)
+    } catch (err) {
+      console.error(`Collector failed:`, name, err)
     }
     setCollecting(null)
   }
@@ -82,7 +81,7 @@ export default function CommandCentre() {
         />
         <MetricCard
           label="Active Alerts"
-          value={data?.alerts?.length || 0}
+          value={data?.alerts?.length}
           sublabel="Unacknowledged"
           icon={AlertTriangle}
           color={data?.alerts?.length > 0 ? 'text-accent-red' : 'text-gray-400'}
@@ -99,8 +98,8 @@ export default function CommandCentre() {
           </h2>
           {data?.alerts?.length > 0 ? (
             <div className="space-y-3">
-              {data.alerts.map(a => (
-                <AlertCard key={a.id} alert={a} onAcknowledge={handleAcknowledge} />
+              {data.alerts.map((alert) => (
+                <AlertCard key={alert.id} alert={alert} onAcknowledge={handleAcknowledge} />
               ))}
             </div>
           ) : (
@@ -116,8 +115,8 @@ export default function CommandCentre() {
           </h2>
           {data?.critical_signals?.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {data.critical_signals.map((s, i) => (
-                <SignalCard key={i} signal={s} />
+              {data.critical_signals.map((signal) => (
+                <SignalCard key={signal.id} signal={signal} />
               ))}
             </div>
           ) : (
@@ -135,16 +134,14 @@ export default function CommandCentre() {
             </h2>
             <div className="bg-white rounded-xl border border-gray-100 divide-y divide-gray-50">
               {data?.upcoming_events?.length > 0 ? (
-                data.upcoming_events.map((e, i) => (
+                data.upcoming_events.map((evt, i) => (
                   <div key={i} className="p-3">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-bold text-gold bg-gold/10 px-2 py-0.5 rounded">
-                        {e.date}
-                      </span>
-                      <span className="text-xs text-gray-400">{e.type}</span>
+                      <span className="text-xs font-bold text-gold bg-gold/10 px-2 py-0.5 rounded">{evt.date}</span>
+                      <span className="text-xs text-gray-400">{evt.type}</span>
                     </div>
-                    <p className="text-sm font-medium text-navy mt-1">{e.company}</p>
-                    <p className="text-xs text-gray-500">{e.description}</p>
+                    <div className="text-sm font-medium text-navy mt-1">{evt.company}</div>
+                    <p className="text-xs text-gray-500">{evt.description}</p>
                   </div>
                 ))
               ) : (
@@ -161,15 +158,12 @@ export default function CommandCentre() {
             </h2>
             <div className="bg-white rounded-xl border border-gray-100 divide-y divide-gray-50">
               {data?.recent_filings?.length > 0 ? (
-                data.recent_filings.map((f, i) => (
+                data.recent_filings.map((filing, i) => (
                   <div key={i} className="p-3">
-                    <p className="text-sm font-medium text-navy">{f.company}</p>
-                    <p className="text-xs text-gray-500">{f.type} — {f.date}</p>
-                    {f.url && (
-                      <a href={f.url} target="_blank" rel="noopener noreferrer"
-                        className="text-xs text-editorial hover:underline">
-                        View filing
-                      </a>
+                    <div className="text-sm font-medium text-navy">{filing.company}</div>
+                    <p className="text-xs text-gray-500">{filing.type} — {filing.date}</p>
+                    {filing.url && (
+                      <a href={filing.url} target="_blank" rel="noopener noreferrer" className="text-xs text-editorial hover:underline">View filing</a>
                     )}
                   </div>
                 ))
@@ -183,12 +177,17 @@ export default function CommandCentre() {
           <div>
             <h2 className="font-display text-lg text-navy mb-3">Data Collectors (12)</h2>
             <div className="space-y-2 max-h-96 overflow-y-auto">
-              {['yahoo_finance', 'bls_ppi', 'sec_edgar', 'usitc', 'eurostat_comext', 'hmrc_bulletin', 'companies_house', 'ir_feeds', 'ttb_cola', 'faostat_oiv', 'who_gho', 'oecd'].map(name => (
-                <button key={name} onClick={() => handleCollect(name)}
+              {['yahoo_finance', 'bls_ppi', 'sec_edgar', 'usitc', 'eurostat_comext', 'hmrc_bulletin', 'companies_house', 'ir_feeds', 'ttb_cola', 'faostat_oiv', 'who_gho', 'oecd'].map((name) => (
+                <button
+                  key={name}
+                  onClick={() => handleCollect(name)}
                   disabled={collecting === name}
-                  className="flex items-center gap-2 w-full px-4 py-2.5 bg-white border border-gray-200 rounded-lg text-sm hover:bg-gray-50 disabled:opacity-50 transition-colors">
+                  className="flex items-center gap-2 w-full px-4 py-2.5 bg-white border border-gray-200 rounded-lg text-sm hover:border-gold hover:shadow-sm transition-all disabled:opacity-50"
+                >
                   <Play size={14} className={collecting === name ? 'animate-spin text-editorial' : 'text-gray-400'} />
-                  <span className="font-medium text-navy">{name.replace(/_/g, ' ').split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}</span>
+                  <span className="font-medium text-navy">
+                    {name.replace(/_/g, ' ').split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
+                  </span>
                   <span className="text-xs text-gray-400 ml-auto">
                     {collecting === name ? 'Running...' : 'Run now'}
                   </span>
@@ -198,6 +197,9 @@ export default function CommandCentre() {
           </div>
         </div>
       </div>
+
+      {/* Key Metrics Watchlist — 4-pillar consolidated view */}
+      <KeyMetricsWatchlist />
     </div>
   )
 }

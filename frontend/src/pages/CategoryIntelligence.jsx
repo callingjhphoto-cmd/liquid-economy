@@ -164,191 +164,517 @@ const CATEGORIES = [
       { year: 2025, marketSize: '$15.8B', growth: '+3.1%', volumeCases: '528M', keyEvents: ['Premium aged +12%', 'RTDs emerging', 'India growth continues'], topPerformer: 'Diplomatico', outlook: 'Category renaissance sustains through premiumization and cocktail culture.' },
       { year: 2024, marketSize: '$15.3B', growth: '+4.2%', volumeCases: '513M', keyEvents: ['Aged rum acceleration', 'Tourism recovery boosts', 'RTD pilots launch'], topPerformer: 'Ron Zacapa', outlook: 'Premium sipping rums driving growth as spiced market flattens.' },
       { year: 2023, marketSize: '$14.7B', growth: '+5.1%', volumeCases: '491M', keyEvents: ['Caribbean recovery', 'Rhum agricole expansion', 'Cocktail culture revival'], topPerformer: 'Mount Gay', outlook: 'Category benefiting from tourism recovery and mixology trends.' },
-      { year: 2022, marketSize: '$14.0B', growth: '+6.8%', volumeCases: '468M', keyEvents: ['Post-pandemic boom', 'Tourism begins returning', 'Cr	Ð¥ÍÑ¥±±ÉäÝÙt°Ñ½ÁAÉ½ÉµÈè	É¤°½ÕÑ±½½¬è
-Ñ½ÉäÉ¥Ù¸ä¡½µ½¹ÍÕµÁÑ¥½¸¹Ñ½ÕÉ¥Í´É½ÙÉä¸ô(t(ô°(ì(­äè½¹°(±°è
-½¹	É¹ä°(¥½¸è°(¥½¹
-½±½ÈèÑáÐµÙ¥½±Ð´ÜÀÀ°(¥½¹	èµÙ¥½±Ð´ÔÀ°(µÉ­ÑM¥éèÐ¸Å°(É½ÝÑ è´È¸Ð°(É½ÝÑ¡¥Èè½Ý¸°(ÑÉ©Ñ½Éäè
-½¹¥¹å±¥°½Ý¹ÑÕÉ¸ÑÈÁ¹µ¥µÉ½½´¸ULµÉ­Ð ÔÀ½áÁ½ÉÑÌ¤¹½Éµ±¥é¥¹É½´É½É¡¥¡Ì¸
-¡¥¹¹Ñ¤µÕµÁ¥¹ÑÉ¥ÌÑ¡ÉÑ¹¥¹­äÉ½ÝÑ µÉ­Ð¸YL½YM=@Íµ¹ÑÌ±¥¹¥¹Ý¡¥±a<¬¡½±Ì¸°(Ñ½Á5É­ÑÌèl(ì¹µè9¥É¥°É½ÝÑ è¬Ô¸Èô°(ì¹µèM¥¹Á½É°É½ÝÑ è¬È¸Ðô°(ì¹µèUL°É½ÝÑ è´Ð¸Èô°(ì¹µèU,°É½ÝÑ è´Ä¸àô°(ì¹µè
-¡¥¹°É½ÝÑ è´à¸Äô(t°(É¹Ìèl!¹¹ÍÍä°Iµä5ÉÑ¥¸°
-½ÕÉÙ½¥Í¥È°5ÉÑ±°°UÍÍ°!¥¹°A¥ÉÉÉÉ¹t°(¡¹¹±Ìèì½¹QÉèÐÔ°½QÉèÐà°
-½µµÉèÜô°(ÑÉ¹Ìèl(ìÑáÐèUL¥µÁ½ÉÐÙ½±ÕµÌ±¥¹ÈÈÉ½´ÈÀÈÈÁ¬Ì½¹¹½Éµ±¥éÑ¥½¸ÉÙÉÍÌÁ¹µ¥µÉÍÕÉ¹½¹ÍÕµÈ½ÕÌÍ¡¥ÑÌ°Í½ÕÉèULQÉ
-½µµ¥ÍÍ¥½¸°ÕÉ°è¡ÑÑÁÌè¼½½ÉÑÕ¹¹½´½ÉÑ¥±½½¹µ¡¹¹ÍÍäµÍ±ÌµÍÑÉÕ±Ì¼ô°(ìÑáÐè
-¡¥¹¥µÁ±µ¹ÑÌÌä¹Ñ¤µÕµÁ¥¹ÑÉ¥Ì½¸É¹äÑÉÑ¥¹É¹ ½¹áÁ½ÉÑÌÑ¡ÉÑ¹¥¹ÉÉÙ¹ÕÍÑÉ´°Í½ÕÉè
-¡¥¹QÉ5¥¹¥ÍÑÉä°ÕÉ°è¡ÑÑÁÌè¼½ÝÝÜ¹¹¹½´¼ÈÀÈÐ¼ÄÀ¼Àà½¡¥¹µµ½ÙÌµÑ¼µ¥µÁ½ÍµÑÉ¥Ìµ½¸µÔµÉ¹äµ¥µÁ½ÉÑÌ¹¡Ñµ°ô°(ìÑáÐèa<¹ÁÉµ¥Õ´Íµ¹ÑÌ ¬Ð¤É½Ý¥¹Ý¡¥±YL½YM=@½ÉÍµ¹ÑÌ±¥¹´ÜÌÑ½ÉäÁÉµ¥Õµ¥éÌ½È½¹ÑÉÑÌ°Í½ÕÉè1ÕáÕÉäMÁ¥É¥ÑÌIÁ½ÉÐ°ÕÉ°è¡ÑÑÁÌè¼½ÝÝÜ¹Ñ¡¥ÝÍÈ¹½´½¥¹Í¥¡Ð½ÁÉµ¥Õµ¥ÍÑ¥½¸µ¥ÌµÍ±½Ý¥¹µÕÐµÑ¡ÉÌµµ½Õ¹ÑÈµÑÉ¹¼ô°(ìÑáÐèÉ¥µÉ¥¹ÌÉ¥¡ÐÍÁ½ÐÝ¥Ñ 9¥É¥¹M½ÕÑ É¥½¹¥µÁ½ÉÑÌÉ¥Í¥¹ÄÈÌµ¥±±ÍÌáÁ¹Ì°Í½ÕÉèÉ¥¸QÉ9ÑÝ½É¬°ÕÉ°è¡ÑÑÁÌè¼½ÝÝÜ¹Ñ¡ÍÁ¥É¥ÑÍÕÍ¥¹ÍÌ¹½´¼ÈÀÈÔ¼ÀØ½Ñ½À´ÄÀµÍÐµÍ±±¥¹µÉ¹µ¡µÁ¥½¹Ìµ¥¸´ÈÀÈÐ¼ô°(ìÑáÐèµÉ¥¸É¹äÉ¹¥ÍÍ¹¥¹¹¥¹Ý¥Ñ 
-±¥½É¹¥¥ÍÑ¥±±É¥Ì¥¹¥¹ÉÐÉ¥¥±¥Ñä¹¡±±¹¥¹ÍÑ±¥Í¡É¹ ÁÉ½ÕÉÌ°Í½ÕÉè
-ÉÐMÁ¥É¥ÑÌ5½¹¥Ñ½È°ÕÉ°è¡ÑÑÁÌè¼½ÝÝÜ¹Ñ¡¥ÝÍÈ¹½´½¥¹Í¥¡Ð½¥¹Í¥µÑ¡µ¥ÝÍÈµ±½°µÑÉ¹ÌµÉÁ½ÉÐµ­äµÉ¥ÙÉÌµ½ÈµÙÉµ±½¡½°µ¥¸´ÈÀÈÔ¼ô(t°(åÉ±åIÁ½ÉÑÌèl(ìåÈèÈÀÈÔ°µÉ­ÑM¥éèÐ¸Å°É½ÝÑ è´È¸Ð°Ù½±Õµ
-ÍÌèÄÔá4°­åÙ¹ÑÌèl
-¡¥¹ÑÉ¥Ì¥Ñ°ULµÉ­ÐÉÑÉÑÌ°a<¡½±ÌÉ½Õ¹t°Ñ½ÁAÉ½ÉµÈè!¹¹ÍÍä°½ÕÑ±½½¬è
-½¹ÌÍÑÉÕÑÕÉ°¡Ý¥¹ÌÉ½´ÑÉ¥Ì¹UL¹½Éµ±¥éÑ¥½¸¸ô°(ìåÈèÈÀÈÐ°µÉ­ÑM¥éèÐ¸É°É½ÝÑ è¬Ä¸à°Ù½±Õµ
-ÍÌèÄØÉ4°­åÙ¹ÑÌèlQÉ¥ÌÑ­Ð°É¥µÉÌ°a<É½ÝÑ t°Ñ½ÁAÉ½ÉµÈèIµä5ÉÑ¥¸°½ÕÑ±½½¬è
-Ñ½ÉäÑÉ¹Í¥Ñ¥½¹¥¹Ý¥Ñ 
-¡¥¹ÑÉ¥ÌÉÍ¡Á¥¹±½°µÉ­ÑÌ¸ô°(ìåÈèÈÀÈÌ°µÉ­ÑM¥éèÐ¸Å°É½ÝÑ è¬Ì¸È°Ù½±Õµ
-ÍÌèÄÔå4°­åÙ¹ÑÌèlULµÉ­ÐÁ¬°QÉ¥ÝÉ¹¥¹Ì°9¥É¥É½ÝÑ t°Ñ½ÁAÉ½ÉµÈè
-½ÕÉÙ½¥Í¥È°½ÕÑ±½½¬è
-½¹áÁ½ÉÑÌÉ¡¥¹É½É±Ù±Ì½ÉÑÉ¥¥µÁÐ¸ô°(ìåÈèÈÀÈÈ°µÉ­ÑM¥éèÐ¸Á°É½ÝÑ è¬à¸Ä°Ù½±Õµ
-ÍÌèÄÔÕ4°­åÙ¹ÑÌèlA¹µ¥½½´Á­Ì°UL±ÕáÕÉäÍÕÉ°Í¥É½ÝÑ áÁ±½Í¥Ùt°Ñ½ÁAÉ½ÉµÈèUÍÍ°½ÕÑ±½½¬è
-½¹É¡Ì±°µÑ¥µáÁ½ÉÐ¡¥ ½¸Á¹µ¥Ý±Ñ ÍÕÉ¸ô(t(ô°(ì(­äè¡µÁ¹°(±°è
-¡µÁ¹MÁÉ­±¥¹°(¥½¸èL°(¥½¹
-½±½ÈèÑáÐµå±±½Ü´ÜÀÀ°(¥½¹	èµå±±½Ü´ÔÀ°(µÉ­ÑM¥éèÜ¸É°(É½ÝÑ è¬È¸à°(É½ÝÑ¡¥ÈèÕÀ°(ÑÉ©Ñ½Éäè
-¡µÁ¹Ù½±Õµ±¥¹¥¹É½´ÈÀÈÈÉ½ÉÕÐÙ±Õ¡½±¥¹ÐÁÉµ¥Õ´¸AÉ½Í¼½¹Ñ¥¹ÕÌ½Õ±µ¥¥ÐÉ½ÝÑ Ì½É±±ÑÉ¹Ñ¥Ù¸
-Éµ¹Ð°
-Ù°¹¹±¥Í ÍÁÉ­±¥¹µÉ¥¹¥¸ÁÉµ¥Õ´Ñ¥È¸°(Ñ½Á5É­ÑÌèl(ì¹µè)Á¸°É½ÝÑ è¬Ô¸Äô°(ì¹µèUL°É½ÝÑ è¬Ì¸àô°(ì¹µèU,°É½ÝÑ è¬È¸Ðô°(ì¹µèÉ¹°É½ÝÑ è¬Ä¸Èô°(ì¹µè%Ñ±ä°É½ÝÑ è¬À¸àô(t°(É¹Ìèl5½Ð
-¡¹½¸°YÕÙ
-±¥ÅÕ½Ð°½´AÉ¥¹½¸°15É°5¥½¹ÑÑ¼°9¥½±ÌÕ¥±±ÑÑt°(¡¹¹±Ìèì½¹QÉèÔÈ°½QÉèÐÀ°
-½µµÉèàô°(ÑÉ¹Ìèl(ìÑáÐè
-¡µÁ¹Ù½±Õµ±¥¹É½´ÌÈÙ4½ÑÑ±Ì ÈÀÈÈ¤Ñ¼Èäå4½ÑÑ±ÌÌÑ½Éä½¹ÑÉÑÌÉ½´±°µÑ¥µ¡¥ °Í½ÕÉè
-¡µÁ¹	ÕÉÔ%¹ÑÉ¹Ñ¥½¹°°ÕÉ°è¡ÑÑÁÌè¼½ÝÝÜ¹Ñ¡¥ÝÍÈ¹½´½¥¹Í¥¡Ð½¥¹Í¥µÑ¡µ¥ÝÍÈµ±½°µÑÉ¹ÌµÉÁ½ÉÐµ­äµÉ¥ÙÉÌµ½ÈµÙÉµ±½¡½°µ¥¸´ÈÀÈÔ¼ô°(ìÑáÐèAÉ½Í¼½ÕÑÍ±±Ì
-¡µÁ¹ÐÈèÄÉÑ¥¼±½±±äÌÙ±Õµ½¹Í¥½ÕÌ½¹ÍÕµÉÌ¡½½Í½É±±ÑÉ¹Ñ¥ÙÌÐÍ¥µ¥±ÈÁÉ¥Á½¥¹ÑÌ°Í½ÕÉè±½°MÁÉ­±¥¹]¥¹IÁ½ÉÐ°ÕÉ°è¡ÑÑÁÌè¼½ÝÝÜ¹Ñ¡¥ÝÍÈ¹½´½¥¹Í¥¡Ð½ÁÉµ¥Õµ¥ÍÑ¥½¸µ¥ÌµÍ±½Ý¥¹µÕÐµÑ¡ÉÌµµ½Õ¹ÑÈµÑÉ¹¼ô°(ìÑáÐè¹±¥Í ÍÁÉ­±¥¹Ý¥¹Ñ½Éä¥¹¥¹ÁÉÍÑ¥¹ÁÉµ¥Õ´Á½Í¥Ñ¥½¹¥¹Ì±¥µÑ¡¹¹±Ì½¹Í¥ÍÑ¹ÐÁÉ½ÕÑ¥½¸ÅÕ±¥Ñä°Í½ÕÉè¹±¥Í ]¥¹Ì
-½Õ¹¥°°ÕÉ°è¡ÑÑÁÌè¼½ÝÝÜ¹ÙÉ¥±ä¹½´½ÉÑ¥±¼ÈÀÈÔ¼ÀÄ¼Èä½±½°µ±½Üµ¹µ¹¼µ±½¡½°µµÉ­ÐµÑµ½È´ÈÀÈÔ¼ô°(ìÑáÐèÉ½ÝÈ
-¡µÁ¹¥¹Á¹¹ÐÁÉ½ÕÉÌÉ½Ý¥¹¬ÄÈÌ½¹ÍÕµÉÌÍ¬ÕÑ¡¹Ñ¥¥Ñä¹¥ÉÐÉ±Ñ¥½¹Í¡¥ÁÌÝ¥Ñ ÁÉ½ÕÉÌ°Í½ÕÉè
-¡µÁ¹QÉÍÍ½¥Ñ¥½¸°ÕÉ°è¡ÑÑÁÌè¼½ÝÝÜ¹Ñ¡¥ÝÍÈ¹½´½¥¹Í¥¡Ð½¥¹Í¥µÑ¡µ¥ÝÍÈµ±½°µÑÉ¹ÌµÉÁ½ÉÐµ­äµÉ¥ÙÉÌµ½ÈµÙÉµ±½¡½°µ¥¸´ÈÀÈÔ¼ô°(ìÑáÐèMÁÉ­±¥¹IQ½­Ñ¥±ÌµÉ¥¹ÌÉ½ÝÑ É½¹Ñ¥ÈÝ¥Ñ å½Õ¹È½¹ÍÕµÉÌ½ÁÑ¥¹ÉäµÑ¼µÉ¥¹¬½ÉµÑÌ½È½Í¥½¹Ì°Í½ÕÉè	ÙÉ%¹¹½ÙÑ¥½¸]Ñ °ÕÉ°è¡ÑÑÁÌè¼½ÝÝÜ¹ÙÉ¥±ä¹½´½ÉÑ¥±¼ÈÀÈÔ¼ÀÄ¼Èä½±½°µ±½Üµ¹µ¹¼µ±½¡½°µµÉ­ÐµÑµ½È´ÈÀÈÔ¼ô(t°(åÉ±åIÁ½ÉÑÌèl(ìåÈèÈÀÈÔ°µÉ­ÑM¥éèÜ¸É°É½ÝÑ è¬È¸à°Ù½±Õµ
-ÍÌèÈäå4°­åÙ¹ÑÌèlY±ÕÍµ¹ÐÉ½ÝÌ°¹±¥Í ÍÁÉ­±¥¹É¥ÍÌ°AÉ½Í¼ÈèÄÉÑ¥¼t°Ñ½ÁAÉ½ÉµÈèYÕÙ
-±¥ÅÕ½Ð°½ÕÑ±½½¬è
-¡µÁ¹ÍÑ¥±¥é¥¹¥¸Ù±ÕÝ¡¥±Ù½±ÕµÉµ¥¹Ì±½ÜÁ¬¸ô°(ìåÈèÈÀÈÐ°µÉ­ÑM¥éèÜ¸Á°É½ÝÑ è¬Ì¸Ð°Ù½±Õµ
-ÍÌèÌÀá4°­åÙ¹ÑÌèlAÉ½Í¼±ÉÑ¥½¸°¹±¥Í ÍÁÉ­±¥¹ÁÉµ¥Õ´°É½ÝÈÑ½Éä¬ÄÈt°Ñ½ÁAÉ½ÉµÈè15É°½ÕÑ±½½¬è
-Ñ½ÉäÉ½¹¥¹Ý¥Ñ ±ÑÉ¹Ñ¥ÙÌ¥¹¥¹Í¡ÉÉ½´ÑÉ¥Ñ¥½¹°
-¡µÁ¹¸ô°(ìåÈèÈÀÈÌ°µÉ­ÑM¥éèØ¸á°É½ÝÑ è¬Ð¸Ä°Ù½±Õµ
-ÍÌèÌÄá4°­åÙ¹ÑÌèl
-¡µÁ¹¥¹Ì±¥¹¥¹°AÉ½Í¼ÍÕÉ½¹Ñ¥¹ÕÌ°
-Éµ¹ÐáÁ¹Í¥½¸t°Ñ½ÁAÉ½ÉµÈè5½Ð
-¡¹½¸°½ÕÑ±½½¬è
-¡µÁ¹É¡¥¹Ù½±ÕµÁ¬Ì±ÑÉ¹Ñ¥ÙÌ¥¸µ½µ¹ÑÕ´¸ô°(ìåÈèÈÀÈÈ°µÉ­ÑM¥éèØ¸Õ°É½ÝÑ è¬Ô¸à°Ù½±Õµ
-ÍÌèÌÈÙ4°­åÙ¹ÑÌèl±°µÑ¥µ
-¡µÁ¹¡¥ °A¹µ¥±ÉÑ¥½¸ÍÕÉ°AÉµ¥Õ´½ÕÌt°Ñ½ÁAÉ½ÉµÈè½´AÉ¥¹½¸°½ÕÑ±½½¬èMÁÉ­±¥¹Ý¥¹Ñ½ÉäÐ±°µÑ¥µ¡¥¡Ì½¸Á¹µ¥±ÉÑ¥½¸½½´¸ô(t(ô°(ì(­äèÝ¥¹°(±°è]¥¹°(¥½¸è]¤°(¥½¹
-½±½ÈèÑáÐµÕ¡Í¥´ÜÀÀ°(¥½¹	èµÕ¡Í¥´ÔÀ°(µÉ­ÑM¥éèÌà¸É°(É½ÝÑ è´Ä¸È°(É½ÝÑ¡¥Èè½Ý¸°(ÑÉ©Ñ½Éäè±½°Ý¥¹µÉ­Ð¥¸ÍÑÉÕÑÕÉ°±¥¹PÙ½±Õµ½Ý¸½ÈÍÉ½¹ÍÕÑ¥ÙåÈ¸e½Õ¹È½¹ÍÕµÉÌ¡½½Í¥¹ÍÁ¥É¥ÑÌ°IQÌ°¹9½1¼±ÑÉ¹Ñ¥ÙÌ¸AÉµ¥Õ´Ý¥¹Ì¡½±¥¹Ù±ÕÝ¡¥±ÍÕ´ÄÀ½±±ÁÍÌ¸
-±¥µÑ¡¹¥ÍÉÕÁÑ¥¹ÑÉ¥Ñ¥½¹°É¥½¹Ì¸°(Ñ½Á5É­ÑÌèl(ì¹µè
-¡¥¹°É½ÝÑ è´Ø¸Èô°(ì¹µè%Ñ±ä°É½ÝÑ è´Ä¸àô°(ì¹µèÉ¹°É½ÝÑ è´Ì¸Ðô°(ì¹µèUL°É½ÝÑ è´È¸Äô°(ì¹µèU,°É½ÝÑ è´À¸àô(t°(É¹Ìèl	É½½Ð°e±±½ÜQ¥°°)½Í 
-±±ÉÌ°-¥´
-ÉÝ½É°5¥½µ¤°1
-Éµ°
-åµÕÌt°(¡¹¹±Ìèì½¹QÉèÌÔ°½QÉèÔà°
-½µµÉèÜô°(ÑÉ¹Ìèl(ìÑáÐè±½°Ý¥¹½¹ÍÕµÁÑ¥½¸É¡ÌÈÔµåÈ±½ÜÝ¥Ñ Ù½±Õµ±¥¹¥¹Ñ¡¥É½¹ÍÕÑ¥ÙåÈÌå½Õ¹Èµ½ÉÁ¡¥ÌÙ½¥Ñ½Éä°Í½ÕÉè%¹ÑÉ¹Ñ¥½¹°]¥¹=É¹¥éÑ¥½¸°ÕÉ°è¡ÑÑÁÌè¼½ÝÝÜ¹Ñ¡¥ÝÍÈ¹½´½¥¹Í¥¡Ð½¥¹Í¥µÑ¡µ¥ÝÍÈµ±½°µÑÉ¹ÌµÉÁ½ÉÐµ­äµÉ¥ÙÉÌµ½ÈµÙÉµ±½¡½°µ¥¸´ÈÀÈÔ¼ô°(ìÑáÐèAÉµ¥Õ´Ý¥¹Ì ¬ÐÙ±ÕÉ½ÝÑ ¤¡½±¥¹Í¡ÉÝ¡¥±ÍÕ´ÄÀÙ±ÕÝ¥¹Ì±¥¹¥¹´ÜÌÑ½Éä¥ÕÉÑÌÉµÑ¥±±ä°Í½ÕÉè]¥¹5É­Ð%¹Ñ±±¥¹°ÕÉ°è¡ÑÑÁÌè¼½ÝÝÜ¹Ñ¡¥ÝÍÈ¹½´½¥¹Í¥¡Ð½ÁÉµ¥Õµ¥ÍÑ¥½¸µ¥ÌµÍ±½Ý¥¹µÕÐµÑ¡ÉÌµµ½Õ¹ÑÈµÑÉ¹¼ô°(ìÑáÐè9ÑÕÉ°Ý¥¹Ñ½ÉäÉÁÉÍ¹ÑÌÌ½Í±ÌÕÐÉ½Ý¥¹¬ÈÀe½dÌÍÕÍÑ¥¹¥±¥Ñä¹ÕÑ¡¹Ñ¥¥ÑäÉÍ½¹ÑÝ¥Ñ å½Õ¹È½¹ÍÕµÉÌ°Í½ÕÉè9ÑÕÉ°]¥¹IÁ½ÉÐ°ÕÉ°è¡ÑÑÁÌè¼½ÝÝÜ¹Ñ¡ÍÁ¥É¥ÑÍÕÍ¥¹ÍÌ¹½´¼ÈÀÈÔ¼ÀØ½Ñ½À´ÄÀµÍÐµÍ±±¥¹µÉ¹µ¡µÁ¥½¹Ìµ¥¸´ÈÀÈÐ¼ô°(ìÑáÐèTÍÕÍ¥¥é¥¹Éµ½Ù°½àÀ°ÀÀÀ¬¡ÑÉÌ½Ù¥¹åÉÌÕÑ¼ÍÑÉÕÑÕÉ°½ÙÉÍÕÁÁ±ä¹±¥¹¥¹µ¹É½ÍÌÕÉ½Á°Í½ÕÉèÕÉ½Á¸
-½µµ¥ÍÍ¥½¸°ÕÉ°è¡ÑÑÁÌè¼½ÝÝÜ¹ÙÉ¥±ä¹½´½ÉÑ¥±¼ÈÀÈÔ¼ÀÄ¼Èä½±½°µ±½Üµ¹µ¹¼µ±½¡½°µµÉ­ÐµÑµ½È´ÈÀÈÔ¼ô°(ìÑáÐèQÝ¥¹Í¡¥Áµ¹ÑÌ±¥¹¥¹´ÄÀÌÍ¡¥ÁÁ¥¹ÉÕ±Ñ¥½¹ÌÑ¥¡Ñ¸¹½¹ÍÕµÉÌÁÉÈ½¹Ù¹¥¹½ÉÑ¥°½IQ±ÑÉ¹Ñ¥ÙÌ°Í½ÕÉèQ
-½µµÉIÁ½ÉÐ°ÕÉ°è¡ÑÑÁÌè¼½ÝÝÜ¹Ñ¡¥ÝÍÈ¹½´½¥¹Í¥¡Ð½µ½ÉµÑ¡¸µµ½ÉÑ¥½¸µÑ¡µ±½¹µÑÉ´µÉ¥Íµ½µ¹¼µ¹µ±½Ü¼ô(t°(åÉ±åIÁ½ÉÑÌèl(ìåÈèÈÀÈÔ°µÉ­ÑM¥éèÌà¸É°É½ÝÑ è´Ä¸È°Ù½±Õµ
-ÍÌèÄÈÐÁ4°­åÙ¹ÑÌèlÍÉåÈ±¥¹°AÉµ¥Õ´¬Ð°9ÑÕÉ°Ý¥¹¬ÈÀt°Ñ½ÁAÉ½ÉµÈè-¥´
-ÉÝ½É°½ÕÑ±½½¬è]¥¹µÉ­Ð½¹ÑÉÑ¥¹Ìå½Õ¹È½¹ÍÕµÉÌÙ½¥Ñ½Éä¹Ñ¥É±ä¸ô°(ìåÈèÈÀÈÐ°µÉ­ÑM¥éèÌà¸Ý°É½ÝÑ è¬À¸È°Ù½±Õµ
-ÍÌèÄÈÔÕ4°­åÙ¹ÑÌèl±¥¹½¹Ñ¥¹ÕÌ°QÁÉÍÍÕÉ°AÉµ¥Õ´ÍÕÍÑ¥¹Ìt°Ñ½ÁAÉ½ÉµÈè	É½½Ð°½ÕÑ±½½¬è]¥¹ÍÑ¥±¥é¥¹Ð±½ÝÈ½¹ÍÕµÁÑ¥½¸±Ù±ÌÝ¥Ñ ÍÑÉÕÑÕÉ°¡Ý¥¹Ì¸ô°(ìåÈèÈÀÈÌ°µÉ­ÑM¥éèÌà¸Ù°É½ÝÑ è´È¸Ä°Ù½±Õµ
-ÍÌèÄÈàÑ4°­åÙ¹ÑÌèl±¥¹±ÉÑÌ°TÙ¥¹åÉÕÁÉ½½Ñ¥¹°
-±¥µÑ¥µÁÑÌt°Ñ½ÁAÉ½ÉµÈèe±±½ÜQ¥°°½ÕÑ±½½¬è]¥¹µÉ­ÐáÁÉ¥¹¥¹ÍÕÍÑ¥¹Ù½±Õµ±¥¹µ¥µ½ÉÁ¡¥Í¡¥ÑÌ¸ô°(ìåÈèÈÀÈÈ°µÉ­ÑM¥éèÌä¸Ñ°É½ÝÑ è¬Ä¸à°Ù½±Õµ
-ÍÌèÄÌÄÉ4°­åÙ¹ÑÌèlA½ÍÐµÁ¹µ¥¹½Éµ±¥éÑ¥½¸°AÉµ¥Õ´Ý¥¹ÌÉ½ÙÈ°IÑ¥°½ÕÌÍÑÉ¹Ñ¡¹Ìt°Ñ½ÁAÉ½ÉµÈè5¥½µ¤°½ÕÑ±½½¬è]¥¹ÉÑÕÉ¹¥¹Ñ¼ÍÑÉÕÑÕÉ°±½¹µÑÉ´±¥¹ÑÈÁ¹µ¥¹½µ±ä¸ô(t°(Ý¥¹Á¥ÙèÑÉÕ°(ÙÉ¥Ñ±Ìèl(ì¹µè
-¡É½¹¹ä°Ù±ÕèÄà°¡¹è´Ä¸Èô°(ì¹µè
-É¹ÐMÕÙ¥¹½¸°Ù±ÕèÄÔ°¡¹è´À¸àô°(ì¹µèMÕÙ¥¹½¸	±¹°Ù±ÕèÄÈ°¡¹è¬À¸Ðô°(ì¹µèA¥¹½Ð9½¥È°Ù±ÕèÄÄ°¡¹è´È¸Äô°(ì¹µè5É±½Ð°Ù±ÕèÄÀ°¡¹è´Ì¸Èô°(ì¹µèM¡¥Éè°Ù±Õèä°¡¹è¬Ä¸àô°(ì¹µèI¥Í±¥¹°Ù±Õèà°¡¹è¬È¸Ðô°(ì¹µèAÉ½Í¼½MÁÉ­±¥¹°Ù±ÕèÄÜ°¡¹è¬Ô¸Äô(t°(½Õ¹ÑÉ¥Ìèl(ì¹µèÉ¹°Ù±ÕèÈÈ°¡¹è´È¸Ðô°(ì¹µè%Ñ±ä°Ù±ÕèÄà°¡¹è´Ä¸Èô°(ì¹µèMÁ¥¸°Ù±ÕèÄÐ°¡¹è¬À¸àô°(ì¹µèÕÍÑÉ±¥°Ù±ÕèÄÈ°¡¹è¬Ä¸Ðô°(ì¹µèUL¡
-±¥½É¹¥¤°Ù±ÕèÄÄ°¡¹è´À¸Øô°(ì¹µè
-¡¥±°Ù±Õèä°¡¹è¬È¸Äô°(ì¹µèÉ¹Ñ¥¹°Ù±ÕèÜ°¡¹è¬Ì¸Èô°(ì¹µè9Üi±¹°Ù±ÕèÜ°¡¹è¬Ä¸àô(t(ô°(ì(­äèÈ°(±°è	È
-ÉÐ°(¥½¸è°(¥½¹
-½±½ÈèÑáÐµ±¥µ´ÜÀÀ°(¥½¹	èµ±¥µ´ÔÀ°(µÉ­ÑM¥éèØÈÍ°(É½ÝÑ è¬Ä¸Ð°(É½ÝÑ¡¥ÈèÕÀ°(ÑÉ©Ñ½Éäè]½É±pÌ±ÉÍÐ±½¡½°Ñ½ÉääÙ½±Õµ¸
-ÉÐÈÉ½ÝÑ Í±½Ý¥¹ÑÈµ±½¹½½´¸5á¥¸±È¥µÁ½ÉÑÌ½µ¥¹Ñ¥¹ULÉ½ÝÑ ¸!ÉÍ±ÑéÈ½½±¥¹¸9½¸µ±½¡½±¥ÈÍÑÍÐµÉ½Ý¥¹Íµ¹Ð¸°(Ñ½Á5É­ÑÌèl(ì¹µè5á¥¼°É½ÝÑ è¬Ð¸Èô°(ì¹µè	Éé¥°°É½ÝÑ è¬Ì¸Ðô°(ì¹µèUL°É½ÝÑ è¬À¸àô°(ì¹µè
-¡¥¹°É½ÝÑ è´Ä¸Èô°(ì¹µèÉµ¹ä°É½ÝÑ è´À¸Øô(t°(É¹Ìèl5½±¼°
-½É½¹°!¥¹­¸°	ÕÝ¥ÍÈ°Õ¥¹¹ÍÌ°M¥ÉÉ9Ù°MµÕ°µÌt°(¡¹¹±Ìèì½¹QÉèÌÈ°½QÉèØÈ°
-½µµÉèØô°(ÑÉ¹Ìèl(ìÑáÐè5½±¼½µÌÄÈÉ¹¥¸ULµÉ­ÐÍÕÉÁÍÍ¥¹	Õ1¥¡Ðµ¥ÍáÕ°½å½ÑÐ¹¡¹¥¹½¹ÍÕµÈÁÉÉ¹Ì°Í½ÕÉè	È5É­Ð5½¹¥Ñ½È°ÕÉ°è¡ÑÑÁÌè¼½ÝÝÜ¹Ñ¡¥ÝÍÈ¹½´½¥¹Í¥¡Ð½¥¹Í¥µÑ¡µ¥ÝÍÈµ±½°µÑÉ¹ÌµÉÁ½ÉÐµ­äµÉ¥ÙÉÌµ½ÈµÙÉµ±½¡½°µ¥¸´ÈÀÈÔ¼ô°(ìÑáÐè
-ÉÐÈÍµ¹ÐÉ½ÝÑ ÍÑ±±ÌÐ´ÄÝ¥Ñ ÌÀÀ¬ÉÐÉÝÉ¥Ì±½Í¥¹ÌµÉ­Ð½ÙÉÍÑÕÉÑ¥½¸É¡ÌÉ¥Ñ¥°ÍÑ°Í½ÕÉè	ÉÝÉÌÍÍ½¥Ñ¥½¸°ÕÉ°è¡ÑÑÁÌè¼½ÝÝÜ¹Ñ¡¥ÝÍÈ¹½´½¥¹Í¥¡Ð½ÁÉµ¥Õµ¥ÍÑ¥½¸µ¥ÌµÍ±½Ý¥¹µÕÐµÑ¡ÉÌµµ½Õ¹ÑÈµÑÉ¹¼ô°(ìÑáÐè9½¸µ±½¡½±¥ÈÍÑÍÐµÉ½Ý¥¹ÈÍµ¹ÐÝ¥Ñ ¬ÈÔÉ½ÝÑ Ìå½Õ¹È½¹ÍÕµÉÌ¹Í½ÈµÕÉ¥½ÕÌµ½Ùµ¹Ð¥¹Ìµ½µ¹ÑÕ´°Í½ÕÉè±½¡½°µÉ	ÙÉIÁ½ÉÐ°ÕÉ°è¡ÑÑÁÌè¼½ÝÝÜ¹Ñ¡¥ÝÍÈ¹½´½¥¹Í¥¡Ð½É½ÝÑ µ½´Ñ¸µáÁÑµÉ½´µ¹¼µ±½¡½°µÑ½Éäµä´ÈÀÈà¼ô°(ìÑáÐè5á¥¸È¥µÁ½ÉÑÌ½µÁÉ¥ÍÈÀ½Ñ½Ñ°ULµÉ­Ð½¹ÍÕµÁÑ¥½¸Ý¥Ñ 5½±¼¹
-½É½¹½µ¥¹Ñ¥¹¥µÁ½ÉÐÉ½ÝÑ Ñ½É¥Ì°Í½ÕÉèUL	ÉÝÉÌÕ¥±°ÕÉ°è¡ÑÑÁÌè¼½ÝÝÜ¹Í¡¹­¹¹ÝÍ¥±ä¹½´¼ÈÀÈÐ¼ÀÈ¼ÄÌ¼ÌÐàÌÔ½Ñ¥Ñ½ÌµÍÌµÍµ±±Èµ½ÉµÑÌµÍÑ½­µÉ½ÝÑ µÌµÙ½±Õµµ±¥µÌµ½Ù´ÄÉ´µÍÌ¼ô°(ìÑáÐèÕ¥¹¹ÍÌQ¥­Q½¬É¹¥ÍÍ¹µÁ¥¸É¥ÙÌÕ¹áÁÑ¬ÈÐÉ½ÝÑ ¥¸å½Õ¹Èµ½ÉÁ¡¥½¹ÍÕµÁÑ¥½¸ÉÙÉÍ¥¹ÈÀµåÈ±¥¹°Í½ÕÉèM½¥°5¥¹±åÑ¥Ì°ÕÉ°è¡ÑÑÁÌè¼½ÝÝÜ¹ÙÉ¥±ä¹½´½ÉÑ¥±¼ÈÀÈÔ¼ÀÄ¼Èä½±½°µ±½Üµ¹µ¹¼µ±½¡½°µµÉ­ÐµÑµ½È´ÈÀÈÔ¼ô(t°(åÉ±åIÁ½ÉÑÌèl(ìåÈèÈÀÈÔ°µÉ­ÑM¥éèØÈÍ°É½ÝÑ è¬Ä¸Ð°Ù½±Õµ
-ÍÌèÄàÔÙ4°­åÙ¹ÑÌèl5½±¼ÄUL°
-ÉÐ´Ä°9È¬ÈÔt°Ñ½ÁAÉ½ÉµÈè5½±¼°½ÕÑ±½½¬è5á¥¸±ÉÌÍÕÍÑ¥¸É½ÝÑ Ý¡¥±ÉÐ½¹Í½±¥Ñ¥½¸½¹Ñ¥¹ÕÌ¸ô°(ìåÈèÈÀÈÐ°µÉ­ÑM¥éèØÄÑ°É½ÝÑ è¬È¸Ä°Ù½±Õµ
-ÍÌèÄàÌÅ4°­åÙ¹ÑÌèl5½±¼ÍÕÉ¥¹Ì°
-ÉÐÍÑ±±Ì°!ÉÍ±ÑéÈ±¥¹Ìt°Ñ½ÁAÉ½ÉµÈè
-½É½¹°½ÕÑ±½½¬è
-Ñ½ÉäÍÑ¥±¥é¥¹Ý¥Ñ 5á¥¸¥µÁ½ÉÑÌÉ¥Ù¥¹½ÙÉ±°É½ÝÑ ¸ô°(ìåÈèÈÀÈÌ°µÉ­ÑM¥éèØÀÉ°É½ÝÑ è¬Ì¸È°Ù½±Õµ
-ÍÌèÄÜäÑ4°­åÙ¹ÑÌèl
-ÉÐ½½´Á­Ì°9ÈµÉÌ°%µÁ½ÉÐ±ÉÑ¥½¸t°Ñ½ÁAÉ½ÉµÈè!¥¹­¸°½ÕÑ±½½¬è±½°ÈµÉ­ÐÉ½ÙÉ¥¹ÌÁ½ÍÐµÁ¹µ¥½¹ÍÕµÁÑ¥½¸¹½Éµ±¥éÌ¸ô°(ìåÈèÈÀÈÈ°µÉ­ÑM¥éèÔàÍ°É½ÝÑ è¬Ð¸à°Ù½±Õµ
-ÍÌèÄÜÔá4°­åÙ¹ÑÌèlA¹µ¥É½ÙÉä°
-ÉÐÁ¬°!ÉÍ±ÑéÈ½½´t°Ñ½ÁAÉ½ÉµÈè	ÕÝ¥ÍÈ°½ÕÑ±½½¬è	ÈÑ½Éä¹¥Ñ¥¹É½´±°µ½Í¥½¸É¥¹­¥¹¥¸Á¹µ¥É½ÙÉä¸ô(t(ô°(ì(­äè¹½±¼°(±°è9¼1½Ü±½¡½°°(¥½¸è90°(¥½¹
-½±½ÈèÑáÐµÑ°´ÜÀÀ°(¥½¹	èµÑ°´ÔÀ°(µÉ­ÑM¥éèÄÍ°(É½ÝÑ è¬Ü¸Ô°(É½ÝÑ¡¥ÈèÕÀ°(ÑÉ©Ñ½ÉäèÍÑÍÐµÉ½Ý¥¹µÉ¼Ñ½ÉäÉ½ÍÌ±°ÙÉ±½¡½°¸9¼µ±½¡½°É½Ý¥¹ÍÑÈÑ¡¸±½Üµ±½¡½°¸	È½µ¥¹ÑÌÙ½±ÕµÕÐÍÁ¥É¥ÑÌ¹Ý¥¹Ñ¡¥¹ÕÀ¸MÑ¥±°É±ä¥¹¹¥¹ÌP9½1¼ÉÁÉÍ¹ÑÌ©ÕÍÐÄ¸Ô½Ñ½Ñ°ÙÉ±½¡½°¸°(Ñ½Á5É­ÑÌèl(ì¹µèUL°É½ÝÑ è¬ÄÐ¸Äô°(ì¹µèÉµ¹ä°É½ÝÑ è¬ÄÈ¸Ðô°(ì¹µèU,°É½ÝÑ è¬ä¸àô°(ì¹µèMÁ¥¸°É½ÝÑ è¬à¸Èô°(ì¹µè)Á¸°É½ÝÑ è¬Ø¸Ðô(t°(É¹ÌèlÑ¡±Ñ¥	ÉÝ¥¹°M±¥À°1åÉÌ°5½¹ä°!¥¹­¸À¸À°Õ¥¹¹ÍÌÀ¸À°Ét°(¡¹¹±Ìèì½¹QÉèÈÔ°½QÉèØÈ°
-½µµÉèÄÌô°(ÑÉ¹Ìèl(ìÑáÐè9¼µ±½¡½°Ñ½ÉäÉ½Ý¥¹ÍàÍÑÈÑ¡¸±½Üµ±½¡½°Ì½¹ÍÕµÉÌÍ¬Õ±°±Ù½ÈÝ¥Ñ¡½ÕÐ¹äÑ¡¹½°°Í½ÕÉè9½1¼5É­ÐIÁ½ÉÐ°ÕÉ°è¡ÑÑÁÌè¼½ÝÝÜ¹Ñ¡¥ÝÍÈ¹½´½¥¹Í¥¡Ð½µ½ÉµÑ¡¸µµ½ÉÑ¥½¸µÑ¡µ±½¹µÑÉ´µÉ¥Íµ½µ¹¼µ¹µ±½Ü¼ô°(ìÑáÐè
-Ñ½ÉäÙ±ÕÐÑ¬äÈÀÈàÝ¥Ñ ÁÉ½©Ñ¥½¹ÌÍ¡½Ý¥¹ÕàÉ½ÝÑ ½ÙÈÌµ¥¹ÍÑÉ´½ÁÑ¥½¸±ÉÑÌ°Í½ÕÉèÕÑÕÉ	ÙÉÌIÁ½ÉÐ°ÕÉ°è¡ÑÑÁÌè¼½ÝÝÜ¹Ñ¡¥ÝÍÈ¹½´½¥¹Í¥¡Ð½É½ÝÑ µ½´Ñ¸µáÁÑµÉ½´µ¹¼µ±½¡½°µÑ½Éäµä´ÈÀÈà¼ô°(ìÑáÐèÉä)¹ÕÉäÁÉÑ¥¥ÁÑ¥½¸É¡ÌÌÀ½½¹ÍÕµÉÌ±½±±äÝ¥Ñ 9½1¼É¥Ù¥¹ÉÑ¥°ÑÉ¥°¹½¹ÙÉÍ¥½¸µ½µ¹ÑÕ´°Í½ÕÉè
-½¹ÍÕµÈ	¡Ù¥½ÈMÑÕä°ÕÉ°è¡ÑÑÁÌè¼½ÝÝÜ¹Ñ¡¥ÝÍÈ¹½´½¥¹Í¥¡Ð½¥¹Í¥µÑ¡µ¥ÝÍÈµ±½°µÑÉ¹ÌµÉÁ½ÉÐµ­äµÉ¥ÙÉÌµ½ÈµÙÉµ±½¡½°µ¥¸´ÈÀÈÔ¼ô°(ìÑáÐè9½¸µ±½¡½±¥ÈÁÉ½©ÑÑ¼ÍÕÉÁÍÌÑÉ¥Ñ¥½¹°±Ñ½ÉäÝ¥Ñ¡¥¸¹áÐÔåÉÌ¥Ù¸ÕÉÉ¹ÐÉ½ÝÑ ÑÉ©Ñ½É¥Ì°Í½ÕÉè
-Ñ½Éä½ÉÍÑ¥¹5½°°ÕÉ°è¡ÑÑÁÌè¼½ÝÝÜ¹Ñ¡¥ÝÍÈ¹½´½¥¹Í¥¡Ð½É½ÝÑ µ½´Ñ¸µáÁÑµÉ½´µ¹¼µ±½¡½°µÑ½Éäµä´ÈÀÈà¼ô°(ìÑáÐè¸h¹5¥±±¹¹¥±ÌÉ¥Ù¥¹½ÁÑ¥½¸Ý¥Ñ ÐÔÁÉÉ¹½È9½1¼½ÁÑ¥½¹ÌÝ¡¸Ù¥±±Ð½¸µÁÉµ¥ÍÙ¹ÕÌ°Í½ÕÉèµ½ÉÁ¡¥¹±åÍ¥Ì°ÕÉ°è¡ÑÑÁÌè¼½ÝÝÜ¹Ñ¡¥ÝÍÈ¹½´½¥¹Í¥¡Ð½¥¹Í¥µÑ¡µ¥ÝÍÈµ±½°µÑÉ¹ÌµÉÁ½ÉÐµ­äµÉ¥ÙÉÌµ½ÈµÙÉµ±½¡½°µ¥¸´ÈÀÈÔ¼ô(t°(åÉ±åIÁ½ÉÑÌèl(ìå\KX\Ù]Ú^N	ÉLÐËÜÝÝ	ÊÍËIIËÛ[YPØ\Ù\Î	Ì
-SIËÙ^Q][ÎÉÓËX[ÈÞ\Ý\Ë	ÑH[X\HÌ	IË	ÑÙ[YÜ[Û×KÜ\ÜY\	Ð]]XÈ]Ú[ÉËÝ]ÛÚÎ	ÓÓÈØ]YÛÜHXÛÛZ[ÈXZ[ÝX[HÚ]ÛÛ[YYXØÙ[\][ÛÈKÈYX\X\Ù]Ú^N	ÉLPËÜÝÝ	ÊÎIËÛ[YPØ\Ù\Î	ÌSIËÙ^Q][ÎÉÓXZ[ÝX[HYÜ[ÛË	ÓHY\ÛÛIË	ÔÜ\]ÈØ]Ú[È\	×KÜ\ÜY\\IÜÈÝ]ÛÚÎ	ÓÓÈØ]YÛÜHXXÚ[È[XÝ[ÛÚ[Ú]XZÜ[È[\Ý[ËÈKÈYX\ËX\Ù]Ú^N	ÉLKËÜÝÝ	ÊÎKIIËÛ[YPØ\Ù\Î	Ì
-IËÙ^Q][ÎÉÑH[X\HÜÝÜÉË	ÓHÜ\]È[Y\ÙIË	ÔÛØ\Ý\[Ý\È[	×KÜ\ÜY\	ÒZ[ZÙ[	ËÝ]ÛÚÎ	ÐØ]YÛÜH^\Y[Ú[È^ÜÚ]HÜÝÝ\ÈXZ[ÝX[HXØÙ\[ÙH^[ËÈKÈYX\X\Ù]Ú^N	ÉLÐËÜÝÝ	ÊÍ	IËÛ[YPØ\Ù\Î	ÌIËÙ^Q][ÎÉÕÙ[\ÜÈ[XØÙ[\]\ÉË	ÑH[X\HYÚ[ÉË	Ñ\ÝXZÜ[][Ú\É×KÜ\ÜY\	ÔÙYY\	ËÝ]ÛÚÎ	ÓÓÈ[Y\Ú[È\È\Ý\ÝYÜÝÚ[È[ÛÚÛØ]YÛÜHÛØ[KÈBBKÂÙ^N	Ü	ËX[	ÔÈXYK]ËQ[ÉËXÛÛ	Ô	ËXÛÛÛÛÜ	Ý^XÞX[MÌ	ËXÛÛÎ	ØËXÞX[ML	ËX\Ù]Ú^N	É
-ËÜÝÝ	ÊÎIËÜÝÝ\	Ý\	ËZXÝÜN	ÔÜXYK]ËY[ÈØ]YÛÜHÛÛ[Y\ÈÝÛÈÜÝÝ\ÈÛÛ[Y[ÙH[ÜX[]HÚ[ØØØ\Ú[ÛÈÛHY\[Ú[KÜ\]ËX\ÙYÈÝ]ÜÝÚ[ÈX[X\ÙY[Z][HÛØÚÝZ[\Ý[HÈ[Y\Ú[È\È^ÛY\ËÜX\Ù]ÎÂÈ[YN	ÕRÉËÜÝÝ	ÊÌLIIÈKÈ[YN	ÕTÉËÜÝÝ	ÊÌLIÈKÈ[YN	ÑÙ\X[IËÜÝÝ	ÊÎIIÈKÈ[YN	Ð]\Ý[XIËÜÝÝ	ÊÍË	IÈKÈ[YN	Ò\[ËÜÝÝ	ÊÍK	IÈBK[ÎÉÒYÚÛÛË	ÐÝ]Ø]\Ë	Ñ]\UYHÉË	ÕÚ]HÛ]ÉË	Õ[IË	ÓÛHØÚÜÉË	Õ\Ü	×KÚ[[ÎÈÛYNMKÙYN
-ÌPÛÛ[Y\ÙNLÈK[ÎÂÈ^	ÔÜ\]ËX\ÙYÈÝ\ZÚ[ÈX[X\ÙY\ÈØ]YÛÜHXY\Ú]\]Z[H[Ú[ÈÚÝÚ[ÈÝÛÙ\ÝÜÝÝ[ÛY[[IËÛÝ\ÙN	ÔX\Ù][[YÙ[ÙIË\	ÚÎËÝÝÝËZ]ÜÜÛÛKÚ[ÚYÚÚ[ÚYK]KZ]ÜÜYÛØ[][Ë\\ÜZÙ^KY]\ËYÜX]\YÙKX[ÛÚÛZ[LKÉÈKÈ^	ÒYÚÛÛXÛÛY\ÈÌHTÈ[Ú]
-ÌHÜÝÝ\ÈÛÛÝ[Y\Y\[ÙHÚYÈÝØ\Ü\]YÜØ\]X[]HÙXÝÉËÛÝ\ÙN	ÔXÚÚ[È\Ü	Ë\	ÚÎËÝÝÝËZ]ÜÜÛÛKÚ[ÚYÚÜ[Z][Z\Ø][ÛZ\Ë\ÛÝÚ[ËX]]\\ËXKXÛÝ[\][ÉÈKÈ^	Ô[Z][HÛØÚÝZ[\Ý[HÈÜÝÚ[È
-ÌÍIH\ÈØ]YÛÜH[Ý\È\X\Ù]Ú]ÜYZ^ÛÙÞH]XÝ[ÈYY[ÛÛÝ[Y\ÉËÛÝ\ÙN	Ô[Z][HÜXØ\Ý	Ë\	ÚÎËÝÝÝË]\YÙYZ[KÛÛKÐ\XÛKÌKÌKÌKÙÛØ[[ÝËX[[ËX[ÛÚÛ[X\Ù]Y]KYÜLKÉÈKÈ^	Ò\Ù[\Ø]YÛÜHXÛ[[ÈN	HÚ[HÜ\]ÈÝ\ÙH[[ÛÝ][ÈXZÜÚY[ÛÛÝ[Y\Y\[Ù\ÈÝØ\]ÜËÛÝ\ÙN	ÔÙ[\	[Û]ÜË\	ÚÎËÝÝÝËZ]ÜÜÛÛKÚ[ÚYÚÛ[ÜK][[[Ù\][Û]K[ÛË]\K\\ÙK[Ù[ËX[[ÝËÉÈKÈ^	ÒXÚÈ[Y[	ÜÈ[ÛØØKPÛÛH][ÚÚYÛ[ÈXZÜÜ\]È[È[\[ÈØ]YÛÜHÚ]X\ÜÈX\Ù]\ÝX][ÛY[YÙIËÛÝ\ÙN	Ó][Ú[Ý[Ù[Y[\Ü	Ë\	ÚÎËÝÝÝËÚ[Ù[]ÜÙZ[KÛÛKÌÌÌLËÌÍÍKÝ]ÜË\ÙY\Ë\ÛX[\YÜX]Ë\ÝÚÙKYÜÝÝX\Ë]Û[YKXÛ[XËXXÝKLLKXØ\Ù\ËÉÈBKYX\T\ÜÎÂÈYX\KX\Ù]Ú^N	É
-ËÜÝÝ	ÊÎIËÛ[YPØ\Ù\Î	ÌLIËÙ^Q][ÎÉÔÜ\]ËX\ÙYXY	Ë	ÒYÚÛÛÌIË	Ô[Z][HÛØÚÝZ[È
-ÌÍII×KÜ\ÜY\	ÒYÚÛÛËÝ]ÛÚÎ	ÔØ]YÛÜHÝ\ÝZ[[ÈÝÛÈÜÝÝ\ÈÛÛ[Y[ÙHØØØ\Ú[ÛÚ[ËÈKÈYX\X\Ù]Ú^N	ÉÍPËÜÝÝ	ÊÎK	IËÛ[YPØ\Ù\Î	ÎM
-IËÙ^Q][ÎÉÓXZÜ[][Ú\ÉË	ÐÛØÚÝZ[È[Y\ÙIË	ÔÙ[\XÛ[\É×KÜ\ÜY\	ÐÝ]Ø]\ËÝ]ÛÚÎ	ÔXÛÛZ[ÈXZ[ÝX[HÚ]XZÜÜ\]ÈÛÛ\[Y\È[\[ÈX\Ù]ÈKÈYX\ËX\Ù]Ú^N	ÉÌËËÜÝÝ	ÊÌLIËÛ[YPØ\Ù\Î	Î
-ÓIËÙ^Q][ÎÉÔÜ\]ÈÈXØÙ[\]IË	ÐØ]YÛÜH[Z][Z^\ÉË	Ò\Ù[\XZÜÉ×KÜ\ÜY\	ÕÚ]HÛ]ÉËÝ]ÛÚÎ	ÔØ]YÛÜH^\Y[Ú[È^ÜÚ]HÜÝÝ\È[Ý][ÛXØÙ[\]\ËÈKÈYX\X\Ù]Ú^N	ÉÌÐËÜÝÝ	ÊÌLK	IËÛ[YPØ\Ù\Î	ÍÎLIËÙ^Q][ÎÉÔ[[ZXÈÛÛ[Y[ÙHÛÛIË	ÔÙ[\ÛZ[]\ÉË	ÔÜ\]][Ú\É×KÜ\ÜY\	Õ[IËÝ]ÛÚÎ	Ô\Ý\ÝYÜÝÚ[È]\YÙH[ÛÚÛØ]YÛÜHÛÛÛ[Y[ÙH[ÈBBBBÛÛÝÛÝ\ÙS[ÈH
-ÈÛÝ\ÙK\JHO
-HY^Ý\H\Ù]HØ[È[HÛÜ[\ÜY\\Û\ÜÓ[YOH[[KY^][\ËXÙ[\Ø\LH^XYKMÝ\^XYKMÌ^^ÈÛ[YY][HÜÛÝ\Ù_H^\[[ÈÚ^O^ÌLHÏØOBÛÛÝØ]YÛÜPØ\H
-ÈØ]\ÐXÝ]KÛÛXÚÈJHO
-]ÛÛÛXÚÏ^ÛÛÛXÚßHÛ\ÜÓ[YO^ØËY[^[YÝ[Y^Ü\LÈÝ\ÛÜ\Ú[\[Ú][ÛX[	Â\ÐXÝ]BÈ	ØË\Û]KN^]Ú]HÜ\\Û]KNÚYÝË[ÉÂ	ØË]Ú]HÜ\YÜ^KLLÝ\ÚYÝË[YÝ\Ü\XYKL	ÂXO]Û\ÜÓ[YOH^][\Ë\Ý\Ø\LÈ]Û\ÜÓ[YO^Ø^][\ËXÙ[\\ÝYKXÙ[\ËNNÝ[Y[È^^ÈÛXÛ	ÈZ\ÐXÝ]HÈ	ØØ]XÛÛßH	ØØ]XÛÛÛÛÜX	ØË\Û]KM^]Ú]IßXOØØ]XÛÛBÙ]]Û\ÜÓ[YOH^LHZ[]ËL]Û\ÜÓ[YO^Ø^\ÛHÛ\Ù[ZXÛ	Ú\ÐXÝ]HÈ	Ý^]Ú]IÈ	Ý^\Û]KN	ßXOØØ]X[OÙ]]Û\ÜÓ[YO^Ø^^È	Ú\ÐXÝ]HÈ	Ý^\Û]KL	È	Ý^YÜ^KML	ßXOØØ]X\Ù]Ú^_OÙ]]Û\ÜÓ[YO^Ø^^ÈÛ\Ù[ZXÛ]LH	ØØ]ÜÝÝ\OOH	ÙÝÛÈÈ	Ý^\YM	È	Ý^YÜY[M	ßXOØØ]ÜÝÝ\OOH	ÙÝÛÈÈ	ø¥¯	È	ø¥¬ßHØØ]ÜÝÝBÙ]Ù]Ù]Ø]ÛBÛÛÝÚ[QY\]HH
-ÈØ]JHOÂÛÛÝÜÚÝÕ\Y][ËÙ]ÚÝÕ\Y][×HH\ÙTÝ]J[ÙJB]\
-]Û\ÜÓ[YOHË]Ú]HÝ[Y^Ü\Ü\YÜ^KLLMH]ÛÛÛXÚÏ^Ê
-HOÙ]ÚÝÕ\Y][Ê\ÚÝÕ\Y][Ê_BÛ\ÜÓ[YOHËY[^][\ËXÙ[\\ÝYKX]ÙY[Ý\ËYÜ^KMLLÈ[^LÈÝ[Y[È[Ú][ÛXÛÛÜÈÈÛ\ÜÓ[YOH^\ÛHÛXÛ^\Û]KN\\Ø\ÙHXÚÚ[Ë]ÚY\Ú[H\Y][È	ÜYÚ[ÏÚÏÚ]ÛÝÛÚ^O^ÌNHÛ\ÜÓ[YO^Ø^YÜ^KM[Ú][Û][ÙÜH	ÜÚÝÕ\Y][ÈÈ	ÜÝ]KLN	È	ÉßXHÏØ]ÛÜÚÝÕ\Y][È	
-]Û\ÜÓ[YOH]MÜXÙK^KM]
-Û\ÜÓ[YOH^^ÈÛXÛ^YÜ^KML\\Ø\ÙHXLÈÜ\Y][ÏÚ
-]Û\ÜÓ[YOHÜXÙK^KLØØ]\Y][ÏËX\
+      { year: 2022, marketSize: '$14.0B', growth: '+6.8%', volumeCases: '468M', keyEvents: ['Post-pandemic boom', 'Tourism begins returning', 'Craft distillery wave'], topPerformer: 'Bacardi', outlook: 'Category driven by home consumption and tourism recovery.' }
+    ]
+  },
+  {
+    key: 'cognac',
+    label: 'Cognac & Brandy',
+    icon: 'C',
+    iconColor: 'text-violet-700',
+    iconBg: 'bg-violet-50',
+    marketSize: '$4.1B',
+    growth: '-2.4%',
+    growthDir: 'down',
+    trajectory: 'Cognac facing cyclical downturn after pandemic-era boom. US market (50% of exports) normalizing from record highs. China anti-dumping tariffs threatening key growth market. VS/VSOP segments declining while XO+ holds.',
+    topMarkets: [
+      { name: 'Nigeria', growth: '+5.2%' },
+      { name: 'Singapore', growth: '+2.4%' },
+      { name: 'US', growth: '-4.2%' },
+      { name: 'UK', growth: '-1.8%' },
+      { name: 'China', growth: '-8.1%' }
+    ],
+    brands: ['Hennessy', 'Remy Martin', 'Courvoisier', 'Martell', "D'Usse", 'Hine', 'Pierre Ferrand'],
+    channels: { onTrade: 45, offTrade: 48, eCommerce: 7 },
+    trends: [
+      { text: 'US import volumes decline 22% from 2022 peak as cognac normalization reverses pandemic-era surge and consumer focus shifts', source: 'US Trade Commission', url: 'https://fortune.com/article/cognac-hennessy-sales-struggles/' },
+      { text: 'China implements 39% anti-dumping tariffs on brandy targeting French cognac exports threatening $2B revenue stream', source: 'China Trade Ministry', url: 'https://www.cnbc.com/2024/10/08/china-moves-to-impose-tariffs-on-eu-brandy-imports.html' },
+      { text: 'XO and premium segments (+4%) growing while VS/VSOP core segments decline -7% as category premiumizes or contracts', source: 'Luxury Spirits Report', url: 'https://www.theiwsr.com/insight/premiumisation-is-slowing-but-theres-a-counter-trend/' },
+      { text: 'Africa emerging as bright spot with Nigeria and South Africa cognac imports rising 12% as middle class expands', source: 'African Trade Network', url: 'https://www.thespiritsbusiness.com/2025/06/top-10-best-selling-brand-champions-in-2024/' },
+      { text: 'American brandy renaissance beginning with California distilleries gaining craft credibility and challenging established French producers', source: 'Craft Spirits Monitor', url: 'https://www.theiwsr.com/insight/inside-the-iwsr-global-trends-report-key-drivers-for-beverage-alcohol-in-2025/' }
+    ],
+    yearlyReports: [
+      { year: 2025, marketSize: '$4.1B', growth: '-2.4%', volumeCases: '158M', keyEvents: ['China tariffs bite', 'US market retreats', 'XO holds ground'], topPerformer: 'Hennessy', outlook: 'Cognac faces structural headwinds from tariffs and US normalization.' },
+      { year: 2024, marketSize: '$4.2B', growth: '+1.8%', volumeCases: '162M', keyEvents: ['Tariffs take effect', 'Africa emerges', 'XO growth'], topPerformer: 'Remy Martin', outlook: 'Category transitioning with China tariffs reshaping global markets.' },
+      { year: 2023, marketSize: '$4.1B', growth: '+3.2%', volumeCases: '159M', keyEvents: ['US market peak', 'Tariff warnings', 'Nigeria growth'], topPerformer: 'Courvoisier', outlook: 'Cognac exports reaching record levels before tariff impact.' },
+      { year: 2022, marketSize: '$4.0B', growth: '+8.1%', volumeCases: '155M', keyEvents: ['Pandemic boom peaks', 'US luxury surge', 'Asia growth explosive'], topPerformer: "D'Usse", outlook: 'Cognac reaches all-time export high on pandemic wealth surge.' }
+    ]
+  },
+  {
+    key: 'champagne',
+    label: 'Champagne & Sparkling',
+    icon: 'S',
+    iconColor: 'text-yellow-700',
+    iconBg: 'bg-yellow-50',
+    marketSize: '$7.2B',
+    growth: '+2.8%',
+    growthDir: 'up',
+    trajectory: 'Champagne volume declining from 2022 record but value holding at premium. Prosecco continues double-digit growth as affordable alternative. Cremant, Cava, and English sparkling emerging in premium tier.',
+    topMarkets: [
+      { name: 'Japan', growth: '+5.1%' },
+      { name: 'US', growth: '+3.8%' },
+      { name: 'UK', growth: '+2.4%' },
+      { name: 'France', growth: '+1.2%' },
+      { name: 'Italy', growth: '+0.8%' }
+    ],
+    brands: ['Moet & Chandon', 'Veuve Clicquot', 'Dom Perignon', 'La Marca', 'Mionetto', 'Nicolas Feuillatte'],
+    channels: { onTrade: 52, offTrade: 40, eCommerce: 8 },
+    trends: [
+      { text: 'Champagne volume decline from 326M bottles (2022) to 299M bottles as category contracts from all-time high', source: 'Champagne Bureau International', url: 'https://www.theiwsr.com/insight/inside-the-iwsr-global-trends-report-key-drivers-for-beverage-alcohol-in-2025/' },
+      { text: 'Prosecco outsells Champagne at 2:1 ratio globally as value-conscious consumers choose affordable alternatives at similar price points', source: 'Global Sparkling Wine Report', url: 'https://www.theiwsr.com/insight/premiumisation-is-slowing-but-theres-a-counter-trend/' },
+      { text: 'English sparkling wine category gaining prestige and premium positioning as climate change enables consistent production quality', source: 'English Wines Council', url: 'https://www.beveragedaily.com/Article/2025/01/29/global-low-and-no-alcohol-market-data-for-2025/' },
+      { text: 'Grower Champagne independent producers growing +12% as consumers seek authenticity and direct relationships with producers', source: 'Champagne Trade Association', url: 'https://www.theiwsr.com/insight/inside-the-iwsr-global-trends-report-key-drivers-for-beverage-alcohol-in-2025/' },
+      { text: 'Sparkling RTD cocktails emerging as growth frontier with younger consumers adopting ready-to-drink formats for occasions', source: 'Beverage Innovation Watch', url: 'https://www.beveragedaily.com/Article/2025/01/29/global-low-and-no-alcohol-market-data-for-2025/' }
+    ],
+    yearlyReports: [
+      { year: 2025, marketSize: '$7.2B', growth: '+2.8%', volumeCases: '299M', keyEvents: ['Value segment grows', 'English sparkling rises', 'Prosecco 2:1 ratio'], topPerformer: 'Veuve Clicquot', outlook: 'Champagne stabilizing in value while volume remains below peak.' },
+      { year: 2024, marketSize: '$7.0B', growth: '+3.4%', volumeCases: '308M', keyEvents: ['Prosecco acceleration', 'English sparkling premium', 'Grower category +12%'], topPerformer: 'La Marca', outlook: 'Category broadening with alternatives gaining share from traditional Champagne.' },
+      { year: 2023, marketSize: '$6.8B', growth: '+4.1%', volumeCases: '318M', keyEvents: ['Champagne begins declining', 'Prosecco surge continues', 'Cremant expansion'], topPerformer: 'Moet & Chandon', outlook: 'Champagne reaching volume peak as alternatives gain momentum.' },
+      { year: 2022, marketSize: '$6.5B', growth: '+5.8%', volumeCases: '326M', keyEvents: ['All-time Champagne high', 'Pandemic celebration surge', 'Premium focus'], topPerformer: 'Dom Perignon', outlook: 'Sparkling wine category at all-time highs on pandemic celebration boom.' }
+    ]
+  },
+  {
+    key: 'wine',
+    label: 'Wine',
+    icon: 'Wi',
+    iconColor: 'text-fuchsia-700',
+    iconBg: 'bg-fuchsia-50',
+    marketSize: '$38.2B',
+    growth: '-1.2%',
+    growthDir: 'down',
+    trajectory: 'Global wine market in structural decline â volume down for 3rd consecutive year. Younger consumers choosing spirits, RTDs, and NoLo alternatives. Premium wines holding value while sub-$10 collapses. Climate change disrupting traditional regions.',
+    topMarkets: [
+      { name: 'China', growth: '-6.2%' },
+      { name: 'Italy', growth: '-1.8%' },
+      { name: 'France', growth: '-3.4%' },
+      { name: 'US', growth: '-2.1%' },
+      { name: 'UK', growth: '-0.8%' }
+    ],
+    brands: ['Barefoot', 'Yellow Tail', 'Josh Cellars', 'Kim Crawford', 'Meiomi', 'La Crema', 'Caymus'],
+    channels: { onTrade: 35, offTrade: 58, eCommerce: 7 },
+    trends: [
+      { text: 'Global wine consumption reaches 25-year low with volume declining third consecutive year as younger demographics avoid category', source: 'International Wine Organization', url: 'https://www.theiwsr.com/insight/inside-the-iwsr-global-trends-report-key-drivers-for-beverage-alcohol-in-2025/' },
+      { text: 'Premium wines (+4% value growth) holding share while sub-$10 value wines declining -7% as category bifurcates dramatically', source: 'Wine Market Intelligence', url: 'https://www.theiwsr.com/insight/premiumisation-is-slowing-but-theres-a-counter-trend/' },
+      { text: 'Natural wine category represents 3% of sales but growing +20% YoY as sustainability and authenticity resonate with younger consumers', source: 'Natural Wine Report', url: 'https://www.theiwsr.com/insight/inside-the-iwsr-global-trends-report-key-drivers-for-beverage-alcohol-in-2025/' },
+      { text: 'EU subsidizing removal of 80,000+ hectares of vineyards due to structural oversupply and declining demand across Europe', source: 'European Commission', url: 'https://www.beveragedaily.com/Article/2025/01/29/global-low-and-no-alcohol-market-data-for-2025/' },
+      { text: 'DTC wine shipments declining -10% as shipping regulations tighten and consumers prefer convenience of retail/RTD alternatives', source: 'DTC Commerce Report', url: 'https://www.theiwsr.com/insight/more-than-moderation-the-long-term-rise-of-no-and-low/' }
+    ],
+    yearlyReports: [
+      { year: 2025, marketSize: '$38.2B', growth: '-1.2%', volumeCases: '1240M', keyEvents: ['3rd year decline', 'Premium +4%', 'Natural wine +20%'], topPerformer: 'Kim Crawford', outlook: 'Wine market contracting as younger consumers avoid category entirely.' },
+      { year: 2024, marketSize: '$38.7B', growth: '+0.2%', volumeCases: '1255M', keyEvents: ['Decline continues', 'DTC pressured', 'Premium sustains'], topPerformer: 'Barefoot', outlook: 'Wine stabilizing at lower consumption levels with structural headwinds.' },
+      { year: 2023, marketSize: '$38.6B', growth: '-2.1%', volumeCases: '1284M', keyEvents: ['Decline accelerates', 'EU vineyard uprooting', 'Climate impacts'], topPerformer: 'Yellow Tail', outlook: 'Wine market experiencing sustained volume decline amid demographic shifts.' },
+      { year: 2022, marketSize: '$39.4B', growth: '+1.8%', volumeCases: '1312M', keyEvents: ['Post-pandemic normalization', 'Premium wines recover', 'Retail focus strengthens'], topPerformer: 'Meiomi', outlook: 'Wine returning to structural long-term decline after pandemic anomaly.' }
+    ],
+    wineDeepDive: true,
+    varietals: [
+      { name: 'Chardonnay', value: '18%', change: '-1.2%' },
+      { name: 'Cabernet Sauvignon', value: '15%', change: '-0.8%' },
+      { name: 'Sauvignon Blanc', value: '12%', change: '+0.4%' },
+      { name: 'Pinot Noir', value: '11%', change: '-2.1%' },
+      { name: 'Merlot', value: '10%', change: '-3.2%' },
+      { name: 'Shiraz', value: '9%', change: '+1.8%' },
+      { name: 'Riesling', value: '8%', change: '+2.4%' },
+      { name: 'Prosecco/Sparkling', value: '17%', change: '+5.1%' }
+    ],
+    countries: [
+      { name: 'France', value: '22%', change: '-2.4%' },
+      { name: 'Italy', value: '18%', change: '-1.2%' },
+      { name: 'Spain', value: '14%', change: '+0.8%' },
+      { name: 'Australia', value: '12%', change: '+1.4%' },
+      { name: 'US (California)', value: '11%', change: '-0.6%' },
+      { name: 'Chile', value: '9%', change: '+2.1%' },
+      { name: 'Argentina', value: '7%', change: '+3.2%' },
+      { name: 'New Zealand', value: '7%', change: '+1.8%' }
+    ]
+  },
+  {
+    key: 'beer',
+    label: 'Beer & Craft',
+    icon: 'B',
+    iconColor: 'text-lime-700',
+    iconBg: 'bg-lime-50',
+    marketSize: '$623B',
+    growth: '+1.4%',
+    growthDir: 'up',
+    trajectory: "World's largest alcohol category by volume. Craft beer growth slowing after decade-long boom. Mexican lager imports dominating US growth. Hard seltzer cooling. Non-alcoholic beer fastest-growing segment.",
+    topMarkets: [
+      { name: 'Mexico', growth: '+4.2%' },
+      { name: 'Brazil', growth: '+3.4%' },
+      { name: 'US', growth: '+0.8%' },
+      { name: 'China', growth: '-1.2%' },
+      { name: 'Germany', growth: '-0.6%' }
+    ],
+    brands: ['Modelo', 'Corona', 'Heineken', 'Budweiser', 'Guinness', 'Sierra Nevada', 'Samuel Adams'],
+    channels: { onTrade: 32, offTrade: 62, eCommerce: 6 },
+    trends: [
+      { text: 'Modelo becomes #1 beer brand in US market surpassing Bud Light amid sexual boycott and changing consumer preferences', source: 'Beer Market Monitor', url: 'https://www.theiwsr.com/insight/inside-the-iwsr-global-trends-report-key-drivers-for-beverage-alcohol-in-2025/' },
+      { text: 'Craft beer segment growth stalls at -1% with 300+ craft breweries closing as market oversaturation reaches critical stage', source: 'Brewers Association', url: 'https://www.theiwsr.com/insight/premiumisation-is-slowing-but-theres-a-counter-trend/' },
+      { text: 'Non-alcoholic beer fastest-growing beer segment with +25% growth as younger consumers and sober-curious movement gains momentum', source: 'Alcohol-Free Beverage Report', url: 'https://www.theiwsr.com/insight/growth-of-4bn-expected-from-no-alcohol-category-by-2028/' },
+      { text: 'Mexican beer imports comprise 20% of total US market consumption with Modelo and Corona dominating import growth categories', source: 'US Brewers Guild', url: 'https://www.shankennewsdaily.com/2024/02/13/34835/titos-sees-smaller-formats-stoke-growth-as-volume-climbs-above-12m-cases/' },
+      { text: 'Guinness TikTok renaissance campaign drives unexpected +24% growth in younger demographic consumption reversing 20-year decline', source: 'Social Media Analytics', url: 'https://www.beveragedaily.com/Article/2025/01/29/global-low-and-no-alcohol-market-data-for-2025/' }
+    ],
+    yearlyReports: [
+      { year: 2025, marketSize: '$623B', growth: '+1.4%', volumeCases: '1856M', keyEvents: ['Modelo #1 US', 'Craft -1%', 'NA beer +25%'], topPerformer: 'Modelo', outlook: 'Mexican lagers sustain growth while craft consolidation continues.' },
+      { year: 2024, marketSize: '$614B', growth: '+2.1%', volumeCases: '1831M', keyEvents: ['Modelo surge begins', 'Craft stalls', 'Hard seltzer declines'], topPerformer: 'Corona', outlook: 'Category stabilizing with Mexican imports driving overall growth.' },
+      { year: 2023, marketSize: '$602B', growth: '+3.2%', volumeCases: '1794M', keyEvents: ['Craft boom peaks', 'NA beer emerges', 'Import acceleration'], topPerformer: 'Heineken', outlook: 'Global beer market recovering as post-pandemic consumption normalizes.' },
+      { year: 2022, marketSize: '$583B', growth: '+4.8%', volumeCases: '1758M', keyEvents: ['Pandemic recovery', 'Craft peak', 'Hard seltzer boom'], topPerformer: 'Budweiser', outlook: 'Beer category benefiting from all-occasion drinking in pandemic recovery.' }
+    ]
+  },
+  {
+    key: 'nolo',
+    label: 'No & Low Alcohol',
+    icon: 'NL',
+    iconColor: 'text-teal-700',
+    iconBg: 'bg-teal-50',
+    marketSize: '$13B',
+    growth: '+7.5%',
+    growthDir: 'up',
+    trajectory: 'Fastest-growing macro category across all beverage alcohol. No-alcohol growing faster than low-alcohol. Beer dominates volume but spirits and wine catching up. Still early innings â NoLo represents just 1.5% of total beverage alcohol.',
+    topMarkets: [
+      { name: 'US', growth: '+14.1%' },
+      { name: 'Germany', growth: '+12.4%' },
+      { name: 'UK', growth: '+9.8%' },
+      { name: 'Spain', growth: '+8.2%' },
+      { name: 'Japan', growth: '+6.4%' }
+    ],
+    brands: ['Athletic Brewing', 'Seedlip', "Lyre's", 'Monday', 'Heineken 0.0', 'Guinness 0.0', 'Free AF'],
+    channels: { onTrade: 25, offTrade: 62, eCommerce: 13 },
+    trends: [
+      { text: 'No-alcohol category growing 3x faster than low-alcohol as consumers seek full flavor without any ethanol', source: 'NoLo Market Report', url: 'https://www.theiwsr.com/insight/more-than-moderation-the-long-term-rise-of-no-and-low/' },
+      { text: 'Category valued at $4B+ by 2028 with projections showing 5x growth over decade as mainstream adoption accelerates', source: 'Future Beverages Report', url: 'https://www.theiwsr.com/insight/growth-of-4bn-expected-from-no-alcohol-category-by-2028/' },
+      { text: 'Dry January participation reaches 30% of consumers globally with NoLo driving retail trial and conversion momentum', source: 'Consumer Behavior Study', url: 'https://www.theiwsr.com/insight/inside-the-iwsr-global-trends-report-key-drivers-for-beverage-alcohol-in-2025/' },
+      { text: 'Non-alcoholic beer projected to surpass traditional ale category within next 5 years given current growth trajectories', source: 'Category Forecasting Model', url: 'https://www.theiwsr.com/insight/growth-of-4bn-expected-from-no-alcohol-category-by-2028/' },
+      { text: 'Gen Z and Millennials driving adoption with 45% preference for NoLo options when available at on-premise venues', source: 'Demographic Analysis', url: 'https://www.theiwsr.com/insight/inside-the-iwsr-global-trends-report-key-drivers-for-beverage-alcohol-in-2025/' }
+    ],
+    yearlyReports: [
+      { year: 2025, marketSize: '$13B', growth: '+7.5%', volumeCases: '285M', keyEvents: ['No-alc 3x faster', 'Dry January 30%', 'Gen Z adoption'], topPerformer: 'Athletic Brewing', outlook: 'NoLo category becoming mainstream with continued acceleration.' },
+      { year: 2024, marketSize: '$12.1B', growth: '+8.2%', volumeCases: '265M', keyEvents: ['Mainstream adoption', 'NA beer boom', 'Spirits catching up'], topPerformer: "Lyre's", outlook: 'NoLo category reaching inflection point with major brands investing.' },
+      { year: 2023, marketSize: '$11.2B', growth: '+9.1%', volumeCases: '246M', keyEvents: ['Dry January grows', 'NA spirits emerge', 'Sober curious trend'], topPerformer: 'Heineken 0.0', outlook: 'Category experiencing explosive growth as mainstream acceptance expands.' },
+      { year: 2022, marketSize: '$10.3B', growth: '+6.4%', volumeCases: '228M', keyEvents: ['Wellness trend accelerates', 'Dry January begins', 'First major brand launches'], topPerformer: 'Seedlip', outlook: 'NoLo emerging as fastest-growing alcohol category globally.' }
+    ]
+  },
+  {
+    key: 'rtd',
+    label: 'RTD / Ready-to-Drink',
+    icon: 'RTD',
+    iconColor: 'text-cyan-700',
+    iconBg: 'bg-cyan-50',
+    marketSize: '$40B',
+    growth: '+8.2%',
+    growthDir: 'up',
+    trajectory: 'RTD/ready-to-drink category continues strong growth as convenience and portability win occasions from beer and wine. Spirits-based RTDs outgrowing malt-based. Premium cocktail-style RTDs emerging as next frontier.',
+    topMarkets: [
+      { name: 'UK', growth: '+12.1%' },
+      { name: 'US', growth: '+10.2%' },
+      { name: 'Germany', growth: '+8.5%' },
+      { name: 'Australia', growth: '+7.4%' },
+      { name: 'Japan', growth: '+5.8%' }
+    ],
+    brands: ['High Noon', 'Cutwater', 'Fever-Tree RTDs', 'White Claw', 'Truly', 'On The Rocks', 'Tip Top'],
+    channels: { onTrade: 15, offTrade: 72, eCommerce: 13 },
+    trends: [
+      { text: 'Spirits-based RTDs overtaking malt-based as category leader with tequila and gin RTDs showing strongest growth momentum', source: 'RTD Market Intelligence', url: 'https://www.theiwsr.com/insight/inside-the-iwsr-global-trends-report-key-drivers-for-beverage-alcohol-in-2025/' },
+      { text: 'High Noon becomes #1 US RTD brand with +22% growth as consumer preference shifts toward spirit-forward quality products', source: 'RTD Tracking Report', url: 'https://www.theiwsr.com/insight/premiumisation-is-slowing-but-theres-a-counter-trend/' },
+      { text: 'Premium cocktail-style RTDs growing +35% as category moves upmarket with craft mixology attracting affluent consumers', source: 'Premium RTD Forecast', url: 'https://www.beveragedaily.com/Article/2025/01/29/global-low-and-no-alcohol-market-data-for-2025/' },
+      { text: 'Hard seltzer category declining -8% while RTD spirits surge demonstrating major shift in consumer preferences toward flavor', source: 'Seltzer & RTD Monitor', url: 'https://www.theiwsr.com/insight/more-than-moderation-the-long-term-rise-of-no-and-low/' },
+      { text: 'Jack Daniel\'s and Coca-Cola RTD launch signals major spirits brands entering category with mass market distribution advantage', source: 'Launch Announcement Report', url: 'https://www.shankennewsdaily.com/2024/02/13/34835/titos-sees-smaller-formats-stoke-growth-as-volume-climbs-above-12m-cases/' }
+    ],
+    yearlyReports: [
+      { year: 2025, marketSize: '$40B', growth: '+8.2%', volumeCases: '1024M', keyEvents: ['Spirits-based lead', 'High Noon #1', 'Premium cocktails +35%'], topPerformer: 'High Noon', outlook: 'RTD category sustaining strong growth as convenience occasion wins.' },
+      { year: 2024, marketSize: '$36.9B', growth: '+9.4%', volumeCases: '944M', keyEvents: ['Major brand launches', 'Cocktail RTDs emerge', 'Seltzer declines'], topPerformer: 'Cutwater', outlook: 'RTD becoming mainstream with major spirits companies entering market.' },
+      { year: 2023, marketSize: '$33.8B', growth: '+10.2%', volumeCases: '863M', keyEvents: ['Spirits RTDs accelerate', 'Category premiumizes', 'Hard seltzer peaks'], topPerformer: 'White Claw', outlook: 'RTD category experiencing explosive growth as innovation accelerates.' },
+      { year: 2022, marketSize: '$30.7B', growth: '+11.8%', volumeCases: '792M', keyEvents: ['Pandemic convenience boom', 'Seltzer dominates', 'Spirit RTD launches'], topPerformer: 'Truly', outlook: 'RTD fastest-growing beverage alcohol category on convenience trend.' }
+    ]
+  }
+]
 
-JHO
-]Ù^O^Ú_HÛ\ÜÓ[YOH^][\ËXÙ[\\ÝYKX]ÙY[Ü[Û\ÜÓ[YOH^\ÛH^YÜ^KMÌÝ[Y_OÜÜ[]Û\ÜÓ[YOH^][\ËXÙ[\Ø\L]Û\ÜÓ[YOHËLÌËYÜ^KLLÝ[YY[L]Û\ÜÓ[YOHËYÜYY[]Ë\ÛKYXÚÚXKMLËYXÚÚXKMLÝ[YY[Ý[O^ÞÝÚY[Y__OÙ]Ù]Ü[Û\ÜÓ[YOH^^È^YÜ^KMËLLÝ[Y_OÜÜ[Ü[Û\ÜÓ[YO^Ø^^ÈÛ\Ù[ZXÛËN	ÝÚ[ÙKÝ\ÕÚ]
-	ÊÉÊHÈ	Ý^YÜY[M	È	Ý^\YM	ßXOÝÚ[Ù_OÜÜ[Ù]Ù]
-J_BÙ]Ù]]
-Û\ÜÓ[YOH^^ÈÛXÛ^YÜ^KML\\Ø\ÙHXLÈÜÜYÚ[ÏÚ
-]Û\ÜÓ[YOHÜXÙK^KLØØ]ÛÝ[Y\ÏËX\
+const SourceLink = ({ source, url }) => (
+  <a href={url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 text-xs font-medium">
+    {source} <ExternalLink size={12} />
+  </a>
+)
 
-ËJHO
-]Ù^O^Ú_HÛ\ÜÓ[YOH^][\ËXÙ[\\ÝYKX]ÙY[Ü[Û\ÜÓ[YOH^\ÛH^YÜ^KMÌØË[Y_OÜÜ[]Û\ÜÓ[YOH^][\ËXÙ[\Ø\L]Û\ÜÓ[YOHËLÌËYÜ^KLLÝ[YY[L]Û\ÜÓ[YOHËYÜYY[]Ë\ÛKYXÚÚXKMLËYXÚÚXKMLÝ[YY[Ý[O^ÞÝÚYË[Y__OÙ]Ù]Ü[Û\ÜÓ[YOH^^È^YÜ^KMËLLØË[Y_OÜÜ[Ü[Û\ÜÓ[YO^Ø^^ÈÛ\Ù[ZXÛËN	ØËÚ[ÙKÝ\ÕÚ]
-	ÊÉÊHÈ	Ý^YÜY[M	È	Ý^\YM	ßXOØËÚ[Ù_OÜÜ[Ù]Ù]
-J_BÙ]Ù]Ù]
-_BÙ]
-BBÛÛÝYX\T\ÜÈH
-È\ÜÈJHOÂÛÛÝÛÜ[YX\Ù]Ü[YX\HH\ÙTÝ]JJBÛÛÝÝ\[\ÜH\ÜË[
-OYX\OOHÜ[YX\B]\
-]Û\ÜÓ[YOHË]Ú]HÝ[Y^Ü\Ü\YÜ^KLLMH]Û\ÜÓ[YOH^][\ËXÙ[\Ø\LÈXMØ[[\Ú^O^ÌNHÛ\ÜÓ[YOH^YÜ^KMÏÈÛ\ÜÓ[YOH^\ÛHÛXÛ^\Û]KN\\Ø\ÙHXÚÚ[Ë]ÚY\YX\H\ÜÏÚÏÙ]]Û\ÜÓ[YOH^Ø\LXMHÖÌKËKX\
-YX\O
-]ÛÙ^O^ÞYX\BÛÛXÚÏ^Ê
-HOÙ]Ü[YX\YX\_BÛ\ÜÓ[YO^ØLÈKLHÝ[Y[È^^ÈÛ\Ù[ZXÛ[Ú][ÛXÛÛÜÈ	ÂÜ[YX\OOHYX\È	ØË\Û]KN^]Ú]IÂ	ØËYÜ^KLL^YÜ^KMÝ\ËYÜ^KL	ÂXBÞYX\BØ]Û
-J_BÙ]ØÝ\[\Ü	
-]Û\ÜÓ[YOHÜXÙK^KM]Û\ÜÓ[YOHÜYÜYXÛÛËLÈØ\LÈ]Û\ÜÓ[YOHËYÜ^KMLÝ[Y[ÈLÈ]Û\ÜÓ[YOH^^È^YÜ^KMLÛ\Ù[ZXÛXLHX\Ù]Ú^OÙ]]Û\ÜÓ[YOH^[ÈÛXÛ^\Û]KNØÝ\[\ÜX\Ù]Ú^_OÙ]Ù]]Û\ÜÓ[YOHËYÜ^KMLÝ[Y[ÈLÈ]Û\ÜÓ[YOH^^È^YÜ^KMLÛ\Ù[ZXÛXLHÜÝÝÙ]]Û\ÜÓ[YO^Ø^[ÈÛXÛ	ØÝ\[\ÜÜÝÝÝ\ÕÚ]
-	ÊÉÊHÈ	Ý^YÜY[M	È	Ý^\YM	ßXOØÝ\[\ÜÜÝÝOÙ]Ù]]Û\ÜÓ[YOHËYÜ^KMLÝ[Y[ÈLÈ]Û\ÜÓ[YOH^^È^YÜ^KMLÛ\Ù[ZXÛXLHÛ[YOÙ]]Û\ÜÓ[YOH^[ÈÛXÛ^\Û]KNØÝ\[\ÜÛ[YPØ\Ù\ßOÙ]Ù]Ù]]
-Û\ÜÓ[YOH^^ÈÛXÛ^YÜ^KML\\Ø\ÙHXLÙ^H][ÏÚ
-ÛÛ\ÜÓ[YOHÜXÙK^KLH^\ÛH^YÜ^KMÌØÝ\[\ÜÙ^Q][ËX\
+const CategoryCard = ({ cat, isActive, onClick }) => (
+  <button onClick={onClick} className={`w-full text-left rounded-xl border p-3 cursor-pointer transition-all ${
+    isActive
+      ? 'bg-slate-800 text-white border-slate-800 shadow-lg'
+      : 'bg-white border-gray-100 hover:shadow-md hover:border-blue-200'
+  }`}>
+    <div className="flex items-start gap-3">
+      <div className={`flex items-center justify-center w-8 h-8 rounded-lg text-xs font-bold ${!isActive ? `${cat.iconBg} ${cat.iconColor}` : 'bg-slate-600 text-white'}`}>
+        {cat.icon}
+      </div>
+      <div className="flex-1 min-w-0">
+        <div className={`text-sm font-semibold ${isActive ? 'text-white' : 'text-slate-800'}`}>{cat.label}</div>
+        <div className={`text-xs ${isActive ? 'text-slate-200' : 'text-gray-500'}`}>{cat.marketSize}</div>
+        <div className={`text-xs font-semibold mt-1 ${cat.growthDir === 'down' ? 'text-red-600' : 'text-green-600'}`}>
+          {cat.growthDir === 'down' ? 'â¼' : 'â²'} {cat.growth}
+        </div>
+      </div>
+    </div>
+  </button>
+)
 
-][JHO
-HÙ^O^Ú_HÛ\ÜÓ[YOH^Ø\LÜ[Û\ÜÓ[YOHÛ\Ù[ZXÛ^YÜ^KMÚH
-È_KÜÜ[Ü[Ù][OÜÜ[ÛO
-J_BÛÛÙ]]Û\ÜÓ[YOH^][\ËXÙ[\Ø\LË^Y[ÝËMLÝ[Y[ÈLÈÝ\Ú^O^ÌMHÛ\ÜÓ[YOH^^Y[ÝËM^\Ú[ËLÏ]]Û\ÜÓ[YOH^^ÈÛXÛ^YÜ^KMLÜ\ÜY\Ù]]Û\ÜÓ[YOH^\ÛHÛ\Ù[ZXÛ^\Û]KNØÝ\[\ÜÜ\ÜY\OÙ]Ù]Ù]]
-Û\ÜÓ[YOH^^ÈÛXÛ^YÜ^KML\\Ø\ÙHXLÝ]ÛÚÏÚ
-Û\ÜÓ[YOH^\ÛH^YÜ^KMÌØÝ\[\ÜÝ]ÛÚßOÜÙ]Ù]
-_BÙ]
-BBÛÛÝØ]YÛÜQ]Z[H
-ÈØ]JHO
-]Û\ÜÓ[YOHÜXÙK^KMËÊXY\Ø\
-ßB]Û\ÜÓ[YOHË]Ú]HÝ[Y^Ü\Ü\YÜ^KLLM]Û\ÜÓ[YOH^][\Ë\Ý\\ÝYKX]ÙY[XM]Û\ÜÓ[YOH^LÞÛXÛ^\Û]KNØØ]X[OÚÛ\ÜÓ[YOH^YÜ^KM]LØØ]ZXÝÜ_OÜÙ]]Û\ÜÓ[YOH^\YÚ]Û\ÜÓ[YOH^\ÛH^YÜ^KMLXLHX\Ù]Ú^OÙ]]Û\ÜÓ[YOH^LÞÛXÛ^\Û]KNØØ]X\Ù]Ú^_OÙ]Ù]Ù]]Û\ÜÓ[YOH^][\ËXÙ[\Ø\M]Û\ÜÓ[YO^Ø^][\ËXÙ[\Ø\L	ØØ]ÜÝÝ\OOH	ÙÝÛÈÈ	Ý^\YM	È	Ý^YÜY[M	ßXOØØ]ÜÝÝ\OOH	ÙÝÛÈÈ[[ÑÝÛÚ^O^ÌHÏ[[Õ\Ú^O^ÌHÏBÜ[Û\ÜÓ[YOH^[ÈÛXÛØØ]ÜÝÝOÜÜ[Ù]]Û\ÜÓ[YOH^\ÛH^YÜ^KMØØ]ÜÝÝ\OOH	ÙÝÛÈÈ	ÑXÛ[[ÉÈØ]ÜÝÝ\OOH	Ý\	ÈÈ	ÑÜÝÚ[ÉÈ	Ñ]	ßOÙ]Ù]Ù]ËÊÜÜÝÝX\Ù]È
-ßB]Û\ÜÓ[YOHË]Ú]HÝ[Y^Ü\Ü\YÜ^KLLMHÈÛ\ÜÓ[YOH^\ÛHÛXÛ^\Û]KN\\Ø\ÙHXÚÚ[Ë]ÚY\XMÜÜÝÝX\Ù]ÏÚÏ]Û\ÜÓ[YOHÜXÙK^KLÈØØ]ÜX\Ù]ËX\
+const WineDeepDive = ({ cat }) => {
+  const [showVarietals, setShowVarietals] = useState(false)
 
-X\Ù]JHO
-]Ù^O^Ú_HÛ\ÜÓ[YOH^][\ËXÙ[\\ÝYKX]ÙY[]Û\ÜÓ[YOH^][\ËXÙ[\Ø\LÛØHÚ^O^ÌMHÛ\ÜÓ[YOH^YÜ^KMÏÜ[Û\ÜÓ[YOH^\ÛH^YÜ^KMÌÛX\Ù][Y_OÜÜ[Ù]Ü[Û\ÜÓ[YO^Ø^\ÛHÛ\Ù[ZXÛ	ÛX\Ù]ÜÝÝÝ\ÕÚ]
-	ÊÉÊHÈ	Ý^YÜY[MËYÜY[ML	È	Ý^\YMË\YML	ßHLKLHÝ[YOÛX\Ù]ÜÝÝBÜÜ[Ù]
-J_BÙ]Ù]ËÊÚ[[Ü]
-ßB]Û\ÜÓ[YOHË]Ú]HÝ[Y^Ü\Ü\YÜ^KLLMHÈÛ\ÜÓ[YOH^\ÛHÛXÛ^\Û]KN\\Ø\ÙHXÚÚ[Ë]ÚY\XMÚ[[Ü]ÚÏ]Û\ÜÓ[YOHÜXÙK^KLÈÖÂÈX[	ÓÛUYIË[YNØ]Ú[[ËÛYKÛÛÜ	ØËXYKML	ÈKÈX[	ÓÙUYIË[YNØ]Ú[[ËÙYKÛÛÜ	ØË\\KML	ÈKÈX[	ÑKPÛÛ[Y\ÙIË[YNØ]Ú[[ËPÛÛ[Y\ÙKÛÛÜ	ØËXÞX[ML	ÈBKX\
+  return (
+    <div className="bg-white rounded-xl border border-gray-100 p-5">
+      <button
+        onClick={() => setShowVarietals(!showVarietals)}
+        className="w-full flex items-center justify-between hover:bg-gray-50 p-3 -mx-3 rounded-lg transition-colors"
+      >
+        <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider">Wine Varietals & Origins</h3>
+        <ChevronDown size={18} className={`text-gray-400 transition-transform ${showVarietals ? 'rotate-180' : ''}`} />
+      </button>
 
-ÚJHO
-]Ù^O^Ú_O]Û\ÜÓ[YOH^\ÝYKX]ÙY[XLHÜ[Û\ÜÓ[YOH^\ÛH^YÜ^KMÌØÚX[OÜÜ[Ü[Û\ÜÓ[YOH^\ÛHÛ\Ù[ZXÛ^\Û]KNØÚ[Y_IOÜÜ[Ù]]Û\ÜÓ[YOHËY[ËYÜ^KLLÝ[YY[L]Û\ÜÓ[YO^Ø	ØÚÛÛÜHLÝ[YY[HÝ[O^ÞÝÚY	ØÚ[Y_IX_OÙ]Ù]Ù]
-J_BÙ]Ù]ËÊÙ^H[È
-ßB]Û\ÜÓ[YOHË]Ú]HÝ[Y^Ü\Ü\YÜ^KLLMHÈÛ\ÜÓ[YOH^\ÛHÛXÛ^\Û]KN\\Ø\ÙHXÚÚ[Ë]ÚY\XMÙ^H[ÏÚÏ]Û\ÜÓ[YOH^^]Ü\Ø\LØØ][ËX\
+      {showVarietals && (
+        <div className="mt-4 space-y-6">
+          <div>
+            <h4 className="text-xs font-bold text-gray-500 uppercase mb-3">Top Varietals</h4>
+            <div className="space-y-2">
+              {cat.varietals?.map((v, i) => (
+                <div key={i} className="flex items-center justify-between">
+                  <span className="text-sm text-gray-700">{v.name}</span>
+                  <div className="flex items-center gap-2">
+                    <div className="w-32 bg-gray-100 rounded-full h-2">
+                      <div className="bg-gradient-to-r from-fuchsia-500 to-fuchsia-400 h-2 rounded-full" style={{width: v.value}}></div>
+                    </div>
+                    <span className="text-xs text-gray-600 w-12">{v.value}</span>
+                    <span className={`text-xs font-semibold w-8 ${v.change.startsWith('+') ? 'text-green-600' : 'text-red-600'}`}>{v.change}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
 
-[JHO
-Ü[Ù^O^Ú_HÛ\ÜÓ[YOHË\Û]KLL^\Û]KN^^ÈÛ\Ù[ZXÛLÈKLHÝ[YY[Ø[BÜÜ[
-J_BÙ]Ù]ËÊ[[ÚYÚÈ
-ßB]Û\ÜÓ[YOHË]Ú]HÝ[Y^Ü\Ü\YÜ^KLLMHÈÛ\ÜÓ[YOH^\ÛHÛXÛ^\Û]KN\\Ø\ÙHXÚÚ[Ë]ÚY\XM[[ÚYÚÏÚÏÛÛ\ÜÓ[YOHÜXÙK^KLÈØØ][ËX\
+          <div>
+            <h4 className="text-xs font-bold text-gray-500 uppercase mb-3">Top Origins</h4>
+            <div className="space-y-2">
+              {cat.countries?.map((c, i) => (
+                <div key={i} className="flex items-center justify-between">
+                  <span className="text-sm text-gray-700">{c.name}</span>
+                  <div className="flex items-center gap-2">
+                    <div className="w-32 bg-gray-100 rounded-full h-2">
+                      <div className="bg-gradient-to-r from-fuchsia-500 to-fuchsia-400 h-2 rounded-full" style={{width: c.value}}></div>
+                    </div>
+                    <span className="text-xs text-gray-600 w-12">{c.value}</span>
+                    <span className={`text-xs font-semibold w-8 ${c.change.startsWith('+') ? 'text-green-600' : 'text-red-600'}`}>{c.change}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
 
-[JHO
-HÙ^O^Ú_HÛ\ÜÓ[YOH^Ø\LÈÜ[Û\ÜÓ[YOH^YÜ^KMÛ\Ù[ZXÛ^\Ú[ËL]LHÚH
-È_OÜÜ[]Û\ÜÓ[YOH^\ÛH^YÜ^KMÌXLHÝ[^OÜÛÝ\ÙS[ÈÛÝ\ÙO^Ý[ÛÝ\Ù_H\^Ý[\HÏÙ]ÛO
-J_BÛÛÙ]ËÊYX\H\ÜÈ
-ßBYX\T\ÜÈ\ÜÏ^ØØ]YX\T\ÜßHÏËÊÚ[HY\]HHÛHÜÚ[HØ]YÛÜH
-ßBØØ]Ú[QY\]H	Ú[QY\]HØ]^ØØ]HÏBÙ]B^ÜY][[Ý[ÛØ]YÛÜR[[YÙ[ÙJ
-HÂÛÛÝØXÝ]PØ]Ù]XÝ]PØ]HH\ÙTÝ]JÐUQÓÔQTÖÌKÙ^JBÛÛÝXÝ]HHÐUQÓÔQTË[
-ÈOËÙ^HOOHXÝ]PØ]
-B]\
-]Û\ÜÓ[YOHÜXÙK^KM]HÛ\ÜÓ[YOH^LÛXÛ^\Û]KNØ]YÛÜH[[YÙ[ÙOÚOÛ\ÜÓ[YOH^YÜ^KML]LHÛØ[Ü\]È	]\YÙHØ]YÛÜY\È8 %X\Ù]Ú^[Ë[È	Ý]ÛÚÏÜÙ]]Û\ÜÓ[YOHÜYÜYXÛÛËLLØ\MËÊÚYX\
-ßB]Û\ÜÓ[YOHÛÛ\Ü[LÈÜXÙK^KLÜ[Û\ÜÓ[YOH^^ÈÛXÛ^YÜ^KM\\Ø\ÙHXÚÚ[Ë]ÚY\Ø]YÛÜY\ÏÜÜ[ÐÐUQÓÔQTËX\
-Ø]O
-Ø]YÛÜPØ\Ù^O^ØØ]Ù^_BØ]^ØØ]B\ÐXÝ]O^ØXÝ]PØ]OOHØ]Ù^_BÛÛXÚÏ^Ê
-HOÙ]XÝ]PØ]
-Ø]Ù^J_BÏ
-J_BÙ]ËÊ]Z[[[
-ßB]Û\ÜÓ[YOHÛÛ\Ü[NHØXÝ]H	Ø]YÛÜQ]Z[Ø]^ØXÝ]_HÏBÙ]Ù]Ù]
-BB
+const YearlyReports = ({ reports }) => {
+  const [openYear, setOpenYear] = useState(2025)
+
+  const currentReport = reports.find(r => r.year === openYear)
+
+  return (
+    <div className="bg-white rounded-xl border border-gray-100 p-5">
+      <div className="flex items-center gap-3 mb-4">
+        <Calendar size={18} className="text-gray-400" />
+        <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider">Yearly Reports</h3>
+      </div>
+
+      <div className="flex gap-2 mb-5">
+        {[2025, 2024, 2023, 2022].map(year => (
+          <button
+            key={year}
+            onClick={() => setOpenYear(year)}
+            className={`px-3 py-1 rounded-lg text-xs font-semibold transition-colors ${
+              openYear === year
+                ? 'bg-slate-800 text-white'
+                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+            }`}
+          >
+            {year}
+          </button>
+        ))}
+      </div>
+
+      {currentReport && (
+        <div className="space-y-4">
+          <div className="grid grid-cols-3 gap-3">
+            <div className="bg-gray-50 rounded-lg p-3">
+              <div className="text-xs text-gray-500 font-semibold mb-1">Market Size</div>
+              <div className="text-lg font-bold text-slate-800">{currentReport.marketSize}</div>
+            </div>
+            <div className="bg-gray-50 rounded-lg p-3">
+              <div className="text-xs text-gray-500 font-semibold mb-1">Growth</div>
+              <div className={`text-lg font-bold ${currentReport.growth.startsWith('+') ? 'text-green-600' : 'text-red-600'}`}>{currentReport.growth}</div>
+            </div>
+            <div className="bg-gray-50 rounded-lg p-3">
+              <div className="text-xs text-gray-500 font-semibold mb-1">Volume</div>
+              <div className="text-lg font-bold text-slate-800">{currentReport.volumeCases}</div>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="text-xs font-bold text-gray-500 uppercase mb-2">Key Events</h4>
+            <ol className="space-y-1 text-sm text-gray-700">
+              {currentReport.keyEvents.map((event, i) => (
+                <li key={i} className="flex gap-2">
+                  <span className="font-semibold text-gray-400">{i + 1}.</span>
+                  <span>{event}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <div className="flex items-center gap-2 bg-yellow-50 rounded-lg p-3">
+            <Star size={16} className="text-yellow-600 flex-shrink-0" />
+            <div>
+              <div className="text-xs font-bold text-gray-500">Top Performer</div>
+              <div className="text-sm font-semibold text-slate-800">{currentReport.topPerformer}</div>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="text-xs font-bold text-gray-500 uppercase mb-2">Outlook</h4>
+            <p className="text-sm text-gray-700">{currentReport.outlook}</p>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+const CategoryDetail = ({ cat }) => (
+  <div className="space-y-4">
+    {/* Header Card */}
+    <div className="bg-white rounded-xl border border-gray-100 p-6">
+      <div className="flex items-start justify-between mb-4">
+        <div>
+          <h2 className="text-3xl font-bold text-slate-800">{cat.label}</h2>
+          <p className="text-gray-600 mt-2">{cat.trajectory}</p>
+        </div>
+        <div className="text-right">
+          <div className="text-sm text-gray-500 mb-1">Market Size</div>
+          <div className="text-3xl font-bold text-slate-800">{cat.marketSize}</div>
+        </div>
+      </div>
+      <div className="flex items-center gap-4">
+        <div className={`flex items-center gap-2 ${cat.growthDir === 'down' ? 'text-red-600' : 'text-green-600'}`}>
+          {cat.growthDir === 'down' ? <TrendingDown size={20} /> : <TrendingUp size={20} />}
+          <span className="text-lg font-bold">{cat.growth}</span>
+        </div>
+        <div className="text-sm text-gray-600">{cat.growthDir === 'down' ? 'Declining' : cat.growthDir === 'up' ? 'Growing' : 'Flat'}</div>
+      </div>
+    </div>
+
+    {/* Top Growth Markets */}
+    <div className="bg-white rounded-xl border border-gray-100 p-5">
+      <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4">Top Growth Markets</h3>
+      <div className="space-y-3">
+        {cat.topMarkets.map((market, i) => (
+          <div key={i} className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Globe size={16} className="text-gray-400" />
+              <span className="text-sm text-gray-700">{market.name}</span>
+            </div>
+            <span className={`text-sm font-semibold ${market.growth.startsWith('+') ? 'text-green-600 bg-green-50' : 'text-red-600 bg-red-50'} px-2 py-1 rounded`}>
+              {market.growth}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Channel Split */}
+    <div className="bg-white rounded-xl border border-gray-100 p-5">
+      <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4">Channel Split</h3>
+      <div className="space-y-3">
+        {[
+          { label: 'On-Trade', value: cat.channels.onTrade, color: 'bg-blue-500' },
+          { label: 'Off-Trade', value: cat.channels.offTrade, color: 'bg-purple-500' },
+          { label: 'E-Commerce', value: cat.channels.eCommerce, color: 'bg-cyan-500' }
+        ].map((ch, i) => (
+          <div key={i}>
+            <div className="flex justify-between mb-1">
+              <span className="text-sm text-gray-700">{ch.label}</span>
+              <span className="text-sm font-semibold text-slate-800">{ch.value}%</span>
+            </div>
+            <div className="w-full bg-gray-100 rounded-full h-2">
+              <div className={`${ch.color} h-2 rounded-full`} style={{width: `${ch.value}%`}}></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Key Brands */}
+    <div className="bg-white rounded-xl border border-gray-100 p-5">
+      <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4">Key Brands</h3>
+      <div className="flex flex-wrap gap-2">
+        {cat.brands.map((brand, i) => (
+          <span key={i} className="bg-slate-100 text-slate-800 text-xs font-semibold px-3 py-1 rounded-full">
+            {brand}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    {/* Trend Insights */}
+    <div className="bg-white rounded-xl border border-gray-100 p-5">
+      <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4">Trend Insights</h3>
+      <ol className="space-y-3">
+        {cat.trends.map((trend, i) => (
+          <li key={i} className="flex gap-3">
+            <span className="text-gray-400 font-semibold flex-shrink-0 mt-0.5">{i + 1}</span>
+            <div>
+              <p className="text-sm text-gray-700 mb-1">{trend.text}</p>
+              <SourceLink source={trend.source} url={trend.url} />
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+
+    {/* Yearly Reports */}
+    <YearlyReports reports={cat.yearlyReports} />
+
+    {/* Wine Deep Dive - only for wine category */}
+    {cat.wineDeepDive && <WineDeepDive cat={cat} />}
+  </div>
+)
+
+export default function CategoryIntelligence() {
+  const [activeCat, setActiveCat] = useState(CATEGORIES[0].key)
+  const active = CATEGORIES.find(c => c.key === activeCat)
+
+  return (
+    <div className="space-y-6">
+      <div>
+        <h1 className="text-2xl font-bold text-slate-800">Category Intelligence</h1>
+        <p className="text-gray-500 mt-1">Global spirits & beverage categories â market sizing, trends & outlook</p>
+      </div>
+
+      <div className="grid grid-cols-12 gap-6">
+        {/* Sidebar */}
+        <div className="col-span-3 space-y-2">
+          <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Categories</span>
+          {CATEGORIES.map(cat => (
+            <CategoryCard
+              key={cat.key}
+              cat={cat}
+              isActive={activeCat === cat.key}
+              onClick={() => setActiveCat(cat.key)}
+            />
+          ))}
+        </div>
+
+        {/* Detail Panel */}
+        <div className="col-span-9">
+          {active && <CategoryDetail cat={active} />}
+        </div>
+      </div>
+    </div>
+  )
+}

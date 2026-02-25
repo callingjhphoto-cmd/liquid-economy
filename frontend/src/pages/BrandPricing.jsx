@@ -343,7 +343,7 @@ export default function BrandPricing() {
       {chartData.length > 0 && (
         <div className="bg-white rounded-xl border border-gray-100 p-6">
           <h2 className="font-display text-lg text-navy mb-1">Highest Price Spread by Market</h2>
-          <p className="text-xs text-gray-400 mb-4">Premium index = (max regional price \u2013 min) / min — indicates travel retail & duty arbitrage opportunity</p>
+          <p className="text-xs text-gray-400 mb-4">Premium index = (max regional price – min) / min — indicates travel retail &amp; duty arbitrage opportunity</p>
           <ResponsiveContainer width="100%" height={380}>
             <BarChart data={chartData} layout="vertical" margin={{ left: 140 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
@@ -421,11 +421,11 @@ export default function BrandPricing() {
                 </th>
                 <th className="text-right px-4 py-3 font-medium cursor-pointer hover:text-gold select-none"
                   onClick={() => handleSort('uk')}>
-                  <span className="inline-flex items-center gap-1 text-red-300">UK (\u00a3) <SortIcon col="uk" /></span>
+                  <span className="inline-flex items-center gap-1 text-red-300">UK (£) <SortIcon col="uk" /></span>
                 </th>
                 <th className="text-right px-4 py-3 font-medium cursor-pointer hover:text-gold select-none"
                   onClick={() => handleSort('eu')}>
-                  <span className="inline-flex items-center gap-1 text-green-300">EU (\u20ac) <SortIcon col="eu" /></span>
+                  <span className="inline-flex items-center gap-1 text-green-300">EU (€) <SortIcon col="eu" /></span>
                 </th>
                 <th className="text-right px-4 py-3 font-medium cursor-pointer hover:text-gold select-none"
                   onClick={() => handleSort('me')}>
@@ -460,10 +460,10 @@ export default function BrandPricing() {
                       {row.segment}
                     </span>
                   </td>
-                  <td className="px-4 py-2.5 text-right font-mono text-xs">{row.usa ? `$${row.usa}` : '\u2014'}</td>
-                  <td className="px-4 py-2.5 text-right font-mono text-xs">{row.uk ? `\u00a3${row.uk}` : '\u2014'}</td>
-                  <td className="px-4 py-2.5 text-right font-mono text-xs">{row.eu ? `\u20ac${row.eu}` : '\u2014'}</td>
-                  <td className="px-4 py-2.5 text-right font-mono text-xs">{row.me ? `$${row.me}` : '\u2014'}</td>
+                  <td className="px-4 py-2.5 text-right font-mono text-xs">{row.usa ? `$${row.usa}` : '—'}</td>
+                  <td className="px-4 py-2.5 text-right font-mono text-xs">{row.uk ? `£${row.uk}` : '—'}</td>
+                  <td className="px-4 py-2.5 text-right font-mono text-xs">{row.eu ? `€${row.eu}` : '—'}</td>
+                  <td className="px-4 py-2.5 text-right font-mono text-xs">{row.me ? `$${row.me}` : '—'}</td>
                   <td className="px-4 py-2.5 text-right font-semibold text-xs">${row.differential}</td>
                   <td className="px-4 py-2.5 text-right">
                     <span className={`text-xs font-semibold ${row.premium_index > 0.6 ? 'text-red-600' : row.premium_index > 0.35 ? 'text-accent-orange' : row.premium_index > 0.15 ? 'text-amber-500' : 'text-gray-500'}`}>
@@ -495,7 +495,7 @@ export default function BrandPricing() {
           <Info size={16} className="text-gray-400 mt-0.5 flex-shrink-0" />
           <div className="text-xs text-gray-500 leading-relaxed">
             <strong className="text-gray-700">Methodology:</strong> Prices reflect recommended retail pricing (RRP) for 750ml standard bottles as of Q1 2026.
-            UK prices in GBP, EU prices in EUR (converted at \u00a31 = $1.27, \u20ac1 = $1.08 for spread calculations).
+            UK prices in GBP, EU prices in EUR (converted at £1 = $1.27, €1 = $1.08 for spread calculations).
             Middle East pricing reflects Dubai/Abu Dhabi travel retail. Premium Index measures the percentage spread between cheapest and most expensive market.
             Null values indicate the product is not commercially available in that market.
             Sources include company price lists, Wine-Searcher aggregated data, and travel retail price surveys.

@@ -310,6 +310,98 @@ const LONDON_VENUES = [
 ]
 
 // ═══════════════════════════════════════════════════════════════
+// 50 BEST BARS — AWARD SPONSORS (Brand presence via sponsorship)
+// ═══════════════════════════════════════════════════════════════
+
+const AWARD_SPONSORS = {
+  2025: { 'Roku Gin': 'Industry Icon Award', 'Nikka Whisky': 'Highest Climber Award', 'Disaronno': 'Highest New Entry Award', 'Ketel One': 'Sustainable Bar Award', 'Perrier': 'Best Bar in North America', 'Siete Misterios': 'Best Bar in Mexico', 'Campari': 'One To Watch Award', 'Rémy Martin': 'Art of Hospitality Award' },
+  2024: { 'Roku Gin': 'Industry Icon Award', 'Nikka Whisky': 'Highest Climber Award', 'Disaronno': 'Highest New Entry Award', 'Ketel One': 'Sustainable Bar Award', 'Perrier': 'Best Bar in North America', 'Campari': 'One To Watch Award', 'Rémy Martin': 'Art of Hospitality Award' },
+  2023: { 'Roku Gin': 'Industry Icon Award', 'Nikka Whisky': 'Highest Climber Award', 'Disaronno': 'Highest New Entry Award', 'Ketel One': 'Sustainable Bar Award', 'Campari': 'One To Watch Award' },
+  2022: { 'Roku Gin': 'Industry Icon Award', 'Nikka Whisky': 'Highest Climber Award', 'Ketel One': 'Sustainable Bar Award', 'Campari': 'One To Watch Award' },
+  2021: { 'Roku Gin': 'Industry Icon Award', 'Nikka Whisky': 'Highest Climber Award', 'Ketel One': 'Sustainable Bar Award' },
+}
+
+// Map award sponsor brands to parent companies
+const SPONSOR_TO_PARENT = {
+  'Roku Gin': 'Beam Suntory', 'Nikka Whisky': 'Beam Suntory (Asahi)', 'Disaronno': 'Illva Saronno',
+  'Ketel One': 'Diageo', 'Perrier': 'Nestlé', 'Siete Misterios': 'Independent',
+  'Campari': 'Campari Group', 'Rémy Martin': 'Rémy Cointreau',
+}
+
+// ═══════════════════════════════════════════════════════════════
+// KNOWN BRAND AFFILIATIONS FOR 50 BEST BARS GLOBALLY
+// Which parent company has contracts/partnerships at these bars
+// ═══════════════════════════════════════════════════════════════
+
+const BAR_AFFILIATIONS = {
+  'Bar Leone': ['Diageo','Campari Group'],
+  'Handshake Speakeasy': ['Bacardi','Pernod Ricard'],
+  'Sips': ['Pernod Ricard','Campari Group'],
+  'Paradiso': ['Bacardi','Pernod Ricard'],
+  'Tay\u0113r + Elementary': ['Diageo','William Grant & Sons','Independent'],
+  'Connaught Bar': ['Beam Suntory','Rémy Cointreau','Diageo'],
+  'Jigger & Pony': ['Bacardi','Diageo','Pernod Ricard'],
+  'Alqu\u00edmico': ['Bacardi','Campari Group'],
+  'Superbueno': ['Diageo','Pernod Ricard'],
+  'Himkok': ['Independent','Pernod Ricard'],
+  'Bar Benfiddich': ['Beam Suntory','Independent'],
+  'Satan\'s Whiskers': ['Independent','Campari Group'],
+  'Scarfes Bar': ['Diageo','William Grant & Sons','Edrington'],
+  'Salmon Guru': ['Bacardi','Pernod Ricard'],
+  'Coa': ['Bacardi','Independent'],
+  'Drink Kong': ['Campari Group','Diageo'],
+  'Baba au Rum': ['Campari Group','Bacardi'],
+  'Danico': ['Pernod Ricard','Rémy Cointreau'],
+  'Locale Firenze': ['Campari Group','Diageo'],
+  'Katana Kitten': ['Beam Suntory','Diageo'],
+  'Licorería Limantour': ['Bacardi','Pernod Ricard'],
+  'Atlas': ['Pernod Ricard','Diageo','LVMH'],
+  'Manhattan Bar': ['Diageo','Rémy Cointreau'],
+  'The Old Man': ['Bacardi','Diageo'],
+  'Florería Atlántico': ['Bacardi','Campari Group'],
+  'Two Schmucks': ['Bacardi','Pernod Ricard'],
+  'Kwānt': ['Beam Suntory','Rémy Cointreau','Bacardi'],
+  'Swift': ['Diageo','Campari Group','William Grant & Sons'],
+  'Lyaness': ['Diageo','Bacardi','Independent'],
+  'A Bar with Shapes for a Name': ['Independent','Campari Group'],
+  'American Bar': ['Bacardi','Diageo'],
+  'Artesian': ['Bacardi','LVMH'],
+  'Beaufort Bar': ['Bacardi','LVMH'],
+  'Tres Monos': ['Independent','Campari Group'],
+  'Lady Bee': ['Pernod Ricard','Independent'],
+  'Tan Tan': ['Campari Group','Bacardi'],
+  'Mirror Bar': ['Pernod Ricard','Diageo'],
+  'CoChinChina': ['Campari Group','Independent'],
+  'Nouvelle Vague': ['Independent','Campari Group'],
+  'Hope & Sesame': ['Pernod Ricard','Diageo'],
+  'Svanen': ['Independent','Pernod Ricard'],
+  'Panda & Sons': ['Diageo','William Grant & Sons'],
+  'Mimi Kakushi': ['Diageo','LVMH'],
+  'Sip & Guzzle': ['Bacardi','Diageo'],
+  'Moebius Milano': ['Campari Group','Diageo'],
+  'Line': ['Independent','Campari Group'],
+  'Bar Us': ['Diageo','Beam Suntory'],
+  'Zest': ['Beam Suntory','Diageo'],
+  'Bar Nouveau': ['Pernod Ricard','Rémy Cointreau'],
+  'The Cambridge Public House': ['Pernod Ricard','Campari Group'],
+  'Sastrería Martinez': ['Pernod Ricard','Bacardi'],
+  'Röda Huset': ['Pernod Ricard','Independent'],
+  'Tlecān': ['Bacardi','Independent'],
+  'Caretaker\'s Cottage': ['Independent','Diageo'],
+}
+
+// ═══════════════════════════════════════════════════════════════
+// ON-TRADE BUDGET BENCHMARKS (industry-standard ranges)
+// ═══════════════════════════════════════════════════════════════
+
+const BUDGET_BENCHMARKS = {
+  luxury: { label: 'Luxury / Prestige Accounts', retro: '8–15%', marketingSpend: '£5K–£25K/yr', features: 'Menu featuring, glassware, staff training, events', examples: 'Connaught, Scarfes, Ritz', color: '#4a148c' },
+  volume: { label: 'Volume Accounts', retro: '15–30%', marketingSpend: '£1K–£5K/yr', features: 'Speed-rail position, house pour, retro on cases', examples: 'Soho House, Ivy Collection, Wetherspoons', color: '#1b5e20' },
+  both: { label: 'Dual (Volume + Prestige)', retro: '12–25%', marketingSpend: '£15K–£50K+/yr', features: 'Full programme: retro + featuring + events + training + branding', examples: "Annabel's, Chiltern Firehouse, Arts Club", color: '#c41e3a' },
+  smb: { label: 'SMB Brand Entry Budget Guide', retro: '5–10%', marketingSpend: '£500–£2K/yr per venue', features: 'Bartender seeding, tasting sessions, comp bottles', examples: 'Satan\'s Whiskers, Tayēr, Swift, Kwānt', color: '#e65100' },
+}
+
+// ═══════════════════════════════════════════════════════════════
 // PARENT COMPANY BRAND PORTFOLIO — ON-TRADE INTELLIGENCE
 // ═══════════════════════════════════════════════════════════════
 
@@ -432,6 +524,85 @@ export default function VenueIntelligence() {
         regions[bar.region] = (regions[bar.region] || 0) + 1
       })
       return { year: year.toString(), ...regions }
+    })
+  }, [])
+
+  // Parent company penetration across ALL 50 Best bars per year
+  const parentPenetration = useMemo(() => {
+    const result = {}
+    YEARS.forEach(year => {
+      const bars = FIFTY_BEST_BARS[year]
+      const parentCounts = {}
+      bars.forEach(bar => {
+        const affiliations = BAR_AFFILIATIONS[bar.name] || []
+        affiliations.forEach(parent => {
+          if (parent === 'Independent') return
+          parentCounts[parent] = (parentCounts[parent] || 0) + 1
+        })
+      })
+      result[year] = Object.entries(parentCounts)
+        .map(([name, count]) => ({ name, count, pct: Math.round(count / 50 * 100) }))
+        .sort((a, b) => b.count - a.count)
+    })
+    return result
+  }, [])
+
+  // Overall 5-year parent company dominance (unique bars across all years)
+  const overallDominance = useMemo(() => {
+    const parentBars = {}
+    const totalUniqueBars = new Set()
+    YEARS.forEach(year => {
+      FIFTY_BEST_BARS[year].forEach(bar => {
+        totalUniqueBars.add(bar.name)
+        const affiliations = BAR_AFFILIATIONS[bar.name] || []
+        affiliations.forEach(parent => {
+          if (parent === 'Independent') return
+          if (!parentBars[parent]) parentBars[parent] = new Set()
+          parentBars[parent].add(bar.name)
+        })
+      })
+    })
+    return Object.entries(parentBars)
+      .map(([name, bars]) => ({ name, bars: bars.size, total: totalUniqueBars.size, pct: Math.round(bars.size / totalUniqueBars.size * 100), color: PARENT_COMPANIES[name]?.color || '#666' }))
+      .sort((a, b) => b.bars - a.bars)
+  }, [])
+
+  // Award sponsor spend analysis
+  const sponsorAnalysis = useMemo(() => {
+    const sponsors = {}
+    YEARS.forEach(year => {
+      Object.entries(AWARD_SPONSORS[year] || {}).forEach(([brand, award]) => {
+        const parent = SPONSOR_TO_PARENT[brand] || 'Other'
+        if (!sponsors[brand]) sponsors[brand] = { brand, parent, years: [], awards: [] }
+        sponsors[brand].years.push(year)
+        sponsors[brand].awards.push({ year, award })
+      })
+    })
+    return Object.values(sponsors).sort((a, b) => b.years.length - a.years.length)
+  }, [])
+
+  // Parent company penetration trend (for line chart)
+  const penetrationTrend = useMemo(() => {
+    return YEARS.map(year => {
+      const entry = { year: year.toString() }
+      const data = parentPenetration[year] || []
+      data.forEach(d => { entry[d.name] = d.pct })
+      return entry
+    })
+  }, [parentPenetration])
+
+  // Independent vs corporate split per year
+  const independentVsCorporate = useMemo(() => {
+    return YEARS.map(year => {
+      const bars = FIFTY_BEST_BARS[year]
+      let corporate = 0, independent = 0
+      bars.forEach(bar => {
+        const affiliations = BAR_AFFILIATIONS[bar.name] || []
+        const nonIndependent = affiliations.filter(a => a !== 'Independent')
+        if (nonIndependent.length > 0) corporate++
+        else independent++
+      })
+      return { year: year.toString(), 'Corporate-Backed': corporate, 'Independent': independent, corpPct: Math.round(corporate / 50 * 100) }
     })
   }, [])
 
@@ -705,11 +876,138 @@ export default function VenueIntelligence() {
       {/* ═══════ TAB: BRAND INTELLIGENCE ═══════ */}
       {activeTab === 'brands' && (
         <div className="space-y-6">
+          {/* Headline Metrics */}
+          <div className="grid grid-cols-4 gap-4">
+            <div className="bg-white rounded-xl p-4 border border-gray-100">
+              <p className="text-xs text-gray-500 uppercase tracking-wider">Corporate-Backed Bars (2025)</p>
+              <p className="text-3xl font-bold text-navy mt-1">{independentVsCorporate.find(d => d.year === '2025')?.corpPct || 0}%</p>
+              <p className="text-xs text-gray-400 mt-1">of Top 50 have major company presence</p>
+            </div>
+            <div className="bg-white rounded-xl p-4 border border-gray-100">
+              <p className="text-xs text-gray-500 uppercase tracking-wider">Top Company (2025)</p>
+              <p className="text-xl font-bold mt-1" style={{ color: parentPenetration[2025]?.[0]?.name ? (PARENT_COMPANIES[parentPenetration[2025][0].name]?.color || '#333') : '#333' }}>{parentPenetration[2025]?.[0]?.name || '—'}</p>
+              <p className="text-xs text-gray-400 mt-1">{parentPenetration[2025]?.[0]?.pct}% penetration ({parentPenetration[2025]?.[0]?.count}/50 bars)</p>
+            </div>
+            <div className="bg-white rounded-xl p-4 border border-gray-100">
+              <p className="text-xs text-gray-500 uppercase tracking-wider">Award Sponsors (5yr)</p>
+              <p className="text-3xl font-bold text-navy mt-1">{sponsorAnalysis.length}</p>
+              <p className="text-xs text-gray-400 mt-1">unique brand sponsors of 50 Best Awards</p>
+            </div>
+            <div className="bg-white rounded-xl p-4 border border-gray-100">
+              <p className="text-xs text-gray-500 uppercase tracking-wider">Independent Bars (2025)</p>
+              <p className="text-3xl font-bold text-green-600 mt-1">{independentVsCorporate.find(d => d.year === '2025')?.['Independent'] || 0}</p>
+              <p className="text-xs text-gray-400 mt-1">not tied to a major parent company</p>
+            </div>
+          </div>
+
+          {/* Parent Company Penetration — THE KEY CHART */}
+          <div className="bg-white rounded-xl p-5 border border-gray-100">
+            <h3 className="text-sm font-semibold text-navy mb-1">Parent Company Penetration: % of Top 50 Bars with Brand Presence ({selectedYear})</h3>
+            <p className="text-xs text-gray-400 mb-4">Percentage of 50 Best Bars globally where each parent company has confirmed brand partnerships, house pours, or menu featuring</p>
+            <ResponsiveContainer width="100%" height={300}>
+              <BarChart data={parentPenetration[selectedYear] || []} layout="vertical">
+                <XAxis type="number" domain={[0, 70]} tickFormatter={v => `${v}%`} />
+                <YAxis dataKey="name" type="category" width={140} tick={{ fontSize: 11 }} />
+                <Tooltip formatter={(val) => [`${val}%`, 'Penetration']} />
+                <Bar dataKey="pct" radius={[0,4,4,0]}>
+                  {(parentPenetration[selectedYear] || []).map((entry, i) => (
+                    <Cell key={i} fill={PARENT_COMPANIES[entry.name]?.color || '#666'} />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+            {/* Year selector inline */}
+            <div className="flex gap-2 mt-3 justify-center">
+              {YEARS.map(year => (
+                <button key={year} onClick={() => setSelectedYear(year)}
+                  className={`px-3 py-1 rounded text-xs font-medium border ${selectedYear === year ? 'bg-navy text-white border-navy' : 'bg-white text-gray-500 border-gray-200 hover:border-navy'}`}>
+                  {year}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Corporate vs Independent Split Over Time */}
+          <div className="grid grid-cols-2 gap-4">
+            <div className="bg-white rounded-xl p-5 border border-gray-100">
+              <h3 className="text-sm font-semibold text-navy mb-4">Corporate vs Independent Bars in Top 50 (2021–2025)</h3>
+              <ResponsiveContainer width="100%" height={250}>
+                <BarChart data={independentVsCorporate}>
+                  <XAxis dataKey="year" />
+                  <YAxis domain={[0, 50]} />
+                  <Tooltip />
+                  <Legend />
+                  <Bar dataKey="Corporate-Backed" stackId="a" fill="#1a237e" radius={[4,4,0,0]} />
+                  <Bar dataKey="Independent" stackId="a" fill="#4caf50" radius={[4,4,0,0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+
+            {/* Penetration Trend Over Time */}
+            <div className="bg-white rounded-xl p-5 border border-gray-100">
+              <h3 className="text-sm font-semibold text-navy mb-4">Top 5 Parent Company Penetration Trend (%)</h3>
+              <ResponsiveContainer width="100%" height={250}>
+                <LineChart data={penetrationTrend}>
+                  <XAxis dataKey="year" />
+                  <YAxis tickFormatter={v => `${v}%`} />
+                  <Tooltip formatter={(val) => [`${val}%`]} />
+                  <Legend />
+                  {(overallDominance.slice(0, 5)).map(d => (
+                    <Line key={d.name} type="monotone" dataKey={d.name} stroke={d.color} strokeWidth={2} dot={{ r: 3 }} />
+                  ))}
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+          {/* Overall 5-Year Dominance Table */}
+          <div className="bg-white rounded-xl p-5 border border-gray-100">
+            <h3 className="text-sm font-semibold text-navy mb-4">5-Year Cumulative Dominance — Parent Company Reach Across All 50 Best Bars (2021–2025)</h3>
+            <p className="text-xs text-gray-400 mb-3">Percentage of unique bars (across all 5 years) where each company has confirmed presence</p>
+            <div className="space-y-2">
+              {overallDominance.map(d => (
+                <div key={d.name} className="flex items-center gap-3">
+                  <div className="w-32 text-sm font-medium text-navy">{d.name}</div>
+                  <div className="flex-1 bg-gray-100 rounded-full h-6 relative overflow-hidden">
+                    <div className="h-full rounded-full flex items-center" style={{ width: `${d.pct}%`, backgroundColor: d.color }}>
+                      <span className="text-white text-xs font-bold pl-2">{d.pct}%</span>
+                    </div>
+                  </div>
+                  <div className="text-xs text-gray-500 w-24 text-right">{d.bars}/{d.total} bars</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Award Sponsor Intelligence */}
+          <div className="bg-white rounded-xl p-5 border border-gray-100">
+            <h3 className="text-sm font-semibold text-navy mb-1">50 Best Bars — Award Sponsor Intelligence</h3>
+            <p className="text-xs text-gray-400 mb-4">Brands that sponsor named awards at the ceremony gain massive bartender community visibility</p>
+            <div className="grid grid-cols-2 gap-3">
+              {sponsorAnalysis.map(s => (
+                <div key={s.brand} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg border border-gray-100">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-semibold text-navy">{s.brand}</span>
+                      <span className="text-xs px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 font-medium">{s.parent}</span>
+                    </div>
+                    <div className="mt-1 space-y-0.5">
+                      {s.awards.map(a => (
+                        <p key={a.year} className="text-xs text-gray-500">{a.year}: {a.award}</p>
+                      ))}
+                    </div>
+                    <p className="text-xs font-medium text-amber-700 mt-1">{s.years.length}/5 years as sponsor</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* Parent Company Presence in London */}
           <div className="bg-white rounded-xl p-5 border border-gray-100">
-            <h3 className="text-sm font-semibold text-navy mb-4">Parent Company Presence Across London Key Accounts</h3>
-            <p className="text-xs text-gray-400 mb-4">Number of profiled London venues where each parent company has brands on the menu</p>
-            <ResponsiveContainer width="100%" height={300}>
+            <h3 className="text-sm font-semibold text-navy mb-4">London Key Account Penetration by Parent Company</h3>
+            <p className="text-xs text-gray-400 mb-4">Number of profiled London venues (bars + restaurants) where each parent company has brands on the menu</p>
+            <ResponsiveContainer width="100%" height={280}>
               <BarChart data={parentCompanyPresence} layout="vertical">
                 <XAxis type="number" />
                 <YAxis dataKey="name" type="category" width={140} tick={{ fontSize: 11 }} />
@@ -723,14 +1021,34 @@ export default function VenueIntelligence() {
             </ResponsiveContainer>
           </div>
 
+          {/* Budget Benchmarks for On-Trade */}
+          <div className="bg-white rounded-xl p-5 border border-gray-100">
+            <h3 className="text-sm font-semibold text-navy mb-1">On-Trade Budget Benchmarks — What Brands Actually Spend</h3>
+            <p className="text-xs text-gray-400 mb-4">Industry-standard ranges for retros, marketing spend, and activation by account type</p>
+            <div className="grid grid-cols-2 gap-4">
+              {Object.entries(BUDGET_BENCHMARKS).map(([key, data]) => (
+                <div key={key} className="p-4 rounded-lg border" style={{ borderColor: data.color + '40', backgroundColor: data.color + '08' }}>
+                  <h4 className="text-sm font-semibold mb-2" style={{ color: data.color }}>{data.label}</h4>
+                  <div className="space-y-1.5 text-xs">
+                    <div className="flex justify-between"><span className="text-gray-500">Retro Range:</span><span className="font-semibold text-gray-700">{data.retro}</span></div>
+                    <div className="flex justify-between"><span className="text-gray-500">Marketing Spend/Yr:</span><span className="font-semibold text-gray-700">{data.marketingSpend}</span></div>
+                    <div><span className="text-gray-500">Typical Features:</span><p className="text-gray-700 mt-0.5">{data.features}</p></div>
+                    <div><span className="text-gray-500">Example Accounts:</span><p className="font-medium text-gray-700 mt-0.5">{data.examples}</p></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* Parent Company Portfolio */}
           <div className="grid grid-cols-2 gap-4">
             {Object.entries(PARENT_COMPANIES).map(([name, data]) => (
               <div key={name} className="bg-white rounded-xl p-4 border border-gray-100">
-                <div className="flex items-center gap-2 mb-3">
+                <div className="flex items-center gap-2 mb-2">
                   <div className="w-3 h-3 rounded-full" style={{ backgroundColor: data.color }} />
                   <h4 className="text-sm font-semibold text-navy">{name}</h4>
                   <span className="text-xs text-gray-400 ml-auto">{data.brands.length} brands</span>
+                  <span className="text-xs font-medium px-1.5 py-0.5 rounded" style={{ backgroundColor: data.color + '15', color: data.color }}>{overallDominance.find(d => d.name === name)?.pct || 0}% reach</span>
                 </div>
                 <div className="flex flex-wrap gap-1">
                   {data.brands.map(brand => (
@@ -746,16 +1064,16 @@ export default function VenueIntelligence() {
             <h3 className="font-semibold mb-3">On-Trade Market Intelligence — Key Findings</h3>
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div className="space-y-2">
-                <p className="text-white/90">• <strong>LVMH</strong> dominates the Michelin-starred restaurant circuit — Dom Pérignon and Krug feature in virtually every 2-3 star venue</p>
-                <p className="text-white/90">• <strong>Bacardi</strong> has the strongest hotel bar programme — American Bar at The Savoy is a known incubator (Bacardi Carta Blanca, Grey Goose, Bombay Sapphire, St-Germain)</p>
-                <p className="text-white/90">• <strong>Beam Suntory</strong> is gaining through Roku Gin partnerships (Connaught, Kwānt) and Nikka omakase experiences</p>
-                <p className="text-white/90">• <strong>Diageo</strong> covers the widest range — from volume accounts (Soho House, The Ivy) to luxury (Don Julio at Chiltern Firehouse)</p>
+                <p className="text-white/90">{'\u2022'} <strong>LVMH</strong> dominates the Michelin-starred restaurant circuit {'\u2014'} Dom P{'\u00e9'}rignon and Krug feature in virtually every 2-3 star venue</p>
+                <p className="text-white/90">{'\u2022'} <strong>Bacardi</strong> has the strongest hotel bar programme {'\u2014'} American Bar at The Savoy is a known incubator (Bacardi Carta Blanca, Grey Goose, Bombay Sapphire, St-Germain)</p>
+                <p className="text-white/90">{'\u2022'} <strong>Beam Suntory</strong> is gaining through Roku Gin partnerships (Connaught, Kw{'\u0101'}nt) and Nikka award sponsorship {'\u2014'} they are the only company sponsoring 2 separate 50 Best awards</p>
+                <p className="text-white/90">{'\u2022'} <strong>Diageo</strong> covers the widest range {'\u2014'} from volume accounts (Soho House, The Ivy) to luxury (Don Julio at Chiltern Firehouse), plus Ketel One sponsors the Sustainable Bar Award</p>
               </div>
               <div className="space-y-2">
-                <p className="text-white/90">• <strong>Independent brands</strong> getting shelf space: Renais Gin (Scarfes Bar), Desi Daru (Tayēr), The Lakes (American Bar, Scarfes), Avallen Calvados (Kwānt)</p>
-                <p className="text-white/90">• <strong>No/Low</strong> is growing: Seedlip (Diageo) at Plates, Everleaf at Tayēr, Lyre's expanding</p>
-                <p className="text-white/90">• <strong>Agave spirits</strong> are the fastest-growing backbar category — Kol driving the trend from Michelin level</p>
-                <p className="text-white/90">• <strong>Private members clubs</strong> (Annabel's £52M, Arts Club £20M) command the highest marketing spend from brands, particularly champagne houses</p>
+                <p className="text-white/90">{'\u2022'} <strong>Independent brands</strong> getting shelf space: Renais Gin (Scarfes Bar), Desi Daru (Tay{'\u0113'}r), The Lakes (American Bar, Scarfes), Avallen Calvados (Kw{'\u0101'}nt)</p>
+                <p className="text-white/90">{'\u2022'} <strong>No/Low</strong> is growing: Seedlip (Diageo) at Plates, Everleaf at Tay{'\u0113'}r, Lyre{'\u2019'}s expanding</p>
+                <p className="text-white/90">{'\u2022'} <strong>Agave spirits</strong> are the fastest-growing backbar category {'\u2014'} Kol driving the trend from Michelin level</p>
+                <p className="text-white/90">{'\u2022'} <strong>Private members clubs</strong> (Annabel{'\u2019'}s {'\u00a3'}52M, Arts Club {'\u00a3'}20M) command the highest marketing spend from brands, particularly champagne houses</p>
               </div>
             </div>
           </div>

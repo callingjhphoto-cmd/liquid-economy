@@ -27,7 +27,7 @@ const COGS_DATA = {
     historicalData: { '2025-02': 10.0, '2025-03': 9.8, '2025-04': 9.6, '2025-05': 9.5, '2025-06': 9.3, '2025-07': 9.1, '2025-08': 8.9, '2025-09': 8.8, '2025-10': 8.6, '2025-11': 8.4, '2025-12': 8.3, '2026-01': 8.2 }
   },
   barley: {
-    label: 'Barley (EU Malt)', value: 224, unit: '\u20ac/t', change: '+12%', source: 'Euronext', updated: '2026-02',
+    label: 'Barley (EU Malt)', value: 224, unit: 'EUR/t', change: '+12%', source: 'Euronext', updated: '2026-02',
     description: 'Euronext malting barley futures â the benchmark for European brewing and distilling barley. Malting barley is the primary raw material for Scotch whisky, beer, and grain spirits. Price rises driven by poor 2025 Scottish harvest (-40% in some regions) and increased demand from craft distillers.',
     sourceUrl: 'https://live.euronext.com/en/product/commodities/EMA-DPAR/contract-name',
     historicalData: { '2025-03': 200, '2025-04': 202, '2025-05': 204, '2025-06': 206, '2025-07': 208, '2025-08': 210, '2025-09': 212, '2025-10': 215, '2025-11': 218, '2025-12': 220, '2026-01': 222, '2026-02': 224 }
@@ -45,7 +45,7 @@ const COGS_DATA = {
     historicalData: { '2025-03': 20.7, '2025-04': 20.9, '2025-05': 21.0, '2025-06': 21.2, '2025-07': 21.4, '2025-08': 21.6, '2025-09': 21.8, '2025-10': 22.0, '2025-11': 22.1, '2025-12': 22.2, '2026-01': 22.3, '2026-02': 22.4 }
   },
   natural_gas: {
-    label: 'Natural Gas (EU)', value: 48.2, unit: '\u20ac/MWh', change: '+15%', source: 'TTF', updated: '2026-02',
+    label: 'Natural Gas (EU)', value: 48.2, unit: 'EUR/MWh', change: '+15%', source: 'TTF', updated: '2026-02',
     description: 'TTF (Title Transfer Facility) natural gas price â the European benchmark for natural gas. Critical for glass manufacturing (furnaces run 24/7 at 1,500\u00b0C), distillery heating, bottling line operations, and warehouse climate control. Energy typically represents 8-12% of total COGS for spirits producers.',
     sourceUrl: 'https://www.theice.com/products/27996665/Dutch-TTF-Gas-Futures',
     historicalData: { '2025-03': 41.9, '2025-04': 42.3, '2025-05': 42.8, '2025-06': 43.4, '2025-07': 44.1, '2025-08': 44.8, '2025-09': 45.5, '2025-10': 46.2, '2025-11': 46.9, '2025-12': 47.4, '2026-01': 47.8, '2026-02': 48.2 }

@@ -41,14 +41,14 @@ const COMPANIES = [
   {
     name: 'LVMH Wines & Spirits', ticker: 'MC.PA', type: 'Public', hq: 'Paris, France',
     revenue: '$7.5B', revenueGrowth: '-3.8%', marketCap: '$358B (group)', stockYTD: '-2.4%',
-    keyBrands: ['MoÃ«t & Chandon', 'Hennessy', 'Dom Pérignon', 'Veuve Clicquot', 'Glenmorangie', 'Belvedere', 'Krug'],
+    keyBrands: ['Moët & Chandon', 'Hennessy', 'Dom Pérignon', 'Veuve Clicquot', 'Glenmorangie', 'Belvedere', 'Krug'],
     outlook: 'Hennessy China headwinds significant. Champagne portfolio pivoting to prestige cuvées. Spirits division underperforming luxury goods.',
     outlookInsights: [
       'Hennessy volume down 14% with China tariff adding 35% duty — worst market performance since 2009',
       'Dom Pérignon and Krug prestige cuvées bucking trend with +5% value growth — ultra-luxury resilient',
-      'MoÃ«t & Chandon maintaining volume leadership but facing prosecco competition in everyday occasions',
+      'Moët & Chandon maintaining volume leadership but facing prosecco competition in everyday occasions',
       'Glenmorangie single malt relaunched with new packaging — early sell-through up 12% in travel retail',
-      'Acquired ChÃ¢teau Galoupet rosé estate — expanding Provence rosé portfolio for premium summer occasions',
+      'Acquired Château Galoupet rosé estate — expanding Provence rosé portfolio for premium summer occasions',
       'Belvedere vodka gaining in US premium segment with +6% growth against category decline',
       'Japanese whisky exploration: rumored interest in acquiring or partnering with boutique Japanese distillery',
       'Wines & Spirits now only 8% of LVMH group revenue vs. 10% five years ago — being outpaced by fashion and leather',

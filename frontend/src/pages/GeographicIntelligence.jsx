@@ -19,7 +19,7 @@ const REGIONS = [
   {
     key: 'us',
     name: 'United States',
-    flag: 'US',
+    flag: '\ud83c\uddfa\ud83c\uddf8',
     source: 'IWSR, Nielsen',
     summary: 'World\'s largest spirits market with premiumization trend and growing RTD segment.',
     trajectory: 'Strong volume growth in super-premium and craft spirits categories.',
@@ -27,7 +27,7 @@ const REGIONS = [
   {
     key: 'uk',
     name: 'United Kingdom',
-    flag: 'GB',
+    flag: '\ud83c\uddec\ud83c\udde7',
     source: 'Euromonitor, Drinks International',
     summary: 'Mature market with robust on-premise recovery and premium gin renaissance.',
     trajectory: 'Post-pandemic hospitality rebound driving growth in premium segments.',
@@ -35,7 +35,7 @@ const REGIONS = [
   {
     key: 'eu27',
     name: 'Europe (EU27)',
-    flag: 'EU',
+    flag: '\ud83c\uddea\ud83c\uddfa',
     source: 'Euromonitor, The Spirits Business',
     summary: 'Diverse regional markets with strong tradition and sustainability focus.',
     trajectory: 'Health-conscious consumers driving low/no alcohol category expansion.',
@@ -43,7 +43,7 @@ const REGIONS = [
   {
     key: 'meafrica',
     name: 'Middle East & Africa',
-    flag: 'MEA',
+    flag: '\ud83c\uddf8\ud83c\udde6',
     source: 'Statista, IWSR',
     summary: 'Growing markets with premium and non-alcoholic beverages driving expansion.',
     trajectory: 'Rising middle class and travel retail creating significant opportunities.',
@@ -51,7 +51,7 @@ const REGIONS = [
   {
     key: 'china',
     name: 'China',
-    flag: 'CN',
+    flag: '\ud83c\udde8\ud83c\uddf3',
     source: 'Nielsen, Drinks Business Asia',
     summary: 'Baijiu dominance with explosive growth in imported spirits and e-commerce.',
     trajectory: 'Young consumers adopting international spirits; e-commerce transformation ongoing.',
@@ -525,7 +525,7 @@ const RegionCard = ({ region, isActive, onClick }) => (
     }`}
   >
     <div className="flex items-start gap-3">
-      <span className="w-10 h-10 rounded-lg bg-slate-800 text-white flex items-center justify-center text-xs font-bold">{region.flag}</span>
+      <span className="w-10 h-10 rounded-lg flex items-center justify-center text-2xl">{region.flag}</span>
       <div className="flex-1 min-w-0">
         <div className="font-semibold text-sm">{region.name}</div>
         <p
@@ -723,7 +723,7 @@ const RegionDetail = ({ region, data }) => (
     {/* Header Card */}
     <div className="bg-white rounded-lg border border-gray-100 p-6">
       <div className="flex items-start gap-4 mb-4">
-        <span className="w-14 h-14 rounded-xl bg-slate-800 text-white flex items-center justify-center text-lg font-bold">{region.flag}</span>
+        <span className="w-14 h-14 rounded-xl flex items-center justify-center text-4xl">{region.flag}</span>
         <div className="flex-1">
           <h1 className="text-3xl font-bold text-slate-800">{region.name}</h1>
           <p className="text-gray-600 mt-2">{region.trajectory}</p>

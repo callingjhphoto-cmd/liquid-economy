@@ -19,7 +19,7 @@ const REGIONS = [
   {
     key: 'us',
     name: 'United States',
-    flag: 'ðºð¸',
+    flag: 'US',
     source: 'IWSR, Nielsen',
     summary: 'World\'s largest spirits market with premiumization trend and growing RTD segment.',
     trajectory: 'Strong volume growth in super-premium and craft spirits categories.',
@@ -27,7 +27,7 @@ const REGIONS = [
   {
     key: 'uk',
     name: 'United Kingdom',
-    flag: 'ð¬ð§',
+    flag: 'GB',
     source: 'Euromonitor, Drinks International',
     summary: 'Mature market with robust on-premise recovery and premium gin renaissance.',
     trajectory: 'Post-pandemic hospitality rebound driving growth in premium segments.',
@@ -35,7 +35,7 @@ const REGIONS = [
   {
     key: 'eu27',
     name: 'Europe (EU27)',
-    flag: 'ðªðº',
+    flag: 'EU',
     source: 'Euromonitor, The Spirits Business',
     summary: 'Diverse regional markets with strong tradition and sustainability focus.',
     trajectory: 'Health-conscious consumers driving low/no alcohol category expansion.',
@@ -43,7 +43,7 @@ const REGIONS = [
   {
     key: 'meafrica',
     name: 'Middle East & Africa',
-    flag: 'ð',
+    flag: 'MEA',
     source: 'Statista, IWSR',
     summary: 'Growing markets with premium and non-alcoholic beverages driving expansion.',
     trajectory: 'Rising middle class and travel retail creating significant opportunities.',
@@ -51,7 +51,7 @@ const REGIONS = [
   {
     key: 'china',
     name: 'China',
-    flag: 'ð¨ð³',
+    flag: 'CN',
     source: 'Nielsen, Drinks Business Asia',
     summary: 'Baijiu dominance with explosive growth in imported spirits and e-commerce.',
     trajectory: 'Young consumers adopting international spirits; e-commerce transformation ongoing.',
@@ -149,12 +149,12 @@ const REGION_DATA = {
   },
   uk: {
     kpis: [
-      { label: 'Market Size (2025)', value: 'Â£12.8B', change: 5.3, changeDir: 'up' },
+      { label: 'Market Size (2025)', value: 'GBP12.8B', change: 5.3, changeDir: 'up' },
       { label: 'On-Premise Growth', value: '7.2%', change: 2.1, changeDir: 'up' },
       { label: 'Gin Market Share', value: '28%', change: 1.8, changeDir: 'up' },
       { label: 'Premium Segment', value: '41%', change: 3.2, changeDir: 'up' },
-      { label: 'Export Value', value: 'Â£3.2B', change: 4.1, changeDir: 'up' },
-      { label: 'Off-Trade Volume', value: 'Â£6.1B', change: 2.7, changeDir: 'up' },
+      { label: 'Export Value', value: 'GBP3.2B', change: 4.1, changeDir: 'up' },
+      { label: 'Off-Trade Volume', value: 'GBP6.1B', change: 2.7, changeDir: 'up' },
     ],
     topBrands: ['Gordon\'s', 'Diageo Portfolio', 'Bacardi', 'Absolut', 'The Glenmorangie'],
     channels: { onPremise: 42, offPremise: 48, eCommerce: 7, travelRetail: 3 },
@@ -168,7 +168,7 @@ const REGION_DATA = {
     yearlyReports: [
       {
         year: 2022,
-        marketSize: 'Â£11.2B',
+        marketSize: 'GBP11.2B',
         growth: 2.8,
         volumeCases: '42M',
         keyEvents: ['On-premise reopening completion', 'Cost-of-living pressures begin'],
@@ -177,7 +177,7 @@ const REGION_DATA = {
       },
       {
         year: 2023,
-        marketSize: 'Â£11.8B',
+        marketSize: 'GBP11.8B',
         growth: 5.4,
         volumeCases: '44M',
         keyEvents: ['Hospitality wages increase', 'Gin market consolidation'],
@@ -186,7 +186,7 @@ const REGION_DATA = {
       },
       {
         year: 2024,
-        marketSize: 'Â£12.2B',
+        marketSize: 'GBP12.2B',
         growth: 3.4,
         volumeCases: '45M',
         keyEvents: ['Spring Budget tax impacts', 'Export growth to EU recovery'],
@@ -195,7 +195,7 @@ const REGION_DATA = {
       },
       {
         year: 2025,
-        marketSize: 'Â£12.8B',
+        marketSize: 'GBP12.8B',
         growth: 4.9,
         volumeCases: '46M',
         keyEvents: ['Tourism recovery to peak levels', 'Premium positioning continues'],
@@ -222,29 +222,29 @@ const REGION_DATA = {
     ],
     importExport: {
       topImports: [
-        { country: 'Ireland', value: 'Â£1.8B', share: '32%' },
-        { country: 'France', value: 'Â£1.2B', share: '21%' },
-        { country: 'Spain', value: 'Â£0.8B', share: '14%' },
-        { country: 'Netherlands', value: 'Â£0.6B', share: '11%' },
+        { country: 'Ireland', value: 'GBP1.8B', share: '32%' },
+        { country: 'France', value: 'GBP1.2B', share: '21%' },
+        { country: 'Spain', value: 'GBP0.8B', share: '14%' },
+        { country: 'Netherlands', value: 'GBP0.6B', share: '11%' },
       ],
       topExports: [
-        { country: 'United States', value: 'Â£1.4B', share: '44%' },
-        { country: 'France', value: 'Â£0.5B', share: '16%' },
-        { country: 'Germany', value: 'Â£0.4B', share: '13%' },
-        { country: 'Canada', value: 'Â£0.3B', share: '9%' },
+        { country: 'United States', value: 'GBP1.4B', share: '44%' },
+        { country: 'France', value: 'GBP0.5B', share: '16%' },
+        { country: 'Germany', value: 'GBP0.4B', share: '13%' },
+        { country: 'Canada', value: 'GBP0.3B', share: '9%' },
       ],
     },
   },
   eu27: {
     kpis: [
-      { label: 'Market Size (2025)', value: 'â¬31.2B', change: 2.1, changeDir: 'up' },
+      { label: 'Market Size (2025)', value: 'EUR31.2B', change: 2.1, changeDir: 'up' },
       { label: 'Volume Growth', value: '1.3%', change: -0.4, changeDir: 'down' },
       { label: 'Premium Positioning', value: '33%', change: 2.8, changeDir: 'up' },
       { label: 'Low/No Alcohol Share', value: '8%', change: 3.2, changeDir: 'up' },
       { label: 'Sustainability Focus', value: '67%', change: 8.1, changeDir: 'up' },
       { label: 'E-commerce Growth', value: '9.3%', change: 2.1, changeDir: 'up' },
     ],
-    topBrands: ['Smirnoff', 'Bacardi', 'Martell', 'MoÃ«t & Chandon', 'Bombay Sapphire'],
+    topBrands: ['Smirnoff', 'Bacardi', 'Martell', 'Moet & Chandon', 'Bombay Sapphire'],
     channels: { onPremise: 35, offPremise: 52, eCommerce: 9, travelRetail: 4 },
     trends: [
       { text: 'Health-conscious consumers driving low/no alcohol category', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
@@ -256,7 +256,7 @@ const REGION_DATA = {
     yearlyReports: [
       {
         year: 2022,
-        marketSize: 'â¬29.4B',
+        marketSize: 'EUR29.4B',
         growth: 1.2,
         volumeCases: '98M',
         keyEvents: ['Energy crisis impacts consumer spending', 'Premium segment resilience'],
@@ -265,7 +265,7 @@ const REGION_DATA = {
       },
       {
         year: 2023,
-        marketSize: 'â¬30.1B',
+        marketSize: 'EUR30.1B',
         growth: 2.4,
         volumeCases: '99M',
         keyEvents: ['Consumer confidence improving', 'Sustainability becomes mandatory'],
@@ -274,7 +274,7 @@ const REGION_DATA = {
       },
       {
         year: 2024,
-        marketSize: 'â¬30.7B',
+        marketSize: 'EUR30.7B',
         growth: 2.0,
         volumeCases: '100M',
         keyEvents: ['Packaging waste regulations enforce', 'Regional market divergence'],
@@ -283,7 +283,7 @@ const REGION_DATA = {
       },
       {
         year: 2025,
-        marketSize: 'â¬31.2B',
+        marketSize: 'EUR31.2B',
         growth: 1.6,
         volumeCases: '101M',
         keyEvents: ['EU Green Deal implementation', 'E-commerce regulations harmonize'],
@@ -310,16 +310,16 @@ const REGION_DATA = {
     ],
     importExport: {
       topImports: [
-        { country: 'Scotland', value: 'â¬4.2B', share: '25%' },
-        { country: 'Mexico', value: 'â¬3.1B', share: '19%' },
-        { country: 'France', value: 'â¬2.8B', share: '17%' },
-        { country: 'Brazil', value: 'â¬1.9B', share: '12%' },
+        { country: 'Scotland', value: 'EUR4.2B', share: '25%' },
+        { country: 'Mexico', value: 'EUR3.1B', share: '19%' },
+        { country: 'France', value: 'EUR2.8B', share: '17%' },
+        { country: 'Brazil', value: 'EUR1.9B', share: '12%' },
       ],
       topExports: [
-        { country: 'United States', value: 'â¬3.4B', share: '42%' },
-        { country: 'China', value: 'â¬1.8B', share: '22%' },
-        { country: 'Russia', value: 'â¬1.2B', share: '15%' },
-        { country: 'India', value: 'â¬0.9B', share: '11%' },
+        { country: 'United States', value: 'EUR3.4B', share: '42%' },
+        { country: 'China', value: 'EUR1.8B', share: '22%' },
+        { country: 'Russia', value: 'EUR1.2B', share: '15%' },
+        { country: 'India', value: 'EUR0.9B', share: '11%' },
       ],
     },
   },
@@ -413,7 +413,7 @@ const REGION_DATA = {
   },
   china: {
     kpis: [
-      { label: 'Market Size (2025)', value: 'Â¥342B', change: 6.8, changeDir: 'up' },
+      { label: 'Market Size (2025)', value: 'CNY342B', change: 6.8, changeDir: 'up' },
       { label: 'Baijiu Dominance', value: '73%', change: -1.2, changeDir: 'down' },
       { label: 'Imported Spirits Growth', value: '18.3%', change: 5.4, changeDir: 'up' },
       { label: 'E-commerce Share', value: '32%', change: 7.8, changeDir: 'up' },
@@ -432,7 +432,7 @@ const REGION_DATA = {
     yearlyReports: [
       {
         year: 2022,
-        marketSize: 'Â¥298B',
+        marketSize: 'CNY298B',
         growth: 3.2,
         volumeCases: '118M',
         keyEvents: ['Zero-COVID restrictions impact', 'Imported spirits debut online'],
@@ -441,7 +441,7 @@ const REGION_DATA = {
       },
       {
         year: 2023,
-        marketSize: 'Â¥314B',
+        marketSize: 'CNY314B',
         growth: 5.4,
         volumeCases: '125M',
         keyEvents: ['Covid lockdowns end', 'E-commerce explosion begins'],
@@ -450,7 +450,7 @@ const REGION_DATA = {
       },
       {
         year: 2024,
-        marketSize: 'Â¥328B',
+        marketSize: 'CNY328B',
         growth: 4.5,
         volumeCases: '132M',
         keyEvents: ['Live streaming commerce takes off', 'Gen Z segment expansion'],
@@ -459,7 +459,7 @@ const REGION_DATA = {
       },
       {
         year: 2025,
-        marketSize: 'Â¥342B',
+        marketSize: 'CNY342B',
         growth: 4.3,
         volumeCases: '140M',
         keyEvents: ['Luxury market stabilization', 'Sustainability narratives emerge'],
@@ -486,16 +486,16 @@ const REGION_DATA = {
     ],
     importExport: {
       topImports: [
-        { country: 'France', value: 'Â¥54B', share: '42%' },
-        { country: 'Scotland', value: 'Â¥32B', share: '25%' },
-        { country: 'United States', value: 'Â¥26B', share: '20%' },
-        { country: 'Australia', value: 'Â¥17B', share: '13%' },
+        { country: 'France', value: 'CNY54B', share: '42%' },
+        { country: 'Scotland', value: 'CNY32B', share: '25%' },
+        { country: 'United States', value: 'CNY26B', share: '20%' },
+        { country: 'Australia', value: 'CNY17B', share: '13%' },
       ],
       topExports: [
-        { country: 'Hong Kong', value: 'Â¥12B', share: '48%' },
-        { country: 'Singapore', value: 'Â¥8B', share: '32%' },
-        { country: 'Taiwan', value: 'Â¥4B', share: '16%' },
-        { country: 'Macau', value: 'Â¥1B', share: '4%' },
+        { country: 'Hong Kong', value: 'CNY12B', share: '48%' },
+        { country: 'Singapore', value: 'CNY8B', share: '32%' },
+        { country: 'Taiwan', value: 'CNY4B', share: '16%' },
+        { country: 'Macau', value: 'CNY1B', share: '4%' },
       ],
     },
   },
@@ -525,7 +525,7 @@ const RegionCard = ({ region, isActive, onClick }) => (
     }`}
   >
     <div className="flex items-start gap-3">
-      <span className="text-2xl">{region.flag}</span>
+      <span className="w-10 h-10 rounded-lg bg-slate-800 text-white flex items-center justify-center text-xs font-bold">{region.flag}</span>
       <div className="flex-1 min-w-0">
         <div className="font-semibold text-sm">{region.name}</div>
         <p
@@ -723,7 +723,7 @@ const RegionDetail = ({ region, data }) => (
     {/* Header Card */}
     <div className="bg-white rounded-lg border border-gray-100 p-6">
       <div className="flex items-start gap-4 mb-4">
-        <span className="text-5xl">{region.flag}</span>
+        <span className="w-14 h-14 rounded-xl bg-slate-800 text-white flex items-center justify-center text-lg font-bold">{region.flag}</span>
         <div className="flex-1">
           <h1 className="text-3xl font-bold text-slate-800">{region.name}</h1>
           <p className="text-gray-600 mt-2">{region.trajectory}</p>
@@ -752,7 +752,7 @@ const RegionDetail = ({ region, data }) => (
                 ) : kpi.changeDir === 'down' ? (
                   <TrendingDown size={16} className="text-red-600" />
                 ) : (
-                  <div className="text-gray-400 text-xs">â</div>
+                  <div className="text-gray-400 text-xs">-</div>
                 )}
                 <span
                   className={`text-sm font-semibold ${

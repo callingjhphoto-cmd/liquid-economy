@@ -41,6 +41,13 @@ const BRAND_DATABASE = [
   { company: 'Bacardi', brand: 'Aberfeldy', expression: '12 Year Old', category: 'Scotch Whisky', segment: 'Premium', usa: 42, uk: 30, eu: 34, me: 48 },
   { company: 'Suntory', brand: 'Bowmore', expression: '12 Year Old', category: 'Scotch Whisky', segment: 'Premium', usa: 52, uk: 35, eu: 38, me: 58 },
   { company: 'Suntory', brand: 'Laphroaig', expression: '10 Year Old', category: 'Scotch Whisky', segment: 'Premium', usa: 52, uk: 36, eu: 40, me: 60 },
+  { company: 'LVMH', brand: 'Glenmorangie', expression: 'Original 10yr', category: 'Scotch Whisky', segment: 'Premium', usa: 38, uk: 30, eu: 34, me: 45 },
+  { company: 'LVMH', brand: 'Glenmorangie', expression: '18 Year Old', category: 'Scotch Whisky', segment: 'Super Premium', usa: 95, uk: 70, eu: 78, me: 110 },
+  { company: 'William Grant', brand: 'Monkey Shoulder', expression: 'Blended Malt', category: 'Scotch Whisky', segment: 'Premium', usa: 30, uk: 22, eu: 25, me: 38 },
+  { company: 'William Grant', brand: 'Aerstone', expression: 'Sea Cask 10yr', category: 'Scotch Whisky', segment: 'Standard', usa: 25, uk: 18, eu: 20, me: 30 },
+  { company: 'Independent', brand: 'Compass Box', expression: 'Great King Street', category: 'Scotch Whisky', segment: 'Premium', usa: 38, uk: 28, eu: 32, me: 45 },
+  { company: 'Independent', brand: 'Compass Box', expression: 'Hedonism', category: 'Scotch Whisky', segment: 'Super Premium', usa: 85, uk: 62, eu: 68, me: 98 },
+  { company: 'Diageo', brand: 'Cardhu', expression: '12 Year Old', category: 'Scotch Whisky', segment: 'Premium', usa: 42, uk: 28, eu: 30, me: 48 },
 
   // ═══════════════════════════════════════
   // BOURBON & AMERICAN WHISKEY
@@ -61,6 +68,14 @@ const BRAND_DATABASE = [
   { company: 'Wild Turkey', brand: 'Wild Turkey', expression: '101', category: 'Bourbon & American', segment: 'Standard', usa: 25, uk: 28, eu: 30, me: 38 },
   { company: 'Wild Turkey', brand: 'Russell\'s Reserve', expression: '10 Year Old', category: 'Bourbon & American', segment: 'Premium', usa: 38, uk: 35, eu: 38, me: 48 },
   { company: 'MGP', brand: 'Michter\'s', expression: 'US*1 Bourbon', category: 'Bourbon & American', segment: 'Premium', usa: 45, uk: 48, eu: 52, me: 62 },
+  { company: 'Pernod Ricard', brand: 'Rabbit Hole', expression: 'Dareringer Bourbon', category: 'Bourbon & American', segment: 'Premium', usa: 45, uk: 42, eu: 45, me: 55 },
+  { company: 'Pernod Ricard', brand: 'Rabbit Hole', expression: 'Cavehill Bourbon', category: 'Bourbon & American', segment: 'Premium', usa: 48, uk: 45, eu: 48, me: 58 },
+
+  // ═══════════════════════════════════════
+  // CANADIAN WHISKY
+  // ═══════════════════════════════════════
+  { company: 'Pernod Ricard', brand: 'Lot 40', expression: 'Rye Whisky', category: 'Canadian Whisky', segment: 'Premium', usa: 32, uk: 28, eu: 30, me: 38 },
+  { company: 'Diageo', brand: 'Crown Royal', expression: 'Deluxe', category: 'Canadian Whisky', segment: 'Premium', usa: 28, uk: 25, eu: 28, me: 35 },
 
   // ═══════════════════════════════════════
   // IRISH WHISKEY
@@ -97,6 +112,8 @@ const BRAND_DATABASE = [
   { company: 'Polmos Zyrardow', brand: 'Belvedere', expression: '10', category: 'Vodka', segment: 'Ultra Premium', usa: 75, uk: 62, eu: 58, me: 88 },
   { company: 'Independent', brand: 'Tito\'s', expression: 'Handmade', category: 'Vodka', segment: 'Premium', usa: 20, uk: 24, eu: 22, me: 32 },
   { company: 'Proximo Spirits', brand: 'Crystal Head', expression: 'Original', category: 'Vodka', segment: 'Super Premium', usa: 50, uk: 42, eu: 45, me: 58 },
+  { company: 'Independent', brand: 'Svitlo', expression: 'Ukrainian Vodka', category: 'Vodka', segment: 'Premium', usa: 32, uk: 28, eu: 25, me: null },
+  { company: 'Pernod Ricard', brand: 'Absolut Elyx', expression: 'Single Estate', category: 'Vodka', segment: 'Super Premium', usa: 35, uk: 30, eu: 28, me: 42 },
 
   // ═══════════════════════════════════════
   // GIN
@@ -112,6 +129,14 @@ const BRAND_DATABASE = [
   { company: 'Independent', brand: 'The Botanist', expression: 'Islay Dry Gin', category: 'Gin', segment: 'Super Premium', usa: 38, uk: 30, eu: 32, me: 48 },
   { company: 'Independent', brand: 'Monkey 47', expression: 'Schwarzwald Dry Gin', category: 'Gin', segment: 'Ultra Premium', usa: 42, uk: 36, eu: 34, me: 55 },
   { company: 'Davide Campari', brand: 'Aviation', expression: 'American Gin', category: 'Gin', segment: 'Premium', usa: 28, uk: 25, eu: 28, me: 38 },
+  { company: 'Suntory', brand: 'Roku', expression: 'Japanese Craft Gin', category: 'Gin', segment: 'Premium', usa: 28, uk: 25, eu: 26, me: 35 },
+  { company: 'Suntory', brand: 'Sipsmith', expression: 'London Dry', category: 'Gin', segment: 'Premium', usa: 32, uk: 24, eu: 28, me: 40 },
+  { company: 'Suntory', brand: 'Sipsmith', expression: 'V.J.O.P.', category: 'Gin', segment: 'Super Premium', usa: 45, uk: 35, eu: 38, me: 55 },
+  { company: 'Independent', brand: 'Renais', expression: 'French Grape Gin', category: 'Gin', segment: 'Premium', usa: 38, uk: 32, eu: 30, me: null },
+  { company: 'Brown-Forman', brand: 'Ford\'s', expression: 'London Dry', category: 'Gin', segment: 'Premium', usa: 25, uk: 22, eu: 24, me: 32 },
+  { company: 'Independent', brand: 'The Lakes', expression: 'Explorer Gin', category: 'Gin', segment: 'Premium', usa: 38, uk: 32, eu: 35, me: null },
+  { company: 'Pernod Ricard', brand: 'Plymouth', expression: 'Original', category: 'Gin', segment: 'Premium', usa: 25, uk: 22, eu: 24, me: 32 },
+  { company: 'Pernod Ricard', brand: 'Malfy', expression: 'Con Limone', category: 'Gin', segment: 'Premium', usa: 28, uk: 22, eu: 20, me: 35 },
 
   // ═══════════════════════════════════════
   // TEQUILA & MEZCAL
@@ -130,6 +155,13 @@ const BRAND_DATABASE = [
   { company: 'Pernod Ricard', brand: 'Olmeca Altos', expression: 'Plata', category: 'Tequila', segment: 'Premium', usa: 25, uk: 22, eu: 24, me: 32 },
   { company: 'Independent', brand: 'Clase Azul', expression: 'Reposado', category: 'Tequila', segment: 'Ultra Premium', usa: 170, uk: 145, eu: 155, me: 195 },
   { company: 'Pernod Ricard', brand: 'Del Maguey', expression: 'Vida Mezcal', category: 'Tequila', segment: 'Premium', usa: 32, uk: 28, eu: 30, me: 42 },
+  { company: 'Independent', brand: 'Fortaleza', expression: 'Blanco', category: 'Tequila', segment: 'Super Premium', usa: 48, uk: 42, eu: 45, me: 58 },
+  { company: 'Independent', brand: 'Fortaleza', expression: 'Reposado', category: 'Tequila', segment: 'Super Premium', usa: 55, uk: 48, eu: 52, me: 65 },
+  { company: 'Independent', brand: 'Tapatio', expression: 'Blanco 110', category: 'Tequila', segment: 'Premium', usa: 28, uk: 32, eu: 35, me: null },
+  { company: 'Independent', brand: 'Ocho', expression: 'Blanco', category: 'Tequila', segment: 'Premium', usa: 42, uk: 38, eu: 40, me: 52 },
+  { company: 'Constellation', brand: 'Casa Noble', expression: 'Crystal Blanco', category: 'Tequila', segment: 'Premium', usa: 38, uk: 35, eu: 38, me: 48 },
+  { company: 'Independent', brand: 'Siete Misterios', expression: 'Doba-Yej Mezcal', category: 'Tequila', segment: 'Premium', usa: 35, uk: 32, eu: 34, me: 42 },
+  { company: 'Davide Campari', brand: 'Montelobos', expression: 'Espadin Mezcal', category: 'Tequila', segment: 'Premium', usa: 32, uk: 28, eu: 30, me: 40 },
 
   // ═══════════════════════════════════════
   // RUM
@@ -147,6 +179,11 @@ const BRAND_DATABASE = [
   { company: 'Independent', brand: 'Diplomatico', expression: 'Reserva Exclusiva', category: 'Rum', segment: 'Super Premium', usa: 38, uk: 32, eu: 30, me: 48 },
   { company: 'Independent', brand: 'Flor de Ca\u00f1a', expression: '18yr', category: 'Rum', segment: 'Super Premium', usa: 42, uk: 35, eu: 38, me: 52 },
   { company: 'Sazerac', brand: 'Plantation', expression: 'XO 20th Anniversary', category: 'Rum', segment: 'Super Premium', usa: 45, uk: 38, eu: 35, me: 55 },
+  { company: 'Independent', brand: 'Aluna', expression: 'Coconut Rum', category: 'Rum', segment: 'Premium', usa: 28, uk: 22, eu: 24, me: null },
+  { company: 'Independent', brand: 'Matusalem', expression: 'Gran Reserva 15yr', category: 'Rum', segment: 'Premium', usa: 30, uk: 28, eu: 26, me: 38 },
+  { company: 'Independent', brand: 'Banks', expression: '5 Island Blend', category: 'Rum', segment: 'Premium', usa: 28, uk: 25, eu: 28, me: 35 },
+  { company: 'Independent', brand: 'Angostura', expression: '1824 12yr', category: 'Rum', segment: 'Premium', usa: 38, uk: 32, eu: 35, me: 45 },
+  { company: 'Independent', brand: 'Angostura', expression: '1919 8yr', category: 'Rum', segment: 'Premium', usa: 28, uk: 24, eu: 26, me: 35 },
 
   // ═══════════════════════════════════════
   // COGNAC & BRANDY
@@ -162,6 +199,8 @@ const BRAND_DATABASE = [
   { company: 'Pernod Ricard', brand: 'Martell', expression: 'Cordon Bleu', category: 'Cognac', segment: 'Ultra Premium', usa: 165, uk: 120, eu: 115, me: 190 },
   { company: 'Suntory', brand: 'Courvoisier', expression: 'V.S.O.P', category: 'Cognac', segment: 'Premium', usa: 35, uk: 30, eu: 28, me: 42 },
   { company: 'Suntory', brand: 'Courvoisier', expression: 'X.O', category: 'Cognac', segment: 'Ultra Premium', usa: 150, uk: 110, eu: 105, me: 175 },
+  { company: 'Independent', brand: 'Avallen', expression: 'Calvados', category: 'Cognac', segment: 'Premium', usa: 35, uk: 28, eu: 25, me: null },
+  { company: 'Independent', brand: 'Clos Martin', expression: 'VSOP Armagnac', category: 'Cognac', segment: 'Premium', usa: 42, uk: 35, eu: 30, me: 48 },
 
   // ═══════════════════════════════════════
   // CHAMPAGNE & SPARKLING
@@ -179,6 +218,8 @@ const BRAND_DATABASE = [
   { company: 'Vranken-Pommery', brand: 'Pommery', expression: 'Brut Royal', category: 'Champagne', segment: 'Premium', usa: 45, uk: 32, eu: 35, me: 55 },
   { company: 'Laurent-Perrier', brand: 'Laurent-Perrier', expression: 'La Cuv\u00e9e', category: 'Champagne', segment: 'Premium', usa: 42, uk: 30, eu: 34, me: 52 },
   { company: 'Independent', brand: 'Bollinger', expression: 'Special Cuv\u00e9e', category: 'Champagne', segment: 'Super Premium', usa: 62, uk: 42, eu: 48, me: 75 },
+  { company: 'Louis Roederer', brand: 'Cristal', expression: '2015 Vintage', category: 'Champagne', segment: 'Prestige', usa: 280, uk: 195, eu: 215, me: 340 },
+  { company: 'Independent', brand: 'Pol Roger', expression: 'Brut R\u00e9serve', category: 'Champagne', segment: 'Super Premium', usa: 52, uk: 36, eu: 40, me: 65 },
 
   // ═══════════════════════════════════════
   // LIQUEURS & APERITIFS
@@ -196,6 +237,22 @@ const BRAND_DATABASE = [
   { company: 'Independent', brand: 'Chartreuse', expression: 'Green V.E.P.', category: 'Liqueurs', segment: 'Ultra Premium', usa: 95, uk: 80, eu: 72, me: 115 },
   { company: 'Brown-Forman', brand: 'Chambord', expression: 'Black Raspberry', category: 'Liqueurs', segment: 'Premium', usa: 30, uk: 22, eu: 24, me: 38 },
   { company: 'Davide Campari', brand: 'Frangelico', expression: 'Hazelnut', category: 'Liqueurs', segment: 'Standard', usa: 25, uk: 18, eu: 16, me: 32 },
+  { company: 'Pernod Ricard', brand: 'Suze', expression: 'Gentiane', category: 'Liqueurs', segment: 'Premium', usa: 28, uk: 22, eu: 18, me: 35 },
+  { company: 'Bacardi', brand: 'Martini', expression: 'Ambrato Vermouth', category: 'Liqueurs', segment: 'Premium', usa: 18, uk: 14, eu: 12, me: 25 },
+  { company: 'Bacardi', brand: 'Martini', expression: 'Riserva Speciale Rubino', category: 'Liqueurs', segment: 'Premium', usa: 22, uk: 18, eu: 16, me: 28 },
+  { company: 'Independent', brand: 'Muyu', expression: 'Jasmine Verte', category: 'Liqueurs', segment: 'Premium', usa: 35, uk: 28, eu: 30, me: null },
+  { company: 'Independent', brand: 'Muyu', expression: 'Vetiver Gris', category: 'Liqueurs', segment: 'Premium', usa: 35, uk: 28, eu: 30, me: null },
+  { company: 'Independent', brand: 'Amaro Lucano', expression: 'Anniversario', category: 'Liqueurs', segment: 'Premium', usa: 28, uk: 22, eu: 18, me: 35 },
+  { company: 'Independent', brand: 'Empirical Spirits', expression: 'Plum, I Suppose', category: 'Liqueurs', segment: 'Super Premium', usa: 42, uk: 38, eu: 35, me: null },
+  { company: 'Gonz\u00e1lez Byass', brand: 'Tio Pepe', expression: 'Fino Sherry', category: 'Liqueurs', segment: 'Standard', usa: 15, uk: 10, eu: 8, me: 20 },
+  { company: 'Pernod Ricard', brand: 'Lillet', expression: 'Blanc', category: 'Liqueurs', segment: 'Premium', usa: 20, uk: 16, eu: 14, me: 28 },
+
+  // ═══════════════════════════════════════
+  // EMERGING / INDIE SPIRITS (Discovered at top venues)
+  // ═══════════════════════════════════════
+  { company: 'Independent', brand: 'Desi Daru', expression: 'Indian Spirit', category: 'World Spirits', segment: 'Premium', usa: 38, uk: 32, eu: 35, me: null },
+  { company: 'Independent', brand: 'The Lakes', expression: 'The One Whisky', category: 'World Spirits', segment: 'Premium', usa: 45, uk: 35, eu: 38, me: null },
+  { company: 'Independent', brand: 'The Lakes', expression: 'Whiskymaker\'s Editions', category: 'World Spirits', segment: 'Super Premium', usa: 75, uk: 58, eu: 62, me: null },
 
   // ═══════════════════════════════════════
   // NO & LOW ALCOHOL
@@ -208,6 +265,8 @@ const BRAND_DATABASE = [
   { company: 'Independent', brand: 'Monday', expression: 'Mezcal', category: 'No & Low', segment: 'Premium', usa: 32, uk: 28, eu: 30, me: null },
   { company: 'Independent', brand: 'Ritual Zero Proof', expression: 'Tequila Alternative', category: 'No & Low', segment: 'Premium', usa: 28, uk: 25, eu: 28, me: null },
   { company: 'Independent', brand: 'CleanCo', expression: 'Clean G', category: 'No & Low', segment: 'Premium', usa: 28, uk: 20, eu: 22, me: null },
+  { company: 'Independent', brand: 'Everleaf', expression: 'Forest', category: 'No & Low', segment: 'Premium', usa: 25, uk: 18, eu: 20, me: null },
+  { company: 'Independent', brand: 'Everleaf', expression: 'Mountain', category: 'No & Low', segment: 'Premium', usa: 25, uk: 18, eu: 20, me: null },
 
   // ═══════════════════════════════════════
   // RTD / READY-TO-DRINK

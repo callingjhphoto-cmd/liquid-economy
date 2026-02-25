@@ -4,19 +4,19 @@ import { Package, Factory, Fuel, AlertTriangle, Thermometer, ExternalLink, X, Tr
 const COGS_DATA = {
   glass_ppi: {
     label: 'Glass Container PPI', value: 216.38, baseline: '2003=100', change: '+2.1%', source: 'BLS PCU3272133272130', updated: '2025-12',
-    description: 'Bureau of Labor Statistics Producer Price Index for glass containers (Series PCU3272133272130). Tracks the weighted average selling price of glass bottles and containers from US manufacturers. Key cost input for beer, wine, and spirits packaging â glass typically represents 15-25% of total COGS for premium spirits.',
+    description: 'Bureau of Labor Statistics Producer Price Index for glass containers (Series PCU3272133272130). Tracks the weighted average selling price of glass bottles and containers from US manufacturers. Key cost input for beer, wine, and spirits packaging — glass typically represents 15-25% of total COGS for premium spirits.',
     sourceUrl: 'https://data.bls.gov/timeseries/PCU3272133272130',
     historicalData: { '2025-01': 211.4, '2025-02': 211.9, '2025-03': 212.3, '2025-04': 212.8, '2025-05': 213.1, '2025-06': 213.5, '2025-07': 213.9, '2025-08': 214.2, '2025-09': 214.8, '2025-10': 215.3, '2025-11': 215.9, '2025-12': 216.38 }
   },
   container_index: {
     label: 'Drewry WCI (40ft)', value: 3421, unit: '$/40ft', change: '+110%', source: 'Drewry World Container Index', updated: '2026-02',
-    description: 'Drewry World Container Index â composite benchmark tracking the cost of shipping a 40-foot container across 8 major east-west trade routes (Shanghai-Rotterdam, Shanghai-LA, etc.). Critical for imported spirits and wine. The index spiked from ~$1,600 in mid-2025 due to Red Sea disruptions and port congestion.',
+    description: 'Drewry World Container Index — composite benchmark tracking the cost of shipping a 40-foot container across 8 major east-west trade routes (Shanghai-Rotterdam, Shanghai-LA, etc.). Critical for imported spirits and wine. The index spiked from ~$1,600 in mid-2025 due to Red Sea disruptions and port congestion.',
     sourceUrl: 'https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry',
     historicalData: { '2025-03': 1628, '2025-04': 1710, '2025-05': 1845, '2025-06': 2012, '2025-07': 2234, '2025-08': 2456, '2025-09': 2678, '2025-10': 2890, '2025-11': 3102, '2025-12': 3198, '2026-01': 3312, '2026-02': 3421 }
   },
   baltic_dry: {
     label: 'Baltic Dry Index', value: 2112, unit: 'pts', change: '+34%', source: 'Baltic Exchange', updated: '2026-02',
-    description: 'Baltic Dry Index (BDI) â measures the cost of shipping dry bulk commodities (grain, coal, iron ore) across 20+ international routes. Indirect indicator for raw material transport costs. Rising BDI signals tightening vessel capacity, which spills over into container shipping rates for finished goods.',
+    description: 'Baltic Dry Index (BDI) — measures the cost of shipping dry bulk commodities (grain, coal, iron ore) across 20+ international routes. Indirect indicator for raw material transport costs. Rising BDI signals tightening vessel capacity, which spills over into container shipping rates for finished goods.',
     sourceUrl: 'https://www.balticexchange.com/en/data-services/market-information0/dry-services.html',
     historicalData: { '2025-03': 1576, '2025-04': 1612, '2025-05': 1654, '2025-06': 1702, '2025-07': 1756, '2025-08': 1812, '2025-09': 1878, '2025-10': 1945, '2025-11': 2012, '2025-12': 2056, '2026-01': 2089, '2026-02': 2112 }
   },
@@ -28,7 +28,7 @@ const COGS_DATA = {
   },
   barley: {
     label: 'Barley (EU Malt)', value: 224, unit: 'EUR/t', change: '+12%', source: 'Euronext', updated: '2026-02',
-    description: 'Euronext malting barley futures â the benchmark for European brewing and distilling barley. Malting barley is the primary raw material for Scotch whisky, beer, and grain spirits. Price rises driven by poor 2025 Scottish harvest (-40% in some regions) and increased demand from craft distillers.',
+    description: 'Euronext malting barley futures — the benchmark for European brewing and distilling barley. Malting barley is the primary raw material for Scotch whisky, beer, and grain spirits. Price rises driven by poor 2025 Scottish harvest (-40% in some regions) and increased demand from craft distillers.',
     sourceUrl: 'https://live.euronext.com/en/product/commodities/EMA-DPAR/contract-name',
     historicalData: { '2025-03': 200, '2025-04': 202, '2025-05': 204, '2025-06': 206, '2025-07': 208, '2025-08': 210, '2025-09': 212, '2025-10': 215, '2025-11': 218, '2025-12': 220, '2026-01': 222, '2026-02': 224 }
   },
@@ -40,13 +40,13 @@ const COGS_DATA = {
   },
   sugarcane: {
     label: 'Raw Sugar (ICE No.11)', value: 22.4, unit: '\u00a2/lb', change: '+8%', source: 'ICE', updated: '2026-02',
-    description: 'ICE Sugar No. 11 futures â the global benchmark for raw cane sugar. Critical input for rum production, liqueurs, and RTD cocktails. Brazil (largest producer) drought conditions and Indian export restrictions have tightened global supply. Also affects molasses pricing for rum distillers.',
+    description: 'ICE Sugar No. 11 futures — the global benchmark for raw cane sugar. Critical input for rum production, liqueurs, and RTD cocktails. Brazil (largest producer) drought conditions and Indian export restrictions have tightened global supply. Also affects molasses pricing for rum distillers.',
     sourceUrl: 'https://www.ice.com/products/23/Sugar-No-11-Futures',
     historicalData: { '2025-03': 20.7, '2025-04': 20.9, '2025-05': 21.0, '2025-06': 21.2, '2025-07': 21.4, '2025-08': 21.6, '2025-09': 21.8, '2025-10': 22.0, '2025-11': 22.1, '2025-12': 22.2, '2026-01': 22.3, '2026-02': 22.4 }
   },
   natural_gas: {
     label: 'Natural Gas (EU)', value: 48.2, unit: 'EUR/MWh', change: '+15%', source: 'TTF', updated: '2026-02',
-    description: 'TTF (Title Transfer Facility) natural gas price â the European benchmark for natural gas. Critical for glass manufacturing (furnaces run 24/7 at 1,500\u00b0C), distillery heating, bottling line operations, and warehouse climate control. Energy typically represents 8-12% of total COGS for spirits producers.',
+    description: 'TTF (Title Transfer Facility) natural gas price — the European benchmark for natural gas. Critical for glass manufacturing (furnaces run 24/7 at 1,500\u00b0C), distillery heating, bottling line operations, and warehouse climate control. Energy typically represents 8-12% of total COGS for spirits producers.',
     sourceUrl: 'https://www.theice.com/products/27996665/Dutch-TTF-Gas-Futures',
     historicalData: { '2025-03': 41.9, '2025-04': 42.3, '2025-05': 42.8, '2025-06': 43.4, '2025-07': 44.1, '2025-08': 44.8, '2025-09': 45.5, '2025-10': 46.2, '2025-11': 46.9, '2025-12': 47.4, '2026-01': 47.8, '2026-02': 48.2 }
   },

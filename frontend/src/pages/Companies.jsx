@@ -9,14 +9,14 @@ const COMPANIES = [
     outlook: 'Steady premium-led growth despite volume headwinds in mature markets. Tequila portfolio (Don Julio, Casamigos) continues to outperform.',
     outlookInsights: [
       'Organic net sales growth of 1.4% driven by price/mix improvement of +3.8% offset by -2.4% volume decline',
-      'Don Julio and Casamigos combined revenue exceeded $2B for first time â now 10% of group sales',
+      'Don Julio and Casamigos combined revenue exceeded $2B for first time — now 10% of group sales',
       'Guinness experiencing global renaissance with +8% volume growth, strongest performance in 30 years',
-      'India operations growing at +11% â now largest market by volume, #2 by revenue behind North America',
-      'Seedlip (non-alcoholic) and Ritual Zero Proof expanding NoLo portfolio â strategic hedge against moderation trend',
-      'Africa growth corridor (Nigeria, Kenya, South Africa) delivering +7% organic growth â long-term demographic tailwind',
-      'Inventory reduction program completed â distributor destocking headwind from 2024 now behind',
-      'Launched 4 new RTD lines including Crown Royal canned cocktails â spirits-based RTD revenue up +34%',
-      'Cost savings program on track to deliver $800M by 2027 â margin expansion of 120bps expected',
+      'India operations growing at +11% — now largest market by volume, #2 by revenue behind North America',
+      'Seedlip (non-alcoholic) and Ritual Zero Proof expanding NoLo portfolio — strategic hedge against moderation trend',
+      'Africa growth corridor (Nigeria, Kenya, South Africa) delivering +7% organic growth — long-term demographic tailwind',
+      'Inventory reduction program completed — distributor destocking headwind from 2024 now behind',
+      'Launched 4 new RTD lines including Crown Royal canned cocktails — spirits-based RTD revenue up +34%',
+      'Cost savings program on track to deliver $800M by 2027 — margin expansion of 120bps expected',
       'ESG commitment: 100% recyclable packaging by 2030, achieved 78% to date'
     ]
   },
@@ -26,34 +26,34 @@ const COMPANIES = [
     keyBrands: ['Absolut', 'Jameson', 'Chivas Regal', 'The Glenlivet', 'Martell', 'Malibu', 'Havana Club', 'Beefeater'],
     outlook: 'China recovery slower than expected weighing on Martell. Jameson remains the growth engine with double-digit gains.',
     outlookInsights: [
-      'Jameson Irish Whiskey achieved 10M case milestone â now world\'s 3rd largest whiskey brand by volume',
-      'Martell cognac revenue down 22% due to China tariff and economic slowdown â exploring pricing strategy reset',
-      'India (Imperial Blue, Royal Stag) now #1 market by volume â 75M cases sold annually',
-      'Absolut struggling with -4% decline as vodka category faces structural headwinds â innovation pipeline being revamped',
-      'Launched Celtic Soul non-alcoholic spirits range in 15 markets â early trial metrics encouraging',
-      'Travel retail business recovered to 108% of pre-COVID levels â airport expansion driving premium mix',
-      'The Glenlivet and Aberlour single malts growing at +6% â benefiting from age-statement premiumization trend',
-      'US distribution restructured from Southern Glazer\'s to direct model in 5 key states â early results positive',
+      'Jameson Irish Whiskey achieved 10M case milestone — now world\'s 3rd largest whiskey brand by volume',
+      'Martell cognac revenue down 22% due to China tariff and economic slowdown — exploring pricing strategy reset',
+      'India (Imperial Blue, Royal Stag) now #1 market by volume — 75M cases sold annually',
+      'Absolut struggling with -4% decline as vodka category faces structural headwinds — innovation pipeline being revamped',
+      'Launched Celtic Soul non-alcoholic spirits range in 15 markets — early trial metrics encouraging',
+      'Travel retail business recovered to 108% of pre-COVID levels — airport expansion driving premium mix',
+      'The Glenlivet and Aberlour single malts growing at +6% — benefiting from age-statement premiumization trend',
+      'US distribution restructured from Southern Glazer\'s to direct model in 5 key states — early results positive',
       'Sustainability: water replenishment program achieved 1:1 ratio in all water-stressed distillery locations',
-      'Digital DTC platform growing at +18% â wine.com acquisition integration delivering synergies'
+      'Digital DTC platform growing at +18% — wine.com acquisition integration delivering synergies'
     ]
   },
   {
     name: 'LVMH Wines & Spirits', ticker: 'MC.PA', type: 'Public', hq: 'Paris, France',
     revenue: '$7.5B', revenueGrowth: '-3.8%', marketCap: '$358B (group)', stockYTD: '-2.4%',
-    keyBrands: ['MoÃ«t & Chandon', 'Hennessy', 'Dom PÃ©rignon', 'Veuve Clicquot', 'Glenmorangie', 'Belvedere', 'Krug'],
-    outlook: 'Hennessy China headwinds significant. Champagne portfolio pivoting to prestige cuvÃ©es. Spirits division underperforming luxury goods.',
+    keyBrands: ['MoÃ«t & Chandon', 'Hennessy', 'Dom Pérignon', 'Veuve Clicquot', 'Glenmorangie', 'Belvedere', 'Krug'],
+    outlook: 'Hennessy China headwinds significant. Champagne portfolio pivoting to prestige cuvées. Spirits division underperforming luxury goods.',
     outlookInsights: [
-      'Hennessy volume down 14% with China tariff adding 35% duty â worst market performance since 2009',
-      'Dom PÃ©rignon and Krug prestige cuvÃ©es bucking trend with +5% value growth â ultra-luxury resilient',
+      'Hennessy volume down 14% with China tariff adding 35% duty — worst market performance since 2009',
+      'Dom Pérignon and Krug prestige cuvées bucking trend with +5% value growth — ultra-luxury resilient',
       'MoÃ«t & Chandon maintaining volume leadership but facing prosecco competition in everyday occasions',
-      'Glenmorangie single malt relaunched with new packaging â early sell-through up 12% in travel retail',
-      'Acquired ChÃ¢teau Galoupet rosÃ© estate â expanding Provence rosÃ© portfolio for premium summer occasions',
+      'Glenmorangie single malt relaunched with new packaging — early sell-through up 12% in travel retail',
+      'Acquired ChÃ¢teau Galoupet rosé estate — expanding Provence rosé portfolio for premium summer occasions',
       'Belvedere vodka gaining in US premium segment with +6% growth against category decline',
       'Japanese whisky exploration: rumored interest in acquiring or partnering with boutique Japanese distillery',
-      'Wines & Spirits now only 8% of LVMH group revenue vs. 10% five years ago â being outpaced by fashion and leather',
+      'Wines & Spirits now only 8% of LVMH group revenue vs. 10% five years ago — being outpaced by fashion and leather',
       'Sustainability: all Champagne houses achieved Viticulture Durable certification',
-      'China inventory correction expected to complete by H2 2026 â recovery trajectory similar to 2015 cycle'
+      'China inventory correction expected to complete by H2 2026 — recovery trajectory similar to 2015 cycle'
     ]
   },
   {
@@ -62,16 +62,16 @@ const COMPANIES = [
     keyBrands: ['Modelo Especial', 'Corona', 'Pacifico', 'Kim Crawford', 'Meiomi', 'High West', 'Casa Noble'],
     outlook: 'Mexican beer portfolio continues to dominate US growth. Wine & spirits divestiture sharpened focus. Modelo now #1 US beer brand.',
     outlookInsights: [
-      'Modelo Especial now #1 beer brand in the US by dollar sales â 22 consecutive quarters of share gains',
-      'Corona franchise (Extra, Premier, Hard Seltzer) combined revenue exceeded $3.5B â iconic brand equity',
-      'Beer division operating margin expanded to 41.2% â highest in company history, driven by Nava brewery efficiency',
-      'Pacifico emerging as next growth brand at +14% â targeting coastal/outdoor lifestyle demographic',
-      'Wine & spirits divestiture to SYCL Inc completed â $2B in debt reduction, pure-play beer focus',
-      'Nava brewery expansion Phase 3 complete â capacity now 45M hectoliters, $1.5B invested since 2016',
+      'Modelo Especial now #1 beer brand in the US by dollar sales — 22 consecutive quarters of share gains',
+      'Corona franchise (Extra, Premier, Hard Seltzer) combined revenue exceeded $3.5B — iconic brand equity',
+      'Beer division operating margin expanded to 41.2% — highest in company history, driven by Nava brewery efficiency',
+      'Pacifico emerging as next growth brand at +14% — targeting coastal/outdoor lifestyle demographic',
+      'Wine & spirits divestiture to SYCL Inc completed — $2B in debt reduction, pure-play beer focus',
+      'Nava brewery expansion Phase 3 complete — capacity now 45M hectoliters, $1.5B invested since 2016',
       'Hispanic consumer demographic tailwind: US Hispanic population growing 2x overall population rate',
       'Ventura Coastal beverages investment ($50M) targeting premium RTD cocktail segment',
-      'E-commerce beer sales growing +22% â partnered with DoorDash, Instacart, and Drizly',
-      'ESG: achieved 25% water reduction per hectoliter at Nava â critical in water-stressed Coahuila region'
+      'E-commerce beer sales growing +22% — partnered with DoorDash, Instacart, and Drizly',
+      'ESG: achieved 25% water reduction per hectoliter at Nava — critical in water-stressed Coahuila region'
     ]
   },
   {
@@ -80,15 +80,15 @@ const COMPANIES = [
     keyBrands: ['Budweiser', 'Stella Artois', 'Corona (outside US)', 'Beck\'s', 'Michelob Ultra', 'Leffe', 'Hoegaarden'],
     outlook: 'Revenue growth driven by premiumization in emerging markets. Bud Light US recovery slow. Michelob Ultra gaining as health-conscious choice.',
     outlookInsights: [
-      'Bud Light US volume still down 18% from pre-controversy 2023 levels â partial recovery but permanent share loss evident',
-      'Michelob Ultra now #2 US beer brand â health and wellness positioning resonating with 25-44 demographic',
-      'Africa region growing at +9% organic â Nigeria, South Africa, and Mozambique driving volume with affordable portfolio',
-      'BEES digital B2B platform now in 29 markets with $40B GMV â transforming distribution economics',
-      'Mexico operations outperforming with +7% revenue growth â Corona and Victoria brands gaining share',
+      'Bud Light US volume still down 18% from pre-controversy 2023 levels — partial recovery but permanent share loss evident',
+      'Michelob Ultra now #2 US beer brand — health and wellness positioning resonating with 25-44 demographic',
+      'Africa region growing at +9% organic — Nigeria, South Africa, and Mozambique driving volume with affordable portfolio',
+      'BEES digital B2B platform now in 29 markets with $40B GMV — transforming distribution economics',
+      'Mexico operations outperforming with +7% revenue growth — Corona and Victoria brands gaining share',
       'Beyond Beer strategy: invested $200M in RTD, non-alc, and spirits partnerships since 2023',
-      'China volume declining at -5% â market restructuring from premium beer to baijiu substitution',
-      'Debt reduction continues: net debt/EBITDA now 3.1x, down from 4.8x at peak â targeting 2.0x by 2027',
-      'Launched AI-powered demand forecasting across 20 markets â reducing supply chain waste by 8%',
+      'China volume declining at -5% — market restructuring from premium beer to baijiu substitution',
+      'Debt reduction continues: net debt/EBITDA now 3.1x, down from 4.8x at peak — targeting 2.0x by 2027',
+      'Launched AI-powered demand forecasting across 20 markets — reducing supply chain waste by 8%',
       'Sustainability: 100% of electricity from renewable sources in Europe, targeting global by 2028'
     ]
   },
@@ -98,15 +98,15 @@ const COMPANIES = [
     keyBrands: ['Carlsberg', 'Tuborg', 'Kronenbourg 1664', 'Grimbergen', 'Brooklyn Brewery', '1664 Blanc'],
     outlook: 'Britvic acquisition transforms non-alc portfolio. Asian markets (China, Vietnam) providing growth while Western Europe flat.',
     outlookInsights: [
-      'Britvic acquisition ($4.1B) completed â creates combined beverage group with 35% non-alc revenue share',
-      'China (Carlsberg, Chongqing Beer) growing at +4% premium volume â benefiting from trade-up trend',
-      'Vietnam and Laos operations delivering +8% growth â Huda and Angkor brands dominating local markets',
-      'Kronenbourg 1664 Blanc now the #1 wheat beer globally â 48M cases across 80 markets',
-      'Brooklyn Brewery craft partnership struggling with -6% â US craft consolidation creating headwinds',
-      'Zero carbon brewery pilot in Fredericia, Denmark operational â blueprint for 8 additional sites',
-      'Carlsberg 0.0 non-alcoholic variant growing at +25% â #2 non-alc beer brand in Europe behind Heineken 0.0',
+      'Britvic acquisition ($4.1B) completed — creates combined beverage group with 35% non-alc revenue share',
+      'China (Carlsberg, Chongqing Beer) growing at +4% premium volume — benefiting from trade-up trend',
+      'Vietnam and Laos operations delivering +8% growth — Huda and Angkor brands dominating local markets',
+      'Kronenbourg 1664 Blanc now the #1 wheat beer globally — 48M cases across 80 markets',
+      'Brooklyn Brewery craft partnership struggling with -6% — US craft consolidation creating headwinds',
+      'Zero carbon brewery pilot in Fredericia, Denmark operational — blueprint for 8 additional sites',
+      'Carlsberg 0.0 non-alcoholic variant growing at +25% — #2 non-alc beer brand in Europe behind Heineken 0.0',
       'Sail 27 strategy targeting 6-8% organic revenue growth through premiumization and geographic expansion',
-      'India exit completed â sold business to focus on higher-margin Asian and European markets',
+      'India exit completed — sold business to focus on higher-margin Asian and European markets',
       'Circular packaging initiative: Snap Pack glue replacing plastic rings saved 1,200 tonnes of plastic'
     ]
   },
@@ -116,21 +116,21 @@ const COMPANIES = [
     keyBrands: ['Jagermeister', 'Jagermeister Cold Brew', 'Teremana (distribution)'],
     outlook: 'Single-brand focus with remarkable global consistency. Cold Brew Coffee variant driving incremental occasions.',
     outlookInsights: [
-      'Jagermeister global volume exceeded 110M bottles â 8th consecutive year of growth',
-      'Cold Brew Coffee variant now 12% of total volume â fastest-growing line extension in company history',
-      'US remains #1 market (35% of revenue) with +5% growth â night-life and festival occasion dominance',
-      'Brazil and Mexico emerging as top-5 markets â Latin America growing at +14%',
+      'Jagermeister global volume exceeded 110M bottles — 8th consecutive year of growth',
+      'Cold Brew Coffee variant now 12% of total volume — fastest-growing line extension in company history',
+      'US remains #1 market (35% of revenue) with +5% growth — night-life and festival occasion dominance',
+      'Brazil and Mexico emerging as top-5 markets — Latin America growing at +14%',
       'Teremana tequila distribution partnership with Dwayne Johnson generating incremental revenue',
-      'Family-owned since 1934 â Findel-Mast family committed to independence, no sale rumors',
-      'Digital marketing investment doubled since 2022 â TikTok and Instagram driving Gen Z trial',
-      'Shot machine installed base exceeding 140,000 globally â proprietary on-premise advantage'
+      'Family-owned since 1934 — Findel-Mast family committed to independence, no sale rumors',
+      'Digital marketing investment doubled since 2022 — TikTok and Instagram driving Gen Z trial',
+      'Shot machine installed base exceeding 140,000 globally — proprietary on-premise advantage'
     ],
     privateIntel: {
       estimatedRevenue: '$1.0-1.2B',
       sources: ['Industry reports (IWSR, Euromonitor)', 'Distributor data', 'Trademark filings'],
       recentDevelopments: [
-        { date: 'Jan 2026', event: 'Filed trademark for "Jagermeister Spice" in EU â potential new variant' },
-        { date: 'Nov 2025', event: 'Expanded Wolfenbuttel distillery capacity by 15% â $80M investment' },
+        { date: 'Jan 2026', event: 'Filed trademark for "Jagermeister Spice" in EU — potential new variant' },
+        { date: 'Nov 2025', event: 'Expanded Wolfenbuttel distillery capacity by 15% — $80M investment' },
         { date: 'Aug 2025', event: 'Signed 5-year distribution renewal with Southern Glazer\'s in US' }
       ]
     }
@@ -141,15 +141,15 @@ const COMPANIES = [
     keyBrands: ['Buffalo Trace', 'Pappy Van Winkle', 'Eagle Rare', 'Fireball', 'Sazerac Rye', 'Blanton\'s', 'Benchmark', 'Paddy Irish Whiskey'],
     outlook: 'Largest private spirits company in America. Buffalo Trace bourbon demand far exceeds supply. Fireball provides mass-market volume.',
     outlookInsights: [
-      'Buffalo Trace Distillery $1.2B expansion adds 60% capacity â largest single investment in bourbon history',
-      'Pappy Van Winkle secondary market prices stable at $2,500-4,000 per bottle â brand equity unmatched',
-      'Fireball Cinnamon Whisky remains #1 shot brand in US despite -3% decline â mature but cash-generative',
-      'Eagle Rare and Blanton\'s driving allocated bourbon frenzy â waiting lists exceeding 18 months at retail',
+      'Buffalo Trace Distillery $1.2B expansion adds 60% capacity — largest single investment in bourbon history',
+      'Pappy Van Winkle secondary market prices stable at $2,500-4,000 per bottle — brand equity unmatched',
+      'Fireball Cinnamon Whisky remains #1 shot brand in US despite -3% decline — mature but cash-generative',
+      'Eagle Rare and Blanton\'s driving allocated bourbon frenzy — waiting lists exceeding 18 months at retail',
       'Acquired multiple craft brands including Southern Comfort (2016) and Paddy Irish Whiskey (2016)',
-      'E.H. Taylor and Weller lines experiencing 400%+ secondary market premiums â demand signal for expansion',
-      'Family-owned by the Goldring family since 1869 â fiercely private, no public financial disclosures',
+      'E.H. Taylor and Weller lines experiencing 400%+ secondary market premiums — demand signal for expansion',
+      'Family-owned by the Goldring family since 1869 — fiercely private, no public financial disclosures',
       'Estimated to be America\'s largest privately-held spirits company with 200+ brands in portfolio',
-      'Kentucky tourism: Buffalo Trace Distillery welcomed 500,000+ visitors in 2025 â #1 bourbon tourism destination',
+      'Kentucky tourism: Buffalo Trace Distillery welcomed 500,000+ visitors in 2025 — #1 bourbon tourism destination',
       'International expansion underway: entered 15 new markets in 2025, focused on premium bourbon positioning'
     ],
     privateIntel: {
@@ -162,10 +162,10 @@ const COMPANIES = [
         { brand: 'Pappy Van Winkle', status: 'iconic', position: 'Most valuable American whiskey', latestRelease: '2025 Fall Lottery' }
       ],
       recentDevelopments: [
-        { date: 'Feb 2026', event: 'Buffalo Trace expansion Phase 2 breaking ground â additional 30 barrel warehouses' },
+        { date: 'Feb 2026', event: 'Buffalo Trace expansion Phase 2 breaking ground — additional 30 barrel warehouses' },
         { date: 'Dec 2025', event: 'Entered Australian market with premium bourbon range through Endeavour Group' },
-        { date: 'Sep 2025', event: 'Acquired small Irish whiskey distillery in Cork â signals international ambitions' },
-        { date: 'Jun 2025', event: 'Fireball RTD canned cocktails launched nationwide â targeting convenience channel' }
+        { date: 'Sep 2025', event: 'Acquired small Irish whiskey distillery in Cork — signals international ambitions' },
+        { date: 'Jun 2025', event: 'Fireball RTD canned cocktails launched nationwide — targeting convenience channel' }
       ]
     }
   },
@@ -175,16 +175,16 @@ const COMPANIES = [
     keyBrands: ['Glenfiddich', 'The Balvenie', 'Hendrick\'s', 'Monkey Shoulder', 'Tullamore D.E.W.', 'Sailor Jerry', 'Drambuie'],
     outlook: 'Family-owned since 1887. Glenfiddich maintains #1 single malt position. Hendrick\'s gin growth engine offsetting scotch maturation.',
     outlookInsights: [
-      'Glenfiddich remains world\'s best-selling single malt whisky â 15M bottles annually across 180 markets',
-      'The Balvenie positioned as ultra-premium craftsman brand â 30-Year consistently selling out at $800+',
-      'Hendrick\'s Gin growing at +8% globally â Orbium and Flora Adora limited editions driving premium mix',
-      'Monkey Shoulder blended malt targeting younger whisky drinkers â bartender advocacy program in 40 countries',
-      'Tullamore D.E.W. Irish Whiskey growing at +12% â benefiting from Irish whiskey category momentum',
-      'Drambuie heritage liqueur stabilizing after years of decline â cocktail culture revival helping',
-      'Family (5th generation Grant-Gordon) committed to independence â no sale discussions despite industry M&A wave',
-      'Dufftown distillery complex is Scotland\'s largest malt whisky distilling site â 10M litres annual capacity',
-      'Travel retail channel now 15% of revenue â opened 6 new airport boutiques in 2025',
-      'Launched experimental Glenfiddich IPA and Fire & Cane expressions â pushing single malt boundaries'
+      'Glenfiddich remains world\'s best-selling single malt whisky — 15M bottles annually across 180 markets',
+      'The Balvenie positioned as ultra-premium craftsman brand — 30-Year consistently selling out at $800+',
+      'Hendrick\'s Gin growing at +8% globally — Orbium and Flora Adora limited editions driving premium mix',
+      'Monkey Shoulder blended malt targeting younger whisky drinkers — bartender advocacy program in 40 countries',
+      'Tullamore D.E.W. Irish Whiskey growing at +12% — benefiting from Irish whiskey category momentum',
+      'Drambuie heritage liqueur stabilizing after years of decline — cocktail culture revival helping',
+      'Family (5th generation Grant-Gordon) committed to independence — no sale discussions despite industry M&A wave',
+      'Dufftown distillery complex is Scotland\'s largest malt whisky distilling site — 10M litres annual capacity',
+      'Travel retail channel now 15% of revenue — opened 6 new airport boutiques in 2025',
+      'Launched experimental Glenfiddich IPA and Fire & Cane expressions — pushing single malt boundaries'
     ],
     privateIntel: {
       estimatedRevenue: '$2.0-2.4B',
@@ -196,10 +196,10 @@ const COMPANIES = [
         { brand: 'Monkey Shoulder', status: 'growing', position: '#1 blended malt', latestRelease: 'Smokey Monkey (2025)' }
       ],
       recentDevelopments: [
-        { date: 'Jan 2026', event: 'Opened new maturation warehouse complex in Speyside â 250,000 cask capacity' },
-        { date: 'Oct 2025', event: 'Hendrick\'s distillery visitor center expansion â capacity doubled to 100,000 visitors/year' },
+        { date: 'Jan 2026', event: 'Opened new maturation warehouse complex in Speyside — 250,000 cask capacity' },
+        { date: 'Oct 2025', event: 'Hendrick\'s distillery visitor center expansion — capacity doubled to 100,000 visitors/year' },
         { date: 'Jul 2025', event: 'Glenfiddich Time Re:Imagined collection NFT auction raised $1.2M for charity' },
-        { date: 'Apr 2025', event: 'Hired new Master Blender from Diageo â signaling innovation push' }
+        { date: 'Apr 2025', event: 'Hired new Master Blender from Diageo — signaling innovation push' }
       ]
     }
   },
@@ -209,16 +209,16 @@ const COMPANIES = [
     keyBrands: ['The Macallan', 'Highland Park', 'The Famous Grouse', 'Naked Malt', 'Brugal'],
     outlook: 'The Macallan dominance in ultra-premium single malt. Highland Park cult following. Charity-owned structure (Robertson Trust) unique in industry.',
     outlookInsights: [
-      'The Macallan now the world\'s most valuable single malt brand â $50M+ casks sold at auction in 2025',
-      'Macallan 25-Year retail price increased 18% YoY to $2,200 â demand consistently exceeds allocation',
-      'Highland Park Viking heritage positioning resonating â +9% growth driven by travel retail and whisky enthusiasts',
+      'The Macallan now the world\'s most valuable single malt brand — $50M+ casks sold at auction in 2025',
+      'Macallan 25-Year retail price increased 18% YoY to $2,200 — demand consistently exceeds allocation',
+      'Highland Park Viking heritage positioning resonating — +9% growth driven by travel retail and whisky enthusiasts',
       'The Famous Grouse maintaining volume leadership in Scotland despite blended scotch category decline',
       'Brugal rum acquisition (Dominican Republic) providing spirits diversification beyond scotch',
-      'Robertson Trust charitable ownership means profits fund Scottish education and arts â unique governance model',
-      'Macallan Easter Elchies estate and distillery welcomed 120,000 visitors â premium tourism revenue',
+      'Robertson Trust charitable ownership means profits fund Scottish education and arts — unique governance model',
+      'Macallan Easter Elchies estate and distillery welcomed 120,000 visitors — premium tourism revenue',
       'Reduced bottle weight by 11% and committed to removing all plastic closures by 2027',
-      'Naked Malt (formerly Naked Grouse) rebranded and repositioned â targeting cocktail occasion in premium bars',
-      'Asia-Pacific now 40% of revenue â Taiwan, Japan, and China key growth markets for Macallan'
+      'Naked Malt (formerly Naked Grouse) rebranded and repositioned — targeting cocktail occasion in premium bars',
+      'Asia-Pacific now 40% of revenue — Taiwan, Japan, and China key growth markets for Macallan'
     ],
     privateIntel: {
       estimatedRevenue: '$1.0-1.2B',
@@ -230,10 +230,10 @@ const COMPANIES = [
         { brand: 'Brugal', status: 'growing', position: '#1 rum in Dominican Republic', latestRelease: 'Papa Andres 2025 Alegria' }
       ],
       recentDevelopments: [
-        { date: 'Feb 2026', event: 'Macallan 1926 bottle sold at auction for $2.7M â new world record for any spirit' },
+        { date: 'Feb 2026', event: 'Macallan 1926 bottle sold at auction for $2.7M — new world record for any spirit' },
         { date: 'Nov 2025', event: 'Robertson Trust distributed $38M to Scottish charities from Edrington profits' },
-        { date: 'Aug 2025', event: 'Highland Park distillery modernization completed â 20% capacity increase' },
-        { date: 'May 2025', event: 'New CEO appointed from Diageo â first external CEO in company history' }
+        { date: 'Aug 2025', event: 'Highland Park distillery modernization completed — 20% capacity increase' },
+        { date: 'May 2025', event: 'New CEO appointed from Diageo — first external CEO in company history' }
       ]
     }
   }

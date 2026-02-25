@@ -25,7 +25,7 @@ const CATEGORIES = [
       { text: 'Agave oversupply creating pricing pressure after years of undersupply constraints', source: 'ProximityCIM', url: 'https://www.brunchgodny.com/industry-news/tequilas-boom-meets-reality-celebrity-brands-agave-glut-and-the-500-million-surplus' },
       { text: 'Celebrity-backed brands (George Clooney, Dwayne Johnson, Justin Timberlake) saturating premium segment', source: 'Spirits Industry Database', url: 'https://www.thespiritsbusiness.com/2025/06/top-10-best-selling-brand-champions-in-2024/' },
       { text: 'Additive-free certification lawsuits challenging purity marketing claims of major producers', source: 'Trade News Weekly', url: 'https://felenevoka.com/tequila-market-trends-2025-cycle-peak-operators/' },
-      { text: 'Mezcal geographic expansion beyond Oaxaca â Durango and Zacatecas gaining denominations recognition', source: 'Mexican Trade Ministry', url: 'https://www.thespiritsbusiness.com/2024/12/world-spirits-report-2024-tequila-mezcal/' },
+      { text: 'Mezcal geographic expansion beyond Oaxaca — Durango and Zacatecas gaining denominations recognition', source: 'Mexican Trade Ministry', url: 'https://www.thespiritsbusiness.com/2024/12/world-spirits-report-2024-tequila-mezcal/' },
       { text: 'Cristalino aging technique growing at +24% CAGR as premium category bridge between blanco and reposado', source: 'Market Research International', url: 'https://www.ohbev.com/blog/tequila-market-2025-forecasts-and-trends' }
     ],
     yearlyReports: [
@@ -125,7 +125,7 @@ const CATEGORIES = [
       { text: 'Japanese whisky supply allocation crisis intensifies as global demand far exceeds Yamazaki/Hibiki distillery output capacity', source: 'Asia Spirits Report', url: 'https://www.theiwsr.com/insight/inside-the-iwsr-global-trends-report-key-drivers-for-beverage-alcohol-in-2025/' },
       { text: 'American single malt gains TTB recognition as distinct category enabling new category creation and distillery expansion across West Coast', source: 'Distilled Spirits Council of USA', url: 'https://www.shankennewsdaily.com/2024/02/13/34835/titos-sees-smaller-formats-stoke-growth-as-volume-climbs-above-12m-cases/' },
       { text: 'India whisky consumption overtakes France by volume as country becomes largest global whisky market by case count', source: 'Global Spirits Database', url: 'https://www.theiwsr.com/insight/inside-the-iwsr-global-trends-report-key-drivers-for-beverage-alcohol-in-2025/' },
-      { text: 'Scotch whisky exports reach Â£6.3B recovery milestone exceeding pre-pandemic levels with Asia driving growth resurgence', source: 'Scotch Whisky Research', url: 'https://www.theiwsr.com/insight/premiumisation-is-slowing-but-theres-a-counter-trend/' }
+      { text: 'Scotch whisky exports reach £6.3B recovery milestone exceeding pre-pandemic levels with Asia driving growth resurgence', source: 'Scotch Whisky Research', url: 'https://www.theiwsr.com/insight/premiumisation-is-slowing-but-theres-a-counter-trend/' }
     ],
     yearlyReports: [
       { year: 2025, marketSize: '$6.3B exports', growth: '+4.2%', volumeCases: '412M', keyEvents: ['India surpasses France', 'Irish whiskey booming', 'Scotch exports recover'], topPerformer: 'Jameson', outlook: 'Irish whiskey growth sustains while Japanese allocation remains constrained.' },
@@ -242,7 +242,7 @@ const CATEGORIES = [
     marketSize: '$38.2B',
     growth: '-1.2%',
     growthDir: 'down',
-    trajectory: 'Global wine market in structural decline â volume down for 3rd consecutive year. Younger consumers choosing spirits, RTDs, and NoLo alternatives. Premium wines holding value while sub-$10 collapses. Climate change disrupting traditional regions.',
+    trajectory: 'Global wine market in structural decline — volume down for 3rd consecutive year. Younger consumers choosing spirits, RTDs, and NoLo alternatives. Premium wines holding value while sub-$10 collapses. Climate change disrupting traditional regions.',
     topMarkets: [
       { name: 'China', growth: '-6.2%' },
       { name: 'Italy', growth: '-1.8%' },
@@ -329,7 +329,7 @@ const CATEGORIES = [
     marketSize: '$13B',
     growth: '+7.5%',
     growthDir: 'up',
-    trajectory: 'Fastest-growing macro category across all beverage alcohol. No-alcohol growing faster than low-alcohol. Beer dominates volume but spirits and wine catching up. Still early innings â NoLo represents just 1.5% of total beverage alcohol.',
+    trajectory: 'Fastest-growing macro category across all beverage alcohol. No-alcohol growing faster than low-alcohol. Beer dominates volume but spirits and wine catching up. Still early innings — NoLo represents just 1.5% of total beverage alcohol.',
     topMarkets: [
       { name: 'US', growth: '+14.1%' },
       { name: 'Germany', growth: '+12.4%' },
@@ -408,7 +408,7 @@ const CategoryCard = ({ cat, isActive, onClick }) => (
         <div className={`text-sm font-semibold ${isActive ? 'text-white' : 'text-slate-800'}`}>{cat.label}</div>
         <div className={`text-xs ${isActive ? 'text-slate-200' : 'text-gray-500'}`}>{cat.marketSize}</div>
         <div className={`text-xs font-semibold mt-1 ${cat.growthDir === 'down' ? 'text-red-600' : 'text-green-600'}`}>
-          {cat.growthDir === 'down' ? 'â¼' : 'â²'} {cat.growth}
+          {cat.growthDir === 'down' ? '▼' : '▲'} {cat.growth}
         </div>
       </div>
     </div>
@@ -653,7 +653,7 @@ export default function CategoryIntelligence() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-slate-800">Category Intelligence</h1>
-        <p className="text-gray-500 mt-1">Global spirits & beverage categories â market sizing, trends & outlook</p>
+        <p className="text-gray-500 mt-1">Global spirits & beverage categories — market sizing, trends & outlook</p>
       </div>
 
       <div className="grid grid-cols-12 gap-6">

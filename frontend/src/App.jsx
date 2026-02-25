@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Link, Navigate, useLocation } from 'react-router-dom'
-import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, Settings, LogOut, Menu, MessageCircle, FileText, Package, Globe, Wine } from 'lucide-react'
+import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, Settings, LogOut, Menu, MessageCircle, FileText, Package, Globe, Wine, MapPin } from 'lucide-react'
 import { api, getToken, setToken, clearToken } from './lib/api'
 import CommandCentre from './pages/CommandCentre'
 import Valuations from './pages/Valuations'
@@ -10,6 +10,7 @@ import ReportBuilder from './pages/ReportBuilder'
 import SupplyChain from './pages/SupplyChain'
 import GeographicIntelligence from './pages/GeographicIntelligence'
 import CategoryIntelligence from './pages/CategoryIntelligence'
+import VenueIntelligence from './pages/VenueIntelligence'
 import ChatPanel from './components/ChatPanel'
 
 function Login({ onLogin }) {
@@ -102,6 +103,7 @@ function Layout({ onLogout }) {
             <NavItem to="/supply-chain" icon={Package} label="Supply Chain & COGS" />
             <NavItem to="/geographic" icon={Globe} label="Geographic Intelligence" />
             <NavItem to="/categories" icon={Wine} label="Category Intelligence" />
+            <NavItem to="/venues" icon={MapPin} label="Venue Intelligence" />
             <NavItem to="/valuations" icon={TrendingUp} label="Valuations & Arbitrage" />
             <NavItem to="/pricing" icon={DollarSign} label="Brand Pricing" />
             <NavItem to="/companies" icon={Building2} label="Company Intelligence" />
@@ -144,6 +146,7 @@ function Layout({ onLogout }) {
             <Route path="/supply-chain" element={<SupplyChain />} />
             <Route path="/geographic" element={<GeographicIntelligence />} />
                 <Route path="/categories" element={<CategoryIntelligence />} />
+            <Route path="/venues" element={<VenueIntelligence />} />
             <Route path="/valuations" element={<Valuations />} />
             <Route path="/pricing" element={<BrandPricing />} />
             <Route path="/companies" element={<Companies />} />

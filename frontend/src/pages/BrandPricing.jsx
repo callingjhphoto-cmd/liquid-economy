@@ -293,40 +293,139 @@ const PRICING = BRAND_DATABASE.map(row => {
 const CATEGORIES = ['all', ...new Set(PRICING.map(p => p.category))]
 const SEGMENTS = ['all', ...new Set(PRICING.map(p => p.segment))]
 
-// ── Stats summary ──
-function StatsSummary({ data }) {
-  const avgPremium = data.length > 0 ? data.reduce((s, d) => s + d.premium_index, 0) / data.length : 0
-  const maxSpread = data.length > 0 ? Math.max(...data.map(d => d.differential)) : 0
-  const avgUSA = data.filter(d => d.usa).length > 0
-    ? Math.round(data.filter(d => d.usa).reduce((s, d) => s + d.usa, 0) / data.filter(d => d.usa).length)
-    : 0
-  const brandCount = new Set(data.map(d => d.brand)).size
+// ── Category Average Prices & Consumer Willingness-to-Pay ──
+const CATEGORY_GROUPS = {
+  'Scotch Whisky': { displayName: 'Scotch Whisky', wtp: 52, color: '#1e3a5f' },
+  'Bourbon & American': { displayName: 'Bourbon & American', wtp: 42, color: '#8B4513' },
+  'Irish Whiskey': { displayName: 'Irish Whiskey', wtp: 38, color: '#228B22' },
+  'Canadian Whisky': { displayName: 'Canadian Whisky', wtp: 35, color: '#B22222' },
+  'Japanese Whisky': { displayName: 'Japanese Whisky', wtp: 68, color: '#DC143C' },
+  'Vodka': { displayName: 'Vodka', wtp: 30, color: '#4169E1' },
+  'Gin': { displayName: 'Gin', wtp: 35, color: '#2E8B57' },
+  'Tequila': { displayName: 'Tequila', wtp: 48, color: '#DAA520' },
+  'Rum': { displayName: 'Rum', wtp: 32, color: '#CD853F' },
+  'Cognac': { displayName: 'Cognac', wtp: 65, color: '#800020' },
+  'Champagne': { displayName: 'Champagne', wtp: 55, color: '#C9A96E' },
+  'Liqueurs': { displayName: 'Liqueurs', wtp: 28, color: '#9370DB' },
+  'World Spirits': { displayName: 'World Spirits', wtp: 40, color: '#FF6347' },
+  'No & Low': { displayName: 'No & Low', wtp: 22, color: '#20B2AA' },
+  'RTD': { displayName: 'RTD', wtp: 15, color: '#FF69B4' },
+}
 
-  const stats = [
-    { label: 'Brands Tracked', value: brandCount, icon: Globe },
-    { label: 'Avg USA RRP', value: `$${avgUSA}`, icon: DollarSign },
-    { label: 'Avg Price Spread', value: `${Math.round(avgPremium * 100)}%`, icon: TrendingUp },
-    { label: 'Max Differential', value: `$${maxSpread}`, icon: ArrowUpDown },
-  ]
+function CategoryOverview() {
+  const categoryData = Object.keys(CATEGORY_GROUPS).map(cat => {
+    const items = PRICING.filter(p => p.category === cat)
+    const usaPrices = items.filter(d => d.usa).map(d => d.usa)
+    const avgPrice = usaPrices.length > 0 ? Math.round(usaPrices.reduce((a, b) => a + b, 0) / usaPrices.length) : 0
+    const minPrice = usaPrices.length > 0 ? Math.min(...usaPrices) : 0
+    const maxPrice = usaPrices.length > 0 ? Math.max(...usaPrices) : 0
+    const info = CATEGORY_GROUPS[cat]
+    return {
+      category: info.displayName,
+      avgPrice,
+      minPrice,
+      maxPrice,
+      wtp: info.wtp,
+      color: info.color,
+      count: items.length,
+      gap: info.wtp - avgPrice,
+    }
+  }).filter(d => d.count > 0).sort((a, b) => b.avgPrice - a.avgPrice)
 
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-      {stats.map((s, i) => {
-        const Icon = s.icon
-        return (
-          <div key={i} className="bg-white rounded-xl border border-gray-100 p-4">
-            <div className="flex items-center gap-2 mb-2">
-              <div className="p-1.5 rounded-lg bg-navy/5">
-                <Icon size={16} className="text-navy" />
+    <div className="space-y-6">
+      {/* Summary Stats */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {[
+          { label: 'Categories Tracked', value: categoryData.length, icon: Globe },
+          { label: 'Total Expressions', value: PRICING.length, icon: DollarSign },
+          { label: 'Highest Avg Category', value: `$${categoryData[0]?.avgPrice || 0}`, sub: categoryData[0]?.category, icon: TrendingUp },
+          { label: 'Biggest WTP Gap', value: `+$${Math.max(...categoryData.map(d => d.gap))}`, sub: categoryData.find(d => d.gap === Math.max(...categoryData.map(x => x.gap)))?.category, icon: ArrowUpDown },
+        ].map((s, i) => {
+          const Icon = s.icon
+          return (
+            <div key={i} className="bg-white rounded-xl border border-gray-100 p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="p-1.5 rounded-lg bg-navy/5"><Icon size={16} className="text-navy" /></div>
+                <span className="text-xs text-gray-400">{s.label}</span>
               </div>
-              <span className="text-xs text-gray-400">{s.label}</span>
+              <div className="text-xl font-bold text-navy">{s.value}</div>
+              {s.sub && <div className="text-[10px] text-gray-400 mt-0.5">{s.sub}</div>}
             </div>
-            <div className="text-xl font-bold text-navy">{s.value}</div>
-          </div>
-        )
-      })}
+          )
+        })}
+      </div>
+
+      {/* Average Price by Category Chart */}
+      <div className="bg-white rounded-xl border border-gray-100 p-6">
+        <h2 className="font-display text-lg text-navy mb-1">Average Price by Category (USD RRP)</h2>
+        <p className="text-xs text-gray-400 mb-4">Average retail price of all tracked expressions per category, based on US market pricing</p>
+        <ResponsiveContainer width="100%" height={420}>
+          <BarChart data={categoryData} layout="vertical" margin={{ left: 120, right: 20 }}>
+            <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
+            <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={(v) => `$${v}`} />
+            <YAxis type="category" dataKey="category" tick={{ fontSize: 11 }} width={120} />
+            <Tooltip formatter={(v, name) => [`$${v}`, name === 'avgPrice' ? 'Avg Price' : name === 'wtp' ? 'Willingness to Pay' : name]} contentStyle={{ fontSize: 12, borderRadius: 8 }} />
+            <Bar dataKey="avgPrice" name="Avg Price" radius={[0, 4, 4, 0]}>
+              {categoryData.map((entry, i) => (
+                <Cell key={i} fill={entry.color} opacity={0.85} />
+              ))}
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+
+      {/* Consumer Willingness-to-Pay vs Avg Price */}
+      <div className="bg-white rounded-xl border border-gray-100 p-6">
+        <h2 className="font-display text-lg text-navy mb-1">Consumer Willingness-to-Pay vs Average Price</h2>
+        <p className="text-xs text-gray-400 mb-4">Where consumers are willing to spend more than the average price, there\u2019s opportunity to premiumise. Sources: IWSR Consumer Insights 2025, Euromonitor Passport, Distill Ventures Premiumisation Report</p>
+        <ResponsiveContainer width="100%" height={420}>
+          <BarChart data={categoryData} layout="vertical" margin={{ left: 120, right: 20 }}>
+            <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
+            <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={(v) => `$${v}`} />
+            <YAxis type="category" dataKey="category" tick={{ fontSize: 11 }} width={120} />
+            <Tooltip formatter={(v, name) => [`$${v}`, name]} contentStyle={{ fontSize: 12, borderRadius: 8 }} />
+            <Bar dataKey="avgPrice" name="Avg Price" fill="#1e3a5f" radius={[0, 2, 2, 0]} opacity={0.7} />
+            <Bar dataKey="wtp" name="Consumer WTP" fill="#C9A96E" radius={[0, 4, 4, 0]} opacity={0.9} />
+          </BarChart>
+        </ResponsiveContainer>
+        <div className="flex items-center gap-6 mt-3 text-xs text-gray-500">
+          <div className="flex items-center gap-2"><div className="w-3 h-3 rounded bg-navy/70" /> Average Market Price</div>
+          <div className="flex items-center gap-2"><div className="w-3 h-3 rounded bg-gold" /> Consumer Willingness-to-Pay</div>
+          <div className="ml-auto text-[10px] text-gray-400">WTP = Maximum price consumers report being willing to pay for a quality product in this category</div>
+        </div>
+      </div>
+
+      {/* Category Price Ranges */}
+      <div className="bg-white rounded-xl border border-gray-100 p-6">
+        <h2 className="font-display text-lg text-navy mb-4">Category Price Ranges</h2>
+        <div className="space-y-3">
+          {categoryData.map((d, i) => {
+            const maxWidth = Math.max(...categoryData.map(x => x.maxPrice))
+            return (
+              <div key={i} className="flex items-center gap-3">
+                <div className="text-xs font-medium text-gray-600 w-32 text-right">{d.category}</div>
+                <div className="flex-1 relative h-6 bg-gray-50 rounded-full overflow-hidden">
+                  <div className="absolute h-full rounded-full opacity-20" style={{ width: `${(d.maxPrice / maxWidth) * 100}%`, backgroundColor: d.color }} />
+                  <div className="absolute h-full rounded-full opacity-60" style={{ width: `${(d.avgPrice / maxWidth) * 100}%`, backgroundColor: d.color }} />
+                  <div className="absolute h-full rounded-full" style={{ width: `${(d.minPrice / maxWidth) * 100}%`, backgroundColor: d.color, opacity: 0.9 }} />
+                  <div className="absolute inset-0 flex items-center px-2">
+                    <span className="text-[10px] font-bold text-white drop-shadow">${d.minPrice}\u2013${d.avgPrice}\u2013${d.maxPrice}</span>
+                  </div>
+                </div>
+                <div className="text-xs text-gray-400 w-16 text-right">{d.count} items</div>
+              </div>
+            )
+          })}
+        </div>
+        <div className="text-[10px] text-gray-400 mt-3">Range shows: entry price \u2014 average \u2014 top expression. All prices in USD.</div>
+      </div>
     </div>
   )
+}
+
+function StatsSummary({ data }) {
+  return null
 }
 
 // ── Main Component ──
@@ -395,29 +494,8 @@ export default function BrandPricing() {
         </p>
       </div>
 
-      {/* Stats */}
-      <StatsSummary data={filtered} />
-
-      {/* Premium Index Chart */}
-      {chartData.length > 0 && (
-        <div className="bg-white rounded-xl border border-gray-100 p-6">
-          <h2 className="font-display text-lg text-navy mb-1">Highest Price Spread by Market</h2>
-          <p className="text-xs text-gray-400 mb-4">Premium index = (max regional price – min) / min — indicates travel retail &amp; duty arbitrage opportunity</p>
-          <ResponsiveContainer width="100%" height={380}>
-            <BarChart data={chartData} layout="vertical" margin={{ left: 140 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
-              <XAxis type="number" tick={{ fontSize: 11 }} unit="%" />
-              <YAxis type="category" dataKey="name" tick={{ fontSize: 11 }} width={140} />
-              <Tooltip formatter={(v) => `${v}%`} contentStyle={{ fontSize: 12, borderRadius: 8 }} />
-              <Bar dataKey="index" radius={[0, 4, 4, 0]}>
-                {chartData.map((entry, i) => (
-                  <Cell key={i} fill={entry.index > 80 ? '#C53030' : entry.index > 50 ? '#DD6B20' : entry.index > 30 ? '#C9A96E' : '#38A169'} />
-                ))}
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-      )}
+      {/* Category Overview — Average Prices & Consumer Willingness-to-Pay */}
+      <CategoryOverview />
 
       {/* Filters */}
       <div className="space-y-3">

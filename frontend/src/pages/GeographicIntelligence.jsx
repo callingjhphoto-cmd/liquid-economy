@@ -12,6 +12,11 @@ import {
   Shield,
   Ship,
   Users,
+  Briefcase,
+  DollarSign,
+  Building2,
+  Target,
+  AlertTriangle,
 } from 'lucide-react';
 
 // Regions data
@@ -55,6 +60,46 @@ const REGIONS = [
     source: 'Nielsen, Drinks Business Asia',
     summary: 'Baijiu dominance with explosive growth in imported spirits and e-commerce.',
     trajectory: 'Young consumers adopting international spirits; e-commerce transformation ongoing.',
+  },
+  {
+    key: 'india',
+    name: 'India',
+    flag: '\ud83c\uddee\ud83c\uddf3',
+    source: 'Nielsen, Euromonitor India',
+    summary: 'Fastest-growing spirits market with rising aspirational consumers and regulatory complexity.',
+    trajectory: 'Double-digit growth driven by premiumization and first-time drinkers in urban centers.',
+  },
+  {
+    key: 'japan',
+    name: 'Japan',
+    flag: '\ud83c\uddef\ud83c\uddf5',
+    source: 'IWSR Japan, Drinks Business',
+    summary: 'Mature market with strong heritage brands and growing craft spirits segment.',
+    trajectory: 'Premiumization and experiential consumption driving category evolution.',
+  },
+  {
+    key: 'brazil',
+    name: 'Brazil',
+    flag: '\ud83c\udde7\ud83c\uddf7',
+    source: 'Euromonitor, ABDI Brasil',
+    summary: 'Latin America\'s largest market with cachaca dominance and growing imported spirits.',
+    trajectory: 'Rising middle class and e-commerce adoption accelerating premium category growth.',
+  },
+  {
+    key: 'australia',
+    name: 'Australia',
+    flag: '\ud83c\udde6\ud83c\uddfa',
+    source: 'IWSR, Australian Beverages Council',
+    summary: 'Affluent market with strong on-premise culture and sustainability consciousness.',
+    trajectory: 'Premium gin and whisky expansion driven by experiential consumption trends.',
+  },
+  {
+    key: 'seasia',
+    name: 'Southeast Asia',
+    flag: '\ud83c\uddf8\ud83c\uddec',
+    source: 'Euromonitor, ASEAN Spirits Federation',
+    summary: 'High-growth emerging markets with diverse consumption patterns and travel retail significance.',
+    trajectory: 'Rising incomes and tourism driving premium spirits and travel retail expansion.',
   },
 ];
 
@@ -717,6 +762,153 @@ const TradeFlows = ({ importExport }) => (
   </div>
 );
 
+
+// MarketEntryAnalysis Component
+const MarketEntryAnalysis = ({ entry }) => (
+  <div className="bg-white rounded-lg border border-gray-100 p-6">
+    <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+      <Briefcase size={20} />
+      Market Entry Analysis
+    </h2>
+    <div className="grid grid-cols-2 gap-6">
+      <div>
+        <p className="text-xs font-semibold text-gray-600 uppercase mb-2">Barriers to Entry</p>
+        <p className="text-sm text-gray-700 mb-4">{entry.barriers}</p>
+        <p className="text-xs font-semibold text-gray-600 uppercase mb-2">Minimum Investment</p>
+        <p className="text-sm font-semibold text-slate-800 mb-4">{entry.minInvestment}</p>
+        <p className="text-xs font-semibold text-gray-600 uppercase mb-2">Time to Market</p>
+        <p className="text-sm text-slate-800 font-medium">{entry.timeToMarket}</p>
+      </div>
+      <div>
+        <p className="text-xs font-semibold text-gray-600 uppercase mb-3">Key Partners</p>
+        <div className="space-y-2 mb-4">
+          {entry.keyPartners.map((partner, idx) => (
+            <div key={idx} className="flex items-start gap-2">
+              <Users size={14} className="text-slate-600 mt-1 flex-shrink-0" />
+              <span className="text-sm text-gray-700">{partner}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+    <div className="mt-4 p-4 bg-blue-50 border border-blue-100 rounded-lg">
+      <p className="text-sm text-blue-900">{entry.advice}</p>
+    </div>
+  </div>
+);
+
+// DutyTariffTable Component
+const DutyTariffTable = ({ duties }) => (
+  <div className="bg-white rounded-lg border border-gray-100 p-6">
+    <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+      <AlertTriangle size={20} />
+      Duty & Tariff Structure
+    </h2>
+    <div className="overflow-x-auto">
+      <table className="w-full text-sm">
+        <thead>
+          <tr className="border-b border-gray-200">
+            <th className="text-left py-3 px-4 font-semibold text-gray-700">Category</th>
+            <th className="text-left py-3 px-4 font-semibold text-gray-700">Duty Rate</th>
+            <th className="text-left py-3 px-4 font-semibold text-gray-700">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          {duties.map((duty, idx) => (
+            <tr key={idx} className="border-b border-gray-50 hover:bg-gray-50">
+              <td className="py-3 px-4 text-slate-800 font-medium">{duty.category}</td>
+              <td className="py-3 px-4 text-slate-800 font-bold">{duty.rate}</td>
+              <td className="py-3 px-4 text-gray-600">{duty.notes}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+);
+
+// DistributorLandscape Component
+const DistributorLandscape = ({ distributors }) => (
+  <div className="bg-white rounded-lg border border-gray-100 p-6">
+    <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+      <Building2 size={20} />
+      Distributor Landscape
+    </h2>
+    <div className="grid grid-cols-2 gap-4">
+      {distributors.map((dist, idx) => (
+        <div key={idx} className="border border-gray-200 rounded-lg p-4">
+          <p className="font-semibold text-slate-800">{dist.name}</p>
+          <p className="text-xs text-gray-600 mt-1">{dist.type}</p>
+          <div className="mt-3 space-y-2 text-sm">
+            <div>
+              <p className="text-xs font-semibold text-gray-600">Categories</p>
+              <p className="text-gray-700">{dist.categories}</p>
+            </div>
+            <div>
+              <p className="text-xs font-semibold text-gray-600">Min. Volume</p>
+              <p className="text-gray-700">{dist.minimumVolume}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
+// CompetitiveEntry Component
+const CompetitiveEntry = ({ competitive }) => (
+  <div className="bg-white rounded-lg border border-gray-100 p-6">
+    <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+      <Target size={20} />
+      Competitive Landscape
+    </h2>
+    <div className="grid grid-cols-2 gap-6 mb-6">
+      <div>
+        <p className="text-xs font-semibold text-gray-600 uppercase mb-3">Ease of Entry</p>
+        <div className="flex items-center gap-3">
+          <div className="flex-1">
+            <div className="w-full bg-gray-100 rounded-full h-3 overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-blue-500 to-blue-600"
+                style={{ width: `${(competitive.easeOfEntry / 10) * 100}%` }}
+              />
+            </div>
+          </div>
+          <span className="text-lg font-bold text-slate-800">{competitive.easeOfEntry}/10</span>
+        </div>
+      </div>
+      <div>
+        <p className="text-xs font-semibold text-gray-600 uppercase mb-3">Premium Opportunity</p>
+        <div className="flex items-center gap-3">
+          <div className="flex-1">
+            <div className="w-full bg-gray-100 rounded-full h-3 overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-green-500 to-green-600"
+                style={{ width: `${(competitive.premiumOpportunity / 10) * 100}%` }}
+              />
+            </div>
+          </div>
+          <span className="text-lg font-bold text-slate-800">{competitive.premiumOpportunity}/10</span>
+        </div>
+      </div>
+    </div>
+    <div className="grid grid-cols-2 gap-4 mb-6">
+      <div className="bg-gray-50 rounded-lg p-4">
+        <p className="text-xs font-semibold text-gray-600 uppercase mb-2">Consolidation</p>
+        <p className="text-sm text-gray-700">{competitive.consolidation}</p>
+      </div>
+      <div className="bg-gray-50 rounded-lg p-4">
+        <p className="text-xs font-semibold text-gray-600 uppercase mb-2">Market Whitespace</p>
+        <p className="text-sm text-gray-700">{competitive.whitespace}</p>
+      </div>
+    </div>
+    <div className="bg-amber-50 border border-amber-100 rounded-lg p-4">
+      <p className="text-sm text-amber-900"><strong>Strategic Recommendation:</strong> {competitive.recommendation}</p>
+    </div>
+  </div>
+);
+
+
 // RegionDetail Component
 const RegionDetail = ({ region, data }) => (
   <div className="space-y-6">
@@ -782,7 +974,294 @@ const RegionDetail = ({ region, data }) => (
             offPremise: 'Off-Premise',
             eCommerce: 'E-Commerce',
             travelRetail: 'Travel Retail',
-          };
+
+  india: {
+    kpis: [
+      { label: 'Market Size (2025)', value: '$7.2B', change: 18.5, changeDir: 'up' },
+      { label: 'Volume Growth', value: '15.2%', change: 3.2, changeDir: 'up' },
+      { label: 'Premium Penetration', value: '12%', change: 4.8, changeDir: 'up' },
+      { label: 'Urban Market Share', value: '68%', change: 5.1, changeDir: 'up' },
+      { label: 'On-Premise Value', value: '$2.8B', change: 22.3, changeDir: 'up' },
+      { label: 'E-commerce Growth', value: '28.6%', change: 8.2, changeDir: 'up' },
+    ],
+    topBrands: ['Johnnie Walker', 'Diageo Prestige', 'Royal Salute', 'McDowell\'s Premium', 'Pernod'],
+    channels: { onPremise: 45, offPremise: 42, eCommerce: 8, travelRetail: 5 },
+    trends: [
+      { text: 'Premiumization accelerating among affluent urban consumers', source: 'Nielsen India', url: 'https://www.nielsen.com' },
+      { text: 'E-commerce emerging as fastest-growing channel for spirits', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
+      { text: 'Craft spirits and single-malts gaining traction in metro cities', source: 'Drinks Business Asia', url: 'https://www.drinksbusiness.com' },
+      { text: 'Travel retail accounting for significant portion of premium imports', source: 'IWSR', url: 'https://iwsr.com' },
+      { text: 'Health-conscious consumers driving non-alcoholic premium category', source: 'Statista India', url: 'https://www.statista.com' },
+    ],
+    yearlyReports: [
+      { year: 2022, marketSize: '$4.8B', growth: 12.4, volumeCases: '28M', keyEvents: ['Post-pandemic recovery accelerating', 'E-commerce platforms emerging'], topPerformer: 'Premium imported whisky', outlook: 'Strong premiumization trend with younger affluent consumers' },
+      { year: 2023, marketSize: '$5.9B', growth: 16.2, volumeCases: '32M', keyEvents: ['Regulatory clarity improving', 'E-commerce penetration rising'], topPerformer: 'Single-malt whisky segment', outlook: 'Premium category outpacing overall spirits growth significantly' },
+      { year: 2024, marketSize: '$6.8B', growth: 17.1, volumeCases: '35M', keyEvents: ['Travel retail recovery complete', 'International brand entries accelerating'], topPerformer: 'Craft spirits and premium non-alcoholic', outlook: 'Continued strong growth with consolidation among premium players' },
+      { year: 2025, marketSize: '$7.2B', growth: 18.5, volumeCases: '37M', keyEvents: ['Regulatory framework stabilizing', 'E-commerce platforms dominant for premium'], topPerformer: 'Ultra-premium and heritage brands', outlook: 'Market poised for continued double-digit growth through end of decade' },
+    ],
+    regulatory: [
+      { aspect: 'Import Licensing', description: 'Requires Indian Importer License and state-specific permits. Process varies by state; can take 4-8 weeks.' },
+      { aspect: 'Labeling & Packaging', description: 'Mandatory Hindi labeling; alcohol content declaration required. Local standards compliance necessary.' },
+      { aspect: 'Advertising Restrictions', description: 'Strict restrictions on spirits advertising (no TV/radio); digital and print heavily regulated. No celebrity endorsements allowed.' },
+    ],
+    importExport: {
+      topImports: [
+        { country: 'Scotland', value: '\u00a340M', share: '38%' },
+        { country: 'France', value: '\u00a318M', share: '22%' },
+        { country: 'United States', value: '\u00a312M', share: '15%' },
+        { country: 'Ireland', value: '\u00a38M', share: '12%' },
+      ],
+      topExports: [
+        { country: 'Nepal', value: '\u20b92.5B', share: '35%' },
+        { country: 'Bangladesh', value: '\u20b91.8B', share: '28%' },
+        { country: 'Sri Lanka', value: '\u20b91.2B', share: '22%' },
+        { country: 'Mauritius', value: '\u20b90.8B', share: '15%' },
+      ],
+    },
+    marketEntry: { barriers: 'High - complex state-by-state regulations; significant import duties; local partnerships essential; compliance requirements stringent', minInvestment: '$2M-$4M', timeToMarket: '12-18 months', keyPartners: ['United Spirits Limited', 'Diageo India', 'Pernod Ricard India'], advice: 'State regulations vary dramatically - focus on key states (Maharashtra, Delhi, Goa, Karnataka). Premium positioning essential due to high tariffs making mass market unviable. On-premise (restaurants, bars, hotels) critical for brand building. Direct engagement with mixologists and hospitality venue managers crucial.' },
+    dutyTariff: [
+      { category: 'Imported Spirits', rate: '150%', notes: 'Highest in world; includes basic customs duty, additional duty, VAT' },
+      { category: 'Wine (11-15% ABV)', rate: '100%', notes: 'Duty structure similar to spirits' },
+      { category: 'Beer', rate: '100%', notes: 'Plus state-specific excise duties (up to 50%)' },
+    ],
+    distributorLandscape: [
+      { name: 'United Spirits Limited', type: 'Market leader', categories: 'All premium spirits', minimumVolume: '2,000+ cases annually' },
+      { name: 'Diageo India', type: 'Major multinational', categories: 'Spirits, wine, beer', minimumVolume: '1,500+ cases annually' },
+      { name: 'Pernod Ricard India', type: 'Regional distributor', categories: 'Premium spirits & wine', minimumVolume: '1,000+ cases annually' },
+      { name: 'FMCG India (State-based)', type: 'Local distributors', categories: 'All categories', minimumVolume: '500+ cases per state' },
+    ],
+    competitiveEntry: { easeOfEntry: 3, premiumOpportunity: 9, consolidation: 'Medium - fragmented by state regulations; premium segment less consolidated than value', whitespace: 'Super-premium and luxury positioning, craft spirits, and premium non-alcoholic alternatives. Single-malt whisky and premium gin gaining momentum.', recommendation: 'Ultra-premium positioning only viable given high tariff structure. Focus on Tier-1 metro markets and aspirational drinkers in upscale establishments. Partnership with established Indian importer essential for regulatory navigation. Direct engagement with premium hospitality venues critical for market awareness.' },
+  },
+  japan: {
+    kpis: [
+      { label: 'Market Size (2025)', value: '$18.4B', change: 2.8, changeDir: 'up' },
+      { label: 'Volume Growth', value: '0.6%', change: 0.3, changeDir: 'flat' },
+      { label: 'Premium Share', value: '42%', change: 3.5, changeDir: 'up' },
+      { label: 'Craft Spirits Growth', value: '9.2%', change: 2.1, changeDir: 'up' },
+      { label: 'On-Premise Value', value: '$7.2B', change: 4.2, changeDir: 'up' },
+      { label: 'Whisky Premiumization', value: '15.8%', change: 5.4, changeDir: 'up' },
+    ],
+    topBrands: ['Yamazaki', 'Hibiki', 'Suntory Chief', 'Kirin Ichiban', 'Asahi Super Dry'],
+    channels: { onPremise: 44, offPremise: 38, eCommerce: 12, travelRetail: 6 },
+    trends: [
+      { text: 'Japanese single-malt whisky commanding global premiums', source: 'IWSR', url: 'https://iwsr.com' },
+      { text: 'Craft gin and shochu innovation driving premiumization', source: 'Drinks Business Asia', url: 'https://www.drinksbusiness.com' },
+      { text: 'E-commerce penetration accelerating in premium segment', source: 'Nielsen Japan', url: 'https://www.nielsen.com' },
+      { text: 'Bartender-led recommendations shaping consumer preferences', source: 'The Spirits Business', url: 'https://www.thespirits.com' },
+      { text: 'Non-alcoholic spirits gaining traction among younger consumers', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
+    ],
+    yearlyReports: [
+      { year: 2022, marketSize: '$17.3B', growth: 1.2, volumeCases: '42M', keyEvents: ['Whisky scarcity supporting premiums', 'On-premise recovery strong post-pandemic'], topPerformer: 'Single-malt whisky premium segment', outlook: 'Premiumization offsetting declining volume; mature market dynamics' },
+      { year: 2023, marketSize: '$17.8B', growth: 2.5, volumeCases: '41M', keyEvents: ['Craft spirits innovation accelerating', 'E-commerce growth emerging'], topPerformer: 'Craft gin and premium non-alcoholic', outlook: 'Value growth from premiumization; volume stagnation continuing' },
+      { year: 2024, marketSize: '$18.0B', growth: 2.6, volumeCases: '40M', keyEvents: ['International whisky competition increasing', 'Hospitality recovery plateauing'], topPerformer: 'Imported premium spirits', outlook: 'Moderate growth with shift toward experiential and craft categories' },
+      { year: 2025, marketSize: '$18.4B', growth: 2.8, volumeCases: '40M', keyEvents: ['Premium positioning becoming essential', 'International brand penetration rising'], topPerformer: 'Ultra-premium and heritage brand positioning', outlook: 'Continued premiumization with selective innovation in craft segments' },
+    ],
+    regulatory: [
+      { aspect: 'Import Licensing', description: 'Straightforward process through established importers. Standard tariff regime; no unusual restrictions.' },
+      { aspect: 'Labeling Requirements', description: 'Bilingual labeling required (Japanese and English). Alcohol content and origin must be clearly stated.' },
+      { aspect: 'Advertising Standards', description: 'Self-regulated through industry bodies; responsible drinking messaging expected. TV advertising regulated but not prohibited.' },
+    ],
+    importExport: {
+      topImports: [
+        { country: 'Scotland', value: '\u00a5\u0034\u0035\u0042', share: '42%' },
+        { country: 'United States', value: '\u00a5\u0034\u0030\u0042', share: '28%' },
+        { country: 'France', value: '\u00a5\u0032\u0035\u0042', share: '18%' },
+        { country: 'Ireland', value: '\u00a5\u0031\u0030\u0042', share: '12%' },
+      ],
+      topExports: [
+        { country: 'South Korea', value: 'KRW 9.2B', share: '34%' },
+        { country: 'China', value: 'CNY 7.1B', share: '28%' },
+        { country: 'Singapore', value: 'SGD 4.5B', share: '22%' },
+        { country: 'United States', value: 'USD 3.2B', share: '16%' },
+      ],
+    },
+    marketEntry: { barriers: 'Moderate - established relationships important; regulatory environment straightforward; complex distribution system; strong consumer brand loyalty', minInvestment: '$1.5M-$3M', timeToMarket: '10-15 months', keyPartners: ['Asahi Drink Placer', 'Kirin Company Ltd', 'Suntory Distribution Ltd'], advice: 'On-premise channel (bars, restaurants, izakayas) critical - Japanese consumers value bartender recommendations. Premium and craft positioning strong. E-commerce growing rapidly. Quality and craftsmanship messaging resonates with Japanese consumers. Limited brand awareness requires significant on-ground activation.' },
+    dutyTariff: [
+      { category: 'Imported Spirits (Over 15% ABV)', rate: '20%', notes: 'Plus 10% consumption tax' },
+      { category: 'Wine (11-15% ABV)', rate: '15%', notes: 'Lower rate than spirits; consumption tax applies' },
+      { category: 'Beer', rate: '15%', notes: 'Beer/happoshu rates vary by ABV' },
+    ],
+    distributorLandscape: [
+      { name: 'Asahi Drink Placer', type: 'Kirin affiliate distributor', categories: 'All categories', minimumVolume: '1,200+ cases annually' },
+      { name: 'Kirin Company Ltd', type: 'Market leader', categories: 'All categories', minimumVolume: '2,000+ cases annually' },
+      { name: 'Suntory Distribution Ltd', type: 'Suntory affiliate', categories: 'All categories', minimumVolume: '1,500+ cases annually' },
+      { name: 'Hinode Sake Corporation', type: 'Premium specialist', categories: 'Premium spirits & wine', minimumVolume: '500+ cases annually' },
+    ],
+    competitiveEntry: { easeOfEntry: 5, premiumOpportunity: 8, consolidation: 'Very High - Kirin and Suntory control ~70% of market; significant barriers to direct distribution', whitespace: 'Craft spirits, premium non-alcoholic beverages, and heritage/artisanal positioning. Western craft whisky and gin gaining traction.', recommendation: 'Partner with established distributor (Asahi, Kirin, or Suntory) essential - direct distribution difficult. Premium and craft positioning strongest entry points. Build presence through on-premise channel (bars, upscale restaurants) with bartender engagement. E-commerce growth offers complementary channel. Strong storytelling and heritage messaging critical.' },
+  },
+  brazil: {
+    kpis: [
+      { label: 'Market Size (2025)', value: '$11.5B', change: 8.3, changeDir: 'up' },
+      { label: 'Volume Growth', value: '5.2%', change: 1.8, changeDir: 'up' },
+      { label: 'Premium Penetration', value: '28%', change: 4.1, changeDir: 'up' },
+      { label: 'Imported Spirits Share', value: '22%', change: 5.6, changeDir: 'up' },
+      { label: 'On-Premise Value', value: '$4.2B', change: 12.4, changeDir: 'up' },
+      { label: 'E-commerce Growth', value: '18.2%', change: 6.7, changeDir: 'up' },
+    ],
+    topBrands: ['Johnnie Walker', 'Hennessy', 'Grey Goose', 'Ypioca Cach\u00e9a', 'Pitu Cach\u00e9a'],
+    channels: { onPremise: 42, offPremise: 40, eCommerce: 13, travelRetail: 5 },
+    trends: [
+      { text: 'Premium imported spirits gaining share vs. traditional cachaca', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
+      { text: 'E-commerce and digital channels accelerating for spirits category', source: 'Nielsen Brasil', url: 'https://www.nielsen.com' },
+      { text: 'Craft cocktail culture emerging in major metropolitan areas', source: 'Drinks Business Latin America', url: 'https://www.drinksbusiness.com' },
+      { text: 'Sustainability and ethical sourcing resonating with younger consumers', source: 'IWSR', url: 'https://iwsr.com' },
+      { text: 'Travel retail expanding rapidly with airport privatization', source: 'Statista Brasil', url: 'https://www.statista.com' },
+    ],
+    yearlyReports: [
+      { year: 2022, marketSize: '$10.1B', growth: 4.8, volumeCases: '126M', keyEvents: ['Economic recovery driving consumption', 'E-commerce adoption accelerating'], topPerformer: 'Premium imported whisky and vodka', outlook: 'Strong growth in premium segments offsetting value market pressure' },
+      { year: 2023, marketSize: '$10.6B', growth: 6.2, volumeCases: '130M', keyEvents: ['Currency stabilization supporting imports', 'Nightlife and hospitality recovering'], topPerformer: 'Craft spirits and premium mixers', outlook: 'Accelerating premiumization trend with urban market leadership' },
+      { year: 2024, marketSize: '$11.0B', growth: 7.8, volumeCases: '133M', keyEvents: ['International brand entries increasing', 'E-commerce platform consolidation'], topPerformer: 'Ultra-premium and heritage positioning', outlook: 'Continued strong growth driven by affluent consumer premiumization' },
+      { year: 2025, marketSize: '$11.5B', growth: 8.3, volumeCases: '136M', keyEvents: ['Travel retail recovery complete', 'Sustainability messaging gaining traction'], topPerformer: 'Craft and sustainable positioning brands', outlook: 'Market poised for continued strong growth with premium category expansion' },
+    ],
+    regulatory: [
+      { aspect: 'Import Licensing', description: 'Requires CISQ (Conselho Interministerial de Pre\u00e7os de Bebidas Alco\u00f3licas) approval. Standard 4-8 week process for most categories.' },
+      { aspect: 'Labeling & Compliance', description: 'Portuguese language labeling mandatory. Content declaration, origin, and health warnings required. Local standards certification necessary.' },
+      { aspect: 'Taxation Structure', description: 'ICMS tax varies by state (7-18%); IPI (Imposto sobre Produtos Industrializados) also applies. Complex structure requires local expertise.' },
+    ],
+    importExport: {
+      topImports: [
+        { country: 'United States', value: 'R$120M', share: '32%' },
+        { country: 'France', value: 'R$95M', share: '28%' },
+        { country: 'Scotland', value: 'R$68M', share: '22%' },
+        { country: 'Mexico', value: 'R$45M', share: '18%' },
+      ],
+      topExports: [
+        { country: 'Paraguay', value: 'R$85M', share: '30%' },
+        { country: 'United States', value: 'R$72M', share: '28%' },
+        { country: 'Japan', value: 'R$48M', share: '22%' },
+        { country: 'Germany', value: 'R$35M', share: '20%' },
+      ],
+    },
+    marketEntry: { barriers: 'Moderate - regulatory environment becoming clearer; established distribution networks strong in key regions; tax structures can be complex', minInvestment: '$1.8M-$3.5M', timeToMarket: '11-16 months', keyPartners: ['Inbra (Brazilian Spirits Association)', 'Diageo Brasil', 'Pernod Ricard Brasil'], advice: 'Cach aça dominance requires differentiation through imported premium positioning. São Paulo and Rio de Janeiro are critical markets. Travel retail and e-commerce growing rapidly. On-premise channel (bars, nightclubs) important for brand visibility. Social media and influencer marketing effective for reaching younger consumers.' },
+    dutyTariff: [
+      { category: 'Imported Spirits', rate: '20%', notes: 'Plus ICMS state tax (7-18% depending on state)' },
+      { category: 'Wine', rate: '27%', notes: 'Higher rate reflects import policy; ICMS additional' },
+      { category: 'Beer', rate: '15%', notes: 'Lower rate; ICMS also applies' },
+    ],
+    distributorLandscape: [
+      { name: 'Diageo Brasil', type: 'Market leader', categories: 'Premium spirits & wine', minimumVolume: '2,000+ cases annually' },
+      { name: 'Pernod Ricard Brasil', type: 'Major distributor', categories: 'All categories', minimumVolume: '1,500+ cases annually' },
+      { name: 'Premium Trade Brasil', type: 'Premium specialist', categories: 'Imported spirits & wine', minimumVolume: '800+ cases annually' },
+      { name: 'Regional distributors (São Paulo, Rio)', type: 'Local specialists', categories: 'All categories', minimumVolume: '500+ cases annually' },
+    ],
+    competitiveEntry: { easeOfEntry: 6, premiumOpportunity: 8, consolidation: 'High - Diageo and Pernod Ricard control ~50% of spirits market; cachaca market fragmented', whitespace: 'Premium imported spirits, craft cocktails, and non-alcoholic premium beverages. Sustainability and social responsibility positioning strong.', recommendation: 'Differentiate through premium imported positioning (compete with, not against, cachaca). Focus on São Paulo and Rio initially - largest market opportunity. On-premise channel (nightclubs, upscale restaurants, hotel bars) critical for brand building. E-commerce and travel retail growing rapidly. Partner with established distributor for market penetration.' },
+  },
+  australia: {
+    kpis: [
+      { label: 'Market Size (2025)', value: '$8.9B', change: 5.4, changeDir: 'up' },
+      { label: 'Volume Growth', value: '2.1%', change: 0.8, changeDir: 'up' },
+      { label: 'Premium Spirits Growth', value: '8.6%', change: 3.2, changeDir: 'up' },
+      { label: 'Craft Gin Segment', value: '12.4%', change: 4.8, changeDir: 'up' },
+      { label: 'On-Premise Value', value: '$3.5B', change: 7.2, changeDir: 'up' },
+      { label: 'E-commerce Penetration', value: '11%', change: 3.5, changeDir: 'up' },
+    ],
+    topBrands: ['Johnnie Walker', 'Jack Daniel\'s', 'Bundaberg Rum', 'Tanqueray', 'Jim Beam'],
+    channels: { onPremise: 46, offPremise: 37, eCommerce: 11, travelRetail: 6 },
+    trends: [
+      { text: 'Craft gin and premium whisky segment growing 10%+ annually', source: 'IWSR', url: 'https://iwsr.com' },
+      { text: 'Sustainability and ethical production driving premiumization', source: 'Nielsen Australia', url: 'https://www.nielsen.com' },
+      { text: 'Bartender-led innovation shaping on-premise category evolution', source: 'Drinks Business Australia', url: 'https://www.drinksbusiness.com' },
+      { text: 'E-commerce and specialty retailers gaining significant market share', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
+      { text: 'Experiential consumption driving growth in premium venues and events', source: 'IWSR', url: 'https://iwsr.com' },
+    ],
+    yearlyReports: [
+      { year: 2022, marketSize: '$7.9B', growth: 3.2, volumeCases: '72M', keyEvents: ['On-premise recovery post-lockdowns', 'E-commerce adoption accelerating'], topPerformer: 'Premium gin and craft spirits', outlook: 'Strong premiumization with on-premise driving value growth' },
+      { year: 2023, marketSize: '$8.2B', growth: 4.1, volumeCases: '73M', keyEvents: ['Experiential venues gaining popularity', 'Craft spirits consolidation beginning'], topPerformer: 'Ultra-premium and limited-edition releases', outlook: 'Continued premiumization trend with sustainability messaging' },
+      { year: 2024, marketSize: '$8.6B', growth: 5.0, volumeCases: '74M', keyEvents: ['E-commerce platform consolidation', 'Premium positioning becoming mainstream'], topPerformer: 'Sustainable and artisanal brand positioning', outlook: 'Strong growth in premium with craft segment maturation' },
+      { year: 2025, marketSize: '$8.9B', growth: 5.4, volumeCases: '75M', keyEvents: ['International brand entries accelerating', 'Specialty retailers growing rapidly'], topPerformer: 'Heritage and craft-focused positioning brands', outlook: 'Market poised for sustained premium-led growth through 2030' },
+    ],
+    regulatory: [
+      { aspect: 'Import & Customs', description: 'Straightforward process through Australian Customs. Standard tariffs apply; limited restrictions on spirits categories.' },
+      { aspect: 'Labeling Requirements', description: 'English language labeling mandatory. Alcohol content, origin, and health warnings required. Local standards compliance necessary.' },
+      { aspect: 'Marketing Regulations', description: 'Self-regulated industry codes; responsible drinking messaging expected. Television advertising restricted to late evening slots.' },
+    ],
+    importExport: {
+      topImports: [
+        { country: 'Scotland', value: 'A$85M', share: '38%' },
+        { country: 'United States', value: 'A$62M', share: '28%' },
+        { country: 'France', value: 'A$48M', share: '22%' },
+        { country: 'Ireland', value: 'A$28M', share: '12%' },
+      ],
+      topExports: [
+        { country: 'China', value: 'A$115M', share: '42%' },
+        { country: 'United States', value: 'A$78M', share: '32%' },
+        { country: 'Singapore', value: 'A$38M', share: '18%' },
+        { country: 'Japan', value: 'A$22M', share: '8%' },
+      ],
+    },
+    marketEntry: { barriers: 'Moderate - regulatory environment clear; strong on-premise culture; established retail networks; premium spirits growing category', minInvestment: '$1.2M-$2.5M', timeToMarket: '9-12 months', keyPartners: ['Pernod Ricard Australia', 'Diageo Australia', 'Allied Beverages Australia'], advice: 'Premium gin and whisky strong growth categories. On-premise channel (bars, restaurants, pubs) critical entry point - bartenders highly influential. Craft positioning resonates with affluent Australian consumers. Sustainability and ethical production messaging strong. Major cities (Sydney, Melbourne) drive 70%+ of volume.' },
+    dutyTariff: [
+      { category: 'Imported Spirits', rate: '37%', notes: 'Excise duty; GST 10% applied post-duty' },
+      { category: 'Wine', rate: '29%', notes: 'Lower rate than spirits; GST additional' },
+      { category: 'Beer', rate: 'AUD $41.18 per liter pure alcohol', notes: 'Volume-based; GST applies' },
+    ],
+    distributorLandscape: [
+      { name: 'Pernod Ricard Australia', type: 'Market leader', categories: 'All categories', minimumVolume: '1,500+ cases annually' },
+      { name: 'Diageo Australia', type: 'Major distributor', categories: 'Premium spirits & wine', minimumVolume: '1,200+ cases annually' },
+      { name: 'Allied Beverages Australia', type: 'Premium specialist', categories: 'Craft & premium spirits', minimumVolume: '800+ cases annually' },
+      { name: 'Craft Beverage Distributors', type: 'Independent distributors', categories: 'Craft spirits', minimumVolume: '300+ cases annually' },
+    ],
+    competitiveEntry: { easeOfEntry: 6, premiumOpportunity: 8, consolidation: 'High - major multinationals control ~60% of market; craft/independent segment growing', whitespace: 'Craft spirits, sustainable/organic positioning, premium non-alcoholic beverages. Single-origin and limited-edition offerings gaining momentum.', recommendation: 'Premium and craft positioning strongest entry points. Build relationships with bartenders and mixologists in Sydney and Melbourne - critical for brand awareness. On-premise channel (bars, upscale restaurants) essential for market entry. Sustainability messaging resonates strongly. E-commerce growing but less dominant than physical retail.' },
+  },
+  seasia: {
+    kpis: [
+      { label: 'Market Size (2025)', value: '$14.2B', change: 12.5, changeDir: 'up' },
+      { label: 'Volume Growth', value: '8.9%', change: 2.4, changeDir: 'up' },
+      { label: 'Premium Penetration', value: '18%', change: 4.6, changeDir: 'up' },
+      { label: 'Travel Retail Share', value: '22%', change: 6.8, changeDir: 'up' },
+      { label: 'On-Premise Value', value: '$5.8B', change: 15.3, changeDir: 'up' },
+      { label: 'E-commerce Growth', value: '21.3%', change: 7.2, changeDir: 'up' },
+    ],
+    topBrands: ['Johnnie Walker', 'Hennessy', 'Jack Daniel\'s', 'Chivas Regal', 'Tanqueray'],
+    channels: { onPremise: 43, offPremise: 25, eCommerce: 10, travelRetail: 22 },
+    trends: [
+      { text: 'Travel retail accounting for majority of premium spirits growth', source: 'IWSR', url: 'https://iwsr.com' },
+      { text: 'Rising middle class in emerging SE Asian markets driving premiumization', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
+      { text: 'E-commerce platforms (Lazada, Shopee) transforming distribution landscape', source: 'Nielsen Southeast Asia', url: 'https://www.nielsen.com' },
+      { text: 'Craft cocktail bars and premium nightlife emerging in tier-1 cities', source: 'Drinks Business Asia', url: 'https://www.drinksbusiness.com' },
+      { text: 'Functional and low/no alcohol spirits gaining traction among younger drinkers', source: 'IWSR', url: 'https://iwsr.com' },
+    ],
+    yearlyReports: [
+      { year: 2022, marketSize: '$11.8B', growth: 8.2, volumeCases: '156M', keyEvents: ['Travel retail recovery beginning', 'E-commerce adoption accelerating post-pandemic'], topPerformer: 'Premium imported spirits in travel retail', outlook: 'Strong growth led by premium positioning and travel retail expansion' },
+      { year: 2023, marketSize: '$12.5B', growth: 10.1, volumeCases: '161M', keyEvents: ['E-commerce platforms consolidating', 'On-premise recovery strong in tier-1 cities'], topPerformer: 'Craft spirits and premium non-alcoholic', outlook: 'Accelerating premiumization with travel retail and digital dominance' },
+      { year: 2024, marketSize: '$13.3B', growth: 11.8, volumeCases: '166M', keyEvents: ['International brand entries increasing', 'Regional consolidation beginning'], topPerformer: 'Ultra-premium and heritage brand positioning', outlook: 'Continued strong growth with market consolidation among multinationals' },
+      { year: 2025, marketSize: '$14.2B', growth: 12.5, volumeCases: '171M', keyEvents: ['Premium category acceleration', 'Functional spirits emerging as growth driver'], topPerformer: 'Sustainable and artisanal brand positioning', outlook: 'Market poised for continued double-digit growth through end of decade' },
+    ],
+    regulatory: [
+      { aspect: 'Import Regulations', description: 'Varies by country; Singapore most permissive, Indonesia most restrictive. Country-specific licensing required; 4-12 weeks typical.' },
+      { aspect: 'Labeling & Compliance', description: 'Local language labeling varies by country. English accepted in Singapore/Thailand. Origin and content declaration mandatory.' },
+      { aspect: 'Advertising & Marketing', description: 'Restrictions vary significantly; Thailand and Indonesia most regulated. Digital marketing and influencer partnerships increasingly used.' },
+    ],
+    importExport: {
+      topImports: [
+        { country: 'United Kingdom/Scotland', value: '$125M', share: '36%' },
+        { country: 'United States', value: '$88M', share: '28%' },
+        { country: 'France', value: '$68M', share: '22%' },
+        { country: 'India', value: '$35M', share: '14%' },
+      ],
+      topExports: [
+        { country: 'Australia', value: '$82M', share: '32%' },
+        { country: 'United States', value: '$65M', share: '28%' },
+        { country: 'Japan', value: '$48M', share: '22%' },
+        { country: 'China', value: '$38M', share: '18%' },
+      ],
+    },
+    marketEntry: { barriers: 'High - regulatory environment varies by country; import restrictions in some markets; complex tariff structures; travel retail critical', minInvestment: '$2M-$4M', timeToMarket: '14-18 months', keyPartners: ['Diageo Southeast Asia', 'Pernod Ricard Southeast Asia', 'National distributors (varies by country)'], advice: 'Market is highly fragmented across 6+ countries with different regulations. Travel retail (airports, duty-free) essential channel - significant revenue driver. Focus on Tier-1 markets (Singapore, Thailand, Vietnam, Philippines) initially. On-premise channel (hotels, nightclubs, premium restaurants) critical for brand building. Rising middle class driving premiumization.' },
+    dutyTariff: [
+      { category: 'Imported Spirits', rate: '30-100%', notes: 'Varies significantly by country; Singapore lowest, Indonesia highest' },
+      { category: 'Wine', rate: '10-60%', notes: 'Some countries favor wine with lower rates' },
+      { category: 'Beer', rate: '20-80%', notes: 'Highly variable; some countries restrict imports' },
+    ],
+    distributorLandscape: [
+      { name: 'Diageo Southeast Asia', type: 'Regional leader', categories: 'All premium categories', minimumVolume: '2,000+ cases annually' },
+      { name: 'Pernod Ricard Southeast Asia', type: 'Major distributor', categories: 'All categories', minimumVolume: '1,500+ cases annually' },
+      { name: 'Country-specific distributors (SGP, THA, VN)', type: 'National market leaders', categories: 'All categories', minimumVolume: '1,000+ cases per country' },
+      { name: 'Travel Retail Specialists', type: 'Duty-free focused', categories: 'Premium & luxury', minimumVolume: '500+ cases annually' },
+    ],
+    competitiveEntry: { easeOfEntry: 3, premiumOpportunity: 9, consolidation: 'Medium-High - varies by country; premium segment less consolidated than value. Rapid consolidation ongoing.', whitespace: 'Ultra-premium and luxury positioning, craft spirits, sustainable/ethical brands. Functional and non-alcoholic premium beverages gaining traction.', recommendation: 'Start with Singapore (clearest regulations, highest purchasing power) or Thailand (vibrant on-premise scene). Travel retail partnerships essential - major revenue driver. Premium/luxury positioning critical. Build relationships with hotel and hospitality chains in major cities. E-commerce platforms (Lazada, Shopee) offer complementary channel. Expand to adjacent markets after establishing strong presence.' },
+  },
+
+};
           return (
             <div key={channel}>
               <div className="flex justify-between mb-2">
@@ -845,6 +1324,18 @@ const RegionDetail = ({ region, data }) => (
 
     {/* Trade Flows */}
     <TradeFlows importExport={data.importExport} />
+
+    {/* Market Entry Analysis */}
+    {data.marketEntry && <MarketEntryAnalysis entry={data.marketEntry} />}
+
+    {/* Duty & Tariff Structure */}
+    {data.dutyTariff && <DutyTariffTable duties={data.dutyTariff} />}
+
+    {/* Distributor Landscape */}
+    {data.distributorLandscape && <DistributorLandscape distributors={data.distributorLandscape} />}
+
+    {/* Competitive Entry */}
+    {data.competitiveEntry && <CompetitiveEntry competitive={data.competitiveEntry} />}
   </div>
 );
 

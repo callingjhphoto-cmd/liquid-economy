@@ -749,21 +749,6 @@ export default function Valuations() {
         </div>
       </div>
 
-      {/* Brand Valuations */}
-      <BrandValuationTable />
-
-      {/* Sector Trading Multiples */}
-      <SectorMultiples />
-
-      {/* Valuation Insights */}
-      <ValuationInsights />
-
-      {/* M&A Valuation Benchmarks */}
-      <MABenchmarks />
-
-      {/* Valuation Methodologies */}
-      <ValuationMethodologies />
-
       {/* P/E Ratio Chart */}
       {chartData.length > 1 && (
         <div className="bg-white rounded-xl border border-gray-100 p-6">
@@ -834,6 +819,21 @@ export default function Valuations() {
           ))}
         </div>
       </div>
+
+      {/* Brand Valuations */}
+      <BrandValuationTable />
+
+      {/* Sector Trading Multiples */}
+      <SectorMultiples />
+
+      {/* Valuation Insights */}
+      <ValuationInsights />
+
+      {/* M&A Valuation Benchmarks */}
+      <MABenchmarks />
+
+      {/* Valuation Methodologies */}
+      <ValuationMethodologies />
     </div>
   )
 }

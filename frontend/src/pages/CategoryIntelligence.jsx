@@ -36,7 +36,7 @@ const CATEGORIES = [
           {
             name: 'United States',
             growth: '+9.5%',
-            brands: ['Patron Silver', 'Don Julio Blanco', 'Espolon'],
+            brands: ['Patrón Silver', 'Don Julio Blanco', 'Espolon'],
             regions: [
               { name: 'California', share: '35%', growth: '+10.2%' },
               { name: 'Texas', share: '28%', growth: '+8.9%' },
@@ -50,7 +50,7 @@ const CATEGORIES = [
           {
             name: 'Spain',
             growth: '+12.8%',
-            brands: ['Patron Anejo', 'Don Julio 1942', 'Clase Azul'],
+            brands: ['Patrón Anejo', 'Don Julio 1942', 'Clase Azul'],
             regions: [
               { name: 'Madrid', share: '28%', growth: '+14.2%' },
               { name: 'Barcelona', share: '22%', growth: '+11.5%' },
@@ -64,7 +64,7 @@ const CATEGORIES = [
           {
             name: 'United Kingdom',
             growth: '+6.2%',
-            brands: ['Patron XO Cafe', 'Herradura', 'Centinela'],
+            brands: ['Patrón XO Cafe', 'Herradura', 'Centinela'],
             regions: [
               { name: 'London', share: '38%', growth: '+7.1%' },
               { name: 'Manchester', share: '22%', growth: '+5.8%' },
@@ -91,8 +91,8 @@ const CATEGORIES = [
           },
         ],
         brands: {
-          highEnd: ['Clase Azul', 'Don Julio 1942', 'Patron XO Cafe', 'Tequila Ocho', 'G4'],
-          midTier: ['Patron Silver', 'Don Julio Blanco', 'Herradura', 'Jose Cuervo Reserva', 'Tapatio'],
+          highEnd: ['Clase Azul', 'Don Julio 1942', 'Patrón XO Cafe', 'Tequila Ocho', 'G4'],
+          midTier: ['Patrón Silver', 'Don Julio Blanco', 'Herradura', 'José Cuervo Reserva', 'Tapatio'],
           value: ['Sauza', 'El Jimador', 'Espolon', 'Milagro Silver', 'Centenario']
         },
         channels: { onTrade: 38, offTrade: 42, eCommerce: 12, travelRetail: 8 },
@@ -106,7 +106,7 @@ const CATEGORIES = [
         report: {
           keyEvents: ['Clase Azul achieved $500M valuation; premium brand consolidation accelerates', 'Mexico announces new protected designation for Tequila 2.0 to combat counterfeit, strengthens supply chain confidence', 'Gen Z cocktail culture drives 15% growth in agave-forward drinking occasions', 'Travel retail recovery post-Asia normalization unlocks $180M in previously dormant sales'],
           topPerformer: 'Clase Azul',
-          analysis: 'The tequila category is transitioning from pandemic-fueled volume expansion into a mature premiumization phase. Market growth decelerated to 7.8% from the 15%+ rates of 2022–23, but this reflects healthy consolidation rather than weakness—the premium and ultra-premium segments (añejo and cristalino) are growing 18–22% while value tequila declined 3%. The category benefited enormously from 2024\u2019s Asia travel recovery; Mexico and USA remain dominant, but Spain emerged as the unexpected growth engine with 12.8% expansion, driven by high-end on-premise placements in major cities. This suggests strong penetration potential for established premium brands into developed markets with higher per-capita spending.\n\nBrand hierarchy has crystallized dramatically. Heritage brands like José Cuervo and Sauza face structural headwinds as younger consumers view them as bottom-shelf rather than value—they\u2019ve shifted strategy toward heritage positioning and ultra-premium extensions (Cuervo Reserva) with limited initial success. The real competitive action occurs in the $40–80 retail price point (Patron, Don Julio, Herradura), where consistent quality, brand heritage, and cocktail program support drive repeatable trial. Ultra-premium tequila ($100+) is where margin opportunity concentrates, with Clase Azul, Tequila Ocho, and independent bottlers growing 25%+ CAGR. For a new entrant, the mass-premium segment ($25–45) offers the greatest accessibility; however, brand differentiation requires either exceptional terroir narrative, distinctive flavor profile (increasingly important post-craft spirits boom), or strong on-premise cocktail partnerships.\n\nDistribution patterns reveal the critical role of travel retail; Asia travel normalization unlocked $180M in 2025, and duty-free now accounts for 8% of category revenue—a structural shift that favors brands with luxury positioning and airport visibility. On-premise remains the growth driver (38% of volume, 45% of value), reflecting tequila\u2019s association with social occasions and premium cocktail culture. E-commerce penetration reached 12%, significantly enabled by regulatory clarity in US states and DTC allocation models adopted by premium independents. For a small brand, the critical path involves: (1) securing high-quality on-premise placements in major cocktail-centric metros, (2) building travel retail representation (particularly in Mexico City, Miami, Los Angeles airports), and (3) leveraging DTC and limited allocations to build scarcity narrative and consumer engagement in 6–8 key markets before attempting mass expansion.',
+          analysis: 'The tequila category is transitioning from pandemic-fueled volume expansion into a mature premiumization phase. Market growth decelerated to 7.8% from the 15%+ rates of 2022–23, but this reflects healthy consolidation rather than weakness—the premium and ultra-premium segments (añejo and cristalino) are growing 18–22% while value tequila declined 3%. The category benefited enormously from 2024\u2019s Asia travel recovery; Mexico and USA remain dominant, but Spain emerged as the unexpected growth engine with 12.8% expansion, driven by high-end on-premise placements in major cities. This suggests strong penetration potential for established premium brands into developed markets with higher per-capita spending.\n\nBrand hierarchy has crystallized dramatically. Heritage brands like José Cuervo and Sauza face structural headwinds as younger consumers view them as bottom-shelf rather than value—they\u2019ve shifted strategy toward heritage positioning and ultra-premium extensions (Cuervo Reserva) with limited initial success. The real competitive action occurs in the $40–80 retail price point (Patrón, Don Julio, Herradura), where consistent quality, brand heritage, and cocktail program support drive repeatable trial. Ultra-premium tequila ($100+) is where margin opportunity concentrates, with Clase Azul, Tequila Ocho, and independent bottlers growing 25%+ CAGR. For a new entrant, the mass-premium segment ($25–45) offers the greatest accessibility; however, brand differentiation requires either exceptional terroir narrative, distinctive flavor profile (increasingly important post-craft spirits boom), or strong on-premise cocktail partnerships.\n\nDistribution patterns reveal the critical role of travel retail; Asia travel normalization unlocked $180M in 2025, and duty-free now accounts for 8% of category revenue—a structural shift that favors brands with luxury positioning and airport visibility. On-premise remains the growth driver (38% of volume, 45% of value), reflecting tequila\u2019s association with social occasions and premium cocktail culture. E-commerce penetration reached 12%, significantly enabled by regulatory clarity in US states and DTC allocation models adopted by premium independents. For a small brand, the critical path involves: (1) securing high-quality on-premise placements in major cocktail-centric metros, (2) building travel retail representation (particularly in Mexico City, Miami, Los Angeles airports), and (3) leveraging DTC and limited allocations to build scarcity narrative and consumer engagement in 6–8 key markets before attempting mass expansion.',
           conclusion: 'Tequila\u2019s growth is sustainable but normalizing; brands must shift from volume-driven expansion to margin-focused premiumization and geographic selectivity. New entrants should target the $30–60 ultra-premium range with superior terroir narrative, secure on-premise partnerships in high-visibility markets, and exploit travel retail recovery as a beachhead for global distribution.'
         }
       },
@@ -133,7 +133,7 @@ const CATEGORIES = [
           {
             name: 'United States',
             growth: '+11.8%',
-            brands: ['Patron Silver', 'Don Julio Blanco', 'Espolon'],
+            brands: ['Patrón Silver', 'Don Julio Blanco', 'Espolon'],
             regions: [
               { name: 'California', share: '34%', growth: '+13.1%' },
               { name: 'Texas', share: '29%', growth: '+10.5%' },
@@ -147,7 +147,7 @@ const CATEGORIES = [
           {
             name: 'Germany',
             growth: '+8.5%',
-            brands: ['Patron Anejo', 'Don Julio 1942', 'Herradura Anejo'],
+            brands: ['Patrón Anejo', 'Don Julio 1942', 'Herradura Anejo'],
             regions: [
               { name: 'Berlin', share: '32%', growth: '+9.2%' },
               { name: 'Munich', share: '25%', growth: '+7.8%' },
@@ -161,7 +161,7 @@ const CATEGORIES = [
           {
             name: 'United Kingdom',
             growth: '+9.1%',
-            brands: ['Patron XO Cafe', 'Milagro Select', 'Tapatio'],
+            brands: ['Patrón XO Cafe', 'Milagro Select', 'Tapatio'],
             regions: [
               { name: 'London', share: '39%', growth: '+9.8%' },
               { name: 'Manchester', share: '22%', growth: '+8.2%' },
@@ -188,8 +188,8 @@ const CATEGORIES = [
           },
         ],
         brands: {
-          highEnd: ['Clase Azul', 'Don Julio 1942', 'Patron XO Cafe', 'Tequila Ocho', 'G4'],
-          midTier: ['Patron Silver', 'Don Julio Blanco', 'Herradura', 'Milagro Select', 'Tapatio'],
+          highEnd: ['Clase Azul', 'Don Julio 1942', 'Patrón XO Cafe', 'Tequila Ocho', 'G4'],
+          midTier: ['Patrón Silver', 'Don Julio Blanco', 'Herradura', 'Milagro Select', 'Tapatio'],
           value: ['Sauza', 'El Jimador', 'Espolon', 'Centenario', 'Montezuma']
         },
         channels: { onTrade: 39, offTrade: 43, eCommerce: 10, travelRetail: 8 },
@@ -201,9 +201,9 @@ const CATEGORIES = [
           { text: 'Travel retail recovery: tequila duty-free sales rebounded +26% as Asia tourism resumed post-COVID', source: 'Market Watch', url: 'https://www.marketwatch.com/' },
         ],
         report: {
-          keyEvents: ['Bacardi acquired Patron parent company Bacardi Limited for strategic tequila consolidation', 'Mexico\u2019s spirits regulatory body (CRT) expanded export certifications; market access improved for craft brands', 'Asia travel recovery unleashed $150M in pent-up demand; Macao, Singapore, HK airports saw 45% tequila growth', 'RTD tequila cocktail category exploded as Gen Z home-consumption preferences shifted'],
+          keyEvents: ['Bacardi acquired Patrón parent company Bacardi Limited for strategic tequila consolidation', 'Mexico\u2019s spirits regulatory body (CRT) expanded export certifications; market access improved for craft brands', 'Asia travel recovery unleashed $150M in pent-up demand; Macao, Singapore, HK airports saw 45% tequila growth', 'RTD tequila cocktail category exploded as Gen Z home-consumption preferences shifted'],
           topPerformer: 'Don Julio',
-          analysis: 'Tequila growth accelerated to 10.2% in 2024, driven by two distinct forces: sustained pandemic premiumization momentum in North America and sudden travel retail recovery in Asia-Pacific. The category\u2019s center of gravity shifted decisively toward aged tequila (añejo and extra añejo), which grew 19% against blanco\u2019s flatter 6% expansion—a remarkable shift that reflects the maturation of cocktail culture and consumers\u2019 willingness to pay $50–80+ for quality sipping tequila. Mexico remained the largest market but growth decelerated to 7.8% as domestic consumption matured; the real growth came from USA (11.8%) and emerging European markets like Germany and Poland (both 8%+), indicating successful geographic expansion by multinational brands.\n\nThe competitive landscape revealed a two-tier dynamic: heritage global brands (Patron, Don Julio, Sauza) maintained 62% market share but faced erosion in ultra-premium and value segments, while craft and ultra-premium independents captured disproportionate growth. Clase Azul emerged as the breakout star, growing 35% through strategic travel retail partnerships and social media virality among luxury consumers—their success proved that new, high-narrative brands could penetrate even established categories by targeting affluent, experience-seeking demographics. For smaller brands, the opportunity lay in the $35–65 premium segment, where Tequila Ocho, G4, and Tapatio carved out sustainable positions through distinctive production stories and on-premise enthusiasm.\n\nDistribution transformed during 2024; travel retail recovered from pandemic lows and accounted for 8% of category volume by year-end, particularly in Asia. This represents a structural shift favoring brands with global visibility and luxury positioning. E-commerce remained modest at 10% nationally but represented 18%+ in urban markets like Los Angeles and Toronto, driven by state-level regulatory clarity and DTC enablement. For an entrant, the 2024 playbook centered on identifying a specific on-premise category (high-end cocktail bars, upscale hotels, premium restaurants) as a beachhead, building brand narrative around terroir/production authenticity, and leveraging limited travel retail availability to establish luxury positioning before scaling.',
+          analysis: 'Tequila growth accelerated to 10.2% in 2024, driven by two distinct forces: sustained pandemic premiumization momentum in North America and sudden travel retail recovery in Asia-Pacific. The category\u2019s center of gravity shifted decisively toward aged tequila (añejo and extra añejo), which grew 19% against blanco\u2019s flatter 6% expansion—a remarkable shift that reflects the maturation of cocktail culture and consumers\u2019 willingness to pay $50–80+ for quality sipping tequila. Mexico remained the largest market but growth decelerated to 7.8% as domestic consumption matured; the real growth came from USA (11.8%) and emerging European markets like Germany and Poland (both 8%+), indicating successful geographic expansion by multinational brands.\n\nThe competitive landscape revealed a two-tier dynamic: heritage global brands (Patrón, Don Julio, Sauza) maintained 62% market share but faced erosion in ultra-premium and value segments, while craft and ultra-premium independents captured disproportionate growth. Clase Azul emerged as the breakout star, growing 35% through strategic travel retail partnerships and social media virality among luxury consumers—their success proved that new, high-narrative brands could penetrate even established categories by targeting affluent, experience-seeking demographics. For smaller brands, the opportunity lay in the $35–65 premium segment, where Tequila Ocho, G4, and Tapatio carved out sustainable positions through distinctive production stories and on-premise enthusiasm.\n\nDistribution transformed during 2024; travel retail recovered from pandemic lows and accounted for 8% of category volume by year-end, particularly in Asia. This represents a structural shift favoring brands with global visibility and luxury positioning. E-commerce remained modest at 10% nationally but represented 18%+ in urban markets like Los Angeles and Toronto, driven by state-level regulatory clarity and DTC enablement. For an entrant, the 2024 playbook centered on identifying a specific on-premise category (high-end cocktail bars, upscale hotels, premium restaurants) as a beachhead, building brand narrative around terroir/production authenticity, and leveraging limited travel retail availability to establish luxury positioning before scaling.',
           conclusion: ''
         }
       },
@@ -216,7 +216,7 @@ const CATEGORIES = [
           {
             name: 'United States',
             growth: '+14.2%',
-            brands: ['Patron Silver', 'Don Julio Blanco', 'Espolon'],
+            brands: ['Patrón Silver', 'Don Julio Blanco', 'Espolon'],
             regions: [
               { name: 'California', share: '33%', growth: '+16.1%' },
               { name: 'Texas', share: '30%', growth: '+12.8%' },
@@ -244,7 +244,7 @@ const CATEGORIES = [
           {
             name: 'United Kingdom',
             growth: '+7.8%',
-            brands: ['Patron Anejo', 'Don Julio 1942', 'Herradura'],
+            brands: ['Patrón Anejo', 'Don Julio 1942', 'Herradura'],
             regions: [
               { name: 'London', share: '40%', growth: '+8.5%' },
               { name: 'Manchester', share: '21%', growth: '+7.2%' },
@@ -257,8 +257,8 @@ const CATEGORIES = [
           },
         ],
         brands: {
-          highEnd: ['Clase Azul', 'Don Julio 1942', 'Patron XO Cafe', 'Tequila Ocho', 'Fortaleza'],
-          midTier: ['Patron Silver', 'Don Julio Blanco', 'Herradura', 'Milagro', 'Tapatio'],
+          highEnd: ['Clase Azul', 'Don Julio 1942', 'Patrón XO Cafe', 'Tequila Ocho', 'Fortaleza'],
+          midTier: ['Patrón Silver', 'Don Julio Blanco', 'Herradura', 'Milagro', 'Tapatio'],
           value: ['Sauza', 'El Jimador', 'Espolon', 'Centenario', 'Montezuma']
         },
         channels: { onTrade: 40, offTrade: 44, eCommerce: 8, travelRetail: 8 },
@@ -268,9 +268,9 @@ const CATEGORIES = [
           { text: 'Sustainability narratives gaining importance; brands highlighting sustainable agave farming practices', source: 'Euromonitor', url: 'https://www.euromonitor.com/' },
         ],
         report: {
-          keyEvents: ['Pandemic-driven home consumption premiumization peaked; growth decelerated from 18% to 12.5%', 'Mega-brands consolidated on core SKUs; Patron and Don Julio expanded aged variants', 'Craft mezcal crossed into mainstream consciousness via cocktail culture and social media'],
+          keyEvents: ['Pandemic-driven home consumption premiumization peaked; growth decelerated from 18% to 12.5%', 'Mega-brands consolidated on core SKUs; Patrón and Don Julio expanded aged variants', 'Craft mezcal crossed into mainstream consciousness via cocktail culture and social media'],
           topPerformer: 'Don Julio',
-          analysis: 'Tequila growth remained strong at 12.5% in 2023 but showed the first signs of pandemic-driven acceleration moderating. The category had benefited enormously from 2021–22 at-home consumption trends, but by 2023, growth drivers shifted toward age-stated premium variants and geographic expansion into secondary markets. The United States remained dominant (62% of global category) but growth rates varied: California and Texas remained strong (+14–16%) while pandemic-saturated markets like Colorado showed 5–8% growth. Mexico, the historical heartland, decelerated to 6.2% as domestic consumption matured.\n\nBrand dynamics revealed clear stratification. Heritage value brands (Sauza, El Jimador) entered decline as younger consumers rejected bottom-shelf associations; midtier brands (Patron Silver, Don Julio Blanco) consolidated share through marketing spend and on-premise relationships; and ultra-premium players (Clase Azul, Don Julio 1942) emerged as the growth leaders at 22%+ expansion. For new entrants, the critical insight was that the blanco-dominated market of 2021 had evolved into a mature ecosystem where brand storytelling and age-statement credibility mattered as much as distribution.\n\nDistribution channels began normalizing post-pandemic; on-premise returned to 40% of volume as bars and restaurants recovered from COVID disruption, while off-premise stabilized at 44%. Travel retail remained depressed at 8% (versus pre-COVID 12%) due to Asia travel restrictions, representing an unlocked opportunity for 2024. DTC and e-commerce penetration reached 8% in total but concentrated in urban West Coast markets (15%+ in LA, San Francisco, Seattle).',
+          analysis: 'Tequila growth remained strong at 12.5% in 2023 but showed the first signs of pandemic-driven acceleration moderating. The category had benefited enormously from 2021–22 at-home consumption trends, but by 2023, growth drivers shifted toward age-stated premium variants and geographic expansion into secondary markets. The United States remained dominant (62% of global category) but growth rates varied: California and Texas remained strong (+14–16%) while pandemic-saturated markets like Colorado showed 5–8% growth. Mexico, the historical heartland, decelerated to 6.2% as domestic consumption matured.\n\nBrand dynamics revealed clear stratification. Heritage value brands (Sauza, El Jimador) entered decline as younger consumers rejected bottom-shelf associations; midtier brands (Patrón Silver, Don Julio Blanco) consolidated share through marketing spend and on-premise relationships; and ultra-premium players (Clase Azul, Don Julio 1942) emerged as the growth leaders at 22%+ expansion. For new entrants, the critical insight was that the blanco-dominated market of 2021 had evolved into a mature ecosystem where brand storytelling and age-statement credibility mattered as much as distribution.\n\nDistribution channels began normalizing post-pandemic; on-premise returned to 40% of volume as bars and restaurants recovered from COVID disruption, while off-premise stabilized at 44%. Travel retail remained depressed at 8% (versus pre-COVID 12%) due to Asia travel restrictions, representing an unlocked opportunity for 2024. DTC and e-commerce penetration reached 8% in total but concentrated in urban West Coast markets (15%+ in LA, San Francisco, Seattle).',
           conclusion: ''
         }
       },
@@ -283,7 +283,7 @@ const CATEGORIES = [
           {
             name: 'United States',
             growth: '+22.1%',
-            brands: ['Patron Silver', 'Don Julio Blanco', 'Espolon'],
+            brands: ['Patrón Silver', 'Don Julio Blanco', 'Espolon'],
             regions: [
               { name: 'California', share: '32%', growth: '+24.5%' },
               { name: 'Texas', share: '31%', growth: '+19.8%' },
@@ -311,7 +311,7 @@ const CATEGORIES = [
           {
             name: 'Canada',
             growth: '+16.5%',
-            brands: ['Patron Silver', 'Don Julio', 'Sauza'],
+            brands: ['Patrón Silver', 'Don Julio', 'Sauza'],
             regions: [
               { name: 'Toronto', share: '35%', growth: '+17.8%' },
               { name: 'Vancouver', share: '31%', growth: '+16.2%' },
@@ -324,8 +324,8 @@ const CATEGORIES = [
           },
         ],
         brands: {
-          highEnd: ['Don Julio 1942', 'Patron Anejo', 'Herrador Supreme', 'Tequila Ocho', 'Fortaleza'],
-          midTier: ['Patron Silver', 'Don Julio Blanco', 'Herradura', 'Milagro', 'Sauza Conmemorativo'],
+          highEnd: ['Don Julio 1942', 'Patrón Anejo', 'Herrador Supreme', 'Tequila Ocho', 'Fortaleza'],
+          midTier: ['Patrón Silver', 'Don Julio Blanco', 'Herradura', 'Milagro', 'Sauza Conmemorativo'],
           value: ['Sauza', 'El Jimador', 'Espolon', 'Montezuma', 'Centenario']
         },
         channels: { onTrade: 35, offTrade: 52, eCommerce: 8, travelRetail: 5 },
@@ -337,7 +337,7 @@ const CATEGORIES = [
         report: {
           keyEvents: ['Pandemic-driven spirits category explosion; tequila grew 18.2%, fastest among major spirits', 'At-home consumption drove off-premise growth to 52% of volume; on-premise depressed due to lockdowns', 'Celebrity tequila brands launched (George Clooney\u2019s Casamigos, Mark Wahlberg ventures) capturing millennial attention'],
           topPerformer: 'Don Julio',
-          analysis: 'Tequila entered a golden period in 2022, growing 18.2% as pandemic-driven premiumization cascaded through the category. The combination of at-home entertaining, heightened brand marketing by mega-conglomerates, and the emerging \u2018prestige spirits\u2019 cultural moment created explosive demand. Blanco tequila dominated retail volumes (42% of all tequila sold) but aged variants (añejo) grew 25% as home cocktail enthusiasts invested in premium experiences.\n\nThe competitive environment shifted dramatically. Heritage brands like José Cuervo faced obsolescence messaging; Patron and Don Julio solidified duopoly control of the $25–45 midtier; and celebrity/influencer brands captured disproportionate attention despite lower actual volume. The real growth opportunity lay in premiumization: ultra-premium brands ($80+) grew 28% despite representing only 8% of category volume, indicating that margin expansion was possible for well-positioned entrants.\n\nDistribution was heavily skewed toward off-premise during 2022 (52% of volume) due to COVID lockdowns in major markets. Travel retail remained depressed at 5%. This created an unusual market dynamic where brands needed direct-to-consumer and e-commerce capabilities to reach consumers; smaller brands that built DTC competencies during this period gained lasting advantage.',
+          analysis: 'Tequila entered a golden period in 2022, growing 18.2% as pandemic-driven premiumization cascaded through the category. The combination of at-home entertaining, heightened brand marketing by mega-conglomerates, and the emerging \u2018prestige spirits\u2019 cultural moment created explosive demand. Blanco tequila dominated retail volumes (42% of all tequila sold) but aged variants (añejo) grew 25% as home cocktail enthusiasts invested in premium experiences.\n\nThe competitive environment shifted dramatically. Heritage brands like José Cuervo faced obsolescence messaging; Patrón and Don Julio solidified duopoly control of the $25–45 midtier; and celebrity/influencer brands captured disproportionate attention despite lower actual volume. The real growth opportunity lay in premiumization: ultra-premium brands ($80+) grew 28% despite representing only 8% of category volume, indicating that margin expansion was possible for well-positioned entrants.\n\nDistribution was heavily skewed toward off-premise during 2022 (52% of volume) due to COVID lockdowns in major markets. Travel retail remained depressed at 5%. This created an unusual market dynamic where brands needed direct-to-consumer and e-commerce capabilities to reach consumers; smaller brands that built DTC competencies during this period gained lasting advantage.',
           conclusion: ''
         }
       },
@@ -350,7 +350,7 @@ const CATEGORIES = [
           {
             name: 'United States',
             growth: '+19.2%',
-            brands: ['Patron Silver', 'Don Julio', 'Sauza'],
+            brands: ['Patrón Silver', 'Don Julio', 'Sauza'],
             regions: [
               { name: 'California', share: '31%', growth: '+21.1%' },
               { name: 'Texas', share: '32%', growth: '+17.8%' },
@@ -378,7 +378,7 @@ const CATEGORIES = [
           {
             name: 'Canada',
             growth: '+11.8%',
-            brands: ['Patron', 'Don Julio', 'Sauza'],
+            brands: ['Patrón', 'Don Julio', 'Sauza'],
             regions: [
               { name: 'Toronto', share: '36%', growth: '+12.1%' },
               { name: 'Vancouver', share: '30%', growth: '+11.5%' },
@@ -391,9 +391,9 @@ const CATEGORIES = [
           },
         ],
         brands: {
-          highEnd: ['Don Julio 1942', 'Patron Anejo', 'Herrador', 'Tequila Ocho', 'Fortaleza'],
-          midTier: ['Patron Silver', 'Don Julio Blanco', 'Herradura Reposado', 'Milagro', 'Sauza Gold'],
-          value: ['Sauza', 'El Jimador', 'Montezuma', 'Centenario', 'Jose Cuervo Especial']
+          highEnd: ['Don Julio 1942', 'Patrón Anejo', 'Herrador', 'Tequila Ocho', 'Fortaleza'],
+          midTier: ['Patrón Silver', 'Don Julio Blanco', 'Herradura Reposado', 'Milagro', 'Sauza Gold'],
+          value: ['Sauza', 'El Jimador', 'Montezuma', 'Centenario', 'José Cuervo Especial']
         },
         channels: { onTrade: 42, offTrade: 48, eCommerce: 5, travelRetail: 5 },
         trends: [
@@ -403,8 +403,8 @@ const CATEGORIES = [
         ],
         report: {
           keyEvents: ['COVID-19 pandemic drove unprecedented at-home spirits consumption growth across all categories', 'Tequila surged +15.8%; younger Gen Z consumers embraced tequila as aspirational premium category', 'Supply chain stress began affecting agave availability; prices increased 8‑0% YoY'],
-          topPerformer: 'Patron',
-          analysis: 'Tequila experienced extraordinary growth in 2021 as pandemic lockdowns drove at-home entertaining and spirits consumption. The category expanded 15.8%, benefiting from cultural positioning as a premium, social spirits category aligned with home entertaining and entertaining trends. The United States dominated growth (19.2%), particularly in sun-belt states (Florida, Texas, Arizona) where populations expanded during remote work migration.\n\nBrand performance revealed clear winners and losers. Patron and Don Julio consolidated leadership in the $20–45 mainstream premium segment, while heritage brands like José Cuervo entered secular decline. The ultra-premium segment ($60+) emerged as the growth leader, up 26%, driven by consumer willingness to trade up when entertaining at home.\n\nDistribution remained balanced between on-premise and off-premise at the pandemic peak, though travel retail had begun recovering from 2020 lows. The emergence of DTC and e-commerce capabilities became increasingly important as regulatory clarity expanded and consumers sought direct access to premium brands.',
+          topPerformer: 'Patrón',
+          analysis: 'Tequila experienced extraordinary growth in 2021 as pandemic lockdowns drove at-home entertaining and spirits consumption. The category expanded 15.8%, benefiting from cultural positioning as a premium, social spirits category aligned with home entertaining and entertaining trends. The United States dominated growth (19.2%), particularly in sun-belt states (Florida, Texas, Arizona) where populations expanded during remote work migration.\n\nBrand performance revealed clear winners and losers. Patrón and Don Julio consolidated leadership in the $20–45 mainstream premium segment, while heritage brands like José Cuervo entered secular decline. The ultra-premium segment ($60+) emerged as the growth leader, up 26%, driven by consumer willingness to trade up when entertaining at home.\n\nDistribution remained balanced between on-premise and off-premise at the pandemic peak, though travel retail had begun recovering from 2020 lows. The emergence of DTC and e-commerce capabilities became increasingly important as regulatory clarity expanded and consumers sought direct access to premium brands.',
           conclusion: ''
         }
       },
@@ -2655,7 +2655,7 @@ const CATEGORIES = [
           },
         ],
         brands: {
-          highEnd: ['Louis XIII', 'Hennesly Paradis', 'Rémy Martin Louis XIII', 'Hine Antique', 'Delamain Pale & Dry', 'Courvoisier Initiale'],
+          highEnd: ['Louis XIII', 'Hennessy Paradis', 'Rémy Martin Louis XIII', 'Hine Antique', 'Delamain Pale & Dry', 'Courvoisier Initiale'],
           midTier: ['Hennessy VSOP', 'Rémy Martin VSOP', 'Courvoisier VSOP', 'Martell Cordon Bleu', 'Camus VSOP'],
           value: ['Hennessy VS', 'Rémy Martin VS', 'Courvoisier VS', 'Martell VS', 'E&J VS Brandy']
         },
@@ -2859,7 +2859,7 @@ const CATEGORIES = [
           },
         ],
         brands: {
-          highEnd: ['Louis XIII', 'Hennesly Paradis', 'Rémy Martin Louis XIII', 'Hine Antique', 'Delamain Pale & Dry', 'Courvoisier Initiale'],
+          highEnd: ['Louis XIII', 'Hennessy Paradis', 'Rémy Martin Louis XIII', 'Hine Antique', 'Delamain Pale & Dry', 'Courvoisier Initiale'],
           midTier: ['Hennessy VSOP', 'Rémy Martin VSOP', 'Courvoisier VSOP', 'Martell Cordon Bleu', 'Camus VSOP'],
           value: ['Hennessy VS', 'Rémy Martin VS', 'Courvoisier VS', 'Martell VS', 'E&J VS Brandy']
         },
@@ -2961,7 +2961,7 @@ const CATEGORIES = [
           },
         ],
         brands: {
-          highEnd: ['Louis XIII', 'Hennesly Paradis', 'Rémy Martin Louis XIII', 'Hine Antique', 'Delamain Pale & Dry', 'Courvoisier Initiale'],
+          highEnd: ['Louis XIII', 'Hennessy Paradis', 'Rémy Martin Louis XIII', 'Hine Antique', 'Delamain Pale & Dry', 'Courvoisier Initiale'],
           midTier: ['Hennessy VSOP', 'Rémy Martin VSOP', 'Courvoisier VSOP', 'Martell Cordon Bleu', 'Camus VSOP'],
           value: ['Hennessy VS', 'Rémy Martin VS', 'Courvoisier VS', 'Martell VS', 'E&J VS Brandy']
         },

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Link, Navigate, useLocation } from 'react-router-dom'
-import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, Settings, LogOut, Menu, MessageCircle, FileText, Package, Globe, Wine, MapPin, CloudRain } from 'lucide-react'
+import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, Settings, LogOut, Menu, MessageCircle, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag } from 'lucide-react'
 import { api, getToken, setToken, clearToken } from './lib/api'
 import CommandCentre from './pages/CommandCentre'
 import Valuations from './pages/Valuations'
@@ -12,6 +12,7 @@ import GeographicIntelligence from './pages/GeographicIntelligence'
 import CategoryIntelligence from './pages/CategoryIntelligence'
 import VenueIntelligence from './pages/VenueIntelligence'
 import ClimateYield from './pages/ClimateYield'
+import POSIntelligence from './pages/POSIntelligence'
 import ChatPanel from './components/ChatPanel'
 
 function Login({ onLogin }) {
@@ -109,6 +110,7 @@ function Layout({ onLogout }) {
             <NavItem to="/valuations" icon={TrendingUp} label="Valuations & Arbitrage" />
             <NavItem to="/pricing" icon={DollarSign} label="Brand Pricing" />
             <NavItem to="/companies" icon={Building2} label="Company Intelligence" />
+            <NavItem to="/pos" icon={ShoppingBag} label="POS Manufacturing" />
             <NavItem to="/reports" icon={FileText} label="Report Builder" />
           </nav>
           <div className="p-3 border-t border-white/10">
@@ -153,6 +155,7 @@ function Layout({ onLogout }) {
             <Route path="/valuations" element={<Valuations />} />
             <Route path="/pricing" element={<BrandPricing />} />
             <Route path="/companies" element={<Companies />} />
+            <Route path="/pos" element={<POSIntelligence />} />
             <Route path="/reports" element={<ReportBuilder />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>

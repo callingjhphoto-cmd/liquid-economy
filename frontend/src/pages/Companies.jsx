@@ -24,7 +24,7 @@ const COMPANIES = [
     weaknessesForCompetitor: ["Slow to move \\u2014 big-company bureaucracy means 12-18 month decision cycles", "Brand fatigue in key segments \\u2014 Smirnoff viewed as \\u2018old\\u2019 by Gen Z consumers", "Their sales teams push volume, not stories \\u2014 craft narrative is your advantage", "Diageo One platform struggles with premium/artisanal positioning", "Over-reliance on Scotch (28% of revenue) exposes them to single-category risk"],
     howToCompeteAgainst: [{"strategy": "Own your story", "detail": "Diageo brands are corporate. Lead with founder story, provenance, and craft credentials. Bartenders prefer brands with personality."}, {"strategy": "Target the gaps", "detail": "Diageo is weak in: mezcal, Japanese whisky, premium rum (Zacapa aside), craft vodka, agave-based RTDs. These are high-growth white spaces."}, {"strategy": "Win the back bar first", "detail": "Don\\u2019t fight for well pours. Get on the \\u2018recommended\\u2019 list. Bartender advocacy beats distributor push."}, {"strategy": "Move faster", "detail": "Limited editions, collaborations, seasonal releases \\u2014 you can do in 6 weeks what takes Diageo 6 months."}, {"strategy": "Digital-first", "detail": "Diageo\\u2019s social media is corporate. Authentic TikTok/Instagram content drives trial with under-35s where Diageo struggles."}],
     recentMoves: [{"date": "Jan 2026", "move": "Launched \\u2018Diageo Ventures\\u2019 $100M fund targeting craft spirits acquisitions", "threat": "high"}, {"date": "Nov 2025", "move": "Expanded Don Julio 1942 distribution to 15 new markets", "threat": "medium"}, {"date": "Sep 2025", "move": "Acquired minority stake in a Mexican mezcal brand (undisclosed)", "threat": "high"}, {"date": "Jul 2025", "move": "Launched Smirnoff rebrand targeting Gen Z with new packaging", "threat": "low"}, {"date": "Mar 2025", "move": "Guinness 0.0 surpassed Heineken 0.0 in UK off-trade sales", "threat": "medium"}],
-    financials: {"2025": {"revenue": 20.3, "operatingMargin": 28.4, "netIncome": 3.8}, "2024": {"revenue": 20.0, "operatingMargin": 27.8, "netIncome": 3.6}, "2023": {"revenue": 20.5, "operatingMargin": 29.1, "netIncome": 4.0}, "2022": {"revenue": 19.4, "operatingMargin": 28.6, "netIncome": 3.9}, "2021": {"revenue": 15.5, "operatingMargin": 24.1, "netIncome": 2.8}},
+    financials: {"2025": {"revenue": 20.3, "operatingMargin": 28.4, "netIncome": 3.8, "ebitda": 6.2, "eps": 16.12, "dividend": 4.56, "debtToEbitda": 2.8, "roic": 14.2}, "2024": {"revenue": 20.0, "operatingMargin": 27.8, "netIncome": 3.6, "ebitda": 5.9, "eps": 15.45, "dividend": 4.4, "debtToEbitda": 2.9, "roic": 13.8}, "2023": {"revenue": 20.5, "operatingMargin": 29.1, "netIncome": 4.0, "ebitda": 6.4, "eps": 16.85, "dividend": 4.28, "debtToEbitda": 2.6, "roic": 15.1}, "2022": {"revenue": 19.4, "operatingMargin": 28.6, "netIncome": 3.9, "ebitda": 5.8, "eps": 15.92, "dividend": 4.02, "debtToEbitda": 2.7, "roic": 14.6}, "2021": {"revenue": 15.5, "operatingMargin": 24.1, "netIncome": 2.8, "ebitda": 4.4, "eps": 11.42, "dividend": 3.64, "debtToEbitda": 3.4, "roic": 11.2}},
     geoRevenue: {"North America": 38, "Europe": 26, "Asia Pacific": 20, "Latin America": 9, "Africa/ME": 7},
     maTimeline: [{"year": 2025, "deal": "Mezcal brand minority stake (undisclosed)", "type": "investment"}, {"year": 2023, "deal": "Sold Archers and Pimm\\u2019s to focus portfolio", "type": "divestiture"}, {"year": 2022, "deal": "Acquired remaining 79% of Seedlip for $300M", "type": "acquisition"}, {"year": 2021, "deal": "Invested $115M in Aviation Gin (post Reynolds sale)", "type": "investment"}, {"year": 2020, "deal": "Acquired Chase Distillery (UK craft) for $60M", "type": "acquisition"}, {"year": 2017, "deal": "Acquired Casamigos for $1.3B", "type": "acquisition"}, {"year": 2015, "deal": "Acquired Don Julio from Jos\u00e9 Cuervo in swap deal", "type": "acquisition"}]
   },
@@ -49,7 +49,7 @@ const COMPANIES = [
     weaknessesForCompetitor: ["Absolut is bleeding share \\u2014 the vodka portfolio is their Achilles heel", "China/Martell exposure means corporate attention is diverted to fixing cognac", "Slower to invest in RTD compared to Diageo \\u2014 opportunity to establish first", "Less dominant in tequila \\u2014 Altos is growing but from a small base", "UK on-trade team smaller than Diageo \\u2019s \\u2014 less coverage means less lock-out"],
     howToCompeteAgainst: [{"strategy": "Exploit the vodka gap", "detail": "Absolut\\u2019s decline creates shelf space. Premium craft vodka with a genuine story can take Absolut\\u2019s abandoned premium positioning."}, {"strategy": "Out-innovate in RTD", "detail": "Pernod is slow here. Launch RTD first in premium on-trade and you\\u2019ll have 18+ months head start before they respond."}, {"strategy": "Leverage their flexibility", "detail": "Pernod\\u2019s brand teams have more autonomy \\u2014 they\\u2019re actually good partners for complementary brands. Consider co-marketing."}, {"strategy": "Go where Martell isn\\u2019t", "detail": "Their cognac distraction means less focus on emerging categories. Win in mezcal, Japanese whisky, or premium gin while their attention is elsewhere."}],
     recentMoves: [{"date": "Dec 2025", "move": "Launched Celtic Soul non-alc range in 15 markets", "threat": "medium"}, {"date": "Oct 2025", "move": "Restructured US distribution \\u2014 went direct in 5 states", "threat": "low"}, {"date": "Jun 2025", "move": "Jameson hit 10M case milestone \\u2014 expanding bartender programs", "threat": "high"}, {"date": "Mar 2025", "move": "Acquired stake in premium RTD brand (undisclosed)", "threat": "medium"}],
-    financials: {"2025": {"revenue": 12.1, "operatingMargin": 26.8, "netIncome": 2.1}, "2024": {"revenue": 12.2, "operatingMargin": 27.2, "netIncome": 2.2}, "2023": {"revenue": 13.0, "operatingMargin": 28.5, "netIncome": 2.5}, "2022": {"revenue": 12.5, "operatingMargin": 27.9, "netIncome": 2.3}, "2021": {"revenue": 10.7, "operatingMargin": 25.4, "netIncome": 1.8}},
+    financials: {"2025": {"revenue": 12.1, "operatingMargin": 26.8, "netIncome": 2.1, "ebitda": 3.8, "eps": 8.12, "dividend": 4.12, "debtToEbitda": 2.5, "roic": 10.8}, "2024": {"revenue": 12.2, "operatingMargin": 27.2, "netIncome": 2.2, "ebitda": 3.9, "eps": 8.45, "dividend": 4.0, "debtToEbitda": 2.4, "roic": 11.2}, "2023": {"revenue": 13.0, "operatingMargin": 28.5, "netIncome": 2.5, "ebitda": 4.3, "eps": 9.62, "dividend": 3.85, "debtToEbitda": 2.2, "roic": 12.5}, "2022": {"revenue": 12.5, "operatingMargin": 27.9, "netIncome": 2.3, "ebitda": 4.0, "eps": 8.88, "dividend": 3.72, "debtToEbitda": 2.3, "roic": 11.8}, "2021": {"revenue": 10.7, "operatingMargin": 25.4, "netIncome": 1.8, "ebitda": 3.2, "eps": 6.92, "dividend": 3.12, "debtToEbitda": 3.0, "roic": 9.4}},
     geoRevenue: {"North America": 28, "Europe": 24, "Asia Pacific": 30, "Latin America": 8, "Africa/ME": 10},
     maTimeline: [{"year": 2025, "deal": "Premium RTD brand stake (undisclosed)", "type": "investment"}, {"year": 2024, "deal": "Sold wine portfolio to focus on spirits", "type": "divestiture"}, {"year": 2022, "deal": "Acquired Skrewball Peanut Butter Whiskey for $700M", "type": "acquisition"}, {"year": 2020, "deal": "Acquired Monkey 47 (remaining stake) for \\u20ac200M", "type": "acquisition"}, {"year": 2019, "deal": "Acquired Castle Brands (Jefferson\\u2019s Bourbon) for $223M", "type": "acquisition"}, {"year": 2016, "deal": "Acquired Smooth Ambler Spirits for $65M", "type": "acquisition"}]
   },
@@ -74,7 +74,7 @@ const COMPANIES = [
     weaknessesForCompetitor: ["Massive blind spot in everyday premium \\u2014 nothing between \\u00a320-40 RRP", "Zero presence in rum, gin, tequila (beyond tiny Volcan), RTD, or no/lo", "China dependency (Hennessy) makes them vulnerable to geopolitical risk", "Luxury positioning means they can\\u2019t chase volume \\u2014 entire categories are off-limits to them", "Small UK sales team \\u2014 only 40 key account managers vs Diageo\\u2019s 120+"],
     howToCompeteAgainst: [{"strategy": "Don\\u2019t compete \\u2014 coexist", "detail": "LVMH occupies the ultra-luxury space. If you\\u2019re \\u00a325-45 RRP, you\\u2019re not competing with them. Their presence actually helps by anchoring high price expectations."}, {"strategy": "Fill their gaps", "detail": "LVMH has zero gin, zero rum, near-zero tequila. These are the fastest-growing categories. They\\u2019re leaving billions on the table."}, {"strategy": "Offer what luxury can\\u2019t", "detail": "Authenticity, approachability, bartender-friendly formats. LVMH brands are often \\u2018display bottles\\u2019 \\u2014 yours can be the working pour."}, {"strategy": "Watch their acquisition radar", "detail": "LVMH is looking to fill these gaps. If your brand gets traction in premium tequila/rum/gin, you could be an acquisition target (or a competitor to one)."}],
     recentMoves: [{"date": "Feb 2026", "move": "Rumored interest in acquiring a Japanese whisky distillery", "threat": "medium"}, {"date": "Nov 2025", "move": "Glenmorangie repackaged with new luxury positioning", "threat": "low"}, {"date": "Aug 2025", "move": "Acquired Ch\\u00e2teau Galoupet ros\\u00e9 estate in Provence", "threat": "low"}, {"date": "May 2025", "move": "Dom P\\u00e9rignon x Lady Gaga collaboration drove viral social media", "threat": "low"}],
-    financials: {"2025": {"revenue": 7.5, "operatingMargin": 32.1, "netIncome": 1.6}, "2024": {"revenue": 7.8, "operatingMargin": 33.5, "netIncome": 1.8}, "2023": {"revenue": 7.8, "operatingMargin": 33.2, "netIncome": 1.7}, "2022": {"revenue": 7.1, "operatingMargin": 31.4, "netIncome": 1.5}, "2021": {"revenue": 6.8, "operatingMargin": 30.8, "netIncome": 1.4}},
+    financials: {"2025": {"revenue": 7.5, "operatingMargin": 32.1, "netIncome": 1.6, "ebitda": 2.8, "eps": "N/A (group)", "dividend": "N/A (group)", "debtToEbitda": 1.2, "roic": 18.5}, "2024": {"revenue": 7.8, "operatingMargin": 33.5, "netIncome": 1.8, "ebitda": 3.0, "eps": "N/A (group)", "dividend": "N/A (group)", "debtToEbitda": 1.1, "roic": 19.8}, "2023": {"revenue": 7.8, "operatingMargin": 33.2, "netIncome": 1.7, "ebitda": 3.0, "eps": "N/A (group)", "dividend": "N/A (group)", "debtToEbitda": 1.0, "roic": 20.2}, "2022": {"revenue": 7.1, "operatingMargin": 31.4, "netIncome": 1.5, "ebitda": 2.6, "eps": "N/A (group)", "dividend": "N/A (group)", "debtToEbitda": 1.1, "roic": 18.8}, "2021": {"revenue": 6.8, "operatingMargin": 30.8, "netIncome": 1.4, "ebitda": 2.4, "eps": "N/A (group)", "dividend": "N/A (group)", "debtToEbitda": 1.3, "roic": 17.2}},
     geoRevenue: {"North America": 32, "Europe": 22, "Asia Pacific": 36, "Latin America": 5, "Africa/ME": 5},
     maTimeline: [{"year": 2025, "deal": "Ch\\u00e2teau Galoupet ros\\u00e9 acquisition", "type": "acquisition"}, {"year": 2024, "deal": "Volcan de mi Tierra tequila expanded distribution", "type": "investment"}, {"year": 2022, "deal": "Joseph Phelps Vineyards (Napa) acquired", "type": "acquisition"}, {"year": 2019, "deal": "Ch\u00e2teau d\\u2019Esclans (Whispering Angel) acquired for \\u20ac100M+", "type": "acquisition"}, {"year": 2017, "deal": "Colgin Cellars (Napa cult wine) acquired", "type": "acquisition"}]
   },
@@ -147,7 +147,7 @@ const COMPANIES = [
     weaknessesForCompetitor: ["Heavily dependent on Jack Daniel\\u2019s (60%+ of revenue) \\u2014 single-brand risk", "Tequila portfolio (Herradura/el Jimador) underperforming the category\\u2019s growth", "No presence in vodka, gin, Irish whiskey, or no/lo \\u2014 massive category gaps", "Conservative culture means slow to innovate \\u2014 took years to launch JD RTDs", "GlenDronach/BenRiach acquisitions haven\\u2019t been scaled \\u2014 untapped potential"],
     howToCompeteAgainst: [{"strategy": "Don\\u2019t fight JD directly", "detail": "Jack Daniel\\u2019s occupies a unique cultural position. Compete by being different \\u2014 craft, small batch, experimental \\u2014 not by trying to be a better Tennessee whiskey."}, {"strategy": "Win the premium bourbon shelf", "detail": "Woodford Reserve is the only premium BF bourbon. Above and around it, there\\u2019s space for craft bourbons with unique stories."}, {"strategy": "All the categories they\\u2019re missing", "detail": "Vodka, gin, Irish whiskey, mezcal, no/lo, premium RTD \\u2014 Brown-Forman isn\\u2019t competing in any of these growth segments."}, {"strategy": "Ride their tequila gap", "detail": "Herradura is authentic but undersupported. el Jimador is value. Premium tequila (\\u00a330-50) is the biggest opportunity they\\u2019re not capturing."}],
     recentMoves: [{"date": "Dec 2025", "move": "Jack Daniel\\u2019s Bonded launched globally", "threat": "medium"}, {"date": "Sep 2025", "move": "GlenDronach 21-Year Parliament repackaged for luxury market", "threat": "low"}, {"date": "Jun 2025", "move": "JD RTD cans expanded to 25 new markets", "threat": "medium"}, {"date": "Feb 2025", "move": "Acquired Gin Mare and Diplom\u00e1tico rum distribution rights in US", "threat": "medium"}],
-    financials: {"2025": {"revenue": 4.2, "operatingMargin": 33.5, "netIncome": 0.95}, "2024": {"revenue": 4.1, "operatingMargin": 33.1, "netIncome": 0.92}, "2023": {"revenue": 4.3, "operatingMargin": 34.2, "netIncome": 1.0}, "2022": {"revenue": 3.9, "operatingMargin": 32.8, "netIncome": 0.88}, "2021": {"revenue": 3.5, "operatingMargin": 31.2, "netIncome": 0.72}},
+    financials: {"2025": {"revenue": 4.2, "operatingMargin": 33.5, "netIncome": 0.95, "ebitda": 1.6, "eps": 2.02, "dividend": 0.86, "debtToEbitda": 2.1, "roic": 16.8}, "2024": {"revenue": 4.1, "operatingMargin": 33.1, "netIncome": 0.92, "ebitda": 1.55, "eps": 1.95, "dividend": 0.82, "debtToEbitda": 2.2, "roic": 16.2}, "2023": {"revenue": 4.3, "operatingMargin": 34.2, "netIncome": 1.0, "ebitda": 1.7, "eps": 2.12, "dividend": 0.8, "debtToEbitda": 1.9, "roic": 17.5}, "2022": {"revenue": 3.9, "operatingMargin": 32.8, "netIncome": 0.88, "ebitda": 1.48, "eps": 1.86, "dividend": 0.76, "debtToEbitda": 2.0, "roic": 15.8}, "2021": {"revenue": 3.5, "operatingMargin": 31.2, "netIncome": 0.72, "ebitda": 1.25, "eps": 1.52, "dividend": 0.72, "debtToEbitda": 2.4, "roic": 13.5}},
     geoRevenue: {"North America": 52, "Europe": 22, "Asia Pacific": 12, "Latin America": 10, "Africa/ME": 4},
     maTimeline: [{"year": 2025, "deal": "Gin Mare and Diplom\u00e1tico distribution rights (US)", "type": "partnership"}, {"year": 2022, "deal": "Acquired GlenDronach, BenRiach, Glenglassaugh for $412M", "type": "acquisition"}, {"year": 2016, "deal": "Sold Southern Comfort and Tuaca brands", "type": "divestiture"}, {"year": 2015, "deal": "Old Forester distillery opened on Whiskey Row, Louisville", "type": "investment"}]
   },
@@ -172,7 +172,7 @@ const COMPANIES = [
     weaknessesForCompetitor: ["SKYY Vodka is in terminal decline \\u2014 no credible premium vodka play", "Heavily dependent on Aperol (30%+ of revenue) \\u2014 single-brand risk if spritz fad fades", "Smaller than the big 3 \\u2014 less distribution muscle and marketing spend", "Acquisition strategy means uneven portfolio quality \\u2014 some brands are neglected", "No meaningful presence in gin, Scotch, or no/lo"],
     howToCompeteAgainst: [{"strategy": "Ride the aperitivo wave", "detail": "Aperol created the occasion. Now there\\u2019s space for alternative aperitifs \\u2014 different flavors, lower sugar, craft Italian alternatives."}, {"strategy": "Target their weak categories", "detail": "No gin, minimal Scotch, no no/lo. Campari leaves these wide open. Their UK team is only 30 reps."}, {"strategy": "Partner with them", "detail": "Campari is the most acquisitive company in spirits. If your brand complements their portfolio, they\\u2019re a natural acquirer or distribution partner."}, {"strategy": "Create the next Aperol", "detail": "Aperol proved a \\u00a310 serve can create a billion-dollar brand. Find the next social occasion drink \\u2014 the next Spritz."}],
     recentMoves: [{"date": "Feb 2026", "move": "Rumored bid for a premium mezcal brand", "threat": "medium"}, {"date": "Oct 2025", "move": "Espol\u00f2n tequila surpassed 5M cases globally", "threat": "medium"}, {"date": "Jul 2025", "move": "Aperol Spritz became UK\\u2019s #1 summer cocktail by volume", "threat": "high"}, {"date": "Apr 2025", "move": "Courvoisier acquisition from Beam Suntory for $1.2B completed", "threat": "high"}],
-    financials: {"2025": {"revenue": 3.1, "operatingMargin": 22.8, "netIncome": 0.48}, "2024": {"revenue": 2.9, "operatingMargin": 22.1, "netIncome": 0.42}, "2023": {"revenue": 3.0, "operatingMargin": 23.5, "netIncome": 0.5}, "2022": {"revenue": 2.7, "operatingMargin": 21.5, "netIncome": 0.39}, "2021": {"revenue": 2.2, "operatingMargin": 19.8, "netIncome": 0.28}},
+    financials: {"2025": {"revenue": 3.1, "operatingMargin": 22.8, "netIncome": 0.48, "ebitda": 0.82, "eps": 0.42, "dividend": 0.065, "debtToEbitda": 3.2, "roic": 8.5}, "2024": {"revenue": 2.9, "operatingMargin": 22.1, "netIncome": 0.42, "ebitda": 0.74, "eps": 0.37, "dividend": 0.062, "debtToEbitda": 2.8, "roic": 8.2}, "2023": {"revenue": 3.0, "operatingMargin": 23.5, "netIncome": 0.5, "ebitda": 0.82, "eps": 0.44, "dividend": 0.06, "debtToEbitda": 2.5, "roic": 9.1}, "2022": {"revenue": 2.7, "operatingMargin": 21.5, "netIncome": 0.39, "ebitda": 0.68, "eps": 0.34, "dividend": 0.058, "debtToEbitda": 2.4, "roic": 8.8}, "2021": {"revenue": 2.2, "operatingMargin": 19.8, "netIncome": 0.28, "ebitda": 0.5, "eps": 0.24, "dividend": 0.055, "debtToEbitda": 2.6, "roic": 7.2}},
     geoRevenue: {"North America": 35, "Europe": 40, "Asia Pacific": 12, "Latin America": 8, "Africa/ME": 5},
     maTimeline: [{"year": 2025, "deal": "Courvoisier cognac from Beam Suntory for $1.2B", "type": "acquisition"}, {"year": 2022, "deal": "Wilderness Trail Distillery (craft bourbon) acquired", "type": "acquisition"}, {"year": 2020, "deal": "Champagne Lallier acquired", "type": "acquisition"}, {"year": 2019, "deal": "Acquired Rhumerie Trois Rivi\\u00e8res", "type": "acquisition"}, {"year": 2016, "deal": "Grand Marnier acquired for \\u20ac684M", "type": "acquisition"}, {"year": 2014, "deal": "Acquired Forty Creek Whisky (Canada)", "type": "acquisition"}]
   },
@@ -245,7 +245,7 @@ const COMPANIES = [
     weaknessesForCompetitor: ["Heavily exposed to China/US cognac cycles \\u2014 revenue swings of 15-20% YoY", "Very small sales team (20 UK reps) \\u2014 limited market coverage", "Luxury focus means they can\\u2019t compete in everyday premium \\u2014 massive blind spot", "Bruichladdich/Botanist are subscale \\u2014 great brands that could do 5x the volume", "No presence in bourbon, tequila, vodka, RTD, no/lo, or beer"],
     howToCompeteAgainst: [{"strategy": "Irrelevant for most startups", "detail": "R\\u00e9my plays exclusively in ultra-luxury. Unless you\\u2019re making \\u00a350+ cognac or \\u00a340+ gin, they\\u2019re not your competitor."}, {"strategy": "Learn from The Botanist", "detail": "The Botanist built a premium gin brand from a remote island. Your brand\\u2019s provenance story is your strongest asset \\u2014 study how they did it."}, {"strategy": "Orange liqueur opportunity", "detail": "Cointreau dominates triple sec but the \\u2018premium orange liqueur\\u2019 space is actually very small. Craft alternatives with real fruit could take share."}, {"strategy": "Win where they\\u2019re absent", "detail": "Like LVMH, R\\u00e9my is absent from the categories driving industry growth: tequila, bourbon, RTD, no/lo."}],
     recentMoves: [{"date": "Jan 2026", "move": "Louis XIII Rare Cask released at $5,800 \\u2014 sold out in 48 hours", "threat": "low"}, {"date": "Oct 2025", "move": "R\\u00e9my Martin restructured US distribution", "threat": "low"}, {"date": "Jul 2025", "move": "Octomore 15 series launched with highest peat levels yet", "threat": "low"}, {"date": "Mar 2025", "move": "Announced cost-cutting program amid China slowdown", "threat": "low"}],
-    financials: {"2025": {"revenue": 1.5, "operatingMargin": 26.5, "netIncome": 0.26}, "2024": {"revenue": 1.6, "operatingMargin": 28.2, "netIncome": 0.3}, "2023": {"revenue": 1.8, "operatingMargin": 30.5, "netIncome": 0.38}, "2022": {"revenue": 1.7, "operatingMargin": 29.8, "netIncome": 0.35}, "2021": {"revenue": 1.4, "operatingMargin": 25.2, "netIncome": 0.22}},
+    financials: {"2025": {"revenue": 1.5, "operatingMargin": 26.5, "netIncome": 0.26, "ebitda": 0.46, "eps": 3.42, "dividend": 2.0, "debtToEbitda": 2.8, "roic": 9.2}, "2024": {"revenue": 1.6, "operatingMargin": 28.2, "netIncome": 0.3, "ebitda": 0.52, "eps": 3.95, "dividend": 2.0, "debtToEbitda": 2.5, "roic": 10.5}, "2023": {"revenue": 1.8, "operatingMargin": 30.5, "netIncome": 0.38, "ebitda": 0.64, "eps": 5.02, "dividend": 2.0, "debtToEbitda": 2.0, "roic": 13.2}, "2022": {"revenue": 1.7, "operatingMargin": 29.8, "netIncome": 0.35, "ebitda": 0.59, "eps": 4.62, "dividend": 1.85, "debtToEbitda": 2.1, "roic": 12.5}, "2021": {"revenue": 1.4, "operatingMargin": 25.2, "netIncome": 0.22, "ebitda": 0.41, "eps": 2.88, "dividend": 1.65, "debtToEbitda": 2.8, "roic": 8.8}},
     geoRevenue: {"North America": 38, "Europe": 18, "Asia Pacific": 35, "Latin America": 5, "Africa/ME": 4},
     maTimeline: [{"year": 2023, "deal": "Telmont Champagne sustainability showcase", "type": "investment"}, {"year": 2021, "deal": "Increased Bruichladdich capacity by 20%", "type": "investment"}, {"year": 2012, "deal": "Acquired Bruichladdich for \\u00a358M", "type": "acquisition"}, {"year": 2006, "deal": "Acquired Mount Gay rum", "type": "acquisition"}]
   },
@@ -327,12 +327,33 @@ function SubTabNav({ tabs, active, onChange }) {
 
 function FinancialTimeline({ financials }) {
   if (!financials) return null
+  const [selectedYear, setSelectedYear] = useState('2025')
   const years = Object.keys(financials).sort()
   const data = years.map(y => ({ year: y, revenue: financials[y].revenue, margin: financials[y].operatingMargin, netIncome: financials[y].netIncome }))
+  const yd = financials[selectedYear] || {}
+  const prevYear = String(Number(selectedYear) - 1)
+  const prev = financials[prevYear] || {}
+
+  const pctChange = (curr, old) => {
+    if (!curr || !old || typeof curr === 'string' || typeof old === 'string') return null
+    const change = ((curr - old) / old * 100).toFixed(1)
+    return change > 0 ? `+${change}%` : `${change}%`
+  }
+
   return (
     <div className="bg-white rounded-xl border border-gray-100 p-5 mb-6">
-      <h3 className="text-sm font-semibold text-navy uppercase tracking-wide mb-4 flex items-center gap-2"><BarChart3 size={16} /> 5-Year Financial Overview</h3>
-      <div className="h-52">
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="text-sm font-semibold text-navy uppercase tracking-wide flex items-center gap-2"><BarChart3 size={16} /> 5-Year Financial Time Machine</h3>
+        <div className="flex gap-1 bg-gray-100 rounded-lg p-0.5">
+          {years.map(y => (
+            <button key={y} onClick={() => setSelectedYear(y)}
+              className={`px-3 py-1 rounded-md text-xs font-medium transition-colors ${selectedYear === y ? 'bg-navy text-white' : 'text-gray-500 hover:text-gray-700'}`}>
+              {y}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className="h-48 mb-4">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
@@ -344,15 +365,37 @@ function FinancialTimeline({ financials }) {
           </LineChart>
         </ResponsiveContainer>
       </div>
-      <div className="grid grid-cols-5 gap-2 mt-4">
-        {data.map(d => (
-          <div key={d.year} className="text-center bg-gray-50 rounded-lg p-2">
-            <div className="text-xs text-gray-400 mb-1">{d.year}</div>
-            <div className="text-sm font-bold text-navy">${d.revenue}B</div>
-            <div className="text-xs text-gray-500">{d.margin}% margin</div>
+      <div className="grid grid-cols-4 gap-3 mb-4">
+        {[
+          { label: 'Revenue', val: yd.revenue ? `$${yd.revenue}B` : 'N/A', change: pctChange(yd.revenue, prev.revenue) },
+          { label: 'Net Income', val: yd.netIncome ? `$${yd.netIncome}B` : 'N/A', change: pctChange(yd.netIncome, prev.netIncome) },
+          { label: 'EBITDA', val: yd.ebitda ? `$${yd.ebitda}B` : 'N/A', change: pctChange(yd.ebitda, prev.ebitda) },
+          { label: 'Operating Margin', val: yd.operatingMargin ? `${yd.operatingMargin}%` : 'N/A', change: prev.operatingMargin ? `${(yd.operatingMargin - prev.operatingMargin).toFixed(1)}pp` : null },
+        ].map((m, i) => (
+          <div key={i} className="bg-gray-50 rounded-lg p-3 text-center">
+            <div className="text-[10px] text-gray-400 uppercase tracking-wide mb-1">{m.label}</div>
+            <div className="text-lg font-bold text-navy">{m.val}</div>
+            {m.change && <div className={`text-xs font-medium mt-0.5 ${m.change.startsWith('+') || m.change.startsWith('-') ? (m.change.startsWith('+') ? 'text-green-600' : 'text-red-600') : 'text-gray-500'}`}>{m.change} YoY</div>}
           </div>
         ))}
       </div>
+      <div className="grid grid-cols-4 gap-3">
+        {[
+          { label: 'EPS', val: typeof yd.eps === 'number' ? `$${yd.eps}` : (yd.eps || 'N/A'), change: typeof yd.eps === 'number' && typeof prev.eps === 'number' ? pctChange(yd.eps, prev.eps) : null },
+          { label: 'Dividend', val: typeof yd.dividend === 'number' ? `$${yd.dividend}` : (yd.dividend || 'N/A'), change: typeof yd.dividend === 'number' && typeof prev.dividend === 'number' ? pctChange(yd.dividend, prev.dividend) : null },
+          { label: 'Debt/EBITDA', val: yd.debtToEbitda ? `${yd.debtToEbitda}x` : 'N/A', change: prev.debtToEbitda ? `${(yd.debtToEbitda - prev.debtToEbitda).toFixed(1)}x` : null },
+          { label: 'ROIC', val: yd.roic ? `${yd.roic}%` : 'N/A', change: prev.roic ? `${(yd.roic - prev.roic).toFixed(1)}pp` : null },
+        ].map((m, i) => (
+          <div key={i} className="bg-gray-50 rounded-lg p-3 text-center">
+            <div className="text-[10px] text-gray-400 uppercase tracking-wide mb-1">{m.label}</div>
+            <div className="text-lg font-bold text-navy">{m.val}</div>
+            {m.change && <div className={`text-xs font-medium mt-0.5 ${String(m.change).startsWith('+') ? 'text-green-600' : String(m.change).startsWith('-') ? 'text-red-600' : 'text-gray-500'}`}>{m.change} YoY</div>}
+          </div>
+        ))}
+      </div>
+      {(typeof yd.eps === 'string' && yd.eps.includes('N/A')) && (
+        <div className="mt-3 text-[10px] text-gray-400 text-center">* LVMH reports W&S as a division — EPS and dividends are at the group level</div>
+      )}
     </div>
   )
 }

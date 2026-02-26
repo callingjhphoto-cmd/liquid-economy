@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Package, Factory, Globe, ChevronDown, ChevronRight, ExternalLink, AlertTriangle, Target, Users, Lightbulb, DollarSign, Clock, Shield, Zap, MapPin, Star, TrendingUp, Search, Layers, Award, BookOpen } from 'lucide-react'
+import { Package, Factory, Globe, ChevronDown, ChevronRight, ExternalLink, AlertTriangle, Target, Users, Lightbulb, DollarSign, Clock, Shield, Zap, MapPin, Star, TrendingUp, Search, Layers, Award, BookOpen, Building2 } from 'lucide-react'
 
 // ─── FACTORY DIRECTORY BY MATERIAL ───────────────────────────────────────────
 const MATERIAL_CATEGORIES = [

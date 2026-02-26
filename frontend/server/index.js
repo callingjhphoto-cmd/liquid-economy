@@ -92,6 +92,37 @@ if (feedItems.length === 0) {
   saveJSON(FEED_FILE, feedItems)
 }
 
+// ── Pricing Data Store ──
+const PRICING_FILE = join(DATA_DIR, 'pricing.json')
+let pricingData = loadJSON(PRICING_FILE, { lastUpdated: null, prices: {} })
+
+// ── REST API: Get latest pricing ──
+app.get('/api/pricing/latest', (req, res) => {
+  res.json(pricingData)
+})
+
+// ── REST API: Update pricing (called by scraper) ──
+app.post('/api/pricing/update', (req, res) => {
+  const { prices, source } = req.body
+  if (!prices) return res.status(400).json({ error: 'prices object required' })
+
+  // Merge new prices into existing
+  Object.entries(prices).forEach(([key, marketPrices]) => {
+    if (!pricingData.prices[key]) pricingData.prices[key] = {}
+    Object.assign(pricingData.prices[key], marketPrices)
+  })
+
+  pricingData.lastUpdated = new Date().toISOString()
+  pricingData.source = source || 'scraper'
+  saveJSON(PRICING_FILE, pricingData)
+
+  // Broadcast pricing update via SSE
+  broadcast('pricing-update', { lastUpdated: pricingData.lastUpdated, count: Object.keys(prices).length })
+
+  console.log(`[Pricing] Updated ${Object.keys(prices).length} products from ${source || 'unknown'}`)
+  res.json({ ok: true, lastUpdated: pricingData.lastUpdated })
+})
+
 // Live metrics: key-value store of metric overrides
 let liveMetrics = loadJSON(METRICS_FILE, {})
 

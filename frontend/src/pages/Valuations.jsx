@@ -450,8 +450,6 @@ export default function Valuations() {
     setLoading(false)
   }
 
-  if (loading) {
-  
   // Brand Valuation Table Component
   const BrandValuationTable = () => {
     const [sortBy, setSortBy] = React.useState('value')
@@ -693,13 +691,6 @@ export default function Valuations() {
             </div>
           ))}
         </div>
-      </div>
-    )
-  }
-
-  return (
-      <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-navy" />
       </div>
     )
   }

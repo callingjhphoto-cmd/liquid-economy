@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Link, Navigate, useLocation } from 'react-router-dom'
-import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, Settings, LogOut, Menu, MessageCircle, FileText, Package, Globe, Wine, MapPin } from 'lucide-react'
+import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, Settings, LogOut, Menu, MessageCircle, FileText, Package, Globe, Wine, MapPin, CloudRain } from 'lucide-react'
 import { api, getToken, setToken, clearToken } from './lib/api'
 import CommandCentre from './pages/CommandCentre'
 import Valuations from './pages/Valuations'
@@ -11,6 +11,7 @@ import SupplyChain from './pages/SupplyChain'
 import GeographicIntelligence from './pages/GeographicIntelligence'
 import CategoryIntelligence from './pages/CategoryIntelligence'
 import VenueIntelligence from './pages/VenueIntelligence'
+import ClimateYield from './pages/ClimateYield'
 import ChatPanel from './components/ChatPanel'
 
 function Login({ onLogin }) {
@@ -100,6 +101,7 @@ function Layout({ onLogout }) {
           </div>
           <nav className="flex-1 px-3 space-y-1">
             <NavItem to="/" icon={LayoutDashboard} label="Command Centre" />
+            <NavItem to="/climate" icon={CloudRain} label="Climate & Yield" />
             <NavItem to="/supply-chain" icon={Package} label="Supply Chain & COGS" />
             <NavItem to="/geographic" icon={Globe} label="Geographic Intelligence" />
             <NavItem to="/categories" icon={Wine} label="Category Intelligence" />
@@ -143,6 +145,7 @@ function Layout({ onLogout }) {
         <div className="p-6 lg:p-8">
           <Routes>
             <Route path="/" element={<CommandCentre />} />
+            <Route path="/climate" element={<ClimateYield />} />
             <Route path="/supply-chain" element={<SupplyChain />} />
             <Route path="/geographic" element={<GeographicIntelligence />} />
                 <Route path="/categories" element={<CategoryIntelligence />} />

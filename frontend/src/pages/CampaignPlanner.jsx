@@ -27,8 +27,17 @@ import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Toolti
 const CampaignPlanner = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [campaignData, setCampaignData] = useState({
+    campaignType: 'existing',
     brand: '',
     serve: '',
+    customBrandName: '',
+    category: '',
+    segment: '',
+    productDescription: '',
+    cocktailName: '',
+    baseSpirit: '',
+    ingredients: '',
+    targetOccasion: '',
     market: '',
     startMonth: 'January',
     endMonth: 'December',
@@ -50,18 +59,37 @@ const CampaignPlanner = () => {
     ecommerce: 25,
   });
 
-  const brands = [
-    'Don Julio Blanco',
-    'Patron Silver',
-    'Tanqueray London Dry',
-    'Hendrick\'s',
-    'Bombay Sapphire',
-    'Tanqueray No. Ten',
-    'Gordon\'s London Dry',
-    'Absolut Vodka',
-    'Grey Goose',
-    'Belvedere',
+  const brandsByCategory = {
+    tequila: ['Don Julio Blanco', 'Don Julio 1942', 'Patr\u00f3n Silver', 'Jos\u00e9 Cuervo Especial', 'Altos Plata', 'Clase Azul Reposado', 'Casamigos Blanco', 'Olmeca Altos'],
+    vodka: ['Absolut', 'Grey Goose', 'Belvedere', 'Ketel One', 'Smirnoff', 'Ciroc', 'Stolichnaya'],
+    gin: ['Tanqueray London Dry', 'Hendrick\u2019s', 'Beefeater', 'Bombay Sapphire', 'Gordon\u2019s', 'Tanqueray No. Ten', 'Monkey 47', 'Sipsmith'],
+    whisky: ['Johnnie Walker Black Label', 'Johnnie Walker Blue Label', 'Macallan 12', 'Glenfiddich 12', 'Jack Daniel\u2019s', 'Buffalo Trace', 'Woodford Reserve', 'Maker\u2019s Mark', 'Jameson'],
+    rum: ['Bacardi Carta Blanca', 'Havana Club 7', 'Ron Zacapa 23', 'Diplom\u00e1tico Reserva', 'Mount Gay Eclipse', 'Appleton Estate'],
+    cognac: ['Hennessy VS', 'Hennessy VSOP', 'Hennessy XO', 'R\u00e9my Martin VSOP', 'Martell VS', 'Courvoisier VS'],
+    champagne: ['Mo\u00ebt Imp\u00e9rial', 'Veuve Clicquot', 'Dom P\u00e9rignon', 'Laurent-Perrier', 'Bollinger', 'Taittinger'],
+    wine: ['Campo Viejo', 'Cloudy Bay', 'Ch\u00e2teau Margaux', 'Whispering Angel', 'Kim Crawford', 'Meiomi Pinot Noir'],
+    beer: ['Stella Artois', 'Heineken', 'Peroni Nastro Azzurro', 'Corona Extra', 'Guinness', 'Brooklyn Lager'],
+    nolo: ['Seedlip Garden 108', 'Celtic Soul', 'Lyre\u2019s', 'Pentire', 'CleanCo', 'Monday Gin'],
+    rtd: ['Smirnoff Ice', 'White Claw', 'Fever-Tree G&T', 'Absolut Cocktails', 'Jack & Coke'],
+  };
+
+  const categories = [
+    { id: 'tequila', label: 'Tequila & Mezcal' },
+    { id: 'vodka', label: 'Vodka' },
+    { id: 'gin', label: 'Gin' },
+    { id: 'whisky', label: 'Whisky' },
+    { id: 'rum', label: 'Rum' },
+    { id: 'cognac', label: 'Cognac & Brandy' },
+    { id: 'champagne', label: 'Champagne & Sparkling' },
+    { id: 'wine', label: 'Wine' },
+    { id: 'beer', label: 'Beer & Craft' },
+    { id: 'nolo', label: 'No/Low Alcohol' },
+    { id: 'rtd', label: 'RTD' },
   ];
+
+  const segments = ['Value', 'Mid-Tier', 'Premium', 'Ultra-Premium', 'Luxury'];
+  const baseSpirits = ['Tequila', 'Vodka', 'Gin', 'Whisky', 'Rum', 'Cognac', 'Champagne', 'Wine', 'Beer', 'No/Low', 'Multiple'];
+  const cocktailOccasions = ['Aperitif', 'Cocktail Hour', 'Dinner', 'After Dinner', 'Nightclub', 'Party', 'Brunch', 'Summer', 'Winter Warmers'];
 
   const serves = ['Neat', 'Cocktail', 'Mixed', 'RTD'];
   const markets = [
@@ -245,7 +273,13 @@ const CampaignPlanner = () => {
   const supplyChainStatus = getSupplyChainStatus();
   const channelMetrics = getChannelMetrics();
 
-  const isStep1Complete = campaignData.brand && campaignData.serve && campaignData.market && campaignData.budget && campaignData.objective;
+  const isStep1Complete = (() => {
+    const base = campaignData.market && campaignData.budget && campaignData.objective;
+    if (campaignData.campaignType === 'existing') return base && campaignData.brand && campaignData.serve;
+    if (campaignData.campaignType === 'newProduct') return base && campaignData.customBrandName && campaignData.category && campaignData.segment && campaignData.serve;
+    if (campaignData.campaignType === 'cocktail') return base && campaignData.cocktailName && campaignData.baseSpirit;
+    return false;
+  })();
   const isStep2Complete = isStep1Complete;
   const isStep3Complete = isStep2Complete;
   const isStep4Complete = isStep3Complete;
@@ -253,10 +287,13 @@ const CampaignPlanner = () => {
 
   const handleExport = () => {
     const objective = objectives.find(o => o.id === campaignData.objective);
+    const brandDisplay = campaignData.campaignType === 'existing' ? campaignData.brand
+      : campaignData.campaignType === 'newProduct' ? `${campaignData.customBrandName} (New ${campaignData.category})`
+      : `${campaignData.cocktailName} (Cocktail \u2014 ${campaignData.baseSpirit})`;
     const summary = `
 Campaign Brief
 ==============
-Brand: ${campaignData.brand}
+Brand: ${brandDisplay}
 Market: ${campaignData.market}
 Period: ${campaignData.startMonth} - ${campaignData.endMonth}
 Budget: ${getCurrency()}${campaignData.budget}
@@ -286,19 +323,167 @@ Key Metrics: ROI ${(roiData[1].roas).toFixed(2)}x, Volume ${roiData[1].volume.to
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <label className="block text-xs font-semibold text-gray-700 mb-2">Brand/Serve</label>
-          <select
-            name="brand"
-            value={campaignData.brand}
-            onChange={handleInputChange}
-            className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-yellow-500"
-          >
-            <option value="">Select Brand</option>
-            {brands.map(b => <option key={b} value={b}>{b}</option>)}
-          </select>
+      <div>
+        <label className="block text-xs font-semibold text-gray-700 mb-3">Campaign Type</label>
+        <div className="grid grid-cols-3 gap-3">
+          {[
+            { id: 'existing', label: 'Existing Brand', icon: Wine },
+            { id: 'newProduct', label: 'New Product Launch', icon: Package },
+            { id: 'cocktail', label: 'Cocktail/Serve Campaign', icon: Zap }
+          ].map(type => {
+            const IconComponent = type.icon;
+            return (
+              <div
+                key={type.id}
+                onClick={() => setCampaignData(prev => ({ ...prev, campaignType: type.id }))}
+                className={`p-4 rounded-xl border-2 cursor-pointer transition flex flex-col items-center gap-2 ${
+                  campaignData.campaignType === type.id
+                    ? 'border-yellow-500 bg-yellow-50'
+                    : 'border-gray-200 bg-white hover:border-yellow-300'
+                }`}
+              >
+                <IconComponent className={`w-5 h-5 ${campaignData.campaignType === type.id ? 'text-yellow-600' : 'text-gray-600'}`} />
+                <p className="font-semibold text-xs text-gray-900 text-center">{type.label}</p>
+              </div>
+            );
+          })}
         </div>
+      </div>
+
+      {campaignData.campaignType === 'existing' && (
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label className="block text-xs font-semibold text-gray-700 mb-2">Category</label>
+            <select
+              name="category"
+              value={campaignData.category}
+              onChange={handleInputChange}
+              className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-yellow-500"
+            >
+              <option value="">Select Category</option>
+              {categories.map(c => <option key={c.id} value={c.id}>{c.label}</option>)}
+            </select>
+          </div>
+          <div>
+            <label className="block text-xs font-semibold text-gray-700 mb-2">Brand</label>
+            <select
+              name="brand"
+              value={campaignData.brand}
+              onChange={handleInputChange}
+              className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-yellow-500"
+            >
+              <option value="">Select Brand</option>
+              {campaignData.category && brandsByCategory[campaignData.category]?.map(b => <option key={b} value={b}>{b}</option>)}
+            </select>
+          </div>
+        </div>
+      )}
+
+      {campaignData.campaignType === 'newProduct' && (
+        <div className="space-y-4">
+          <div>
+            <label className="block text-xs font-semibold text-gray-700 mb-2">Brand Name</label>
+            <input
+              type="text"
+              name="customBrandName"
+              value={campaignData.customBrandName}
+              onChange={handleInputChange}
+              placeholder="e.g., Aurora Spirits"
+              className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-yellow-500"
+            />
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-semibold text-gray-700 mb-2">Category</label>
+              <select
+                name="category"
+                value={campaignData.category}
+                onChange={handleInputChange}
+                className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-yellow-500"
+              >
+                <option value="">Select Category</option>
+                {categories.map(c => <option key={c.id} value={c.id}>{c.label}</option>)}
+              </select>
+            </div>
+            <div>
+              <label className="block text-xs font-semibold text-gray-700 mb-2">Segment</label>
+              <select
+                name="segment"
+                value={campaignData.segment}
+                onChange={handleInputChange}
+                className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-yellow-500"
+              >
+                <option value="">Select Segment</option>
+                {segments.map(s => <option key={s} value={s}>{s}</option>)}
+              </select>
+            </div>
+          </div>
+          <div>
+            <label className="block text-xs font-semibold text-gray-700 mb-2">Product Description</label>
+            <textarea
+              name="productDescription"
+              value={campaignData.productDescription}
+              onChange={handleInputChange}
+              placeholder="Describe the product, key features, and positioning..."
+              className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-yellow-500 h-20 resize-none"
+            />
+          </div>
+        </div>
+      )}
+
+      {campaignData.campaignType === 'cocktail' && (
+        <div className="space-y-4">
+          <div>
+            <label className="block text-xs font-semibold text-gray-700 mb-2">Cocktail Name</label>
+            <input
+              type="text"
+              name="cocktailName"
+              value={campaignData.cocktailName}
+              onChange={handleInputChange}
+              placeholder="e.g., Tropical Sunset"
+              className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-yellow-500"
+            />
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-semibold text-gray-700 mb-2">Base Spirit</label>
+              <select
+                name="baseSpirit"
+                value={campaignData.baseSpirit}
+                onChange={handleInputChange}
+                className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-yellow-500"
+              >
+                <option value="">Select Base Spirit</option>
+                {baseSpirits.map(s => <option key={s} value={s}>{s}</option>)}
+              </select>
+            </div>
+            <div>
+              <label className="block text-xs font-semibold text-gray-700 mb-2">Target Occasion</label>
+              <select
+                name="targetOccasion"
+                value={campaignData.targetOccasion}
+                onChange={handleInputChange}
+                className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-yellow-500"
+              >
+                <option value="">Select Occasion</option>
+                {cocktailOccasions.map(o => <option key={o} value={o}>{o}</option>)}
+              </select>
+            </div>
+          </div>
+          <div>
+            <label className="block text-xs font-semibold text-gray-700 mb-2">Key Ingredients</label>
+            <textarea
+              name="ingredients"
+              value={campaignData.ingredients}
+              onChange={handleInputChange}
+              placeholder="e.g., Tequila, Lime juice, Simple syrup, Jalapeño, Agave nectar..."
+              className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-yellow-500 h-16 resize-none"
+            />
+          </div>
+        </div>
+      )}
+
+      {campaignData.campaignType !== 'cocktail' && (
         <div>
           <label className="block text-xs font-semibold text-gray-700 mb-2">Serve Style</label>
           <select
@@ -311,7 +496,7 @@ Key Metrics: ROI ${(roiData[1].roas).toFixed(2)}x, Volume ${roiData[1].volume.to
             {serves.map(s => <option key={s} value={s}>{s}</option>)}
           </select>
         </div>
-      </div>
+      )}
 
       <div className="grid grid-cols-2 gap-4">
         <div>

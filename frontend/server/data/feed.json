@@ -1,0 +1,262 @@
+[
+  {
+    "id": "028e6f8d-5dac-416e-bbb7-28432a9a9b17",
+    "severity": "critical",
+    "category": "tequila",
+    "title": "Mexican agave surplus reaches record levels — oversupply crisis deepens",
+    "body": "Tequila industry faces oversupply as agave plantings surge. Input costs expected to fall significantly, benefiting large producers like Becle and Jose Cuervo.",
+    "source": "The Drinks Business",
+    "url": "https://www.thedrinksbusiness.com/2025/01/how-oversupply-is-drowning-mexicos-tequila-industry/",
+    "timestamp": "2026-02-26T10:17:26.616Z"
+  },
+  {
+    "id": "75458dfa-5a3f-4652-aef6-41b7aaac1a89",
+    "severity": "critical",
+    "category": "ma",
+    "title": "Diageo posts interim results amid ongoing restructuring",
+    "body": "Diageo reports H1 2026 results with continued focus on cash generation and portfolio optimisation amid challenging global trading conditions.",
+    "source": "Diageo PLC",
+    "url": "https://www.diageo.com/en/news-and-media/press-releases/2026/2026-interim-results-half-year-ended-31-december-2025",
+    "timestamp": "2026-02-26T10:08:26.616Z"
+  },
+  {
+    "id": "2deb300f-0aa6-40b2-8574-241ffe329207",
+    "severity": "critical",
+    "category": "vodka",
+    "title": "US spirits sales fall 2.2% in 2025 — vodka hardest hit",
+    "body": "US vodka category under sustained pressure from tequila substitution and RTD growth. Premium vodka segment showing particular weakness.",
+    "source": "The Spirits Business",
+    "url": "https://www.thespiritsbusiness.com/2026/02/spirits-sales-fall-2-2-in-us-in-2025/",
+    "timestamp": "2026-02-26T09:55:26.616Z"
+  },
+  {
+    "id": "b5a30a4c-c036-4c3b-bbee-f9fb249cf6bd",
+    "severity": "critical",
+    "category": "wine",
+    "title": "French wine harvest volumes cut amid climate volatility",
+    "body": "Bordeaux and Burgundy yields significantly impacted. Burgundy and Jura show some rebound but overall French production under pressure.",
+    "source": "Decanter",
+    "url": "https://www.decanter.com/wine-news/france-2025-wine-harvest-predicted-volumes-cut-but-burgundy-and-jura-rebound-564795/",
+    "timestamp": "2026-02-26T09:40:26.616Z"
+  },
+  {
+    "id": "559dbd8f-6a50-4964-9f60-d5a21de2b56d",
+    "severity": "alert",
+    "category": "regulatory",
+    "title": "EU alcohol labeling regulation moves toward enforcement",
+    "body": "Mandatory calorie and ingredient labels required for all spirits sold in EU. Compliance costs estimated at $2-5 per SKU for producers.",
+    "source": "European Commission",
+    "url": "https://food.ec.europa.eu/food-safety/labelling-and-nutrition/food-information-consumers-legislation/alcohol-labelling_en",
+    "timestamp": "2026-02-26T10:12:26.616Z"
+  },
+  {
+    "id": "5f540df4-709b-4506-88fa-6335dc11031b",
+    "severity": "alert",
+    "category": "nolo",
+    "title": "Athletic Brewing named among most innovative companies",
+    "body": "Non-alcoholic beer leader continues rapid growth trajectory. Category growing 25%+ YoY as health-conscious consumers drive demand.",
+    "source": "Fast Company",
+    "url": "https://www.fastcompany.com/91270872/athletic-brewing-most-innovative-companies-2025",
+    "timestamp": "2026-02-26T10:02:26.616Z"
+  },
+  {
+    "id": "efeb3898-be7c-420e-b47a-8d2eb977d12f",
+    "severity": "alert",
+    "category": "market",
+    "title": "GLP-1 drugs reshaping beverage consumption patterns",
+    "body": "Ozempic and similar drugs affecting drinking habits beyond simple calorie reduction — driving broader shift in consumer values and occasions.",
+    "source": "The Drinks Business",
+    "url": "https://www.thedrinksbusiness.com/2025/12/the-role-of-ozempic-isnt-just-about-reduced-consumption-its-about-a-shift-in-values/",
+    "timestamp": "2026-02-26T09:45:26.616Z"
+  },
+  {
+    "id": "5f3d3e85-c294-4ac9-82fa-901497193f56",
+    "severity": "alert",
+    "category": "gin",
+    "title": "Gin decline attributed to category entering mature phase",
+    "body": "Gin sales declining as category transitions past peak growth. Premiumisation still holding but volume pressure increasing. Craft distillery closures accelerating.",
+    "source": "The Spirits Business",
+    "url": "https://www.thespiritsbusiness.com/2025/01/gins-decline-due-to-transitioning-into-mature-phase/",
+    "timestamp": "2026-02-26T09:30:26.616Z"
+  },
+  {
+    "id": "f0bd1fdd-1987-4c6e-ac3d-8a5d53e0a36e",
+    "severity": "alert",
+    "category": "champagne",
+    "title": "LVMH Wine & Spirits arm ends 2025 on sour note",
+    "body": "Moët Hennessy division reports declining volumes. Champagne shipments under pressure as luxury demand softens globally. Prosecco gaining share.",
+    "source": "Just Drinks",
+    "url": "https://www.just-drinks.com/news/lvmh-wine-and-spirits-arm-ends-2025-on-sour-note/",
+    "timestamp": "2026-02-26T09:15:26.616Z"
+  },
+  {
+    "id": "4a7d3cf7-adcc-4bd5-b616-54caea5be80a",
+    "severity": "alert",
+    "category": "beer",
+    "title": "Beer price increases hit UK pubs — Heineken leads industry rises",
+    "body": "Input cost inflation forces industry-wide price action. AB InBev and Carlsberg expected to follow. On-trade margins squeezed further.",
+    "source": "Morning Advertiser",
+    "url": "https://www.morningadvertiser.co.uk/Article/2025/01/10/how-much-has-heineken-increased-beer-prices-for-pubs-in-2024/",
+    "timestamp": "2026-02-26T09:05:26.616Z"
+  },
+  {
+    "id": "c8c215d6-1642-4a63-9336-58bd45e4324b",
+    "severity": "alert",
+    "category": "rum",
+    "title": "Bacardi accelerates premium rum strategy with Reserva Ocho push",
+    "body": "Super-premium rum category growing strongly. Bacardi positioning Reserva Ocho and limited editions alongside Appleton and Diplomatico in premiumisation wave.",
+    "source": "Drinks International",
+    "url": "https://drinksint.com/news/fullstory.php/aid/11554/Brands_Report_2025:_Rum.html",
+    "timestamp": "2026-02-26T08:55:26.616Z"
+  },
+  {
+    "id": "b65efd46-adc5-4d69-b5be-196dc4cc66d9",
+    "severity": "watch",
+    "category": "cognac",
+    "title": "Cognac producers spared from China tariffs — but brandy hit",
+    "body": "Pernod, LVMH and Rémy Cointreau gain exemption from China duties on cognac, but EU brandy faces penalties in ongoing trade tensions.",
+    "source": "The Drinks Business",
+    "url": "https://www.thedrinksbusiness.com/2025/07/pernod-lvmh-remy-spared-from-china-tariffs-on-cognac/",
+    "timestamp": "2026-02-26T09:58:26.616Z"
+  },
+  {
+    "id": "93f12c03-bc7c-45f0-8eea-3bc418997987",
+    "severity": "watch",
+    "category": "rtd",
+    "title": "Canned cocktails emerge as bright spot in declining spirits market",
+    "body": "Spirits-based RTD revenue jumped 16.4% to $3.8B. Category outperforming all traditional alcohol segments but growth moderating from pandemic highs.",
+    "source": "CNBC",
+    "url": "https://www.cnbc.com/2026/02/05/tequila-canned-cocktails-top-selling-liquors-2025.html",
+    "timestamp": "2026-02-26T09:25:26.616Z"
+  },
+  {
+    "id": "51609c7a-7572-4113-9faa-e6fcf0b6d6e3",
+    "severity": "watch",
+    "category": "whisky",
+    "title": "Japanese whisky supply constraints persist through 2028",
+    "body": "New distillery capacity coming online but aged stock remains critically short. Premium positioning holds with 30-40% price premiums over Scotch equivalents.",
+    "source": "The Spirits Business",
+    "url": "https://www.thespiritsbusiness.com/2025/05/has-japanese-whisky-peaked/",
+    "timestamp": "2026-02-26T08:45:26.616Z"
+  },
+  {
+    "id": "82220388-cdaa-4580-8b1a-69c472d0473d",
+    "severity": "watch",
+    "category": "tequila",
+    "title": "Morelos secures mezcal denomination of origin",
+    "body": "Mezcal DO continues to expand across Mexican states. Oaxaca dominance diluting as production regions grow. Artisanal pricing under pressure.",
+    "source": "Mexico Business News",
+    "url": "https://mexicobusiness.news/agribusiness/news/morelos-secures-mezcal-denomination-origin",
+    "timestamp": "2026-02-26T08:30:26.616Z"
+  },
+  {
+    "id": "326e5b56-f219-4bd1-b9ba-ffb639f6198d",
+    "severity": "watch",
+    "category": "vodka",
+    "title": "Tito’s Handmade surpasses Smirnoff as top US vodka by value",
+    "body": "American craft narrative resonating strongly. Tito’s now leads with 28% value share. Smirnoff retains volume lead through broader distribution.",
+    "source": "Market Watch Mag",
+    "url": "https://www.marketwatchmag.com/vodka-weathers-the-storm/",
+    "timestamp": "2026-02-26T08:15:26.616Z"
+  },
+  {
+    "id": "ca1a7500-988f-483d-8c5b-ed2dea0e943e",
+    "severity": "watch",
+    "category": "wine",
+    "title": "Organic wine market projected to reach $21B by 2030",
+    "body": "Gen Z driving natural and low-intervention wine trend. 150% YoY growth in social media discussions. Canned organic wine segment growing at 14.2% CAGR.",
+    "source": "Tastewise",
+    "url": "https://tastewise.io/blog/organic-wine-trends",
+    "timestamp": "2026-02-26T08:00:26.616Z"
+  },
+  {
+    "id": "9932c482-ce83-4885-9abf-7de7d3c1e025",
+    "severity": "watch",
+    "category": "beer",
+    "title": "Craft beer M&A: 51 major alcohol acquisitions completed in 2025",
+    "body": "Consolidation accelerating as small brewers face margin pressure. Strategic discipline replacing growth-at-all-costs mentality. Beer saw 14 major deals.",
+    "source": "Park Street Imports",
+    "url": "https://www.parkstreet.com/alcohol-industry-mergers-acquisitions-in-2025/",
+    "timestamp": "2026-02-26T07:45:26.616Z"
+  },
+  {
+    "id": "303919a9-24a3-46ae-b080-947a66a84b24",
+    "severity": "info",
+    "category": "gin",
+    "title": "Tanqueray 0.0% expands non-alcoholic gin across Europe",
+    "body": "Diageo expanding no-alcohol gin portfolio using vacuum distillation technology. 0.0% variants gaining traction in Dry January and wellness segments.",
+    "source": "Some Good Clean Fun",
+    "url": "https://www.somegoodcleanfun.com/non-alcoholic-spirits/tanqueray-00-non-alcoholic-gin-review",
+    "timestamp": "2026-02-26T08:40:26.616Z"
+  },
+  {
+    "id": "4bb7e607-d6b7-447f-827d-b771a250531b",
+    "severity": "info",
+    "category": "champagne",
+    "title": "Champagne 2025 harvest: exceptional quality but yields restricted",
+    "body": "Record-early harvest began August 20. Comité Champagne sets yield at 9,000 kg/ha — lowest since pandemic year — amid global economic uncertainty.",
+    "source": "Robb Report",
+    "url": "https://robbreport.com/food-drink/wine/champagne-2025-harvest-vintage-1236898623/",
+    "timestamp": "2026-02-26T08:10:26.616Z"
+  },
+  {
+    "id": "7898c21d-e561-43f5-a1e1-e6526e6f3e4c",
+    "severity": "info",
+    "category": "rum",
+    "title": "Jamaica rum GI debate intensifies over aging requirements",
+    "body": "Geographical indication rules tighten: rum aged outside Jamaica can no longer carry Jamaican label. Legal proceedings ongoing between major producers.",
+    "source": "The Rum Lab",
+    "url": "https://therumlab.com/jamaican-rum-geographical-indication-gi-why-heritage-and-future-must-align/",
+    "timestamp": "2026-02-26T07:50:26.616Z"
+  },
+  {
+    "id": "283be131-14a9-4f5c-b289-78089c552e42",
+    "severity": "info",
+    "category": "nolo",
+    "title": "Seedlip founder launches £2M crowdfunding for Pollen Projects",
+    "body": "Ben Branson’s new venture creating aged non-alcoholic spirits (Sylva) and cocktail bitters (SEASN). £1.2M already secured including actor Kit Harington.",
+    "source": "The Drinks Business",
+    "url": "https://www.thedrinksbusiness.com/2025/11/seedlip-founder-launches-2m-crowdfunding-campaign-for-pollen-projects/",
+    "timestamp": "2026-02-26T07:35:26.616Z"
+  },
+  {
+    "id": "2c5ca3c3-4bba-413b-b0d7-a7d4d797ca39",
+    "severity": "info",
+    "category": "market",
+    "title": "ProWein 2026: new I2A framework transforms trade fair experience",
+    "body": "Düsseldorf show launches digital buyer journey framework. ProSpirits section expanding with craft and category themes. City-wide activations planned.",
+    "source": "Wine Industry Advisor",
+    "url": "https://wineindustryadvisor.com/2026/02/20/prowein-dusseldorf-sets-new-standards-for-b2b-wine-trade-fairs-with-i2a/",
+    "timestamp": "2026-02-26T07:20:26.616Z"
+  },
+  {
+    "id": "5faa87cf-5306-4fc0-b927-d52dedadc833",
+    "severity": "info",
+    "category": "cognac",
+    "title": "Hennessy debuts float at Notting Hill Carnival 2025",
+    "body": "LVMH expanding DTC and cultural footprint. Limited edition Carnival bottle, retail activations across London, and immersive brand experiences.",
+    "source": "The Drinks Business",
+    "url": "https://www.thedrinksbusiness.com/2025/08/hennessy-to-debut-float-at-notting-hill-carnival-2025/",
+    "timestamp": "2026-02-26T07:00:26.616Z"
+  },
+  {
+    "id": "39c802e2-055a-4f33-953f-1e000d80bf96",
+    "severity": "info",
+    "category": "whisky",
+    "title": "Scotch whisky exports hit by US tariffs — volumes down 15%",
+    "body": "US exports fell 4% in value to £933M. India emerges as 3rd largest market by value. EU remains biggest regional market at £1.5B.",
+    "source": "Scotch Whisky Association",
+    "url": "https://www.scotch-whisky.org.uk/newsroom/2025-export-figures/",
+    "timestamp": "2026-02-26T06:40:26.616Z"
+  },
+  {
+    "id": "d7b19c6b-a540-4cdf-9f7c-4c8d707d4e8f",
+    "severity": "info",
+    "category": "rtd",
+    "title": "Diageo expands premium RTD range with Tanqueray and Ketel One",
+    "body": "New Cocktail Collection features bar-quality canned cocktails at premium price points. Targeting the growing at-home cocktail occasion.",
+    "source": "Just Drinks",
+    "url": "https://www.just-drinks.com/news/diageo-the-cocktail-collection/",
+    "timestamp": "2026-02-26T06:20:26.616Z"
+  }
+]

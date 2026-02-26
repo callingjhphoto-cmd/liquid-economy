@@ -717,35 +717,57 @@ function ChannelLegend() {
 // ══════════════════════════════════════════════════════════
 // MAIN PAGE
 // ══════════════════════════════════════════════════════════
+// \u2500\u2500 Persona Definitions \u2500\u2500
+const PERSONAS = {
+  all: { label: 'Full Dashboard', icon: '\ud83c\udf0d', desc: 'All sections visible', sections: ['summary', 'kpis', 'signals-categories-regions', 'watchlist', 'opportunities', 'digest', 'ma-alerts', 'benchmarks'] },
+  ceo: { label: 'CEO / Investor', icon: '\ud83d\udcc8', desc: 'Market KPIs, M&A, valuations', sections: ['summary', 'kpis', 'ma-alerts', 'signals-categories-regions', 'benchmarks', 'watchlist', 'opportunities', 'digest'] },
+  brand: { label: 'Brand Manager', icon: '\ud83c\udfaf', desc: 'Categories, pricing, venues', sections: ['summary', 'signals-categories-regions', 'kpis', 'opportunities', 'watchlist', 'digest', 'ma-alerts', 'benchmarks'] },
+  supply: { label: 'Supply Chain', icon: '\ud83d\udce6', desc: 'COGS, freight, climate risk', sections: ['summary', 'kpis', 'watchlist', 'benchmarks', 'signals-categories-regions', 'ma-alerts', 'opportunities', 'digest'] },
+  startup: { label: 'Startup Founder', icon: '\ud83d\ude80', desc: 'Launch readiness, margins, POS', sections: ['summary', 'kpis', 'opportunities', 'signals-categories-regions', 'digest', 'watchlist', 'ma-alerts', 'benchmarks'] },
+  agency: { label: 'Agency Strategist', icon: '\ud83c\udfa8', desc: 'Venues, trends, brand positioning', sections: ['summary', 'signals-categories-regions', 'opportunities', 'kpis', 'digest', 'watchlist', 'ma-alerts', 'benchmarks'] },
+}
+
+function PersonaSelector({ persona, onChange }) {
+  return (
+    <div className="flex gap-1.5 flex-wrap">
+      {Object.entries(PERSONAS).map(([key, p]) => (
+        <button key={key} onClick={() => onChange(key)}
+          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[10px] font-medium transition-all border ${
+            persona === key
+              ? 'bg-navy text-white border-navy shadow-sm'
+              : 'bg-white text-gray-500 border-gray-200 hover:border-navy/30 hover:text-navy'
+          }`}>
+          <span className="text-sm">{p.icon}</span>
+          <span>{p.label}</span>
+        </button>
+      ))}
+    </div>
+  )
+}
+
 export default function CommandCentre() {
   const [signalsExpanded, setSignalsExpanded] = useState(false)
+  const [persona, setPersona] = useState(() => {
+    try { return localStorage.getItem('le_persona') || 'all' } catch { return 'all' }
+  })
   const displaySignals = signalsExpanded ? MARKET_SIGNALS : MARKET_SIGNALS.slice(0, 3)
 
-  return (
-    <div className="space-y-5">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="font-display text-2xl text-navy">Command Centre</h1>
-          <p className="text-gray-500 text-xs mt-0.5">Global beverage alcohol intelligence \u2014 curated daily</p>
-        </div>
-        <div className="text-right">
-          <div className="text-[10px] text-gray-400">Last updated</div>
-          <div className="text-xs font-medium text-navy">Feb 26, 2026 09:15 GMT</div>
-        </div>
-      </div>
+  const handlePersonaChange = (p) => {
+    setPersona(p)
+    try { localStorage.setItem('le_persona', p) } catch {}
+  }
 
-      {/* Summary Stats Strip */}
-      <SummaryStrip />
+  const currentPersona = PERSONAS[persona] || PERSONAS.all
 
-      {/* KPI Grid — 6 cards with micro-sparklines */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+  const sectionMap = {
+    'summary': <SummaryStrip key="summary" />,
+    'kpis': (
+      <div key="kpis" className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
         {MARKET_KPIS.map((kpi, i) => <KpiCard key={i} kpi={kpi} />)}
       </div>
-
-      {/* Three-column dense layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
-        {/* Left: Market Signals (5 cols) */}
+    ),
+    'signals-categories-regions': (
+      <div key="scr" className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         <div className="lg:col-span-5 space-y-3">
           <div className="flex items-center justify-between">
             <h2 className="font-display text-sm text-navy flex items-center gap-1.5">
@@ -761,8 +783,6 @@ export default function CommandCentre() {
             {displaySignals.map((signal, i) => <SignalRow key={i} signal={signal} />)}
           </div>
         </div>
-
-        {/* Center: Category Snapshot (4 cols) */}
         <div className="lg:col-span-4">
           <div className="flex items-center justify-between mb-2">
             <h2 className="font-display text-sm text-navy flex items-center gap-1.5">
@@ -775,8 +795,6 @@ export default function CommandCentre() {
             {CATEGORY_SNAPSHOT.map((cat, i) => <CategoryRow key={i} cat={cat} />)}
           </div>
         </div>
-
-        {/* Right: Regional + Events (3 cols) */}
         <div className="lg:col-span-3 space-y-4">
           <div>
             <h2 className="font-display text-sm text-navy flex items-center gap-1.5 mb-2">
@@ -798,30 +816,49 @@ export default function CommandCentre() {
           </div>
         </div>
       </div>
-
-      {/* Key Metrics Watchlist */}
-      <KeyMetricsWatchlist />
-
-      {/* Strategic Opportunities */}
-      <div>
+    ),
+    'watchlist': <KeyMetricsWatchlist key="watchlist" />,
+    'opportunities': (
+      <div key="opps">
         <h2 className="font-display text-sm text-navy flex items-center gap-1.5 mb-3">
           <Target size={14} className="text-gold" />
           Strategic Opportunities
         </h2>
         <StrategicOpportunities />
       </div>
-
-      {/* Weekly Intelligence Digest */}
-      <WeeklyDigestSection />
-
-      {/* Two-column: M&A Pipeline + Competitor Alerts */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+    ),
+    'digest': <WeeklyDigestSection key="digest" />,
+    'ma-alerts': (
+      <div key="ma-alerts" className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <MAPipeline />
         <CompetitorAlerts />
       </div>
+    ),
+    'benchmarks': <PerformanceBenchmarks key="benchmarks" />,
+  }
 
-      {/* Performance Benchmarks with Recharts */}
-      <PerformanceBenchmarks />
+  return (
+    <div className="space-y-5">
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="font-display text-2xl text-navy">Command Centre</h1>
+          <p className="text-gray-500 text-xs mt-0.5">Global beverage alcohol intelligence \u2014 curated daily</p>
+        </div>
+        <div className="text-right">
+          <div className="text-[10px] text-gray-400">Last updated</div>
+          <div className="text-xs font-medium text-navy">Feb 26, 2026 09:15 GMT</div>
+        </div>
+      </div>
+
+      {/* Persona Selector */}
+      <div className="flex items-center gap-3">
+        <span className="text-[10px] font-medium text-gray-400 flex-shrink-0">View as:</span>
+        <PersonaSelector persona={persona} onChange={handlePersonaChange} />
+      </div>
+
+      {/* Render sections in persona order */}
+      {currentPersona.sections.map(sectionId => sectionMap[sectionId])}
     </div>
   )
 }

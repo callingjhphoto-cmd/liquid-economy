@@ -10,6 +10,7 @@ import {
   AreaChart, Area, BarChart, Bar, LineChart, Line, PieChart, Pie, Cell,
   ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid
 } from 'recharts'
+import LiveFeed from '../components/LiveFeed'
 
 // ── KPI Sparkline Data (3-5 points for micro-charts behind values) ──
 const KPI_TRENDS = {
@@ -719,12 +720,12 @@ function ChannelLegend() {
 // ══════════════════════════════════════════════════════════
 // \u2500\u2500 Persona Definitions \u2500\u2500
 const PERSONAS = {
-  all: { label: 'Full Dashboard', icon: '\ud83c\udf0d', desc: 'All sections visible', sections: ['summary', 'kpis', 'signals-categories-regions', 'watchlist', 'opportunities', 'digest', 'ma-alerts', 'benchmarks'] },
-  ceo: { label: 'CEO / Investor', icon: '\ud83d\udcc8', desc: 'Market KPIs, M&A, valuations', sections: ['summary', 'kpis', 'ma-alerts', 'signals-categories-regions', 'benchmarks', 'watchlist', 'opportunities', 'digest'] },
-  brand: { label: 'Brand Manager', icon: '\ud83c\udfaf', desc: 'Categories, pricing, venues', sections: ['summary', 'signals-categories-regions', 'kpis', 'opportunities', 'watchlist', 'digest', 'ma-alerts', 'benchmarks'] },
-  supply: { label: 'Supply Chain', icon: '\ud83d\udce6', desc: 'COGS, freight, climate risk', sections: ['summary', 'kpis', 'watchlist', 'benchmarks', 'signals-categories-regions', 'ma-alerts', 'opportunities', 'digest'] },
-  startup: { label: 'Startup Founder', icon: '\ud83d\ude80', desc: 'Launch readiness, margins, POS', sections: ['summary', 'kpis', 'opportunities', 'signals-categories-regions', 'digest', 'watchlist', 'ma-alerts', 'benchmarks'] },
-  agency: { label: 'Agency Strategist', icon: '\ud83c\udfa8', desc: 'Venues, trends, brand positioning', sections: ['summary', 'signals-categories-regions', 'opportunities', 'kpis', 'digest', 'watchlist', 'ma-alerts', 'benchmarks'] },
+  all: { label: 'Full Dashboard', icon: '\ud83c\udf0d', desc: 'All sections visible', sections: ['summary', 'live-feed', 'kpis', 'signals-categories-regions', 'watchlist', 'opportunities', 'digest', 'ma-alerts', 'benchmarks'] },
+  ceo: { label: 'CEO / Investor', icon: '\ud83d\udcc8', desc: 'Market KPIs, M&A, valuations', sections: ['summary', 'live-feed', 'kpis', 'ma-alerts', 'signals-categories-regions', 'benchmarks', 'watchlist', 'opportunities', 'digest'] },
+  brand: { label: 'Brand Manager', icon: '\ud83c\udfaf', desc: 'Categories, pricing, venues', sections: ['summary', 'live-feed', 'signals-categories-regions', 'kpis', 'opportunities', 'watchlist', 'digest', 'ma-alerts', 'benchmarks'] },
+  supply: { label: 'Supply Chain', icon: '\ud83d\udce6', desc: 'COGS, freight, climate risk', sections: ['summary', 'live-feed', 'kpis', 'watchlist', 'benchmarks', 'signals-categories-regions', 'ma-alerts', 'opportunities', 'digest'] },
+  startup: { label: 'Startup Founder', icon: '\ud83d\ude80', desc: 'Launch readiness, margins, POS', sections: ['summary', 'live-feed', 'kpis', 'opportunities', 'signals-categories-regions', 'digest', 'watchlist', 'ma-alerts', 'benchmarks'] },
+  agency: { label: 'Agency Strategist', icon: '\ud83c\udfa8', desc: 'Venues, trends, brand positioning', sections: ['summary', 'live-feed', 'signals-categories-regions', 'opportunities', 'kpis', 'digest', 'watchlist', 'ma-alerts', 'benchmarks'] },
 }
 
 function PersonaSelector({ persona, onChange }) {
@@ -761,6 +762,7 @@ export default function CommandCentre() {
 
   const sectionMap = {
     'summary': <SummaryStrip key="summary" />,
+    'live-feed': <LiveFeed key="live-feed" maxItems={15} />,
     'kpis': (
       <div key="kpis" className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
         {MARKET_KPIS.map((kpi, i) => <KpiCard key={i} kpi={kpi} />)}

@@ -17,10 +17,19 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-RUN npm install -g serve
+# Copy package files and install production deps only
+COPY package.json package-lock.json* ./
+RUN npm install --omit=dev
 
+# Copy built frontend
 COPY --from=build /app/dist ./dist
+
+# Copy server
+COPY server ./server
+
+# Create data directory for persistence
+RUN mkdir -p server/data
 
 EXPOSE 3000
 
-CMD ["serve", "-s", "dist", "-l", "3000"]
+CMD ["node", "server/index.js"]

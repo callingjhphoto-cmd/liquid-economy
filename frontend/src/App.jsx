@@ -16,6 +16,7 @@ import POSIntelligence from './pages/POSIntelligence'
 import CategoryCommandView from './pages/CategoryCommandView'
 import MarginCalculator from './pages/MarginCalculator'
 import ChatPanel from './components/ChatPanel'
+import { LiveDataProvider } from './context/LiveDataContext'
 
 function Login({ onLogin }) {
   const [username, setUsername] = useState('')
@@ -187,7 +188,9 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <Layout onLogout={handleLogout} />
+      <LiveDataProvider>
+        <Layout onLogout={handleLogout} />
+      </LiveDataProvider>
     </BrowserRouter>
   )
 }

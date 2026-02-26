@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Link, Navigate, useLocation } from 'react-router-dom'
-import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, Settings, LogOut, Menu, MessageCircle, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag, Crosshair } from 'lucide-react'
+import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, Settings, LogOut, Menu, MessageCircle, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag, Crosshair, ChevronDown, ChevronRight, Radio } from 'lucide-react'
+import { useLiveData } from './context/LiveDataContext'
 import { api, getToken, setToken, clearToken } from './lib/api'
 import CommandCentre from './pages/CommandCentre'
 import Valuations from './pages/Valuations'
@@ -82,11 +83,61 @@ function NavItem({ to, icon: Icon, label }) {
   return (
     <Link
       to={to}
-      className={`flex items-center gap-3 px-4 py-2.5 rounded-lg transition-colors text-sm font-medium ${active ? 'bg-white/10 text-white' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+      className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-colors text-[13px] font-medium ${active ? 'bg-white/10 text-white' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
     >
-      <Icon size={18} />
+      <Icon size={15} />
       <span>{label}</span>
     </Link>
+  )
+}
+
+function NavGroup({ title, emoji, children, defaultOpen = true }) {
+  const [open, setOpen] = useState(() => {
+    try { const v = localStorage.getItem('le_nav_' + title); return v !== null ? v === '1' : defaultOpen } catch { return defaultOpen }
+  })
+  const toggle = () => {
+    const next = !open
+    setOpen(next)
+    try { localStorage.setItem('le_nav_' + title, next ? '1' : '0') } catch {}
+  }
+  return (
+    <div className="mb-1">
+      <button onClick={toggle} className="flex items-center justify-between w-full px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-gold/70 hover:text-gold transition-colors">
+        <span className="flex items-center gap-1.5">{emoji} {title}</span>
+        {open ? <ChevronDown size={10} /> : <ChevronRight size={10} />}
+      </button>
+      {open && <div className="space-y-0.5 mt-0.5">{children}</div>}
+    </div>
+  )
+}
+
+function LivePulse() {
+  const { connected, feedItems, mode } = useLiveData()
+  const criticals = feedItems.filter(i => i.severity === 'critical').length
+  return (
+    <div className="mx-3 mb-2 px-3 py-2 rounded-lg bg-white/5 border border-white/10">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-1.5">
+          {connected ? (
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+            </span>
+          ) : (
+            <span className="h-2 w-2 rounded-full bg-gray-500" />
+          )}
+          <span className="text-[10px] text-gray-400 font-medium">
+            {connected ? (mode === 'sse' ? 'LIVE' : 'POLLING') : 'OFFLINE'}
+          </span>
+        </div>
+        <div className="flex items-center gap-2 text-[10px]">
+          {criticals > 0 && (
+            <span className="text-red-400 font-bold">{criticals} critical</span>
+          )}
+          <span className="text-gray-500">{feedItems.length} items</span>
+        </div>
+      </div>
+    </div>
   )
 }
 
@@ -96,38 +147,60 @@ function Layout({ onLogout }) {
 
   return (
     <div className="flex h-screen bg-gray-50">
-      {/* Sidebar */}
+      {/* Sidebar — Glass-to-Glass Narrative */}
       <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-navy transform transition-transform lg:translate-x-0 lg:static ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="flex flex-col h-full">
-          <div className="p-6">
+          <div className="p-5 pb-3">
             <h1 className="font-display text-xl text-white">Liquid Economy</h1>
-            <p className="text-gold text-xs mt-1">Intelligence Platform</p>
+            <p className="text-gold text-[10px] mt-0.5 tracking-wide">Glass-to-Glass Intelligence</p>
           </div>
-          <nav className="flex-1 px-3 space-y-1">
+
+          {/* Live status pulse */}
+          <LivePulse />
+
+          <nav className="flex-1 px-2 space-y-1 overflow-y-auto">
+            {/* Hub */}
             <NavItem to="/" icon={LayoutDashboard} label="Command Centre" />
-            <NavItem to="/climate" icon={CloudRain} label="Climate & Yield" />
-            <NavItem to="/supply-chain" icon={Package} label="Supply Chain & COGS" />
-            <NavItem to="/geographic" icon={Globe} label="Geographic Intelligence" />
-            <NavItem to="/categories" icon={Wine} label="Category Intelligence" />
-            <NavItem to="/venues" icon={MapPin} label="Venue Intelligence" />
-            <NavItem to="/valuations" icon={TrendingUp} label="Valuations & Arbitrage" />
-            <NavItem to="/pricing" icon={DollarSign} label="Brand Pricing" />
-            <NavItem to="/companies" icon={Building2} label="Company Intelligence" />
-            <NavItem to="/pos" icon={ShoppingBag} label="POS Manufacturing" />
-            <NavItem to="/scenario" icon={Crosshair} label="Scenario Modelling" />
-            <NavItem to="/reports" icon={FileText} label="Report Builder" />
+
+            {/* Upstream: raw materials → production */}
+            <NavGroup title="Upstream" emoji={'\u2b06\ufe0f'}>
+              <NavItem to="/climate" icon={CloudRain} label="Climate & Yield" />
+              <NavItem to="/supply-chain" icon={Package} label="Supply Chain & COGS" />
+              <NavItem to="/pos" icon={ShoppingBag} label="POS Manufacturing" />
+            </NavGroup>
+
+            {/* Midstream: market intelligence */}
+            <NavGroup title="Midstream" emoji={'\ud83c\udf0d'}>
+              <NavItem to="/categories" icon={Wine} label="Category Intelligence" />
+              <NavItem to="/geographic" icon={Globe} label="Geographic Intelligence" />
+              <NavItem to="/valuations" icon={TrendingUp} label="Valuations & Arbitrage" />
+              <NavItem to="/companies" icon={Building2} label="Company Intelligence" />
+            </NavGroup>
+
+            {/* Downstream: route to market */}
+            <NavGroup title="Downstream" emoji={'\ud83c\udf7e'}>
+              <NavItem to="/venues" icon={MapPin} label="Venue Intelligence" />
+              <NavItem to="/pricing" icon={DollarSign} label="Brand Pricing" />
+              <NavItem to="/scenario" icon={Crosshair} label="Scenario Modelling" />
+            </NavGroup>
+
+            {/* Output */}
+            <NavGroup title="Output" emoji={'\ud83d\udcca'} defaultOpen={false}>
+              <NavItem to="/reports" icon={FileText} label="Report Builder" />
+            </NavGroup>
           </nav>
-          <div className="p-3 border-t border-white/10">
-            <button onClick={() => setChatOpen(true)} className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-gray-400 hover:text-gold hover:bg-white/5 w-full text-left text-sm font-medium">
-              <MessageCircle size={18} />
+
+          <div className="p-2 border-t border-white/10 space-y-0.5">
+            <button onClick={() => setChatOpen(true)} className="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-400 hover:text-gold hover:bg-white/5 w-full text-left text-[13px] font-medium">
+              <MessageCircle size={15} />
               <span>Analyst Chat</span>
             </button>
-            <button onClick={() => api.downloadExcel()} className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 w-full text-left text-sm font-medium">
-              <Download size={18} />
+            <button onClick={() => api.downloadExcel()} className="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 w-full text-left text-[13px] font-medium">
+              <Download size={15} />
               <span>Export Tracker</span>
             </button>
-            <button onClick={onLogout} className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-gray-400 hover:text-accent-red hover:bg-white/5 w-full text-left text-sm font-medium">
-              <LogOut size={18} />
+            <button onClick={onLogout} className="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-400 hover:text-accent-red hover:bg-white/5 w-full text-left text-[13px] font-medium">
+              <LogOut size={15} />
               <span>Sign Out</span>
             </button>
           </div>
@@ -154,7 +227,7 @@ function Layout({ onLogout }) {
             <Route path="/climate" element={<ClimateYield />} />
             <Route path="/supply-chain" element={<SupplyChain />} />
             <Route path="/geographic" element={<GeographicIntelligence />} />
-                <Route path="/categories" element={<CategoryIntelligence />} />
+            <Route path="/categories" element={<CategoryIntelligence />} />
             <Route path="/category/:categoryId" element={<CategoryCommandView />} />
             <Route path="/venues" element={<VenueIntelligence />} />
             <Route path="/valuations" element={<Valuations />} />

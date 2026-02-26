@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import {
+  FileText, Plus, Check, BarChart3, Globe, TrendingUp, DollarSign,
+  Package, AlertTriangle, Target, Calendar, Briefcase, Download
+} from 'lucide-react'
 import { api } from '../lib/api'
 
 const AVAILABLE_SECTIONS = [
@@ -8,6 +12,21 @@ const AVAILABLE_SECTIONS = [
   'Brand Pricing',
   'Disclosure Calendar',
   'Key Metrics'
+]
+
+// ── Dashboard Widgets for 1-Click Export (Task 5) ──
+const DASHBOARD_WIDGETS = [
+  { id: 'market-kpis', label: 'Market KPIs', icon: BarChart3, section: 'Market Overview', desc: '6 key performance indicators with sparklines' },
+  { id: 'category-snapshot', label: 'Category Snapshot', icon: Globe, section: 'Market Overview', desc: '11 categories with channel splits' },
+  { id: 'regional-pulse', label: 'Regional Pulse', icon: Globe, section: 'Market Overview', desc: '5 regions with growth trends' },
+  { id: 'market-signals', label: 'Market Signals', icon: AlertTriangle, section: 'Arbitrage Signals', desc: 'M&A, regulation, trade alerts' },
+  { id: 'ma-pipeline', label: 'M&A Pipeline', icon: Briefcase, section: 'Valuations', desc: 'Active deals & likelihood tracking' },
+  { id: 'competitor-alerts', label: 'Competitor Alerts', icon: AlertTriangle, section: 'Arbitrage Signals', desc: 'Strategic competitive moves' },
+  { id: 'opportunities', label: 'Strategic Opportunities', icon: Target, section: 'Valuations', desc: '6 investment opportunities' },
+  { id: 'weekly-digest', label: 'Weekly Digest', icon: Calendar, section: 'Market Overview', desc: 'Top story + category moves + data points' },
+  { id: 'benchmarks', label: 'Performance Benchmarks', icon: TrendingUp, section: 'Key Metrics', desc: '8 metrics vs industry quartiles' },
+  { id: 'watchlist', label: 'Key Metrics Watchlist', icon: DollarSign, section: 'Key Metrics', desc: '4 pillars with 24 tracked metrics' },
+  { id: 'live-feed', label: 'Live Intelligence Feed', icon: Package, section: 'Arbitrage Signals', desc: 'Real-time market intelligence items' },
 ]
 
 export default function ReportBuilder() {
@@ -188,12 +207,36 @@ export default function ReportBuilder() {
     })
   }
 
+  // Widget selection state (Task 5)
+  const [selectedWidgets, setSelectedWidgets] = useState([])
+  const [widgetCopied, setWidgetCopied] = useState(null)
+
+  const toggleWidget = (widgetId) => {
+    setSelectedWidgets(prev =>
+      prev.includes(widgetId) ? prev.filter(id => id !== widgetId) : [...prev, widgetId]
+    )
+  }
+
+  const addWidgetToReport = (widget) => {
+    // Auto-enable the corresponding section
+    const sections = activeTab === 'brief' ? briefSections : portfolioSections
+    const setter = activeTab === 'brief' ? setBriefSections : setPortfolioSections
+    if (!sections[widget.section]) {
+      setter(prev => ({ ...prev, [widget.section]: true }))
+    }
+    if (!selectedWidgets.includes(widget.id)) {
+      setSelectedWidgets(prev => [...prev, widget.id])
+    }
+    setWidgetCopied(widget.id)
+    setTimeout(() => setWidgetCopied(null), 1500)
+  }
+
   return (
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-navy mb-2">Report Builder</h1>
-        <p className="text-gray-600">Generate intelligence briefs and portfolio reports with AI-powered analysis</p>
+        <h1 className="font-display text-2xl text-navy">Report Builder</h1>
+        <p className="text-gray-500 text-xs mt-0.5">Generate intelligence briefs and portfolio reports with AI-powered analysis</p>
       </div>
 
       {/* Tabs */}
@@ -340,6 +383,65 @@ export default function ReportBuilder() {
               </button>
             </form>
           )}
+        </div>
+      </div>
+
+      {/* Quick Add from Dashboard (Task 5: 1-click widget export) */}
+      <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+        <div className="px-5 py-3 border-b border-gray-100 bg-gradient-to-r from-gray-50 to-white">
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-sm font-semibold text-navy flex items-center gap-1.5">
+                <Plus size={14} className="text-gold" />
+                Quick Add to Briefing
+              </h3>
+              <p className="text-[10px] text-gray-400 mt-0.5">Click any widget to include it in your report</p>
+            </div>
+            {selectedWidgets.length > 0 && (
+              <span className="text-[10px] font-bold bg-gold/10 text-gold px-2 py-0.5 rounded-full">
+                {selectedWidgets.length} widgets selected
+              </span>
+            )}
+          </div>
+        </div>
+        <div className="p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+          {DASHBOARD_WIDGETS.map(widget => {
+            const Icon = widget.icon
+            const isSelected = selectedWidgets.includes(widget.id)
+            const justAdded = widgetCopied === widget.id
+            return (
+              <button
+                key={widget.id}
+                onClick={() => addWidgetToReport(widget)}
+                className={`relative group flex items-start gap-2 p-3 rounded-lg border text-left transition-all ${
+                  isSelected
+                    ? 'bg-navy/5 border-navy/20 ring-1 ring-navy/10'
+                    : 'bg-white border-gray-100 hover:border-gold/40 hover:shadow-sm'
+                }`}
+              >
+                <div className={`p-1 rounded ${isSelected ? 'bg-navy/10' : 'bg-gray-50 group-hover:bg-gold/10'}`}>
+                  <Icon size={12} className={isSelected ? 'text-navy' : 'text-gray-400 group-hover:text-gold'} />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-[11px] font-semibold text-navy">{widget.label}</div>
+                  <div className="text-[9px] text-gray-400 leading-tight mt-0.5">{widget.desc}</div>
+                </div>
+                {justAdded ? (
+                  <span className="absolute top-1.5 right-1.5 text-green-500">
+                    <Check size={12} />
+                  </span>
+                ) : isSelected ? (
+                  <span className="absolute top-1.5 right-1.5 w-4 h-4 flex items-center justify-center rounded-full bg-navy text-white text-[8px] font-bold">
+                    {'\u2713'}
+                  </span>
+                ) : (
+                  <span className="absolute top-1.5 right-1.5 opacity-0 group-hover:opacity-100 transition-opacity text-gold">
+                    <Plus size={10} />
+                  </span>
+                )}
+              </button>
+            )
+          })}
         </div>
       </div>
 

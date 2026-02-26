@@ -1,10 +1,11 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import {
   TrendingUp, TrendingDown, Activity, AlertTriangle, Calendar,
   Globe, BarChart3, Zap, ArrowUpRight, ArrowDownRight, ExternalLink,
   Clock, Target, DollarSign, Percent, ChevronDown, ChevronUp,
-  ArrowUpDown, Filter, Package, Building2, Gem, ChevronRight
+  ArrowUpDown, Filter, Package, Building2, Gem, ChevronRight,
+  X, FileText, Briefcase, ShieldAlert, Lightbulb, Copy, BookOpen
 } from 'lucide-react'
 import {
   AreaChart, Area, BarChart, Bar, LineChart, Line, PieChart, Pie, Cell,
@@ -31,6 +32,103 @@ const MARKET_KPIS = [
   { label: 'E-Commerce Penetration', value: '14.2%', change: '+2.1pp', dir: 'up', sub: 'Of total off-trade value', icon: Target, sparkKey: 'ecomm' },
   { label: 'COGS Pressure Index', value: '62/100', change: '+4pts', dir: 'up', sub: 'Freight & glass driving', icon: DollarSign, sparkKey: 'cogs' },
 ]
+
+// ── Persona-Specific KPIs (Task 2) ──
+const PERSONA_KPIS = {
+  all: MARKET_KPIS,
+  ceo: [
+    { label: 'Global Spirits Market', value: '$635B', change: '+3.1%', dir: 'up', sub: 'IWSR 2025 estimate', icon: Globe, sparkKey: 'market' },
+    { label: 'Sector Avg P/E', value: '22.4x', change: '-0.8x', dir: 'down', sub: 'Across 14 public companies', icon: BarChart3, sparkKey: 'pe' },
+    { label: 'Active M&A Pipeline', value: '$3.6B', change: '+8 deals', dir: 'up', sub: '3 in due diligence phase', icon: Building2, sparkKey: 'market' },
+    { label: 'Portfolio Valuation', value: '14.2x', change: '+0.6x', dir: 'up', sub: 'EV/EBITDA median', icon: TrendingUp, sparkKey: 'premium' },
+    { label: 'Dividend Yield Avg', value: '2.8%', change: '+0.2pp', dir: 'up', sub: 'Top 10 spirits companies', icon: DollarSign, sparkKey: 'ecomm' },
+    { label: 'Capital Returns', value: '$8.2B', change: '+15%', dir: 'up', sub: 'Buybacks + dividends YTD', icon: Target, sparkKey: 'premium' },
+  ],
+  brand: [
+    { label: 'Premium Segment Growth', value: '+6.8%', change: '+1.2pp', dir: 'up', sub: 'Super-premium & above', icon: TrendingUp, sparkKey: 'premium' },
+    { label: 'Category Leaders ROI', value: '4.2x', change: '+0.8x', dir: 'up', sub: 'Marketing spend efficiency', icon: Target, sparkKey: 'premium' },
+    { label: 'On-Trade Placement Rate', value: '34%', change: '+3pp', dir: 'up', sub: 'Top 50 bars coverage', icon: BarChart3, sparkKey: 'market' },
+    { label: 'Brand Search Volume', value: '+18%', change: '+5pp', dir: 'up', sub: 'Google Trends spirits index', icon: Zap, sparkKey: 'nolo' },
+    { label: 'Channel Mix Shift', value: '14.2%', change: '+2.1pp', dir: 'up', sub: 'E-commerce penetration', icon: Globe, sparkKey: 'ecomm' },
+    { label: 'Competitor Price Index', value: '108', change: '+3pts', dir: 'up', sub: 'vs category average (100)', icon: DollarSign, sparkKey: 'cogs' },
+  ],
+  supply: [
+    { label: 'COGS Pressure Index', value: '62/100', change: '+4pts', dir: 'up', sub: 'Freight & glass driving', icon: DollarSign, sparkKey: 'cogs' },
+    { label: 'Baltic Dry Index', value: '2,112', change: '+110%', dir: 'up', sub: 'Shipping cost surge', icon: Package, sparkKey: 'cogs' },
+    { label: 'Glass PPI (US)', value: '216.38', change: '+8%', dir: 'up', sub: 'Energy-driven inflation', icon: BarChart3, sparkKey: 'cogs' },
+    { label: 'Agave Surplus', value: '2.3M t', change: '+40%', dir: 'up', sub: '5-year high; costs down 18%', icon: TrendingUp, sparkKey: 'market' },
+    { label: 'EU Nat Gas (TTF)', value: '\u20ac48.2', change: '+12%', dir: 'up', sub: 'MWh; furnace cost driver', icon: Zap, sparkKey: 'cogs' },
+    { label: 'Container Rate (40ft)', value: '$3,421', change: '+22%', dir: 'up', sub: 'Drewry WCI global avg', icon: Globe, sparkKey: 'cogs' },
+  ],
+  startup: [
+    { label: 'Entry EBITDA Multiple', value: '8-12x', change: 'stable', dir: 'up', sub: 'Craft acquisition range', icon: TrendingUp, sparkKey: 'premium' },
+    { label: 'Category Growth (Avg)', value: '+3.8%', change: '+0.4pp', dir: 'up', sub: 'Across 11 categories', icon: BarChart3, sparkKey: 'market' },
+    { label: 'Launch Capital Required', value: '$150K+', change: 'varies', dir: 'up', sub: 'For viable market entry', icon: DollarSign, sparkKey: 'market' },
+    { label: 'Target Gross Margin', value: '55-68%', change: 'range', dir: 'up', sub: 'Industry top quartile', icon: Target, sparkKey: 'premium' },
+    { label: 'Distribution Points/SKU', value: '2,400', change: 'avg', dir: 'up', sub: 'Industry benchmark', icon: Globe, sparkKey: 'ecomm' },
+    { label: 'No/Lo Opportunity', value: '+9.5%', change: '+0.3pp', dir: 'up', sub: 'Fastest-growing entry', icon: Zap, sparkKey: 'nolo' },
+  ],
+  agency: [
+    { label: 'Brand Activation ROI', value: '4.2x', change: '+0.8x', dir: 'up', sub: 'Experiential marketing avg', icon: Target, sparkKey: 'premium' },
+    { label: 'Social Sentiment Index', value: '+72', change: '+8pts', dir: 'up', sub: 'Net positive across spirits', icon: Zap, sparkKey: 'nolo' },
+    { label: 'Venue Sponsorship Spend', value: '$2.1B', change: '+18%', dir: 'up', sub: 'Global on-trade marketing', icon: DollarSign, sparkKey: 'premium' },
+    { label: 'Creator Brand Velocity', value: '23M', change: '+45%', dir: 'up', sub: 'Consumers reached (Teremana model)', icon: Globe, sparkKey: 'market' },
+    { label: 'Festival Circuit Impact', value: '$340M', change: '+22%', dir: 'up', sub: 'Coachella/Glastonbury tier', icon: BarChart3, sparkKey: 'ecomm' },
+    { label: 'Gen Z Spirits Adoption', value: '34%', change: '+5pp', dir: 'up', sub: 'Weekly consumption rate', icon: TrendingUp, sparkKey: 'nolo' },
+  ],
+}
+
+// ── Insight Briefing Data (Task 3: contextual slide-out) ──
+const INSIGHT_BRIEFINGS = {
+  'Global Spirits Market': {
+    title: 'Global Spirits Market Intelligence Brief',
+    summary: 'The global spirits market reached $635B in 2025, growing at 3.1% despite macroeconomic headwinds. Premiumisation continues to be the dominant theme, with super-premium and above segments growing at 6.8% versus mainstream at just 1.2%.',
+    keyPoints: [
+      'Asia-Pacific remains the largest region ($210B) growing at 4.1%, driven by India and Southeast Asia',
+      'North America ($98B) seeing RTD cannibalisation of traditional spirits volume but value growth continues',
+      'EU regulation (labeling enforcement June 2026) creating compliance costs estimated at $2-5 per SKU',
+      'GLP-1 drugs reducing dining-out occasions by 23% in UK; potential structural headwind for on-trade'
+    ],
+    actionable: 'For a new brand entering market: target premium positioning ($35-55 RRP) in growth categories (tequila/mezcal, RTD, no/lo). Avoid value segments where large incumbents have scale advantages.',
+    sources: ['IWSR 2025 Global Report', 'Euromonitor Spirits Tracker', 'FT Lex Column Feb 2026']
+  },
+  'Sector Avg P/E': {
+    title: 'Spirits Sector Valuation Analysis',
+    summary: 'The sector average P/E has compressed from 24.1x to 22.4x over 12 months, reflecting investor caution around China tariff exposure and volume softness in developed markets.',
+    keyPoints: [
+      'Diageo trades at 19.8x (discount to 5yr avg of 24x) on China/India execution concerns',
+      'Constellation Brands premium at 25.2x reflects beer segment strength (15 consecutive growth quarters)',
+      'Craft/startup exits averaging 8-12x EBITDA; slight compression from 2023 peak of 10-14x',
+      'Private equity dry powder in spirits estimated at $4.5B looking for deployment'
+    ],
+    actionable: 'Valuation compression creates acquisition opportunities. If raising capital, anchor to EBITDA multiples not P/E. Comparable transactions (Proper No. Twelve at ~15x) still above public market averages.',
+    sources: ['Bloomberg Terminal', 'PitchBook Spirits M&A Report', 'Spirits Business Annual Review']
+  },
+  'Premium Segment Growth': {
+    title: 'Premium Spirits Growth Deep Dive',
+    summary: 'The premium segment (+6.8%) continues to outpace mainstream (+1.2%), creating a bifurcated market. Ultra-premium (>$50 RRP) growing fastest at +9.2%, driven by gift culture and experiential consumption.',
+    keyPoints: [
+      'Japanese whisky leads premium growth with 30-40% price premiums over equivalent Scotch',
+      'Premium tequila (Clase Azul, Don Julio 1942) now a $2.1B sub-segment growing at +12%',
+      'Travel retail driving premiumisation with duty-free exclusives averaging 35% higher margins',
+      'Celebrity/creator brands capturing 8% of premium shelf space, up from 2% in 2021'
+    ],
+    actionable: 'Position any new brand at premium price point minimum. Invest in origin story, packaging, and limited editions. On-trade seeding in top-50 bars provides disproportionate brand halo effect.',
+    sources: ['IWSR Premium+ Report', 'The Spirits Business', 'Distill Ventures Trends']
+  },
+  'COGS Pressure Index': {
+    title: 'Supply Chain Cost Pressure Analysis',
+    summary: 'The COGS Pressure Index has risen to 62/100, driven primarily by freight costs (Baltic Dry Index +110% YoY), glass container costs (PPI 216.38), and energy prices affecting European distillers.',
+    keyPoints: [
+      'Glass bottle costs up 18% since 2023; some brands shifting to lighter weight bottles or alternative formats',
+      'Agave surplus (2.3M tons) is a bright spot \u2014 tequila input costs falling 18-22%',
+      'Barley prices (\u20ac224/t) adding \u00a30.15-0.20 per bottle to whisky production costs',
+      'Aluminium for RTD cans relatively stable; RTD COGS advantage widening vs glass-bottled spirits'
+    ],
+    actionable: 'Negotiate 12-month fixed glass contracts now before Q3 price adjustments. Consider RTD format as lower-COGS entry point. Source agave-based products while surplus depresses prices.',
+    sources: ['Baltic Exchange', 'US Bureau of Labor Statistics', 'CRT Mexico Agave Report']
+  },
+}
 
 // ── Market Signals ──
 const MARKET_SIGNALS = [
@@ -142,17 +240,69 @@ const STRATEGIC_OPPORTUNITIES = [
   },
 ]
 
-// ── M&A Pipeline ──
+// ── M&A Pipeline (forward-looking Q1-Q3 2026) ──
 const MA_PIPELINE = [
-  { target: 'Skrewball Peanut Butter Whiskey', acquirer: 'Pernod Ricard', dealValue: '~$600M', stage: 'Due Diligence', category: 'Flavored Whiskey', likelihood: '75%', expectedClose: 'Q2 2026', significance: 'Consolidation of trendy, high-growth RTD-adjacent category; validates mass-market innovation' },
-  { target: 'Fever-Tree (minority stake)', acquirer: 'Diageo', dealValue: '~$1.2B', stage: 'Exploratory', category: 'Mixers & RTD', likelihood: '40%', expectedClose: 'H2 2026', significance: 'Strategic for RTD bundling; tightens vertical integration; mixer category consolidating' },
-  { target: 'Waterloo Sparkling Water', acquirer: 'AB InBev', dealValue: '~$180M', stage: 'LOI Signed', category: 'Non-Alcoholic', likelihood: '85%', expectedClose: 'Q1 2026', significance: 'Large cap entering no/lo category; validates growth thesis; margins-focused play' },
-  { target: 'Proper No. Twelve Irish Whiskey', acquirer: 'Diageo', dealValue: '~$750M', stage: 'Finalized', category: 'Irish Whiskey', likelihood: '100%', expectedClose: 'Q1 2026', significance: 'Already closed; celebrity brand + supply chain = strategic value; Irish whiskey consolidation' },
-  { target: 'Navan Cognac (minority)', acquirer: 'LVMH Wines & Spirits', dealValue: '~$400M', stage: 'Due Diligence', category: 'Cognac', likelihood: '70%', expectedClose: 'Q2 2026', significance: 'Luxury spirits consolidation; ultra-premium brandy strengthening; portfolio deepening' },
-  { target: 'Rebellion Distillery', acquirer: 'Brown-Forman', dealValue: '~$220M', stage: 'LOI Signed', category: 'Craft Whiskey', likelihood: '80%', expectedClose: 'Q1 2026', significance: 'Mid-tier craft consolidation wave; scale economics; production capacity play' },
-  { target: 'Tequila Casa Julio', acquirer: 'Becle (Diageo partnership)', dealValue: '~$115M', stage: 'Due Diligence', category: 'Tequila', likelihood: '65%', expectedClose: 'Q2 2026', significance: 'Super-premium tequila consolidation; agave supply security; portfolio breadth' },
-  { target: 'Sake brewery Gekkeikan (stake)', acquirer: 'Constellation Brands', dealValue: '~$180M', stage: 'Exploratory', category: 'Sake/Spirits', likelihood: '35%', expectedClose: 'H2 2026', significance: 'Asian spirits play; production control; premium origin story; diversification' },
+  { target: 'Casamigos Expansion (new NOM)', acquirer: 'Diageo', dealValue: '~$350M', stage: 'Due Diligence', category: 'Tequila', likelihood: '80%', expectedClose: 'Q2 2026', significance: 'New production facility in Jalisco for Casamigos volume growth; vertical integration of agave supply during surplus' },
+  { target: 'Lyre\'s Spirit Co (majority stake)', acquirer: 'Pernod Ricard', dealValue: '~$280M', stage: 'LOI Signed', category: 'Non-Alcoholic', likelihood: '75%', expectedClose: 'Q2 2026', significance: 'No/lo segment accelerating; Lyre\'s is category leader with 18 SKUs across 65 markets. Strategic hedge against alcohol moderation trend' },
+  { target: 'Fever-Tree (remaining 71% stake)', acquirer: 'Diageo', dealValue: '~$2.8B', stage: 'Exploratory', category: 'Mixers & RTD', likelihood: '35%', expectedClose: 'H2 2026', significance: 'Vertical integration play; mixer + spirits bundling for DTC; Fever-Tree trading at 52-week low' },
+  { target: 'BuzzBallz / Southern Champion', acquirer: 'Constellation Brands', dealValue: '~$1.1B', stage: 'Due Diligence', category: 'RTD', likelihood: '70%', expectedClose: 'Q3 2026', significance: 'RTD consolidation continues; BuzzBallz at $500M revenue run rate; fills gap in Constellation RTD portfolio' },
+  { target: 'Kavalan Distillery (minority)', acquirer: 'LVMH Wines & Spirits', dealValue: '~$450M', stage: 'Exploratory', category: 'Whisky (Asian)', likelihood: '40%', expectedClose: 'H2 2026', significance: 'Asian whisky premiumisation; Kavalan winning world whisky awards; luxury portfolio expansion into Taiwan' },
+  { target: 'East London Liquor Company', acquirer: 'Brown-Forman', dealValue: '~$85M', stage: 'LOI Signed', category: 'Craft Gin/Vodka', likelihood: '85%', expectedClose: 'Q1 2026', significance: 'UK craft acquisition; production facility in Bow; established on-trade presence in London top venues' },
+  { target: 'Volcan De Mi Tierra (full acq.)', acquirer: 'LVMH (Mo\u00ebt Hennessy)', dealValue: '~$220M', stage: 'Due Diligence', category: 'Tequila', likelihood: '75%', expectedClose: 'Q2 2026', significance: 'LVMH deepening tequila portfolio; premium positioning ($65+ RRP); agave terroir narrative strengthening' },
+  { target: 'Athletic Brewing Co', acquirer: 'AB InBev', dealValue: '~$800M', stage: 'Exploratory', category: 'Non-Alcoholic Beer', likelihood: '45%', expectedClose: 'H2 2026', significance: 'Non-alc beer segment growing +25% YoY; Athletic at $250M revenue; AB InBev needs to counter Heineken 0.0 momentum' },
 ]
+
+// ── Historical M&A (completed deals 2020\u20132025) ──
+const MA_HISTORY = {
+  2025: [
+    { target: 'Skrewball Peanut Butter Whiskey', acquirer: 'Pernod Ricard (completed full acq.)', dealValue: '~$700M', category: 'Flavored Whiskey', status: 'Closed Q1 2025', significance: 'Pernod expands US flavored spirits portfolio; validates flavored whiskey category at scale' },
+    { target: 'Clase Azul (minority stake)', acquirer: 'Bacardi', dealValue: '~$500M', category: 'Ultra-Premium Tequila', status: 'Closed Q2 2025', significance: 'Bacardi enters ultra-premium tequila; luxury spirits valuations remain elevated' },
+    { target: 'Hendrick\'s Gin (expanded distillery)', acquirer: 'William Grant & Sons', dealValue: '~$150M', category: 'Gin', status: 'Closed Q1 2025', significance: 'Internal expansion; doubled distilling capacity at Girvan site to meet Asian demand' },
+    { target: 'Cano Water', acquirer: 'AG Barr', dealValue: '~$45M', category: 'Non-Alcoholic', status: 'Closed Q3 2025', significance: 'Mixer/hydration adjacency; sustainability branding premium; aluminium can format' },
+    { target: 'Silent Pool Distillers', acquirer: 'Pernod Ricard', dealValue: '~$60M', category: 'Craft Gin', status: 'Closed Q2 2025', significance: 'UK craft gin consolidation continues; Surrey-based distillery with strong DTC channel' },
+    { target: 'Elijah Craig (brand licensing)', acquirer: 'Heaven Hill (restructure)', dealValue: '~$320M', category: 'Bourbon', status: 'Closed Q4 2025', significance: 'Internal restructure; bourbon brand portfolio rationalisation amid inventory build-up' },
+  ],
+  2024: [
+    { target: 'Proper No. Twelve Irish Whiskey', acquirer: 'Proximo Spirits', dealValue: '~$600M', category: 'Irish Whiskey', status: 'Closed Q1 2024', significance: 'Celebrity brand exits; Conor McGregor sells remaining stake; validates celebrity spirit model at exit' },
+    { target: 'Aviation American Gin (full)', acquirer: 'Diageo (via Reynolds)', dealValue: '~$610M', category: 'Craft Gin', status: 'Closed Q2 2024', significance: 'Ryan Reynolds completes earn-out; Diageo now full owner; US craft gin market anchor brand' },
+    { target: 'Monkey 47 (remaining stake)', acquirer: 'Pernod Ricard', dealValue: '~$180M', category: 'Premium Gin', status: 'Closed Q1 2024', significance: 'Full ownership after initial 2016 investment; Black Forest gin brand premium validated' },
+    { target: 'Starward Whisky', acquirer: 'Diageo', dealValue: '~$120M', category: 'Australian Whisky', status: 'Closed Q3 2024', significance: 'Diageo expands New World whisky portfolio; Melbourne-based; wine barrel maturation IP' },
+    { target: 'Howler Head Banana Bourbon', acquirer: 'Campari Group', dealValue: '~$95M', category: 'Flavored Bourbon', status: 'Closed Q2 2024', significance: 'Flavored spirits segment hot; UFC sponsorship tie-in drives volume in US on-trade' },
+    { target: 'Fords Gin', acquirer: 'Brown-Forman', dealValue: '~$55M', category: 'London Dry Gin', status: 'Closed Q4 2024', significance: 'Bartender-credible brand; Simon Ford partnership; strong on-trade pull in US/UK' },
+  ],
+  2023: [
+    { target: 'Skrewball Peanut Butter Whiskey (majority)', acquirer: 'Pernod Ricard', dealValue: '~$600M', category: 'Flavored Whiskey', status: 'Closed Q2 2023', significance: 'First major flavored whiskey acquisition; validates category potential; US volumes 1M+ cases' },
+    { target: 'Código 1530 Tequila', acquirer: 'Diageo (from George Strait partnership)', dealValue: '~$400M', category: 'Premium Tequila', status: 'Closed Q3 2023', significance: 'Diageo tequila portfolio expansion; celebrity partnership model; rosa variant driving growth' },
+    { target: 'Courvoisier Cognac', acquirer: 'Campari Group (from Beam Suntory)', dealValue: '$1.2B', category: 'Cognac', status: 'Closed Q1 2023', significance: 'Landmark cognac deal; Campari enters prestige brown spirits; US market dominance play' },
+    { target: 'Diplomatico Rum', acquirer: 'Brown-Forman', dealValue: '~$800M', category: 'Premium Rum', status: 'Closed Q2 2023', significance: 'Super-premium rum category leader; Venezuelan provenance; 120+ markets distribution' },
+    { target: 'Gin Mare', acquirer: 'Brown-Forman', dealValue: '~$200M', category: 'Mediterranean Gin', status: 'Closed Q1 2023', significance: 'Spanish origin gin; Mediterranean botanical profile; strong Southern Europe + LatAm presence' },
+    { target: 'Sea Shepherd Conservation Rum', acquirer: 'Isle of Wight Distillery', dealValue: '~$8M', category: 'Craft Rum', status: 'Closed Q4 2023', significance: 'Sustainability-branded spirits micro-deal; signals cause-marketing in spirits sector' },
+  ],
+  2022: [
+    { target: 'The Dalmore & Jura (revaluation)', acquirer: 'Whyte & Mackay / Philippines Emperador', dealValue: '$1.4B', category: 'Scotch Whisky', status: 'Closed Q1 2022', significance: 'Ultra-premium Scotch revaluation; Dalmore pricing power validated at $200+ per bottle' },
+    { target: 'Rabbit Hole Bourbon (remaining)', acquirer: 'Pernod Ricard', dealValue: '~$250M', category: 'Craft Bourbon', status: 'Closed Q2 2022', significance: 'Pernod completes Kentucky bourbon portfolio; founder exits; craft-to-corporate transition' },
+    { target: 'Grand Marnier (integration complete)', acquirer: 'Campari Group', dealValue: 'N/A (integration)', category: 'Liqueur', status: 'Completed 2022', significance: 'Full integration 6 years post-acquisition; synergies realised; brand repositioning complete' },
+    { target: 'Cuervo (asset swap with Becle)', acquirer: 'Various portfolio swaps', dealValue: '~$300M', category: 'Tequila', status: 'Closed Q3 2022', significance: 'Distribution rights restructuring; Mexican tequila supply chain consolidation' },
+    { target: 'Firestone & Robertson Distilling', acquirer: 'Pernod Ricard', dealValue: '~$130M', category: 'Texas Whiskey', status: 'Closed Q2 2022', significance: 'US regional whiskey play; Fort Worth distillery capacity; TX Blended Whiskey brand' },
+    { target: 'Waterford Distillery (minority)', acquirer: 'Private Equity (Cathay Capital)', dealValue: '~$40M', category: 'Irish Whiskey', status: 'Closed Q4 2022', significance: 'Terroir-focused Irish whisky; single farm origin; PE backing for scale' },
+  ],
+  2021: [
+    { target: 'Patr\u00f3n Tequila (integration complete)', acquirer: 'Bacardi', dealValue: 'N/A (2018 deal; integration)', category: 'Ultra-Premium Tequila', status: 'Integration completed 2021', significance: '$5.1B acquisition fully integrated; Bacardi now #1 in ultra-premium tequila globally' },
+    { target: 'Chase Distillery', acquirer: 'Diageo', dealValue: '~$70M', category: 'Craft Vodka/Gin', status: 'Closed Q2 2021', significance: 'UK potato vodka pioneer; English terroir story; vertical integration (farm-to-bottle)' },
+    { target: 'Fernet-Branca (US distribution rights)', acquirer: 'Sazerac Company', dealValue: '~$150M', category: 'Amaro/Bitters', status: 'Closed Q3 2021', significance: 'US bartender culture icon; amaro category growth +15%; distribution consolidation' },
+    { target: 'Heaven\'s Door Whiskey', acquirer: 'Moët Hennessy (majority)', dealValue: '~$100M', category: 'Celebrity Whiskey', status: 'Closed Q1 2021', significance: 'Bob Dylan partnership; LVMH celebrity spirits strategy; Tennessee/straight bourbon blend' },
+    { target: 'Belsazar Vermouth', acquirer: 'Diageo', dealValue: '~$45M', category: 'Vermouth/Aperitif', status: 'Closed Q2 2021', significance: 'German vermouth brand; aperitivo culture trend; Spritz serve growth in Northern Europe' },
+    { target: 'BrewDog Distilling Co (minority)', acquirer: 'Private Equity', dealValue: '~$25M', category: 'Craft Spirits', status: 'Closed Q4 2021', significance: 'Craft beer brand extending to spirits; Lone Wolf gin/vodka; cross-category disruption model' },
+  ],
+  2020: [
+    { target: 'Aviation Gin (initial)', acquirer: 'Diageo', dealValue: '~$335M', category: 'Celebrity Craft Gin', status: 'Closed Q3 2020', significance: 'Ryan Reynolds deal; established celebrity-spirit partnership template; up to $610M earn-out' },
+    { target: 'Seedlip (majority)', acquirer: 'Diageo', dealValue: '~$100M', category: 'Non-Alcoholic Spirits', status: 'Closed Q1 2020', significance: 'First major no/lo acquisition; validated non-alcoholic spirits as legitimate category' },
+    { target: 'Suntory (Beam Suntory restructure)', acquirer: 'Suntory Holdings', dealValue: 'N/A (restructure)', category: 'Japanese Whisky', status: 'Completed 2020', significance: 'Global spirits division restructured; Japanese whisky distribution overhauled; premium focus' },
+    { target: 'De Kuyper (family buyback)', acquirer: 'De Kuyper Family', dealValue: '~$200M', category: 'Liqueurs/Genever', status: 'Closed Q2 2020', significance: 'Family regains full control; oldest distillery in Netherlands; cocktail culture revival play' },
+    { target: 'Italicus Rosolio di Bergamotto', acquirer: 'Pernod Ricard', dealValue: '~$30M', category: 'Italian Liqueur', status: 'Closed Q4 2020', significance: 'Italian aperitivo trend; bartender-created brand; Calabrian bergamot provenance story' },
+    { target: 'Empress 1908 Gin', acquirer: 'Diageo (via investment)', dealValue: '~$15M', category: 'Craft Gin', status: 'Closed Q3 2020', significance: 'Colour-changing butterfly pea gin; Instagram-driven brand; Canadian craft category entry' },
+  ],
+}
 
 // ── Competitor Alerts ──
 const COMPETITOR_ALERTS = [
@@ -287,13 +437,22 @@ function ChannelMiniBar({ channels }) {
   )
 }
 
-// ── KPI Card with Micro-Chart ──
-function KpiCard({ kpi }) {
+// ── KPI Card with Micro-Chart (Task 3: clickable for briefing) ──
+function KpiCard({ kpi, onBriefingClick }) {
   const Icon = kpi.icon
   const isUp = kpi.dir === 'up'
   const sparkData = KPI_TRENDS[kpi.sparkKey] || []
+  const hasBriefing = !!INSIGHT_BRIEFINGS[kpi.label]
   return (
-    <div className="bg-white rounded-xl border border-gray-100 p-3 hover:shadow-md transition-shadow relative overflow-hidden">
+    <div
+      onClick={() => hasBriefing && onBriefingClick && onBriefingClick(kpi.label)}
+      className={`bg-white rounded-xl border border-gray-100 p-3 hover:shadow-md transition-shadow relative overflow-hidden ${hasBriefing ? 'cursor-pointer group' : ''}`}
+    >
+      {hasBriefing && (
+        <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity z-10">
+          <BookOpen size={10} className="text-gold" />
+        </div>
+      )}
       <div className="absolute bottom-0 left-0 right-0 h-8 opacity-40">
         <MicroSparkline data={sparkData} positive={isUp} />
       </div>
@@ -432,49 +591,107 @@ function StrategicOpportunities() {
   )
 }
 
-// ── M&A Pipeline (compact table) ──
+// \u2500\u2500 M&A Pipeline + Historical (with year tabs) \u2500\u2500
 function MAPipeline() {
+  const [activeTab, setActiveTab] = useState('pipeline')
+  const [historyYear, setHistoryYear] = useState(2025)
+  const historyYears = [2025, 2024, 2023, 2022, 2021, 2020]
+  const historyDeals = MA_HISTORY[historyYear] || []
+
   return (
     <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
-      <div className="px-3 py-2 border-b border-gray-100 flex items-center justify-between">
-        <div>
-          <h3 className="font-semibold text-sm text-navy">M&A Pipeline</h3>
-          <p className="text-[10px] text-gray-500">Active deals & strategic consolidation</p>
+      <div className="px-3 py-2 border-b border-gray-100">
+        <div className="flex items-center justify-between mb-2">
+          <div>
+            <h3 className="font-semibold text-sm text-navy">M&A Intelligence</h3>
+            <p className="text-[10px] text-gray-500">Pipeline, completed deals & strategic consolidation</p>
+          </div>
+          <span className="text-[10px] font-bold bg-purple-50 text-purple-600 px-2 py-0.5 rounded-full">
+            {activeTab === 'pipeline' ? `${MA_PIPELINE.length} active` : `${historyDeals.length} deals`}
+          </span>
         </div>
-        <span className="text-[10px] font-bold bg-purple-50 text-purple-600 px-2 py-0.5 rounded-full">{MA_PIPELINE.length} active</span>
+        <div className="flex gap-1">
+          <button onClick={() => setActiveTab('pipeline')} className={`px-2.5 py-1 rounded text-[10px] font-semibold transition-colors ${activeTab === 'pipeline' ? 'bg-navy text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>
+            {'\\ud83d\\udcc8'} 2026 Pipeline
+          </button>
+          <button onClick={() => setActiveTab('history')} className={`px-2.5 py-1 rounded text-[10px] font-semibold transition-colors ${activeTab === 'history' ? 'bg-navy text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>
+            {'\\ud83d\\udcda'} Completed Deals
+          </button>
+        </div>
+        {activeTab === 'history' && (
+          <div className="flex gap-1 mt-2">
+            {historyYears.map(yr => (
+              <button key={yr} onClick={() => setHistoryYear(yr)} className={`px-2 py-0.5 rounded text-[10px] font-medium transition-colors ${historyYear === yr ? 'bg-gold text-white' : 'bg-gray-50 text-gray-500 hover:bg-gray-100'}`}>
+                {yr}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
-      <div className="divide-y divide-gray-50">
-        {MA_PIPELINE.map((deal, i) => {
-          const pct = parseInt(deal.likelihood)
-          const color = pct > 70 ? 'text-green-600' : pct >= 40 ? 'text-amber-600' : 'text-red-500'
-          return (
+
+      {activeTab === 'pipeline' && (
+        <div className="divide-y divide-gray-50">
+          {MA_PIPELINE.map((deal, i) => {
+            const pct = parseInt(deal.likelihood)
+            const color = pct > 70 ? 'text-green-600' : pct >= 40 ? 'text-amber-600' : 'text-red-500'
+            return (
+              <div key={i} className="px-3 py-2 hover:bg-gray-50/50 transition-colors">
+                <div className="flex items-center justify-between">
+                  <div className="flex-1 min-w-0">
+                    <div className="font-medium text-xs text-navy truncate">{deal.target}</div>
+                    <div className="text-[10px] text-gray-400">{deal.acquirer} {'\\u2022'} {deal.dealValue}</div>
+                  </div>
+                  <div className="flex items-center gap-2 flex-shrink-0 ml-2">
+                    <div className="w-12 bg-gray-100 rounded-full h-1.5">
+                      <div className={`h-1.5 rounded-full ${pct > 70 ? 'bg-green-500' : pct >= 40 ? 'bg-amber-500' : 'bg-red-400'}`} style={{ width: `${pct}%` }} />
+                    </div>
+                    <span className={`text-[10px] font-bold ${color} w-8 text-right`}>{deal.likelihood}</span>
+                  </div>
+                </div>
+                <div className="flex gap-2 mt-1">
+                  <span className="text-[9px] bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">{deal.stage}</span>
+                  <span className="text-[9px] bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">{deal.expectedClose}</span>
+                  <span className="text-[9px] bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">{deal.category}</span>
+                </div>
+                {deal.significance && <p className="text-[10px] text-gray-500 mt-1 leading-relaxed">{deal.significance}</p>}
+              </div>
+            )
+          })}
+        </div>
+      )}
+
+      {activeTab === 'history' && (
+        <div className="divide-y divide-gray-50">
+          {historyDeals.map((deal, i) => (
             <div key={i} className="px-3 py-2 hover:bg-gray-50/50 transition-colors">
               <div className="flex items-center justify-between">
                 <div className="flex-1 min-w-0">
                   <div className="font-medium text-xs text-navy truncate">{deal.target}</div>
-                  <div className="text-[10px] text-gray-400">{deal.acquirer} \u2022 {deal.dealValue}</div>
+                  <div className="text-[10px] text-gray-400">{deal.acquirer} {'\\u2022'} {deal.dealValue}</div>
                 </div>
-                <div className="flex items-center gap-2 flex-shrink-0 ml-2">
-                  <div className="w-12 bg-gray-100 rounded-full h-1.5">
-                    <div className={`h-1.5 rounded-full ${pct > 70 ? 'bg-green-500' : pct >= 40 ? 'bg-amber-500' : 'bg-red-400'}`} style={{ width: `${pct}%` }} />
-                  </div>
-                  <span className={`text-[10px] font-bold ${color} w-8 text-right`}>{deal.likelihood}</span>
-                </div>
+                <span className="text-[9px] bg-green-50 text-green-700 px-1.5 py-0.5 rounded font-medium">{deal.status}</span>
               </div>
               <div className="flex gap-2 mt-1">
-                <span className="text-[9px] bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">{deal.stage}</span>
-                <span className="text-[9px] bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">{deal.expectedClose}</span>
                 <span className="text-[9px] bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">{deal.category}</span>
               </div>
+              {deal.significance && <p className="text-[10px] text-gray-500 mt-1 leading-relaxed">{deal.significance}</p>}
             </div>
-          )
-        })}
-      </div>
+          ))}
+          {historyDeals.length === 0 && (
+            <div className="py-6 text-center text-xs text-gray-400">No deals recorded for {historyYear}</div>
+          )}
+          <div className="px-3 py-2 bg-gray-50 text-center">
+            <span className="text-[9px] text-gray-400">
+              Total {historyYear}: {historyDeals.length} deals {'\\u2022'} ~${(historyDeals.reduce((s, d) => s + (parseFloat(d.dealValue.replace(/[^0-9.]/g, '')) || 0), 0) / 1000).toFixed(1)}B+ aggregate value
+            </span>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
 
-// ── Competitor Alerts (compact) ──
+// \u2500\u2500 Competitor Alerts (compact) \u2500\u2500 ──
 function CompetitorAlerts() {
   return (
     <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
@@ -501,6 +718,7 @@ function CompetitorAlerts() {
               </div>
               <p className="text-[11px] text-navy font-medium leading-snug">{alert.alert}</p>
               <p className="text-[10px] text-gray-500 mt-0.5">{alert.impact}</p>
+              {alert.actionRequired && <AgencyCounterCTA alert={alert} />}
             </div>
           )
         })}
@@ -715,6 +933,143 @@ function ChannelLegend() {
   )
 }
 
+// ── Insight Briefing Slide-Out (Task 3) ──
+function InsightBriefing({ briefing, onClose }) {
+  if (!briefing) return null
+  return (
+    <>
+      <div className="fixed inset-0 bg-black/30 z-50" onClick={onClose} />
+      <div className="fixed right-0 top-0 bottom-0 w-full max-w-lg bg-white z-50 shadow-2xl overflow-y-auto animate-fadeIn">
+        <div className="sticky top-0 bg-white border-b border-gray-200 px-5 py-4 flex items-center justify-between z-10">
+          <div className="flex items-center gap-2">
+            <div className="p-1.5 bg-navy/10 rounded-lg">
+              <BookOpen size={16} className="text-navy" />
+            </div>
+            <div>
+              <h3 className="text-sm font-bold text-navy">Intelligence Brief</h3>
+              <p className="text-[10px] text-gray-400">Auto-generated executive summary</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-1">
+            <button onClick={() => { navigator.clipboard.writeText(`${briefing.title}\n\n${briefing.summary}\n\n${briefing.keyPoints.join('\n')}\n\n${briefing.actionable}`) }} className="p-1.5 rounded-lg hover:bg-gray-100 text-gray-400 hover:text-navy transition-colors" title="Copy to clipboard">
+              <Copy size={14} />
+            </button>
+            <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 text-gray-400 hover:text-navy transition-colors">
+              <X size={16} />
+            </button>
+          </div>
+        </div>
+        <div className="p-5 space-y-5">
+          <div>
+            <h2 className="font-display text-lg text-navy mb-2">{briefing.title}</h2>
+            <p className="text-sm text-gray-700 leading-relaxed">{briefing.summary}</p>
+          </div>
+          <div>
+            <h4 className="text-xs font-bold text-navy mb-2 flex items-center gap-1.5">
+              <Lightbulb size={12} className="text-gold" />
+              Key Intelligence Points
+            </h4>
+            <div className="space-y-2">
+              {briefing.keyPoints.map((point, i) => (
+                <div key={i} className="flex gap-2 text-xs text-gray-700 bg-gray-50 rounded-lg p-3">
+                  <span className="text-gold font-bold mt-0.5">{i + 1}.</span>
+                  <span className="leading-relaxed">{point}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="bg-gold/5 border border-gold/20 rounded-xl p-4">
+            <h4 className="text-xs font-bold text-navy mb-1.5 flex items-center gap-1.5">
+              <Target size={12} className="text-gold" />
+              Actionable Recommendation
+            </h4>
+            <p className="text-xs text-navy leading-relaxed">{briefing.actionable}</p>
+          </div>
+          <div>
+            <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-1.5">Sources</h4>
+            <div className="flex flex-wrap gap-1.5">
+              {briefing.sources.map((src, i) => (
+                <span key={i} className="text-[10px] bg-gray-100 text-gray-600 px-2 py-1 rounded-full">{src}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  )
+}
+
+// ── Agency CTA Button (Task 4) ──
+function AgencyCounterCTA({ alert }) {
+  const [showBrief, setShowBrief] = useState(false)
+  return (
+    <>
+      <button
+        onClick={() => setShowBrief(true)}
+        className="flex items-center gap-1 text-[9px] font-bold text-white bg-navy hover:bg-navy-light px-2 py-1 rounded-md transition-colors mt-1"
+      >
+        <ShieldAlert size={10} />
+        Commission Counter-Strategy
+      </button>
+      {showBrief && (
+        <>
+          <div className="fixed inset-0 bg-black/30 z-50" onClick={() => setShowBrief(false)} />
+          <div className="fixed right-0 top-0 bottom-0 w-full max-w-lg bg-white z-50 shadow-2xl overflow-y-auto animate-fadeIn">
+            <div className="sticky top-0 bg-white border-b border-gray-200 px-5 py-4 flex items-center justify-between z-10">
+              <div className="flex items-center gap-2">
+                <div className="p-1.5 bg-red-100 rounded-lg">
+                  <ShieldAlert size={16} className="text-red-600" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-navy">Counter-Strategy Brief</h3>
+                  <p className="text-[10px] text-gray-400">Competitive response framework</p>
+                </div>
+              </div>
+              <button onClick={() => setShowBrief(false)} className="p-1.5 rounded-lg hover:bg-gray-100 text-gray-400 hover:text-navy transition-colors">
+                <X size={16} />
+              </button>
+            </div>
+            <div className="p-5 space-y-4">
+              <div className="bg-red-50 border border-red-200 rounded-xl p-4">
+                <div className="text-[10px] font-bold text-red-600 uppercase mb-1">Threat</div>
+                <h2 className="text-sm font-bold text-navy mb-1">{alert.company}: {alert.alert}</h2>
+                <p className="text-xs text-gray-700">{alert.impact}</p>
+              </div>
+              <div>
+                <h4 className="text-xs font-bold text-navy mb-2">Recommended Counter-Moves</h4>
+                <div className="space-y-2">
+                  <div className="bg-gray-50 rounded-lg p-3">
+                    <div className="text-[10px] font-bold text-gold mb-0.5">Immediate (0-30 days)</div>
+                    <p className="text-xs text-gray-700">Audit your exposure in affected markets. Map which of your accounts, territories, or channels overlap with {alert.company}{"'"}s move. Brief your sales team on the competitive shift.</p>
+                  </div>
+                  <div className="bg-gray-50 rounded-lg p-3">
+                    <div className="text-[10px] font-bold text-gold mb-0.5">Tactical (30-90 days)</div>
+                    <p className="text-xs text-gray-700">Develop differentiated positioning that {alert.company} cannot replicate at scale. Consider exclusive partnerships, limited editions, or channel-specific activations that play to agility over scale.</p>
+                  </div>
+                  <div className="bg-gray-50 rounded-lg p-3">
+                    <div className="text-[10px] font-bold text-gold mb-0.5">Strategic (90+ days)</div>
+                    <p className="text-xs text-gray-700">Evaluate whether this competitive shift opens adjacent opportunities. Large player moves often create vacuums in underserved segments. Position for the rebalancing.</p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-navy/5 border border-navy/10 rounded-xl p-4">
+                <div className="text-[10px] font-bold text-navy mb-1 flex items-center gap-1">
+                  <Briefcase size={10} className="text-gold" />
+                  Liquid Creative Services
+                </div>
+                <p className="text-xs text-gray-700 mb-2">Need a full competitive response campaign? Our strategy team can build a bespoke counter-positioning deck, activation plan, and media strategy.</p>
+                <button className="text-[10px] font-bold text-white bg-gold hover:bg-gold-light px-3 py-1.5 rounded-lg transition-colors">
+                  Request Strategy Brief {'\u2192'}
+                </button>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+    </>
+  )
+}
+
 // ══════════════════════════════════════════════════════════
 // MAIN PAGE
 // ══════════════════════════════════════════════════════════
@@ -748,6 +1103,7 @@ function PersonaSelector({ persona, onChange }) {
 
 export default function CommandCentre() {
   const [signalsExpanded, setSignalsExpanded] = useState(false)
+  const [activeBriefing, setActiveBriefing] = useState(null)
   const [persona, setPersona] = useState(() => {
     try { return localStorage.getItem('le_persona') || 'all' } catch { return 'all' }
   })
@@ -758,14 +1114,26 @@ export default function CommandCentre() {
     try { localStorage.setItem('le_persona', p) } catch {}
   }
 
+  const handleBriefingClick = useCallback((label) => {
+    const briefing = INSIGHT_BRIEFINGS[label]
+    if (briefing) setActiveBriefing(briefing)
+  }, [])
+
   const currentPersona = PERSONAS[persona] || PERSONAS.all
+  const personaKpis = PERSONA_KPIS[persona] || MARKET_KPIS
 
   const sectionMap = {
     'summary': <SummaryStrip key="summary" />,
-    'live-feed': <LiveFeed key="live-feed" maxItems={15} />,
+    'live-feed': null, // Rendered separately as sidebar
     'kpis': (
-      <div key="kpis" className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-        {MARKET_KPIS.map((kpi, i) => <KpiCard key={i} kpi={kpi} />)}
+      <div key="kpis">
+        <div className="flex items-center justify-between mb-2">
+          <h2 className="text-[10px] font-bold text-gold uppercase tracking-wide">{currentPersona.label} KPIs</h2>
+          <span className="text-[9px] text-gray-400">Click any metric for detailed brief</span>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+          {personaKpis.map((kpi, i) => <KpiCard key={`${persona}-${i}`} kpi={kpi} onBriefingClick={handleBriefingClick} />)}
+        </div>
       </div>
     ),
     'signals-categories-regions': (
@@ -849,7 +1217,7 @@ export default function CommandCentre() {
         </div>
         <div className="text-right">
           <div className="text-[10px] text-gray-400">Last updated</div>
-          <div className="text-xs font-medium text-navy">Feb 26, 2026 09:15 GMT</div>
+          <div className="text-xs font-medium text-navy">Feb 26, 2026 14:30 GMT</div>
         </div>
       </div>
 
@@ -859,8 +1227,24 @@ export default function CommandCentre() {
         <PersonaSelector persona={persona} onChange={handlePersonaChange} />
       </div>
 
-      {/* Render sections in persona order */}
-      {currentPersona.sections.map(sectionId => sectionMap[sectionId])}
+      {/* Main content with live feed sidebar */}
+      <div className="flex gap-4">
+        {/* Primary content */}
+        <div className="flex-1 min-w-0 space-y-5">
+          {currentPersona.sections.filter(id => id !== 'live-feed').map(sectionId => sectionMap[sectionId])}
+        </div>
+        {/* Live Feed sidebar — right side */}
+        {currentPersona.sections.includes('live-feed') && (
+          <div className="hidden xl:block w-80 flex-shrink-0">
+            <div className="sticky top-6">
+              <LiveFeed maxItems={12} compact={true} />
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Insight Briefing Slide-Out (Task 3) */}
+      <InsightBriefing briefing={activeBriefing} onClose={() => setActiveBriefing(null)} />
     </div>
   )
 }

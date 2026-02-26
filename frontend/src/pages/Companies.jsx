@@ -27,6 +27,14 @@ const COMPANIES = [
     financials: {"2025": {"revenue": 20.3, "operatingMargin": 28.4, "netIncome": 3.8, "ebitda": 6.2, "eps": 16.12, "dividend": 4.56, "debtToEbitda": 2.8, "roic": 14.2}, "2024": {"revenue": 20.0, "operatingMargin": 27.8, "netIncome": 3.6, "ebitda": 5.9, "eps": 15.45, "dividend": 4.4, "debtToEbitda": 2.9, "roic": 13.8}, "2023": {"revenue": 20.5, "operatingMargin": 29.1, "netIncome": 4.0, "ebitda": 6.4, "eps": 16.85, "dividend": 4.28, "debtToEbitda": 2.6, "roic": 15.1}, "2022": {"revenue": 19.4, "operatingMargin": 28.6, "netIncome": 3.9, "ebitda": 5.8, "eps": 15.92, "dividend": 4.02, "debtToEbitda": 2.7, "roic": 14.6}, "2021": {"revenue": 15.5, "operatingMargin": 24.1, "netIncome": 2.8, "ebitda": 4.4, "eps": 11.42, "dividend": 3.64, "debtToEbitda": 3.4, "roic": 11.2}},
     geoRevenue: {"North America": 38, "Europe": 26, "Asia Pacific": 20, "Latin America": 9, "Africa/ME": 7},
     maTimeline: [{"year": 2025, "deal": "Mezcal brand minority stake (undisclosed)", "type": "investment"}, {"year": 2023, "deal": "Sold Archers and Pimm\u2019s to focus portfolio", "type": "divestiture"}, {"year": 2022, "deal": "Acquired remaining 79% of Seedlip for $300M", "type": "acquisition"}, {"year": 2021, "deal": "Invested $115M in Aviation Gin (post Reynolds sale)", "type": "investment"}, {"year": 2020, "deal": "Acquired Chase Distillery (UK craft) for $60M", "type": "acquisition"}, {"year": 2017, "deal": "Acquired Casamigos for $1.3B", "type": "acquisition"}, {"year": 2015, "deal": "Acquired Don Julio from José Cuervo in swap deal", "type": "acquisition"}],
+    profileSources: [
+        {"label": "Annual Report (SEC 20-F Filing)", "url": "https://www.diageo.com/en/investors"},
+        {"label": "Diageo Half-Year Results 2025", "url": "https://www.diageo.com/en/news-and-media"},
+        {"label": "Nielsen IQ Off-Trade Data 2025"},
+        {"label": "IWSR Global Spirits Database", "url": "https://www.theiwsr.com"},
+        {"label": "Euromonitor International — Spirits", "url": "https://www.euromonitor.com"},
+        {"label": "London Stock Exchange", "url": "https://www.londonstockexchange.com/stock/DGE/diageo-plc"},
+      ],
     industryIntel: {
       brandIntel: [
         {"name": "Johnnie Walker", "position": "#1 Scotch whisky globally", "trend": "stable", "latest": "Blue Label Ghost & Rare 2025 release — $350 RRP", "marketShare": "21% of blended Scotch"},
@@ -70,6 +78,13 @@ const COMPANIES = [
     financials: {"2025": {"revenue": 12.1, "operatingMargin": 26.8, "netIncome": 2.1, "ebitda": 3.8, "eps": 8.12, "dividend": 4.12, "debtToEbitda": 2.5, "roic": 10.8}, "2024": {"revenue": 12.2, "operatingMargin": 27.2, "netIncome": 2.2, "ebitda": 3.9, "eps": 8.45, "dividend": 4.0, "debtToEbitda": 2.4, "roic": 11.2}, "2023": {"revenue": 13.0, "operatingMargin": 28.5, "netIncome": 2.5, "ebitda": 4.3, "eps": 9.62, "dividend": 3.85, "debtToEbitda": 2.2, "roic": 12.5}, "2022": {"revenue": 12.5, "operatingMargin": 27.9, "netIncome": 2.3, "ebitda": 4.0, "eps": 8.88, "dividend": 3.72, "debtToEbitda": 2.3, "roic": 11.8}, "2021": {"revenue": 10.7, "operatingMargin": 25.4, "netIncome": 1.8, "ebitda": 3.2, "eps": 6.92, "dividend": 3.12, "debtToEbitda": 3.0, "roic": 9.4}},
     geoRevenue: {"North America": 28, "Europe": 24, "Asia Pacific": 30, "Latin America": 8, "Africa/ME": 10},
     maTimeline: [{"year": 2025, "deal": "Premium RTD brand stake (undisclosed)", "type": "investment"}, {"year": 2024, "deal": "Sold wine portfolio to focus on spirits", "type": "divestiture"}, {"year": 2022, "deal": "Acquired Skrewball Peanut Butter Whiskey for $700M", "type": "acquisition"}, {"year": 2020, "deal": "Acquired Monkey 47 (remaining stake) for €200M", "type": "acquisition"}, {"year": 2019, "deal": "Acquired Castle Brands (Jefferson\u2019s Bourbon) for $223M", "type": "acquisition"}, {"year": 2016, "deal": "Acquired Smooth Ambler Spirits for $65M", "type": "acquisition"}],
+    profileSources: [
+        {"label": "Pernod Ricard Universal Registration Document", "url": "https://www.pernod-ricard.com/en/investors"},
+        {"label": "Pernod Ricard FY25 Annual Results", "url": "https://www.pernod-ricard.com/en/investors"},
+        {"label": "IWSR Global Spirits Database", "url": "https://www.theiwsr.com"},
+        {"label": "Euromonitor International — Spirits", "url": "https://www.euromonitor.com"},
+        {"label": "Euronext Paris", "url": "https://live.euronext.com/en/product/equities/FR0000120693-XPAR"},
+      ],
     industryIntel: {
       brandIntel: [
         {"name": "Jameson", "position": "#1 Irish whiskey globally", "trend": "growing", "latest": "Jameson Black Barrel overtaking Original in US on-trade — premiumisation working", "marketShare": "42% of global Irish whiskey volume"},
@@ -112,6 +127,13 @@ const COMPANIES = [
     financials: {"2025": {"revenue": 7.5, "operatingMargin": 32.1, "netIncome": 1.6, "ebitda": 2.8, "eps": "N/A (group)", "dividend": "N/A (group)", "debtToEbitda": 1.2, "roic": 18.5}, "2024": {"revenue": 7.8, "operatingMargin": 33.5, "netIncome": 1.8, "ebitda": 3.0, "eps": "N/A (group)", "dividend": "N/A (group)", "debtToEbitda": 1.1, "roic": 19.8}, "2023": {"revenue": 7.8, "operatingMargin": 33.2, "netIncome": 1.7, "ebitda": 3.0, "eps": "N/A (group)", "dividend": "N/A (group)", "debtToEbitda": 1.0, "roic": 20.2}, "2022": {"revenue": 7.1, "operatingMargin": 31.4, "netIncome": 1.5, "ebitda": 2.6, "eps": "N/A (group)", "dividend": "N/A (group)", "debtToEbitda": 1.1, "roic": 18.8}, "2021": {"revenue": 6.8, "operatingMargin": 30.8, "netIncome": 1.4, "ebitda": 2.4, "eps": "N/A (group)", "dividend": "N/A (group)", "debtToEbitda": 1.3, "roic": 17.2}},
     geoRevenue: {"North America": 32, "Europe": 22, "Asia Pacific": 36, "Latin America": 5, "Africa/ME": 5},
     maTimeline: [{"year": 2025, "deal": "Château Galoupet rosé acquisition", "type": "acquisition"}, {"year": 2024, "deal": "Volcan de mi Tierra tequila expanded distribution", "type": "investment"}, {"year": 2022, "deal": "Joseph Phelps Vineyards (Napa) acquired", "type": "acquisition"}, {"year": 2019, "deal": "Château d\u2019Esclans (Whispering Angel) acquired for €100M+", "type": "acquisition"}, {"year": 2017, "deal": "Colgin Cellars (Napa cult wine) acquired", "type": "acquisition"}],
+    profileSources: [
+        {"label": "LVMH Annual Report", "url": "https://www.lvmh.com/investors"},
+        {"label": "LVMH H1 2025 Revenue Report", "url": "https://www.lvmh.com/investors"},
+        {"label": "IWSR Champagne & Cognac Report", "url": "https://www.theiwsr.com"},
+        {"label": "Euromonitor — Champagne & Cognac", "url": "https://www.euromonitor.com"},
+        {"label": "Euronext Paris", "url": "https://live.euronext.com/en/product/equities/FR0000121014-XPAR"},
+      ],
     industryIntel: {
       brandIntel: [
         {"name": "Hennessy", "position": "#1 cognac globally (50%+ share)", "trend": "stable", "latest": "Hennessy X.O redesigned bottle launched. VS pricing held at $34.99 despite cost pressure.", "marketShare": "50%+ of global cognac by value"},
@@ -153,6 +175,13 @@ const COMPANIES = [
     financials: {"2025": {"revenue": 5.6, "operatingMargin": 22.5, "netIncome": 0.85}, "2024": {"revenue": 5.4, "operatingMargin": 21.8, "netIncome": 0.78}, "2023": {"revenue": 5.8, "operatingMargin": 23.2, "netIncome": 0.92}, "2022": {"revenue": 5.5, "operatingMargin": 22.0, "netIncome": 0.81}, "2021": {"revenue": 4.6, "operatingMargin": 19.8, "netIncome": 0.6}},
     geoRevenue: {"North America": 42, "Europe": 28, "Asia Pacific": 14, "Latin America": 12, "Africa/ME": 4},
     maTimeline: [{"year": 2023, "deal": "Increased Angel\u2019s Envy investment for US bourbon push", "type": "investment"}, {"year": 2022, "deal": "Acquired Ilegal Mezcal for ~$90M", "type": "acquisition"}, {"year": 2018, "deal": "Acquired Patrón for $5.1B — largest spirits deal ever", "type": "acquisition"}, {"year": 2016, "deal": "Acquired Angel\u2019s Envy Bourbon", "type": "acquisition"}, {"year": 2013, "deal": "Acquired St-Germain elderflower liqueur", "type": "acquisition"}],
+    profileSources: [
+        {"label": "Bacardi Limited Annual Report (Private)", "url": "https://www.bacardilimited.com/media-center"},
+        {"label": "Bacardi Brand Performance Reports", "url": "https://www.bacardilimited.com"},
+        {"label": "IWSR Global Spirits Database", "url": "https://www.theiwsr.com"},
+        {"label": "Euromonitor International — Rum & Tequila", "url": "https://www.euromonitor.com"},
+        {"label": "Impact Databank Top 100 Brands"},
+      ],
     industryIntel: {
       brandIntel: [
         {"name": "Bacardí Rum", "position": "#1 rum globally", "trend": "stable", "latest": "Bacardí Reserva Ocho gaining traction in sipping rum segment. Carta Blanca flat.", "marketShare": "18% of global rum"},
@@ -194,6 +223,13 @@ const COMPANIES = [
     financials: {"2025": {"revenue": 5.1, "operatingMargin": 21.5, "netIncome": 0.72}, "2024": {"revenue": 4.9, "operatingMargin": 20.8, "netIncome": 0.65}, "2023": {"revenue": 5.2, "operatingMargin": 22.1, "netIncome": 0.78}, "2022": {"revenue": 4.8, "operatingMargin": 21.0, "netIncome": 0.68}, "2021": {"revenue": 4.1, "operatingMargin": 18.5, "netIncome": 0.48}},
     geoRevenue: {"North America": 45, "Europe": 20, "Asia Pacific": 28, "Latin America": 5, "Africa/ME": 2},
     maTimeline: [{"year": 2025, "deal": "Sipsmith Gin full acquisition", "type": "acquisition"}, {"year": 2022, "deal": "Launched -196 globally from Japan", "type": "investment"}, {"year": 2020, "deal": "Acquired Sipsmith Gin (51% stake) for £50M", "type": "acquisition"}, {"year": 2017, "deal": "Acquired Pinnacle Vodka", "type": "acquisition"}, {"year": 2014, "deal": "Suntory acquired Beam Inc for $16B", "type": "acquisition"}],
+    profileSources: [
+        {"label": "Suntory Global Spirits Annual Report", "url": "https://www.suntoryglobalspirits.com/investors"},
+        {"label": "Suntory Holdings Financial Results", "url": "https://www.suntory.com/company/financial/"},
+        {"label": "IWSR Bourbon & Japanese Whisky Report", "url": "https://www.theiwsr.com"},
+        {"label": "Euromonitor — Bourbon & American Whiskey", "url": "https://www.euromonitor.com"},
+        {"label": "Impact Databank"},
+      ],
     industryIntel: {
       brandIntel: [
         {"name": "Jim Beam", "position": "#1 bourbon globally", "trend": "stable", "latest": "Jim Beam Black now outselling White Label in on-trade — premiumisation of the core brand", "marketShare": "18% of global bourbon"},
@@ -236,6 +272,13 @@ const COMPANIES = [
     financials: {"2025": {"revenue": 4.2, "operatingMargin": 33.5, "netIncome": 0.95, "ebitda": 1.6, "eps": 2.02, "dividend": 0.86, "debtToEbitda": 2.1, "roic": 16.8}, "2024": {"revenue": 4.1, "operatingMargin": 33.1, "netIncome": 0.92, "ebitda": 1.55, "eps": 1.95, "dividend": 0.82, "debtToEbitda": 2.2, "roic": 16.2}, "2023": {"revenue": 4.3, "operatingMargin": 34.2, "netIncome": 1.0, "ebitda": 1.7, "eps": 2.12, "dividend": 0.8, "debtToEbitda": 1.9, "roic": 17.5}, "2022": {"revenue": 3.9, "operatingMargin": 32.8, "netIncome": 0.88, "ebitda": 1.48, "eps": 1.86, "dividend": 0.76, "debtToEbitda": 2.0, "roic": 15.8}, "2021": {"revenue": 3.5, "operatingMargin": 31.2, "netIncome": 0.72, "ebitda": 1.25, "eps": 1.52, "dividend": 0.72, "debtToEbitda": 2.4, "roic": 13.5}},
     geoRevenue: {"North America": 52, "Europe": 22, "Asia Pacific": 12, "Latin America": 10, "Africa/ME": 4},
     maTimeline: [{"year": 2025, "deal": "Gin Mare and Diplomático distribution rights (US)", "type": "partnership"}, {"year": 2022, "deal": "Acquired GlenDronach, BenRiach, Glenglassaugh for $412M", "type": "acquisition"}, {"year": 2016, "deal": "Sold Southern Comfort and Tuaca brands", "type": "divestiture"}, {"year": 2015, "deal": "Old Forester distillery opened on Whiskey Row, Louisville", "type": "investment"}],
+    profileSources: [
+        {"label": "Brown-Forman 10-K Annual Report (SEC)", "url": "https://www.brown-forman.com/investors"},
+        {"label": "Brown-Forman Q3 FY25 Earnings", "url": "https://www.brown-forman.com/investors"},
+        {"label": "IWSR American Whiskey Report", "url": "https://www.theiwsr.com"},
+        {"label": "Euromonitor — American Whiskey", "url": "https://www.euromonitor.com"},
+        {"label": "NYSE: BF.B", "url": "https://www.nyse.com/quote/XNYS:BF.B"},
+      ],
     industryIntel: {
       brandIntel: [
         {"name": "Jack Daniel\u2019s", "position": "#1 American whiskey globally", "trend": "stable", "latest": "Jack Daniel\u2019s Bonded and Triple Mash extending ultra-premium range. Core Old No.7 volume flat.", "marketShare": "27% of global American whiskey"},
@@ -278,6 +321,13 @@ const COMPANIES = [
     financials: {"2025": {"revenue": 3.1, "operatingMargin": 22.8, "netIncome": 0.48, "ebitda": 0.82, "eps": 0.42, "dividend": 0.065, "debtToEbitda": 3.2, "roic": 8.5}, "2024": {"revenue": 2.9, "operatingMargin": 22.1, "netIncome": 0.42, "ebitda": 0.74, "eps": 0.37, "dividend": 0.062, "debtToEbitda": 2.8, "roic": 8.2}, "2023": {"revenue": 3.0, "operatingMargin": 23.5, "netIncome": 0.5, "ebitda": 0.82, "eps": 0.44, "dividend": 0.06, "debtToEbitda": 2.5, "roic": 9.1}, "2022": {"revenue": 2.7, "operatingMargin": 21.5, "netIncome": 0.39, "ebitda": 0.68, "eps": 0.34, "dividend": 0.058, "debtToEbitda": 2.4, "roic": 8.8}, "2021": {"revenue": 2.2, "operatingMargin": 19.8, "netIncome": 0.28, "ebitda": 0.5, "eps": 0.24, "dividend": 0.055, "debtToEbitda": 2.6, "roic": 7.2}},
     geoRevenue: {"North America": 35, "Europe": 40, "Asia Pacific": 12, "Latin America": 8, "Africa/ME": 5},
     maTimeline: [{"year": 2025, "deal": "Courvoisier cognac from Beam Suntory for $1.2B", "type": "acquisition"}, {"year": 2022, "deal": "Wilderness Trail Distillery (craft bourbon) acquired", "type": "acquisition"}, {"year": 2020, "deal": "Champagne Lallier acquired", "type": "acquisition"}, {"year": 2019, "deal": "Acquired Rhumerie Trois Rivières", "type": "acquisition"}, {"year": 2016, "deal": "Grand Marnier acquired for €684M", "type": "acquisition"}, {"year": 2014, "deal": "Acquired Forty Creek Whisky (Canada)", "type": "acquisition"}],
+    profileSources: [
+        {"label": "Campari Group Annual Report", "url": "https://www.camparigroup.com/en/page/investors"},
+        {"label": "Campari FY25 Results Presentation", "url": "https://www.camparigroup.com/en/page/investors"},
+        {"label": "IWSR Aperitif & Bourbon Report", "url": "https://www.theiwsr.com"},
+        {"label": "Euromonitor — Italian Spirits", "url": "https://www.euromonitor.com"},
+        {"label": "Borsa Italiana", "url": "https://www.borsaitaliana.it/borsa/azioni/scheda/IT0005252207.html"},
+      ],
     industryIntel: {
       brandIntel: [
         {"name": "Aperol", "position": "#1 aperitif globally", "trend": "growing", "latest": "Aperol Spritz now the #1 cocktail in UK on-trade (overtook G&T in 2025). Volume +14% YoY.", "marketShare": "Dominant in aperitif/spritz category"},
@@ -319,6 +369,13 @@ const COMPANIES = [
     financials: {"2025": {"revenue": 2.2, "operatingMargin": 24.5, "netIncome": 0.35}, "2024": {"revenue": 2.1, "operatingMargin": 23.8, "netIncome": 0.32}, "2023": {"revenue": 2.2, "operatingMargin": 25.1, "netIncome": 0.38}, "2022": {"revenue": 2.0, "operatingMargin": 23.2, "netIncome": 0.3}, "2021": {"revenue": 1.7, "operatingMargin": 21.0, "netIncome": 0.22}},
     geoRevenue: {"North America": 32, "Europe": 30, "Asia Pacific": 22, "Latin America": 8, "Africa/ME": 8},
     maTimeline: [{"year": 2023, "deal": "Acquired Fistful of Bourbon brand", "type": "acquisition"}, {"year": 2020, "deal": "Acquired Milagro tequila", "type": "acquisition"}, {"year": 2016, "deal": "Acquired Drambuie for £100M", "type": "acquisition"}, {"year": 2014, "deal": "Tullamore D.E.W. distillery opened (€35M investment)", "type": "investment"}],
+    profileSources: [
+        {"label": "William Grant & Sons Annual Accounts (Companies House)", "url": "https://find-and-update.company-information.service.gov.uk"},
+        {"label": "Grant’s Family Heritage Report", "url": "https://www.williamgrant.com"},
+        {"label": "IWSR Scotch & Gin Report", "url": "https://www.theiwsr.com"},
+        {"label": "Euromonitor — Scotch Whisky & Gin", "url": "https://www.euromonitor.com"},
+        {"label": "Scotch Whisky Association Data", "url": "https://www.scotch-whisky.org.uk"},
+      ],
     industryIntel: {
       brandIntel: [
         {"name": "Glenfiddich", "position": "#1 single malt by volume globally", "trend": "stable", "latest": "Glenfiddich Grand Cru 23 Year launched — wine cask finish targeting luxury segment", "marketShare": "18% of global single malt Scotch"},
@@ -360,6 +417,13 @@ const COMPANIES = [
     financials: {"2025": {"revenue": 1.1, "operatingMargin": 28.2, "netIncome": 0.21}, "2024": {"revenue": 1.05, "operatingMargin": 27.5, "netIncome": 0.19}, "2023": {"revenue": 1.12, "operatingMargin": 29.0, "netIncome": 0.22}, "2022": {"revenue": 1.0, "operatingMargin": 27.0, "netIncome": 0.18}, "2021": {"revenue": 0.85, "operatingMargin": 24.5, "netIncome": 0.13}},
     geoRevenue: {"North America": 25, "Europe": 25, "Asia Pacific": 40, "Latin America": 5, "Africa/ME": 5},
     maTimeline: [{"year": 2019, "deal": "Brugal rum integration completed", "type": "investment"}, {"year": 2018, "deal": "Opened £140M Macallan distillery on Easter Elchies estate", "type": "investment"}, {"year": 2015, "deal": "Naked Malt repositioned from Naked Grouse", "type": "investment"}],
+    profileSources: [
+        {"label": "Edrington Annual Report", "url": "https://www.edrington.com/en/our-story"},
+        {"label": "The Robertson Trust Financial Reports"},
+        {"label": "IWSR Scotch Whisky Report", "url": "https://www.theiwsr.com"},
+        {"label": "Euromonitor — Scotch Whisky", "url": "https://www.euromonitor.com"},
+        {"label": "Scotch Whisky Association Export Data", "url": "https://www.scotch-whisky.org.uk"},
+      ],
     industryIntel: {
       brandIntel: [
         {"name": "The Macallan", "position": "#1 luxury single malt globally", "trend": "growing", "latest": "The Macallan Horizon released at £300 in innovative vessel design. Sherry Oak 30 now £2,500+.", "marketShare": "#1 single malt by VALUE globally (£1.5B+ estimated)"},
@@ -402,6 +466,13 @@ const COMPANIES = [
     financials: {"2025": {"revenue": 1.5, "operatingMargin": 26.5, "netIncome": 0.26, "ebitda": 0.46, "eps": 3.42, "dividend": 2.0, "debtToEbitda": 2.8, "roic": 9.2}, "2024": {"revenue": 1.6, "operatingMargin": 28.2, "netIncome": 0.3, "ebitda": 0.52, "eps": 3.95, "dividend": 2.0, "debtToEbitda": 2.5, "roic": 10.5}, "2023": {"revenue": 1.8, "operatingMargin": 30.5, "netIncome": 0.38, "ebitda": 0.64, "eps": 5.02, "dividend": 2.0, "debtToEbitda": 2.0, "roic": 13.2}, "2022": {"revenue": 1.7, "operatingMargin": 29.8, "netIncome": 0.35, "ebitda": 0.59, "eps": 4.62, "dividend": 1.85, "debtToEbitda": 2.1, "roic": 12.5}, "2021": {"revenue": 1.4, "operatingMargin": 25.2, "netIncome": 0.22, "ebitda": 0.41, "eps": 2.88, "dividend": 1.65, "debtToEbitda": 2.8, "roic": 8.8}},
     geoRevenue: {"North America": 38, "Europe": 18, "Asia Pacific": 35, "Latin America": 5, "Africa/ME": 4},
     maTimeline: [{"year": 2023, "deal": "Telmont Champagne sustainability showcase", "type": "investment"}, {"year": 2021, "deal": "Increased Bruichladdich capacity by 20%", "type": "investment"}, {"year": 2012, "deal": "Acquired Bruichladdich for £58M", "type": "acquisition"}, {"year": 2006, "deal": "Acquired Mount Gay rum", "type": "acquisition"}],
+    profileSources: [
+        {"label": "Rémy Cointreau Universal Registration Document", "url": "https://www.remy-cointreau.com/en/investors/"},
+        {"label": "Rémy Cointreau H1 FY26 Results", "url": "https://www.remy-cointreau.com/en/investors/"},
+        {"label": "BNIC Cognac Export Data", "url": "https://www.cognac.fr"},
+        {"label": "IWSR Cognac & Liqueurs Report", "url": "https://www.theiwsr.com"},
+        {"label": "Euronext Paris", "url": "https://live.euronext.com/en/product/equities/FR0000130395-XPAR"},
+      ],
     industryIntel: {
       estimatedRevenue: null,
       brandIntel: [
@@ -444,6 +515,13 @@ const COMPANIES = [
     financials: {"2025": {"revenue": 2.8, "operatingMargin": 25.0, "netIncome": 0.48}, "2024": {"revenue": 2.6, "operatingMargin": 24.2, "netIncome": 0.42}, "2023": {"revenue": 2.7, "operatingMargin": 25.5, "netIncome": 0.5}, "2022": {"revenue": 2.5, "operatingMargin": 23.8, "netIncome": 0.4}, "2021": {"revenue": 2.1, "operatingMargin": 21.5, "netIncome": 0.28}},
     geoRevenue: {"North America": 85, "Europe": 8, "Asia Pacific": 4, "Latin America": 2, "Africa/ME": 1},
     maTimeline: [{"year": 2025, "deal": "Irish whiskey distillery (Cork) acquired", "type": "acquisition"}, {"year": 2024, "deal": "Buffalo Trace $1.2B expansion Phase 1 completed", "type": "investment"}, {"year": 2021, "deal": "Acquired multiple craft brands portfolio", "type": "acquisition"}, {"year": 2016, "deal": "Acquired Southern Comfort from Brown-Forman", "type": "acquisition"}],
+    profileSources: [
+        {"label": "Sazerac Company (Private — Limited Public Data)", "url": "https://www.sazerac.com"},
+        {"label": "Buffalo Trace Distillery Visitor Data", "url": "https://www.buffalotracedistillery.com"},
+        {"label": "IWSR Bourbon & American Whiskey", "url": "https://www.theiwsr.com"},
+        {"label": "Euromonitor — Bourbon & American Whiskey", "url": "https://www.euromonitor.com"},
+        {"label": "Kentucky Distillers’ Association Data", "url": "https://kybourbon.com"},
+      ],
     industryIntel: {
       brandIntel: [
         {"name": "Buffalo Trace", "position": "#3 premium bourbon", "trend": "growing", "latest": "Buffalo Trace expansion Phase 2 breaking ground — 30 additional barrel warehouses. Capacity doubling.", "marketShare": "~8% US premium bourbon"},
@@ -487,6 +565,13 @@ const COMPANIES = [
     financials: {"2025": {"revenue": 59.4, "operatingMargin": 32.8, "netIncome": 5.8, "ebitda": 20.1, "eps": 2.94, "dividend": 0.82, "debtToEbitda": 3.2, "roic": 8.1}, "2024": {"revenue": 57.8, "operatingMargin": 31.5, "netIncome": 5.3, "ebitda": 19.2, "eps": 2.68, "dividend": 0.82, "debtToEbitda": 3.4, "roic": 7.6}, "2023": {"revenue": 57.4, "operatingMargin": 30.8, "netIncome": 4.9, "ebitda": 18.8, "eps": 2.45, "dividend": 0.75, "debtToEbitda": 3.6, "roic": 7.2}, "2022": {"revenue": 57.8, "operatingMargin": 31.2, "netIncome": 5.1, "ebitda": 19.0, "eps": 2.52, "dividend": 0.75, "debtToEbitda": 3.8, "roic": 7.0}, "2021": {"revenue": 54.3, "operatingMargin": 28.9, "netIncome": 4.5, "ebitda": 17.4, "eps": 2.22, "dividend": 0.50, "debtToEbitda": 4.2, "roic": 6.1}},
     geoRevenue: {"North America": 28, "Europe": 18, "Latin America": 32, "Asia Pacific": 14, "Africa/ME": 8},
     maTimeline: [{"year": 2025, "deal": "Mexican spirits startup (minority stake)", "type": "investment"}, {"year": 2022, "deal": "Acquired Cutwater Spirits for $300M (US RTD)", "type": "acquisition"}, {"year": 2020, "deal": "Acquired craft beer portfolio consolidation (10 Barrel, Elysian)", "type": "acquisition"}, {"year": 2016, "deal": "Merged with SABMiller for $107B — largest beer deal ever", "type": "acquisition"}, {"year": 2015, "deal": "Acquired Camden Town Brewery (UK craft)", "type": "acquisition"}],
+    profileSources: [
+        {"label": "AB InBev Annual Report (SEC 20-F)", "url": "https://www.ab-inbev.com/investors/"},
+        {"label": "AB InBev Q4 2025 Results", "url": "https://www.ab-inbev.com/investors/"},
+        {"label": "Euromonitor — Global Beer", "url": "https://www.euromonitor.com"},
+        {"label": "IWSR Beer & Beyond Beer Report", "url": "https://www.theiwsr.com"},
+        {"label": "NYSE: BUD / Euronext: ABI", "url": "https://www.nyse.com/quote/XNYS:BUD"},
+      ],
     industryIntel: {
       brandIntel: [
         {name: "Corona", position: "#1 world beer by value", trend: "growing", latest: "Corona Cero 0.0% now in 60+ markets. Brand value $8.7B.", marketShare: "#1 imported beer globally"},
@@ -530,6 +615,13 @@ const COMPANIES = [
     financials: {"2025": {"revenue": 10.2, "operatingMargin": 36.4, "netIncome": 2.8, "ebitda": 4.2, "eps": 15.12, "dividend": 3.56, "debtToEbitda": 3.0, "roic": 11.5}, "2024": {"revenue": 9.6, "operatingMargin": 35.8, "netIncome": 2.5, "ebitda": 3.9, "eps": 13.42, "dividend": 3.20, "debtToEbitda": 3.2, "roic": 10.8}, "2023": {"revenue": 9.4, "operatingMargin": 35.2, "netIncome": 2.2, "ebitda": 3.7, "eps": 11.85, "dividend": 3.08, "debtToEbitda": 3.4, "roic": 10.2}, "2022": {"revenue": 8.8, "operatingMargin": 34.5, "netIncome": 2.0, "ebitda": 3.4, "eps": 10.55, "dividend": 2.76, "debtToEbitda": 3.6, "roic": 9.5}, "2021": {"revenue": 8.6, "operatingMargin": 33.8, "netIncome": 1.8, "ebitda": 3.2, "eps": 9.42, "dividend": 2.52, "debtToEbitda": 3.8, "roic": 8.8}},
     geoRevenue: {"North America": 96, "Europe": 2, "Asia Pacific": 1, "Latin America": 1, "Africa/ME": 0},
     maTimeline: [{"year": 2025, "deal": "Divested $1.7B wine portfolio to The Wine Group", "type": "divestiture"}, {"year": 2022, "deal": "Acquired remaining stake in Modelo/Corona US rights", "type": "acquisition"}, {"year": 2021, "deal": "Invested additional $245M in Canopy Growth (cannabis)", "type": "investment"}, {"year": 2016, "deal": "Acquired High West Distillery for $160M", "type": "acquisition"}, {"year": 2013, "deal": "Acquired Modelo/Corona US distribution for $5.3B from AB InBev", "type": "acquisition"}],
+    profileSources: [
+        {"label": "Constellation Brands 10-K (SEC)", "url": "https://www.cbrands.com/investors"},
+        {"label": "Constellation Q3 FY26 Earnings", "url": "https://www.cbrands.com/investors"},
+        {"label": "IWSR US Beer & Spirits Report", "url": "https://www.theiwsr.com"},
+        {"label": "Euromonitor — US Beer & Wine", "url": "https://www.euromonitor.com"},
+        {"label": "NYSE: STZ", "url": "https://www.nyse.com/quote/XNYS:STZ"},
+      ],
     industryIntel: {
       brandIntel: [
         {name: "Modelo Especial", position: "#1 beer brand in the United States", trend: "growing", latest: "30 consecutive months as #1 US beer. +8% volume growth in latest quarter.", marketShare: "#1 US beer by dollar sales"},
@@ -573,6 +665,13 @@ const COMPANIES = [
     financials: {"2025": {"revenue": 9.8, "operatingMargin": 15.2, "netIncome": 1.1, "ebitda": 2.2, "eps": 7.85, "dividend": 3.20, "debtToEbitda": 1.4, "roic": 10.8}, "2024": {"revenue": 9.6, "operatingMargin": 14.8, "netIncome": 1.0, "ebitda": 2.1, "eps": 7.42, "dividend": 3.00, "debtToEbitda": 1.5, "roic": 10.2}, "2023": {"revenue": 9.4, "operatingMargin": 14.2, "netIncome": 0.9, "ebitda": 2.0, "eps": 6.85, "dividend": 2.80, "debtToEbitda": 1.6, "roic": 9.5}, "2022": {"revenue": 9.1, "operatingMargin": 13.5, "netIncome": 0.8, "ebitda": 1.8, "eps": 6.12, "dividend": 2.50, "debtToEbitda": 1.7, "roic": 8.8}, "2021": {"revenue": 8.6, "operatingMargin": 12.8, "netIncome": 0.7, "ebitda": 1.6, "eps": 5.22, "dividend": 2.20, "debtToEbitda": 1.9, "roic": 7.8}},
     geoRevenue: {"Western Europe": 42, "Asia": 28, "Central/Eastern Europe": 18, "North America": 6, "Other": 6},
     maTimeline: [{"year": 2025, "deal": "Nordic craft spirits startup (minority stake)", "type": "investment"}, {"year": 2022, "deal": "Exited Russia — Baltika Breweries nationalised by Russian government", "type": "divestiture"}, {"year": 2020, "deal": "Carlsberg Marston\u2019s Brewing Company (CMBC) UK JV formed", "type": "joint_venture"}, {"year": 2019, "deal": "Acquired remaining stake in Chongqing Brewery (China)", "type": "acquisition"}, {"year": 2016, "deal": "Acquired London Fields Brewery (UK craft)", "type": "acquisition"}],
+    profileSources: [
+        {"label": "Carlsberg Annual Report", "url": "https://www.carlsberggroup.com/investor-relations/"},
+        {"label": "Carlsberg FY25 Results", "url": "https://www.carlsberggroup.com/investor-relations/"},
+        {"label": "Euromonitor — Global Beer", "url": "https://www.euromonitor.com"},
+        {"label": "IWSR Beer Report", "url": "https://www.theiwsr.com"},
+        {"label": "Nasdaq Copenhagen: CARL-B", "url": "https://www.nasdaqomxnordic.com"},
+      ],
     industryIntel: {
       brandIntel: [
         {name: "Kronenbourg 1664 Blanc", position: "Fastest-growing world lager in Europe", trend: "growing", latest: "Surpassed Peroni as UK #2 world lager. Blanc variant drives premiumisation.", marketShare: "~5% UK premium lager"},
@@ -1069,6 +1168,20 @@ function CompanyDetail({ company }) {
             </div>
           </div>
           <RecentMoves moves={company.recentMoves} />
+          {company.profileSources && (
+            <div className="bg-gray-50 rounded-xl border border-gray-200 p-5 mt-6">
+              <h3 className="text-sm font-semibold text-navy uppercase tracking-wide mb-3 flex items-center gap-2"><BookOpen size={16} /> Data Sources & Citations</h3>
+              <div className="space-y-2">
+                {company.profileSources.map((s, i) => (
+                  <div key={i} className="flex items-center gap-2 text-xs text-gray-600">
+                    <span className="w-1.5 h-1.5 bg-gold rounded-full flex-shrink-0" />
+                    {s.url ? <a href={s.url} target="_blank" rel="noopener noreferrer" className="hover:text-navy hover:underline transition-colors">{s.label} <ExternalLink size={10} className="inline ml-0.5 opacity-50" /></a> : <span>{s.label}</span>}
+                  </div>
+                ))}
+              </div>
+              <p className="text-[10px] text-gray-400 mt-3 border-t border-gray-200 pt-2">Financial data sourced from annual reports, SEC/regulatory filings, and industry databases. Market share estimates from IWSR and Euromonitor. Last updated: February 2026.</p>
+            </div>
+          )}
         </div>
       )}
 

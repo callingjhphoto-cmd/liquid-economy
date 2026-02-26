@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react'
+import { Link } from 'react-router-dom'
 import {
   TrendingUp, TrendingDown, Activity, AlertTriangle, Calendar,
   Globe, BarChart3, Zap, ArrowUpRight, ArrowDownRight, ExternalLink,
@@ -54,16 +55,17 @@ const UPCOMING_EVENTS = [
 
 // ── Category Snapshot with mini-trend data ──
 const CATEGORY_SNAPSHOT = [
-  { name: 'Tequila & Mezcal', size: '$4.8B', growth: '+7.8%', dir: 'up', signal: 'Agave surplus may ease costs', trend: [{ v: 3.2 }, { v: 3.6 }, { v: 4.0 }, { v: 4.4 }, { v: 4.8 }], channels: { onTrade: 35, offTrade: 42, eComm: 12, travelRetail: 11 } },
-  { name: 'Vodka', size: '$40.1B', growth: '-0.8%', dir: 'down', signal: 'Premiumization offsetting volume decline', trend: [{ v: 41.5 }, { v: 41.2 }, { v: 40.8 }, { v: 40.4 }, { v: 40.1 }], channels: { onTrade: 30, offTrade: 52, eComm: 10, travelRetail: 8 } },
-  { name: 'Whisky (Global)', size: '$6.3B', growth: '+4.2%', dir: 'up', signal: 'Japanese whisky supply constraints', trend: [{ v: 5.1 }, { v: 5.4 }, { v: 5.7 }, { v: 6.0 }, { v: 6.3 }], channels: { onTrade: 33, offTrade: 40, eComm: 14, travelRetail: 13 } },
-  { name: 'Gin', size: '$14.2B', growth: '+1.2%', dir: 'up', signal: 'Growth plateauing post-boom', trend: [{ v: 12.8 }, { v: 13.5 }, { v: 13.9 }, { v: 14.0 }, { v: 14.2 }], channels: { onTrade: 38, offTrade: 40, eComm: 13, travelRetail: 9 } },
-  { name: 'Rum', size: '$15.8B', growth: '+3.1%', dir: 'up', signal: 'Premium dark rum accelerating', trend: [{ v: 13.8 }, { v: 14.2 }, { v: 14.8 }, { v: 15.3 }, { v: 15.8 }], channels: { onTrade: 34, offTrade: 44, eComm: 11, travelRetail: 11 } },
-  { name: 'Cognac & Brandy', size: '$4.1B', growth: '-2.4%', dir: 'down', signal: 'China tariff impact persists', trend: [{ v: 4.8 }, { v: 4.6 }, { v: 4.4 }, { v: 4.2 }, { v: 4.1 }], channels: { onTrade: 28, offTrade: 38, eComm: 12, travelRetail: 22 } },
-  { name: 'Champagne & Sparkling', size: '$7.2B', growth: '+2.8%', dir: 'up', signal: 'Prosecco growth offsetting Champagne softness', trend: [{ v: 6.2 }, { v: 6.5 }, { v: 6.8 }, { v: 7.0 }, { v: 7.2 }], channels: { onTrade: 40, offTrade: 35, eComm: 10, travelRetail: 15 } },
-  { name: 'Wine (Still)', size: '$38.2B', growth: '-1.2%', dir: 'down', signal: 'Structural volume decline continues', trend: [{ v: 40.1 }, { v: 39.5 }, { v: 39.0 }, { v: 38.6 }, { v: 38.2 }], channels: { onTrade: 32, offTrade: 50, eComm: 12, travelRetail: 6 } },
-  { name: 'Beer & Craft', size: '$623B', growth: '+1.4%', dir: 'up', signal: 'Craft consolidation wave', trend: [{ v: 590 }, { v: 600 }, { v: 608 }, { v: 615 }, { v: 623 }], channels: { onTrade: 45, offTrade: 42, eComm: 8, travelRetail: 5 } },
-  { name: 'RTD / Ready-to-Drink', size: '$40B', growth: '+8.2%', dir: 'up', signal: 'Maturing from explosive growth phase', trend: [{ v: 25 }, { v: 29 }, { v: 33 }, { v: 37 }, { v: 40 }], channels: { onTrade: 20, offTrade: 55, eComm: 18, travelRetail: 7 } },
+  { key: 'tequila', name: 'Tequila & Mezcal', size: '$4.8B', growth: '+7.8%', dir: 'up', signal: 'Agave surplus may ease costs', trend: [{ v: 3.2 }, { v: 3.6 }, { v: 4.0 }, { v: 4.4 }, { v: 4.8 }], channels: { onTrade: 35, offTrade: 42, eComm: 12, travelRetail: 11 } },
+  { key: 'vodka', name: 'Vodka', size: '$40.1B', growth: '-0.8%', dir: 'down', signal: 'Premiumization offsetting volume decline', trend: [{ v: 41.5 }, { v: 41.2 }, { v: 40.8 }, { v: 40.4 }, { v: 40.1 }], channels: { onTrade: 30, offTrade: 52, eComm: 10, travelRetail: 8 } },
+  { key: 'whisky', name: 'Whisky (Global)', size: '$6.3B', growth: '+4.2%', dir: 'up', signal: 'Japanese whisky supply constraints', trend: [{ v: 5.1 }, { v: 5.4 }, { v: 5.7 }, { v: 6.0 }, { v: 6.3 }], channels: { onTrade: 33, offTrade: 40, eComm: 14, travelRetail: 13 } },
+  { key: 'gin', name: 'Gin', size: '$14.2B', growth: '+1.2%', dir: 'up', signal: 'Growth plateauing post-boom', trend: [{ v: 12.8 }, { v: 13.5 }, { v: 13.9 }, { v: 14.0 }, { v: 14.2 }], channels: { onTrade: 38, offTrade: 40, eComm: 13, travelRetail: 9 } },
+  { key: 'rum', name: 'Rum', size: '$15.8B', growth: '+3.1%', dir: 'up', signal: 'Premium dark rum accelerating', trend: [{ v: 13.8 }, { v: 14.2 }, { v: 14.8 }, { v: 15.3 }, { v: 15.8 }], channels: { onTrade: 34, offTrade: 44, eComm: 11, travelRetail: 11 } },
+  { key: 'cognac', name: 'Cognac & Brandy', size: '$4.1B', growth: '-2.4%', dir: 'down', signal: 'China tariff impact persists', trend: [{ v: 4.8 }, { v: 4.6 }, { v: 4.4 }, { v: 4.2 }, { v: 4.1 }], channels: { onTrade: 28, offTrade: 38, eComm: 12, travelRetail: 22 } },
+  { key: 'champagne', name: 'Champagne & Sparkling', size: '$7.2B', growth: '+2.8%', dir: 'up', signal: 'Prosecco growth offsetting Champagne softness', trend: [{ v: 6.2 }, { v: 6.5 }, { v: 6.8 }, { v: 7.0 }, { v: 7.2 }], channels: { onTrade: 40, offTrade: 35, eComm: 10, travelRetail: 15 } },
+  { key: 'wine', name: 'Wine (Still)', size: '$38.2B', growth: '-1.2%', dir: 'down', signal: 'Structural volume decline continues', trend: [{ v: 40.1 }, { v: 39.5 }, { v: 39.0 }, { v: 38.6 }, { v: 38.2 }], channels: { onTrade: 32, offTrade: 50, eComm: 12, travelRetail: 6 } },
+  { key: 'beer', name: 'Beer & Craft', size: '$623B', growth: '+1.4%', dir: 'up', signal: 'Craft consolidation wave', trend: [{ v: 590 }, { v: 600 }, { v: 608 }, { v: 615 }, { v: 623 }], channels: { onTrade: 45, offTrade: 42, eComm: 8, travelRetail: 5 } },
+  { key: 'nolo', name: 'No/Low Alcohol', size: '$13B', growth: '+9.5%', dir: 'up', signal: 'Fastest-growing segment globally', trend: [{ v: 7.5 }, { v: 8.8 }, { v: 10.2 }, { v: 11.5 }, { v: 13 }], channels: { onTrade: 25, offTrade: 48, eComm: 20, travelRetail: 7 } },
+  { key: 'rtd', name: 'RTD / Ready-to-Drink', size: '$40B', growth: '+8.2%', dir: 'up', signal: 'Maturing from explosive growth phase', trend: [{ v: 25 }, { v: 29 }, { v: 33 }, { v: 37 }, { v: 40 }], channels: { onTrade: 20, offTrade: 55, eComm: 18, travelRetail: 7 } },
 ]
 
 // ── Regional Pulse ──
@@ -336,7 +338,7 @@ function SignalRow({ signal }) {
 function CategoryRow({ cat }) {
   const isUp = cat.dir === 'up'
   return (
-    <div className="flex items-center gap-2 px-3 py-2 border-b border-gray-50 last:border-0 hover:bg-gray-50/50 transition-colors cursor-pointer group">
+    <Link to={`/category/${cat.key}`} className="flex items-center gap-2 px-3 py-2 border-b border-gray-50 last:border-0 hover:bg-gray-50/50 transition-colors cursor-pointer group no-underline">
       <div className="flex-1 min-w-0">
         <div className="text-xs font-medium text-navy group-hover:text-gold transition-colors">{cat.name}</div>
         <div className="text-[10px] text-gray-400 truncate">{cat.signal}</div>
@@ -356,7 +358,7 @@ function CategoryRow({ cat }) {
         <span className={`text-[10px] font-medium ${isUp ? 'text-green-600' : 'text-red-500'}`}>{cat.growth}</span>
       </div>
       <ChevronRight size={12} className="text-gray-300 group-hover:text-gold transition-colors flex-shrink-0" />
-    </div>
+    </Link>
   )
 }
 

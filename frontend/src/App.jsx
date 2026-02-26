@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Link, Navigate, useLocation } from 'react-router-dom'
-import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, Settings, LogOut, Menu, MessageCircle, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag } from 'lucide-react'
+import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, Settings, LogOut, Menu, MessageCircle, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag, Crosshair } from 'lucide-react'
 import { api, getToken, setToken, clearToken } from './lib/api'
 import CommandCentre from './pages/CommandCentre'
 import Valuations from './pages/Valuations'
@@ -13,6 +13,7 @@ import CategoryIntelligence from './pages/CategoryIntelligence'
 import VenueIntelligence from './pages/VenueIntelligence'
 import ClimateYield from './pages/ClimateYield'
 import POSIntelligence from './pages/POSIntelligence'
+import CategoryCommandView from './pages/CategoryCommandView'
 import ChatPanel from './components/ChatPanel'
 
 function Login({ onLogin }) {
@@ -151,6 +152,7 @@ function Layout({ onLogout }) {
             <Route path="/supply-chain" element={<SupplyChain />} />
             <Route path="/geographic" element={<GeographicIntelligence />} />
                 <Route path="/categories" element={<CategoryIntelligence />} />
+            <Route path="/category/:categoryId" element={<CategoryCommandView />} />
             <Route path="/venues" element={<VenueIntelligence />} />
             <Route path="/valuations" element={<Valuations />} />
             <Route path="/pricing" element={<BrandPricing />} />

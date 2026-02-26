@@ -784,7 +784,7 @@ function HowToCompete({ company }) {
     <div className="space-y-6">
       <div className="bg-gradient-to-br from-navy/5 to-navy/10 rounded-xl border border-navy/20 p-5">
         <h3 className="text-sm font-semibold text-navy uppercase tracking-wide mb-1 flex items-center gap-2">
-          <Target size={16} /> How to Compete Against {company.name}
+          <Target size={16} /> Opportunities — {company.name}
         </h3>
         <p className="text-xs text-gray-500 mb-4">Strategic intelligence for brand managers and startup founders</p>
         {company.howToCompeteAgainst && company.howToCompeteAgainst.map((s, i) => (
@@ -1026,7 +1026,7 @@ function CompanyDetail({ company }) {
   const [companyTab, setCompanyTab] = useState('compete')
 
   const tabs = [
-    { id: 'compete', label: 'How to Compete', icon: Target },
+    { id: 'compete', label: 'Opportunities', icon: Target },
     { id: 'overview', label: 'Company Profile', icon: Building2 },
     { id: 'categories', label: 'Categories', icon: Layers },
     { id: 'distribution', label: 'Distribution', icon: MapPin },

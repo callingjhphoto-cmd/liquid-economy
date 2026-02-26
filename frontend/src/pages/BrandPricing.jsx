@@ -1,10 +1,10 @@
-import React, { useState, useMemo, useEffect } from 'react'
+import React, { useState, useMemo, useEffect, useCallback } from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts'
 import {
   Search, ArrowUpDown, Filter, TrendingUp, TrendingDown, Minus,
   ChevronDown, ChevronUp, DollarSign, Globe, Info, Store,
   Clock, RefreshCw, MapPin, ShoppingCart, ExternalLink, AlertCircle,
-  Eye, BarChart3, Columns, Package
+  Eye, BarChart3, Columns, Package, Edit3
 } from 'lucide-react'
 
 // \u2500\u2500 Segment Definitions \u2500\u2500
@@ -227,6 +227,34 @@ const BRAND_DATABASE = [
     offers: {} },
 ]
 
+// \u2500\u2500 Editable Prices Hook \u2500\u2500
+function useEditablePrices() {
+  const [editedPrices, setEditedPrices] = useState(() => {
+    try {
+      const saved = localStorage.getItem('le_edited_prices')
+      return saved ? JSON.parse(saved) : {}
+    } catch { return {} }
+  })
+
+  const updatePrice = useCallback((productIdx, market, retailerId, newPrice) => {
+    setEditedPrices(prev => {
+      const key = `${productIdx}-${market}-${retailerId}`
+      const next = { ...prev, [key]: parseFloat(newPrice) || null }
+      try { localStorage.setItem('le_edited_prices', JSON.stringify(next)) } catch {}
+      return next
+    })
+  }, [])
+
+  const clearEdits = useCallback(() => {
+    setEditedPrices({})
+    try { localStorage.removeItem('le_edited_prices') } catch {}
+  }, [])
+
+  const hasEdits = Object.keys(editedPrices).length > 0
+
+  return { editedPrices, updatePrice, clearEdits, hasEdits }
+}
+
 // \u2500\u2500 Process data \u2500\u2500
 const PRICING = BRAND_DATABASE.map(item => {
   const marketAvgs = {}
@@ -323,10 +351,64 @@ function buildProductUrl(retailer, product) {
   return retailer.url + encodeURIComponent(searchTerm)
 }
 
+// Price Comparison Links component
+function PriceComparisonLinks({ market, product }) {
+  const searchTerm = encodeURIComponent(product.brand + ' ' + product.expression)
+
+  const links = {
+    uk: [
+      { name: 'Trolley', url: `https://www.trolley.co.uk/search/?q=${searchTerm}` },
+      { name: 'Google Shopping', url: `https://www.google.co.uk/search?tbm=shop&q=${searchTerm}` }
+    ],
+    us: [
+      { name: 'Google Shopping', url: `https://www.google.com/search?tbm=shop&q=${searchTerm}` },
+      { name: 'Wine-Searcher', url: `https://www.wine-searcher.com/find/${searchTerm}` }
+    ],
+    spain: [
+      { name: 'idealo', url: `https://www.idealo.es/` },
+      { name: 'Google Shopping', url: `https://www.google.es/search?tbm=shop&q=${searchTerm}` }
+    ],
+    france: [
+      { name: 'idealo', url: `https://www.idealo.fr/` },
+      { name: 'Google Shopping', url: `https://www.google.fr/search?tbm=shop&q=${searchTerm}` }
+    ],
+    germany: [
+      { name: 'idealo', url: `https://www.idealo.de/` },
+      { name: 'Google Shopping', url: `https://www.google.de/search?tbm=shop&q=${searchTerm}` }
+    ],
+    italy: [
+      { name: 'idealo', url: `https://www.idealo.it/` },
+      { name: 'Google Shopping', url: `https://www.google.it/search?tbm=shop&q=${searchTerm}` }
+    ],
+    netherlands: [
+      { name: 'idealo', url: `https://www.idealo.nl/` },
+      { name: 'Google Shopping', url: `https://www.google.nl/search?tbm=shop&q=${searchTerm}` }
+    ],
+    me: [
+      { name: 'Google Shopping', url: `https://www.google.com/search?tbm=shop&q=${searchTerm}` }
+    ]
+  }
+
+  const marketLinks = links[market] || []
+
+  return (
+    <div className="flex items-center gap-2 text-[10px]">
+      <span className="text-gray-500">Price comparison:</span>
+      {marketLinks.map((link, i) => (
+        <a key={i} href={link.url} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+          {link.name}
+        </a>
+      ))}
+    </div>
+  )
+}
+
 // --- RETAILER COMPARISON VIEW: primary feature for brand managers ---
 function RetailerComparisonView({ productUrls }) {
   const [market, setMarket] = useState('uk')
   const [compareSearch, setCompareSearch] = useState('')
+  const [editMode, setEditMode] = useState(false)
+  const { editedPrices, updatePrice, clearEdits, hasEdits } = useEditablePrices()
 
   const config = MARKET_CONFIG[market]
   const retailers = RETAILERS[market] || []
@@ -389,6 +471,29 @@ function RetailerComparisonView({ productUrls }) {
           <span>Click any price to visit the retailer\u2019s product page. URLs update automatically every 3 days via the price scraper.</span>
         </div>
 
+        {/* Indicative Pricing banner */}
+        <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 mb-4 flex items-start gap-3">
+          <AlertCircle size={14} className="text-amber-700 mt-0.5 flex-shrink-0" />
+          <p className="text-[11px] text-amber-700 leading-relaxed">Prices shown are indicative and sourced Feb 2026. Click any price to verify on the retailer\u2019s website, or toggle Edit Mode to update prices manually. Your edits are saved locally.</p>
+        </div>
+
+        {/* Edit mode controls and comparison table */}
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-2">
+            <button onClick={() => setEditMode(!editMode)}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${editMode ? 'bg-yellow-400 text-white' : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50'}`}>
+              <Edit3 size={12} />
+              <span>{editMode ? 'Done Editing' : 'Edit Prices'}</span>
+            </button>
+            {hasEdits && !editMode && (
+              <button onClick={clearEdits}
+                className="flex items-center gap-1 px-2 py-1 rounded text-[10px] text-red-500 hover:bg-red-50 transition-colors">
+                <span>Clear edits ({Object.keys(editedPrices).length})</span>
+              </button>
+            )}
+          </div>
+        </div>
+
         {/* Comparison table */}
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
@@ -426,34 +531,54 @@ function RetailerComparisonView({ productUrls }) {
                     <td className="px-3 py-2"><span className={`text-[10px] px-1.5 py-0.5 rounded font-medium ${segInfo.color}`}>{product.segment}</span></td>
                     {retailers.map(r => {
                       const price = prices[r.id]
-                      const isMin = price === min && price !== null && vals.length > 1
-                      const isMax = price === max && price !== null && vals.length > 1
-                      const productUrl = price != null ? getProductUrl(product, r) : null
+                      const editKey = `${idx}-${market}-${r.id}`
+                      const editedPrice = editedPrices[editKey]
+                      const displayPrice = editedPrice !== undefined && editedPrice !== null ? editedPrice : price
+                      const isEdited = editedPrice !== undefined && editedPrice !== null
+                      const isMin = displayPrice === min && displayPrice !== null && vals.length > 1
+                      const isMax = displayPrice === max && displayPrice !== null && vals.length > 1
+                      const productUrl = displayPrice != null && !editMode ? getProductUrl(product, r) : null
                       const offer = product.offers && product.offers[market] && product.offers[market][r.id]
                       return (
                         <td key={r.id} className="text-right px-2 py-2">
-                          {price !== null && price !== undefined ? (
+                          {displayPrice !== null && displayPrice !== undefined ? (
                             <div className="flex flex-col items-end">
-                              {productUrl ? (
-                                <a href={productUrl} target="_blank" rel="noopener noreferrer"
-                                  className="group flex flex-col items-end cursor-pointer hover:opacity-80 transition-opacity">
-                                  <span className={`text-xs font-mono font-bold ${isMin ? 'text-green-600' : isMax ? 'text-red-600' : 'text-navy'} group-hover:underline`}>
-                                    {config.currency}{typeof price === 'number' ? price.toFixed(2) : price}
-                                    <ExternalLink size={8} className="inline ml-0.5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                  </span>
-                                </a>
+                              {editMode ? (
+                                <input
+                                  type="number"
+                                  step="0.01"
+                                  defaultValue={displayPrice || ''}
+                                  onBlur={(e) => updatePrice(idx, market, r.id, e.target.value)}
+                                  className="w-16 text-right text-xs font-mono border border-gray-300 rounded px-1 py-0.5 focus:border-yellow-400 focus:outline-none focus:ring-1 focus:ring-yellow-400"
+                                  placeholder="\u2014"
+                                />
                               ) : (
-                                <span className={`text-xs font-mono font-bold ${isMin ? 'text-green-600' : isMax ? 'text-red-600' : 'text-navy'}`}>
-                                  {config.currency}{typeof price === 'number' ? price.toFixed(2) : price}
-                                </span>
+                                <>
+                                  {productUrl ? (
+                                    <a href={productUrl} target="_blank" rel="noopener noreferrer"
+                                      className="group flex flex-col items-end cursor-pointer hover:opacity-80 transition-opacity">
+                                      <span className={`text-xs font-mono font-bold ${isMin ? 'text-green-600' : isMax ? 'text-red-600' : 'text-navy'} group-hover:underline ${isEdited ? 'underline decoration-dashed decoration-1' : ''}`}>
+                                        {config.currency}{typeof displayPrice === 'number' ? displayPrice.toFixed(2) : displayPrice}
+                                        <ExternalLink size={8} className="inline ml-0.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                      </span>
+                                    </a>
+                                  ) : (
+                                    <span className={`text-xs font-mono font-bold ${isMin ? 'text-green-600' : isMax ? 'text-red-600' : 'text-navy'} ${isEdited ? 'underline decoration-dashed decoration-1' : ''}`}>
+                                      {config.currency}{typeof displayPrice === 'number' ? displayPrice.toFixed(2) : displayPrice}
+                                    </span>
+                                  )}
+                                  {isEdited && (
+                                    <Edit3 size={8} className="text-amber-600 mt-0.5" />
+                                  )}
+                                </>
                               )}
-                              {offer && (
+                              {!editMode && offer && (
                                 <span className="text-[9px] text-green-600 font-medium mt-0.5">
                                   {config.currency}{offer.price.toFixed(2)} {offer.label}
                                 </span>
                               )}
-                              {isMin && <span className="text-[8px] text-green-600 font-medium">BEST</span>}
-                              {isMax && <span className="text-[8px] text-red-500 font-medium">HIGH</span>}
+                              {!editMode && isMin && <span className="text-[8px] text-green-600 font-medium">BEST</span>}
+                              {!editMode && isMax && <span className="text-[8px] text-red-500 font-medium">HIGH</span>}
                             </div>
                           ) : (
                             <span className="text-[10px] text-gray-300">\u2014</span>

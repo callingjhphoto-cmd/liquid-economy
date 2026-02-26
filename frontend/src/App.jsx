@@ -15,7 +15,7 @@ import VenueIntelligence from './pages/VenueIntelligence'
 import ClimateYield from './pages/ClimateYield'
 import POSIntelligence from './pages/POSIntelligence'
 import CategoryCommandView from './pages/CategoryCommandView'
-import MarginCalculator from './pages/MarginCalculator'
+import ScenarioModeling from './pages/ScenarioModeling'
 import ChatPanel from './components/ChatPanel'
 import { LiveDataProvider } from './context/LiveDataContext'
 
@@ -234,7 +234,7 @@ function Layout({ onLogout }) {
             <Route path="/pricing" element={<BrandPricing />} />
             <Route path="/companies" element={<Companies />} />
             <Route path="/pos" element={<POSIntelligence />} />
-            <Route path="/scenario" element={<MarginCalculator />} />
+            <Route path="/scenario" element={<ScenarioModeling />} />
             <Route path="/reports" element={<ReportBuilder />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>

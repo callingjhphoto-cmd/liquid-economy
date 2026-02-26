@@ -843,7 +843,7 @@ export default function CommandCentre() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="font-display text-2xl text-navy">Command Centre</h1>
-          <p className="text-gray-500 text-xs mt-0.5">Global beverage alcohol intelligence \u2014 curated daily</p>
+          <p className="text-gray-500 text-xs mt-0.5">Global beverage alcohol intelligence {'\u2014'} curated daily</p>
         </div>
         <div className="text-right">
           <div className="text-[10px] text-gray-400">Last updated</div>

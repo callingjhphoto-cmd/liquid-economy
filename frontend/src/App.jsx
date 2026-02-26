@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Link, Navigate, useLocation } from 'react-router-dom'
-import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, Settings, LogOut, Menu, MessageCircle, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag, Crosshair, ChevronDown, ChevronRight, Radio } from 'lucide-react'
+import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, Settings, LogOut, Menu, MessageCircle, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag, Crosshair, ChevronDown, ChevronRight, Radio, Target } from 'lucide-react'
 import { useLiveData } from './context/LiveDataContext'
 import { api, getToken, setToken, clearToken } from './lib/api'
 import CommandCentre from './pages/CommandCentre'
@@ -16,6 +16,7 @@ import ClimateYield from './pages/ClimateYield'
 import POSIntelligence from './pages/POSIntelligence'
 import CategoryCommandView from './pages/CategoryCommandView'
 import ScenarioModeling from './pages/ScenarioModeling'
+import CampaignPlanner from './pages/CampaignPlanner'
 import ChatPanel from './components/ChatPanel'
 import { LiveDataProvider } from './context/LiveDataContext'
 
@@ -182,6 +183,7 @@ function Layout({ onLogout }) {
               <NavItem to="/venues" icon={MapPin} label="Venue Intelligence" />
               <NavItem to="/pricing" icon={DollarSign} label="Brand Pricing" />
               <NavItem to="/scenario" icon={Crosshair} label="Scenario Modelling" />
+              <NavItem to="/campaigns" icon={Target} label="Campaign Planner" />
             </NavGroup>
 
             {/* Output */}
@@ -235,6 +237,7 @@ function Layout({ onLogout }) {
             <Route path="/companies" element={<Companies />} />
             <Route path="/pos" element={<POSIntelligence />} />
             <Route path="/scenario" element={<ScenarioModeling />} />
+            <Route path="/campaigns" element={<CampaignPlanner />} />
             <Route path="/reports" element={<ReportBuilder />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>

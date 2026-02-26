@@ -103,23 +103,37 @@ app.get('/api/pricing/latest', (req, res) => {
 
 // ── REST API: Update pricing (called by scraper) ──
 app.post('/api/pricing/update', (req, res) => {
-  const { prices, source } = req.body
-  if (!prices) return res.status(400).json({ error: 'prices object required' })
+  const { prices, source, productUrls } = req.body
+  if (!prices && !productUrls) return res.status(400).json({ error: 'prices or productUrls object required' })
 
   // Merge new prices into existing
-  Object.entries(prices).forEach(([key, marketPrices]) => {
-    if (!pricingData.prices[key]) pricingData.prices[key] = {}
-    Object.assign(pricingData.prices[key], marketPrices)
-  })
+  if (prices) {
+    Object.entries(prices).forEach(([key, marketPrices]) => {
+      if (!pricingData.prices[key]) pricingData.prices[key] = {}
+      Object.assign(pricingData.prices[key], marketPrices)
+    })
+  }
+
+  // Merge product URLs (retailer product page links)
+  if (productUrls) {
+    if (!pricingData.productUrls) pricingData.productUrls = {}
+    Object.entries(productUrls).forEach(([productKey, markets]) => {
+      if (!pricingData.productUrls[productKey]) pricingData.productUrls[productKey] = {}
+      Object.entries(markets).forEach(([market, retailers]) => {
+        if (!pricingData.productUrls[productKey][market]) pricingData.productUrls[productKey][market] = {}
+        Object.assign(pricingData.productUrls[productKey][market], retailers)
+      })
+    })
+  }
 
   pricingData.lastUpdated = new Date().toISOString()
   pricingData.source = source || 'scraper'
   saveJSON(PRICING_FILE, pricingData)
 
   // Broadcast pricing update via SSE
-  broadcast('pricing-update', { lastUpdated: pricingData.lastUpdated, count: Object.keys(prices).length })
+  broadcast('pricing-update', { lastUpdated: pricingData.lastUpdated, count: Object.keys(prices || {}).length })
 
-  console.log(`[Pricing] Updated ${Object.keys(prices).length} products from ${source || 'unknown'}`)
+  console.log(`[Pricing] Updated ${Object.keys(prices || {}).length} prices, ${Object.keys(productUrls || {}).length} URLs from ${source || 'unknown'}`)
   res.json({ ok: true, lastUpdated: pricingData.lastUpdated })
 })
 

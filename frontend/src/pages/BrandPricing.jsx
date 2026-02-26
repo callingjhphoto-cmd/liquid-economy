@@ -3,17 +3,30 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import {
   Search, ArrowUpDown, Filter, TrendingUp, TrendingDown, Minus,
   ChevronDown, ChevronUp, DollarSign, Globe, Info, Store,
-  Clock, RefreshCw, MapPin, ShoppingCart, ExternalLink, AlertCircle
+  Clock, RefreshCw, MapPin, ShoppingCart, ExternalLink, AlertCircle,
+  Eye, BarChart3, Columns, Package
 } from 'lucide-react'
 
 // \u2500\u2500 Segment Definitions \u2500\u2500
 const SEGMENT_INFO = {
-  'Value': { color: 'bg-gray-100 text-gray-600', desc: 'Entry-level / economy pricing. Typically \u00a3/\u20ac/$10\u201320 per 70cl bottle. High volume, lower margin.', range: '\u00a310\u2013\u00a318' },
+  'Value': { color: 'bg-gray-100 text-gray-600', desc: 'Entry-level / economy pricing. High volume, lower margin.', range: '\u00a310\u2013\u00a318' },
   'Standard': { color: 'bg-slate-100 text-slate-600', desc: 'Mainstream brands at accessible price points. Core range for most consumers.', range: '\u00a318\u2013\u00a328' },
   'Premium': { color: 'bg-blue-50 text-blue-600', desc: 'Quality-driven brands with heritage or craft positioning. The growth engine of spirits.', range: '\u00a328\u2013\u00a345' },
   'Super Premium': { color: 'bg-amber-50 text-amber-600', desc: 'Aspirational brands targeting affluent consumers. Often aged/limited expressions.', range: '\u00a345\u2013\u00a380' },
   'Ultra Premium': { color: 'bg-purple-50 text-purple-600', desc: 'Luxury positioning. Rare, aged, or highly allocated. Gift and collection market.', range: '\u00a380\u2013\u00a3250' },
   'Prestige': { color: 'bg-rose-50 text-rose-600', desc: 'Pinnacle tier. Collector\u2019s items, auction-grade. Often investment-linked.', range: '\u00a3250+' },
+}
+
+// \u2500\u2500 Market Configuration with Bottle Sizes \u2500\u2500
+const MARKET_CONFIG = {
+  uk: { label: 'United Kingdom', currency: '\u00a3', flag: '\ud83c\uddec\ud83c\udde7', color: '#DC2626', bottleSize: '70cl', bottleMl: 700 },
+  us: { label: 'United States', currency: '$', flag: '\ud83c\uddfa\ud83c\uddf8', color: '#2563EB', bottleSize: '750ml', bottleMl: 750 },
+  spain: { label: 'Spain', currency: '\u20ac', flag: '\ud83c\uddea\ud83c\uddf8', color: '#EA580C', bottleSize: '70cl', bottleMl: 700 },
+  france: { label: 'France', currency: '\u20ac', flag: '\ud83c\uddeb\ud83c\uddf7', color: '#7C3AED', bottleSize: '70cl', bottleMl: 700 },
+  germany: { label: 'Germany', currency: '\u20ac', flag: '\ud83c\udde9\ud83c\uddea', color: '#059669', bottleSize: '70cl', bottleMl: 700 },
+  italy: { label: 'Italy', currency: '\u20ac', flag: '\ud83c\uddee\ud83c\uddf9', color: '#16A34A', bottleSize: '70cl', bottleMl: 700 },
+  netherlands: { label: 'Netherlands', currency: '\u20ac', flag: '\ud83c\uddf3\ud83c\uddf1', color: '#D97706', bottleSize: '70cl', bottleMl: 700 },
+  me: { label: 'Middle East', currency: '$', flag: '\ud83c\udde6\ud83c\uddea', color: '#CA8A04', bottleSize: '750ml', bottleMl: 750 },
 }
 
 // \u2500\u2500 Retailer Definitions by Market \u2500\u2500
@@ -76,23 +89,9 @@ const RETAILERS = {
   ],
 }
 
-const MARKET_CONFIG = {
-  uk: { label: 'United Kingdom', currency: '\u00a3', flag: '\ud83c\uddec\ud83c\udde7', color: '#DC2626' },
-  us: { label: 'United States', currency: '$', flag: '\ud83c\uddfa\ud83c\uddf8', color: '#2563EB' },
-  spain: { label: 'Spain', currency: '\u20ac', flag: '\ud83c\uddea\ud83c\uddf8', color: '#EA580C' },
-  france: { label: 'France', currency: '\u20ac', flag: '\ud83c\uddeb\ud83c\uddf7', color: '#7C3AED' },
-  germany: { label: 'Germany', currency: '\u20ac', flag: '\ud83c\udde9\ud83c\uddea', color: '#059669' },
-  italy: { label: 'Italy', currency: '\u20ac', flag: '\ud83c\uddee\ud83c\uddf9', color: '#16A34A' },
-  netherlands: { label: 'Netherlands', currency: '\u20ac', flag: '\ud83c\uddf3\ud83c\uddf1', color: '#D97706' },
-  me: { label: 'Middle East', currency: '$', flag: '\ud83c\udde6\ud83c\uddea', color: '#CA8A04' },
-}
-
 // \u2500\u2500 Comprehensive Brand Database (with retailer-level pricing) \u2500\u2500
-// The `prices` object is keyed by market, each market has retailer-level prices
-// These are initial seed prices \u2014 the /api/pricing endpoint will provide live updates
-
 const BRAND_DATABASE = [
-  // \u2550\u2550\u2550 SCOTCH WHISKY \u2550\u2550\u2550
+  // === SCOTCH WHISKY ===
   { company: 'Diageo', brand: 'Johnnie Walker', expression: 'Black Label', category: 'Scotch Whisky', segment: 'Standard',
     prices: { uk: { tesco: 22, sainsburys: 23, waitrose: 26, masterofmalt: 25, thewhiskyexchange: 26 }, us: { totalwine: 30, drizly: 34, bevmo: 32, costco: 28, reservebar: 36 }, spain: { elcorteingles: 22, carrefour_es: 20, lavinia_es: 24, bodeboca: 23, mercadona: 19 }, france: { carrefour_fr: 24, monoprix: 26, nicolas: 28, lavinia_fr: 27, auchan_fr: 23 }, germany: { edeka: 22, rewe: 23, kaufland: 21, weinquelle: 25, amazon_de: 24 }, italy: { esselunga: 23, tannico: 26, callmewine: 25, conad: 22, carrefour_it: 23 }, netherlands: { gall: 25, albert_heijn: 23, drankdozijn: 24, jumbo: 22, sligro: 21 }, me: { mmidubai: 38, africaneastern: 36, dutyfree_dxb: 32, lfrr: 40, centaurus: 37 } } },
   { company: 'Diageo', brand: 'Johnnie Walker', expression: 'Blue Label', category: 'Scotch Whisky', segment: 'Ultra Premium',
@@ -108,7 +107,7 @@ const BRAND_DATABASE = [
   { company: 'William Grant', brand: 'Glenfiddich', expression: '18 Year Old', category: 'Scotch Whisky', segment: 'Super Premium',
     prices: { uk: { tesco: 58, sainsburys: 62, waitrose: 65, masterofmalt: 60, thewhiskyexchange: 62 }, us: { totalwine: 90, drizly: 100, bevmo: 95, costco: 82, reservebar: 108 }, spain: { elcorteingles: 65, carrefour_es: 62, lavinia_es: 72, bodeboca: 68, mercadona: null }, france: { carrefour_fr: 68, monoprix: 72, nicolas: 75, lavinia_fr: 72, auchan_fr: 65 }, germany: { edeka: 62, rewe: 65, kaufland: 60, weinquelle: 72, amazon_de: 68 }, italy: { esselunga: 65, tannico: 72, callmewine: 70, conad: 62, carrefour_it: 65 }, netherlands: { gall: 70, albert_heijn: 65, drankdozijn: 68, jumbo: 62, sligro: 58 }, me: { mmidubai: 108, africaneastern: 105, dutyfree_dxb: 92, lfrr: 118, centaurus: 106 } } },
 
-  // \u2550\u2550\u2550 BOURBON & AMERICAN \u2550\u2550\u2550
+  // === BOURBON & AMERICAN ===
   { company: 'Brown-Forman', brand: "Jack Daniel\u2019s", expression: 'Old No.7', category: 'Bourbon & American', segment: 'Standard',
     prices: { uk: { tesco: 20, sainsburys: 22, waitrose: 24, masterofmalt: 22, thewhiskyexchange: 23 }, us: { totalwine: 22, drizly: 26, bevmo: 24, costco: 20, reservebar: 28 }, spain: { elcorteingles: 20, carrefour_es: 18, lavinia_es: 22, bodeboca: 21, mercadona: 17 }, france: { carrefour_fr: 22, monoprix: 24, nicolas: 25, lavinia_fr: 24, auchan_fr: 20 }, germany: { edeka: 18, rewe: 20, kaufland: 17, weinquelle: 22, amazon_de: 20 }, italy: { esselunga: 20, tannico: 23, callmewine: 22, conad: 18, carrefour_it: 20 }, netherlands: { gall: 22, albert_heijn: 20, drankdozijn: 21, jumbo: 19, sligro: 18 }, me: { mmidubai: 35, africaneastern: 33, dutyfree_dxb: 28, lfrr: 38, centaurus: 34 } } },
   { company: 'Sazerac', brand: 'Buffalo Trace', expression: 'Bourbon', category: 'Bourbon & American', segment: 'Standard',
@@ -118,7 +117,7 @@ const BRAND_DATABASE = [
   { company: 'Sazerac', brand: "Blanton\u2019s", expression: 'Original', category: 'Bourbon & American', segment: 'Super Premium',
     prices: { uk: { tesco: null, sainsburys: null, waitrose: 55, masterofmalt: 52, thewhiskyexchange: 55 }, us: { totalwine: 60, drizly: 72, bevmo: 68, costco: 55, reservebar: 80 }, spain: { elcorteingles: 55, carrefour_es: null, lavinia_es: 58, bodeboca: 56, mercadona: null }, france: { carrefour_fr: 56, monoprix: null, nicolas: 60, lavinia_fr: 58, auchan_fr: null }, germany: { edeka: null, rewe: null, kaufland: null, weinquelle: 58, amazon_de: 62 }, italy: { esselunga: null, tannico: 58, callmewine: 56, conad: null, carrefour_it: null }, netherlands: { gall: 58, albert_heijn: null, drankdozijn: 55, jumbo: null, sligro: null }, me: { mmidubai: 85, africaneastern: 82, dutyfree_dxb: 72, lfrr: 92, centaurus: 84 } } },
 
-  // \u2550\u2550\u2550 TEQUILA \u2550\u2550\u2550
+  // === TEQUILA ===
   { company: 'Diageo', brand: 'Don Julio', expression: 'Blanco', category: 'Tequila', segment: 'Premium',
     prices: { uk: { tesco: 35, sainsburys: 38, waitrose: 40, masterofmalt: 38, thewhiskyexchange: 39 }, us: { totalwine: 42, drizly: 48, bevmo: 45, costco: 38, reservebar: 52 }, spain: { elcorteingles: 38, carrefour_es: 36, lavinia_es: 42, bodeboca: 40, mercadona: null }, france: { carrefour_fr: 40, monoprix: 42, nicolas: 45, lavinia_fr: 43, auchan_fr: 38 }, germany: { edeka: 36, rewe: 38, kaufland: 34, weinquelle: 42, amazon_de: 40 }, italy: { esselunga: 38, tannico: 42, callmewine: 40, conad: 36, carrefour_it: 38 }, netherlands: { gall: 40, albert_heijn: 38, drankdozijn: 39, jumbo: 36, sligro: 34 }, me: { mmidubai: 52, africaneastern: 50, dutyfree_dxb: 42, lfrr: 58, centaurus: 51 } } },
   { company: 'Diageo', brand: 'Don Julio', expression: '1942', category: 'Tequila', segment: 'Ultra Premium',
@@ -128,7 +127,7 @@ const BRAND_DATABASE = [
   { company: 'Pernod Ricard', brand: 'Altos', expression: 'Plata', category: 'Tequila', segment: 'Premium',
     prices: { uk: { tesco: 22, sainsburys: 24, waitrose: 26, masterofmalt: 24, thewhiskyexchange: 25 }, us: { totalwine: 25, drizly: 28, bevmo: 27, costco: 22, reservebar: 32 }, spain: { elcorteingles: 24, carrefour_es: 22, lavinia_es: 26, bodeboca: 25, mercadona: null }, france: { carrefour_fr: 25, monoprix: 27, nicolas: 28, lavinia_fr: 27, auchan_fr: 24 }, germany: { edeka: 22, rewe: 24, kaufland: 21, weinquelle: 26, amazon_de: 24 }, italy: { esselunga: 24, tannico: 27, callmewine: 26, conad: 22, carrefour_it: 24 }, netherlands: { gall: 26, albert_heijn: 24, drankdozijn: 25, jumbo: 22, sligro: 21 }, me: { mmidubai: 32, africaneastern: 30, dutyfree_dxb: 26, lfrr: 35, centaurus: 31 } } },
 
-  // \u2550\u2550\u2550 GIN \u2550\u2550\u2550
+  // === GIN ===
   { company: 'Diageo', brand: 'Tanqueray', expression: 'London Dry', category: 'Gin', segment: 'Premium',
     prices: { uk: { tesco: 18, sainsburys: 20, waitrose: 22, masterofmalt: 20, thewhiskyexchange: 21 }, us: { totalwine: 22, drizly: 26, bevmo: 24, costco: 20, reservebar: 28 }, spain: { elcorteingles: 18, carrefour_es: 16, lavinia_es: 20, bodeboca: 18, mercadona: 15 }, france: { carrefour_fr: 20, monoprix: 22, nicolas: 24, lavinia_fr: 22, auchan_fr: 18 }, germany: { edeka: 16, rewe: 18, kaufland: 15, weinquelle: 20, amazon_de: 18 }, italy: { esselunga: 18, tannico: 20, callmewine: 19, conad: 16, carrefour_it: 18 }, netherlands: { gall: 20, albert_heijn: 18, drankdozijn: 19, jumbo: 17, sligro: 16 }, me: { mmidubai: 30, africaneastern: 28, dutyfree_dxb: 24, lfrr: 33, centaurus: 29 } } },
   { company: 'Pernod Ricard', brand: 'Beefeater', expression: 'London Dry', category: 'Gin', segment: 'Standard',
@@ -136,7 +135,7 @@ const BRAND_DATABASE = [
   { company: 'William Grant', brand: 'Hendrick\u2019s', expression: 'Original', category: 'Gin', segment: 'Super Premium',
     prices: { uk: { tesco: 28, sainsburys: 30, waitrose: 32, masterofmalt: 30, thewhiskyexchange: 31 }, us: { totalwine: 32, drizly: 38, bevmo: 35, costco: 28, reservebar: 42 }, spain: { elcorteingles: 28, carrefour_es: 26, lavinia_es: 32, bodeboca: 30, mercadona: null }, france: { carrefour_fr: 30, monoprix: 32, nicolas: 35, lavinia_fr: 33, auchan_fr: 28 }, germany: { edeka: 26, rewe: 28, kaufland: 24, weinquelle: 32, amazon_de: 30 }, italy: { esselunga: 28, tannico: 32, callmewine: 30, conad: 26, carrefour_it: 28 }, netherlands: { gall: 32, albert_heijn: 28, drankdozijn: 30, jumbo: 27, sligro: 25 }, me: { mmidubai: 42, africaneastern: 40, dutyfree_dxb: 35, lfrr: 48, centaurus: 41 } } },
 
-  // \u2550\u2550\u2550 VODKA \u2550\u2550\u2550
+  // === VODKA ===
   { company: 'Diageo', brand: 'Ketel One', expression: 'Original', category: 'Vodka', segment: 'Premium',
     prices: { uk: { tesco: 22, sainsburys: 24, waitrose: 26, masterofmalt: 24, thewhiskyexchange: 25 }, us: { totalwine: 25, drizly: 30, bevmo: 28, costco: 22, reservebar: 32 }, spain: { elcorteingles: 22, carrefour_es: 20, lavinia_es: 24, bodeboca: 22, mercadona: null }, france: { carrefour_fr: 24, monoprix: 26, nicolas: 28, lavinia_fr: 26, auchan_fr: 22 }, germany: { edeka: 20, rewe: 22, kaufland: 18, weinquelle: 24, amazon_de: 22 }, italy: { esselunga: 22, tannico: 25, callmewine: 24, conad: 20, carrefour_it: 22 }, netherlands: { gall: 24, albert_heijn: 22, drankdozijn: 23, jumbo: 20, sligro: 19 }, me: { mmidubai: 32, africaneastern: 30, dutyfree_dxb: 26, lfrr: 36, centaurus: 31 } } },
   { company: 'Pernod Ricard', brand: 'Absolut', expression: 'Original', category: 'Vodka', segment: 'Standard',
@@ -144,7 +143,7 @@ const BRAND_DATABASE = [
   { company: 'LVMH', brand: 'Belvedere', expression: 'Pure', category: 'Vodka', segment: 'Super Premium',
     prices: { uk: { tesco: 28, sainsburys: 30, waitrose: 32, masterofmalt: 30, thewhiskyexchange: 31 }, us: { totalwine: 30, drizly: 36, bevmo: 34, costco: 28, reservebar: 40 }, spain: { elcorteingles: 28, carrefour_es: 26, lavinia_es: 32, bodeboca: 30, mercadona: null }, france: { carrefour_fr: 30, monoprix: 32, nicolas: 35, lavinia_fr: 33, auchan_fr: 28 }, germany: { edeka: 26, rewe: 28, kaufland: 24, weinquelle: 32, amazon_de: 30 }, italy: { esselunga: 28, tannico: 32, callmewine: 30, conad: 26, carrefour_it: 28 }, netherlands: { gall: 32, albert_heijn: 28, drankdozijn: 30, jumbo: 27, sligro: 25 }, me: { mmidubai: 42, africaneastern: 40, dutyfree_dxb: 35, lfrr: 48, centaurus: 41 } } },
 
-  // \u2550\u2550\u2550 COGNAC \u2550\u2550\u2550
+  // === COGNAC ===
   { company: 'LVMH', brand: 'Hennessy', expression: 'VS', category: 'Cognac', segment: 'Standard',
     prices: { uk: { tesco: 28, sainsburys: 30, waitrose: 33, masterofmalt: 30, thewhiskyexchange: 31 }, us: { totalwine: 35, drizly: 40, bevmo: 38, costco: 32, reservebar: 44 }, spain: { elcorteingles: 28, carrefour_es: 26, lavinia_es: 32, bodeboca: 30, mercadona: 25 }, france: { carrefour_fr: 26, monoprix: 28, nicolas: 30, lavinia_fr: 28, auchan_fr: 24 }, germany: { edeka: 26, rewe: 28, kaufland: 24, weinquelle: 30, amazon_de: 28 }, italy: { esselunga: 28, tannico: 30, callmewine: 29, conad: 26, carrefour_it: 28 }, netherlands: { gall: 30, albert_heijn: 28, drankdozijn: 29, jumbo: 26, sligro: 24 }, me: { mmidubai: 42, africaneastern: 40, dutyfree_dxb: 35, lfrr: 48, centaurus: 41 } } },
   { company: 'LVMH', brand: 'Hennessy', expression: 'VSOP', category: 'Cognac', segment: 'Premium',
@@ -156,7 +155,7 @@ const BRAND_DATABASE = [
   { company: 'R\u00e9my Cointreau', brand: 'R\u00e9my Martin', expression: 'VSOP', category: 'Cognac', segment: 'Premium',
     prices: { uk: { tesco: 35, sainsburys: 38, waitrose: 42, masterofmalt: 38, thewhiskyexchange: 40 }, us: { totalwine: 45, drizly: 52, bevmo: 48, costco: 40, reservebar: 58 }, spain: { elcorteingles: 38, carrefour_es: 36, lavinia_es: 42, bodeboca: 40, mercadona: null }, france: { carrefour_fr: 35, monoprix: 38, nicolas: 42, lavinia_fr: 40, auchan_fr: 34 }, germany: { edeka: 36, rewe: 38, kaufland: 34, weinquelle: 42, amazon_de: 40 }, italy: { esselunga: 38, tannico: 42, callmewine: 40, conad: 36, carrefour_it: 38 }, netherlands: { gall: 40, albert_heijn: 38, drankdozijn: 39, jumbo: 36, sligro: 34 }, me: { mmidubai: 55, africaneastern: 52, dutyfree_dxb: 45, lfrr: 62, centaurus: 54 } } },
 
-  // \u2550\u2550\u2550 RUM \u2550\u2550\u2550
+  // === RUM ===
   { company: 'Bacardi', brand: 'Bacardi', expression: 'Carta Blanca', category: 'Rum', segment: 'Standard',
     prices: { uk: { tesco: 14, sainsburys: 15, waitrose: 17, masterofmalt: 15, thewhiskyexchange: 16 }, us: { totalwine: 14, drizly: 18, bevmo: 16, costco: 12, reservebar: 20 }, spain: { elcorteingles: 12, carrefour_es: 10, lavinia_es: 14, bodeboca: 12, mercadona: 9 }, france: { carrefour_fr: 14, monoprix: 16, nicolas: 17, lavinia_fr: 16, auchan_fr: 13 }, germany: { edeka: 12, rewe: 14, kaufland: 11, weinquelle: 15, amazon_de: 13 }, italy: { esselunga: 12, tannico: 14, callmewine: 13, conad: 11, carrefour_it: 12 }, netherlands: { gall: 14, albert_heijn: 12, drankdozijn: 13, jumbo: 11, sligro: 10 }, me: { mmidubai: 22, africaneastern: 20, dutyfree_dxb: 16, lfrr: 25, centaurus: 21 } } },
   { company: 'Diageo', brand: 'Ron Zacapa', expression: '23 Centenario', category: 'Rum', segment: 'Super Premium',
@@ -164,7 +163,7 @@ const BRAND_DATABASE = [
   { company: 'Pernod Ricard', brand: 'Havana Club', expression: '7 A\u00f1os', category: 'Rum', segment: 'Premium',
     prices: { uk: { tesco: 22, sainsburys: 24, waitrose: 26, masterofmalt: 24, thewhiskyexchange: 25 }, us: { totalwine: null, drizly: null, bevmo: null, costco: null, reservebar: null }, spain: { elcorteingles: 20, carrefour_es: 18, lavinia_es: 22, bodeboca: 20, mercadona: 17 }, france: { carrefour_fr: 20, monoprix: 22, nicolas: 24, lavinia_fr: 22, auchan_fr: 18 }, germany: { edeka: 18, rewe: 20, kaufland: 17, weinquelle: 22, amazon_de: 20 }, italy: { esselunga: 18, tannico: 22, callmewine: 20, conad: 17, carrefour_it: 18 }, netherlands: { gall: 22, albert_heijn: 20, drankdozijn: 21, jumbo: 18, sligro: 17 }, me: { mmidubai: 32, africaneastern: 30, dutyfree_dxb: 26, lfrr: 36, centaurus: 31 } } },
 
-  // \u2550\u2550\u2550 CHAMPAGNE \u2550\u2550\u2550
+  // === CHAMPAGNE ===
   { company: 'LVMH', brand: 'Mo\u00ebt & Chandon', expression: 'Imp\u00e9rial Brut', category: 'Champagne', segment: 'Premium',
     prices: { uk: { tesco: 30, sainsburys: 32, waitrose: 35, masterofmalt: 33, thewhiskyexchange: 34 }, us: { totalwine: 42, drizly: 48, bevmo: 45, costco: 38, reservebar: 55 }, spain: { elcorteingles: 32, carrefour_es: 30, lavinia_es: 36, bodeboca: 34, mercadona: null }, france: { carrefour_fr: 28, monoprix: 30, nicolas: 32, lavinia_fr: 30, auchan_fr: 26 }, germany: { edeka: 30, rewe: 32, kaufland: 28, weinquelle: 35, amazon_de: 33 }, italy: { esselunga: 30, tannico: 34, callmewine: 33, conad: 28, carrefour_it: 30 }, netherlands: { gall: 34, albert_heijn: 30, drankdozijn: 32, jumbo: 28, sligro: 26 }, me: { mmidubai: 55, africaneastern: 52, dutyfree_dxb: 42, lfrr: 60, centaurus: 54 } } },
   { company: 'LVMH', brand: 'Veuve Clicquot', expression: 'Yellow Label', category: 'Champagne', segment: 'Super Premium',
@@ -172,57 +171,42 @@ const BRAND_DATABASE = [
   { company: 'LVMH', brand: 'Dom P\u00e9rignon', expression: 'Vintage 2015', category: 'Champagne', segment: 'Ultra Premium',
     prices: { uk: { tesco: null, sainsburys: null, waitrose: 165, masterofmalt: 155, thewhiskyexchange: 160 }, us: { totalwine: 200, drizly: 230, bevmo: 220, costco: 185, reservebar: 260 }, spain: { elcorteingles: 170, carrefour_es: null, lavinia_es: 180, bodeboca: 175, mercadona: null }, france: { carrefour_fr: 155, monoprix: 165, nicolas: 175, lavinia_fr: 170, auchan_fr: 150 }, germany: { edeka: null, rewe: null, kaufland: null, weinquelle: 172, amazon_de: 178 }, italy: { esselunga: null, tannico: 175, callmewine: 170, conad: null, carrefour_it: null }, netherlands: { gall: 175, albert_heijn: null, drankdozijn: 168, jumbo: null, sligro: null }, me: { mmidubai: 260, africaneastern: 255, dutyfree_dxb: 220, lfrr: 285, centaurus: 258 } } },
 
-  // \u2550\u2550\u2550 WINE \u2550\u2550\u2550
+  // === WINE ===
   { company: 'Pernod Ricard', brand: 'Campo Viejo', expression: 'Rioja Reserva', category: 'Wine', segment: 'Standard',
     prices: { uk: { tesco: 8, sainsburys: 9, waitrose: 10, masterofmalt: null, thewhiskyexchange: null }, us: { totalwine: 12, drizly: 14, bevmo: 13, costco: 10, reservebar: null }, spain: { elcorteingles: 7, carrefour_es: 6, lavinia_es: 8, bodeboca: 7, mercadona: 5 }, france: { carrefour_fr: 8, monoprix: 9, nicolas: 10, lavinia_fr: 9, auchan_fr: 7 }, germany: { edeka: 8, rewe: 9, kaufland: 7, weinquelle: 10, amazon_de: 9 }, italy: { esselunga: 8, tannico: 10, callmewine: 9, conad: 7, carrefour_it: 8 }, netherlands: { gall: 9, albert_heijn: 8, drankdozijn: 8, jumbo: 7, sligro: 6 }, me: { mmidubai: 18, africaneastern: 16, dutyfree_dxb: 14, lfrr: 20, centaurus: 17 } } },
 
-  // \u2550\u2550\u2550 RTD \u2550\u2550\u2550
+  // === RTD ===
   { company: 'Diageo', brand: 'Smirnoff Ice', expression: 'Original 4pk', category: 'RTD', segment: 'Value',
     prices: { uk: { tesco: 4.50, sainsburys: 4.50, waitrose: 5.00, masterofmalt: null, thewhiskyexchange: null }, us: { totalwine: 8, drizly: 10, bevmo: 9, costco: 7, reservebar: null }, spain: { elcorteingles: 5, carrefour_es: 4.50, lavinia_es: null, bodeboca: null, mercadona: 4 }, france: { carrefour_fr: 5, monoprix: 5.50, nicolas: null, lavinia_fr: null, auchan_fr: 4.50 }, germany: { edeka: 4.50, rewe: 5, kaufland: 4, weinquelle: null, amazon_de: 5 }, italy: { esselunga: 5, tannico: null, callmewine: null, conad: 4.50, carrefour_it: 5 }, netherlands: { gall: 5.50, albert_heijn: 5, drankdozijn: 5, jumbo: 4.50, sligro: 4 }, me: { mmidubai: 12, africaneastern: 11, dutyfree_dxb: 9, lfrr: null, centaurus: 11 } } },
 
-  // \u2550\u2550\u2550 NO/LO \u2550\u2550\u2550
+  // === NO/LO ===
   { company: 'Diageo', brand: 'Seedlip', expression: 'Garden 108', category: 'No/Lo', segment: 'Premium',
     prices: { uk: { tesco: 18, sainsburys: 20, waitrose: 22, masterofmalt: 20, thewhiskyexchange: 21 }, us: { totalwine: 28, drizly: 32, bevmo: 30, costco: null, reservebar: 35 }, spain: { elcorteingles: 22, carrefour_es: null, lavinia_es: 24, bodeboca: 22, mercadona: null }, france: { carrefour_fr: 22, monoprix: 24, nicolas: 26, lavinia_fr: 24, auchan_fr: null }, germany: { edeka: 20, rewe: 22, kaufland: null, weinquelle: 24, amazon_de: 22 }, italy: { esselunga: 22, tannico: 24, callmewine: 23, conad: null, carrefour_it: 22 }, netherlands: { gall: 24, albert_heijn: 22, drankdozijn: 23, jumbo: 20, sligro: null }, me: { mmidubai: 32, africaneastern: 30, dutyfree_dxb: 28, lfrr: 36, centaurus: 31 } } },
   { company: 'Pernod Ricard', brand: 'Celtic Soul', expression: '0.0% Irish Spirit', category: 'No/Lo', segment: 'Premium',
     prices: { uk: { tesco: 15, sainsburys: 16, waitrose: 18, masterofmalt: 16, thewhiskyexchange: null }, us: { totalwine: null, drizly: null, bevmo: null, costco: null, reservebar: null }, spain: { elcorteingles: null, carrefour_es: null, lavinia_es: null, bodeboca: null, mercadona: null }, france: { carrefour_fr: 16, monoprix: 18, nicolas: null, lavinia_fr: null, auchan_fr: null }, germany: { edeka: 14, rewe: 16, kaufland: null, weinquelle: 18, amazon_de: 16 }, italy: { esselunga: null, tannico: null, callmewine: null, conad: null, carrefour_it: null }, netherlands: { gall: 18, albert_heijn: 16, drankdozijn: 17, jumbo: null, sligro: null }, me: { mmidubai: null, africaneastern: null, dutyfree_dxb: null, lfrr: null, centaurus: null } } },
 
-  // \u2550\u2550\u2550 BEER (premium/craft focus) \u2550\u2550\u2550
+  // === BEER ===
   { company: 'AB InBev', brand: 'Stella Artois', expression: '12pk Bottles', category: 'Beer', segment: 'Standard',
     prices: { uk: { tesco: 10, sainsburys: 10, waitrose: 11, masterofmalt: null, thewhiskyexchange: null }, us: { totalwine: 16, drizly: 18, bevmo: 17, costco: 14, reservebar: null }, spain: { elcorteingles: 10, carrefour_es: 9, lavinia_es: null, bodeboca: null, mercadona: 8 }, france: { carrefour_fr: 10, monoprix: 11, nicolas: null, lavinia_fr: null, auchan_fr: 9 }, germany: { edeka: 9, rewe: 10, kaufland: 8, weinquelle: null, amazon_de: 10 }, italy: { esselunga: 10, tannico: null, callmewine: null, conad: 9, carrefour_it: 10 }, netherlands: { gall: 11, albert_heijn: 10, drankdozijn: 10, jumbo: 9, sligro: 8 }, me: { mmidubai: 22, africaneastern: 20, dutyfree_dxb: 16, lfrr: null, centaurus: 20 } } },
 ]
 
 // \u2500\u2500 Process data \u2500\u2500
 const PRICING = BRAND_DATABASE.map(item => {
-  // Calculate avg price per market from retailer prices
   const marketAvgs = {}
-  const allMarketKeys = ['uk', 'us', 'spain', 'france', 'germany', 'italy', 'netherlands', 'me']
+  const allMarketKeys = Object.keys(MARKET_CONFIG)
   allMarketKeys.forEach(mkt => {
     if (item.prices[mkt]) {
       const vals = Object.values(item.prices[mkt]).filter(v => v !== null && v !== undefined)
-      marketAvgs[mkt] = vals.length > 0 ? Math.round(vals.reduce((a, b) => a + b, 0) / vals.length) : null
+      marketAvgs[mkt] = vals.length > 0 ? Math.round(vals.reduce((a, b) => a + b, 0) / vals.length * 100) / 100 : null
     }
   })
-
-  // For backward compat: usa = us avg, eu = avg of spain/france/germany/italy/netherlands
   const euCountries = ['spain', 'france', 'germany', 'italy', 'netherlands']
   const euVals = euCountries.map(c => marketAvgs[c]).filter(v => v !== null && v !== undefined)
   const euAvg = euVals.length > 0 ? Math.round(euVals.reduce((a, b) => a + b, 0) / euVals.length) : null
-
   const allPrices = Object.values(marketAvgs).filter(v => v !== null && v !== undefined)
   const maxP = allPrices.length > 0 ? Math.max(...allPrices) : 0
   const minP = allPrices.length > 0 ? Math.min(...allPrices) : 0
-  const premiumIndex = minP > 0 ? (maxP - minP) / minP : 0
-
-  return {
-    ...item,
-    usa: marketAvgs.us,
-    uk: marketAvgs.uk,
-    eu: euAvg,
-    me: marketAvgs.me,
-    marketAvgs,
-    differential: maxP - minP,
-    premium_index: premiumIndex,
-  }
+  return { ...item, usa: marketAvgs.us, uk: marketAvgs.uk, eu: euAvg, me: marketAvgs.me, marketAvgs, differential: Math.round((maxP - minP) * 100) / 100, premium_index: minP > 0 ? (maxP - minP) / minP : 0 }
 })
 
 const CATEGORIES = ['all', ...new Set(PRICING.map(p => p.category))]
@@ -256,139 +240,277 @@ function SegmentInfoPanel() {
   )
 }
 
-function RetailerDrillDown({ product, market }) {
-  const retailers = RETAILERS[market] || []
-  const prices = product.prices[market] || {}
-  const config = MARKET_CONFIG[market]
-  const validPrices = retailers.map(r => prices[r.id]).filter(v => v !== null && v !== undefined)
-  const avg = validPrices.length > 0 ? (validPrices.reduce((a, b) => a + b, 0) / validPrices.length).toFixed(2) : 'N/A'
-  const min = validPrices.length > 0 ? Math.min(...validPrices) : null
-  const max = validPrices.length > 0 ? Math.max(...validPrices) : null
-
+// --- RETAILER DIRECTORY: always-visible list of retailers per market ---
+function RetailerDirectory({ selectedMarket }) {
+  const retailers = RETAILERS[selectedMarket] || []
+  const config = MARKET_CONFIG[selectedMarket]
   return (
-    <div className="bg-gray-50 rounded-lg p-4 border border-gray-100">
-      <div className="flex items-center justify-between mb-3">
+    <div className="bg-white rounded-xl border border-gray-100 p-5">
+      <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
-          <span className="text-lg">{config.flag}</span>
-          <span className="font-medium text-navy text-sm">{config.label}</span>
+          <Store size={16} className="text-navy" />
+          <h2 className="font-display text-base text-navy">Tracked Retailers</h2>
         </div>
-        <div className="flex items-center gap-3 text-[10px] text-gray-500">
-          <span>Avg: <strong className="text-navy">{config.currency}{avg}</strong></span>
-          {min !== null && <span>Range: {config.currency}{min}\u2013{config.currency}{max}</span>}
-          <span className="flex items-center gap-1"><Clock size={10} /> Seed data</span>
+        <div className="flex items-center gap-1 text-[10px] text-gray-400">
+          <Package size={10} />
+          <span>Bottle size: <strong className="text-navy">{config.bottleSize}</strong> ({config.bottleMl}ml)</span>
         </div>
       </div>
-      <div className="space-y-1.5">
-        {retailers.map(retailer => {
-          const price = prices[retailer.id]
-          const isMin = price === min && price !== null
-          const isMax = price === max && price !== null
-          const pctOfAvg = price && avg !== 'N/A' ? ((price / parseFloat(avg) - 1) * 100).toFixed(1) : null
-          return (
-            <div key={retailer.id} className={`flex items-center justify-between px-3 py-2 rounded-lg ${isMin ? 'bg-green-50 border border-green-100' : isMax ? 'bg-red-50 border border-red-100' : 'bg-white border border-gray-50'}`}>
-              <div className="flex items-center gap-2">
-                <span className="text-sm">{retailer.logo}</span>
-                <div>
-                  <span className="text-xs font-medium text-navy">{retailer.name}</span>
-                  <span className="text-[10px] text-gray-400 ml-2">{retailer.type}</span>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                {price !== null && price !== undefined ? (
-                  <>
-                    <span className={`text-sm font-bold ${isMin ? 'text-green-600' : isMax ? 'text-red-600' : 'text-navy'}`}>
-                      {config.currency}{price.toFixed ? price.toFixed(2) : price}
-                    </span>
-                    {pctOfAvg && parseFloat(pctOfAvg) !== 0 && (
-                      <span className={`text-[10px] font-medium ${parseFloat(pctOfAvg) > 0 ? 'text-red-500' : 'text-green-500'}`}>
-                        {parseFloat(pctOfAvg) > 0 ? '+' : ''}{pctOfAvg}%
-                      </span>
-                    )}
-                    {isMin && <span className="text-[9px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded font-medium">CHEAPEST</span>}
-                    {isMax && <span className="text-[9px] bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-medium">PRICIEST</span>}
-                    {retailer.url && (
-                      <a href={`${retailer.url}${encodeURIComponent(product.brand + ' ' + product.expression)}`} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-gold transition-colors">
-                        <ExternalLink size={12} />
-                      </a>
-                    )}
-                  </>
-                ) : (
-                  <span className="text-[10px] text-gray-300 italic">Not stocked</span>
-                )}
-              </div>
+      <div className="flex gap-1 flex-wrap mb-4">
+        {Object.entries(MARKET_CONFIG).map(([key, cfg]) => (
+          <span key={key} className={`px-2 py-1 rounded text-[10px] font-medium ${key === selectedMarket ? 'bg-navy text-white' : 'bg-gray-50 text-gray-500'}`}>
+            {cfg.flag} {cfg.label}
+          </span>
+        ))}
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-5 gap-2">
+        {retailers.map(r => (
+          <div key={r.id} className="flex items-center gap-2 p-2.5 rounded-lg bg-gray-50 border border-gray-100">
+            <span className="text-lg">{r.logo}</span>
+            <div className="min-w-0">
+              <p className="text-xs font-medium text-navy truncate">{r.name}</p>
+              <p className="text-[10px] text-gray-400">{r.type}</p>
             </div>
-          )
-        })}
+          </div>
+        ))}
       </div>
     </div>
   )
 }
 
-function ExpandableRow({ row, index }) {
-  const [expanded, setExpanded] = useState(false)
-  const [selectedMarket, setSelectedMarket] = useState('uk')
-  const allMarkets = Object.keys(MARKET_CONFIG)
+// Helper: build product URL for a retailer (search URL + product name)
+// When scraper provides actual product page URLs, those override this default.
+function buildProductUrl(retailer, product) {
+  if (!retailer.url) return null
+  const searchTerm = product.brand + ' ' + product.expression
+  return retailer.url + encodeURIComponent(searchTerm)
+}
 
-  const segInfo = SEGMENT_INFO[row.segment] || { color: 'bg-gray-50 text-gray-500' }
+// --- RETAILER COMPARISON VIEW: primary feature for brand managers ---
+function RetailerComparisonView({ productUrls }) {
+  const [market, setMarket] = useState('uk')
+  const [compareSearch, setCompareSearch] = useState('')
+
+  const config = MARKET_CONFIG[market]
+  const retailers = RETAILERS[market] || []
+
+  const filtered = useMemo(() => {
+    if (!compareSearch) return BRAND_DATABASE
+    const q = compareSearch.toLowerCase()
+    return BRAND_DATABASE.filter(p =>
+      p.brand.toLowerCase().includes(q) ||
+      p.expression.toLowerCase().includes(q) ||
+      p.company.toLowerCase().includes(q) ||
+      p.category.toLowerCase().includes(q)
+    )
+  }, [compareSearch])
+
+  // Get product URL: first check scraped URLs from API, then fall back to search URL
+  const getProductUrl = (product, retailer) => {
+    // Scraped URLs keyed: productUrls[brand-expression][market][retailerId]
+    const productKey = product.brand.toLowerCase().replace(/[^a-z0-9]/g, '-') + '-' + product.expression.toLowerCase().replace(/[^a-z0-9]/g, '-')
+    if (productUrls && productUrls[productKey] && productUrls[productKey][market] && productUrls[productKey][market][retailer.id]) {
+      return productUrls[productKey][market][retailer.id]
+    }
+    return buildProductUrl(retailer, product)
+  }
 
   return (
-    <>
-      <tr
-        onClick={() => setExpanded(!expanded)}
-        className={`${index % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'} hover:bg-blue-50/30 transition-colors cursor-pointer`}
-      >
-        <td className="px-4 py-2.5 text-gray-500 text-xs">{row.company}</td>
-        <td className="px-4 py-2.5 font-medium text-navy">{row.brand}</td>
-        <td className="px-4 py-2.5 text-gray-600 text-xs">{row.expression}</td>
-        <td className="px-4 py-2.5">
-          <span className="text-[10px] bg-gray-100 text-gray-600 px-2 py-0.5 rounded">{row.category}</span>
-        </td>
-        <td className="px-4 py-2.5">
-          <span className={`text-[10px] px-2 py-0.5 rounded font-medium ${segInfo.color}`}>{row.segment}</span>
-        </td>
-        <td className="px-4 py-2.5 text-right text-sm font-mono">{row.usa ? `$${row.usa}` : '\u2014'}</td>
-        <td className="px-4 py-2.5 text-right text-sm font-mono">{row.uk ? `\u00a3${row.uk}` : '\u2014'}</td>
-        <td className="px-4 py-2.5 text-right text-sm font-mono">{row.eu ? `\u20ac${row.eu}` : '\u2014'}</td>
-        <td className="px-4 py-2.5 text-right text-sm font-mono">{row.me ? `$${row.me}` : '\u2014'}</td>
-        <td className="px-4 py-2.5 text-right">
-          <span className={`text-xs font-medium ${row.differential > 30 ? 'text-red-500' : row.differential > 15 ? 'text-amber-500' : 'text-green-500'}`}>
-            ${row.differential}
-          </span>
-        </td>
-        <td className="px-4 py-2.5 text-right">
-          <span className="text-xs font-medium text-navy">{Math.round((row.premium_index || 0) * 100)}%</span>
-        </td>
-        <td className="px-2 py-2.5 text-center">
-          {expanded ? <ChevronUp size={14} className="text-gold" /> : <ChevronDown size={14} className="text-gray-300" />}
-        </td>
-      </tr>
-      {expanded && (
-        <tr>
-          <td colSpan={12} className="px-4 py-4 bg-blue-50/20">
-            <div className="space-y-3">
-              {/* Market selector tabs */}
-              <div className="flex gap-1 flex-wrap">
-                {allMarkets.map(mkt => {
-                  const cfg = MARKET_CONFIG[mkt]
-                  return (
-                    <button
-                      key={mkt}
-                      onClick={(e) => { e.stopPropagation(); setSelectedMarket(mkt) }}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors
-                        ${selectedMarket === mkt ? 'bg-navy text-white' : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50'}`}
-                    >
-                      {cfg.flag} {cfg.label}
-                    </button>
-                  )
-                })}
-              </div>
-              {/* Retailer drill-down */}
-              <RetailerDrillDown product={row} market={selectedMarket} />
-            </div>
-          </td>
-        </tr>
-      )}
-    </>
+    <div className="space-y-4">
+      <div className="bg-white rounded-xl border border-gray-100 p-5">
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <h2 className="font-display text-lg text-navy flex items-center gap-2"><Columns size={16} /> Retailer Price Comparison</h2>
+            <p className="text-[11px] text-gray-500 mt-0.5">Compare prices across all retailers in a market. Click any price to view the product on that retailer\u2019s website.</p>
+          </div>
+          <div className="flex items-center gap-1 text-[10px] bg-amber-50 text-amber-700 px-2 py-1 rounded">
+            <Package size={10} />
+            <span>All prices per {config.bottleSize} ({config.bottleMl}ml)</span>
+          </div>
+        </div>
+
+        {/* Market selector */}
+        <div className="flex gap-1 flex-wrap mb-4">
+          {Object.entries(MARKET_CONFIG).map(([key, cfg]) => (
+            <button key={key} onClick={() => setMarket(key)}
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${market === key ? 'bg-navy text-white' : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50'}`}>
+              {cfg.flag} {cfg.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Search */}
+        <div className="relative mb-4">
+          <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+          <input type="text" placeholder="Search product (e.g. Smirnoff Ice, Hennessy, Tanqueray)..." value={compareSearch} onChange={e => setCompareSearch(e.target.value)}
+            className="w-full pl-9 pr-4 py-2 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy/20" />
+        </div>
+
+        {/* Link indicator */}
+        <div className="flex items-center gap-2 mb-3 text-[10px] text-gray-500">
+          <ExternalLink size={10} className="text-blue-500" />
+          <span>Click any price to visit the retailer\u2019s product page. URLs update automatically every 3 days via the price scraper.</span>
+        </div>
+
+        {/* Comparison table */}
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead className="bg-navy text-white">
+              <tr>
+                <th className="text-left px-3 py-2.5 font-medium text-xs">Brand</th>
+                <th className="text-left px-3 py-2.5 font-medium text-xs">Expression</th>
+                <th className="text-left px-3 py-2.5 font-medium text-xs">Segment</th>
+                {retailers.map(r => (
+                  <th key={r.id} className="text-right px-2 py-2.5 font-medium text-xs whitespace-nowrap">
+                    <div className="flex flex-col items-end gap-0.5">
+                      <span>{r.logo} {r.name}</span>
+                      <span className="text-[9px] font-normal text-gray-300">{r.type}</span>
+                    </div>
+                  </th>
+                ))}
+                <th className="text-right px-3 py-2.5 font-medium text-xs">Avg</th>
+                <th className="text-right px-3 py-2.5 font-medium text-xs">Spread</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filtered.map((product, idx) => {
+                const prices = product.prices[market] || {}
+                const vals = retailers.map(r => prices[r.id]).filter(v => v !== null && v !== undefined)
+                const avg = vals.length > 0 ? vals.reduce((a, b) => a + b, 0) / vals.length : null
+                const min = vals.length > 0 ? Math.min(...vals) : null
+                const max = vals.length > 0 ? Math.max(...vals) : null
+                const spread = min !== null && max !== null ? max - min : null
+                const segInfo = SEGMENT_INFO[product.segment] || { color: 'bg-gray-50 text-gray-500' }
+
+                return (
+                  <tr key={idx} className={`${idx % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'} hover:bg-blue-50/30 transition-colors`}>
+                    <td className="px-3 py-2 font-medium text-navy text-xs">{product.brand}</td>
+                    <td className="px-3 py-2 text-gray-600 text-xs">{product.expression}</td>
+                    <td className="px-3 py-2"><span className={`text-[10px] px-1.5 py-0.5 rounded font-medium ${segInfo.color}`}>{product.segment}</span></td>
+                    {retailers.map(r => {
+                      const price = prices[r.id]
+                      const isMin = price === min && price !== null && vals.length > 1
+                      const isMax = price === max && price !== null && vals.length > 1
+                      const productUrl = price != null ? getProductUrl(product, r) : null
+                      return (
+                        <td key={r.id} className="text-right px-2 py-2">
+                          {price !== null && price !== undefined ? (
+                            productUrl ? (
+                              <a href={productUrl} target="_blank" rel="noopener noreferrer"
+                                className="group flex flex-col items-end cursor-pointer hover:opacity-80 transition-opacity">
+                                <span className={`text-xs font-mono font-bold ${isMin ? 'text-green-600' : isMax ? 'text-red-600' : 'text-navy'} group-hover:underline`}>
+                                  {config.currency}{typeof price === 'number' ? price.toFixed(2) : price}
+                                  <ExternalLink size={8} className="inline ml-0.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                </span>
+                                {isMin && <span className="text-[8px] text-green-600 font-medium">BEST</span>}
+                                {isMax && <span className="text-[8px] text-red-500 font-medium">HIGH</span>}
+                              </a>
+                            ) : (
+                              <div className="flex flex-col items-end">
+                                <span className={`text-xs font-mono font-bold ${isMin ? 'text-green-600' : isMax ? 'text-red-600' : 'text-navy'}`}>
+                                  {config.currency}{typeof price === 'number' ? price.toFixed(2) : price}
+                                </span>
+                                {isMin && <span className="text-[8px] text-green-600 font-medium">BEST</span>}
+                                {isMax && <span className="text-[8px] text-red-500 font-medium">HIGH</span>}
+                              </div>
+                            )
+                          ) : (
+                            <span className="text-[10px] text-gray-300">\u2014</span>
+                          )}
+                        </td>
+                      )
+                    })}
+                    <td className="text-right px-3 py-2">
+                      {avg !== null ? <span className="text-xs font-mono font-bold text-navy">{config.currency}{avg.toFixed(2)}</span> : <span className="text-gray-300">\u2014</span>}
+                    </td>
+                    <td className="text-right px-3 py-2">
+                      {spread !== null ? (
+                        <span className={`text-xs font-mono font-medium ${spread > 5 ? 'text-red-500' : spread > 2 ? 'text-amber-500' : 'text-green-500'}`}>
+                          {config.currency}{spread.toFixed(2)}
+                        </span>
+                      ) : <span className="text-gray-300">\u2014</span>}
+                    </td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+        </div>
+        {filtered.length === 0 && (
+          <div className="text-center py-8 text-gray-400 text-sm">No products match your search.</div>
+        )}
+      </div>
+    </div>
+  )
+}
+
+// --- MARKET OVERVIEW TABLE (original compact view) ---
+function MarketOverviewTable({ data, handleSort, sortBy, sortDir }) {
+  const SortIcon = ({ col }) => {
+    if (sortBy !== col) return <ArrowUpDown size={12} className="text-gray-300" />
+    return sortDir === 'desc' ? <ChevronDown size={12} /> : <ChevronUp size={12} />
+  }
+
+  return (
+    <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm">
+          <thead className="bg-navy text-white">
+            <tr>
+              <th className="text-left px-4 py-3 font-medium">Company</th>
+              <th className="text-left px-4 py-3 font-medium">Brand</th>
+              <th className="text-left px-4 py-3 font-medium">Expression</th>
+              <th className="text-left px-4 py-3 font-medium">Category</th>
+              <th className="text-left px-4 py-3 font-medium">Segment</th>
+              <th className="text-right px-4 py-3 font-medium cursor-pointer hover:text-gold select-none" onClick={() => handleSort('usa')}>
+                <span className="inline-flex items-center gap-1 text-blue-300">{'\ud83c\uddfa\ud83c\uddf8'} USA (750ml) <SortIcon col="usa" /></span>
+              </th>
+              <th className="text-right px-4 py-3 font-medium cursor-pointer hover:text-gold select-none" onClick={() => handleSort('uk')}>
+                <span className="inline-flex items-center gap-1 text-red-300">{'\ud83c\uddec\ud83c\udde7'} UK (70cl) <SortIcon col="uk" /></span>
+              </th>
+              <th className="text-right px-4 py-3 font-medium cursor-pointer hover:text-gold select-none" onClick={() => handleSort('eu')}>
+                <span className="inline-flex items-center gap-1 text-green-300">{'\ud83c\uddea\ud83c\uddfa'} EU (70cl) <SortIcon col="eu" /></span>
+              </th>
+              <th className="text-right px-4 py-3 font-medium cursor-pointer hover:text-gold select-none" onClick={() => handleSort('me')}>
+                <span className="inline-flex items-center gap-1 text-yellow-300">{'\ud83c\udde6\ud83c\uddea'} ME (750ml) <SortIcon col="me" /></span>
+              </th>
+              <th className="text-right px-4 py-3 font-medium cursor-pointer hover:text-gold select-none" onClick={() => handleSort('differential')}>
+                <span className="inline-flex items-center gap-1">Spread <SortIcon col="differential" /></span>
+              </th>
+              <th className="text-right px-4 py-3 font-medium cursor-pointer hover:text-gold select-none" onClick={() => handleSort('premium_index')}>
+                <span className="inline-flex items-center gap-1">Premium % <SortIcon col="premium_index" /></span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((row, i) => {
+              const segInfo = SEGMENT_INFO[row.segment] || { color: 'bg-gray-50 text-gray-500' }
+              return (
+                <tr key={i} className={`${i % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'} hover:bg-blue-50/30 transition-colors`}>
+                  <td className="px-4 py-2.5 text-gray-500 text-xs">{row.company}</td>
+                  <td className="px-4 py-2.5 font-medium text-navy">{row.brand}</td>
+                  <td className="px-4 py-2.5 text-gray-600 text-xs">{row.expression}</td>
+                  <td className="px-4 py-2.5"><span className="text-[10px] bg-gray-100 text-gray-600 px-2 py-0.5 rounded">{row.category}</span></td>
+                  <td className="px-4 py-2.5"><span className={`text-[10px] px-2 py-0.5 rounded font-medium ${segInfo.color}`}>{row.segment}</span></td>
+                  <td className="px-4 py-2.5 text-right text-sm font-mono">{row.usa ? `$${row.usa}` : '\u2014'}</td>
+                  <td className="px-4 py-2.5 text-right text-sm font-mono">{row.uk ? `\u00a3${row.uk}` : '\u2014'}</td>
+                  <td className="px-4 py-2.5 text-right text-sm font-mono">{row.eu ? `\u20ac${row.eu}` : '\u2014'}</td>
+                  <td className="px-4 py-2.5 text-right text-sm font-mono">{row.me ? `$${row.me}` : '\u2014'}</td>
+                  <td className="px-4 py-2.5 text-right">
+                    <span className={`text-xs font-medium ${row.differential > 30 ? 'text-red-500' : row.differential > 15 ? 'text-amber-500' : 'text-green-500'}`}>
+                      ${row.differential}
+                    </span>
+                  </td>
+                  <td className="px-4 py-2.5 text-right">
+                    <span className="text-xs font-medium text-navy">{Math.round((row.premium_index || 0) * 100)}%</span>
+                  </td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
   )
 }
 
@@ -399,20 +521,13 @@ function CategoryOverview() {
     return cats.map((cat, i) => {
       const items = PRICING.filter(p => p.category === cat)
       const usPrices = items.map(p => p.usa).filter(Boolean)
-      return {
-        category: cat,
-        count: items.length,
-        minPrice: usPrices.length > 0 ? Math.min(...usPrices) : 0,
-        maxPrice: usPrices.length > 0 ? Math.max(...usPrices) : 0,
-        avgPrice: usPrices.length > 0 ? Math.round(usPrices.reduce((a, b) => a + b, 0) / usPrices.length) : 0,
-        color: colors[i % colors.length],
-      }
+      return { category: cat, count: items.length, minPrice: usPrices.length > 0 ? Math.min(...usPrices) : 0, maxPrice: usPrices.length > 0 ? Math.max(...usPrices) : 0, avgPrice: usPrices.length > 0 ? Math.round(usPrices.reduce((a, b) => a + b, 0) / usPrices.length) : 0, color: colors[i % colors.length] }
     })
   }, [])
 
   return (
     <div className="bg-white rounded-xl border border-gray-100 p-6">
-      <h2 className="font-display text-lg text-navy mb-4">Category Price Ranges</h2>
+      <h2 className="font-display text-lg text-navy mb-4">Category Price Ranges (US avg)</h2>
       <div className="space-y-3">
         {categoryData.map((d, i) => {
           const maxWidth = Math.max(...categoryData.map(x => x.maxPrice))
@@ -432,14 +547,14 @@ function CategoryOverview() {
           )
         })}
       </div>
-      <div className="text-[10px] text-gray-400 mt-3">Range shows: entry price \u2014 average \u2014 top expression. All prices in USD (market avg).</div>
+      <div className="text-[10px] text-gray-400 mt-3">Range: entry \u2014 average \u2014 top expression. US 750ml prices shown.</div>
     </div>
   )
 }
 
 function PricingUpdateBanner({ lastUpdated }) {
   return (
-    <div className="bg-gradient-to-r from-navy/5 to-gold/5 rounded-xl border border-gold/20 p-4 flex items-center justify-between">
+    <div className="bg-gradient-to-r from-navy/5 to-gold/5 rounded-xl border border-gold/20 p-4 flex items-center justify-between flex-wrap gap-3">
       <div className="flex items-center gap-3">
         <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center">
           <RefreshCw size={14} className="text-gold" />
@@ -448,14 +563,16 @@ function PricingUpdateBanner({ lastUpdated }) {
           <p className="text-xs font-medium text-navy">Real-Time Pricing Monitor</p>
           <p className="text-[10px] text-gray-500">
             Prices sourced from {Object.values(RETAILERS).flat().length} retailers across {Object.keys(MARKET_CONFIG).length} markets.
-            {lastUpdated ? ` Last updated: ${new Date(lastUpdated).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })}` : ' Seed data \u2014 live scraping runs every 3 days.'}
+            {lastUpdated ? ` Last updated: ${new Date(lastUpdated).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })}` : ' Seed data \u2014 live scraping every 3 days.'}
           </p>
         </div>
       </div>
-      <div className="flex items-center gap-2 text-[10px]">
+      <div className="flex items-center gap-3 text-[10px]">
         <span className="flex items-center gap-1 text-green-600"><span className="w-1.5 h-1.5 rounded-full bg-green-500" /> {PRICING.length} expressions</span>
         <span className="text-gray-300">|</span>
         <span className="flex items-center gap-1 text-blue-600"><Store size={10} /> {Object.values(RETAILERS).flat().length} retailers</span>
+        <span className="text-gray-300">|</span>
+        <span className="flex items-center gap-1 text-gray-500"><Package size={10} /> Bottle sizes vary by market</span>
       </div>
     </div>
   )
@@ -463,6 +580,7 @@ function PricingUpdateBanner({ lastUpdated }) {
 
 // \u2500\u2500 Main Component \u2500\u2500
 export default function BrandPricing() {
+  const [viewMode, setViewMode] = useState('compare') // 'compare' = retailer comparison (default), 'overview' = market overview
   const [filter, setFilter] = useState('all')
   const [segmentFilter, setSegmentFilter] = useState('all')
   const [sortBy, setSortBy] = useState('premium_index')
@@ -470,18 +588,17 @@ export default function BrandPricing() {
   const [search, setSearch] = useState('')
   const [showCount, setShowCount] = useState(50)
   const [lastUpdated, setLastUpdated] = useState(null)
+  const [retailerMarket, setRetailerMarket] = useState('uk')
+  const [productUrls, setProductUrls] = useState({})
 
-  // Attempt to fetch live pricing from backend
   useEffect(() => {
     fetch('/api/pricing/latest')
       .then(r => r.ok ? r.json() : null)
       .then(data => {
-        if (data && data.lastUpdated) {
-          setLastUpdated(data.lastUpdated)
-          // Future: merge data.prices into BRAND_DATABASE
-        }
+        if (data && data.lastUpdated) setLastUpdated(data.lastUpdated)
+        if (data && data.productUrls) setProductUrls(data.productUrls)
       })
-      .catch(() => {}) // Silently fail \u2014 use seed data
+      .catch(() => {})
   }, [])
 
   const filtered = useMemo(() => {
@@ -490,17 +607,9 @@ export default function BrandPricing() {
     if (segmentFilter !== 'all') data = data.filter(p => p.segment === segmentFilter)
     if (search) {
       const q = search.toLowerCase()
-      data = data.filter(p =>
-        p.brand.toLowerCase().includes(q) ||
-        p.expression.toLowerCase().includes(q) ||
-        p.company.toLowerCase().includes(q)
-      )
+      data = data.filter(p => p.brand.toLowerCase().includes(q) || p.expression.toLowerCase().includes(q) || p.company.toLowerCase().includes(q))
     }
-    data = [...data].sort((a, b) => {
-      const av = a[sortBy] || 0
-      const bv = b[sortBy] || 0
-      return sortDir === 'desc' ? bv - av : av - bv
-    })
+    data = [...data].sort((a, b) => { const av = a[sortBy] || 0; const bv = b[sortBy] || 0; return sortDir === 'desc' ? bv - av : av - bv })
     return data
   }, [filter, segmentFilter, search, sortBy, sortDir])
 
@@ -509,11 +618,6 @@ export default function BrandPricing() {
   const handleSort = (col) => {
     if (sortBy === col) setSortDir(d => d === 'desc' ? 'asc' : 'desc')
     else { setSortBy(col); setSortDir('desc') }
-  }
-
-  const SortIcon = ({ col }) => {
-    if (sortBy !== col) return <ArrowUpDown size={12} className="text-gray-300" />
-    return sortDir === 'desc' ? <ChevronDown size={12} /> : <ChevronUp size={12} />
   }
 
   return (
@@ -525,108 +629,93 @@ export default function BrandPricing() {
         </p>
       </div>
 
-      {/* Update Banner */}
       <PricingUpdateBanner lastUpdated={lastUpdated} />
 
-      {/* Segment Explanation */}
-      <SegmentInfoPanel />
-
-      {/* Category Overview */}
-      <CategoryOverview />
-
-      {/* Filters */}
-      <div className="space-y-3">
-        <div className="relative">
-          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-          <input type="text" placeholder="Search brand, expression, or company..." value={search} onChange={e => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy" />
-        </div>
-        <div className="flex gap-2 flex-wrap items-center">
-          <Filter size={14} className="text-gray-400" />
-          {CATEGORIES.map(cat => (
-            <button key={cat} onClick={() => { setFilter(cat); setShowCount(50) }}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors capitalize ${filter === cat ? 'bg-navy text-white' : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50'}`}>
-              {cat}
-            </button>
-          ))}
-        </div>
-        <div className="flex gap-2 flex-wrap items-center">
-          <span className="text-xs text-gray-400">Segment:</span>
-          {SEGMENTS.map(seg => (
-            <button key={seg} onClick={() => { setSegmentFilter(seg); setShowCount(50) }}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors capitalize ${segmentFilter === seg ? 'bg-gold text-white' : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50'}`}>
-              {seg}
-            </button>
-          ))}
-        </div>
+      {/* View Mode Tabs */}
+      <div className="flex gap-2">
+        <button onClick={() => setViewMode('compare')}
+          className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${viewMode === 'compare' ? 'bg-navy text-white shadow-lg shadow-navy/20' : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50'}`}>
+          <Columns size={16} />
+          <span>Retailer Comparison</span>
+        </button>
+        <button onClick={() => setViewMode('overview')}
+          className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${viewMode === 'overview' ? 'bg-navy text-white shadow-lg shadow-navy/20' : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50'}`}>
+          <BarChart3 size={16} />
+          <span>Market Overview</span>
+        </button>
       </div>
 
-      <div className="text-xs text-gray-400">
-        Showing {displayed.length} of {filtered.length} expressions \u2014 click any row to see retailer-level pricing
-      </div>
+      {/* Retailer Directory \u2014 always visible */}
+      <RetailerDirectory selectedMarket={viewMode === 'compare' ? 'uk' : retailerMarket} />
 
-      {/* Pricing Table */}
-      <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead className="bg-navy text-white">
-              <tr>
-                <th className="text-left px-4 py-3 font-medium">Company</th>
-                <th className="text-left px-4 py-3 font-medium">Brand</th>
-                <th className="text-left px-4 py-3 font-medium">Expression</th>
-                <th className="text-left px-4 py-3 font-medium">Category</th>
-                <th className="text-left px-4 py-3 font-medium">Segment</th>
-                <th className="text-right px-4 py-3 font-medium cursor-pointer hover:text-gold select-none" onClick={() => handleSort('usa')}>
-                  <span className="inline-flex items-center gap-1 text-blue-300">USA ($) <SortIcon col="usa" /></span>
-                </th>
-                <th className="text-right px-4 py-3 font-medium cursor-pointer hover:text-gold select-none" onClick={() => handleSort('uk')}>
-                  <span className="inline-flex items-center gap-1 text-red-300">UK (\u00a3) <SortIcon col="uk" /></span>
-                </th>
-                <th className="text-right px-4 py-3 font-medium cursor-pointer hover:text-gold select-none" onClick={() => handleSort('eu')}>
-                  <span className="inline-flex items-center gap-1 text-green-300">EU (\u20ac) <SortIcon col="eu" /></span>
-                </th>
-                <th className="text-right px-4 py-3 font-medium cursor-pointer hover:text-gold select-none" onClick={() => handleSort('me')}>
-                  <span className="inline-flex items-center gap-1 text-yellow-300">ME ($) <SortIcon col="me" /></span>
-                </th>
-                <th className="text-right px-4 py-3 font-medium cursor-pointer hover:text-gold select-none" onClick={() => handleSort('differential')}>
-                  <span className="inline-flex items-center gap-1">Spread <SortIcon col="differential" /></span>
-                </th>
-                <th className="text-right px-4 py-3 font-medium cursor-pointer hover:text-gold select-none" onClick={() => handleSort('premium_index')}>
-                  <span className="inline-flex items-center gap-1">Premium % <SortIcon col="premium_index" /></span>
-                </th>
-                <th className="w-8"></th>
-              </tr>
-            </thead>
-            <tbody>
-              {displayed.map((row, i) => (
-                <ExpandableRow key={i} row={row} index={i} />
+      {viewMode === 'compare' ? (
+        <RetailerComparisonView productUrls={productUrls} />
+      ) : (
+        <>
+          <SegmentInfoPanel />
+          <CategoryOverview />
+
+          {/* Filters */}
+          <div className="space-y-3">
+            <div className="relative">
+              <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+              <input type="text" placeholder="Search brand, expression, or company..." value={search} onChange={e => setSearch(e.target.value)}
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy" />
+            </div>
+            <div className="flex gap-2 flex-wrap items-center">
+              <Filter size={14} className="text-gray-400" />
+              {CATEGORIES.map(cat => (
+                <button key={cat} onClick={() => { setFilter(cat); setShowCount(50) }}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors capitalize ${filter === cat ? 'bg-navy text-white' : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50'}`}>
+                  {cat}
+                </button>
               ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+            </div>
+            <div className="flex gap-2 flex-wrap items-center">
+              <span className="text-xs text-gray-400">Segment:</span>
+              {SEGMENTS.map(seg => (
+                <button key={seg} onClick={() => { setSegmentFilter(seg); setShowCount(50) }}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors capitalize ${segmentFilter === seg ? 'bg-gold text-white' : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50'}`}>
+                  {seg}
+                </button>
+              ))}
+            </div>
+          </div>
 
-      {filtered.length > showCount && (
-        <div className="text-center">
-          <button onClick={() => setShowCount(c => c + 50)} className="px-6 py-2 rounded-lg bg-navy text-white text-sm font-medium hover:bg-navy-light transition-colors">
-            Show More ({filtered.length - showCount} remaining)
-          </button>
-        </div>
+          <div className="text-xs text-gray-400">
+            Showing {displayed.length} of {filtered.length} expressions. Column headers show bottle sizes per market.
+          </div>
+
+          <MarketOverviewTable data={displayed} handleSort={handleSort} sortBy={sortBy} sortDir={sortDir} />
+
+          {filtered.length > showCount && (
+            <div className="text-center">
+              <button onClick={() => setShowCount(c => c + 50)} className="px-6 py-2 rounded-lg bg-navy text-white text-sm font-medium hover:bg-navy-light transition-colors">
+                Show More ({filtered.length - showCount} remaining)
+              </button>
+            </div>
+          )}
+        </>
       )}
 
-      {/* Data Sources */}
+      {/* Methodology */}
       <div className="bg-white rounded-xl border border-gray-100 p-4">
         <h3 className="text-xs font-semibold text-navy mb-2 flex items-center gap-2"><AlertCircle size={12} /> Pricing Methodology</h3>
         <p className="text-[11px] text-gray-500 leading-relaxed">
-          Prices represent recommended retail prices (RRP) for 750ml standard bottles unless otherwise noted. UK prices in GBP, EU prices in EUR, US and Middle East in USD.
-          Market averages are calculated from available retailer prices in each market. EU average aggregates Spain, France, Germany, Italy, and Netherlands.
-          Null values indicate the product is not stocked at that retailer. Prices are updated via automated scraping every 3 days, with seed data as the baseline.
+          Prices represent recommended retail prices (RRP). <strong>Bottle sizes vary by market:</strong> UK and EU markets use the standard 70cl (700ml) bottle; US and Middle East markets use 750ml (25.4 fl oz).
+          UK prices in GBP (\u00a3), EU prices in EUR (\u20ac), US and Middle East in USD ($).
+          Market averages are calculated from available retailer prices. EU average aggregates Spain, France, Germany, Italy, and Netherlands.
+          Null values indicate the product is not stocked at that retailer. Prices updated via automated scraping every 3 days.
         </p>
-        <div className="mt-2 flex flex-wrap gap-2">
+        <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-2">
           {Object.entries(MARKET_CONFIG).map(([key, cfg]) => (
-            <span key={key} className="text-[10px] bg-gray-50 text-gray-500 px-2 py-1 rounded flex items-center gap-1">
-              <span>{cfg.flag}</span> {cfg.label}: {(RETAILERS[key] || []).length} retailers
-            </span>
+            <div key={key} className="flex items-center gap-2 text-[10px] bg-gray-50 text-gray-600 px-2.5 py-1.5 rounded-lg border border-gray-100">
+              <span className="text-sm">{cfg.flag}</span>
+              <div>
+                <p className="font-medium">{cfg.label}</p>
+                <p className="text-gray-400">{(RETAILERS[key] || []).length} retailers \u00b7 {cfg.bottleSize} bottle \u00b7 {cfg.currency}</p>
+              </div>
+            </div>
           ))}
         </div>
       </div>

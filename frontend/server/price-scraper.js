@@ -104,21 +104,59 @@ async function scrapeMasterOfMalt(product) {
   }
 }
 
+// Retailer configurations for building product URLs
+// When a headless browser or API is used, these search URLs are visited
+// and the actual product page URL is captured and stored
+const RETAILER_SEARCH_URLS = {
+  uk: {
+    tesco: 'https://www.tesco.com/groceries/en-GB/search?query=',
+    sainsburys: 'https://www.sainsburys.co.uk/gol-ui/SearchDisplayView?searchTerm=',
+    waitrose: 'https://www.waitrose.com/ecom/shop/search?searchTerm=',
+    masterofmalt: 'https://www.masterofmalt.com/search/#!?q=',
+    thewhiskyexchange: 'https://www.thewhiskyexchange.com/search?q=',
+  },
+  us: {
+    totalwine: 'https://www.totalwine.com/search/all?text=',
+    drizly: 'https://drizly.com/search?q=',
+    bevmo: 'https://www.bevmo.com/search?q=',
+    reservebar: 'https://www.reservebar.com/search?q=',
+  },
+}
+
+// Build a product key for URL storage (matches frontend logic)
+function buildProductKey(brand, expression) {
+  return brand.toLowerCase().replace(/[^a-z0-9]/g, '-') + '-' + expression.toLowerCase().replace(/[^a-z0-9]/g, '-')
+}
+
+// Build default search URLs for a product across all known retailers
+function buildDefaultProductUrls(product) {
+  const urls = {}
+  for (const [market, retailers] of Object.entries(RETAILER_SEARCH_URLS)) {
+    urls[market] = {}
+    for (const [retailerId, searchUrl] of Object.entries(retailers)) {
+      urls[market][retailerId] = searchUrl + encodeURIComponent(product.searchTerms[0])
+    }
+  }
+  return urls
+}
+
 // Main scraper orchestrator
 async function runScraper() {
   console.log('='.repeat(60))
-  console.log('Liquid Economy — Price Scraper')
+  console.log('Liquid Economy \u2014 Price Scraper v2')
   console.log(`Started: ${new Date().toISOString()}`)
   console.log(`Server: ${SERVER_URL}`)
   console.log('='.repeat(60))
   console.log('')
 
   const results = {}
+  const productUrls = {}
   let successCount = 0
   let errorCount = 0
 
   for (const product of PRODUCTS) {
     console.log(`\nProcessing: ${product.brand} ${product.expression}`)
+    const productKey = buildProductKey(product.brand, product.expression)
 
     // Attempt each source
     const prices = {}
@@ -131,64 +169,59 @@ async function runScraper() {
       successCount++
     }
 
+    // Build product URLs for this product
+    // In production with a headless browser, these would be actual product page URLs
+    // captured during scraping. For now, use search URLs as defaults.
+    productUrls[productKey] = buildDefaultProductUrls(product)
+
     // Store whatever we got
     if (Object.keys(prices).length > 0) {
       results[product.key] = prices
     }
 
-    // Rate limiting — be respectful
+    // Rate limiting \u2014 be respectful
     await new Promise(r => setTimeout(r, 2000))
   }
 
   console.log('\n' + '='.repeat(60))
   console.log(`Completed: ${successCount} prices found, ${errorCount} errors`)
+  console.log(`Product URLs: ${Object.keys(productUrls).length} products mapped`)
   console.log('='.repeat(60))
 
-  // Post results to server if we have any
-  if (Object.keys(results).length > 0) {
-    try {
-      const res = await fetchWithTimeout(`${SERVER_URL}/api/pricing/update`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          prices: results,
-          source: 'price-scraper-v1',
-          timestamp: new Date().toISOString(),
-        }),
-      })
-      const data = await res.json()
-      console.log(`\nPosted to server: ${data.ok ? 'SUCCESS' : 'FAILED'}`)
-      if (data.lastUpdated) console.log(`Last updated: ${data.lastUpdated}`)
-    } catch (e) {
-      console.error(`Failed to post to server: ${e.message}`)
+  // Post results to server (prices + product URLs)
+  try {
+    const payload = {
+      prices: results,
+      productUrls: productUrls,
+      source: 'price-scraper-v2',
+      timestamp: new Date().toISOString(),
     }
-  } else {
-    console.log('\nNo prices to post — all sources returned null.')
+
+    const res = await fetchWithTimeout(`${SERVER_URL}/api/pricing/update`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    })
+    const data = await res.json()
+    console.log(`\nPosted to server: ${data.ok ? 'SUCCESS' : 'FAILED'}`)
+    if (data.lastUpdated) console.log(`Last updated: ${data.lastUpdated}`)
+    console.log(`Sent ${Object.keys(results).length} prices + ${Object.keys(productUrls).length} product URL sets`)
+  } catch (e) {
+    console.error(`Failed to post to server: ${e.message}`)
+  }
+
+  if (Object.keys(results).length === 0) {
+    console.log('\nNo live prices scraped \u2014 only product URLs updated.')
     console.log('This is expected for the initial setup. The scraper needs')
-    console.log('API keys or headless browser support for real data.')
+    console.log('API keys or headless browser support for real price data.')
     console.log('')
     console.log('To get real-time pricing, you can:')
     console.log('1. Set up Wine-Searcher API (https://www.wine-searcher.com/trade/api)')
-    console.log('2. Use RapidAPI UK Supermarkets API (https://rapidapi.com/localpearuk/api/uk-supermarkets-product-pricing)')
+    console.log('2. Use RapidAPI UK Supermarkets API')
     console.log('3. Configure headless browser scraping via Playwright/Puppeteer')
     console.log('')
-    console.log('For now, the seed data in BrandPricing.jsx provides the baseline.')
-
-    // Still update the timestamp so the UI shows last check time
-    try {
-      await fetchWithTimeout(`${SERVER_URL}/api/pricing/update`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          prices: {},
-          source: 'price-scraper-v1-check',
-          timestamp: new Date().toISOString(),
-        }),
-      })
-      console.log('Updated server timestamp.')
-    } catch (e) {
-      console.error(`Failed to update timestamp: ${e.message}`)
-    }
+    console.log('Product URLs have been updated to retailer search pages.')
+    console.log('With headless browser support, these will update to actual product pages.')
   }
 
   console.log('\nDone.')

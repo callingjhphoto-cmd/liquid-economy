@@ -18,11 +18,11 @@ const MARKET_KPIS = [
 
 // ── Market Signals ──
 const MARKET_SIGNALS = [
-  { type: 'M&A', urgency: 'high', headline: 'Diageo announces \u00A33B share buyback program', date: 'Feb 20, 2026', source: 'FT', impact: 'Signals confidence in cash generation; may pressure peers to return capital' },
+  { type: 'M&A', urgency: 'high', headline: 'Diageo announces £3B share buyback program', date: 'Feb 20, 2026', source: 'FT', impact: 'Signals confidence in cash generation; may pressure peers to return capital' },
   { type: 'Regulation', urgency: 'high', headline: 'EU alcohol labeling regulation enters enforcement phase', date: 'Feb 18, 2026', source: 'European Commission', impact: 'Mandatory calorie/ingredient labels from June 2026; compliance costs for importers' },
   { type: 'Supply', urgency: 'medium', headline: 'Mexican agave surplus reaches 5-year high', date: 'Feb 15, 2026', source: 'CRT', impact: 'Tequila input costs may decline 15-20%; benefits Becle, Cuervo brands' },
-  { type: 'Trade', urgency: 'high', headline: 'China maintains 30% import duty on EU spirits', date: 'Feb 12, 2026', source: 'Reuters', impact: 'Cognac exports to China remain depressed; R\u00e9my Cointreau most exposed' },
-  { type: 'M&A', urgency: 'medium', headline: 'Craft distillery consolidation accelerates \u2014 47 acquisitions in Q4', date: 'Feb 10, 2026', source: 'Spirits Business', impact: 'Mid-tier brands being absorbed; entry multiples averaging 8-12x EBITDA' },
+  { type: 'Trade', urgency: 'high', headline: 'China maintains 30% import duty on EU spirits', date: 'Feb 12, 2026', source: 'Reuters', impact: 'Cognac exports to China remain depressed; Rémy Cointreau most exposed' },
+  { type: 'M&A', urgency: 'medium', headline: 'Craft distillery consolidation accelerates — 47 acquisitions in Q4', date: 'Feb 10, 2026', source: 'Spirits Business', impact: 'Mid-tier brands being absorbed; entry multiples averaging 8-12x EBITDA' },
   { type: 'Category', urgency: 'low', headline: 'RTD category growth decelerates to +8.2% (was +15% in 2023)', date: 'Feb 8, 2026', source: 'IWSR', impact: 'Market maturing; winners emerging (BuzzBallz, High Noon, Cutwater)' },
 ]
 
@@ -31,8 +31,8 @@ const UPCOMING_EVENTS = [
   { date: 'Feb 27', company: 'Diageo', event: 'H1 FY2026 Results', type: 'Earnings' },
   { date: 'Mar 5', company: 'Pernod Ricard', event: 'H1 FY2026 Results', type: 'Earnings' },
   { date: 'Mar 12', company: 'Brown-Forman', event: 'Q3 FY2026 Results', type: 'Earnings' },
-  { date: 'Mar 15-17', company: 'Industry', event: 'ProWein D\u00fcsseldorf', type: 'Trade Show' },
-  { date: 'Mar 20', company: 'R\u00e9my Cointreau', event: 'FY2026 Annual Results', type: 'Earnings' },
+  { date: 'Mar 15-17', company: 'Industry', event: 'ProWein Düsseldorf', type: 'Trade Show' },
+  { date: 'Mar 20', company: 'Rémy Cointreau', event: 'FY2026 Annual Results', type: 'Earnings' },
   { date: 'Apr 2', company: 'Constellation Brands', event: 'Q4 FY2026 Results', type: 'Earnings' },
   { date: 'Apr 8', company: 'LVMH', event: 'Q1 2026 Revenue', type: 'Earnings' },
   { date: 'Apr 15-17', company: 'Industry', event: 'Vinexpo Paris', type: 'Trade Show' },
@@ -117,7 +117,7 @@ const STRATEGIC_OPPORTUNITIES = [
   {
     title: 'Travel Retail Exclusive Range',
     category: 'Multi-Category',
-    opportunity: 'Develop duty-free exclusive SKUs; partner with DFS, Lagard\u00e8re for airport placement',
+    opportunity: 'Develop duty-free exclusive SKUs; partner with DFS, Lagardère for airport placement',
     timeframe: '9-12 months',
     investmentLevel: '$300K-$750K',
     potentialReturn: 'High',
@@ -286,7 +286,7 @@ const WEEKLY_DIGEST = {
   weekAhead: [
     { event: 'Diageo H1 FY2026 earnings call', date: 'Feb 27', watchFor: 'Guidance on margin pressure; DTC platform traction; M&A appetite' },
     { event: 'EU labeling regulation enforcement deadline looms', date: 'Mar 3', watchFor: 'Compliance costs; who absorbs expense; import impact' },
-    { event: 'ProWein D\u00fcsseldorf trade show kicks off', date: 'Mar 15-17', watchFor: 'New product launches; distributor sentiment; pricing trends' }
+    { event: 'ProWein Düsseldorf trade show kicks off', date: 'Mar 15-17', watchFor: 'New product launches; distributor sentiment; pricing trends' }
   ]
 }
 

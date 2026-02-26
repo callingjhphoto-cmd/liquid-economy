@@ -338,10 +338,10 @@ const BAR_AFFILIATIONS = {
   'Handshake Speakeasy': ['Bacardi','Pernod Ricard'],
   'Sips': ['Pernod Ricard','Campari Group'],
   'Paradiso': ['Bacardi','Pernod Ricard'],
-  'Tay\u0113r + Elementary': ['Diageo','William Grant & Sons','Independent'],
+  'Tayēr + Elementary': ['Diageo','William Grant & Sons','Independent'],
   'Connaught Bar': ['Beam Suntory','Rémy Cointreau','Diageo'],
   'Jigger & Pony': ['Bacardi','Diageo','Pernod Ricard'],
-  'Alqu\u00edmico': ['Bacardi','Campari Group'],
+  'Alquímico': ['Bacardi','Campari Group'],
   'Superbueno': ['Diageo','Pernod Ricard'],
   'Himkok': ['Independent','Pernod Ricard'],
   'Bar Benfiddich': ['Beam Suntory','Independent'],
@@ -465,7 +465,7 @@ const COMPANY_PROFILES = {
         "pricePoint": "£24-28/bottle"
       },
       {
-        "name": "Gordon's",
+        "name": "Gordon\u2019s",
         "category": "Gin",
         "positioning": "Iconic London dry gin",
         "pricePoint": "£22-26/bottle"
@@ -653,7 +653,7 @@ const COMPANY_PROFILES = {
       "Hennessy Paradis Imperial limited edition release in select London luxury venues (2024)",
       "Dom Pérignon 2012 vintage launch emphasizing heritage in Michelin restaurants (2025)"
     ],
-    "threatToSmallBrands": "LVMH doesn't compete with small brands; they operate in different price universes. Their threat is to mid-premium brands positioned as luxury alternatives. LVMH's allocation control means if a venue stocks Hennessy, they have limited budget for other cognacs.",
+    "threatToSmallBrands": "LVMH doesn\u2019t compete with small brands; they operate in different price universes. Their threat is to mid-premium brands positioned as luxury alternatives. LVMH's allocation control means if a venue stocks Hennessy, they have limited budget for other cognacs.",
     "opportunityForSmallBrands": "LVMH's focus on ultra-premium means everything below £40/bottle is uncontested. Small cognac, champagne, or spirits brands can build on-trade presence without LVMH competition. LVMH's allocation scarcity creates demand for alternative luxury options."
   },
   "Beam Suntory": {
@@ -661,12 +661,12 @@ const COMPANY_PROFILES = {
     "ceo": "Motoki Ozaki",
     "revenue": "$7.3bn (FY2024)",
     "onTradeShare": "38-42%",
-    "ukOnTradeTeam": "UK on-trade team of 70+ focused on whisky, gin (Roku), and tequila (Sauza). Structured by category: Scotch whisky (Laphroaig, Ardmore, Auchentoshan), Japanese whisky (Hibiki, Yamazaki), American whisky (Maker's Mark, Jim Beam). Regional reps for England/Scotland/Wales. Strong bartender relationships through Beam category specialists.",
+    "ukOnTradeTeam": "UK on-trade team of 70+ focused on whisky, gin (Roku), and tequila (Sauza). Structured by category: Scotch whisky (Laphroaig, Ardmore, Auchentoshan), Japanese whisky (Hibiki, Yamazaki), American whisky (Maker\u2019s Mark, Jim Beam). Regional reps for England/Scotland/Wales. Strong bartender relationships through Beam category specialists.",
     "strategy": "Beam Suntory competes through category innovation and bartender credibility rather than volume. Their on-trade strategy emphasizes Scotch whisky quality positioning, Roku gin craft appeal, and emerging Japanese/world whisky trends. They invest heavily in bartender education, cocktail bar partnerships, and brand ambassador presence at industry events. They avoid pure price competition and instead position as the bartender's choice.",
     "strengths": [
       "Strong bartender relationships through quality positioning and brand ambassador support",
-      "Diversified portfolio: Scotch (Laphroaig, Ardmore), American (Maker's Mark, Jim Beam), Japanese (Hibiki, Yamazaki)",
-      "Roku Gin positioned as premium craft alternative to Tanqueray/Gordon's with strong bartender cult following"
+      "Diversified portfolio: Scotch (Laphroaig, Ardmore), American (Maker\u2019s Mark, Jim Beam), Japanese (Hibiki, Yamazaki)",
+      "Roku Gin positioned as premium craft alternative to Tanqueray/Gordon\u2019s with strong bartender cult following"
     ],
     "weaknesses": [
       "Smaller scale than Diageo means less promotional firepower in volume accounts",
@@ -687,7 +687,7 @@ const COMPANY_PROFILES = {
         "pricePoint": "£34-40/bottle"
       },
       {
-        "name": "Maker's Mark",
+        "name": "Maker\u2019s Mark",
         "category": "Bourbon",
         "positioning": "Premium bourbon standard",
         "pricePoint": "£30-36/bottle"
@@ -712,29 +712,29 @@ const COMPANY_PROFILES = {
       "Expanded Hibiki range in on-trade with Hibiki Japanese Harmony 43% ABV positioning (2024)",
       "Launched Yamazaki 25 in select on-trade venues positioning as world whisky premium alternative (2025)"
     ],
-    "threatToSmallBrands": "Beam Suntory competes through bartender relationships and premium positioning. In craft bars, their brand ambassador presence and cocktail development support makes venues loyal. However, they don't compete on price, so small brands can undercut.",
-    "opportunityForSmallBrands": "Beam Suntory's selective distribution strategy creates white space in volume accounts and mid-tier venues. Their focus on premium Scotch and craft gin leaves value whisky, vodka, and emerging spirits open. Small brands can partner with venues Beam doesn't prioritize."
+    "threatToSmallBrands": "Beam Suntory competes through bartender relationships and premium positioning. In craft bars, their brand ambassador presence and cocktail development support makes venues loyal. However, they don\u2019t compete on price, so small brands can undercut.",
+    "opportunityForSmallBrands": "Beam Suntory\u2019s selective distribution strategy creates white space in volume accounts and mid-tier venues. Their focus on premium Scotch and craft gin leaves value whisky, vodka, and emerging spirits open. Small brands can partner with venues Beam doesn\u2019t prioritize."
   },
   "Brown-Forman": {
     "headquarters": "Louisville, Kentucky",
     "ceo": "Lawson Whiting",
     "revenue": "$4.1bn (FY2024)",
     "onTradeShare": "42-47%",
-    "ukOnTradeTeam": "UK on-trade team of 60+ with focus on bourbon, tequila (Jose Cuervo), and wine. Structured by category: Bourbon (Jack Daniel's, Woodford Reserve), Tequila (Jose Cuervo, Herradura), Wine (Kosta Browne, Penner-Ash). Volume-focused field reps working distributor channels. Heavy promotions team supporting mass-market venues.",
-    "strategy": "Brown-Forman dominates bourbon and owns a significant tequila share through Jose Cuervo. Their on-trade strategy emphasizes volume through mass-market bars, pubs, and nightclubs. They compete on promotional support and distributor incentives rather than bartender credibility. Jack Daniel's is their flagship volume play; Woodford Reserve is their premium anchor.",
+    "ukOnTradeTeam": "UK on-trade team of 60+ with focus on bourbon, tequila (Jose Cuervo), and wine. Structured by category: Bourbon (Jack Daniel\u2019s, Woodford Reserve), Tequila (Jose Cuervo, Herradura), Wine (Kosta Browne, Penner-Ash). Volume-focused field reps working distributor channels. Heavy promotions team supporting mass-market venues.",
+    "strategy": "Brown-Forman dominates bourbon and owns a significant tequila share through Jose Cuervo. Their on-trade strategy emphasizes volume through mass-market bars, pubs, and nightclubs. They compete on promotional support and distributor incentives rather than bartender credibility. Jack Daniel\u2019s is their flagship volume play; Woodford Reserve is their premium anchor.",
     "strengths": [
-      "Jack Daniel's is globally iconic with built-in consumer demand; venues stock it regardless",
+      "Jack Daniel\u2019s is globally iconic with built-in consumer demand; venues stock it regardless",
       "Jose Cuervo owns tequila volume position despite lower premiumization than Patron/Sauza",
       "Strong distributor relationships allowing aggressive promotional programs"
     ],
     "weaknesses": [
       "Perceived as volume/mass-market; limited craft bar appeal",
-      "Jack Daniel's volume addiction makes them dependent on discount strategies",
+      "Jack Daniel\u2019s volume addiction makes them dependent on discount strategies",
       "Limited presence in emerging categories (RTD, premiumized no/low, craft spirits)"
     ],
     "keyBrandsOnTrade": [
       {
-        "name": "Jack Daniel's Old No. 7",
+        "name": "Jack Daniel\u2019s Old No. 7",
         "category": "Whiskey",
         "positioning": "Iconic Tennessee whiskey volume leader",
         "pricePoint": "£22-28/bottle"
@@ -764,15 +764,15 @@ const COMPANY_PROFILES = {
         "pricePoint": "£14-18/bottle"
       }
     ],
-    "londonPresence": "Brown-Forman team of 8 manages 40-50 London venues. Heavy focus on nightclubs, volume bars, and pub chains. Limited presence in luxury hotels or craft bars. Jack Daniel's available in nearly all volume venues; premium presence in mid-tier bars.",
+    "londonPresence": "Brown-Forman team of 8 manages 40-50 London venues. Heavy focus on nightclubs, volume bars, and pub chains. Limited presence in luxury hotels or craft bars. Jack Daniel\u2019s available in nearly all volume venues; premium presence in mid-tier bars.",
     "distributionUK": "Matthew Clark (primary), Bibendum, and direct to major pub chains (Wetherspoon, Nicholson's). Strong relationship with Edrington distributor for secondary reach.",
-    "typicalDealStructure": "Promotional discounts (18-22%), free goods (1+10), and volume rebates. POS material (Jack Daniel's branded signage, mirrors, tap handles). Promotional pricing for feature positioning. Cocktail menu cards for Jack Daniel's-focused drinks (Jack and ginger, etc.).",
+    "typicalDealStructure": "Promotional discounts (18-22%), free goods (1+10), and volume rebates. POS material (Jack Daniel\u2019s branded signage, mirrors, tap handles). Promotional pricing for feature positioning. Cocktail menu cards for Jack Daniel\u2019s-focused drinks (Jack and ginger, etc.).",
     "recentMoves": [
-      "Launched Jack Daniel's Tennessee Apple in on-trade to compete with Bacardi Spiced growth (2024)",
+      "Launched Jack Daniel\u2019s Tennessee Apple in on-trade to compete with Bacardi Spiced growth (2024)",
       "Herradura Ultra premium tequila launch targeting aged tequila segment (2025)"
     ],
-    "threatToSmallBrands": "Brown-Forman competes through consumer brand recognition (Jack Daniel's demand) and promotional money. Venues stock Jack Daniel's without needing to push it. For tequila, Jose Cuervo's volume position and distributor support makes it hard for small brands.",
-    "opportunityForSmallBrands": "Brown-Forman's focus on volume leaves premium positioning open. Craft bourbon, premiumized tequila, and world whiskey can compete. Venues seeking to upgrade their whiskey list will prefer small-batch alternatives to Jack Daniel's."
+    "threatToSmallBrands": "Brown-Forman competes through consumer brand recognition (Jack Daniel\u2019s demand) and promotional money. Venues stock Jack Daniel\u2019s without needing to push it. For tequila, Jose Cuervo's volume position and distributor support makes it hard for small brands.",
+    "opportunityForSmallBrands": "Brown-Forman's focus on volume leaves premium positioning open. Craft bourbon, premiumized tequila, and world whiskey can compete. Venues seeking to upgrade their whiskey list will prefer small-batch alternatives to Jack Daniel\u2019s."
   },
   "Campari Group": {
     "headquarters": "Milan, Italy",
@@ -830,19 +830,19 @@ const COMPANY_PROFILES = {
       "Expanded Luxardo liqueur range in on-trade with Luxardo Sangue Morlacco herbal amaro (2024)",
       "Launched Campari Bitter soft focus marketing campaign in on-trade (2025)"
     ],
-    "threatToSmallBrands": "Campari doesn't really compete with other spirits; they own aperitifs/amaro and control cocktail menu positioning. Venues that feature Aperol Spritz have less budget for other cocktail ingredients.",
-    "opportunityForSmallBrands": "Campari's category focus leaves gin, vodka, whisky, rum wide open. Small brands can own alternative aperitif positions (vermouth, sherry, wine-based) that Campari doesn't serve."
+    "threatToSmallBrands": "Campari doesn\u2019t really compete with other spirits; they own aperitifs/amaro and control cocktail menu positioning. Venues that feature Aperol Spritz have less budget for other cocktail ingredients.",
+    "opportunityForSmallBrands": "Campari's category focus leaves gin, vodka, whisky, rum wide open. Small brands can own alternative aperitif positions (vermouth, sherry, wine-based) that Campari doesn\u2019t serve."
   },
   "William Grant & Sons": {
     "headquarters": "Ballindalloch, Scotland",
     "ceo": "Peter Gordon",
     "revenue": "$1.6bn (FY2024)",
     "onTradeShare": "35-40%",
-    "ukOnTradeTeam": "UK on-trade team of 40+ focused on Scotch whisky, gin (Hendrick's, Grant's gin), and tequila (Milagro). Regional reps for Scotland (primary), England, Wales. Strong emphasis on direct brewery/distillery storytelling and bartender education.",
-    "strategy": "William Grant is the largest privately held spirits company and emphasizes quality, heritage, and direct bartender relationships. Their on-trade strategy focuses on premium Scotch positioning (Balvenie, Glenfiddich, Glenfarclas), Hendrick's gin as craft premium alternative, and emerging tequila trends. They avoid heavy discounting and instead build loyal bartender bases through education and brand events.",
+    "ukOnTradeTeam": "UK on-trade team of 40+ focused on Scotch whisky, gin (Hendrick\u2019s, Grant's gin), and tequila (Milagro). Regional reps for Scotland (primary), England, Wales. Strong emphasis on direct brewery/distillery storytelling and bartender education.",
+    "strategy": "William Grant is the largest privately held spirits company and emphasizes quality, heritage, and direct bartender relationships. Their on-trade strategy focuses on premium Scotch positioning (Balvenie, Glenfiddich, Glenfarclas), Hendrick\u2019s gin as craft premium alternative, and emerging tequila trends. They avoid heavy discounting and instead build loyal bartender bases through education and brand events.",
     "strengths": [
       "Glenfiddich is the best-selling Scotch whisky globally; command category standard positioning",
-      "Hendrick's Gin is craft premium positioning with strong bartender loyalty and consumer brand recognition",
+      "Hendrick\u2019s Gin is craft premium positioning with strong bartender loyalty and consumer brand recognition",
       "Private ownership allows long-term brand building vs. quarterly earnings pressure"
     ],
     "weaknesses": [
@@ -864,7 +864,7 @@ const COMPANY_PROFILES = {
         "pricePoint": "£34-42/bottle"
       },
       {
-        "name": "Hendrick's Gin",
+        "name": "Hendrick\u2019s Gin",
         "category": "Gin",
         "positioning": "Premium craft gin with cucumber",
         "pricePoint": "£28-33/bottle"
@@ -884,13 +884,13 @@ const COMPANY_PROFILES = {
     ],
     "londonPresence": "William Grant team of 8 manages 40-50 London venues with emphasis on whisky bars, cocktail bars, and premium hotels. Distillery visitor events from London venues. Sponsorship of London Whisky Show and bartender competitions. Regular brand ambassador presence in craft bars.",
     "distributionUK": "Selective distribution through premium distributors (Enotria&Coe, Love Drinks) and direct to key accounts. Focus on maintaining brand integrity over volume distribution.",
-    "typicalDealStructure": "Premium margins (10-14%); selective distribution based on venue quality. Featured positioning in whisky lists and gin cocktails. Distillery visit trips for bar staff. Hendrick's often positioned as house gin in cocktail bars with exclusive cocktail development. Limited free goods; emphasis on margin and bartender support.",
+    "typicalDealStructure": "Premium margins (10-14%); selective distribution based on venue quality. Featured positioning in whisky lists and gin cocktails. Distillery visit trips for bar staff. Hendrick\u2019s often positioned as house gin in cocktail bars with exclusive cocktail development. Limited free goods; emphasis on margin and bartender support.",
     "recentMoves": [
       "Launched Glenfiddich Project XX (experimental whisky) in on-trade premium positioning (2024)",
-      "Expanded Hendrick's range with Hendrick's Midsummer in limited on-trade release (2025)"
+      "Expanded Hendrick\u2019s range with Hendrick\u2019s Midsummer in limited on-trade release (2025)"
     ],
-    "threatToSmallBrands": "William Grant competes through brand credibility (Glenfiddich as Scotch standard) and bartender relationships. In whisky and gin, their heritage and quality positioning makes venues loyal. However, they don't compete on price.",
-    "opportunityForSmallBrands": "William Grant's premium focus leaves value whisky, entry-level gin, and tequila open. Their selective distribution means many venues can't get their brands, creating openings for small brands."
+    "threatToSmallBrands": "William Grant competes through brand credibility (Glenfiddich as Scotch standard) and bartender relationships. In whisky and gin, their heritage and quality positioning makes venues loyal. However, they don\u2019t compete on price.",
+    "opportunityForSmallBrands": "William Grant's premium focus leaves value whisky, entry-level gin, and tequila open. Their selective distribution means many venues can\u2019t get their brands, creating openings for small brands."
   },
   "Rémy Cointreau": {
     "headquarters": "Angers, France",
@@ -948,7 +948,7 @@ const COMPANY_PROFILES = {
       "Rémy Martin 1738 Accord Royal launch in select ultra-premium on-trade venues (2024)",
       "Mount Gay rum expansion in premium bars with limited edition vintage release (2025)"
     ],
-    "threatToSmallBrands": "Rémy Cointreau operates in ultra-premium space separate from small brands. Their presence means top-shelf real estate is locked up; they don't price-compete.",
+    "threatToSmallBrands": "Rémy Cointreau operates in ultra-premium space separate from small brands. Their presence means top-shelf real estate is locked up; they don\u2019t price-compete.",
     "opportunityForSmallBrands": "Rémy's allocation scarcity creates demand for alternative cognac, rum, and liqueur brands at lower price points. Small brands can own premium-but-not-ultra-premium positions."
   },
   "Edrington": {
@@ -1007,8 +1007,8 @@ const COMPANY_PROFILES = {
       "The Macallan Rare Cask release in limited on-trade availability (2024)",
       "Highland Park expanded age statement offerings in on-trade premium positioning (2025)"
     ],
-    "threatToSmallBrands": "Edrington competes through Scotch whisky prestige and The Macallan ultra-premium positioning. In whisky bars, their heritage and quality make venues loyal. However, they don't compete below premium price points.",
-    "opportunityForSmallBrands": "Edrington's Scotch focus leaves non-whisky categories open. Their selective distribution means mid-tier venues can't get their brands, creating opportunities for small brands. Non-Scotch whisky, rum, and emerging spirits are uncontested."
+    "threatToSmallBrands": "Edrington competes through Scotch whisky prestige and The Macallan ultra-premium positioning. In whisky bars, their heritage and quality make venues loyal. However, they don\u2019t compete below premium price points.",
+    "opportunityForSmallBrands": "Edrington's Scotch focus leaves non-whisky categories open. Their selective distribution means mid-tier venues can\u2019t get their brands, creating opportunities for small brands. Non-Scotch whisky, rum, and emerging spirits are uncontested."
   }
 };
 
@@ -1140,7 +1140,7 @@ const BRAND_VENUE_MAP = {
     "Nobu London",
     "Scott's"
   ],
-  "Gordon's": [
+  "Gordon\u2019s": [
     "Satan's Whiskers",
     "Desi Daru",
     "Everleaf",
@@ -1524,7 +1524,7 @@ const BRAND_VENUE_MAP = {
     "Verjus",
     "Chotto Matte"
   ],
-  "Hendrick's": [
+  "Hendrick\u2019s": [
     "Dash",
     "Lyan",
     "Catch by Simmons",
@@ -1580,7 +1580,7 @@ const CATEGORY_DENSITY = {
     "avgPerVenue": 2.8,
     "topBrands": [
       "Tanqueray",
-      "Gordon's",
+      "Gordon\u2019s",
       "Bombay Sapphire",
       "Roku",
       "Beefeater"
@@ -1700,7 +1700,7 @@ const CATEGORY_DENSITY = {
       "Aperol Spritz (canned)",
       "Luxardo Ready",
       "Fever Tree",
-      "Tito's Seltzer"
+      "Tito\u2019s Seltzer"
     ],
     "dominantCompany": "Bacardi/Pernod (60% of limited listings)",
     "trend": "Emerging; convenience/takeaway positioning; premiumization challenge"
@@ -1710,7 +1710,7 @@ const CATEGORY_DENSITY = {
 const ENTRY_PLAYBOOKS = {
   "premium_gin": {
     "title": "Premium Gin Market Entry (£28-40/bottle)",
-    "competition": "Tanqueray 10, Bombay Sapphire, Roku, Hendrick's, Beefeater 24 - craft positioning saturating",
+    "competition": "Tanqueray 10, Bombay Sapphire, Roku, Hendrick\u2019s, Beefeater 24 - craft positioning saturating",
     "estimatedBudget": "£80k-150k year 1 (team salary, events, samples, POS)",
     "timeline": "9-12 months to 20 venues; 24 months to 50 venues",
     "phase1": {
@@ -1777,7 +1777,7 @@ const ENTRY_PLAYBOOKS = {
     "pitfalls": [
       "Competing on story instead of taste/quality will make you indistinguishable from 200+ other craft gins",
       "Distributor push without founder relationships will result in shelf death after 3 months when bars deprioritize",
-      "No house cocktail development = bar staff won't champion your brand vs. Tanqueray/Bombay"
+      "No house cocktail development = bar staff won\u2019t champion your brand vs. Tanqueray/Bombay"
     ]
   },
   "craft_tequila": {
@@ -1921,7 +1921,7 @@ const ENTRY_PLAYBOOKS = {
     },
     "keyPeople": "Vodka-focused bartenders; spirits writers; Eastern European/craft spirits community; hotel bar managers; Speciality Brands/Love Drinks contacts",
     "pitfalls": [
-      "Vodka category is commoditized; \"taste the difference\" messaging won't work - lead with story/origin",
+      "Vodka category is commoditized; \"taste the difference\" messaging won\u2019t work - lead with story/origin",
       "Over-premium pricing (£35+) will make you unaffordable for cocktail bars whose customers expect £12-15 martinis",
       "No differentiation from 50+ other vodka brands will result in shelf death; find authentic differentiator"
     ]
@@ -2068,7 +2068,7 @@ const ENTRY_PLAYBOOKS = {
     "keyPeople": "Matthew Clark / Bibendum distributor contacts; venue managers at high-volume accounts; consumer PR contacts; spirits writers",
     "pitfalls": [
       "RTD on-trade placement competes with to-go positioning; lead with venue consumption, not takeaway",
-      "No consumer brand awareness = venue staff won't push product; invest in PR before distribution expansion",
+      "No consumer brand awareness = venue staff won\u2019t push product; invest in PR before distribution expansion",
       "Premium RTD positioning will fail unless product quality matches claim; do not skimp on ingredients"
     ]
   },
@@ -2153,7 +2153,7 @@ const COMPETITIVE_HEAT = {
       "dominant": "Diageo (Tanqueray)",
       "brands": [
         "Tanqueray",
-        "Gordon's",
+        "Gordon\u2019s",
         "Bombay Sapphire"
       ],
       "challenger": "Beam Suntory",
@@ -2163,10 +2163,10 @@ const COMPETITIVE_HEAT = {
       "vulnerability": "Craft/Japanese gin positioning now matches luxury perception"
     },
     "hotelBars": {
-      "dominant": "Diageo (Tanqueray, Gordon's)",
+      "dominant": "Diageo (Tanqueray, Gordon\u2019s)",
       "brands": [
         "Tanqueray",
-        "Gordon's",
+        "Gordon\u2019s",
         "Ketel One"
       ],
       "challenger": "Pernod Ricard",
@@ -2178,7 +2178,7 @@ const COMPETITIVE_HEAT = {
     "craftBars": {
       "dominant": "Small/independent brands",
       "brands": [
-        "Hendrick's",
+        "Hendrick\u2019s",
         "Roku",
         "Craft local gins"
       ],
@@ -2192,7 +2192,7 @@ const COMPETITIVE_HEAT = {
       "dominant": "Diageo",
       "brands": [
         "Tanqueray",
-        "Gordon's",
+        "Gordon\u2019s",
         "Bombay Sapphire"
       ],
       "challenger": "Bacardi",
@@ -2272,9 +2272,9 @@ const COMPETITIVE_HEAT = {
         "Macallan 12",
         "Highland Park"
       ],
-      "challenger": "Beam Suntory (Laphroaig, Maker's Mark)",
+      "challenger": "Beam Suntory (Laphroaig, Maker\u2019s Mark)",
       "challengerBrands": [
-        "Maker's Mark",
+        "Maker\u2019s Mark",
         "Laphroaig 10"
       ],
       "vulnerability": "Scotch dominates; American bourbon emerging but lower shelf space"
@@ -2351,7 +2351,7 @@ const COMPETITIVE_HEAT = {
       ],
       "challenger": "Brown-Forman",
       "challengerBrands": [
-        "Jack Daniel's (competing on spirit category preference, not tequila leadership)"
+        "Jack Daniel\u2019s (competing on spirit category preference, not tequila leadership)"
       ],
       "vulnerability": "Jose Cuervo volume leadership; but tequila category growth slow"
     }
@@ -3113,7 +3113,7 @@ export default function VenueIntelligence() {
             <div className="space-y-4">
               <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
                 <h4 className="text-sm font-semibold text-navy mb-1">Parent Company Deep Dives</h4>
-                <p className="text-xs text-gray-600">Click any company to see their full on-trade strategy, key brands, distribution model, deal structures, and where they're vulnerable to smaller brands.</p>
+                <p className="text-xs text-gray-600">Click any company to see their full on-trade strategy, key brands, distribution model, deal structures, and where they\u2019re vulnerable to smaller brands.</p>
               </div>
 
               {/* Headline Stats */}
@@ -3125,7 +3125,7 @@ export default function VenueIntelligence() {
                 </div>
                 <div className="bg-white rounded-xl p-4 border border-gray-100">
                   <p className="text-xs text-gray-500 uppercase tracking-wider">Top Company (2025)</p>
-                  <p className="text-xl font-bold mt-1" style={{ color: parentPenetration[2025]?.[0]?.name ? (PARENT_COMPANIES[parentPenetration[2025][0].name]?.color || '#333') : '#333' }}>{parentPenetration[2025]?.[0]?.name || '\u2014'}</p>
+                  <p className="text-xl font-bold mt-1" style={{ color: parentPenetration[2025]?.[0]?.name ? (PARENT_COMPANIES[parentPenetration[2025][0].name]?.color || '#333') : '#333' }}>{parentPenetration[2025]?.[0]?.name || '—'}</p>
                   <p className="text-xs text-gray-400 mt-1">{parentPenetration[2025]?.[0]?.pct}% penetration</p>
                 </div>
                 <div className="bg-white rounded-xl p-4 border border-gray-100">
@@ -3178,7 +3178,7 @@ export default function VenueIntelligence() {
                         <span className="text-xs text-gray-400 ml-auto">{profile.revenue}</span>
                         {selectedCompany === name ? <ChevronUp size={16} className="text-gray-400" /> : <ChevronDown size={16} className="text-gray-400" />}
                       </div>
-                      <p className="text-xs text-gray-500">{profile.headquarters} {'\u2022'} CEO: {profile.ceo}</p>
+                      <p className="text-xs text-gray-500">{profile.headquarters} {'•'} CEO: {profile.ceo}</p>
                       <p className="text-xs text-gray-500 mt-1">On-trade share: {profile.onTradeShare}</p>
                     </div>
 
@@ -3277,7 +3277,7 @@ export default function VenueIntelligence() {
 
               {/* Award Sponsor Intelligence */}
               <div className="bg-white rounded-xl p-5 border border-gray-100">
-                <h3 className="text-sm font-semibold text-navy mb-1">50 Best Bars {'\u2014'} Award Sponsor Intelligence</h3>
+                <h3 className="text-sm font-semibold text-navy mb-1">50 Best Bars {'—'} Award Sponsor Intelligence</h3>
                 <p className="text-xs text-gray-400 mb-4">Brands that sponsor named awards gain massive bartender community visibility</p>
                 <div className="grid grid-cols-2 gap-3">
                   {sponsorAnalysis.map(s => (
@@ -3455,7 +3455,7 @@ export default function VenueIntelligence() {
             <div className="space-y-4">
               {/* Budget Benchmarks */}
               <div className="bg-white rounded-xl p-5 border border-gray-100">
-                <h3 className="text-sm font-semibold text-navy mb-1">On-Trade Budget Benchmarks {'\u2014'} What Brands Actually Spend</h3>
+                <h3 className="text-sm font-semibold text-navy mb-1">On-Trade Budget Benchmarks {'—'} What Brands Actually Spend</h3>
                 <p className="text-xs text-gray-400 mb-4">Industry-standard ranges for retros, marketing spend, and activation by account type</p>
                 <div className="grid grid-cols-2 gap-4">
                   {Object.entries(BUDGET_BENCHMARKS).map(([key, data]) => (
@@ -3475,7 +3475,7 @@ export default function VenueIntelligence() {
               {/* Corporate vs Independent + Penetration Trend Charts */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-white rounded-xl p-5 border border-gray-100">
-                  <h3 className="text-sm font-semibold text-navy mb-4">Corporate vs Independent (2021{'\u2013'}2025)</h3>
+                  <h3 className="text-sm font-semibold text-navy mb-4">Corporate vs Independent (2021{'–'}2025)</h3>
                   <ResponsiveContainer width="100%" height={250}>
                     <BarChart data={independentVsCorporate}>
                       <XAxis dataKey="year" />
@@ -3541,19 +3541,19 @@ export default function VenueIntelligence() {
 
               {/* Market Insight Box */}
               <div className="bg-gradient-to-r from-navy to-navy-light rounded-xl p-6 text-white">
-                <h3 className="font-semibold mb-3">On-Trade Market Intelligence {'\u2014'} Key Findings</h3>
+                <h3 className="font-semibold mb-3">On-Trade Market Intelligence {'—'} Key Findings</h3>
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div className="space-y-2">
-                    <p className="text-white/90">{'\u2022'} <strong>LVMH</strong> dominates the Michelin-starred restaurant circuit {'\u2014'} Dom P{'\u00e9'}rignon and Krug feature in virtually every 2-3 star venue</p>
-                    <p className="text-white/90">{'\u2022'} <strong>Bacardi</strong> has the strongest hotel bar programme {'\u2014'} American Bar at The Savoy is a known incubator</p>
-                    <p className="text-white/90">{'\u2022'} <strong>Beam Suntory</strong> gaining through Roku Gin partnerships and Nikka award sponsorship {'\u2014'} only company sponsoring 2 separate 50 Best awards</p>
-                    <p className="text-white/90">{'\u2022'} <strong>Diageo</strong> covers the widest range {'\u2014'} from volume accounts to luxury, plus Ketel One sponsors the Sustainable Bar Award</p>
+                    <p className="text-white/90">{'•'} <strong>LVMH</strong> dominates the Michelin-starred restaurant circuit {'—'} Dom P{'é'}rignon and Krug feature in virtually every 2-3 star venue</p>
+                    <p className="text-white/90">{'•'} <strong>Bacardi</strong> has the strongest hotel bar programme {'—'} American Bar at The Savoy is a known incubator</p>
+                    <p className="text-white/90">{'•'} <strong>Beam Suntory</strong> gaining through Roku Gin partnerships and Nikka award sponsorship {'—'} only company sponsoring 2 separate 50 Best awards</p>
+                    <p className="text-white/90">{'•'} <strong>Diageo</strong> covers the widest range {'—'} from volume accounts to luxury, plus Ketel One sponsors the Sustainable Bar Award</p>
                   </div>
                   <div className="space-y-2">
-                    <p className="text-white/90">{'\u2022'} <strong>Independent brands</strong> getting shelf space: Renais Gin (Scarfes Bar), Desi Daru (Tay{'\u0113'}r), The Lakes (American Bar, Scarfes)</p>
-                    <p className="text-white/90">{'\u2022'} <strong>No/Low</strong> is growing: Seedlip (Diageo) at Plates, Everleaf at Tay{'\u0113'}r, Lyre{'\u2019'}s expanding</p>
-                    <p className="text-white/90">{'\u2022'} <strong>Agave spirits</strong> are the fastest-growing backbar category {'\u2014'} Kol driving from Michelin level</p>
-                    <p className="text-white/90">{'\u2022'} <strong>Private members clubs</strong> (Annabel{'\u2019'}s {'\u00a3'}55.6M, Arts Club {'\u00a3'}30.9M) command highest marketing spend</p>
+                    <p className="text-white/90">{'•'} <strong>Independent brands</strong> getting shelf space: Renais Gin (Scarfes Bar), Desi Daru (Tay{'ē'}r), The Lakes (American Bar, Scarfes)</p>
+                    <p className="text-white/90">{'•'} <strong>No/Low</strong> is growing: Seedlip (Diageo) at Plates, Everleaf at Tay{'ē'}r, Lyre{'\u2019'}s expanding</p>
+                    <p className="text-white/90">{'•'} <strong>Agave spirits</strong> are the fastest-growing backbar category {'—'} Kol driving from Michelin level</p>
+                    <p className="text-white/90">{'•'} <strong>Private members clubs</strong> (Annabel{'\u2019'}s {'£'}55.6M, Arts Club {'£'}30.9M) command highest marketing spend</p>
                   </div>
                 </div>
               </div>
@@ -3567,14 +3567,14 @@ export default function VenueIntelligence() {
         <div className="space-y-6">
           <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl p-5 border border-amber-200">
             <h3 className="font-semibold text-navy mb-2 flex items-center gap-2"><Target size={18} /> Market Entry Intelligence</h3>
-            <p className="text-sm text-gray-700">Practical intelligence for brands entering the London on-trade. Distribution partners, phased entry playbooks, budget benchmarks, and competitive positioning {'\u2014'} all from the perspective of a small-to-medium brand coming to market.</p>
+            <p className="text-sm text-gray-700">Practical intelligence for brands entering the London on-trade. Distribution partners, phased entry playbooks, budget benchmarks, and competitive positioning {'—'} all from the perspective of a small-to-medium brand coming to market.</p>
           </div>
 
           {/* ─── DISTRIBUTION LANDSCAPE ─── */}
           <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
             <div className="bg-gray-50 px-5 py-3 border-b border-gray-100">
               <h3 className="text-sm font-semibold text-navy flex items-center gap-2"><Briefcase size={16} /> UK Distribution Landscape</h3>
-              <p className="text-xs text-gray-500 mt-0.5">Key distributors and wholesalers for the UK on-trade {'\u2014'} click for details</p>
+              <p className="text-xs text-gray-500 mt-0.5">Key distributors and wholesalers for the UK on-trade {'—'} click for details</p>
             </div>
             <div className="p-5 space-y-3">
               {Object.entries(DISTRIBUTORS).map(([name, dist]) => (
@@ -3610,7 +3610,7 @@ export default function VenueIntelligence() {
           <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
             <div className="bg-gray-50 px-5 py-3 border-b border-gray-100">
               <h3 className="text-sm font-semibold text-navy flex items-center gap-2"><BookOpen size={16} /> Category Entry Playbooks</h3>
-              <p className="text-xs text-gray-500 mt-0.5">Phased market entry strategies by spirit category {'\u2014'} realistic timelines, budgets, and target venues</p>
+              <p className="text-xs text-gray-500 mt-0.5">Phased market entry strategies by spirit category {'—'} realistic timelines, budgets, and target venues</p>
             </div>
             <div className="p-5 space-y-3">
               {Object.entries(ENTRY_PLAYBOOKS).map(([key, pb]) => (
@@ -3696,15 +3696,15 @@ export default function VenueIntelligence() {
             <div className="grid grid-cols-2 gap-6 text-sm text-gray-700">
               <div className="space-y-3">
                 <div>
-                  <h4 className="font-semibold text-navy">Entry Strategy {'\u2014'} Luxury Accounts</h4>
-                  <p>Target independent-minded bars like Satan{'\u2019'}s Whiskers (blind tasting selection), Tay{'\u0113'}r + Elementary (ingredient-led menus), and Lyaness (6-month R&D cycles). These venues select on quality, not corporate spend.</p>
+                  <h4 className="font-semibold text-navy">Entry Strategy {'—'} Luxury Accounts</h4>
+                  <p>Target independent-minded bars like Satan{'\u2019'}s Whiskers (blind tasting selection), Tay{'ē'}r + Elementary (ingredient-led menus), and Lyaness (6-month R&D cycles). These venues select on quality, not corporate spend.</p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-navy">Visibility Strategy {'\u2014'} 50 Best Bars</h4>
-                  <p>Bars appearing 4+ years in the list (Tay{'\u0113'}r, Connaught, Jigger & Pony, Paradiso) are the most valuable long-term partnerships. A brand featured here gets global bartender community visibility.</p>
+                  <h4 className="font-semibold text-navy">Visibility Strategy {'—'} 50 Best Bars</h4>
+                  <p>Bars appearing 4+ years in the list (Tay{'ē'}r, Connaught, Jigger & Pony, Paradiso) are the most valuable long-term partnerships. A brand featured here gets global bartender community visibility.</p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-navy">Sponsorship {'\u2014'} Awards</h4>
+                  <h4 className="font-semibold text-navy">Sponsorship {'—'} Awards</h4>
                   <p>50 Best award sponsors: Roku (Industry Icon), Nikka (Highest Climber), Disaronno (Highest New Entry), Ketel One (Sustainable Bar). These brands get massive awareness in the bartender community.</p>
                 </div>
               </div>

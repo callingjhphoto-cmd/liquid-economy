@@ -39,37 +39,37 @@ const COGS_DATA = {
     historicalData: { '2025-03': 4.55, '2025-04': 4.58, '2025-05': 4.60, '2025-06': 4.62, '2025-07': 4.65, '2025-08': 4.68, '2025-09': 4.70, '2025-10': 4.73, '2025-11': 4.76, '2025-12': 4.78, '2026-01': 4.80, '2026-02': 4.82 }
   },
   sugarcane: {
-    label: 'Raw Sugar (ICE No.11)', value: 22.4, unit: '\u00a2/lb', change: '+8%', source: 'ICE', updated: '2026-02',
+    label: 'Raw Sugar (ICE No.11)', value: 22.4, unit: '¢/lb', change: '+8%', source: 'ICE', updated: '2026-02',
     description: 'ICE Sugar No. 11 futures — the global benchmark for raw cane sugar. Critical input for rum production, liqueurs, and RTD cocktails. Brazil (largest producer) drought conditions and Indian export restrictions have tightened global supply. Also affects molasses pricing for rum distillers.',
     sourceUrl: 'https://www.ice.com/products/23/Sugar-No-11-Futures',
     historicalData: { '2025-03': 20.7, '2025-04': 20.9, '2025-05': 21.0, '2025-06': 21.2, '2025-07': 21.4, '2025-08': 21.6, '2025-09': 21.8, '2025-10': 22.0, '2025-11': 22.1, '2025-12': 22.2, '2026-01': 22.3, '2026-02': 22.4 }
   },
   natural_gas: {
     label: 'Natural Gas (EU)', value: 48.2, unit: 'EUR/MWh', change: '+15%', source: 'TTF', updated: '2026-02',
-    description: 'TTF (Title Transfer Facility) natural gas price — the European benchmark for natural gas. Critical for glass manufacturing (furnaces run 24/7 at 1,500\u00b0C), distillery heating, bottling line operations, and warehouse climate control. Energy typically represents 8-12% of total COGS for spirits producers.',
+    description: 'TTF (Title Transfer Facility) natural gas price — the European benchmark for natural gas. Critical for glass manufacturing (furnaces run 24/7 at 1,500°C), distillery heating, bottling line operations, and warehouse climate control. Energy typically represents 8-12% of total COGS for spirits producers.',
     sourceUrl: 'https://www.theice.com/products/27996665/Dutch-TTF-Gas-Futures',
     historicalData: { '2025-03': 41.9, '2025-04': 42.3, '2025-05': 42.8, '2025-06': 43.4, '2025-07': 44.1, '2025-08': 44.8, '2025-09': 45.5, '2025-10': 46.2, '2025-11': 46.9, '2025-12': 47.4, '2026-01': 47.8, '2026-02': 48.2 }
   },
   wheat: {
-    label: 'UK Wheat Futures', value: 210, unit: '\u00a3/t', change: '+3%', source: 'NYSE Liffe', updated: '2026-02',
+    label: 'UK Wheat Futures', value: 210, unit: '£/t', change: '+3%', source: 'NYSE Liffe', updated: '2026-02',
     description: 'LIFFE wheat futures price for UK-grown wheat. Primary input for UK grain spirits, craft distillers, and breweries needing malting grain as backup. UK harvest cycles and European price arbitrage drive volatility. Relevant to craft gin and vodka distillers using grain base spirits.',
     sourceUrl: 'https://www.theice.com/products/550/Wheat',
     historicalData: { '2025-03': 204, '2025-04': 204, '2025-05': 205, '2025-06': 206, '2025-07': 207, '2025-08': 208, '2025-09': 208, '2025-10': 208, '2025-11': 209, '2025-12': 210, '2026-01': 210, '2026-02': 210 }
   },
   grapes_champagne: {
-    label: 'Champagne Grapes', value: 7.50, unit: '\u20ac/kg', change: '+9%', source: 'Institut Champagne', updated: '2026-01',
-    description: 'Average price paid by Champagne houses for hand-picked Chardonnay, Pinot Noir, and Meunier grapes (Appellation d\'Origine Contr\u00f4l\u00e9e). Highest grape prices in the global wine industry. 2025 frost damage reduced yields, driving prices higher. Contracts are typically multi-year with escalation clauses.',
+    label: 'Champagne Grapes', value: 7.50, unit: '€/kg', change: '+9%', source: 'Institut Champagne', updated: '2026-01',
+    description: 'Average price paid by Champagne houses for hand-picked Chardonnay, Pinot Noir, and Meunier grapes (Appellation d\'Origine Contrôlée). Highest grape prices in the global wine industry. 2025 frost damage reduced yields, driving prices higher. Contracts are typically multi-year with escalation clauses.',
     sourceUrl: 'https://www.champagne.fr/en',
     historicalData: { '2025-03': 6.88, '2025-04': 6.95, '2025-05': 7.02, '2025-06': 7.08, '2025-07': 7.15, '2025-08': 7.22, '2025-09': 7.30, '2025-10': 7.38, '2025-11': 7.45, '2025-12': 7.48, '2026-01': 7.50, '2026-02': 7.50 }
   },
   grapes_bordeaux: {
-    label: 'Bordeaux Grapes', value: 1.80, unit: '\u20ac/kg', change: '+2%', source: 'Conseil Interprofessionnel', updated: '2026-01',
+    label: 'Bordeaux Grapes', value: 1.80, unit: '€/kg', change: '+2%', source: 'Conseil Interprofessionnel', updated: '2026-01',
     description: 'Average price for premium Bordeaux blending varieties (Cabernet Sauvignon, Merlot, Petit Verdot). Part of the broader European wine supply chain. Climate variability and fungal pressure drive year-to-year volatility. Critical for wine importers and négociants sourcing AOC Bordeaux.',
     sourceUrl: 'https://www.vins-bordeaux.fr/en',
     historicalData: { '2025-03': 1.76, '2025-04': 1.76, '2025-05': 1.77, '2025-06': 1.78, '2025-07': 1.78, '2025-08': 1.79, '2025-09': 1.79, '2025-10': 1.80, '2025-11': 1.80, '2025-12': 1.80, '2026-01': 1.80, '2026-02': 1.80 }
   },
   oak_barrels: {
-    label: 'French Oak Barrels', value: 900, unit: '\u20ac/barrel', change: '+1%', source: 'Cooperages Guild', updated: '2026-02',
+    label: 'French Oak Barrels', value: 900, unit: '€/barrel', change: '+1%', source: 'Cooperages Guild', updated: '2026-02',
     description: 'Average price for new French oak barrels (225L) from top coopers (Taransaud, Radoux, Demptos). French oak imparts premium flavor complexity preferred for cognac, armagnac, and prestige bourbon. American oak costs ~$450/barrel. Cooperage capacity remains tight; lead times 9-12 months for premium cooperages.',
     sourceUrl: 'https://www.tonellerie.fr',
     historicalData: { '2025-03': 885, '2025-04': 886, '2025-05': 887, '2025-06': 888, '2025-07': 889, '2025-08': 891, '2025-09': 892, '2025-10': 894, '2025-11': 896, '2025-12': 898, '2026-01': 899, '2026-02': 900 }
@@ -87,13 +87,13 @@ const COGS_DATA = {
     historicalData: { '2025-03': 817, '2025-04': 818, '2025-05': 822, '2025-06': 827, '2025-07': 832, '2025-08': 837, '2025-09': 841, '2025-10': 844, '2025-11': 847, '2025-12': 848, '2026-01': 849, '2026-02': 850 }
   },
   co2: {
-    label: 'EU ETS Carbon Price', value: 68, unit: '\u20ac/t CO2e', change: '+18%', source: 'EU ETS Registry', updated: '2026-02',
-    description: 'European Union Emissions Trading System carbon allowance price. Impacts glass melting (high-temperature process), shipping (bunker fuel), and distillery/brewery operations. At current levels, EU ETS adds ~\u20ac0.10-0.15 to a bottle cost. Future tightening of supply caps will increase pressure.',
+    label: 'EU ETS Carbon Price', value: 68, unit: '€/t CO2e', change: '+18%', source: 'EU ETS Registry', updated: '2026-02',
+    description: 'European Union Emissions Trading System carbon allowance price. Impacts glass melting (high-temperature process), shipping (bunker fuel), and distillery/brewery operations. At current levels, EU ETS adds ~€0.10-0.15 to a bottle cost. Future tightening of supply caps will increase pressure.',
     sourceUrl: 'https://ec.europa.eu/clima/eu-action/eu-emissions-trading-system-eu-ets_en',
     historicalData: { '2025-03': 57, '2025-04': 58, '2025-05': 60, '2025-06': 62, '2025-07': 64, '2025-08': 65, '2025-09': 66, '2025-10': 67, '2025-11': 67, '2025-12': 68, '2026-01': 68, '2026-02': 68 }
   },
   ethanol: {
-    label: 'European Ethanol Price', value: 0.68, unit: '\u20ac/L', change: '+4%', source: 'CBOT/European brokers', updated: '2026-02',
+    label: 'European Ethanol Price', value: 0.68, unit: '€/L', change: '+4%', source: 'CBOT/European brokers', updated: '2026-02',
     description: 'Benchmark price for industrial ethanol in Europe (CBOT corn-based ethanol + import + duties/transport). Used by rectifiers, neutral spirit producers, and RTD manufacturers. Competes with grain prices; ethanol mandates in fuel policy impact availability.',
     sourceUrl: 'https://www.cmegroup.com/markets/agriculture/grains/ethanol.html',
     historicalData: { '2025-03': 0.65, '2025-04': 0.65, '2025-05': 0.66, '2025-06': 0.66, '2025-07': 0.66, '2025-08': 0.67, '2025-09': 0.67, '2025-10': 0.67, '2025-11': 0.68, '2025-12': 0.68, '2026-01': 0.68, '2026-02': 0.68 }
@@ -122,7 +122,7 @@ const CATEGORY_COGS = {
 
 const GLASS_SUPPLIERS = [
   { name: 'O-I Glass', hq: 'US', marketShare: 21, keyClients: ['Diageo', 'Pernod Ricard'], leadTime: '12-16 weeks', minimumOrder: '100k units', capacity: 'Near full' },
-  { name: 'Verallia', hq: 'France', marketShare: 14, keyClients: ['LVMH', 'R\u00e9my Cointreau'], leadTime: '10-14 weeks', minimumOrder: '75k units', capacity: 'Available' },
+  { name: 'Verallia', hq: 'France', marketShare: 14, keyClients: ['LVMH', 'Rémy Cointreau'], leadTime: '10-14 weeks', minimumOrder: '75k units', capacity: 'Available' },
   { name: 'Ardagh Group', hq: 'Luxembourg', marketShare: 12, keyClients: ['Heineken', 'AB InBev'], leadTime: '14-18 weeks', minimumOrder: '100k units', capacity: 'Constrained' },
   { name: 'Saverglass', hq: 'France', marketShare: 5, keyClients: ['Luxury brands'], leadTime: '16-20 weeks', minimumOrder: '50k units', capacity: 'Premium boutique' },
   { name: 'Vetropack', hq: 'Switzerland', marketShare: 4, keyClients: ['Premium wine'], leadTime: '12-14 weeks', minimumOrder: '60k units', capacity: 'Available' },
@@ -230,7 +230,7 @@ const CURRENCY_PAIRS = [
 ]
 
 const MARGIN_ALERTS = [
-  { brand: 'Corona Extra', company: 'Constellation Brands', severity: 'high', message: 'Glass +2.1% & freight +110% vs flat retail \u2014 margin squeeze imminent', category: 'Beer' },
+  { brand: 'Corona Extra', company: 'Constellation Brands', severity: 'high', message: 'Glass +2.1% & freight +110% vs flat retail — margin squeeze imminent', category: 'Beer' },
   { brand: 'Hennessy VS', company: 'LVMH', severity: 'medium', message: 'Champagne grapes +9% and French oak +1% while US retail held at $34.99', category: 'Cognac' },
   { brand: 'Johnnie Walker Black', company: 'Diageo', severity: 'medium', message: 'Barley +12% and energy +15% eroding blended scotch margins', category: 'Blended Scotch' },
   { brand: 'Bacardi Superior', company: 'Bacardi', severity: 'low', message: 'Sugarcane +8% partially offset by Caribbean shipping normalisation', category: 'Rum' },
@@ -238,7 +238,7 @@ const MARGIN_ALERTS = [
   { brand: 'Moët & Chandon', company: 'LVMH', severity: 'medium', message: 'Champagne grapes +9%, cardboard +4%, but brand power sustains margin', category: 'Champagne' },
   { brand: 'Stella Artois', company: 'AB InBev', severity: 'medium', message: 'Barley +12%, aluminum +8% (cans 30% of revenue), GBP weakness compounds', category: 'Beer' },
   { brand: 'Grey Goose', company: 'Bacardi', severity: 'low', message: 'Grain prices flat, premium positioning absorbs cost pressure, logistics +5%', category: 'Vodka' },
-  { brand: 'Jack Daniel\u0027s', company: 'Brown-Forman', severity: 'medium', message: 'Corn +6%, barrels +1%, US tariff risk 15-25% on EU-bound supply', category: 'Bourbon' },
+  { brand: 'Jack Daniel\u2019s', company: 'Brown-Forman', severity: 'medium', message: 'Corn +6%, barrels +1%, US tariff risk 15-25% on EU-bound supply', category: 'Bourbon' },
   { brand: 'Absolute Vodka', company: 'Pernod Ricard', severity: 'low', message: 'Swedish grain stable, glass normal, container freight up 110% impacts Asia export', category: 'Vodka' },
   { brand: 'Veuve Clicquot', company: 'LVMH', severity: 'medium', message: 'Grapes +9%, glass +2.1%, but prestige brand can raise prices; 2026 harvest forecast grim', category: 'Champagne' },
   { brand: 'Guinness', company: 'Diageo', severity: 'high', message: 'Barley +12% (65% of stout cost), labor rising in Ireland, glass constraint in EU', category: 'Beer' },
@@ -249,13 +249,13 @@ const CLIMATE_RISKS = [
   { region: 'California', commodity: 'Cabernet/Pinot grapes', impact: '-23% yield due to drought, high temps', severity: 'critical', detail: 'Extreme 2024-2025 drought and heat stress on Napa/Sonoma vines' },
   { region: 'Scotland', commodity: 'Malting barley', impact: '-40% in some regions (2025 harvest)', severity: 'high', detail: 'Poor weather, late planted, late harvest, low quality grain' },
   { region: 'Caribbean', commodity: 'Sugarcane', impact: 'Erratic rainfall disrupting harvest cycles', severity: 'medium', detail: 'Climate volatility (dry spells then floods) reducing yields 5-15%' },
-  { region: 'Mexico (Jalisco)', commodity: 'Blue Weber Agave', impact: 'Oversupply cycle \u2014 prices falling, but disease monitoring needed', severity: 'low', detail: 'Mature plantings from 2017-2019 flood market; phytophthora risk modest' },
+  { region: 'Mexico (Jalisco)', commodity: 'Blue Weber Agave', impact: 'Oversupply cycle — prices falling, but disease monitoring needed', severity: 'low', detail: 'Mature plantings from 2017-2019 flood market; phytophthora risk modest' },
   { region: 'Bordeaux, France', commodity: 'Merlot, Cabernet', impact: '-8% yield, fungal pressure (mildew)', severity: 'medium', detail: '2025 wet spring raised mildew; increased sulfur/copper treatments cost' },
   { region: 'South Africa', commodity: 'Wine grapes', impact: 'Water stress in Stellenbosch/Paarl regions', severity: 'medium', detail: 'Cape Town Day Zero risk; irrigation restrictions possible by 2027' },
   { region: 'Australia', commodity: 'Barossa/Margaret River grapes', impact: 'Heat waves pushing ripeness, alcohol % rising', severity: 'low', detail: 'Warmer seasons shift vintage profiles; some vintages harder to sell' },
   { region: 'Italy (Piedmont)', commodity: 'Nebbiolo grapes', impact: 'Erratic flowering, lower density', severity: 'medium', detail: '2024-2025 cool/wet spring pushed flowering late, stressed set' },
   { region: 'Kenya/Uganda', commodity: 'Barley (emerging source)', impact: 'Rainfall variability, new pest pressures', severity: 'low', detail: 'Small scale; future risk if Europe supply contracts' },
-  { region: 'Brazil', commodity: 'Sugarcane', impact: 'Drought stress on plantations reducing yields', severity: 'medium', detail: '2024-2025 drought in S\u00e3o Paulo affected ~10M tonnes output' },
+  { region: 'Brazil', commodity: 'Sugarcane', impact: 'Drought stress on plantations reducing yields', severity: 'medium', detail: '2024-2025 drought in São Paulo affected ~10M tonnes output' },
   { region: 'Spain', commodity: 'Tempranillo (Rioja)', impact: 'Heat stress, early ripening, lower acidity', severity: 'low', detail: 'Warmer vintages change winemaking protocols' },
 ]
 
@@ -336,7 +336,7 @@ function CostCard({ metricKey, label, value, unit, change, source, updated, onCl
         <span className="text-[10px] text-gray-300">{source}</span>
         <span className="text-[10px] text-gray-300">{updated}</span>
       </div>
-      <div className="mt-2 text-[10px] text-blue-500 font-medium">Click for details \u2192</div>
+      <div className="mt-2 text-[10px] text-blue-500 font-medium">Click for details →</div>
     </button>
   )
 }
@@ -367,7 +367,7 @@ function CategoryCOGSChart({ category }) {
           <span className="text-xs text-gray-500">{data.keyInput}</span>
           {data.inputTrend === 'rising' && <TrendingUp className="w-3.5 h-3.5 text-red-500" />}
           {data.inputTrend === 'falling' && <TrendingDown className="w-3.5 h-3.5 text-green-500" />}
-          {data.inputTrend === 'stable' && <span className="text-xs font-bold text-gray-400">\u2014</span>}
+          {data.inputTrend === 'stable' && <span className="text-xs font-bold text-gray-400">—</span>}
         </div>
       </div>
       <svg viewBox="0 0 100 20" className="w-full h-6 mb-2">
@@ -617,10 +617,10 @@ export default function SupplyChain() {
           <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4">
             <h3 className="text-sm font-semibold text-navy mb-2">Supplier Notes for Startups</h3>
             <ul className="text-xs text-gray-600 space-y-1">
-              <li>\u2022 <strong>Glass:</strong> Minimum orders 100k units typical. Premium brands (Saverglass) 50k but at premium pricing. Lead times 12-20 weeks; order 6-9 months ahead.</li>
-              <li>\u2022 <strong>Closures:</strong> Cork sourcing complex (terroir/quality variability). Synthetic/screw dominates modern wine. Beer crown caps commodity. Negotiate multi-year contracts for volume discounts (5-10%).</li>
-              <li>\u2022 <strong>Labels:</strong> Digital printing offers short runs (5k) at 3-4 week turnaround. Gravure/flexo more cost-efficient at 10k+ but slower. Consider sustainability certifications early (market differentiator).</li>
-              <li>\u2022 <strong>Freight:</strong> Drewry index now 3421 (110% above 2023 lows). Spot rates spike; lock annual contracts now. Asia-Europe shipping 4-6 weeks; Mexico-US 2-3 weeks.</li>
+              <li>• <strong>Glass:</strong> Minimum orders 100k units typical. Premium brands (Saverglass) 50k but at premium pricing. Lead times 12-20 weeks; order 6-9 months ahead.</li>
+              <li>• <strong>Closures:</strong> Cork sourcing complex (terroir/quality variability). Synthetic/screw dominates modern wine. Beer crown caps commodity. Negotiate multi-year contracts for volume discounts (5-10%).</li>
+              <li>• <strong>Labels:</strong> Digital printing offers short runs (5k) at 3-4 week turnaround. Gravure/flexo more cost-efficient at 10k+ but slower. Consider sustainability certifications early (market differentiator).</li>
+              <li>• <strong>Freight:</strong> Drewry index now 3421 (110% above 2023 lows). Spot rates spike; lock annual contracts now. Asia-Europe shipping 4-6 weeks; Mexico-US 2-3 weeks.</li>
             </ul>
           </div>
         </div>

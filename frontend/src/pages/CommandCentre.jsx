@@ -612,10 +612,10 @@ function MAPipeline() {
         </div>
         <div className="flex gap-1">
           <button onClick={() => setActiveTab('pipeline')} className={`px-2.5 py-1 rounded text-[10px] font-semibold transition-colors ${activeTab === 'pipeline' ? 'bg-navy text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>
-            {'\\ud83d\\udcc8'} 2026 Pipeline
+            2026 Pipeline
           </button>
           <button onClick={() => setActiveTab('history')} className={`px-2.5 py-1 rounded text-[10px] font-semibold transition-colors ${activeTab === 'history' ? 'bg-navy text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>
-            {'\\ud83d\\udcda'} Completed Deals
+            Completed Deals
           </button>
         </div>
         {activeTab === 'history' && (

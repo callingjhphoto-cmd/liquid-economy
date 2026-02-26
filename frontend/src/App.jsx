@@ -14,6 +14,7 @@ import VenueIntelligence from './pages/VenueIntelligence'
 import ClimateYield from './pages/ClimateYield'
 import POSIntelligence from './pages/POSIntelligence'
 import CategoryCommandView from './pages/CategoryCommandView'
+import MarginCalculator from './pages/MarginCalculator'
 import ChatPanel from './components/ChatPanel'
 
 function Login({ onLogin }) {
@@ -112,6 +113,7 @@ function Layout({ onLogout }) {
             <NavItem to="/pricing" icon={DollarSign} label="Brand Pricing" />
             <NavItem to="/companies" icon={Building2} label="Company Intelligence" />
             <NavItem to="/pos" icon={ShoppingBag} label="POS Manufacturing" />
+            <NavItem to="/scenario" icon={Crosshair} label="Scenario Modelling" />
             <NavItem to="/reports" icon={FileText} label="Report Builder" />
           </nav>
           <div className="p-3 border-t border-white/10">
@@ -158,6 +160,7 @@ function Layout({ onLogout }) {
             <Route path="/pricing" element={<BrandPricing />} />
             <Route path="/companies" element={<Companies />} />
             <Route path="/pos" element={<POSIntelligence />} />
+            <Route path="/scenario" element={<MarginCalculator />} />
             <Route path="/reports" element={<ReportBuilder />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>

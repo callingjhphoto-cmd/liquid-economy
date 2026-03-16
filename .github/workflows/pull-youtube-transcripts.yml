@@ -1,0 +1,160 @@
+name: Pull YouTube Transcripts
+
+on:
+  workflow_dispatch:
+    inputs:
+      video_ids:
+        description: 'JSON array of video IDs, e.g. ["dQw4w9WgXcQ","abc123"]'
+        required: true
+        type: string
+      language:
+        description: 'Transcript language code (default: en)'
+        required: false
+        default: 'en'
+        type: string
+
+jobs:
+  pull-transcripts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install youtube-transcript-api
+
+      - name: Pull transcripts
+        env:
+          VIDEO_IDS: ${{ inputs.video_ids }}
+          LANGUAGE: ${{ inputs.language }}
+        run: |
+          cat << 'PYEOF' > pull_transcripts.py
+          import json
+          import os
+          import sys
+          import time
+          import traceback
+          from datetime import datetime
+
+          try:
+              from youtube_transcript_api import YouTubeTranscriptApi
+          except ImportError:
+              print("ERROR: youtube-transcript-api not installed")
+              sys.exit(1)
+
+          video_ids_raw = os.environ.get("VIDEO_IDS", "[]")
+          language = os.environ.get("LANGUAGE", "en")
+
+          try:
+              video_ids = json.loads(video_ids_raw)
+          except json.JSONDecodeError as e:
+              print(f"ERROR: Failed to parse VIDEO_IDS as JSON: {e}")
+              print(f"Raw input: {video_ids_raw}")
+              sys.exit(1)
+
+          if not isinstance(video_ids, list):
+              print("ERROR: VIDEO_IDS must be a JSON array")
+              sys.exit(1)
+
+          print(f"Processing {len(video_ids)} video(s) with language={language}")
+
+          output_dir = "transcripts_output"
+          os.makedirs(output_dir, exist_ok=True)
+
+          results = {"success": [], "failed": [], "timestamp": datetime.utcnow().isoformat()}
+
+          ytt_api = YouTubeTranscriptApi()
+
+          for i, vid in enumerate(video_ids):
+              vid = vid.strip()
+              if not vid:
+                  continue
+
+              print(f"\n[{i+1}/{len(video_ids)}] Pulling transcript for: {vid}")
+
+              try:
+                  transcript = ytt_api.fetch(vid, languages=[language, "en"])
+                  snippets = transcript.snippets
+
+                  # Build plain text transcript
+                  lines = []
+                  for entry in snippets:
+                      ts = entry.start
+                      minutes = int(ts // 60)
+                      seconds = int(ts % 60)
+                      text = entry.text.replace("\n", " ").strip()
+                      lines.append(f"[{minutes:02d}:{seconds:02d}] {text}")
+
+                  full_text = "\n".join(lines)
+
+                  # Build markdown output with frontmatter
+                  md_content = f"""---
+          video_id: {vid}
+          url: https://www.youtube.com/watch?v={vid}
+          language: {language}
+          pulled: {datetime.utcnow().isoformat()}Z
+          source: github-actions
+          segments: {len(snippets)}
+          ---
+
+          # Transcript: {vid}
+
+          {full_text}
+          """
+                  output_path = os.path.join(output_dir, f"{vid}.md")
+                  with open(output_path, "w", encoding="utf-8") as f:
+                      f.write(md_content)
+
+                  word_count = len(full_text.split())
+                  print(f"  OK - {len(snippets)} segments, {word_count} words")
+                  results["success"].append({
+                      "video_id": vid,
+                      "segments": len(snippets),
+                      "words": word_count
+                  })
+
+              except Exception as e:
+                  error_msg = str(e)
+                  print(f"  FAILED - {error_msg}")
+                  traceback.print_exc()
+                  results["failed"].append({
+                      "video_id": vid,
+                      "error": error_msg
+                  })
+
+              # Rate limit: 3-second delay between requests
+              if i < len(video_ids) - 1:
+                  print("  Waiting 3s...")
+                  time.sleep(3)
+
+          # Write results summary
+          summary_path = os.path.join(output_dir, "_pull_summary.json")
+          with open(summary_path, "w") as f:
+              json.dump(results, f, indent=2)
+
+          print(f"\n{'='*50}")
+          print(f"DONE: {len(results['success'])} succeeded, {len(results['failed'])} failed")
+
+          if results["failed"]:
+              print("\nFailed videos:")
+              for f_item in results["failed"]:
+                  print(f"  {f_item['video_id']}: {f_item['error']}")
+
+          # Exit 0 even if some failed (partial success is fine)
+          sys.exit(0)
+          PYEOF
+
+          python pull_transcripts.py
+
+      - name: Upload transcripts artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: transcripts
+          path: transcripts_output/
+          retention-days: 30
+          if-no-files-found: warn

@@ -7,7 +7,7 @@ import {
   Eye, BarChart3, Columns, Package, Edit3
 } from 'lucide-react'
 
-// \u2500\u2500 Segment Definitions \u2500\u2500
+// ── Segment Definitions ──
 const SEGMENT_INFO = {
   'Value': { color: 'bg-gray-100 text-gray-600', desc: 'Entry-level / economy pricing. High volume, lower margin.', range: '\u00a310\u2013\u00a318' },
   'Standard': { color: 'bg-slate-100 text-slate-600', desc: 'Mainstream brands at accessible price points. Core range for most consumers.', range: '\u00a318\u2013\u00a328' },
@@ -17,7 +17,7 @@ const SEGMENT_INFO = {
   'Prestige': { color: 'bg-rose-50 text-rose-600', desc: 'Pinnacle tier. Collector\u2019s items, auction-grade. Often investment-linked.', range: '\u00a3250+' },
 }
 
-// \u2500\u2500 Market Config \u2500\u2500
+// ── Market Config ──
 const MARKET_CONFIG = {
   uk: { flag: '\ud83c\uddec\ud83c\udde7', label: 'United Kingdom', currency: '\u00a3', bottleSize: '70cl', bottleMl: 700 },
   us: { flag: '\ud83c\uddfa\ud83c\uddf8', label: 'United States', currency: '$', bottleSize: '750ml', bottleMl: 750 },
@@ -29,7 +29,7 @@ const MARKET_CONFIG = {
   me: { flag: '\ud83c\udde6\ud83c\uddea', label: 'Middle East', currency: '$', bottleSize: '750ml', bottleMl: 750 },
 }
 
-// \u2500\u2500 Retailer Definitions \u2500\u2500
+// ── Retailer Definitions ──
 const RETAILERS = {
   uk: [
     { id: 'tesco', name: 'Tesco', logo: '\ud83d\udecd\ufe0f', type: 'Supermarket', url: 'https://www.tesco.com/groceries/en-GB/search?query=' },
@@ -89,7 +89,7 @@ const RETAILERS = {
   ],
 }
 
-// \u2500\u2500 Comprehensive Brand Database (with retailer-level pricing) \u2500\u2500
+// ── Comprehensive Brand Database (with retailer-level pricing) ──
 const BRAND_DATABASE = [
   // === SCOTCH WHISKY ===
   { company: 'Diageo', brand: 'Johnnie Walker', expression: 'Black Label', category: 'Scotch Whisky', segment: 'Standard',
@@ -227,7 +227,7 @@ const BRAND_DATABASE = [
     offers: {} },
 ]
 
-// \u2500\u2500 Editable Prices Hook \u2500\u2500
+// ── Editable Prices Hook ──
 function useEditablePrices() {
   const [editedPrices, setEditedPrices] = useState(() => {
     try {
@@ -255,7 +255,7 @@ function useEditablePrices() {
   return { editedPrices, updatePrice, clearEdits, hasEdits }
 }
 
-// \u2500\u2500 Process data \u2500\u2500
+// ── Process data ──
 const PRICING = BRAND_DATABASE.map(item => {
   const marketAvgs = {}
   const allMarketKeys = Object.keys(MARKET_CONFIG)
@@ -277,7 +277,7 @@ const PRICING = BRAND_DATABASE.map(item => {
 const CATEGORIES = ['all', ...new Set(PRICING.map(p => p.category))]
 const SEGMENTS = ['all', ...new Set(PRICING.map(p => p.segment))]
 
-// \u2500\u2500 Sub-Components \u2500\u2500
+// ── Sub-Components ──
 
 function SegmentInfoPanel() {
   const [open, setOpen] = useState(false)
@@ -440,7 +440,7 @@ function RetailerComparisonView({ productUrls }) {
         <div className="flex items-center justify-between mb-4">
           <div>
             <h2 className="font-display text-lg text-navy flex items-center gap-2"><Columns size={16} /> Retailer Price Comparison</h2>
-            <p className="text-[11px] text-gray-500 mt-0.5">Compare prices across all retailers in a market. Click any price to view the product on that retailer\u2019s website.</p>
+            <p className="text-[11px] text-gray-500 mt-0.5">Compare prices across all retailers in a market. Click any price to view the product on that retailer{'\u2019'}s website.</p>
           </div>
           <div className="flex items-center gap-1 text-[10px] bg-amber-50 text-amber-700 px-2 py-1 rounded">
             <Package size={10} />
@@ -468,13 +468,13 @@ function RetailerComparisonView({ productUrls }) {
         {/* Link indicator */}
         <div className="flex items-center gap-2 mb-3 text-[10px] text-gray-500">
           <ExternalLink size={10} className="text-blue-500" />
-          <span>Click any price to visit the retailer\u2019s product page. URLs update automatically every 3 days via the price scraper.</span>
+          <span>Click any price to visit the retailer{'\u2019'}s product page. URLs update automatically every 3 days via the price scraper.</span>
         </div>
 
         {/* Indicative Pricing banner */}
         <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 mb-4 flex items-start gap-3">
           <AlertCircle size={14} className="text-amber-700 mt-0.5 flex-shrink-0" />
-          <p className="text-[11px] text-amber-700 leading-relaxed">Prices shown are indicative and sourced Feb 2026. Click any price to verify on the retailer\u2019s website, or toggle Edit Mode to update prices manually. Your edits are saved locally.</p>
+          <p className="text-[11px] text-amber-700 leading-relaxed">Prices shown are indicative and sourced Feb 2026. Click any price to verify on the retailer{'\u2019'}s website, or toggle Edit Mode to update prices manually. Your edits are saved locally.</p>
         </div>
 
         {/* Edit mode controls and comparison table */}
@@ -581,20 +581,20 @@ function RetailerComparisonView({ productUrls }) {
                               {!editMode && isMax && <span className="text-[8px] text-red-500 font-medium">HIGH</span>}
                             </div>
                           ) : (
-                            <span className="text-[10px] text-gray-300">\u2014</span>
+                            <span className="text-[10px] text-gray-300">{'\u2014'}</span>
                           )}
                         </td>
                       )
                     })}
                     <td className="text-right px-3 py-2">
-                      {avg !== null ? <span className="text-xs font-mono font-bold text-navy">{config.currency}{avg.toFixed(2)}</span> : <span className="text-gray-300">\u2014</span>}
+                      {avg !== null ? <span className="text-xs font-mono font-bold text-navy">{config.currency}{avg.toFixed(2)}</span> : <span className="text-gray-300">{'\u2014'}</span>}
                     </td>
                     <td className="text-right px-3 py-2">
                       {spread !== null ? (
                         <span className={`text-xs font-mono font-medium ${spread > 5 ? 'text-red-500' : spread > 2 ? 'text-amber-500' : 'text-green-500'}`}>
                           {config.currency}{spread.toFixed(2)}
                         </span>
-                      ) : <span className="text-gray-300">\u2014</span>}
+                      ) : <span className="text-gray-300">{'\u2014'}</span>}
                     </td>
                   </tr>
                 )
@@ -705,7 +705,7 @@ function CategoryOverview() {
                 <div className="absolute h-full rounded-full opacity-60" style={{ width: `${(d.avgPrice / maxWidth) * 100}%`, backgroundColor: d.color }} />
                 <div className="absolute h-full rounded-full" style={{ width: `${(d.minPrice / maxWidth) * 100}%`, backgroundColor: d.color, opacity: 0.9 }} />
                 <div className="absolute inset-0 flex items-center px-2">
-                  <span className="text-[10px] font-bold text-white drop-shadow">${d.minPrice}\u2013${d.avgPrice}\u2013${d.maxPrice}</span>
+                  <span className="text-[10px] font-bold text-white drop-shadow">${d.minPrice}{'\u2013'}${d.avgPrice}{'\u2013'}${d.maxPrice}</span>
                 </div>
               </div>
               <div className="text-xs text-gray-400 w-16 text-right">{d.count} items</div>
@@ -713,7 +713,7 @@ function CategoryOverview() {
           )
         })}
       </div>
-      <div className="text-[10px] text-gray-400 mt-3">Range: entry \u2014 average \u2014 top expression. US 750ml prices shown.</div>
+      <div className="text-[10px] text-gray-400 mt-3">Range: entry {'\u2014'} average {'\u2014'} top expression. US 750ml prices shown.</div>
     </div>
   )
 }
@@ -744,7 +744,7 @@ function PricingUpdateBanner({ lastUpdated }) {
   )
 }
 
-// \u2500\u2500 Main Component \u2500\u2500
+// ── Main Component ──
 export default function BrandPricing() {
   const [viewMode, setViewMode] = useState('compare') // 'compare' = retailer comparison (default), 'overview' = market overview
   const [filter, setFilter] = useState('all')
@@ -791,7 +791,7 @@ export default function BrandPricing() {
       <div>
         <h1 className="font-display text-2xl text-navy">Brand Pricing Monitor</h1>
         <p className="text-gray-500 text-sm mt-1">
-          Retailer-level RRP comparison across {Object.keys(MARKET_CONFIG).length} markets \u2014 {PRICING.length} expressions tracked across {Object.values(RETAILERS).flat().length} retailers
+          Retailer-level RRP comparison across {Object.keys(MARKET_CONFIG).length} markets {'\u2014'} {PRICING.length} expressions tracked across {Object.values(RETAILERS).flat().length} retailers
         </p>
       </div>
 
@@ -811,7 +811,7 @@ export default function BrandPricing() {
         </button>
       </div>
 
-      {/* Retailer Directory \u2014 always visible */}
+      {/* Retailer Directory — always visible */}
       <RetailerDirectory selectedMarket={viewMode === 'compare' ? 'uk' : retailerMarket} />
 
       {viewMode === 'compare' ? (
@@ -869,7 +869,7 @@ export default function BrandPricing() {
         <h3 className="text-xs font-semibold text-navy mb-2 flex items-center gap-2"><AlertCircle size={12} /> Pricing Methodology</h3>
         <p className="text-[11px] text-gray-500 leading-relaxed">
           Prices represent recommended retail prices (RRP). <strong>Bottle sizes vary by market:</strong> UK and EU markets use the standard 70cl (700ml) bottle; US and Middle East markets use 750ml (25.4 fl oz).
-          UK prices in GBP (\u00a3), EU prices in EUR (\u20ac), US and Middle East in USD ($).
+          UK prices in GBP ({'\u00a3'}), EU prices in EUR ({'\u20ac'}), US and Middle East in USD ($).
           Market averages are calculated from available retailer prices. EU average aggregates Spain, France, Germany, Italy, and Netherlands.
           Null values indicate the product is not stocked at that retailer. Prices updated via automated scraping every 3 days.
         </p>
@@ -879,7 +879,7 @@ export default function BrandPricing() {
               <span className="text-sm">{cfg.flag}</span>
               <div>
                 <p className="font-medium">{cfg.label}</p>
-                <p className="text-gray-400">{(RETAILERS[key] || []).length} retailers \u00b7 {cfg.bottleSize} bottle \u00b7 {cfg.currency}</p>
+                <p className="text-gray-400">{(RETAILERS[key] || []).length} retailers {'\u00b7'} {cfg.bottleSize} bottle {'\u00b7'} {cfg.currency}</p>
               </div>
             </div>
           ))}

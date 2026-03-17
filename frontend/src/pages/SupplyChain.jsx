@@ -209,7 +209,7 @@ const CLIMATE_RISKS = [
 
 function parseChange(change) {
   const num = parseFloat(change.replace('%', '').replace('+', ''))
-  return isNaN(num) ? 0 : (change.startsWith('-') ? -num : num)
+  return isNaN(num) ? 0 : num
 }
 
 function getAlertLevel(changeNum) {
@@ -263,7 +263,8 @@ function HeatmapRow({ metricKey, data, isExpanded, onToggle, rank }) {
   const changeNum = parseChange(data.change)
   const alert = getAlertLevel(changeNum)
   const colors = ALERT_COLORS[alert]
-  const isNegativeGood = data.change.startsWith('-')
+  // For commodity costs: price going DOWN is good for brands (green), price going UP is bad (red)
+  const isNegativeGood = true
 
   return (
     <>
@@ -284,8 +285,8 @@ function HeatmapRow({ metricKey, data, isExpanded, onToggle, rank }) {
         </td>
         <td className="px-3 py-2.5 text-right">
           <span className={`inline-flex items-center gap-0.5 text-xs font-bold px-2 py-0.5 rounded-full ${
-            changeNum > 0 ? (isNegativeGood ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700') :
-            changeNum < 0 ? (isNegativeGood ? 'bg-red-50 text-red-700' : 'bg-green-50 text-green-700') :
+            changeNum > 0 ? (isNegativeGood ? 'bg-red-50 text-red-700' : 'bg-green-50 text-green-700') :
+            changeNum < 0 ? (isNegativeGood ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700') :
             'bg-gray-100 text-gray-600'
           }`}>
             {changeNum > 0 ? <TrendingUp className="w-3 h-3" /> : changeNum < 0 ? <TrendingDown className="w-3 h-3" /> : null}

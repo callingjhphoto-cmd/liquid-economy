@@ -29,10 +29,10 @@
       "agent": "Frontend UX Agent",
       "title": "Add progressive disclosure to CategoryIntelligence.jsx — render only active category",
       "priority": 1,
-      "status": "TODO",
+      "status": "DONE",
       "files": ["frontend/src/pages/CategoryIntelligence.jsx"],
       "acceptance": "CategoryIntelligence uses useState for active category, only renders selected category data",
-      "done_evidence": "",
+      "done_evidence": "Already implemented: activeCat useState + conditional CategoryDetail render (line 5922-5958). 24 state-management refs confirmed.",
       "created": "2026-03-18",
       "updated": "2026-03-18"
     },
@@ -41,10 +41,10 @@
       "agent": "Frontend UX Agent",
       "title": "Add bottom tab bar component for mobile navigation (5 primary routes)",
       "priority": 1,
-      "status": "TODO",
+      "status": "DONE",
       "files": ["frontend/src/App.jsx"],
-      "acceptance": "Bottom tab bar visible at mobile breakpoints, 5 icons, md:hidden",
-      "done_evidence": "",
+      "acceptance": "Bottom tab bar visible at mobile breakpoints, 5 icons, lg:hidden",
+      "done_evidence": "Committed 2026-03-18 — BottomTabBar component with 5 tabs (Home, Categories, Venues, Pricing, Companies), lg:hidden, pb-20 for content clearance",
       "created": "2026-03-18",
       "updated": "2026-03-18"
     },
@@ -169,6 +169,6 @@
       "updated": "2026-03-18"
     }
   ],
-  "last_assessed": "2026-03-18T17:45:00Z",
+  "last_assessed": "2026-03-18T18:00:00Z",
   "steering_override": "none"
 }

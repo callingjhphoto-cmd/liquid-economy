@@ -1,7 +1,7 @@
 agent: Frontend UX Agent
-task: Add progressive disclosure to CategoryIntelligence.jsx — render only active category tab content
+task: Add global search bar — keyword search across categories, brands, venues, companies
 priority: 1
-files: frontend/src/pages/CategoryIntelligence.jsx
-acceptance: CategoryIntelligence uses useState for active category, only the selected category's data block renders (not all 11 at once)
-context: Code-splitting done (14 lazy-loaded pages, main bundle 194KB). CategoryIntelligence is 277KB chunk — largest page. Progressive disclosure will make tab switching instant.
+files: frontend/src/App.jsx (search in header/sidebar)
+acceptance: Search input visible in mobile header and desktop sidebar. Typing filters results from category names, brand names, venue names, company names. Results link to relevant pages.
+context: Nav rename DONE, code-splitting DONE, progressive disclosure DONE (already existed), bottom tab bar DONE. Next UX item is global search.
 steering: none

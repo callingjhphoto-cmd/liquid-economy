@@ -1,6 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, Link, Navigate, useLocation } from 'react-router-dom'
-import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, Settings, LogOut, Menu, MessageCircle, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag, Crosshair, ChevronDown, ChevronRight, Radio, Target, Loader2 } from 'lucide-react'
+import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, Settings, LogOut, Menu, MessageCircle, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag, Crosshair, ChevronDown, ChevronRight, Radio, Target, Loader2, Search } from 'lucide-react'
 import { useLiveData } from './context/LiveDataContext'
 import { api, getToken, setToken, clearToken } from './lib/api'
 import ChatPanel from './components/ChatPanel'
@@ -26,6 +26,32 @@ function PageLoader() {
     <div className="flex items-center justify-center h-64">
       <Loader2 className="animate-spin text-gray-400" size={32} />
     </div>
+  )
+}
+
+function BottomTabBar() {
+  const location = useLocation()
+  const tabs = [
+    { to: '/', icon: LayoutDashboard, label: 'Home' },
+    { to: '/categories', icon: Wine, label: 'Categories' },
+    { to: '/venues', icon: MapPin, label: 'Venues' },
+    { to: '/pricing', icon: DollarSign, label: 'Pricing' },
+    { to: '/companies', icon: Building2, label: 'Companies' },
+  ]
+  return (
+    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 lg:hidden">
+      <div className="flex items-center justify-around h-14">
+        {tabs.map(tab => {
+          const active = location.pathname === tab.to
+          return (
+            <Link key={tab.to} to={tab.to} className={`flex flex-col items-center gap-0.5 px-3 py-1 ${active ? 'text-navy' : 'text-gray-400'}`}>
+              <tab.icon size={20} />
+              <span className="text-[10px] font-medium">{tab.label}</span>
+            </Link>
+          )
+        })}
+      </div>
+    </nav>
   )
 }
 
@@ -232,7 +258,7 @@ function Layout({ onLogout }) {
           <h1 className="font-display text-lg text-navy">Liquid Economy</h1>
           <div className="w-6" />
         </header>
-        <div className="p-6 lg:p-8">
+        <div className="p-6 pb-20 lg:p-8 lg:pb-8">
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<CommandCentre />} />
@@ -257,6 +283,9 @@ function Layout({ onLogout }) {
 
       {/* Chat Panel */}
       <ChatPanel isOpen={chatOpen} onClose={() => setChatOpen(false)} />
+
+      {/* Bottom Tab Bar — Mobile Only */}
+      <BottomTabBar />
     </div>
   )
 }

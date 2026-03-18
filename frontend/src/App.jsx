@@ -4,6 +4,7 @@ import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, Settings,
 import { useLiveData } from './context/LiveDataContext'
 import { api, getToken, setToken, clearToken } from './lib/api'
 import ChatPanel from './components/ChatPanel'
+import GlobalSearch from './components/GlobalSearch'
 import { LiveDataProvider } from './context/LiveDataContext'
 
 const CommandCentre = lazy(() => import('./pages/CommandCentre'))
@@ -180,6 +181,18 @@ function LivePulse() {
 function Layout({ onLogout }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [chatOpen, setChatOpen] = useState(false)
+  const [searchOpen, setSearchOpen] = useState(false)
+
+  useEffect(() => {
+    const handler = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault()
+        setSearchOpen(prev => !prev)
+      }
+    }
+    window.addEventListener('keydown', handler)
+    return () => window.removeEventListener('keydown', handler)
+  }, [])
 
   return (
     <div className="flex h-screen bg-gray-50">
@@ -228,6 +241,11 @@ function Layout({ onLogout }) {
           </nav>
 
           <div className="p-2 border-t border-white/10 space-y-0.5">
+            <button onClick={() => setSearchOpen(true)} className="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-400 hover:text-gold hover:bg-white/5 w-full text-left text-[13px] font-medium">
+              <Search size={15} />
+              <span>Search</span>
+              <kbd className="ml-auto text-[10px] text-gray-500 bg-white/10 px-1.5 py-0.5 rounded font-mono">{'\u2318'}K</kbd>
+            </button>
             <button onClick={() => setChatOpen(true)} className="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-400 hover:text-gold hover:bg-white/5 w-full text-left text-[13px] font-medium">
               <MessageCircle size={15} />
               <span>Analyst Chat</span>
@@ -256,7 +274,9 @@ function Layout({ onLogout }) {
             <Menu size={24} className="text-navy" />
           </button>
           <h1 className="font-display text-lg text-navy">Liquid Economy</h1>
-          <div className="w-6" />
+          <button onClick={() => setSearchOpen(true)}>
+            <Search size={20} className="text-navy" />
+          </button>
         </header>
         <div className="p-6 pb-20 lg:p-8 lg:pb-8">
           <Suspense fallback={<PageLoader />}>
@@ -283,6 +303,9 @@ function Layout({ onLogout }) {
 
       {/* Chat Panel */}
       <ChatPanel isOpen={chatOpen} onClose={() => setChatOpen(false)} />
+
+      {/* Global Search (Cmd+K) */}
+      <GlobalSearch isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
 
       {/* Bottom Tab Bar — Mobile Only */}
       <BottomTabBar />

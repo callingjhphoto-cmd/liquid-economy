@@ -1,24 +1,33 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, Link, Navigate, useLocation } from 'react-router-dom'
-import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, Settings, LogOut, Menu, MessageCircle, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag, Crosshair, ChevronDown, ChevronRight, Radio, Target } from 'lucide-react'
+import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, Settings, LogOut, Menu, MessageCircle, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag, Crosshair, ChevronDown, ChevronRight, Radio, Target, Loader2 } from 'lucide-react'
 import { useLiveData } from './context/LiveDataContext'
 import { api, getToken, setToken, clearToken } from './lib/api'
-import CommandCentre from './pages/CommandCentre'
-import Valuations from './pages/Valuations'
-import BrandPricing from './pages/BrandPricing'
-import Companies from './pages/Companies'
-import ReportBuilder from './pages/ReportBuilder'
-import SupplyChain from './pages/SupplyChain'
-import GeographicIntelligence from './pages/GeographicIntelligence'
-import CategoryIntelligence from './pages/CategoryIntelligence'
-import VenueIntelligence from './pages/VenueIntelligence'
-import ClimateYield from './pages/ClimateYield'
-import POSIntelligence from './pages/POSIntelligence'
-import CategoryCommandView from './pages/CategoryCommandView'
-import ScenarioModeling from './pages/ScenarioModeling'
-import CampaignPlanner from './pages/CampaignPlanner'
 import ChatPanel from './components/ChatPanel'
 import { LiveDataProvider } from './context/LiveDataContext'
+
+const CommandCentre = lazy(() => import('./pages/CommandCentre'))
+const Valuations = lazy(() => import('./pages/Valuations'))
+const BrandPricing = lazy(() => import('./pages/BrandPricing'))
+const Companies = lazy(() => import('./pages/Companies'))
+const ReportBuilder = lazy(() => import('./pages/ReportBuilder'))
+const SupplyChain = lazy(() => import('./pages/SupplyChain'))
+const GeographicIntelligence = lazy(() => import('./pages/GeographicIntelligence'))
+const CategoryIntelligence = lazy(() => import('./pages/CategoryIntelligence'))
+const VenueIntelligence = lazy(() => import('./pages/VenueIntelligence'))
+const ClimateYield = lazy(() => import('./pages/ClimateYield'))
+const POSIntelligence = lazy(() => import('./pages/POSIntelligence'))
+const CategoryCommandView = lazy(() => import('./pages/CategoryCommandView'))
+const ScenarioModeling = lazy(() => import('./pages/ScenarioModeling'))
+const CampaignPlanner = lazy(() => import('./pages/CampaignPlanner'))
+
+function PageLoader() {
+  return (
+    <div className="flex items-center justify-center h-64">
+      <Loader2 className="animate-spin text-gray-400" size={32} />
+    </div>
+  )
+}
 
 function Login({ onLogin }) {
   const [username, setUsername] = useState('')
@@ -163,23 +172,23 @@ function Layout({ onLogout }) {
             {/* Hub */}
             <NavItem to="/" icon={LayoutDashboard} label="Command Centre" />
 
-            {/* Upstream: raw materials → production */}
-            <NavGroup title="Upstream" emoji={'\u2b06\ufe0f'}>
+            {/* Production & Sourcing: raw materials → production */}
+            <NavGroup title="Production & Sourcing" emoji={'\u2b06\ufe0f'}>
               <NavItem to="/climate" icon={CloudRain} label="Climate & Yield" />
               <NavItem to="/supply-chain" icon={Package} label="Supply Chain & COGS" />
               <NavItem to="/pos" icon={ShoppingBag} label="POS Manufacturing" />
             </NavGroup>
 
-            {/* Midstream: market intelligence */}
-            <NavGroup title="Midstream" emoji={'\ud83c\udf0d'}>
+            {/* Distribution: market intelligence */}
+            <NavGroup title="Distribution" emoji={'\ud83c\udf0d'}>
               <NavItem to="/categories" icon={Wine} label="Category Intelligence" />
               <NavItem to="/geographic" icon={Globe} label="Geographic Intelligence" />
               <NavItem to="/valuations" icon={TrendingUp} label="Valuations & Arbitrage" />
               <NavItem to="/companies" icon={Building2} label="Company Intelligence" />
             </NavGroup>
 
-            {/* Downstream: route to market */}
-            <NavGroup title="Downstream" emoji={'\ud83c\udf7e'}>
+            {/* Retail: route to market */}
+            <NavGroup title="Retail" emoji={'\ud83c\udf7e'}>
               <NavItem to="/venues" icon={MapPin} label="Venue Intelligence" />
               <NavItem to="/pricing" icon={DollarSign} label="Brand Pricing" />
               <NavItem to="/scenario" icon={Crosshair} label="Scenario Modelling" />
@@ -224,23 +233,25 @@ function Layout({ onLogout }) {
           <div className="w-6" />
         </header>
         <div className="p-6 lg:p-8">
-          <Routes>
-            <Route path="/" element={<CommandCentre />} />
-            <Route path="/climate" element={<ClimateYield />} />
-            <Route path="/supply-chain" element={<SupplyChain />} />
-            <Route path="/geographic" element={<GeographicIntelligence />} />
-            <Route path="/categories" element={<CategoryIntelligence />} />
-            <Route path="/category/:categoryId" element={<CategoryCommandView />} />
-            <Route path="/venues" element={<VenueIntelligence />} />
-            <Route path="/valuations" element={<Valuations />} />
-            <Route path="/pricing" element={<BrandPricing />} />
-            <Route path="/companies" element={<Companies />} />
-            <Route path="/pos" element={<POSIntelligence />} />
-            <Route path="/scenario" element={<ScenarioModeling />} />
-            <Route path="/campaigns" element={<CampaignPlanner />} />
-            <Route path="/reports" element={<ReportBuilder />} />
-            <Route path="*" element={<Navigate to="/" />} />
-          </Routes>
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<CommandCentre />} />
+              <Route path="/climate" element={<ClimateYield />} />
+              <Route path="/supply-chain" element={<SupplyChain />} />
+              <Route path="/geographic" element={<GeographicIntelligence />} />
+              <Route path="/categories" element={<CategoryIntelligence />} />
+              <Route path="/category/:categoryId" element={<CategoryCommandView />} />
+              <Route path="/venues" element={<VenueIntelligence />} />
+              <Route path="/valuations" element={<Valuations />} />
+              <Route path="/pricing" element={<BrandPricing />} />
+              <Route path="/companies" element={<Companies />} />
+              <Route path="/pos" element={<POSIntelligence />} />
+              <Route path="/scenario" element={<ScenarioModeling />} />
+              <Route path="/campaigns" element={<CampaignPlanner />} />
+              <Route path="/reports" element={<ReportBuilder />} />
+              <Route path="*" element={<Navigate to="/" />} />
+            </Routes>
+          </Suspense>
         </div>
       </main>
 

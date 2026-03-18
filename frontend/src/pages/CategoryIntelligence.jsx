@@ -96,6 +96,14 @@ const CATEGORIES = [
           value: ['Sauza', 'El Jimador', 'Espolon', 'Milagro Silver', 'Centenario']
         },
         channels: { onTrade: 38, offTrade: 42, eCommerce: 12, travelRetail: 8 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Aged and ultra-premium tequila (añejo/extra añejo) growing faster than blanco, driven by cocktail culture maturation', source: 'IWSR', url: 'https://www.theiwsr.com/' },
           { text: 'Mezcal subspecialty gaining 18% CAGR as consumers explore agave terroir and artisanal production', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/' },
@@ -193,6 +201,14 @@ const CATEGORIES = [
           value: ['Sauza', 'El Jimador', 'Espolon', 'Centenario', 'Montezuma']
         },
         channels: { onTrade: 39, offTrade: 43, eCommerce: 10, travelRetail: 8 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Añejo tequila (aged 1–3 years) surged 19% as craft cocktail programs emphasize sipping-quality spirits', source: 'IWSR', url: 'https://www.theiwsr.com/' },
           { text: 'Mezcal entering mainstream distribution; 250+ SKUs now available in US compared to 40 in 2020', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/' },
@@ -262,6 +278,14 @@ const CATEGORIES = [
           value: ['Sauza', 'El Jimador', 'Espolon', 'Centenario', 'Montezuma']
         },
         channels: { onTrade: 40, offTrade: 44, eCommerce: 8, travelRetail: 8 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Blanco tequila facing slight headwinds as premium aged variants claim younger drinker preference', source: 'IWSR', url: 'https://www.theiwsr.com/' },
           { text: 'Mezcal specialty category emerging with 120+ distinct offerings in US market', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/' },
@@ -329,6 +353,14 @@ const CATEGORIES = [
           value: ['Sauza', 'El Jimador', 'Espolon', 'Montezuma', 'Centenario']
         },
         channels: { onTrade: 35, offTrade: 52, eCommerce: 8, travelRetail: 5 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Pandemic at-home consumption driving tequila premiumization; aged variants surged 25% YoY', source: 'IWSR', url: 'https://www.theiwsr.com/' },
           { text: 'Skincare and lifestyle brands entering spirits category; celebrity-backed tequila launches proliferated', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/' },
@@ -396,6 +428,14 @@ const CATEGORIES = [
           value: ['Sauza', 'El Jimador', 'Montezuma', 'Centenario', 'José Cuervo Especial']
         },
         channels: { onTrade: 42, offTrade: 48, eCommerce: 5, travelRetail: 5 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Spirits category entered pandemic boom; tequila became trendy with younger demographics', source: 'IWSR', url: 'https://www.theiwsr.com/' },
           { text: 'Agave shortage concerns emerged; prices began rising as demand outpaced supply', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/' },
@@ -501,6 +541,14 @@ const CATEGORIES = [
           value: ['Smirnoff', 'Burnetts', 'Fleischmanns', 'Taaka', 'Barton']
         },
         channels: { onTrade: 35, offTrade: 52, eCommerce: 8, travelRetail: 5 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'RTD vodka-based cocktails gaining +18% CAGR; consumers prefer convenience over premiumization', source: 'IWSR', url: 'https://www.theiwsr.com/' },
           { text: 'Flavored vodka segment (naturally infused) growing 7% while unflavored vodka declining 3% YoY', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/' },
@@ -598,6 +646,14 @@ const CATEGORIES = [
           value: ['Smirnoff', 'Burnetts', 'Fleischmanns', 'Taaka', 'Barton']
         },
         channels: { onTrade: 36, offTrade: 51, eCommerce: 8, travelRetail: 5 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Vodka losing mindshare to craft spirits among younger demographics; gin and whisky perceived as more sophisticated', source: 'IWSR', url: 'https://www.theiwsr.com/' },
           { text: 'Flavored vodka sub-segment showing modest growth (+5%) while unflavored declining (-2%)', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/' },
@@ -695,6 +751,14 @@ const CATEGORIES = [
           value: ['Smirnoff', 'Burnetts', 'Fleischmanns', 'Taaka', 'Barton']
         },
         channels: { onTrade: 37, offTrade: 50, eCommerce: 8, travelRetail: 5 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Vodka category stabilizing post-COVID; growth rates normalizing from pandemic inflation', source: 'IWSR', url: 'https://www.theiwsr.com/' },
           { text: 'Craft vodka emerging with barrel-aged and locally-sourced narratives; gaining 12% YoY', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/' },
@@ -791,6 +855,14 @@ const CATEGORIES = [
           value: ['Smirnoff', 'Burnetts', 'Fleischmanns', 'Taaka', 'Barton']
         },
         channels: { onTrade: 38, offTrade: 49, eCommerce: 8, travelRetail: 5 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Vodka sales remained relatively stable during broader spirits growth; category losing momentum vs peers', source: 'IWSR', url: 'https://www.theiwsr.com/' },
           { text: 'RTD vodka cocktails emerging as growth channel; +22% YoY in convenience channels', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/' },
@@ -887,6 +959,14 @@ const CATEGORIES = [
           value: ['Smirnoff', 'Burnetts', 'Fleischmanns', 'Taaka', 'Barton']
         },
         channels: { onTrade: 42, offTrade: 47, eCommerce: 6, travelRetail: 5 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Vodka category contracted during pandemic spirits boom; consumers preferring flavored spirits and tequila', source: 'IWSR', url: 'https://www.theiwsr.com/' },
           { text: 'Tequila surge came at vodka\u2019s expense; premium spirits preferences shifted toward character-driven categories', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/' },
@@ -998,6 +1078,14 @@ const CATEGORIES = [
           value: ['Gordon\u2019s', 'Beefeater', 'Greenall\u2019s', 'Larios', 'Seagram\u2019s']
         },
         channels: { onTrade: 48, offTrade: 42, eCommerce: 7, travelRetail: 3 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Japanese gin category growing at +22% YoY, driven by Roku and Ki No Bi premiumization', source: 'IWSR', url: 'https://www.theiwsr.com' },
           { text: 'Pink gin category declining -8% as novelty wears off; focus shifting to aged and barrel-finished expressions', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -1100,6 +1188,14 @@ const CATEGORIES = [
           value: ['Gordon\u2019s', 'Beefeater', 'Greenall\u2019s', 'Larios', 'Seagram\u2019s']
         },
         channels: { onTrade: 47, offTrade: 43, eCommerce: 7, travelRetail: 3 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Roku gin achieves 20% YoY growth becoming fastest-growing premium gin globally', source: 'IWSR', url: 'https://www.theiwsr.com' },
           { text: 'Pink gin category entering decline phase, down -12% YoY as trend fades', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -1202,6 +1298,14 @@ const CATEGORIES = [
           value: ['Gordon\u2019s', 'Beefeater', 'Greenall\u2019s', 'Larios', 'Seagram\u2019s']
         },
         channels: { onTrade: 46, offTrade: 44, eCommerce: 7, travelRetail: 3 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Pink gin trend approaching saturation with growth decelerating', source: 'IWSR', url: 'https://www.theiwsr.com' },
           { text: 'Japanese gin gaining traction with Roku and Ki No Bi entering major markets', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -1304,6 +1408,14 @@ const CATEGORIES = [
           value: ['Gordon\u2019s', 'Beefeater', 'Greenall\u2019s', 'Larios', 'Seagram\u2019s']
         },
         channels: { onTrade: 45, offTrade: 45, eCommerce: 7, travelRetail: 3 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Pink gin trend continues strong growth, driving novelty purchases and trial', source: 'IWSR', url: 'https://www.theiwsr.com' },
           { text: 'Spain overtaking UK as gin market leader driven by premiumization', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -1406,6 +1518,14 @@ const CATEGORIES = [
           value: ['Gordon\u2019s', 'Greenall\u2019s', 'Larios', 'Seagram\u2019s', 'Bols Genever']
         },
         channels: { onTrade: 42, offTrade: 48, eCommerce: 7, travelRetail: 3 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Pink gin phenomenon accelerates with mass-market brands entering category', source: 'IWSR', url: 'https://www.theiwsr.com' },
           { text: 'Home consumption surge during pandemic drives off-trade premiumization', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -1518,6 +1638,14 @@ const CATEGORIES = [
           value: ['Jack Daniel\u2019s', 'Jim Beam', 'Jameson', 'Famous Grouse', 'Johnnie Walker Red']
         },
         channels: { onTrade: 35, offTrade: 52, eCommerce: 4, travelRetail: 9 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Japanese whisky supply crisis intensifies, premium prices surge 35%+ YoY', source: 'IWSR', url: 'https://www.theiwsr.com' },
           { text: 'Indian whisky emerging as fastest-growing premium category globally', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -1620,6 +1748,14 @@ const CATEGORIES = [
           value: ['Jack Daniel\u2019s', 'Jim Beam', 'Jameson', 'Famous Grouse', 'Johnnie Walker Red']
         },
         channels: { onTrade: 36, offTrade: 51, eCommerce: 4, travelRetail: 9 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Japanese whisky scarcity driving 25%+ price premiums in secondary markets', source: 'IWSR', url: 'https://www.theiwsr.com' },
           { text: 'Indian whisky brands expanding internationally with premium positioning', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -1722,6 +1858,14 @@ const CATEGORIES = [
           value: ['Jack Daniel\u2019s', 'Jim Beam', 'Jameson', 'Famous Grouse', 'Johnnie Walker Red']
         },
         channels: { onTrade: 37, offTrade: 50, eCommerce: 4, travelRetail: 9 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Chinese whisky market surges 12%+ driven by luxury consumption recovery', source: 'IWSR', url: 'https://www.theiwsr.com' },
           { text: 'Japanese whisky production hitting structural capacity limits amid demand surge', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -1824,6 +1968,14 @@ const CATEGORIES = [
           value: ['Jack Daniel\u2019s', 'Jim Beam', 'Jameson', 'Famous Grouse', 'Johnnie Walker Red']
         },
         channels: { onTrade: 38, offTrade: 49, eCommerce: 4, travelRetail: 9 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Chinese whisky market experiences explosive growth as ultra-wealthy consumers adopt premium spirits', source: 'IWSR', url: 'https://www.theiwsr.com' },
           { text: 'Bourbon boom continues with supply constraints keeping aged whiskey prices elevated', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -1926,6 +2078,14 @@ const CATEGORIES = [
           value: ['Jack Daniel\u2019s', 'Jim Beam', 'Jameson', 'Famous Grouse', 'Johnnie Walker Red']
         },
         channels: { onTrade: 40, offTrade: 47, eCommerce: 4, travelRetail: 9 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Bourbon boom accelerates with craft distillery expansion and allocation systems emerging', source: 'IWSR', url: 'https://www.theiwsr.com' },
           { text: 'Japanese whisky achieving status symbol positioning among global luxury consumers', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -2038,6 +2198,14 @@ const CATEGORIES = [
           value: ['Bacardi Superior', 'Captain Morgan', 'Malibu', 'Havana Club 3', 'Admiral Nelson']
         },
         channels: { onTrade: 42, offTrade: 48, eCommerce: 5, travelRetail: 5 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Aged rum segment growing +8% YoY as premium positioning strengthens', source: 'IWSR', url: 'https://www.theiwsr.com' },
           { text: 'Rhum agricole gaining bartender credibility with white rhum agricole mixology trend', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -2140,6 +2308,14 @@ const CATEGORIES = [
           value: ['Bacardi Superior', 'Captain Morgan', 'Malibu', 'Havana Club 3', 'Admiral Nelson']
         },
         channels: { onTrade: 41, offTrade: 49, eCommerce: 5, travelRetail: 5 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Premium aged rum achieves +10% growth as consumer trading up accelerates', source: 'IWSR', url: 'https://www.theiwsr.com' },
           { text: 'Rhum agricole category expanding rapidly with craft bartenders driving awareness', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -2242,6 +2418,14 @@ const CATEGORIES = [
           value: ['Bacardi Superior', 'Captain Morgan', 'Malibu', 'Havana Club 3', 'Admiral Nelson']
         },
         channels: { onTrade: 40, offTrade: 50, eCommerce: 5, travelRetail: 5 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Aged rum category growing +9% YoY exceeding overall category growth', source: 'IWSR', url: 'https://www.theiwsr.com' },
           { text: 'Rhum agricole achieving rapid growth as bartenders champion terroir-driven craft', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -2344,6 +2528,14 @@ const CATEGORIES = [
           value: ['Bacardi Superior', 'Captain Morgan', 'Malibu', 'Havana Club 3', 'Admiral Nelson']
         },
         channels: { onTrade: 39, offTrade: 51, eCommerce: 5, travelRetail: 5 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Post-pandemic on-trade recovery driving rum cocktail culture growth', source: 'IWSR', url: 'https://www.theiwsr.com' },
           { text: 'Spiced rum trend peaking as consumer interest stabilizes', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -2446,6 +2638,14 @@ const CATEGORIES = [
           value: ['Bacardi Superior', 'Captain Morgan', 'Malibu', 'Havana Club 3', 'Admiral Nelson']
         },
         channels: { onTrade: 36, offTrade: 53, eCommerce: 5, travelRetail: 6 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Spiced rum trend accelerates with mass-market brand entries', source: 'IWSR', url: 'https://www.theiwsr.com' },
           { text: 'Home entertaining surge during pandemic drives off-trade premiumization', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -2558,6 +2758,14 @@ const CATEGORIES = [
           value: ['Hennessy VS', 'Rémy Martin VS', 'Courvoisier VS', 'Martell VS', 'E&J VS Brandy']
         },
         channels: { onTrade: 35, offTrade: 42, eCommerce: 11, travelRetail: 12 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Nigerian market emergence driving 12%+ growth, younger demographics shifting from traditional to contemporary brands', source: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
           { text: 'US hip-hop culture maintaining luxury positioning for Hennessy, limiting competitor share gains', source: 'Market Watch Mag', url: 'https://marketwatchmag.com' },
@@ -2660,6 +2868,14 @@ const CATEGORIES = [
           value: ['Hennessy VS', 'Rémy Martin VS', 'Courvoisier VS', 'Martell VS', 'E&J VS Brandy']
         },
         channels: { onTrade: 36, offTrade: 43, eCommerce: 10, travelRetail: 11 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'China gifting market contraction accelerating as anti-corruption enforcement deepens', source: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
           { text: 'Nigeria high-growth momentum emerging as consumer spending rises in oil-rich regions', source: 'Market Watch Mag', url: 'https://marketwatchmag.com' },
@@ -2762,6 +2978,14 @@ const CATEGORIES = [
           value: ['Hennessy VS', 'Rémy Martin VS', 'Courvoisier VS', 'Martell VS', 'E&J VS Brandy']
         },
         channels: { onTrade: 37, offTrade: 44, eCommerce: 9, travelRetail: 10 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'China anti-corruption regulations implemented, gifting market structurally diminished', source: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
           { text: 'US inflation pressuring on-trade margins, causing venue consolidation and cocktail pricing acceleration', source: 'Beverage Daily', url: 'https://beveragedaily.com' },
@@ -2864,6 +3088,14 @@ const CATEGORIES = [
           value: ['Hennessy VS', 'Rémy Martin VS', 'Courvoisier VS', 'Martell VS', 'E&J VS Brandy']
         },
         channels: { onTrade: 38, offTrade: 43, eCommerce: 11, travelRetail: 8 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'US market acceleration driven by hip-hop cultural moment and luxury positioning', source: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
           { text: 'China market stabilizing as gifting demand recovered from 2021 lows', source: 'The IWSR', url: 'https://theiwsr.com' },
@@ -2966,6 +3198,14 @@ const CATEGORIES = [
           value: ['Hennessy VS', 'Rémy Martin VS', 'Courvoisier VS', 'Martell VS', 'E&J VS Brandy']
         },
         channels: { onTrade: 32, offTrade: 48, eCommerce: 14, travelRetail: 6 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Post-pandemic celebration surge driving 22%+ growth in US on-premise hospitality recovery', source: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
           { text: 'China gifting market accelerating as luxury consumption rebounded from COVID depths', source: 'The IWSR', url: 'https://theiwsr.com' },
@@ -3078,6 +3318,14 @@ const CATEGORIES = [
           value: ['Nicolas Feuillatte', 'Piper-Heidsieck', 'Lanson', 'Mercier', 'Mumm']
         },
         channels: { onTrade: 45, offTrade: 40, eCommerce: 5, travelRetail: 10 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Rosé champagne category growing 8%+ YoY, driven by younger demographic appeal and restaurant promotion', source: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
           { text: 'Grower champagne movement gaining distribution in premium on-trade venues across UK and North America', source: 'Decanter', url: 'https://decanter.com' },
@@ -3180,6 +3428,14 @@ const CATEGORIES = [
           value: ['Nicolas Feuillatte', 'Piper-Heidsieck', 'Lanson', 'Mercier', 'Mumm']
         },
         channels: { onTrade: 46, offTrade: 39, eCommerce: 5, travelRetail: 10 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Prosecco cannibalizing entry-level champagne share in off-trade channel, particularly Europe', source: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
           { text: 'Rosé champagne gaining 6%+ share as category bright spot with +7.5% growth', source: 'Decanter', url: 'https://decanter.com' },
@@ -3282,6 +3538,14 @@ const CATEGORIES = [
           value: ['Nicolas Feuillatte', 'Piper-Heidsieck', 'Lanson', 'Mercier', 'Mumm']
         },
         channels: { onTrade: 44, offTrade: 41, eCommerce: 5, travelRetail: 10 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Prosecco market share gains accelerating at expense of entry-level champagne across Europe', source: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
           { text: 'Rosé champagne sub-segment growing 5%+ despite overall category contraction', source: 'Decanter', url: 'https://decanter.com' },
@@ -3384,6 +3648,14 @@ const CATEGORIES = [
           value: ['Nicolas Feuillatte', 'Piper-Heidsieck', 'Lanson', 'Mercier', 'Mumm']
         },
         channels: { onTrade: 43, offTrade: 42, eCommerce: 8, travelRetail: 7 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Post-pandemic celebration surge driving on-premise champagne consumption recovery', source: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
           { text: 'Rosé champagne gaining share as younger demographic consumption increases', source: 'Decanter', url: 'https://decanter.com' },
@@ -3486,6 +3758,14 @@ const CATEGORIES = [
           value: ['Nicolas Feuillatte', 'Piper-Heidsieck', 'Lanson', 'Mercier', 'Mumm']
         },
         channels: { onTrade: 38, offTrade: 48, eCommerce: 10, travelRetail: 4 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Record celebration demand surge as lockdowns ended and pent-up occasion consumption released', source: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
           { text: 'Off-trade dominance at 48% reflecting continued at-home consumption patterns', source: 'Decanter', url: 'https://decanter.com' },
@@ -3598,6 +3878,14 @@ const CATEGORIES = [
           value: ['Barefoot', 'Yellow Tail', 'Blossom Hill', 'Hardy\u2019s', 'Echo Falls', 'Jacob\u2019s Creek']
         },
         channels: { onTrade: 30, offTrade: 55, eCommerce: 8, travelRetail: 7 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Younger demographic consumption volume declining 5%+ YoY as generational shift accelerates', source: 'The IWSR', url: 'https://theiwsr.com' },
           { text: 'Premium and natural wine segments growing 8-12% despite overall category contraction', source: 'Wine Searcher', url: 'https://wine-searcher.com' },
@@ -3700,6 +3988,14 @@ const CATEGORIES = [
           value: ['Barefoot', 'Yellow Tail', 'Blossom Hill', 'Hardy\u2019s', 'Echo Falls', 'Jacob\u2019s Creek']
         },
         channels: { onTrade: 30, offTrade: 56, eCommerce: 7, travelRetail: 7 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'China wine market collapse accelerating to -22.1% YoY as trade tensions persist', source: 'The IWSR', url: 'https://theiwsr.com' },
           { text: 'Generational consumption shift driving 5%+ YoY volume decline in younger demographics', source: 'Wine Searcher', url: 'https://wine-searcher.com' },
@@ -3802,6 +4098,14 @@ const CATEGORIES = [
           value: ['Barefoot', 'Yellow Tail', 'Blossom Hill', 'Hardy\u2019s', 'Echo Falls', 'Jacob\u2019s Creek']
         },
         channels: { onTrade: 31, offTrade: 55, eCommerce: 7, travelRetail: 7 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'China wine market collapsed -18.5% YoY from 2020 peak as trade restrictions tightened', source: 'The IWSR', url: 'https://theiwsr.com' },
           { text: 'Generational consumption shift accelerating with millennials/Gen Z drinking 40%+ less wine than predecessors', source: 'Wine Searcher', url: 'https://wine-searcher.com' },
@@ -3904,6 +4208,14 @@ const CATEGORIES = [
           value: ['Barefoot', 'Yellow Tail', 'Blossom Hill', 'Hardy\u2019s', 'Echo Falls', 'Jacob\u2019s Creek']
         },
         channels: { onTrade: 32, offTrade: 54, eCommerce: 8, travelRetail: 6 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Post-pandemic at-home consumption sustaining off-trade growth at 54%', source: 'The IWSR', url: 'https://theiwsr.com' },
           { text: 'California wine market growing 4.2% on premiumization and sustainably-focused brands', source: 'Wine Searcher', url: 'https://wine-searcher.com' },
@@ -4006,6 +4318,14 @@ const CATEGORIES = [
           value: ['Barefoot', 'Yellow Tail', 'Blossom Hill', 'Hardy\u2019s', 'Echo Falls', 'Jacob\u2019s Creek']
         },
         channels: { onTrade: 28, offTrade: 60, eCommerce: 6, travelRetail: 6 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Pandemic-driven at-home consumption surge boosting off-trade to 60% channel dominance', source: 'The IWSR', url: 'https://theiwsr.com' },
           { text: 'California premium wine (+5.8%) driving category growth despite generational demographic decline', source: 'Wine Searcher', url: 'https://wine-searcher.com' },
@@ -4118,6 +4438,14 @@ const CATEGORIES = [
           value: ['Budweiser', 'Bud Light', 'Corona Extra', 'Heineken', 'Stella Artois', 'Modelo Especial']
         },
         channels: { onTrade: 35, offTrade: 58, eCommerce: 2, travelRetail: 5 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Mexican lager category surging with Corona and Modelo gaining share in North America', source: 'Brewers Association', url: 'https://www.brewersassociation.org' },
           { text: 'Craft beer consolidation accelerating with major acquisitions by AB InBev and Molson Coors', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -4220,6 +4548,14 @@ const CATEGORIES = [
           value: ['Budweiser', 'Bud Light', 'Corona Extra', 'Heineken', 'Stella Artois', 'Modelo Especial']
         },
         channels: { onTrade: 35, offTrade: 58, eCommerce: 2, travelRetail: 5 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Bud Light continues recovery trajectory as market stabilizes post-boycott', source: 'Brewers Association', url: 'https://www.brewersassociation.org' },
           { text: 'Mexican lager exports to US surged 8% year-over-year driven by Corona and Modelo', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -4322,6 +4658,14 @@ const CATEGORIES = [
           value: ['Budweiser', 'Bud Light', 'Corona Extra', 'Heineken', 'Stella Artois', 'Modelo Especial']
         },
         channels: { onTrade: 35, offTrade: 58, eCommerce: 2, travelRetail: 5 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Bud Light boycott in US created unprecedented market share disruption', source: 'Brewers Association', url: 'https://www.brewersassociation.org' },
           { text: 'Mexican lager category growth accelerating as Corona and Modelo gain US share', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -4424,6 +4768,14 @@ const CATEGORIES = [
           value: ['Budweiser', 'Bud Light', 'Corona Extra', 'Heineken', 'Stella Artois', 'Modelo Especial']
         },
         channels: { onTrade: 35, offTrade: 58, eCommerce: 2, travelRetail: 5 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Post-COVID rebound driving on-trade recovery and premiumization acceleration', source: 'IWSR', url: 'https://www.theiwsr.com' },
           { text: 'Mexican lager category achieving record growth rates in North American markets', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -4526,6 +4878,14 @@ const CATEGORIES = [
           value: ['Budweiser', 'Bud Light', 'Corona Extra', 'Heineken', 'Stella Artois', 'Modelo Especial']
         },
         channels: { onTrade: 35, offTrade: 58, eCommerce: 2, travelRetail: 5 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Home consumption surge during COVID-19 lockdowns driving off-trade channel growth', source: 'IWSR', url: 'https://www.theiwsr.com' },
           { text: 'E-commerce adoption accelerating rapidly for beer delivery services', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -4638,6 +4998,14 @@ const CATEGORIES = [
           value: ['Beck\u2019s Blue', 'Clausthaler', 'Bavaria 0.0', 'Peroni Libera', 'San Miguel 0.0', 'Budweiser Prohibition']
         },
         channels: { onTrade: 32, offTrade: 53, eCommerce: 12, travelRetail: 3 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Major spirits companies launching 0.0% line extensions across portfolio', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
           { text: 'Gen Z and Millennials driving moderation trend with no/low alcohol preferences', source: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -4740,6 +5108,14 @@ const CATEGORIES = [
           value: ['Beck\u2019s Blue', 'Clausthaler', 'Bavaria 0.0', 'Peroni Libera', 'San Miguel 0.0', 'Budweiser Prohibition']
         },
         channels: { onTrade: 30, offTrade: 54, eCommerce: 13, travelRetail: 3 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Athletic Brewing expansion into UK and European markets accelerating', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
           { text: 'Heineken and Gordon\u2019s 0.0% achieving mainstream retail penetration', source: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -4842,6 +5218,14 @@ const CATEGORIES = [
           value: ['Beck\u2019s Blue', 'Clausthaler', 'Bavaria 0.0', 'Peroni Libera', 'San Miguel 0.0', 'Budweiser Prohibition']
         },
         channels: { onTrade: 28, offTrade: 55, eCommerce: 12, travelRetail: 5 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Athletic Brewing achieving breakout success with premium DTC positioning', source: 'IWSR', url: 'https://www.theiwsr.com' },
           { text: 'Major brands beginning 0.0% extensions signaling mainstream acceptance', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -4944,6 +5328,14 @@ const CATEGORIES = [
           value: ['Beck\u2019s Blue', 'Clausthaler', 'Bavaria 0.0', 'Peroni Libera', 'San Miguel 0.0', 'Budweiser Prohibition']
         },
         channels: { onTrade: 25, offTrade: 56, eCommerce: 11, travelRetail: 8 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Wellness-focused consumers driving rapid adoption of no/low alcohol beverages', source: 'IWSR', url: 'https://www.theiwsr.com' },
           { text: 'Athletic Brewing achieving strong growth with premium craft positioning', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -5046,6 +5438,14 @@ const CATEGORIES = [
           value: ['Beck\u2019s Blue', 'Clausthaler', 'Bavaria 0.0', 'Peroni Libera', 'San Miguel 0.0', 'Budweiser Prohibition']
         },
         channels: { onTrade: 22, offTrade: 57, eCommerce: 10, travelRetail: 11 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Wellness movement accelerating with sober-curious consumer trend', source: 'IWSR', url: 'https://www.theiwsr.com' },
           { text: 'Seedlip and Lyre\u2019s achieving mainstream retail distribution', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -5158,6 +5558,14 @@ const CATEGORIES = [
           value: ['White Claw', 'Truly', 'Twisted Tea', 'Four Loko', 'Smirnoff Ice', 'Mike\u2019s Hard']
         },
         channels: { onTrade: 25, offTrade: 68, eCommerce: 4, travelRetail: 3 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Spirits-based RTDs overtaking hard seltzer as growth leader', source: 'IWSR', url: 'https://www.theiwsr.com' },
           { text: 'Japanese chuhai influence driving premiumization in Asian RTD markets', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -5260,6 +5668,14 @@ const CATEGORIES = [
           value: ['White Claw', 'Truly', 'Twisted Tea', 'Four Loko', 'Smirnoff Ice', 'Mike\u2019s Hard']
         },
         channels: { onTrade: 23, offTrade: 70, eCommerce: 3, travelRetail: 4 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Premium spirits-based RTDs achieving mainstream on-trade adoption', source: 'IWSR', url: 'https://www.theiwsr.com' },
           { text: 'Convenience store channel maintaining dominance with 70%+ share', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -5362,6 +5778,14 @@ const CATEGORIES = [
           value: ['White Claw', 'Truly', 'Twisted Tea', 'Four Loko', 'Smirnoff Ice', 'Mike\u2019s Hard']
         },
         channels: { onTrade: 20, offTrade: 72, eCommerce: 3, travelRetail: 5 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Hard seltzer boom peaking with market saturation evident', source: 'IWSR', url: 'https://www.theiwsr.com' },
           { text: 'Premium spirits-based RTDs emerging as next growth segment', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -5464,6 +5888,14 @@ const CATEGORIES = [
           value: ['White Claw', 'Truly', 'Twisted Tea', 'Four Loko', 'Smirnoff Ice', 'Mike\u2019s Hard']
         },
         channels: { onTrade: 18, offTrade: 74, eCommerce: 2, travelRetail: 6 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Hard seltzer category achieving mainstream acceptance and convenience store ubiquity', source: 'IWSR', url: 'https://www.theiwsr.com' },
           { text: 'White Claw and Truly consolidating market dominance with 50%+ combined share', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -5566,6 +5998,14 @@ const CATEGORIES = [
           value: ['White Claw', 'Truly', 'Twisted Tea', 'Four Loko', 'Smirnoff Ice', 'Mike\u2019s Hard']
         },
         channels: { onTrade: 15, offTrade: 76, eCommerce: 1, travelRetail: 8 },
+        tradeKPIs: { // SOURCE: [pending] — placeholder values, awaiting IWSR/Nielsen/IRI data
+          acvDistribution: null,   // ACV distribution % — weighted % of stores carrying the category
+          ceDepletions: null,      // Case equivalent depletions — cases shipped from distributor to retail
+          billback: null,          // Billback $ — promotional spend recouped from distributor
+          grossMarginPct: null,    // Gross margin % — (revenue - COGS) / revenue
+          cac: null,               // Customer acquisition cost $ — cost to acquire one new retail account
+          itr: null,               // Inventory turnover ratio — COGS / average inventory value
+        },
         trends: [
           { text: 'Hard seltzer boom driven by home consumption during pandemic lockdowns', source: 'IWSR', url: 'https://www.theiwsr.com' },
           { text: 'White Claw achieving cult status with aggressive social media marketing', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -5751,6 +6191,34 @@ const ChannelSplit = ({ channels }) => {
 }
 
 // ============================================
+// COMPONENT: Trade KPIs (Brand Manager Metrics)
+// ============================================
+const TradeKPIs = ({ kpis }) => {
+  if (!kpis) return null
+  const items = [
+    { key: 'acvDistribution', label: 'ACV Distribution', unit: '%', desc: 'Weighted store coverage' },
+    { key: 'ceDepletions', label: 'CE Depletions', unit: 'K cases', desc: 'Cases shipped to retail' },
+    { key: 'billback', label: 'Billback', unit: '$', desc: 'Promo spend recouped' },
+    { key: 'grossMarginPct', label: 'Gross Margin', unit: '%', desc: '(Revenue - COGS) / Revenue' },
+    { key: 'cac', label: 'CAC', unit: '$', desc: 'Cost per new retail account' },
+    { key: 'itr', label: 'ITR', unit: 'x', desc: 'Inventory turnover ratio' },
+  ]
+  return (
+    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+      {items.map(item => (
+        <div key={item.key} className="p-3 bg-amber-50/50 border border-amber-100 rounded-xl">
+          <div className="text-[10px] text-amber-700 font-medium uppercase tracking-wide">{item.label}</div>
+          <div className="text-lg font-bold text-gray-900 mt-0.5">
+            {kpis[item.key] !== null ? `${kpis[item.key]}${item.unit}` : <span className="text-gray-300 text-sm italic">Pending</span>}
+          </div>
+          <div className="text-[10px] text-gray-400 mt-0.5">{item.desc}</div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+// ============================================
 // COMPONENT: Yearly Report (Deep Analysis)
 // ============================================
 const YearlyReport = ({ report, year }) => {
@@ -5772,9 +6240,9 @@ const YearlyReport = ({ report, year }) => {
         ))}
       </div>
       {report.conclusion && (
-        <div className="p-4 bg-gray-900 rounded-xl">
-          <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Conclusion</h4>
-          <p className="text-sm text-gray-200 leading-relaxed">{report.conclusion}</p>
+        <div className="p-4 bg-navy/5 border border-navy/10 rounded-xl">
+          <h4 className="text-xs font-bold text-navy uppercase tracking-wider mb-2">Conclusion</h4>
+          <p className="text-sm text-gray-700 leading-relaxed">{report.conclusion}</p>
         </div>
       )}
     </div>
@@ -5879,6 +6347,12 @@ const CategoryDetail = ({ cat, selectedYear }) => {
               </div>
             </div>
           </div>
+          {yd.tradeKPIs && (
+            <div className="sm:col-span-2">
+              <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">Trade KPIs</h3>
+              <TradeKPIs kpis={yd.tradeKPIs} />
+            </div>
+          )}
           <div className="sm:col-span-2">
             <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">Top Growth Markets</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">

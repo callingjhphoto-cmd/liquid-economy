@@ -1057,10 +1057,7 @@ function AgencyCounterCTA({ alert }) {
                   <Briefcase size={10} className="text-gold" />
                   Liquid Creative Services
                 </div>
-                <p className="text-xs text-gray-700 mb-2">Need a full competitive response campaign? Our strategy team can build a bespoke counter-positioning deck, activation plan, and media strategy.</p>
-                <button className="text-[10px] font-bold text-white bg-gold hover:bg-gold-light px-3 py-1.5 rounded-lg transition-colors">
-                  Request Strategy Brief {'\u2192'}
-                </button>
+                <p className="text-xs text-gray-700">Need a full competitive response campaign? Our strategy team can build a bespoke counter-positioning deck, activation plan, and media strategy. Contact us at <a href="mailto:palmer.liquid.studio@gmail.com" className="text-navy font-semibold underline">palmer.liquid.studio@gmail.com</a></p>
               </div>
             </div>
           </div>

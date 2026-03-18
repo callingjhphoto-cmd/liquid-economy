@@ -24,7 +24,7 @@ const MATERIAL_CATEGORIES = [
     id: 'metal',
     name: 'Metal & Wire',
     icon: '\u2699\uFE0F',
-    color: 'from-gray-500 to-zinc-600',
+    color: 'from-gray-300 to-gray-400',
     description: 'Floor stands, shelf units, bottle racks, hanging signs, tin displays',
     avgLeadTime: '30-45 days',
     moqRange: '100-300 units',

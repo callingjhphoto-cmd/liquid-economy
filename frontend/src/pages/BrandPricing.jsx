@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect, useCallback } from 'react'
+import { Link } from 'react-router-dom'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts'
 import {
   Search, ArrowUpDown, Filter, TrendingUp, TrendingDown, Minus,
@@ -653,10 +654,10 @@ function MarketOverviewTable({ data, handleSort, sortBy, sortDir }) {
               const segInfo = SEGMENT_INFO[row.segment] || { color: 'bg-gray-50 text-gray-500' }
               return (
                 <tr key={i} className={`${i % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'} hover:bg-blue-50/30 transition-colors`}>
-                  <td className="px-4 py-2.5 text-gray-500 text-xs">{row.company}</td>
+                  <td className="px-4 py-2.5 text-xs"><Link to="/companies" className="text-gray-500 hover:text-navy hover:underline">{row.company}</Link></td>
                   <td className="px-4 py-2.5 font-medium text-navy">{row.brand}</td>
                   <td className="px-4 py-2.5 text-gray-600 text-xs">{row.expression}</td>
-                  <td className="px-4 py-2.5"><span className="text-[10px] bg-gray-100 text-gray-600 px-2 py-0.5 rounded">{row.category}</span></td>
+                  <td className="px-4 py-2.5"><Link to="/categories" className="text-[10px] bg-gray-100 text-gray-600 px-2 py-0.5 rounded hover:bg-blue-50 hover:text-navy transition-colors">{row.category}</Link></td>
                   <td className="px-4 py-2.5"><span className={`text-[10px] px-2 py-0.5 rounded font-medium ${segInfo.color}`}>{row.segment}</span></td>
                   <td className="px-4 py-2.5 text-right text-sm font-mono">{row.usa ? `$${row.usa}` : '\u2014'}</td>
                   <td className="px-4 py-2.5 text-right text-sm font-mono">{row.uk ? `\u00a3${row.uk}` : '\u2014'}</td>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Globe,
   MapPin,
@@ -565,7 +566,7 @@ const RegionCard = ({ region, isActive, onClick }) => (
     onClick={onClick}
     className={`w-full p-4 rounded-lg border transition-all text-left ${
       isActive
-        ? 'bg-slate-800 text-white border-slate-800'
+        ? 'bg-navy/10 text-navy border-navy/20 shadow-sm'
         : 'bg-white border-gray-100 text-slate-800 hover:bg-gray-50'
     }`}
   >
@@ -575,7 +576,7 @@ const RegionCard = ({ region, isActive, onClick }) => (
         <div className="font-semibold text-sm">{region.name}</div>
         <p
           className={`text-xs mt-2 line-clamp-2 ${
-            isActive ? 'text-white/80' : 'text-gray-600'
+            isActive ? 'text-navy/70' : 'text-gray-600'
           }`}
         >
           {region.summary}
@@ -604,7 +605,7 @@ const YearlyReports = ({ reports }) => {
             onClick={() => setSelectedYear(r.year)}
             className={`px-4 py-2 rounded-lg border text-sm font-medium transition-all whitespace-nowrap ${
               selectedYear === r.year
-                ? 'bg-slate-800 text-white border-slate-800'
+                ? 'bg-navy/10 text-navy border-navy/20 font-bold'
                 : 'bg-gray-50 text-slate-800 border-gray-100 hover:border-gray-200'
             }`}
           >
@@ -1270,7 +1271,7 @@ const RegionDetail = ({ region, data }) => (
               </div>
               <div className="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-slate-700 to-slate-600 rounded-full"
+                  className="h-full bg-gradient-to-r from-blue-400 to-blue-500 rounded-full"
                   style={{ width: `${percentage}%` }}
                 />
               </div>
@@ -1285,12 +1286,13 @@ const RegionDetail = ({ region, data }) => (
       <h2 className="text-lg font-semibold text-slate-800 mb-4">Leading Brands</h2>
       <div className="flex flex-wrap gap-2">
         {data.topBrands.map((brand, idx) => (
-          <span
+          <Link
             key={idx}
-            className="bg-slate-100 text-slate-800 px-4 py-2 rounded-full text-sm font-medium"
+            to={`/pricing`}
+            className="bg-blue-50 text-navy px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-100 transition-colors cursor-pointer"
           >
-            {brand}
-          </span>
+            {brand} {'\u2192'}
+          </Link>
         ))}
       </div>
     </div>

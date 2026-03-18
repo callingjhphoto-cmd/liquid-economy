@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, Cell, PieChart, Pie } from 'recharts'
 import { Building2, TrendingUp, TrendingDown, Globe, DollarSign, Users, ChevronRight, ChevronDown, ChevronUp, Lock, ExternalLink, Briefcase, Star, BarChart3, Target, Shield, Zap, AlertTriangle, MapPin, Layers, Search, ArrowRight, BookOpen } from 'lucide-react'
 
@@ -857,7 +858,7 @@ function CategoryPresence({ categoryPresence }) {
           <div key={cat} className="border border-gray-50 rounded-lg p-3 hover:border-gray-200 transition-colors">
             <div className="flex items-center justify-between mb-1.5">
               <div className="flex items-center gap-2">
-                <span className="font-medium text-sm text-navy">{cat}</span>
+                <Link to="/categories" className="font-medium text-sm text-navy hover:underline">{cat}</Link>
                 <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${posColors[info.position] || 'bg-gray-100 text-gray-600'}`}>{info.position}</span>
               </div>
               <span className="text-sm font-bold text-navy">{info.share}%</span>
@@ -867,7 +868,7 @@ function CategoryPresence({ categoryPresence }) {
             </div>
             {info.brands && info.brands.length > 0 && (
               <div className="flex flex-wrap gap-1">
-                {info.brands.map((b, i) => <span key={i} className="text-[10px] bg-gray-50 text-gray-600 px-1.5 py-0.5 rounded">{b}</span>)}
+                {info.brands.map((b, i) => <Link key={i} to="/pricing" className="text-[10px] bg-gray-50 text-gray-600 px-1.5 py-0.5 rounded hover:bg-blue-50 hover:text-navy transition-colors">{b}</Link>)}
               </div>
             )}
           </div>
@@ -1012,7 +1013,7 @@ function WhiteSpaceAnalysis() {
           <div key={cat} className="bg-white rounded-lg p-3 border border-gray-100 hover:border-green-200 transition-colors">
             <div className="flex items-center justify-between mb-1.5">
               <div className="flex items-center gap-2">
-                <span className="font-medium text-sm text-navy">{cat}</span>
+                <Link to="/categories" className="font-medium text-sm text-navy hover:underline">{cat}</Link>
                 <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium border ${oppColors[info.opportunity] || 'bg-gray-100 text-gray-600'}`}>{info.opportunity} Opportunity</span>
               </div>
               <span className="text-xs font-semibold text-green-600">{info.growthRate}</span>
@@ -1164,7 +1165,7 @@ function CompanyDetail({ company }) {
           <div className="bg-white rounded-xl border border-gray-100 p-5 mb-6">
             <h3 className="text-sm font-semibold text-navy uppercase tracking-wide mb-3 flex items-center gap-2"><Star size={16} /> Key Brands</h3>
             <div className="flex flex-wrap gap-1.5">
-              {company.keyBrands.map((b, i) => <span key={i} className="px-2.5 py-1 bg-navy/5 text-navy rounded-full text-xs font-medium">{b}</span>)}
+              {company.keyBrands.map((b, i) => <Link key={i} to="/pricing" className="px-2.5 py-1 bg-navy/5 text-navy rounded-full text-xs font-medium hover:bg-navy/10 transition-colors">{b} {'\u2192'}</Link>)}
             </div>
           </div>
           <RecentMoves moves={company.recentMoves} />

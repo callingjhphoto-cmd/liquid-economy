@@ -782,7 +782,7 @@ function FinancialTimeline({ financials }) {
           </LineChart>
         </ResponsiveContainer>
       </div>
-      <div className="grid grid-cols-4 gap-3 mb-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mb-4">
         {[
           { label: 'Revenue', val: yd.revenue ? `$${yd.revenue}B` : 'N/A', change: pctChange(yd.revenue, prev.revenue) },
           { label: 'Net Income', val: yd.netIncome ? `$${yd.netIncome}B` : 'N/A', change: pctChange(yd.netIncome, prev.netIncome) },
@@ -796,7 +796,7 @@ function FinancialTimeline({ financials }) {
           </div>
         ))}
       </div>
-      <div className="grid grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
         {[
           { label: 'EPS', val: typeof yd.eps === 'number' ? `$${yd.eps}` : (yd.eps || 'N/A'), change: typeof yd.eps === 'number' && typeof prev.eps === 'number' ? pctChange(yd.eps, prev.eps) : null },
           { label: 'Dividend', val: typeof yd.dividend === 'number' ? `$${yd.dividend}` : (yd.dividend || 'N/A'), change: typeof yd.dividend === 'number' && typeof prev.dividend === 'number' ? pctChange(yd.dividend, prev.dividend) : null },
@@ -899,7 +899,7 @@ function HowToCompete({ company }) {
         ))}
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="bg-white rounded-xl border border-gray-100 p-5">
           <h4 className="text-xs font-semibold text-navy uppercase tracking-wide mb-3 flex items-center gap-2"><Shield size={14} /> Their Strengths (Your Barriers)</h4>
           <div className="space-y-2">
@@ -974,7 +974,7 @@ function DistributionIntel({ distribution, dealTerms }) {
   return (
     <div className="bg-white rounded-xl border border-gray-100 p-5 mb-6">
       <h3 className="text-sm font-semibold text-navy uppercase tracking-wide mb-4 flex items-center gap-2"><MapPin size={16} /> UK Distribution & Deal Terms</h3>
-      <div className="grid grid-cols-2 gap-3 mb-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
         {Object.entries(distribution).map(([channel, desc]) => (
           <div key={channel} className="bg-gray-50 rounded-lg p-3">
             <div className="text-xs font-semibold text-navy capitalize mb-1">{channel.replace(/([A-Z])/g, ' $1').trim()}</div>
@@ -985,7 +985,7 @@ function DistributionIntel({ distribution, dealTerms }) {
       {dealTerms && (
         <div className="border-t border-gray-100 pt-4 mt-4">
           <h4 className="text-xs font-semibold text-navy uppercase mb-3">Typical Deal Structure</h4>
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {Object.entries(dealTerms).map(([term, val]) => (
               <div key={term} className="flex gap-2 items-start">
                 <span className="text-[10px] font-medium text-gray-400 uppercase w-24 flex-shrink-0">{term.replace(/([A-Z])/g, ' $1').trim()}</span>
@@ -1045,7 +1045,7 @@ function IndustryIntelligence({ company }) {
         </div>
 
         {company.isPrivate ? (
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="bg-white rounded-lg p-4 border border-amber-100">
               <div className="text-xs text-gray-400 mb-1">Estimated Revenue Range</div>
               <div className="text-xl font-bold text-navy">{company.revenue}</div>
@@ -1058,7 +1058,7 @@ function IndustryIntelligence({ company }) {
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
             <div className="bg-white rounded-lg p-3 border border-blue-100 text-center">
               <div className="text-xs text-gray-400 mb-1">Market Cap</div>
               <div className="text-lg font-bold text-navy">{company.marketCap}</div>
@@ -1084,7 +1084,7 @@ function IndustryIntelligence({ company }) {
       {/* Brand Intelligence Cards */}
       <div>
         <h3 className="text-sm font-bold text-navy uppercase tracking-wide mb-3 flex items-center gap-2"><Star size={16} className="text-gold" /> Brand Intelligence</h3>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {intel.brandIntel.map((brand, i) => (
             <div key={i} className="bg-white rounded-lg border border-gray-100 p-4 hover:shadow-md transition-shadow">
               <div className="flex items-center justify-between mb-2">

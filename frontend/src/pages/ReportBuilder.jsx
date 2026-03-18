@@ -404,7 +404,7 @@ export default function ReportBuilder() {
             )}
           </div>
         </div>
-        <div className="p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+        <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
           {DASHBOARD_WIDGETS.map(widget => {
             const Icon = widget.icon
             const isSelected = selectedWidgets.includes(widget.id)

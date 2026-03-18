@@ -653,7 +653,7 @@ function CategoryHealth({ cat }) {
       <h3 className="text-sm font-semibold text-navy mb-3 flex items-center gap-2">
         <BarChart3 size={14} className="text-editorial" /> Category Health
       </h3>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-4">
         <div className="text-center p-2 bg-gray-50 rounded-lg">
           <div className="text-lg font-bold text-navy">{cat.marketSize}</div>
           <div className="text-[10px] text-gray-500">Market Size</div>
@@ -718,7 +718,7 @@ function SupplyChainPressure({ cat }) {
       </div>
       <div className="mt-3 p-2 bg-navy/5 rounded-lg">
         <div className="text-[10px] font-bold text-navy">COGS Estimate (per bottle, UK off-trade)</div>
-        <div className="grid grid-cols-4 gap-1 mt-1">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-1 mt-1">
           {[
             { label: 'Raw', val: cat.cogsEstimate.raw },
             { label: 'Glass', val: cat.cogsEstimate.glass },
@@ -822,7 +822,7 @@ function ClimateRisk({ cat }) {
       <h3 className="text-sm font-semibold text-navy mb-3 flex items-center gap-2">
         <CloudRain size={14} className="text-sky-500" /> Climate & Yield Risk
       </h3>
-      <div className="grid grid-cols-2 gap-2 mb-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
         <div className="p-2 bg-gray-50 rounded-lg">
           <div className="text-[9px] text-gray-500">Region</div>
           <div className="text-[11px] font-medium text-navy">{cat.climate.region}</div>
@@ -832,7 +832,7 @@ function ClimateRisk({ cat }) {
           <div className="text-[11px] font-medium text-navy">{cat.climate.crop}</div>
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-2 mb-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mb-3">
         <div className="text-center p-1.5 bg-gray-50 rounded">
           <div className="text-xs font-bold text-navy">{cat.climate.yieldForecast}</div>
           <div className="text-[8px] text-gray-500">Yield Forecast</div>
@@ -889,7 +889,7 @@ function POSQuickStart({ cat }) {
       <h3 className="text-sm font-semibold text-navy mb-3 flex items-center gap-2">
         <ShoppingBag size={14} className="text-purple-500" /> POS Quick-Start
       </h3>
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
         <div className="p-2 bg-gray-50 rounded-lg">
           <div className="text-[9px] text-gray-500">Starter Kit</div>
           <div className="text-sm font-bold text-navy">{cat.posEstimate.starterKit}</div>

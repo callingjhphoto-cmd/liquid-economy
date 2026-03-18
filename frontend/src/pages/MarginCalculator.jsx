@@ -272,7 +272,7 @@ function ReadinessRadar({ data }) {
           </RadarChart>
         </ResponsiveContainer>
       </div>
-      <div className="grid grid-cols-2 gap-3 mt-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
         <div>
           <div className="text-[10px] font-medium text-red-500 mb-1 flex items-center gap-1"><AlertTriangle size={10} /> Top Risks</div>
           {data.risks.map((r, i) => <div key={i} className="text-[10px] text-gray-600 py-0.5 border-l-2 border-red-200 pl-2 mb-1">{r}</div>)}
@@ -473,7 +473,7 @@ export default function MarginCalculator() {
 
       {/* Category + Controls */}
       <div className="bg-white rounded-xl border border-gray-200 p-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
           <div>
             <label className="text-[10px] font-medium text-gray-400 block mb-1">Category</label>
             <select value={category} onChange={e => handleCategoryChange(e.target.value)}
@@ -571,7 +571,7 @@ export default function MarginCalculator() {
             </div>
             <div className="mt-4 pt-3 border-t border-gray-100">
               <div className="text-[10px] text-gray-400 mb-2">Quick scenario summary</div>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <div className="bg-green-50 rounded-lg p-2 text-center">
                   <div className="text-[10px] text-green-600">Best case</div>
                   <div className="text-sm font-bold text-green-700">

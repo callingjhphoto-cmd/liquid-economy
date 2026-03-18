@@ -5851,14 +5851,14 @@ const CategoryDetail = ({ cat, selectedYear }) => {
 
       {/* Tab Content */}
       {activeTab === 'overview' && (
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           <div>
             <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">Channel Distribution</h3>
             <ChannelSplit channels={yd.channels} />
           </div>
           <div>
             <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">Key Metrics</h3>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="p-3 bg-gray-50 rounded-xl">
                 <div className="text-xs text-gray-500">Market Size</div>
                 <div className="text-lg font-bold text-gray-900">{yd.marketSize}</div>
@@ -5879,9 +5879,9 @@ const CategoryDetail = ({ cat, selectedYear }) => {
               </div>
             </div>
           </div>
-          <div className="col-span-2">
+          <div className="sm:col-span-2">
             <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">Top Growth Markets</h3>
-            <div className="grid grid-cols-5 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
               {yd.topMarkets.map((m, i) => (
                 <div key={i} className="p-3 bg-white border border-gray-100 rounded-xl text-center">
                   <div className="text-sm font-semibold text-gray-900">{m.name}</div>
@@ -5925,22 +5925,40 @@ export default function CategoryIntelligence() {
   const active = CATEGORIES.find(c => c.key === activeCat)
 
   return (
-    <div className="min-h-screen bg-gray-50/50 p-6">
+    <div className="min-h-screen bg-gray-50/50 p-3 sm:p-4 lg:p-6">
       {/* Page Header */}
-      <div className="mb-6">
-        <div className="flex items-center justify-between mb-2">
+      <div className="mb-4 lg:mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-2">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">Category Intelligence</h1>
-            <p className="text-sm text-gray-500 mt-1">Deep market analysis across 11 beverage categories (2021–2025)</p>
+            <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Category Intelligence</h1>
+            <p className="text-xs sm:text-sm text-gray-500 mt-1">Deep market analysis across 11 beverage categories (2021\u20132025)</p>
           </div>
           <YearSelector selectedYear={selectedYear} onChange={setSelectedYear} />
         </div>
       </div>
 
+      {/* Mobile Category Selector */}
+      <div className="flex gap-1.5 overflow-x-auto pb-3 mb-4 lg:hidden scrollbar-hide">
+        {CATEGORIES.map(cat => (
+          <button
+            key={cat.key}
+            onClick={() => setActiveCat(cat.key)}
+            className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium whitespace-nowrap shrink-0 transition-colors ${
+              activeCat === cat.key
+                ? 'bg-gray-900 text-white'
+                : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50'
+            }`}
+          >
+            <span className={`w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold ${cat.iconBg} ${cat.iconColor}`}>{cat.icon}</span>
+            {cat.label}
+          </button>
+        ))}
+      </div>
+
       {/* Layout */}
-      <div className="grid grid-cols-12 gap-6">
-        {/* Sidebar */}
-        <div className="col-span-3 space-y-1">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6">
+        {/* Sidebar — hidden on mobile (replaced by horizontal scroller above) */}
+        <div className="hidden lg:block lg:col-span-3 space-y-1">
           <span className="text-xs font-bold text-gray-400 uppercase tracking-wider px-3">Categories</span>
           {CATEGORIES.map(cat => (
             <CategoryCard
@@ -5954,7 +5972,7 @@ export default function CategoryIntelligence() {
         </div>
 
         {/* Detail Panel */}
-        <div className="col-span-9">
+        <div className="lg:col-span-9">
           {active && <CategoryDetail cat={active} selectedYear={selectedYear} />}
         </div>
       </div>

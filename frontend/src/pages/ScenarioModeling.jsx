@@ -331,7 +331,7 @@ function CostWaterfall({ category }) {
           </Bar>
         </BarChart>
       </ResponsiveContainer>
-      <div className="mt-3 grid grid-cols-3 gap-2 text-center border-t border-gray-100 pt-3">
+      <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 text-center border-t border-gray-100 pt-3">
         <div><div className="text-[9px] text-gray-400">Total COGS</div><div className="text-sm font-bold text-[#1A1F36]">{'\u00a3'}{costs.total_cogs.toFixed(2)}</div></div>
         <div><div className="text-[9px] text-gray-400">RRP Range</div><div className="text-sm font-bold text-[#C9A96E]">{'\u00a3'}{costs.rrp_low}-{'\u00a3'}{costs.rrp_high}</div></div>
         <div><div className="text-[9px] text-gray-400">Gross Margin</div><div className="text-sm font-bold text-green-600">{((1 - costs.total_cogs / costs.rrp_mid) * 100).toFixed(0)}%</div></div>
@@ -429,7 +429,7 @@ function ArchetypeCards({ selected, onChange }) {
           }`}>
           <div className="text-[11px] font-semibold text-[#1A1F36]">{a.label}</div>
           <div className="text-[9px] text-gray-400 mt-0.5">{a.examples}</div>
-          <div className="grid grid-cols-2 gap-x-3 mt-2 text-[9px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 mt-2 text-[9px]">
             <div><span className="text-gray-400">Premium:</span> <span className="font-medium text-[#1A1F36]">{a.premiumMultiple}</span></div>
             <div><span className="text-gray-400">Risk:</span> <span className="font-medium text-[#1A1F36]">{a.riskLevel}</span></div>
             <div><span className="text-gray-400">Success rate:</span> <span className="font-medium text-green-600">{a.successRate}</span></div>
@@ -584,7 +584,7 @@ function SocialTargetingPanel() {
             ))}
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <div className="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-1">Peak Posting Times</div>
             <div className="text-[10px] text-gray-600">

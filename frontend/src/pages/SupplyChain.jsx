@@ -359,7 +359,7 @@ function CompositePressureIndex() {
         </div>
         <span className="text-[10px] text-gray-400">60% raw materials, 30% freight, 10% energy</span>
       </div>
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {metrics.map((m, i) => (
           <div key={i} className={`${m.bg} rounded-lg p-3 text-center`}>
             <div className={`text-2xl font-bold ${m.color}`}>{m.value}</div>
@@ -404,7 +404,7 @@ function CategoryCOGSChart({ category }) {
           {segments.map((s, i) => <Bar key={i} dataKey={s.label} stackId="a" fill={s.color} isAnimationActive={false} />)}
         </BarChart>
       </ResponsiveContainer>
-      <div className="grid grid-cols-4 gap-1.5 mt-2 text-[10px]">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-1.5 mt-2 text-[10px]">
         {segments.map((seg, i) => (
           <div key={i} className="flex items-center gap-1">
             <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: seg.color }} />
@@ -587,7 +587,7 @@ export default function SupplyChain() {
       {activeTab === 'costs' && (
         <div>
           {/* Summary strip */}
-          <div className="grid grid-cols-4 gap-3 mb-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mb-4">
             <div className="bg-white rounded-lg border border-gray-100 p-3 flex items-center gap-3">
               <div className="bg-navy/10 rounded-lg p-2"><Package className="w-4 h-4 text-navy" /></div>
               <div><div className="text-lg font-bold text-navy">{totalCommodities}</div><div className="text-[10px] text-gray-400">Commodities Tracked</div></div>
@@ -731,7 +731,7 @@ export default function SupplyChain() {
           </div>
           <div className="bg-white rounded-xl border border-gray-100 p-6">
             <h3 className="text-sm font-semibold text-navy uppercase tracking-wide mb-4">Alert Summary</h3>
-            <div className="grid grid-cols-3 gap-6 text-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
               <div className="p-4 bg-gray-50 rounded-lg"><div className="text-2xl font-bold text-navy mb-1">32</div><div className="text-xs text-gray-500">Brands Monitored</div></div>
               <div className="p-4 bg-red-50 rounded-lg"><div className="text-2xl font-bold text-red-600 mb-1">12</div><div className="text-xs text-gray-500">Active Margin Alerts</div></div>
               <div className="p-4 bg-green-50 rounded-lg"><div className="text-2xl font-bold text-green-600 mb-1">$2.80</div><div className="text-xs text-gray-500">Avg Price Increase Needed</div></div>

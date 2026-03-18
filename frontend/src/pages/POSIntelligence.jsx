@@ -347,7 +347,7 @@ function FactoryCard({ factory, materialColor }) {
             <span className="text-xs font-medium text-gray-500">Capabilities</span>
             <p className="text-sm text-gray-700 mt-1">{factory.capabilities}</p>
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <span className="text-xs font-medium text-gray-500">MOQ</span>
               <p className="text-sm font-semibold text-navy">{factory.moq} units</p>
@@ -630,7 +630,7 @@ export default function POSIntelligence() {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
         <StatCard label="Verified Factories" value={MATERIAL_CATEGORIES.reduce((sum, c) => sum + c.factories.length, 0)} icon={Factory} />
         <StatCard label="Material Categories" value={MATERIAL_CATEGORIES.length} icon={Layers} />
         <StatCard label="POS Companies Tracked" value={POS_COMPANIES.length} icon={Building2} />

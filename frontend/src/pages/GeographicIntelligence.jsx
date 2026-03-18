@@ -615,7 +615,7 @@ const YearlyReports = ({ reports }) => {
 
       {report && (
         <div className="space-y-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
               <p className="text-xs text-gray-600 mb-1">Market Size</p>
               <p className="text-xl font-bold text-slate-800">{report.marketSize}</p>
@@ -633,7 +633,7 @@ const YearlyReports = ({ reports }) => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
               <p className="text-xs text-gray-600 mb-1">Volume (Cases)</p>
               <p className="text-lg font-bold text-slate-800">{report.volumeCases}</p>
@@ -724,7 +724,7 @@ const TradeFlows = ({ importExport }) => (
       Trade Flows
     </h3>
 
-    <div className="grid grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
       <div>
         <h4 className="text-sm font-semibold text-slate-800 mb-3">Top Imports</h4>
         <div className="space-y-3">
@@ -770,7 +770,7 @@ const MarketEntryAnalysis = ({ entry }) => (
       <Briefcase size={20} />
       Market Entry Analysis
     </h2>
-    <div className="grid grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
       <div>
         <p className="text-xs font-semibold text-gray-600 uppercase mb-2">Barriers to Entry</p>
         <p className="text-sm text-gray-700 mb-4">{entry.barriers}</p>
@@ -834,7 +834,7 @@ const DistributorLandscape = ({ distributors }) => (
       <Building2 size={20} />
       Distributor Landscape
     </h2>
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       {distributors.map((dist, idx) => (
         <div key={idx} className="border border-gray-200 rounded-lg p-4">
           <p className="font-semibold text-slate-800">{dist.name}</p>
@@ -862,7 +862,7 @@ const CompetitiveEntry = ({ competitive }) => (
       <Target size={20} />
       Competitive Landscape
     </h2>
-    <div className="grid grid-cols-2 gap-6 mb-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
       <div>
         <p className="text-xs font-semibold text-gray-600 uppercase mb-3">Ease of Entry</p>
         <div className="flex items-center gap-3">
@@ -892,7 +892,7 @@ const CompetitiveEntry = ({ competitive }) => (
         </div>
       </div>
     </div>
-    <div className="grid grid-cols-2 gap-4 mb-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
       <div className="bg-gray-50 rounded-lg p-4">
         <p className="text-xs font-semibold text-gray-600 uppercase mb-2">Consolidation</p>
         <p className="text-sm text-gray-700">{competitive.consolidation}</p>
@@ -932,7 +932,7 @@ const RegionDetail = ({ region, data }) => (
     {/* KPIs Grid */}
     <div className="bg-white rounded-lg border border-gray-100 p-6">
       <h2 className="text-lg font-semibold text-slate-800 mb-4">Key Performance Indicators</h2>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {data.kpis.map((kpi, idx) => (
           <div key={idx} className="bg-gray-50 rounded-lg border border-gray-100 p-4">
             <p className="text-xs text-gray-600 font-medium mb-2">{kpi.label}</p>

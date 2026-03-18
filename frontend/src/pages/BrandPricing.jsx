@@ -289,7 +289,7 @@ function SegmentInfoPanel() {
         {open ? <ChevronUp size={14} className="ml-auto" /> : <ChevronDown size={14} className="ml-auto" />}
       </button>
       {open && (
-        <div className="mt-3 grid grid-cols-2 lg:grid-cols-3 gap-2">
+        <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
           {Object.entries(SEGMENT_INFO).map(([seg, info]) => (
             <div key={seg} className="p-3 rounded-lg bg-gray-50 border border-gray-100">
               <div className="flex items-center gap-2 mb-1">
@@ -873,7 +873,7 @@ export default function BrandPricing() {
           Market averages are calculated from available retailer prices. EU average aggregates Spain, France, Germany, Italy, and Netherlands.
           Null values indicate the product is not stocked at that retailer. Prices updated via automated scraping every 3 days.
         </p>
-        <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-2">
+        <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 sm:grid-cols-4 gap-2">
           {Object.entries(MARKET_CONFIG).map(([key, cfg]) => (
             <div key={key} className="flex items-center gap-2 text-[10px] bg-gray-50 text-gray-600 px-2.5 py-1.5 rounded-lg border border-gray-100">
               <span className="text-sm">{cfg.flag}</span>

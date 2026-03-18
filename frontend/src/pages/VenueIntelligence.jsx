@@ -2837,7 +2837,7 @@ export default function VenueIntelligence() {
           </div>
 
           {/* Stats Row */}
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             <div className="bg-white rounded-xl p-4 border border-gray-100">
               <p className="text-xs text-gray-500 uppercase tracking-wider">London Bars in Top 50</p>
               <p className="text-3xl font-bold text-navy mt-1">{FIFTY_BEST_BARS[selectedYear].filter(b => b.city === 'London').length}</p>
@@ -2860,7 +2860,7 @@ export default function VenueIntelligence() {
           </div>
 
           {/* Region Pie + City Bar Chart */}
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="bg-white rounded-xl p-5 border border-gray-100">
               <h3 className="text-sm font-semibold text-navy mb-4">Regional Distribution — {selectedYear}</h3>
               <ResponsiveContainer width="100%" height={280}>
@@ -2947,7 +2947,7 @@ export default function VenueIntelligence() {
           {/* Full 50 Best List for Selected Year */}
           <div className="bg-white rounded-xl p-5 border border-gray-100">
             <h3 className="text-sm font-semibold text-navy mb-4">Complete List — World's 50 Best Bars {selectedYear}</h3>
-            <div className="grid grid-cols-2 gap-x-8 gap-y-1 max-h-[500px] overflow-y-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1 max-h-[500px] overflow-y-auto">
               {FIFTY_BEST_BARS[selectedYear].map(bar => (
                 <div key={bar.rank} className={`flex items-center gap-3 py-1.5 text-sm ${bar.country === 'UK' ? 'bg-blue-50 rounded px-2 -mx-2' : ''}`}>
                   <span className={`w-7 text-right font-bold ${bar.rank <= 10 ? 'text-gold' : 'text-gray-400'}`}>{bar.rank}</span>
@@ -2989,7 +2989,7 @@ export default function VenueIntelligence() {
           {/* Account Type Explanation */}
           <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
             <h4 className="text-sm font-semibold text-navy mb-2">On-Trade Account Types</h4>
-            <div className="grid grid-cols-3 gap-4 text-xs text-gray-700">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs text-gray-700">
               <div><span className="font-bold text-purple-600">Luxury:</span> High-value, notoriety-driven accounts. Brands invest marketing spend for featuring, menu placement, and brand association. Lower volume but high visibility.</div>
               <div><span className="font-bold text-green-600">Volume:</span> High-throughput accounts. Brands offer retros (retrospective discounts) based on volume. More aggressive pricing. Think clubs, large restaurant groups.</div>
               <div><span className="font-bold text-amber-600">Both:</span> Rare accounts with both high volume AND prestige. e.g. Annabel\'s (~£55.6M revenue per Companies House), Sexy Fish (~£35M). Brands compete aggressively for these — offering retros + marketing spend + suspension pricing.</div>
@@ -3117,7 +3117,7 @@ export default function VenueIntelligence() {
               </div>
 
               {/* Headline Stats */}
-              <div className="grid grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                 <div className="bg-white rounded-xl p-4 border border-gray-100">
                   <p className="text-xs text-gray-500 uppercase tracking-wider">Corporate-Backed Bars (2025)</p>
                   <p className="text-3xl font-bold text-navy mt-1">{independentVsCorporate.find(d => d.year === '2025')?.corpPct || 0}%</p>
@@ -3167,7 +3167,7 @@ export default function VenueIntelligence() {
               </div>
 
               {/* Company Cards Grid */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {Object.entries(COMPANY_PROFILES).map(([name, profile]) => (
                   <div key={name} className={`bg-white rounded-xl border transition-all cursor-pointer ${selectedCompany === name ? 'border-navy shadow-lg' : 'border-gray-100 hover:border-gray-300'}`}
                     onClick={() => setSelectedCompany(selectedCompany === name ? null : name)}>
@@ -3205,7 +3205,7 @@ export default function VenueIntelligence() {
                         </div>
 
                         {/* Strengths & Weaknesses */}
-                        <div className="grid grid-cols-2 gap-3">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                           <div>
                             <h5 className="text-xs font-bold text-green-700 uppercase tracking-wider mb-1 flex items-center gap-1"><Shield size={12} /> Strengths</h5>
                             <div className="space-y-1">
@@ -3231,7 +3231,7 @@ export default function VenueIntelligence() {
                         </div>
 
                         {/* Distribution & Deal Structure */}
-                        <div className="grid grid-cols-2 gap-3">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                           <div className="bg-white rounded-lg p-3 border border-gray-100">
                             <h5 className="text-xs font-bold text-navy mb-1">UK Distribution</h5>
                             <p className="text-xs text-gray-600">{profile.distributionUK}</p>
@@ -3259,7 +3259,7 @@ export default function VenueIntelligence() {
                         </div>
 
                         {/* Threat/Opportunity for SMBs */}
-                        <div className="grid grid-cols-2 gap-3">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                           <div className="bg-red-50 rounded-lg p-3 border border-red-100">
                             <h5 className="text-xs font-bold text-red-800 mb-1">Threat to Small Brands</h5>
                             <p className="text-xs text-red-700">{profile.threatToSmallBrands}</p>
@@ -3279,7 +3279,7 @@ export default function VenueIntelligence() {
               <div className="bg-white rounded-xl p-5 border border-gray-100">
                 <h3 className="text-sm font-semibold text-navy mb-1">50 Best Bars {'—'} Award Sponsor Intelligence</h3>
                 <p className="text-xs text-gray-400 mb-4">Brands that sponsor named awards gain massive bartender community visibility</p>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {sponsorAnalysis.map(s => (
                     <div key={s.brand} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg border border-gray-100">
                       <div className="flex-1">
@@ -3369,7 +3369,7 @@ export default function VenueIntelligence() {
                     <h4 className="text-sm font-semibold text-navy">{category}</h4>
                   </div>
                   <div className="p-4">
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                       {Object.entries(tiers).map(([tier, data]) => {
                         const dominantColor = PARENT_COMPANIES[data.dominant]?.color || '#666';
                         const challengerColor = PARENT_COMPANIES[data.challenger]?.color || '#999';
@@ -3405,7 +3405,7 @@ export default function VenueIntelligence() {
                 <p className="text-xs text-gray-600">Market saturation data showing how crowded each spirit category is and who dominates.</p>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {Object.entries(CATEGORY_DENSITY).map(([cat, data]) => (
                   <div key={cat} className="bg-white rounded-xl p-4 border border-gray-100">
                     <div className="flex items-center gap-2 mb-3">
@@ -3457,7 +3457,7 @@ export default function VenueIntelligence() {
               <div className="bg-white rounded-xl p-5 border border-gray-100">
                 <h3 className="text-sm font-semibold text-navy mb-1">On-Trade Budget Benchmarks {'—'} What Brands Actually Spend</h3>
                 <p className="text-xs text-gray-400 mb-4">Industry-standard ranges for retros, marketing spend, and activation by account type</p>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {Object.entries(BUDGET_BENCHMARKS).map(([key, data]) => (
                     <div key={key} className="p-4 rounded-lg border" style={{ borderColor: data.color + '40', backgroundColor: data.color + '08' }}>
                       <h4 className="text-sm font-semibold mb-2" style={{ color: data.color }}>{data.label}</h4>
@@ -3473,7 +3473,7 @@ export default function VenueIntelligence() {
               </div>
 
               {/* Corporate vs Independent + Penetration Trend Charts */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="bg-white rounded-xl p-5 border border-gray-100">
                   <h3 className="text-sm font-semibold text-navy mb-4">Corporate vs Independent (2021{'–'}2025)</h3>
                   <ResponsiveContainer width="100%" height={250}>
@@ -3522,7 +3522,7 @@ export default function VenueIntelligence() {
               </div>
 
               {/* Parent Company Portfolio */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {Object.entries(PARENT_COMPANIES).map(([name, data]) => (
                   <div key={name} className="bg-white rounded-xl p-4 border border-gray-100">
                     <div className="flex items-center gap-2 mb-2">
@@ -3542,7 +3542,7 @@ export default function VenueIntelligence() {
               {/* Market Insight Box */}
               <div className="bg-gradient-to-r from-navy to-navy-light rounded-xl p-6 text-white">
                 <h3 className="font-semibold mb-3">On-Trade Market Intelligence {'—'} Key Findings</h3>
-                <div className="grid grid-cols-2 gap-4 text-sm">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                   <div className="space-y-2">
                     <p className="text-white/90">{'•'} <strong>LVMH</strong> dominates the Michelin-starred restaurant circuit {'—'} Dom P{'é'}rignon and Krug feature in virtually every 2-3 star venue</p>
                     <p className="text-white/90">{'•'} <strong>Bacardi</strong> has the strongest hotel bar programme {'—'} American Bar at The Savoy is a known incubator</p>
@@ -3667,7 +3667,7 @@ export default function VenueIntelligence() {
                       </div>
 
                       {/* Key People & Pitfalls */}
-                      <div className="grid grid-cols-2 gap-3">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div className="bg-blue-50 rounded-lg p-3 border border-blue-100">
                           <h5 className="text-xs font-bold text-blue-800 mb-1 flex items-center gap-1"><Users size={12} /> Key People to Know</h5>
                           <p className="text-xs text-blue-700">{pb.keyPeople}</p>
@@ -3693,7 +3693,7 @@ export default function VenueIntelligence() {
             <h3 className="font-semibold text-navy mb-3 flex items-center gap-2">
               <Building2 size={18} /> Strategic Insights for Small-to-Medium Brands
             </h3>
-            <div className="grid grid-cols-2 gap-6 text-sm text-gray-700">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm text-gray-700">
               <div className="space-y-3">
                 <div>
                   <h4 className="font-semibold text-navy">Entry Strategy {'—'} Luxury Accounts</h4>
@@ -3786,7 +3786,7 @@ export default function VenueIntelligence() {
             <h3 className="font-semibold text-navy mb-3 flex items-center gap-2">
               <Building2 size={18} /> Strategic Insights for Small-to-Medium Brands
             </h3>
-            <div className="grid grid-cols-2 gap-6 text-sm text-gray-700">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm text-gray-700">
               <div className="space-y-3">
                 <div>
                   <h4 className="font-semibold text-navy">Entry Strategy — Luxury Accounts</h4>

@@ -615,7 +615,7 @@ const CampaignPlanner = () => {
 
       <div>
         <label className="block text-xs font-semibold text-gray-700 mb-3">Campaign Type</label>
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {[
             { id: 'existing', label: 'Existing Brand', icon: Wine },
             { id: 'newProduct', label: 'New Product Launch', icon: Package },
@@ -636,7 +636,7 @@ const CampaignPlanner = () => {
       </div>
 
       {campaignData.campaignType === 'existing' && (
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-xs font-semibold text-gray-700 mb-2">Category</label>
             <select name="category" value={campaignData.category} onChange={handleInputChange}
@@ -663,7 +663,7 @@ const CampaignPlanner = () => {
             <input type="text" name="customBrandName" value={campaignData.customBrandName} onChange={handleInputChange}
               placeholder="e.g., Aurora Spirits" className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-yellow-500" />
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-semibold text-gray-700 mb-2">Category</label>
               <select name="category" value={campaignData.category} onChange={handleInputChange}
@@ -697,7 +697,7 @@ const CampaignPlanner = () => {
             <input type="text" name="cocktailName" value={campaignData.cocktailName} onChange={handleInputChange}
               placeholder="e.g., Fino Spritz, Tropical Sunset" className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-yellow-500" />
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-semibold text-gray-700 mb-2">Base Spirit</label>
               <select name="baseSpirit" value={campaignData.baseSpirit} onChange={handleInputChange}
@@ -735,7 +735,7 @@ const CampaignPlanner = () => {
         </div>
       )}
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className="block text-xs font-semibold text-gray-700 mb-2">Market</label>
           <select name="market" value={campaignData.market} onChange={handleInputChange}
@@ -751,7 +751,7 @@ const CampaignPlanner = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className="block text-xs font-semibold text-gray-700 mb-2">Campaign Start</label>
           <select name="startMonth" value={campaignData.startMonth} onChange={handleInputChange}
@@ -770,7 +770,7 @@ const CampaignPlanner = () => {
 
       <div>
         <label className="block text-xs font-semibold text-gray-700 mb-3">Primary Objective</label>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {objectives.map(obj => (
             <div key={obj.id} onClick={() => setCampaignData(prev => ({ ...prev, objective: obj.id }))}
               className={`p-3 rounded-lg border-2 cursor-pointer transition ${
@@ -1234,7 +1234,7 @@ const CampaignPlanner = () => {
         {/* Forecasted Metrics */}
         <div className="bg-white rounded-xl border border-gray-100 p-4 space-y-3">
           <h4 className="font-semibold text-xs text-gray-900 mb-3">Forecasted Metrics (Base Case)</h4>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {isAwareness ? (<>
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded p-3">
                 <p className="text-xs text-blue-700 font-semibold">Total Impressions</p>
@@ -1304,7 +1304,7 @@ const CampaignPlanner = () => {
             Agency Handoff Brief
           </h4>
           <div className="bg-white rounded-lg p-4 space-y-3 text-xs">
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <p className="font-semibold text-gray-500 uppercase text-[10px]">Brand</p>
                 <p className="font-bold text-gray-900">{getBrandDisplay() || '\u2014'}</p>
@@ -1325,7 +1325,7 @@ const CampaignPlanner = () => {
 
             <div className="border-t border-gray-200 pt-3">
               <p className="font-semibold text-gray-500 uppercase text-[10px] mb-2">Channel Budget Allocation</p>
-              <div className="grid grid-cols-4 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
                 {[
                   { label: 'Digital', pct: campaignData.digital },
                   { label: 'On-Trade', pct: campaignData.onTrade },
@@ -1343,7 +1343,7 @@ const CampaignPlanner = () => {
 
             <div className="border-t border-gray-200 pt-3">
               <p className="font-semibold text-gray-500 uppercase text-[10px] mb-2">Digital Platform Split (of Digital Budget)</p>
-              <div className="grid grid-cols-4 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
                 {[
                   { label: 'Meta/IG', pct: campaignData.metaInstagram },
                   { label: 'TikTok', pct: campaignData.tiktok },

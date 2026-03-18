@@ -467,7 +467,7 @@ const LiveWeatherPanel = ({ region }) => {
         <span className="text-[10px] text-blue-400">Source: Open-Meteo API (real-time)</span>
       </div>
 
-      <div className="grid grid-cols-4 gap-3 mb-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mb-4">
         <StatBox icon={Droplets} label="30-Day Rainfall" value={`${last30Precip}mm`} color="text-blue-600" />
         <StatBox icon={Thermometer} label="Avg High" value={`${avgMax}\u00b0C`} color="text-red-500" />
         <StatBox icon={Thermometer} label="Avg Low" value={`${avgMin}\u00b0C`} color="text-blue-500" />
@@ -492,7 +492,7 @@ const LiveWeatherPanel = ({ region }) => {
       {comparison && (
         <div className="mt-4 pt-3 border-t border-blue-200">
           <p className="text-[10px] font-semibold text-blue-800 mb-2 uppercase tracking-wider">Year-to-Date Comparison</p>
-          <div className="grid grid-cols-4 gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
             {Object.entries(comparison).map(([yr, d]) => (
               <div key={yr} className={`rounded-lg p-2 text-center ${parseInt(yr) === new Date().getFullYear() ? 'bg-blue-200/50 ring-1 ring-blue-300' : 'bg-white/60'}`}>
                 <p className="text-xs font-bold text-navy">{yr}</p>
@@ -553,7 +553,7 @@ const ClimateChart = ({ region }) => {
   return (
     <div className="bg-white rounded-xl border border-gray-200 p-5">
       <h3 className="text-sm font-semibold text-navy mb-3">Climate Metrics (10-Year)</h3>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <p className="text-[10px] text-gray-400 uppercase tracking-wider mb-1">Annual Rainfall (mm)</p>
           <div className="h-36">
@@ -622,7 +622,7 @@ const SeasonDetail = ({ region, year }) => {
         <OutlookBadge outlook={d.outlook} />
       </div>
       {d.yield !== null ? (
-        <div className="grid grid-cols-4 gap-3 mb-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mb-4">
           <StatBox icon={Sprout} label="Yield" value={typeof d.yield === 'number' && d.yield > 100 ? d.yield.toLocaleString() : d.yield} sub={region.yieldUnit} />
           <StatBox icon={CloudRain} label="Rainfall" value={`${d.rainfall}mm`} sub={d.rainfall > 700 ? 'Above avg' : d.rainfall < 500 ? 'Below avg' : 'Normal'} color="text-blue-600" />
           <StatBox icon={Thermometer} label="Avg Temp" value={`${d.avgTemp}\u00b0C`} color="text-red-500" />
@@ -670,7 +670,7 @@ const RegionDeepDive = ({ region, onClose }) => {
       <LiveWeatherPanel region={region} />
 
       {/* Charts */}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <YieldChart region={region} />
         <ClimateChart region={region} />
       </div>
@@ -792,7 +792,7 @@ export default function ClimateYield() {
       {!selectedRegion ? (
         <>
           {/* Overview Stats */}
-          <div className="grid grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
             <StatBox icon={Globe} label="Regions Tracked" value={REGIONS.length} sub="Across 8 countries" />
             <StatBox icon={Leaf} label="Crop Types" value="11" sub="Grapes to agave to grain" />
             <StatBox icon={Calendar} label="Data Depth" value="10 Years" sub="2016\u20132025 + live" />
@@ -805,7 +805,7 @@ export default function ClimateYield() {
           {/* Region Grid */}
           <div>
             <h2 className="text-sm font-bold text-navy uppercase tracking-wider mb-3">Input Regions \u0026 Crops</h2>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {REGIONS.map(r => (
                 <RegionCard key={r.id} region={r} onClick={() => setSelectedRegion(r.id)} />
               ))}
@@ -815,7 +815,7 @@ export default function ClimateYield() {
           {/* Sources */}
           <div className="bg-gray-50 rounded-xl border border-gray-200 p-4">
             <p className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Data Sources \u0026 Methodology</p>
-            <div className="grid grid-cols-2 gap-2 text-[10px] text-gray-500">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[10px] text-gray-500">
               <div>\u2022 <strong>Live Weather:</strong> Open-Meteo API (free, open-source weather data)</div>
               <div>\u2022 <strong>Historical Climate:</strong> ERA5 / Copernicus Climate Data Store via Open-Meteo Archive</div>
               <div>\u2022 <strong>Champagne:</strong> CIVC annual reports, Comit\u00e9 Champagne harvest data</div>

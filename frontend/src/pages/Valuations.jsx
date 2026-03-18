@@ -675,7 +675,7 @@ export default function Valuations() {
                       <p className="text-xs font-semibold text-gray-600 mb-1">EXAMPLE:</p>
                       <p className="text-xs text-gray-700">{method.example}</p>
                     </div>
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       <div>
                         <p className="text-xs font-semibold text-accent-green mb-1">Pros:</p>
                         <p className="text-xs text-gray-700">{method.pros}</p>

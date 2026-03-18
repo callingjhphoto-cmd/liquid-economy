@@ -573,7 +573,7 @@ function StrategicOpportunities() {
             <span className="text-[9px] font-bold bg-blue-50 text-blue-600 px-1.5 py-0.5 rounded whitespace-nowrap ml-2">{opp.category}</span>
           </div>
           <p className="text-[11px] text-gray-600 leading-relaxed mb-2">{opp.opportunity}</p>
-          <div className="grid grid-cols-2 gap-1.5 mb-2 pt-2 border-t border-gray-100 text-[10px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 mb-2 pt-2 border-t border-gray-100 text-[10px]">
             <div><span className="text-gray-500">Timeline:</span> <span className="font-medium text-navy">{opp.timeframe}</span></div>
             <div><span className="text-gray-500">Invest:</span> <span className="font-medium text-navy">{opp.investmentLevel}</span></div>
           </div>
@@ -848,7 +848,7 @@ function KeyMetricsWatchlist() {
         <TrendingUp className="w-4 h-4 text-gold" />
         <h2 className="text-sm font-display font-bold text-navy">Key Metrics Watchlist</h2>
       </div>
-      <div className="grid grid-cols-4 gap-1.5 mb-3">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-1.5 mb-3">
         {PILLARS.map(p => {
           const Icon = iconMap[p.icon]
           const c = colorMap[p.color]
@@ -862,7 +862,7 @@ function KeyMetricsWatchlist() {
           )
         })}
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
         {pillar.metrics.map((m, i) => (
           <div key={i} className="bg-white rounded-lg border border-gray-100 p-2 hover:shadow-sm transition-shadow">
             <div className="flex items-center justify-between mb-0.5">
@@ -901,7 +901,7 @@ function SummaryStrip() {
   ]
 
   return (
-    <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 md:grid-cols-6 gap-2">
       {stats.map((s, i) => (
         <div key={i} className="bg-white rounded-lg border border-gray-100 p-2 text-center">
           <div className={`text-lg font-bold ${s.color}`}>{s.value}</div>
@@ -1131,7 +1131,7 @@ export default function CommandCentre() {
           <h2 className="text-[10px] font-bold text-gold uppercase tracking-wide">{currentPersona.label} KPIs</h2>
           <span className="text-[9px] text-gray-400">Click any metric for detailed brief</span>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
           {personaKpis.map((kpi, i) => <KpiCard key={`${persona}-${i}`} kpi={kpi} onBriefingClick={handleBriefingClick} />)}
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, Link, Navigate, useLocation } from 'react-router-dom'
-import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, Settings, LogOut, Menu, MessageCircle, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag, Crosshair, ChevronDown, ChevronRight, Radio, Target, Loader2, Search } from 'lucide-react'
+import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, LogOut, Menu, MessageCircle, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag, Crosshair, ChevronDown, ChevronRight, Target, Loader2, Search, BarChart3, Store, Lightbulb } from 'lucide-react'
 import { useLiveData } from './context/LiveDataContext'
 import { api, getToken, setToken, clearToken } from './lib/api'
 import ChatPanel from './components/ChatPanel'
@@ -22,6 +22,23 @@ const CategoryCommandView = lazy(() => import('./pages/CategoryCommandView'))
 const ScenarioModeling = lazy(() => import('./pages/ScenarioModeling'))
 const CampaignPlanner = lazy(() => import('./pages/CampaignPlanner'))
 
+/* Route metadata for breadcrumbs */
+const routeMeta = {
+  '/': { label: 'Dashboard', group: 'Dashboard' },
+  '/categories': { label: 'Category Intelligence', group: 'Market' },
+  '/companies': { label: 'Company Intelligence', group: 'Market' },
+  '/valuations': { label: 'Valuations & Arbitrage', group: 'Market' },
+  '/pricing': { label: 'Brand Pricing', group: 'Market' },
+  '/supply-chain': { label: 'Supply Chain & COGS', group: 'Operations' },
+  '/geographic': { label: 'Geographic Intelligence', group: 'Operations' },
+  '/climate': { label: 'Climate & Yield', group: 'Operations' },
+  '/pos': { label: 'POS Manufacturing', group: 'Operations' },
+  '/venues': { label: 'Venue Intelligence', group: 'Retail' },
+  '/scenario': { label: 'Scenario Modelling', group: 'Retail' },
+  '/campaigns': { label: 'Campaign Planner', group: 'Retail' },
+  '/reports': { label: 'Report Builder', group: 'Intelligence' },
+}
+
 function PageLoader() {
   return (
     <div className="flex items-center justify-center h-64">
@@ -30,23 +47,66 @@ function PageLoader() {
   )
 }
 
+function Breadcrumb() {
+  const location = useLocation()
+  const path = location.pathname
+
+  /* Handle dynamic routes like /category/:id */
+  const isCategory = path.startsWith('/category/')
+  const meta = routeMeta[path]
+
+  if (path === '/') return null
+
+  const crumbs = [{ label: 'Dashboard', to: '/' }]
+
+  if (isCategory) {
+    const slug = path.split('/').pop()
+    const name = slug.charAt(0).toUpperCase() + slug.slice(1)
+    crumbs.push({ label: 'Category Intelligence', to: '/categories' })
+    crumbs.push({ label: name, to: path })
+  } else if (meta) {
+    if (meta.group !== 'Dashboard') {
+      crumbs.push({ label: meta.group })
+    }
+    crumbs.push({ label: meta.label, to: path })
+  }
+
+  return (
+    <nav className="hidden lg:flex items-center gap-1.5 text-[12px] text-gray-400 mb-4">
+      {crumbs.map((crumb, i) => (
+        <React.Fragment key={i}>
+          {i > 0 && <ChevronRight size={10} className="text-gray-300" />}
+          {crumb.to && i < crumbs.length - 1 ? (
+            <Link to={crumb.to} className="hover:text-navy transition-colors">{crumb.label}</Link>
+          ) : (
+            <span className={i === crumbs.length - 1 ? 'text-navy font-medium' : ''}>{crumb.label}</span>
+          )}
+        </React.Fragment>
+      ))}
+    </nav>
+  )
+}
+
 function BottomTabBar() {
   const location = useLocation()
+  const path = location.pathname
+
   const tabs = [
-    { to: '/', icon: LayoutDashboard, label: 'Home' },
-    { to: '/categories', icon: Wine, label: 'Categories' },
-    { to: '/venues', icon: MapPin, label: 'Venues' },
-    { to: '/pricing', icon: DollarSign, label: 'Pricing' },
-    { to: '/companies', icon: Building2, label: 'Companies' },
+    { to: '/', icon: LayoutDashboard, label: 'Dashboard', match: ['/'] },
+    { to: '/categories', icon: BarChart3, label: 'Market', match: ['/categories', '/companies', '/valuations', '/pricing'] },
+    { to: '/supply-chain', icon: Package, label: 'Operations', match: ['/supply-chain', '/geographic', '/climate', '/pos'] },
+    { to: '/venues', icon: Store, label: 'Retail', match: ['/venues', '/scenario', '/campaigns'] },
+    { to: '/reports', icon: Lightbulb, label: 'Intelligence', match: ['/reports'] },
   ]
+
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 lg:hidden">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-t border-gray-200/80 lg:hidden safe-area-bottom">
       <div className="flex items-center justify-around h-14">
         {tabs.map(tab => {
-          const active = location.pathname === tab.to
+          const active = tab.match.includes(path) || (tab.match[0] === '/categories' && path.startsWith('/category/'))
           return (
-            <Link key={tab.to} to={tab.to} className={`flex flex-col items-center gap-0.5 px-3 py-1 ${active ? 'text-navy' : 'text-gray-400'}`}>
-              <tab.icon size={20} />
+            <Link key={tab.label} to={tab.to} className={`flex flex-col items-center gap-0.5 px-3 py-1.5 transition-colors ${active ? 'text-navy' : 'text-gray-400'}`}>
+              <tab.icon size={20} strokeWidth={active ? 2 : 1.5} />
               <span className="text-[10px] font-medium">{tab.label}</span>
             </Link>
           )
@@ -131,7 +191,7 @@ function NavItem({ to, icon: Icon, label }) {
   )
 }
 
-function NavGroup({ title, emoji, children, defaultOpen = true }) {
+function NavGroup({ title, children, defaultOpen = true }) {
   const [open, setOpen] = useState(() => {
     try { const v = localStorage.getItem('le_nav_' + title); return v !== null ? v === '1' : defaultOpen } catch { return defaultOpen }
   })
@@ -141,12 +201,14 @@ function NavGroup({ title, emoji, children, defaultOpen = true }) {
     try { localStorage.setItem('le_nav_' + title, next ? '1' : '0') } catch {}
   }
   return (
-    <div className="mb-1">
-      <button onClick={toggle} className="flex items-center justify-between w-full px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-gray-400 hover:text-navy transition-colors">
-        <span className="flex items-center gap-1.5">{emoji} {title}</span>
-        {open ? <ChevronDown size={10} /> : <ChevronRight size={10} />}
+    <div className="mb-0.5">
+      <button onClick={toggle} className="flex items-center justify-between w-full px-3 py-1.5 text-[10px] font-semibold uppercase tracking-widest text-gray-400 hover:text-navy transition-colors">
+        <span>{title}</span>
+        <ChevronDown size={10} className={`transition-transform duration-200 ${open ? '' : '-rotate-90'}`} />
       </button>
-      {open && <div className="space-y-0.5 mt-0.5">{children}</div>}
+      <div className={`space-y-0.5 overflow-hidden transition-all duration-200 ${open ? 'max-h-96 opacity-100 mt-0.5' : 'max-h-0 opacity-0'}`}>
+        {children}
+      </div>
     </div>
   )
 }
@@ -217,35 +279,37 @@ function Layout({ onLogout }) {
           {/* Live status pulse */}
           <LivePulse />
 
-          <nav className="flex-1 px-2 space-y-1 overflow-y-auto">
-            {/* Hub */}
-            <NavItem to="/" icon={LayoutDashboard} label="Command Centre" />
+          <nav className="flex-1 px-2 space-y-0.5 overflow-y-auto">
+            {/* Dashboard */}
+            <div className="mb-1">
+              <NavItem to="/" icon={LayoutDashboard} label="Command Centre" />
+            </div>
 
-            {/* Production & Sourcing */}
-            <NavGroup title="Production & Sourcing" emoji={'\u2b06\ufe0f'}>
-              <NavItem to="/climate" icon={CloudRain} label="Climate & Yield" />
+            {/* Market */}
+            <NavGroup title="Market">
+              <NavItem to="/categories" icon={Wine} label="Category Intelligence" />
+              <NavItem to="/companies" icon={Building2} label="Company Intelligence" />
+              <NavItem to="/valuations" icon={TrendingUp} label="Valuations & Arbitrage" />
+              <NavItem to="/pricing" icon={DollarSign} label="Brand Pricing" />
+            </NavGroup>
+
+            {/* Operations */}
+            <NavGroup title="Operations">
               <NavItem to="/supply-chain" icon={Package} label="Supply Chain & COGS" />
+              <NavItem to="/geographic" icon={Globe} label="Geographic Intelligence" />
+              <NavItem to="/climate" icon={CloudRain} label="Climate & Yield" />
               <NavItem to="/pos" icon={ShoppingBag} label="POS Manufacturing" />
             </NavGroup>
 
-            {/* Distribution */}
-            <NavGroup title="Distribution" emoji={'\ud83c\udf0d'}>
-              <NavItem to="/categories" icon={Wine} label="Category Intelligence" />
-              <NavItem to="/geographic" icon={Globe} label="Geographic Intelligence" />
-              <NavItem to="/valuations" icon={TrendingUp} label="Valuations & Arbitrage" />
-              <NavItem to="/companies" icon={Building2} label="Company Intelligence" />
-            </NavGroup>
-
             {/* Retail */}
-            <NavGroup title="Retail" emoji={'\ud83c\udf7e'}>
+            <NavGroup title="Retail">
               <NavItem to="/venues" icon={MapPin} label="Venue Intelligence" />
-              <NavItem to="/pricing" icon={DollarSign} label="Brand Pricing" />
               <NavItem to="/scenario" icon={Crosshair} label="Scenario Modelling" />
               <NavItem to="/campaigns" icon={Target} label="Campaign Planner" />
             </NavGroup>
 
-            {/* Output */}
-            <NavGroup title="Output" emoji={'\ud83d\udcca'} defaultOpen={false}>
+            {/* Intelligence */}
+            <NavGroup title="Intelligence">
               <NavItem to="/reports" icon={FileText} label="Report Builder" />
             </NavGroup>
           </nav>
@@ -289,6 +353,7 @@ function Layout({ onLogout }) {
           </button>
         </header>
         <div className="p-6 pb-20 lg:p-8 lg:pb-8">
+          <Breadcrumb />
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<CommandCentre />} />

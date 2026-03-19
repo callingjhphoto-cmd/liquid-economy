@@ -103,6 +103,9 @@ async def get_company(company_id: int, db: Session = Depends(get_db)):
                 "expression": b.expression,
                 "category": b.category,
                 "size": b.size,
+                "brand_owner": b.brand_owner,
+                "distributor": b.distributor,
+                "line": b.line,
                 "latest_price": {
                     "usa": b.prices[-1].price_usa if b.prices else None,
                     "uk": b.prices[-1].price_uk if b.prices else None,

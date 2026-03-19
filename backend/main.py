@@ -20,6 +20,11 @@ from api.companies import router as companies_router
 from api.exports import router as exports_router
 from api.chatbot import router as chatbot_router
 from api.reports import router as reports_router
+from api.categories import router as categories_router
+from api.venues import router as venues_router
+from api.market_intelligence import router as market_intelligence_router
+from api.commodities import router as commodities_router
+from api.company_intelligence import router as company_intelligence_router
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(name)s] %(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -223,18 +228,27 @@ from api.companies import get_db as comp_get_db
 from api.exports import get_db as exp_get_db
 from api.chatbot import get_db as chat_get_db
 from api.reports import get_db as rep_get_db
+from api.categories import get_db as cat_get_db
+from api.market_intelligence import get_db as mi_get_db
 
 app.dependency_overrides[dash_get_db] = get_db
 app.dependency_overrides[comp_get_db] = get_db
 app.dependency_overrides[exp_get_db] = get_db
 app.dependency_overrides[chat_get_db] = get_db
 app.dependency_overrides[rep_get_db] = get_db
+app.dependency_overrides[cat_get_db] = get_db
+app.dependency_overrides[mi_get_db] = get_db
 
 app.include_router(dashboard_router)
 app.include_router(companies_router)
 app.include_router(exports_router)
 app.include_router(chatbot_router, prefix="/api/chat")
 app.include_router(reports_router, prefix="/api/reports")
+app.include_router(categories_router)
+app.include_router(venues_router)
+app.include_router(market_intelligence_router)
+app.include_router(commodities_router)
+app.include_router(company_intelligence_router)
 
 
 # ── Auth endpoints ──

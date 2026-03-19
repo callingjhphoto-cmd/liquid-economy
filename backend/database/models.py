@@ -46,6 +46,9 @@ class Brand(Base):
     expression = Column(String(200))  # e.g. "Black Label 12yr", "Impérial Brut NV"
     category = Column(String(100))  # Blended Scotch, Champagne, Tequila, etc.
     size = Column(String(50))  # 70cl/750ml, 75cl, etc.
+    brand_owner = Column(String(200), nullable=True)  # Parent company name, e.g. "Diageo"
+    distributor = Column(String(200), nullable=True)  # Primary distributor
+    line = Column(String(200), nullable=True)  # Product line, e.g. "Black Label" within Johnnie Walker
     created_at = Column(DateTime, server_default=func.now())
 
     company = relationship("Company", back_populates="brands")

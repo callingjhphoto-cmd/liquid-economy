@@ -913,6 +913,190 @@ function KeyMetricsWatchlist() {
   )
 }
 
+// ── Market Pulse Section (progressive disclosure) ──
+function MarketPulseSection() {
+  const [expandedIdx, setExpandedIdx] = useState(null)
+  const [showAll, setShowAll] = useState(false)
+  const visible = showAll ? MARKET_PULSE : MARKET_PULSE.slice(0, 3)
+
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-3">
+        <h2 className="font-display text-subsection text-navy flex items-center gap-1.5">
+          <Zap size={14} className="text-gold" />
+          Market Pulse
+        </h2>
+        <span className="text-[9px] text-gray-400">{MARKET_PULSE.length} movements tracked</span>
+      </div>
+      <div className="space-y-2">
+        {visible.map((item, i) => {
+          const isExpanded = expandedIdx === i
+          const isUp = item.dir === 'up'
+          return (
+            <div key={i} className="bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-sm transition-shadow">
+              <button
+                onClick={() => setExpandedIdx(isExpanded ? null : i)}
+                className="w-full text-left px-4 py-3 flex items-center gap-3"
+              >
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-0.5">
+                    <span className="text-[9px] font-bold bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">{item.category}</span>
+                    <span className="text-[9px] text-gray-400">{item.date}</span>
+                  </div>
+                  <div className="text-xs font-semibold text-navy">{item.event}</div>
+                  <p className="text-[10px] text-gray-500 mt-0.5">{item.impact}</p>
+                </div>
+                <span className={`text-xs font-bold flex-shrink-0 ${isUp ? 'text-green-600' : 'text-red-500'}`}>
+                  {item.change}
+                </span>
+                {isExpanded ? <ChevronUp size={14} className="text-gray-400 flex-shrink-0" /> : <ChevronDown size={14} className="text-gray-400 flex-shrink-0" />}
+              </button>
+              {isExpanded && (
+                <div className="px-4 pb-4 border-t border-gray-50">
+                  <p className="text-xs text-gray-700 leading-relaxed mt-3">{item.detail}</p>
+                  <Link to={item.link} className="inline-flex items-center gap-1 text-[10px] font-semibold text-navy hover:text-gold transition-colors mt-2 no-underline">
+                    {item.linkLabel}
+                    <ChevronRight size={10} />
+                  </Link>
+                </div>
+              )}
+            </div>
+          )
+        })}
+      </div>
+      {MARKET_PULSE.length > 3 && (
+        <button onClick={() => setShowAll(!showAll)} className="text-[10px] text-editorial hover:underline flex items-center gap-0.5 mt-2">
+          {showAll ? 'Show less' : `View all ${MARKET_PULSE.length} movements`}
+          {showAll ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
+        </button>
+      )}
+    </div>
+  )
+}
+
+// ── Price Alerts Section (progressive disclosure) ──
+function PriceAlertsSection() {
+  const [showAll, setShowAll] = useState(false)
+  const [filter, setFilter] = useState('all')
+  const filtered = filter === 'all' ? PRICE_ALERTS : PRICE_ALERTS.filter(a => a.severity === filter)
+  const visible = showAll ? filtered : filtered.slice(0, 4)
+
+  const severityConfig = {
+    alert: { bg: 'bg-red-50', text: 'text-red-600', label: 'Price Alert' },
+    watch: { bg: 'bg-amber-50', text: 'text-amber-600', label: 'Watch' },
+    opportunity: { bg: 'bg-green-50', text: 'text-green-600', label: 'Opportunity' },
+  }
+
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-3">
+        <h2 className="font-display text-subsection text-navy flex items-center gap-1.5">
+          <DollarSign size={14} className="text-gold" />
+          Price Alerts
+        </h2>
+        <div className="flex gap-1">
+          {['all', 'alert', 'opportunity', 'watch'].map(f => (
+            <button key={f} onClick={() => { setFilter(f); setShowAll(false) }}
+              className={`px-2 py-0.5 rounded text-[9px] font-semibold transition-colors ${filter === f ? 'bg-navy text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>
+              {f === 'all' ? 'All' : f.charAt(0).toUpperCase() + f.slice(1)}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+        {visible.map((alert, i) => {
+          const sev = severityConfig[alert.severity]
+          const isUp = alert.direction === 'up'
+          return (
+            <Link key={i} to={alert.link} className="no-underline">
+              <div className="bg-white rounded-xl border border-gray-100 p-3 hover:shadow-md transition-shadow">
+                <div className="flex items-start justify-between mb-1.5">
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-1.5 mb-0.5">
+                      <span className={`text-[8px] font-bold uppercase px-1.5 py-0.5 rounded-full ${sev.bg} ${sev.text}`}>{sev.label}</span>
+                      <span className="text-[9px] text-gray-400">{alert.channel}</span>
+                    </div>
+                    <div className="text-xs font-semibold text-navy">{alert.product}</div>
+                    <div className="text-[10px] text-gray-400">{alert.category}</div>
+                  </div>
+                  <div className="text-right flex-shrink-0 ml-2">
+                    <div className="text-sm font-bold text-navy">{alert.pricePoint}</div>
+                    <span className={`text-[10px] font-semibold ${isUp ? 'text-red-500' : 'text-green-600'}`}>
+                      {alert.change} ({alert.pctChange})
+                    </span>
+                    <div className="text-[9px] text-gray-400">{alert.period}</div>
+                  </div>
+                </div>
+                <p className="text-[10px] text-gray-500 leading-relaxed">{alert.reason}</p>
+              </div>
+            </Link>
+          )
+        })}
+      </div>
+      {filtered.length > 4 && (
+        <button onClick={() => setShowAll(!showAll)} className="text-[10px] text-editorial hover:underline flex items-center gap-0.5 mt-2">
+          {showAll ? 'Show less' : `View all ${filtered.length} alerts`}
+          {showAll ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
+        </button>
+      )}
+    </div>
+  )
+}
+
+// ── Recently Updated Feed (cross-page data freshness) ──
+function RecentlyUpdatedFeed() {
+  const [showAll, setShowAll] = useState(false)
+  const visible = showAll ? RECENTLY_UPDATED : RECENTLY_UPDATED.slice(0, 4)
+
+  const typeConfig = {
+    data: { bg: 'bg-blue-50', text: 'text-blue-600', icon: BarChart3 },
+    analysis: { bg: 'bg-purple-50', text: 'text-purple-600', icon: FileText },
+    alert: { bg: 'bg-red-50', text: 'text-red-600', icon: AlertTriangle },
+  }
+
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-3">
+        <h2 className="font-display text-subsection text-navy flex items-center gap-1.5">
+          <Clock size={14} className="text-gold" />
+          Recently Updated
+        </h2>
+        <span className="text-[9px] text-gray-400">Across all sections</span>
+      </div>
+      <div className="space-y-1.5">
+        {visible.map((item, i) => {
+          const tc = typeConfig[item.type]
+          const TypeIcon = tc.icon
+          return (
+            <Link key={i} to={item.link} className="no-underline">
+              <div className="bg-white rounded-lg border border-gray-100 px-3 py-2.5 hover:shadow-sm hover:border-gray-200 transition-all flex items-start gap-3 group">
+                <div className={`p-1.5 rounded-lg ${tc.bg} flex-shrink-0 mt-0.5`}>
+                  <TypeIcon size={12} className={tc.text} />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-0.5">
+                    <span className="text-[9px] font-bold bg-gray-100 text-gray-500 px-1.5 py-0.5 rounded">{item.section}</span>
+                    <span className="text-[9px] text-gray-400">{item.timestamp}</span>
+                  </div>
+                  <div className="text-xs font-medium text-navy group-hover:text-gold transition-colors">{item.item}</div>
+                  <p className="text-[10px] text-gray-500 mt-0.5 leading-relaxed">{item.description}</p>
+                </div>
+                <ChevronRight size={12} className="text-gray-300 group-hover:text-gold transition-colors flex-shrink-0 mt-1" />
+              </div>
+            </Link>
+          )
+        })}
+      </div>
+      {RECENTLY_UPDATED.length > 4 && (
+        <button onClick={() => setShowAll(!showAll)} className="text-[10px] text-editorial hover:underline flex items-center gap-0.5 mt-2">
+          {showAll ? 'Show less' : `View all ${RECENTLY_UPDATED.length} updates`}
+          {showAll ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
+        </button>
+      )}
+    </div>
+  )
+}
+
 // ── Hero Portal Cards (Bento Box — 4 intelligent portals) ──
 function HeroPortals() {
   const categoriesGrowing = CATEGORY_SNAPSHOT.filter(c => c.dir === 'up').length
@@ -1000,138 +1184,6 @@ function HeroPortals() {
           </Link>
         )
       })}
-    </div>
-  )
-}
-
-// ── Market Pulse Section (progressive disclosure) ──
-function MarketPulseSection() {
-  const [expanded, setExpanded] = useState(null)
-  const [showAll, setShowAll] = useState(false)
-  const visible = showAll ? MARKET_PULSE : MARKET_PULSE.slice(0, 3)
-
-  return (
-    <div>
-      <div className="flex items-center justify-between mb-3">
-        <h2 className="font-display text-subsection text-navy flex items-center gap-1.5">
-          <Activity size={14} className="text-gold" />
-          Market Pulse
-        </h2>
-        <button onClick={() => setShowAll(!showAll)} className="text-[10px] text-editorial hover:underline flex items-center gap-0.5">
-          {showAll ? 'Show less' : `All ${MARKET_PULSE.length}`}
-          {showAll ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
-        </button>
-      </div>
-      <div className="space-y-2">
-        {visible.map((pulse, i) => {
-          const isOpen = expanded === i
-          const isUp = pulse.dir === 'up'
-          return (
-            <div key={i} className="bg-white rounded-lg border border-gray-100 overflow-hidden hover:shadow-sm transition-shadow">
-              <button onClick={() => setExpanded(isOpen ? null : i)} className="w-full text-left p-3 flex items-center gap-3">
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-0.5">
-                    <span className="text-[9px] font-bold text-navy bg-navy/5 px-1.5 py-0.5 rounded">{pulse.category}</span>
-                    <span className="text-[9px] text-gray-400">{pulse.date}</span>
-                  </div>
-                  <div className="text-xs font-semibold text-navy">{pulse.event}</div>
-                  <div className="text-[11px] text-gray-500 mt-0.5">{pulse.impact}</div>
-                </div>
-                <span className={`text-xs font-bold flex-shrink-0 ${isUp ? 'text-emerald-600' : 'text-red-500'}`}>{pulse.change}</span>
-                {isOpen ? <ChevronUp size={14} className="text-gray-400 flex-shrink-0" /> : <ChevronDown size={14} className="text-gray-400 flex-shrink-0" />}
-              </button>
-              {isOpen && (
-                <div className="px-3 pb-3 border-t border-gray-50 pt-2 animate-fadeIn">
-                  <p className="text-[11px] text-gray-600 leading-relaxed">{pulse.detail}</p>
-                  <Link to={pulse.link} className="inline-flex items-center gap-1 text-[10px] font-medium text-editorial hover:underline mt-2">
-                    {pulse.linkLabel} <ArrowUpRight size={10} />
-                  </Link>
-                </div>
-              )}
-            </div>
-          )
-        })}
-      </div>
-    </div>
-  )
-}
-
-// ── Price Alerts Section ──
-function PriceAlertsSection() {
-  const [showAll, setShowAll] = useState(false)
-  const visible = showAll ? PRICE_ALERTS : PRICE_ALERTS.slice(0, 4)
-  const sevColors = { alert: 'bg-red-50 text-red-600', watch: 'bg-amber-50 text-amber-600', opportunity: 'bg-emerald-50 text-emerald-600' }
-
-  return (
-    <div>
-      <div className="flex items-center justify-between mb-3">
-        <h2 className="font-display text-subsection text-navy flex items-center gap-1.5">
-          <DollarSign size={14} className="text-gold" />
-          Price Alerts
-        </h2>
-        <button onClick={() => setShowAll(!showAll)} className="text-[10px] text-editorial hover:underline flex items-center gap-0.5">
-          {showAll ? 'Show less' : `All ${PRICE_ALERTS.length}`}
-          {showAll ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
-        </button>
-      </div>
-      <div className="bg-white rounded-xl border border-gray-100 divide-y divide-gray-50">
-        {visible.map((alert, i) => {
-          const isUp = alert.direction === 'up'
-          return (
-            <Link key={i} to={alert.link} className="flex items-center gap-3 px-3 py-2.5 hover:bg-gray-50/50 transition-colors no-underline group">
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 mb-0.5">
-                  <span className="text-xs font-semibold text-navy">{alert.product}</span>
-                  <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full ${sevColors[alert.severity]}`}>{alert.severity}</span>
-                </div>
-                <div className="text-[10px] text-gray-500">{alert.reason}</div>
-              </div>
-              <div className="text-right flex-shrink-0">
-                <div className="text-xs font-bold text-navy">{alert.pricePoint}</div>
-                <span className={`text-[10px] font-semibold ${isUp ? 'text-red-500' : 'text-emerald-600'}`}>
-                  {alert.change} ({alert.pctChange})
-                </span>
-              </div>
-              <ChevronRight size={12} className="text-gray-300 group-hover:text-gold flex-shrink-0" />
-            </Link>
-          )
-        })}
-      </div>
-    </div>
-  )
-}
-
-// ── Recently Updated Feed ──
-function RecentlyUpdatedFeed() {
-  const typeIcons = { data: BarChart3, analysis: FileText, alert: AlertTriangle }
-  const typeColors = { data: 'bg-blue-50 text-blue-600', analysis: 'bg-purple-50 text-purple-600', alert: 'bg-red-50 text-red-600' }
-
-  return (
-    <div>
-      <div className="flex items-center gap-1.5 mb-3">
-        <Clock size={14} className="text-gold" />
-        <h2 className="font-display text-subsection text-navy">Recently Updated</h2>
-      </div>
-      <div className="bg-white rounded-xl border border-gray-100 divide-y divide-gray-50">
-        {RECENTLY_UPDATED.slice(0, 6).map((item, i) => {
-          const Icon = typeIcons[item.type] || BarChart3
-          return (
-            <Link key={i} to={item.link} className="flex items-start gap-3 px-3 py-2.5 hover:bg-gray-50/50 transition-colors no-underline group">
-              <div className={`p-1.5 rounded-lg ${typeColors[item.type] || 'bg-gray-50 text-gray-600'} flex-shrink-0 mt-0.5`}>
-                <Icon size={12} />
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-semibold text-navy">{item.item}</span>
-                  <span className="text-[9px] text-gray-400 flex-shrink-0">{item.timestamp}</span>
-                </div>
-                <p className="text-[10px] text-gray-500 mt-0.5 line-clamp-1">{item.description}</p>
-              </div>
-              <ChevronRight size={12} className="text-gray-300 group-hover:text-gold flex-shrink-0 mt-1" />
-            </Link>
-          )
-        })}
-      </div>
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { TrendingUp, TrendingDown, Minus, Globe, BarChart3, ShoppingCart, Users, Star, ChevronRight, ChevronDown, ExternalLink, Calendar, Award, Package, Layers } from 'lucide-react'
+import { TrendingUp, TrendingDown, Minus, Globe, BarChart3, ShoppingCart, Users, Star, ChevronRight, ChevronDown, ExternalLink, Calendar, Award, Package, Layers, ArrowLeft } from 'lucide-react'
 
 // ============================================
 // DATA: 11 Categories x 5 Years (2021-2025)
@@ -6083,6 +6083,68 @@ const CategoryCard = ({ cat, isActive, onClick, selectedYear }) => {
 }
 
 // ============================================
+// COMPONENT: Category Hero Card (App Store "Today" style)
+// ============================================
+const HERO_GRADIENTS = {
+  tequila: 'from-amber-50 to-orange-50',
+  vodka: 'from-sky-50 to-blue-50',
+  gin: 'from-emerald-50 to-teal-50',
+  whisky: 'from-amber-50 to-yellow-50',
+  rum: 'from-orange-50 to-red-50',
+  cognac: 'from-purple-50 to-pink-50',
+  champagne: 'from-yellow-50 to-amber-50',
+  wine: 'from-rose-50 to-red-50',
+  beer: 'from-amber-50 to-lime-50',
+  nolo: 'from-cyan-50 to-sky-50',
+  rtd: 'from-violet-50 to-indigo-50'
+}
+
+const CategoryHeroCard = ({ cat, selectedYear, onClick }) => {
+  const yd = cat.yearData[selectedYear]
+  if (!yd) return null
+  const gradient = HERO_GRADIENTS[cat.key] || 'from-gray-50 to-gray-100'
+  return (
+    <button onClick={onClick}
+      className="group w-full text-left rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300">
+      <div className={`bg-gradient-to-br ${gradient} p-6 sm:p-8`}>
+        <div className="flex items-start justify-between mb-4">
+          <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-xl font-bold ${cat.iconBg} ${cat.iconColor} shadow-sm`}>
+            {cat.icon}
+          </div>
+          <ChevronRight size={20} className="text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all" />
+        </div>
+        <h3 className="font-display text-xl sm:text-2xl font-bold text-navy mb-2">{cat.label}</h3>
+        <p className="text-sm text-gray-600 line-clamp-2 leading-relaxed mb-5">{cat.trajectory}</p>
+        <div className="flex items-center gap-6">
+          <div>
+            <div className="text-xs text-gray-500 uppercase tracking-wider font-medium">Market Size</div>
+            <div className="text-xl font-bold text-navy">{yd.marketSize}</div>
+          </div>
+          <div>
+            <div className="text-xs text-gray-500 uppercase tracking-wider font-medium">Growth</div>
+            <div className="text-xl font-bold"><GrowthIndicator dir={yd.growthDir} value={yd.growth} /></div>
+          </div>
+          <div>
+            <div className="text-xs text-gray-500 uppercase tracking-wider font-medium">Volume</div>
+            <div className="text-xl font-bold text-navy">{yd.volumeCases}</div>
+          </div>
+        </div>
+      </div>
+      <div className="px-6 sm:px-8 py-4 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <span className="text-xs text-gray-500">{yd.topMarkets.length} markets</span>
+          <span className="text-xs text-gray-300">\u2022</span>
+          <span className="text-xs text-gray-500">{(yd.brands.highEnd.length + yd.brands.midTier.length + yd.brands.value.length)} brands tracked</span>
+          <span className="text-xs text-gray-300">\u2022</span>
+          <span className="text-xs text-gray-500">{yd.trends.length} trends</span>
+        </div>
+        <span className="text-xs font-semibold text-gold group-hover:underline">Explore \u2192</span>
+      </div>
+    </button>
+  )
+}
+
+// ============================================
 // COMPONENT: Market Drill-Down
 // ============================================
 const MarketDrillDown = ({ market }) => {
@@ -6393,26 +6455,64 @@ const CategoryDetail = ({ cat, selectedYear }) => {
 // MAIN COMPONENT
 // ============================================
 export default function CategoryIntelligence() {
-  const [activeCat, setActiveCat] = useState('tequila')
+  const [activeCat, setActiveCat] = useState(null)
   const [selectedYear, setSelectedYear] = useState(2025)
 
-  const active = CATEGORIES.find(c => c.key === activeCat)
+  const active = activeCat ? CATEGORIES.find(c => c.key === activeCat) : null
 
-  return (
-    <div className="min-h-screen bg-gray-50/50 p-3 sm:p-4 lg:p-6">
-      {/* Page Header */}
-      <div className="mb-4 lg:mb-6">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-2">
-          <div>
-            <h1 className="font-display text-page text-navy">Category Intelligence</h1>
-            <p className="text-caption text-gray-500 mt-1">Deep market analysis across 11 beverage categories (2021\u20132025)</p>
+  // Gallery view — App Store "Today" style
+  if (!active) {
+    return (
+      <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-6xl mx-auto">
+        {/* Page Header */}
+        <div className="mb-6 lg:mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div>
+              <p className="text-xs font-semibold text-gold uppercase tracking-widest mb-1">{selectedYear} Edition</p>
+              <h1 className="font-display text-3xl sm:text-4xl font-bold text-navy">Category Intelligence</h1>
+              <p className="text-body text-gray-500 mt-2">Deep market analysis across 11 beverage categories. Tap any category to explore.</p>
+            </div>
+            <YearSelector selectedYear={selectedYear} onChange={setSelectedYear} />
           </div>
+        </div>
+
+        {/* Hero Grid — App Store "Today" cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+          {CATEGORIES.map(cat => (
+            <CategoryHeroCard
+              key={cat.key}
+              cat={cat}
+              selectedYear={selectedYear}
+              onClick={() => setActiveCat(cat.key)}
+            />
+          ))}
+        </div>
+
+        <div className="mt-8 text-center">
+          <p className="text-xs text-gray-400">Data sourced from IWSR, Euromonitor, DISCUS, OIV, and trade publications</p>
+        </div>
+      </div>
+    )
+  }
+
+  // Detail view — drill-down into a single category
+  return (
+    <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-6xl mx-auto">
+      {/* Back + Header */}
+      <div className="mb-4 lg:mb-6">
+        <button onClick={() => setActiveCat(null)}
+          className="flex items-center gap-2 text-sm text-gray-500 hover:text-navy transition-colors mb-3 group">
+          <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
+          All Categories
+        </button>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <h1 className="font-display text-page text-navy">Category Intelligence</h1>
           <YearSelector selectedYear={selectedYear} onChange={setSelectedYear} />
         </div>
       </div>
 
-      {/* Mobile Category Selector */}
-      <div className="flex gap-1.5 overflow-x-auto pb-3 mb-4 lg:hidden scrollbar-hide">
+      {/* Quick nav for switching categories without going back */}
+      <div className="flex gap-1.5 overflow-x-auto pb-3 mb-4 scrollbar-hide">
         {CATEGORIES.map(cat => (
           <button
             key={cat.key}
@@ -6429,27 +6529,8 @@ export default function CategoryIntelligence() {
         ))}
       </div>
 
-      {/* Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6">
-        {/* Sidebar — hidden on mobile (replaced by horizontal scroller above) */}
-        <div className="hidden lg:block lg:col-span-3 space-y-1">
-          <span className="text-xs font-bold text-gray-400 uppercase tracking-wider px-3">Categories</span>
-          {CATEGORIES.map(cat => (
-            <CategoryCard
-              key={cat.key}
-              cat={cat}
-              isActive={activeCat === cat.key}
-              onClick={() => setActiveCat(cat.key)}
-              selectedYear={selectedYear}
-            />
-          ))}
-        </div>
-
-        {/* Detail Panel */}
-        <div className="lg:col-span-9">
-          {active && <CategoryDetail cat={active} selectedYear={selectedYear} />}
-        </div>
-      </div>
+      {/* Detail Panel */}
+      <CategoryDetail cat={active} selectedYear={selectedYear} />
     </div>
   )
 }

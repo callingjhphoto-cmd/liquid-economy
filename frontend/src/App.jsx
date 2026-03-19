@@ -79,32 +79,35 @@ function Login({ onLogin }) {
   }
 
   return (
-    <div className="min-h-screen bg-navy flex items-center justify-center px-4">
-      <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
+    <div className="min-h-screen bg-surface flex items-center justify-center px-4">
+      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 w-full max-w-sm">
         <div className="text-center mb-8">
-          <h1 className="font-display text-3xl text-navy mb-2">Liquid Economy</h1>
-          <p className="text-gray-500 text-sm">Intelligence Platform — Palmer Liquid Studios</p>
+          <div className="w-12 h-12 bg-navy rounded-xl flex items-center justify-center mx-auto mb-4">
+            <Wine size={24} className="text-white" />
+          </div>
+          <h1 className="font-display text-2xl text-navy mb-1">Liquid Economy</h1>
+          <p className="text-gray-400 text-xs">Glass-to-Glass Intelligence Platform</p>
         </div>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-3">
           <input
             type="text"
             placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+            className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-gold/50 focus:border-gold focus:bg-white transition-colors"
           />
           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+            className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-gold/50 focus:border-gold focus:bg-white transition-colors"
           />
           {error && <p className="text-accent-red text-sm">{error}</p>}
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-navy text-white py-3 rounded-lg font-medium hover:bg-navy-light transition-colors disabled:opacity-50"
+            className="w-full bg-navy text-white py-3 rounded-xl text-sm font-medium hover:bg-navy-light transition-colors disabled:opacity-50"
           >
             {loading ? 'Signing in...' : 'Sign In'}
           </button>
@@ -120,7 +123,7 @@ function NavItem({ to, icon: Icon, label }) {
   return (
     <Link
       to={to}
-      className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-colors text-[13px] font-medium ${active ? 'bg-white/10 text-white' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+      className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors text-[13px] font-medium ${active ? 'bg-navy/5 text-navy' : 'text-gray-500 hover:text-navy hover:bg-gray-50'}`}
     >
       <Icon size={15} />
       <span>{label}</span>
@@ -139,7 +142,7 @@ function NavGroup({ title, emoji, children, defaultOpen = true }) {
   }
   return (
     <div className="mb-1">
-      <button onClick={toggle} className="flex items-center justify-between w-full px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-gold/70 hover:text-gold transition-colors">
+      <button onClick={toggle} className="flex items-center justify-between w-full px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-gray-400 hover:text-navy transition-colors">
         <span className="flex items-center gap-1.5">{emoji} {title}</span>
         {open ? <ChevronDown size={10} /> : <ChevronRight size={10} />}
       </button>
@@ -152,7 +155,7 @@ function LivePulse() {
   const { connected, feedItems, mode } = useLiveData()
   const criticals = feedItems.filter(i => i.severity === 'critical').length
   return (
-    <div className="mx-3 mb-2 px-3 py-2 rounded-lg bg-white/5 border border-white/10">
+    <div className="mx-3 mb-2 px-3 py-2 rounded-lg bg-gray-50 border border-gray-100">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-1.5">
           {connected ? (
@@ -161,17 +164,17 @@ function LivePulse() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
             </span>
           ) : (
-            <span className="h-2 w-2 rounded-full bg-gray-500" />
+            <span className="h-2 w-2 rounded-full bg-gray-400" />
           )}
-          <span className="text-[10px] text-gray-400 font-medium">
+          <span className="text-[10px] text-gray-500 font-medium">
             {connected ? (mode === 'sse' ? 'LIVE' : 'POLLING') : 'OFFLINE'}
           </span>
         </div>
         <div className="flex items-center gap-2 text-[10px]">
           {criticals > 0 && (
-            <span className="text-red-400 font-bold">{criticals} critical</span>
+            <span className="text-red-500 font-bold">{criticals} critical</span>
           )}
-          <span className="text-gray-500">{feedItems.length} items</span>
+          <span className="text-gray-400">{feedItems.length} items</span>
         </div>
       </div>
     </div>
@@ -196,12 +199,19 @@ function Layout({ onLogout }) {
 
   return (
     <div className="flex h-screen bg-gray-50">
-      {/* Sidebar — Glass-to-Glass Narrative */}
-      <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-navy transform transition-transform lg:translate-x-0 lg:static ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+      {/* Sidebar — Clean Apple-style */}
+      <aside className={`fixed inset-y-0 left-0 z-50 w-60 bg-white border-r border-gray-200 transform transition-transform lg:translate-x-0 lg:static ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="flex flex-col h-full">
-          <div className="p-5 pb-3">
-            <h1 className="font-display text-xl text-white">Liquid Economy</h1>
-            <p className="text-gold text-[10px] mt-0.5 tracking-wide">Glass-to-Glass Intelligence</p>
+          <div className="px-5 pt-5 pb-3">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 bg-navy rounded-lg flex items-center justify-center">
+                <Wine size={16} className="text-white" />
+              </div>
+              <div>
+                <h1 className="font-display text-base text-navy font-bold leading-tight">Liquid Economy</h1>
+                <p className="text-[10px] text-gray-400 tracking-wide">Glass-to-Glass Intelligence</p>
+              </div>
+            </div>
           </div>
 
           {/* Live status pulse */}
@@ -211,14 +221,14 @@ function Layout({ onLogout }) {
             {/* Hub */}
             <NavItem to="/" icon={LayoutDashboard} label="Command Centre" />
 
-            {/* Production & Sourcing: raw materials → production */}
+            {/* Production & Sourcing */}
             <NavGroup title="Production & Sourcing" emoji={'\u2b06\ufe0f'}>
               <NavItem to="/climate" icon={CloudRain} label="Climate & Yield" />
               <NavItem to="/supply-chain" icon={Package} label="Supply Chain & COGS" />
               <NavItem to="/pos" icon={ShoppingBag} label="POS Manufacturing" />
             </NavGroup>
 
-            {/* Distribution: market intelligence */}
+            {/* Distribution */}
             <NavGroup title="Distribution" emoji={'\ud83c\udf0d'}>
               <NavItem to="/categories" icon={Wine} label="Category Intelligence" />
               <NavItem to="/geographic" icon={Globe} label="Geographic Intelligence" />
@@ -226,7 +236,7 @@ function Layout({ onLogout }) {
               <NavItem to="/companies" icon={Building2} label="Company Intelligence" />
             </NavGroup>
 
-            {/* Retail: route to market */}
+            {/* Retail */}
             <NavGroup title="Retail" emoji={'\ud83c\udf7e'}>
               <NavItem to="/venues" icon={MapPin} label="Venue Intelligence" />
               <NavItem to="/pricing" icon={DollarSign} label="Brand Pricing" />
@@ -240,21 +250,21 @@ function Layout({ onLogout }) {
             </NavGroup>
           </nav>
 
-          <div className="p-2 border-t border-white/10 space-y-0.5">
-            <button onClick={() => setSearchOpen(true)} className="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-400 hover:text-gold hover:bg-white/5 w-full text-left text-[13px] font-medium">
+          <div className="p-2 border-t border-gray-100 space-y-0.5">
+            <button onClick={() => setSearchOpen(true)} className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-500 hover:text-navy hover:bg-gray-50 w-full text-left text-[13px] font-medium">
               <Search size={15} />
               <span>Search</span>
-              <kbd className="ml-auto text-[10px] text-gray-500 bg-white/10 px-1.5 py-0.5 rounded font-mono">{'\u2318'}K</kbd>
+              <kbd className="ml-auto text-[10px] text-gray-400 bg-gray-100 px-1.5 py-0.5 rounded font-mono">{'\u2318'}K</kbd>
             </button>
-            <button onClick={() => setChatOpen(true)} className="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-400 hover:text-gold hover:bg-white/5 w-full text-left text-[13px] font-medium">
+            <button onClick={() => setChatOpen(true)} className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-500 hover:text-navy hover:bg-gray-50 w-full text-left text-[13px] font-medium">
               <MessageCircle size={15} />
               <span>Analyst Chat</span>
             </button>
-            <button onClick={() => api.downloadExcel()} className="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 w-full text-left text-[13px] font-medium">
+            <button onClick={() => api.downloadExcel()} className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-500 hover:text-navy hover:bg-gray-50 w-full text-left text-[13px] font-medium">
               <Download size={15} />
               <span>Export Tracker</span>
             </button>
-            <button onClick={onLogout} className="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-400 hover:text-accent-red hover:bg-white/5 w-full text-left text-[13px] font-medium">
+            <button onClick={onLogout} className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-500 hover:text-red-500 hover:bg-red-50 w-full text-left text-[13px] font-medium">
               <LogOut size={15} />
               <span>Sign Out</span>
             </button>

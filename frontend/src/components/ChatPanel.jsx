@@ -69,11 +69,11 @@ export default function ChatPanel({ isOpen, onClose }) {
           ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
       >
         {/* Header */}
-        <div className="bg-navy text-white p-4 flex items-center justify-between border-b border-navy-light">
-          <h2 className="font-display text-lg">Intelligence Analyst</h2>
+        <div className="bg-white p-4 flex items-center justify-between border-b border-gray-200">
+          <h2 className="font-display text-lg text-navy">Intelligence Analyst</h2>
           <button
             onClick={onClose}
-            className="p-1 hover:bg-white/10 rounded-lg transition-colors"
+            className="p-1 hover:bg-gray-100 rounded-lg transition-colors text-gray-400 hover:text-gray-600"
           >
             <X size={20} />
           </button>

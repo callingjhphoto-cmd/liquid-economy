@@ -247,6 +247,10 @@ function Layout({ onLogout }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [chatOpen, setChatOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
+  const location = useLocation()
+
+  /* Close mobile sidebar on navigation */
+  useEffect(() => { setSidebarOpen(false) }, [location.pathname])
 
   useEffect(() => {
     const handler = (e) => {
@@ -262,7 +266,7 @@ function Layout({ onLogout }) {
   return (
     <div className="flex h-screen bg-gray-50">
       {/* Sidebar — Clean Apple-style */}
-      <aside className={`fixed inset-y-0 left-0 z-50 w-60 bg-white border-r border-gray-200 transform transition-transform lg:translate-x-0 lg:static ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+      <aside className={`fixed inset-y-0 left-0 z-50 w-60 bg-white border-r border-gray-200/80 transform transition-transform duration-300 ease-out lg:translate-x-0 lg:static ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="flex flex-col h-full">
           <div className="px-5 pt-5 pb-3">
             <div className="flex items-center gap-2.5">

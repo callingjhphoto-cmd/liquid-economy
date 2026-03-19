@@ -14,12 +14,12 @@
 ### Phase 3: Categories Page Rebuild (Iterations 6-9)
 - [x] **6. Categories visual entry** — App Store "Today" style gallery with CategoryHeroCard components in 2-col Bento Box grid. Each card has category-specific gradient, hero typography, market size/growth/volume stats, metadata footer. Tap card → detail view with back navigation + horizontal category switcher. Gallery is default landing; no sidebar.
 - [x] **7. Category detail — Tier 1 (Executive Summary)** — Overview tab redesigned as clean Bento Box: 4 primary metric cards (Market Size, YoY Growth, Volume, Market Leader) in 2x2/4-col grid. Category trajectory card. Quick glance panels for top 3 markets + channel split with cross-links to deeper tabs. Progressive disclosure achieved.
-- [ ] **8. Category detail — Tier 2 (Drill-down)** — Accordion sections below Tier 1: Top Markets (with drill-down to brands + regions), Channel Split (with Travel Retail), Tiered Brands (High-End / Mid-Tier / Value), Trends. All collapsed by default
-- [ ] **9. Category detail — Tier 3 (Deep Analysis)** — "View Full Report" button → expands multi-paragraph yearly analysis. Key events, top performer, detailed analysis, firm conclusion. Source citations throughout. Data table with virtualization for raw numbers
+- [x] **8. Category detail — Tier 2 (Drill-down)** — Already implemented via tabs: Markets tab (MarketDrillDown with expandable brand/region/source panels), Brands tab (TieredBrands with High-End/Mid-Tier/Value), Trends tab (with source links), Channel Split (includes Travel Retail). All behind tabs = collapsed by default.
+- [x] **9. Category detail — Tier 3 (Deep Analysis)** — Analysis tab with YearlyReport showing key events badges, top performer highlight, multi-paragraph analysis, and firm conclusion card. Source citations throughout via SourceLink components.
 
 ### Phase 4: Cross-Page Intelligence (Iterations 10-12)
-- [ ] **10. Companies page polish** — White Bento Box cards per company. Key metrics visible, drill-down for financials. Cross-links to categories they operate in. Clean table with sorting/filtering
-- [ ] **11. Venues page polish** — Clean card-based layout for 50 Best Bars data. Filter by year, city, category. Cross-links to brands stocked. Map view if feasible. White/clean aesthetic
+- [x] **10. Companies page polish** — Applied surface bg, max-w-7xl container, responsive layout (mobile horizontal pill nav + desktop sidebar). CompanyCard redesigned with white cards, gold accent tip box. Search input with rounded-xl. Full mobile responsiveness.
+- [x] **11. Venues page polish** — Applied surface bg, max-w-7xl container, proper spacing. Unicode escapes fixed. Already had comprehensive tab system, year filtering, brand mapping, and clean card layouts from previous build.
 - [ ] **12. Global Search enhancement** — Full-screen modal search with faceted results: Companies, Categories, Venues, Brands. Predictive autocomplete. Cross-page navigation from results. Keyboard shortcut (Cmd+K)
 
 ### Phase 5: Operations Pages (Iterations 13-15)

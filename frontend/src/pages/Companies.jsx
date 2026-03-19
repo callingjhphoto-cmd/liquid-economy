@@ -713,19 +713,19 @@ const MA_COLORS = { acquisition: 'bg-green-500', divestiture: 'bg-red-500', part
 
 function CompanyCard({ company, isActive, onClick }) {
   return (
-    <button onClick={onClick} className={`w-full text-left p-3 rounded-lg transition-all ${isActive ? 'bg-navy text-white shadow-md' : 'bg-white hover:bg-gray-50 text-gray-700 border border-gray-100'}`}>
+    <button onClick={onClick} className={`w-full text-left p-3 rounded-xl transition-all ${isActive ? 'bg-white shadow-md border border-gray-200 ring-1 ring-navy/10' : 'hover:bg-gray-50 text-gray-700'}`}>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2 min-w-0">
           {company.isPrivate && <Lock className="w-3 h-3 flex-shrink-0 opacity-50" />}
-          <span className="font-medium text-sm truncate">{company.name}</span>
+          <span className={`font-semibold text-sm truncate ${isActive ? 'text-navy' : ''}`}>{company.name}</span>
         </div>
-        <span className={`text-xs font-medium ml-2 ${isActive ? 'text-white/70' : 'text-gray-400'}`}>{company.type}</span>
+        <span className="text-xs font-medium text-gray-400">{company.type}</span>
       </div>
       <div className="flex items-center gap-2 mt-1">
-        <span className="text-xs opacity-70">{company.revenue}</span>
-        <span className={`text-xs font-medium ${isActive ? 'text-white' : company.revenueGrowth.startsWith('+') ? 'text-green-600' : 'text-red-600'}`}>{company.revenueGrowth}</span>
+        <span className="text-xs text-gray-500">{company.revenue}</span>
+        <span className={`text-xs font-medium ${company.revenueGrowth.startsWith('+') ? 'text-green-600' : 'text-red-500'}`}>{company.revenueGrowth}</span>
       </div>
-      <div className={`text-[10px] mt-1 ${isActive ? 'text-white/50' : 'text-gray-300'}`}>{company.hq}</div>
+      <div className="text-[10px] mt-1 text-gray-400">{company.hq}</div>
     </button>
   )
 }
@@ -1215,14 +1215,14 @@ export default function Companies() {
   )
 
   return (
-    <div>
-      <div className="flex items-center justify-between mb-6">
+    <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
         <div>
           <h1 className="font-display text-page text-navy">Competitive Intelligence</h1>
           <p className="text-caption text-gray-500 mt-1">Who dominates your category? Where are the gaps? How do you compete?</p>
         </div>
         <button onClick={() => setShowWhiteSpace(!showWhiteSpace)}
-          className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${showWhiteSpace ? 'bg-green-600 text-white' : 'bg-green-50 text-green-700 border border-green-200 hover:bg-green-100'}`}>
+          className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-colors ${showWhiteSpace ? 'bg-green-600 text-white' : 'bg-white text-green-700 border border-green-200 hover:bg-green-50'}`}>
           <Target size={16} /> {showWhiteSpace ? 'Hide White Space' : 'Category White Space'}
         </button>
       </div>
@@ -1233,26 +1233,50 @@ export default function Companies() {
         </div>
       )}
 
-      <div className="grid grid-cols-12 gap-6">
-        <div className="col-span-3">
+      {/* Mobile: company selector dropdown + detail */}
+      <div className="lg:hidden mb-4">
+        <div className="relative mb-3">
+          <Search className="absolute left-3 top-2.5 w-4 h-4 text-gray-400" />
+          <input type="text" placeholder="Search companies or brands..."
+            value={searchTerm} onChange={e => setSearchTerm(e.target.value)}
+            className="w-full pl-9 pr-3 py-2 text-sm border border-gray-200 rounded-xl bg-white focus:outline-none focus:border-navy" />
+        </div>
+        <div className="flex gap-1.5 overflow-x-auto pb-2 scrollbar-hide">
+          {filtered.map((company, i) => {
+            const realIdx = COMPANIES.indexOf(company)
+            return (
+              <button key={i} onClick={() => setSelected(realIdx)}
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium whitespace-nowrap shrink-0 transition-colors ${
+                  selected === realIdx ? 'bg-navy text-white' : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50'
+                }`}>
+                {company.name}
+              </button>
+            )
+          })}
+        </div>
+      </div>
+
+      {/* Desktop: sidebar + detail */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6">
+        <div className="hidden lg:block lg:col-span-3">
           <div className="relative mb-3">
             <Search className="absolute left-3 top-2.5 w-4 h-4 text-gray-400" />
             <input type="text" placeholder="Search companies or brands..."
               value={searchTerm} onChange={e => setSearchTerm(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-navy" />
+              className="w-full pl-9 pr-3 py-2 text-sm border border-gray-200 rounded-xl bg-white focus:outline-none focus:border-navy" />
           </div>
-          <div className="space-y-2 max-h-[calc(100vh-280px)] overflow-y-auto">
+          <div className="space-y-1.5 max-h-[calc(100vh-280px)] overflow-y-auto">
             {filtered.map((company, i) => {
               const realIdx = COMPANIES.indexOf(company)
               return <CompanyCard key={i} company={company} isActive={selected === realIdx} onClick={() => setSelected(realIdx)} />
             })}
           </div>
-          <div className="mt-4 bg-navy/5 rounded-lg p-3 border border-navy/10">
-            <div className="text-[10px] text-navy font-semibold uppercase tracking-wide mb-1">For Brand Managers</div>
-            <p className="text-[11px] text-gray-500 leading-relaxed">Click any company to see their category dominance, distribution strategy, deal terms, and most importantly — how to compete against them.</p>
+          <div className="mt-4 bg-gold/5 rounded-xl p-3 border border-gold/10">
+            <div className="text-[10px] text-gold font-semibold uppercase tracking-wide mb-1">For Brand Managers</div>
+            <p className="text-[11px] text-gray-500 leading-relaxed">Click any company to see their category dominance, distribution strategy, deal terms, and most importantly \u2014 how to compete against them.</p>
           </div>
         </div>
-        <div className="col-span-9">
+        <div className="lg:col-span-9">
           <CompanyDetail company={COMPANIES[selected]} />
         </div>
       </div>

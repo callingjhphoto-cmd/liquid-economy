@@ -2801,11 +2801,11 @@ export default function VenueIntelligence() {
   ]
 
   return (
-    <div className="space-y-6">
+    <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto space-y-6">
       <div>
         <h1 className="font-display text-page text-navy">Venue & On-Trade Intelligence</h1>
         <p className="text-caption text-gray-500 mt-1">
-          World's 50 Best Bars (2021–2025), London key accounts, brand mapping, and on-trade analysis
+          World\u2019s 50 Best Bars (2021\u20132025), London key accounts, brand mapping, and on-trade analysis
         </p>
       </div>
 

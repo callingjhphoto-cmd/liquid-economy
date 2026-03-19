@@ -6058,31 +6058,6 @@ const SourceLink = ({ name, url }) => (
 )
 
 // ============================================
-// COMPONENT: Category Card (sidebar)
-// ============================================
-const CategoryCard = ({ cat, isActive, onClick, selectedYear }) => {
-  const yd = cat.yearData[selectedYear]
-  if (!yd) return null
-  return (
-    <button onClick={onClick}
-      className={`w-full text-left p-3 rounded-xl transition-all ${isActive ? 'bg-white shadow-md border border-gray-200' : 'hover:bg-gray-50'}`}>
-      <div className="flex items-center gap-3">
-        <div className={`w-9 h-9 rounded-lg flex items-center justify-center text-sm font-bold ${cat.iconBg} ${cat.iconColor}`}>
-          {cat.icon}
-        </div>
-        <div className="flex-1 min-w-0">
-          <div className="text-sm font-semibold text-gray-900 truncate">{cat.label}</div>
-          <div className="flex items-center gap-2 mt-0.5">
-            <span className="text-xs text-gray-500">{yd.marketSize}</span>
-            <GrowthIndicator dir={yd.growthDir} value={yd.growth} />
-          </div>
-        </div>
-      </div>
-    </button>
-  )
-}
-
-// ============================================
 // COMPONENT: Category Hero Card (App Store "Today" style)
 // ============================================
 const HERO_GRADIENTS = {
@@ -6381,49 +6356,59 @@ const CategoryDetail = ({ cat, selectedYear }) => {
 
       {/* Tab Content */}
       {activeTab === 'overview' && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-          <div>
-            <h3 className="text-label text-gray-400 uppercase tracking-wider mb-3">Channel Distribution</h3>
-            <ChannelSplit channels={yd.channels} />
-          </div>
-          <div>
-            <h3 className="text-label text-gray-400 uppercase tracking-wider mb-3">Key Metrics</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className="p-3 bg-gray-50 rounded-xl">
-                <div className="text-xs text-gray-500">Market Size</div>
-                <div className="text-lg font-bold text-gray-900">{yd.marketSize}</div>
+        <div className="space-y-6">
+          {/* Tier 1: Executive Summary — 4 Primary Metrics */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            <div className="bg-white border border-gray-100 rounded-2xl p-5 sm:p-6">
+              <div className="text-xs text-gray-400 uppercase tracking-wider font-medium mb-2">Market Size</div>
+              <div className="text-2xl sm:text-3xl font-bold text-navy">{yd.marketSize}</div>
+              <div className="text-xs text-gray-400 mt-1">{selectedYear} global value</div>
+            </div>
+            <div className="bg-white border border-gray-100 rounded-2xl p-5 sm:p-6">
+              <div className="text-xs text-gray-400 uppercase tracking-wider font-medium mb-2">YoY Growth</div>
+              <div className="text-2xl sm:text-3xl font-bold">
+                <GrowthIndicator dir={yd.growthDir} value={yd.growth} />
               </div>
-              <div className="p-3 bg-gray-50 rounded-xl">
-                <div className="text-xs text-gray-500">Growth</div>
-                <div className="text-lg font-bold">
-                  <GrowthIndicator dir={yd.growthDir} value={yd.growth} />
-                </div>
-              </div>
-              <div className="p-3 bg-gray-50 rounded-xl">
-                <div className="text-xs text-gray-500">Volume</div>
-                <div className="text-lg font-bold text-gray-900">{yd.volumeCases}</div>
-              </div>
-              <div className="p-3 bg-gray-50 rounded-xl">
-                <div className="text-xs text-gray-500">Top Performer</div>
-                <div className="text-sm font-bold text-gray-900">{yd.report.topPerformer}</div>
-              </div>
+              <div className="text-xs text-gray-400 mt-1">vs. {selectedYear - 1}</div>
+            </div>
+            <div className="bg-white border border-gray-100 rounded-2xl p-5 sm:p-6">
+              <div className="text-xs text-gray-400 uppercase tracking-wider font-medium mb-2">Volume</div>
+              <div className="text-2xl sm:text-3xl font-bold text-navy">{yd.volumeCases}</div>
+              <div className="text-xs text-gray-400 mt-1">9L cases</div>
+            </div>
+            <div className="bg-white border border-gray-100 rounded-2xl p-5 sm:p-6">
+              <div className="text-xs text-gray-400 uppercase tracking-wider font-medium mb-2">Market Leader</div>
+              <div className="text-lg sm:text-xl font-bold text-navy leading-tight">{yd.report.topPerformer}</div>
+              <div className="text-xs text-gray-400 mt-1">{selectedYear} top performer</div>
             </div>
           </div>
-          {yd.tradeKPIs && (
-            <div className="sm:col-span-2">
-              <h3 className="text-label text-gray-400 uppercase tracking-wider mb-3">Trade KPIs</h3>
-              <TradeKPIs kpis={yd.tradeKPIs} />
+
+          {/* Category Trajectory */}
+          <div className="bg-white border border-gray-100 rounded-2xl p-5 sm:p-6">
+            <h3 className="text-xs text-gray-400 uppercase tracking-wider font-medium mb-3">Category Trajectory</h3>
+            <p className="text-sm text-gray-700 leading-relaxed">{cat.trajectory}</p>
+          </div>
+
+          {/* Quick glance: Top Markets + Channel Split */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="bg-white border border-gray-100 rounded-2xl p-5 sm:p-6">
+              <h3 className="text-xs text-gray-400 uppercase tracking-wider font-medium mb-3">Top Growth Markets</h3>
+              <div className="space-y-2">
+                {yd.topMarkets.slice(0, 3).map((m, i) => (
+                  <div key={i} className="flex items-center justify-between">
+                    <span className="text-sm font-medium text-gray-800">{m.name}</span>
+                    <GrowthIndicator dir={m.growth.startsWith('+') ? 'up' : 'down'} value={m.growth} />
+                  </div>
+                ))}
+              </div>
+              <button onClick={() => setActiveTab('markets')}
+                className="mt-3 text-xs font-semibold text-gold hover:underline">
+                View all {yd.topMarkets.length} markets \u2192
+              </button>
             </div>
-          )}
-          <div className="sm:col-span-2">
-            <h3 className="text-label text-gray-400 uppercase tracking-wider mb-3">Top Growth Markets</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
-              {yd.topMarkets.map((m, i) => (
-                <div key={i} className="p-3 bg-white border border-gray-100 rounded-xl text-center">
-                  <div className="text-sm font-semibold text-gray-900">{m.name}</div>
-                  <GrowthIndicator dir={m.growth.startsWith('+') ? 'up' : 'down'} value={m.growth} />
-                </div>
-              ))}
+            <div className="bg-white border border-gray-100 rounded-2xl p-5 sm:p-6">
+              <h3 className="text-xs text-gray-400 uppercase tracking-wider font-medium mb-3">Channel Distribution</h3>
+              <ChannelSplit channels={yd.channels} />
             </div>
           </div>
         </div>

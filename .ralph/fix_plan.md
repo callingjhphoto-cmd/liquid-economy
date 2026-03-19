@@ -9,11 +9,11 @@
 
 ### Phase 2: CommandCentre Redesign (Iterations 4-5)
 - [x] **4. CommandCentre hero section** — Replaced SummaryStrip with HeroPortals Bento Box grid. 4 portal cards: Intelligence Score (→ /reports), Active Categories (→ /categories), Tracked Companies (→ /companies), Data Freshness (→ /supply-chain). Each card has gradient bg, icon, change indicator, hover animation with gold chevron. Clean white/off-white aesthetic.
-- [ ] **5. CommandCentre data sections** — Add "Market Pulse" section (latest category movements), "Price Alerts" section, "Recently Updated" feed. All using progressive disclosure — summary first, expand for detail. Cross-page links throughout
+- [x] **5. CommandCentre data sections** — Added MarketPulseSection (6 category movements with expandable detail + cross-page links), PriceAlertsSection (8 price alerts with severity badges), RecentlyUpdatedFeed (data freshness across all sections). All progressive disclosure. Wired into all 6 persona views. CSS utility classes added (page-container, bento-card, metric-value, metric-label).
 
 ### Phase 3: Categories Page Rebuild (Iterations 6-9)
-- [ ] **6. Categories visual entry** — Replace data dump with App Store "Today" style. Large-format category cards (Tequila, Vodka, Gin, etc.) with hero typography and subtle gradient or icon. Tap card → smooth transition to category detail view
-- [ ] **7. Category detail — Tier 1 (Executive Summary)** — When category selected, show ONLY: Market Size, YoY Growth, Volume (Cases), Market Leader. Year selector tabs (2021-2025). Clean, spacious, 4-metric Bento Box layout
+- [x] **6. Categories visual entry** — App Store "Today" style gallery with CategoryHeroCard components in 2-col Bento Box grid. Each card has category-specific gradient, hero typography, market size/growth/volume stats, metadata footer. Tap card → detail view with back navigation + horizontal category switcher. Gallery is default landing; no sidebar.
+- [x] **7. Category detail — Tier 1 (Executive Summary)** — Overview tab redesigned as clean Bento Box: 4 primary metric cards (Market Size, YoY Growth, Volume, Market Leader) in 2x2/4-col grid. Category trajectory card. Quick glance panels for top 3 markets + channel split with cross-links to deeper tabs. Progressive disclosure achieved.
 - [ ] **8. Category detail — Tier 2 (Drill-down)** — Accordion sections below Tier 1: Top Markets (with drill-down to brands + regions), Channel Split (with Travel Retail), Tiered Brands (High-End / Mid-Tier / Value), Trends. All collapsed by default
 - [ ] **9. Category detail — Tier 3 (Deep Analysis)** — "View Full Report" button → expands multi-paragraph yearly analysis. Key events, top performer, detailed analysis, firm conclusion. Source citations throughout. Data table with virtualization for raw numbers
 

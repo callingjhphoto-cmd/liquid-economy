@@ -342,6 +342,40 @@ const WEEKLY_DIGEST = {
   ]
 }
 
+// ── Market Pulse (latest category movements — progressive disclosure) ──
+const MARKET_PULSE = [
+  { category: 'Tequila & Mezcal', event: 'Agave surplus hits 5-year high', impact: 'Input costs down 18-22%; margin expansion for producers', change: '+2.1%', dir: 'up', date: 'Feb 25', detail: 'The CRT reports Mexican agave surplus of 2.3M tons, the highest since 2020. This is driving a significant reduction in raw material costs for tequila producers. Brands sourcing agave directly can expect 18-22% savings on input costs through H2 2026. However, the surplus is also encouraging new entrants, which may increase competitive pressure in the value segment.', link: '/categories', linkLabel: 'View Tequila Intelligence' },
+  { category: 'No/Low Alcohol', event: 'Seedlip reformulation gains traction in EU', impact: 'Category legitimacy strengthening; regulatory clarity improving', change: '+9.5%', dir: 'up', date: 'Feb 24', detail: 'Diageo\'s Seedlip has completed its EU-compliant reformulation, meeting new labeling requirements ahead of the June 2026 deadline. The no/lo segment continues to accelerate at +9.5% globally, with the UK and Germany leading adoption. Health-conscious consumers and GLP-1 medication users are driving structural demand shifts.', link: '/categories', linkLabel: 'View No/Lo Intelligence' },
+  { category: 'Cognac & Brandy', event: 'China maintains 30% import duty through H1', impact: 'Export volumes remain depressed; R\u00e9my Cointreau most exposed', change: '-2.4%', dir: 'down', date: 'Feb 23', detail: 'Beijing has confirmed the 30% retaliatory tariff on EU spirits imports will remain through at least H1 2026. Cognac houses with >25% China revenue exposure (R\u00e9my Cointreau, Hennessy) face continued headwinds. Some brands are pivoting to India and Southeast Asia, but these markets cannot absorb the volume loss in the near term.', link: '/categories', linkLabel: 'View Cognac Intelligence' },
+  { category: 'RTD / Ready-to-Drink', event: 'BuzzBallz acquisition rumours intensify', impact: 'Consolidation wave accelerating; shelf space competition heating up', change: '+8.2%', dir: 'up', date: 'Feb 22', detail: 'Constellation Brands is reportedly in due diligence for BuzzBallz/Southern Champion at an estimated $1.1B valuation. The RTD category, while still growing at +8.2%, is decelerating from its +15% peak in 2023. The major players are consolidating to secure shelf space and manufacturing capacity.', link: '/categories', linkLabel: 'View RTD Intelligence' },
+  { category: 'Whisky (Global)', event: 'Japanese distillery capacity expansion announced', impact: 'Supply constraints easing for 2028+; premiums may compress', change: '+4.2%', dir: 'up', date: 'Feb 21', detail: 'Three major Japanese distilleries (Suntory Yamazaki, Nikka Yoichi, and Mars Shinshu) have announced capacity expansions totaling \u00a512B in investment. While new-make spirit won\'t be available as aged whisky until 2030+, the signal suggests supply constraints will ease. Current 30-40% premiums over equivalent Scotch may compress by 10-15% as supply normalizes.', link: '/categories', linkLabel: 'View Whisky Intelligence' },
+  { category: 'Wine (Still)', event: 'French production down 16% vs 5-year avg', impact: 'Structural volume decline continues; fine wine values rising', change: '-1.2%', dir: 'down', date: 'Feb 20', detail: 'Heat and drought have reduced French wine production by 16% versus the 5-year average. Bordeaux and Burgundy are hardest hit. While this is negative for volume, it\'s positive for fine wine valuations as scarcity drives collector interest. Still wine overall continues its structural decline as younger consumers shift to spirits, RTDs, and no/lo alternatives.', link: '/categories', linkLabel: 'View Wine Intelligence' },
+]
+
+// ── Price Alerts (key pricing signals across categories) ──
+const PRICE_ALERTS = [
+  { product: 'Don Julio 1942', category: 'Tequila', pricePoint: '$159', change: '+$12', pctChange: '+8.2%', period: '6mo', direction: 'up', channel: 'Off-Trade', reason: 'Supply allocation tightening; Diageo restricting distribution', severity: 'watch', link: '/pricing' },
+  { product: 'Fever-Tree Tonic (24pk)', category: 'Mixers', pricePoint: '\u00a318.50', change: '-\u00a31.20', pctChange: '-6.1%', period: '3mo', direction: 'down', channel: 'Off-Trade', reason: 'Promotional pricing as share price drops; acquisition rumours', severity: 'opportunity', link: '/pricing' },
+  { product: 'Hennessy VS', category: 'Cognac', pricePoint: '$38', change: '+$4', pctChange: '+11.8%', period: '12mo', direction: 'up', channel: 'Travel Retail', reason: 'China tariff pass-through; duty-free margin protection', severity: 'alert', link: '/pricing' },
+  { product: 'Athletic Brewing IPA', category: 'No/Lo Beer', pricePoint: '$10.99', change: '-$1.00', pctChange: '-8.3%', period: '3mo', direction: 'down', channel: 'E-Commerce', reason: 'Category competition intensifying; market share grab', severity: 'watch', link: '/pricing' },
+  { product: 'Clase Azul Reposado', category: 'Ultra-Premium Tequila', pricePoint: '$179', change: '+$20', pctChange: '+12.6%', period: '6mo', direction: 'up', channel: 'On-Trade', reason: 'Bacardi minority stake driving brand repositioning upward', severity: 'alert', link: '/pricing' },
+  { product: 'High Noon Sun Sips (8pk)', category: 'RTD', pricePoint: '$19.99', change: '+$2.00', pctChange: '+11.1%', period: '6mo', direction: 'up', channel: 'Off-Trade', reason: 'Supply chain cost pass-through; aluminium + spirits input', severity: 'watch', link: '/pricing' },
+  { product: 'Monkey 47 Gin', category: 'Premium Gin', pricePoint: '\u20ac42', change: '-\u20ac3', pctChange: '-6.7%', period: '3mo', direction: 'down', channel: 'E-Commerce', reason: 'Pernod full ownership enabling aggressive distribution pricing', severity: 'opportunity', link: '/pricing' },
+  { product: 'Dalmore 18yr', category: 'Scotch Whisky', pricePoint: '\u00a3210', change: '+\u00a325', pctChange: '+13.5%', period: '12mo', direction: 'up', channel: 'Travel Retail', reason: 'Ultra-premium positioning; Emperador revaluation effect', severity: 'alert', link: '/pricing' },
+]
+
+// ── Recently Updated (cross-platform data freshness feed) ──
+const RECENTLY_UPDATED = [
+  { section: 'Categories', item: 'Tequila & Mezcal 2025 data', timestamp: '2h ago', type: 'data', link: '/categories', description: 'Updated market size ($4.8B), growth rates, and brand tiering with Q4 2025 actuals' },
+  { section: 'Companies', item: 'Diageo H1 FY2026 preview', timestamp: '4h ago', type: 'analysis', link: '/companies', description: 'Pre-earnings analysis ahead of Feb 27 results; DTC platform metrics added' },
+  { section: 'Venues', item: '50 Best Bars 2025 list published', timestamp: '1d ago', type: 'data', link: '/venues', description: 'Full 2025 rankings with brand stocking data, sponsor analysis, and trend extraction' },
+  { section: 'Pricing', item: 'Travel retail price index updated', timestamp: '1d ago', type: 'data', link: '/pricing', description: 'Duty-free pricing across 12 major airports; average premium vs domestic calculated' },
+  { section: 'Supply Chain', item: 'Baltic Dry Index spike analysis', timestamp: '2d ago', type: 'alert', link: '/supply-chain', description: 'BDI +110% YoY analysis with impact modelling on per-bottle shipping costs' },
+  { section: 'Geographic', item: 'India market deep dive added', timestamp: '2d ago', type: 'analysis', link: '/geographic', description: 'State-by-state regulatory landscape, growth hotspots, and distribution requirements' },
+  { section: 'Reports', item: 'M&A Pipeline Q1 2026 refresh', timestamp: '3d ago', type: 'data', link: '/reports', description: '8 active deals tracked with likelihood scores, deal values, and strategic significance' },
+  { section: 'Categories', item: 'No/Lo Alcohol segment update', timestamp: '3d ago', type: 'data', link: '/categories', description: '+9.5% growth confirmed; Seedlip reformulation data; Athletic Brewing revenue milestone' },
+]
+
 // ── Performance Benchmarks ──
 const PERFORMANCE_BENCHMARKS = [
   { metric: 'Gross Margin', industryAvg: 55, topQuartile: 68, bottomQuartile: 42, yourTarget: 60, unit: '%' },
@@ -970,6 +1004,138 @@ function HeroPortals() {
   )
 }
 
+// ── Market Pulse Section (progressive disclosure) ──
+function MarketPulseSection() {
+  const [expanded, setExpanded] = useState(null)
+  const [showAll, setShowAll] = useState(false)
+  const visible = showAll ? MARKET_PULSE : MARKET_PULSE.slice(0, 3)
+
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-3">
+        <h2 className="font-display text-subsection text-navy flex items-center gap-1.5">
+          <Activity size={14} className="text-gold" />
+          Market Pulse
+        </h2>
+        <button onClick={() => setShowAll(!showAll)} className="text-[10px] text-editorial hover:underline flex items-center gap-0.5">
+          {showAll ? 'Show less' : `All ${MARKET_PULSE.length}`}
+          {showAll ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
+        </button>
+      </div>
+      <div className="space-y-2">
+        {visible.map((pulse, i) => {
+          const isOpen = expanded === i
+          const isUp = pulse.dir === 'up'
+          return (
+            <div key={i} className="bg-white rounded-lg border border-gray-100 overflow-hidden hover:shadow-sm transition-shadow">
+              <button onClick={() => setExpanded(isOpen ? null : i)} className="w-full text-left p-3 flex items-center gap-3">
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-0.5">
+                    <span className="text-[9px] font-bold text-navy bg-navy/5 px-1.5 py-0.5 rounded">{pulse.category}</span>
+                    <span className="text-[9px] text-gray-400">{pulse.date}</span>
+                  </div>
+                  <div className="text-xs font-semibold text-navy">{pulse.event}</div>
+                  <div className="text-[11px] text-gray-500 mt-0.5">{pulse.impact}</div>
+                </div>
+                <span className={`text-xs font-bold flex-shrink-0 ${isUp ? 'text-emerald-600' : 'text-red-500'}`}>{pulse.change}</span>
+                {isOpen ? <ChevronUp size={14} className="text-gray-400 flex-shrink-0" /> : <ChevronDown size={14} className="text-gray-400 flex-shrink-0" />}
+              </button>
+              {isOpen && (
+                <div className="px-3 pb-3 border-t border-gray-50 pt-2 animate-fadeIn">
+                  <p className="text-[11px] text-gray-600 leading-relaxed">{pulse.detail}</p>
+                  <Link to={pulse.link} className="inline-flex items-center gap-1 text-[10px] font-medium text-editorial hover:underline mt-2">
+                    {pulse.linkLabel} <ArrowUpRight size={10} />
+                  </Link>
+                </div>
+              )}
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+// ── Price Alerts Section ──
+function PriceAlertsSection() {
+  const [showAll, setShowAll] = useState(false)
+  const visible = showAll ? PRICE_ALERTS : PRICE_ALERTS.slice(0, 4)
+  const sevColors = { alert: 'bg-red-50 text-red-600', watch: 'bg-amber-50 text-amber-600', opportunity: 'bg-emerald-50 text-emerald-600' }
+
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-3">
+        <h2 className="font-display text-subsection text-navy flex items-center gap-1.5">
+          <DollarSign size={14} className="text-gold" />
+          Price Alerts
+        </h2>
+        <button onClick={() => setShowAll(!showAll)} className="text-[10px] text-editorial hover:underline flex items-center gap-0.5">
+          {showAll ? 'Show less' : `All ${PRICE_ALERTS.length}`}
+          {showAll ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
+        </button>
+      </div>
+      <div className="bg-white rounded-xl border border-gray-100 divide-y divide-gray-50">
+        {visible.map((alert, i) => {
+          const isUp = alert.direction === 'up'
+          return (
+            <Link key={i} to={alert.link} className="flex items-center gap-3 px-3 py-2.5 hover:bg-gray-50/50 transition-colors no-underline group">
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-0.5">
+                  <span className="text-xs font-semibold text-navy">{alert.product}</span>
+                  <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full ${sevColors[alert.severity]}`}>{alert.severity}</span>
+                </div>
+                <div className="text-[10px] text-gray-500">{alert.reason}</div>
+              </div>
+              <div className="text-right flex-shrink-0">
+                <div className="text-xs font-bold text-navy">{alert.pricePoint}</div>
+                <span className={`text-[10px] font-semibold ${isUp ? 'text-red-500' : 'text-emerald-600'}`}>
+                  {alert.change} ({alert.pctChange})
+                </span>
+              </div>
+              <ChevronRight size={12} className="text-gray-300 group-hover:text-gold flex-shrink-0" />
+            </Link>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+// ── Recently Updated Feed ──
+function RecentlyUpdatedFeed() {
+  const typeIcons = { data: BarChart3, analysis: FileText, alert: AlertTriangle }
+  const typeColors = { data: 'bg-blue-50 text-blue-600', analysis: 'bg-purple-50 text-purple-600', alert: 'bg-red-50 text-red-600' }
+
+  return (
+    <div>
+      <div className="flex items-center gap-1.5 mb-3">
+        <Clock size={14} className="text-gold" />
+        <h2 className="font-display text-subsection text-navy">Recently Updated</h2>
+      </div>
+      <div className="bg-white rounded-xl border border-gray-100 divide-y divide-gray-50">
+        {RECENTLY_UPDATED.slice(0, 6).map((item, i) => {
+          const Icon = typeIcons[item.type] || BarChart3
+          return (
+            <Link key={i} to={item.link} className="flex items-start gap-3 px-3 py-2.5 hover:bg-gray-50/50 transition-colors no-underline group">
+              <div className={`p-1.5 rounded-lg ${typeColors[item.type] || 'bg-gray-50 text-gray-600'} flex-shrink-0 mt-0.5`}>
+                <Icon size={12} />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-semibold text-navy">{item.item}</span>
+                  <span className="text-[9px] text-gray-400 flex-shrink-0">{item.timestamp}</span>
+                </div>
+                <p className="text-[10px] text-gray-500 mt-0.5 line-clamp-1">{item.description}</p>
+              </div>
+              <ChevronRight size={12} className="text-gray-300 group-hover:text-gold flex-shrink-0 mt-1" />
+            </Link>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
 // ── Channel Legend ──
 function ChannelLegend() {
   const items = [
@@ -1129,12 +1295,12 @@ function AgencyCounterCTA({ alert }) {
 // ══════════════════════════════════════════════════════════
 // \u2500\u2500 Persona Definitions \u2500\u2500
 const PERSONAS = {
-  all: { label: 'Full Dashboard', icon: '\ud83c\udf0d', desc: 'All sections visible', sections: ['summary', 'live-feed', 'kpis', 'signals-categories-regions', 'watchlist', 'opportunities', 'digest', 'ma-alerts', 'benchmarks'] },
-  ceo: { label: 'CEO / Investor', icon: '\ud83d\udcc8', desc: 'Market KPIs, M&A, valuations', sections: ['summary', 'live-feed', 'kpis', 'ma-alerts', 'signals-categories-regions', 'benchmarks', 'watchlist', 'opportunities', 'digest'] },
-  brand: { label: 'Brand Manager', icon: '\ud83c\udfaf', desc: 'Categories, pricing, venues', sections: ['summary', 'live-feed', 'signals-categories-regions', 'kpis', 'opportunities', 'watchlist', 'digest', 'ma-alerts', 'benchmarks'] },
-  supply: { label: 'Supply Chain', icon: '\ud83d\udce6', desc: 'COGS, freight, climate risk', sections: ['summary', 'live-feed', 'kpis', 'watchlist', 'benchmarks', 'signals-categories-regions', 'ma-alerts', 'opportunities', 'digest'] },
-  startup: { label: 'Startup Founder', icon: '\ud83d\ude80', desc: 'Launch readiness, margins, POS', sections: ['summary', 'live-feed', 'kpis', 'opportunities', 'signals-categories-regions', 'digest', 'watchlist', 'ma-alerts', 'benchmarks'] },
-  agency: { label: 'Agency Strategist', icon: '\ud83c\udfa8', desc: 'Venues, trends, brand positioning', sections: ['summary', 'live-feed', 'signals-categories-regions', 'opportunities', 'kpis', 'digest', 'watchlist', 'ma-alerts', 'benchmarks'] },
+  all: { label: 'Full Dashboard', icon: '\ud83c\udf0d', desc: 'All sections visible', sections: ['summary', 'live-feed', 'kpis', 'market-pulse', 'signals-categories-regions', 'price-alerts', 'watchlist', 'opportunities', 'digest', 'ma-alerts', 'benchmarks', 'recently-updated'] },
+  ceo: { label: 'CEO / Investor', icon: '\ud83d\udcc8', desc: 'Market KPIs, M&A, valuations', sections: ['summary', 'live-feed', 'kpis', 'market-pulse', 'ma-alerts', 'signals-categories-regions', 'benchmarks', 'watchlist', 'price-alerts', 'opportunities', 'digest', 'recently-updated'] },
+  brand: { label: 'Brand Manager', icon: '\ud83c\udfaf', desc: 'Categories, pricing, venues', sections: ['summary', 'live-feed', 'market-pulse', 'price-alerts', 'signals-categories-regions', 'kpis', 'opportunities', 'watchlist', 'digest', 'ma-alerts', 'benchmarks', 'recently-updated'] },
+  supply: { label: 'Supply Chain', icon: '\ud83d\udce6', desc: 'COGS, freight, climate risk', sections: ['summary', 'live-feed', 'kpis', 'price-alerts', 'watchlist', 'benchmarks', 'market-pulse', 'signals-categories-regions', 'ma-alerts', 'opportunities', 'digest', 'recently-updated'] },
+  startup: { label: 'Startup Founder', icon: '\ud83d\ude80', desc: 'Launch readiness, margins, POS', sections: ['summary', 'live-feed', 'kpis', 'market-pulse', 'price-alerts', 'opportunities', 'signals-categories-regions', 'digest', 'watchlist', 'ma-alerts', 'benchmarks', 'recently-updated'] },
+  agency: { label: 'Agency Strategist', icon: '\ud83c\udfa8', desc: 'Venues, trends, brand positioning', sections: ['summary', 'live-feed', 'market-pulse', 'signals-categories-regions', 'opportunities', 'price-alerts', 'kpis', 'digest', 'watchlist', 'ma-alerts', 'benchmarks', 'recently-updated'] },
 }
 
 function PersonaSelector({ persona, onChange }) {
@@ -1259,6 +1425,9 @@ export default function CommandCentre() {
       </div>
     ),
     'benchmarks': <PerformanceBenchmarks key="benchmarks" />,
+    'market-pulse': <MarketPulseSection key="market-pulse" />,
+    'price-alerts': <PriceAlertsSection key="price-alerts" />,
+    'recently-updated': <RecentlyUpdatedFeed key="recently-updated" />,
   }
 
   return (

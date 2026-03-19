@@ -572,8 +572,8 @@ export default function SupplyChain() {
     <div>
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h1 className="text-2xl font-display font-bold text-navy">Supply Chain & COGS Matrix</h1>
-          <p className="text-gray-400 text-sm mt-1">Real-time commodity tracking, cost breakdown, supplier intelligence, and strategic risk scenarios</p>
+          <h1 className="font-display text-page text-navy">Supply Chain & COGS Matrix</h1>
+          <p className="text-caption text-gray-500 mt-1">Real-time commodity tracking, cost breakdown, supplier intelligence, and strategic risk scenarios</p>
         </div>
         <div className="flex gap-1 bg-gray-100 rounded-lg p-1 overflow-x-auto">
           {['costs', 'categories', 'suppliers', 'margins', 'disruption', 'currency'].map(tab => (
@@ -655,13 +655,13 @@ export default function SupplyChain() {
         <div>
           <div className="flex items-center gap-2 mb-4">
             <Factory className="w-4 h-4 text-gold" />
-            <h2 className="text-sm font-semibold text-navy uppercase tracking-wide">COGS Breakdown by Category (2026 Estimate)</h2>
+            <h2 className="text-subsection text-navy uppercase tracking-wide">COGS Breakdown by Category (2026 Estimate)</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {Object.keys(CATEGORY_COGS).map(cat => <CategoryCOGSChart key={cat} category={cat} />)}
           </div>
           <div className="mt-8 bg-white rounded-xl border border-gray-100 p-6">
-            <h3 className="text-sm font-semibold text-navy uppercase tracking-wide mb-4">Key Drivers by Category</h3>
+            <h3 className="text-subsection text-navy uppercase tracking-wide mb-4">Key Drivers by Category</h3>
             <div className="text-xs text-gray-600 space-y-2">
               <p><strong>Tequila:</strong> Agave prices falling (-18% YoY) \u2014 margin expansion. Packaging remains elevated (+2.1% glass, +4% cardboard).</p>
               <p><strong>Scotch/Irish:</strong> Barley malting costs rising (+12% YoY) \u2014 watch energy (EU ETS +18%). Oak for whiskeys stable, duties high (15%).</p>
@@ -682,7 +682,7 @@ export default function SupplyChain() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Package className="w-4 h-4 text-gold" />
-                <h2 className="text-sm font-semibold text-navy uppercase tracking-wide">Glass Container Suppliers</h2>
+                <h2 className="text-subsection text-navy uppercase tracking-wide">Glass Container Suppliers</h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {GLASS_SUPPLIERS.map(s => <SupplierCard key={s.name} supplier={s} type="glass" />)}
@@ -691,7 +691,7 @@ export default function SupplyChain() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Shield className="w-4 h-4 text-gold" />
-                <h2 className="text-sm font-semibold text-navy uppercase tracking-wide">Closure & Stopper Suppliers</h2>
+                <h2 className="text-subsection text-navy uppercase tracking-wide">Closure & Stopper Suppliers</h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {CLOSURE_SUPPLIERS.map(s => <SupplierCard key={s.name} supplier={s} type="closure" />)}
@@ -700,7 +700,7 @@ export default function SupplyChain() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Truck className="w-4 h-4 text-gold" />
-                <h2 className="text-sm font-semibold text-navy uppercase tracking-wide">Label & Packaging Suppliers</h2>
+                <h2 className="text-subsection text-navy uppercase tracking-wide">Label & Packaging Suppliers</h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {LABEL_SUPPLIERS.map(s => <SupplierCard key={s.name} supplier={s} type="label" />)}
@@ -723,14 +723,14 @@ export default function SupplyChain() {
         <div>
           <div className="flex items-center gap-2 mb-4">
             <AlertTriangle className="w-4 h-4 text-red-500" />
-            <h2 className="text-sm font-semibold text-navy uppercase tracking-wide">Net Revenue Management Alerts</h2>
+            <h2 className="text-subsection text-navy uppercase tracking-wide">Net Revenue Management Alerts</h2>
             <span className="text-xs text-gray-400 ml-2">Triggers when combined input costs rise &gt;3% while retail price remains flat</span>
           </div>
           <div className="space-y-3 mb-6">
             {MARGIN_ALERTS.map((alert, i) => <MarginAlert key={i} {...alert} />)}
           </div>
           <div className="bg-white rounded-xl border border-gray-100 p-6">
-            <h3 className="text-sm font-semibold text-navy uppercase tracking-wide mb-4">Alert Summary</h3>
+            <h3 className="text-subsection text-navy uppercase tracking-wide mb-4">Alert Summary</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
               <div className="p-4 bg-gray-50 rounded-lg"><div className="text-2xl font-bold text-navy mb-1">32</div><div className="text-xs text-gray-500">Brands Monitored</div></div>
               <div className="p-4 bg-red-50 rounded-lg"><div className="text-2xl font-bold text-red-600 mb-1">12</div><div className="text-xs text-gray-500">Active Margin Alerts</div></div>
@@ -744,13 +744,13 @@ export default function SupplyChain() {
         <div>
           <div className="flex items-center gap-2 mb-4">
             <AlertTriangle className="w-4 h-4 text-orange-500" />
-            <h2 className="text-sm font-semibold text-navy uppercase tracking-wide">Strategic Disruption Scenarios</h2>
+            <h2 className="text-subsection text-navy uppercase tracking-wide">Strategic Disruption Scenarios</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {DISRUPTION_SCENARIOS.map((scenario, i) => <DisruptionCard key={i} scenario={scenario} />)}
           </div>
           <div className="mt-8 bg-white rounded-xl border border-gray-100 p-6">
-            <h3 className="text-sm font-semibold text-navy uppercase tracking-wide mb-4">Stress Testing Framework</h3>
+            <h3 className="text-subsection text-navy uppercase tracking-wide mb-4">Stress Testing Framework</h3>
             <div className="text-xs text-gray-600 space-y-2">
               <p><strong>Bear case (2026):</strong> US-EU tariffs (+15-25%), extended Red Sea closure (+8-12% freight), poor EU harvest. Combined: ~18-35% COGS rise in imported spirits; margin compression 5-8pp.</p>
               <p><strong>Base case (2026):</strong> Current trajectory; moderate tariff increases, normal disruptions, climate impacts regional. Margin pressure 3-4pp for most categories; tequila/rum benefit from commodity deflation.</p>
@@ -766,7 +766,7 @@ export default function SupplyChain() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Globe className="w-4 h-4 text-gold" />
-                <h2 className="text-sm font-semibold text-navy uppercase tracking-wide">Currency Impact on Supply Costs</h2>
+                <h2 className="text-subsection text-navy uppercase tracking-wide">Currency Impact on Supply Costs</h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {CURRENCY_PAIRS.map(pair => <CurrencyCard key={pair.pair} pair={pair} />)}
@@ -775,7 +775,7 @@ export default function SupplyChain() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Thermometer className="w-4 h-4 text-orange-500" />
-                <h2 className="text-sm font-semibold text-navy uppercase tracking-wide">Climate & Agricultural Risk Monitor</h2>
+                <h2 className="text-subsection text-navy uppercase tracking-wide">Climate & Agricultural Risk Monitor</h2>
               </div>
               <div className="space-y-3">
                 {CLIMATE_RISKS.map((risk, i) => {

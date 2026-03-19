@@ -145,8 +145,8 @@ function Login({ onLogin }) {
           <div className="w-12 h-12 bg-navy rounded-xl flex items-center justify-center mx-auto mb-4">
             <Wine size={24} className="text-white" />
           </div>
-          <h1 className="font-display text-2xl text-navy mb-1">Liquid Economy</h1>
-          <p className="text-gray-400 text-xs">Glass-to-Glass Intelligence Platform</p>
+          <h1 className="font-display text-page text-navy mb-1">Liquid Economy</h1>
+          <p className="text-caption text-gray-400">Glass-to-Glass Intelligence Platform</p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-3">
           <input
@@ -274,8 +274,8 @@ function Layout({ onLogout }) {
                 <Wine size={16} className="text-white" />
               </div>
               <div>
-                <h1 className="font-display text-base text-navy font-bold leading-tight">Liquid Economy</h1>
-                <p className="text-[10px] text-gray-400 tracking-wide">Glass-to-Glass Intelligence</p>
+                <h1 className="font-display text-body text-navy font-bold leading-tight">Liquid Economy</h1>
+                <p className="text-micro text-gray-400 tracking-wide">Glass-to-Glass Intelligence</p>
               </div>
             </div>
           </div>
@@ -351,7 +351,7 @@ function Layout({ onLogout }) {
           <button onClick={() => setSidebarOpen(true)}>
             <Menu size={24} className="text-navy" />
           </button>
-          <h1 className="font-display text-lg text-navy">Liquid Economy</h1>
+          <h1 className="font-display text-section text-navy">Liquid Economy</h1>
           <button onClick={() => setSearchOpen(true)}>
             <Search size={20} className="text-navy" />
           </button>

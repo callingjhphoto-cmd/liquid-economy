@@ -315,7 +315,7 @@ function RetailerDirectory({ selectedMarket }) {
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <Store size={16} className="text-navy" />
-          <h2 className="font-display text-base text-navy">Tracked Retailers</h2>
+          <h2 className="font-display text-section text-navy">Tracked Retailers</h2>
         </div>
         <div className="flex items-center gap-1 text-[10px] text-gray-400">
           <Package size={10} />
@@ -440,7 +440,7 @@ function RetailerComparisonView({ productUrls }) {
       <div className="bg-white rounded-xl border border-gray-100 p-5">
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h2 className="font-display text-lg text-navy flex items-center gap-2"><Columns size={16} /> Retailer Price Comparison</h2>
+            <h2 className="font-display text-section text-navy flex items-center gap-2"><Columns size={16} /> Retailer Price Comparison</h2>
             <p className="text-[11px] text-gray-500 mt-0.5">Compare prices across all retailers in a market. Click any price to view the product on that retailer{'\u2019'}s website.</p>
           </div>
           <div className="flex items-center gap-1 text-[10px] bg-amber-50 text-amber-700 px-2 py-1 rounded">
@@ -498,7 +498,7 @@ function RetailerComparisonView({ productUrls }) {
         {/* Comparison table */}
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
-            <thead className="bg-navy text-white">
+            <thead className="bg-gray-50 text-navy border-b border-gray-200">
               <tr>
                 <th className="text-left px-3 py-2.5 font-medium text-xs">Brand</th>
                 <th className="text-left px-3 py-2.5 font-medium text-xs">Expression</th>
@@ -622,7 +622,7 @@ function MarketOverviewTable({ data, handleSort, sortBy, sortDir }) {
     <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
-          <thead className="bg-navy text-white">
+          <thead className="bg-gray-50 text-navy border-b border-gray-200">
             <tr>
               <th className="text-left px-4 py-3 font-medium">Company</th>
               <th className="text-left px-4 py-3 font-medium">Brand</th>
@@ -694,7 +694,7 @@ function CategoryOverview() {
 
   return (
     <div className="bg-white rounded-xl border border-gray-100 p-6">
-      <h2 className="font-display text-lg text-navy mb-4">Category Price Ranges (US avg)</h2>
+      <h2 className="font-display text-section text-navy mb-4">Category Price Ranges (US avg)</h2>
       <div className="space-y-3">
         {categoryData.map((d, i) => {
           const maxWidth = Math.max(...categoryData.map(x => x.maxPrice))
@@ -790,7 +790,7 @@ export default function BrandPricing() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="font-display text-2xl text-navy">Brand Pricing Monitor</h1>
+        <h1 className="font-display text-page text-navy">Brand Pricing Monitor</h1>
         <p className="text-gray-500 text-sm mt-1">
           Retailer-level RRP comparison across {Object.keys(MARKET_CONFIG).length} markets {'\u2014'} {PRICING.length} expressions tracked across {Object.values(RETAILERS).flat().length} retailers
         </p>

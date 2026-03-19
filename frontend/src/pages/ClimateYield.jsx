@@ -392,7 +392,7 @@ const StatBox = ({ icon: Icon, label, value, sub, color = 'text-navy' }) => (
     </div>
     <div>
       <p className="text-[10px] text-gray-400 uppercase tracking-wider">{label}</p>
-      <p className="text-sm font-bold text-navy">{value}</p>
+      <p className="text-subsection text-navy">{value}</p>
       {sub && <p className="text-[10px] text-gray-500">{sub}</p>}
     </div>
   </div>
@@ -516,7 +516,7 @@ const YieldChart = ({ region }) => {
 
   return (
     <div className="bg-white rounded-xl border border-gray-200 p-5">
-      <h3 className="text-sm font-semibold text-navy mb-1">10-Year Yield History</h3>
+      <h3 className="text-subsection text-navy mb-1">10-Year Yield History</h3>
       <p className="text-[10px] text-gray-400 mb-3">{region.yieldUnit}</p>
       <div className="h-52">
         <ResponsiveContainer width="100%" height="100%">
@@ -552,7 +552,7 @@ const ClimateChart = ({ region }) => {
 
   return (
     <div className="bg-white rounded-xl border border-gray-200 p-5">
-      <h3 className="text-sm font-semibold text-navy mb-3">Climate Metrics (10-Year)</h3>
+      <h3 className="text-subsection text-navy mb-3">Climate Metrics (10-Year)</h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <p className="text-[10px] text-gray-400 uppercase tracking-wider mb-1">Annual Rainfall (mm)</p>
@@ -618,7 +618,7 @@ const SeasonDetail = ({ region, year }) => {
   return (
     <div className="bg-white rounded-xl border border-gray-200 p-5">
       <div className="flex items-center justify-between mb-3">
-        <h3 className="text-sm font-semibold text-navy">{year} Season Report</h3>
+        <h3 className="text-subsection text-navy">{year} Season Report</h3>
         <OutlookBadge outlook={d.outlook} />
       </div>
       {d.yield !== null ? (
@@ -652,7 +652,7 @@ const RegionDeepDive = ({ region, onClose }) => {
       <div className="flex items-center gap-3">
         <span className="text-3xl">{region.icon}</span>
         <div>
-          <h2 className="text-xl font-bold text-navy">{region.name}</h2>
+          <h2 className="font-display text-section text-navy">{region.name}</h2>
           <p className="text-sm text-gray-500">{region.crop} \u2014 {region.spirit}</p>
         </div>
       </div>
@@ -702,7 +702,7 @@ const ForwardAnalysis = () => {
     <div className="bg-white rounded-xl border border-gray-200 p-5">
       <div className="flex items-center gap-2 mb-4">
         <AlertTriangle size={16} className="text-amber-500" />
-        <h3 className="text-sm font-bold text-navy">Forward-Looking Yield \u0026 Price Signals</h3>
+        <h3 className="text-subsection text-navy">Forward-Looking Yield \u0026 Price Signals</h3>
       </div>
       <p className="text-xs text-gray-500 mb-4">Intelligence brief: where climate and agricultural factors may impact spirits pricing over the next 12\u201336 months.</p>
 
@@ -742,7 +742,7 @@ const RegionCard = ({ region, onClick }) => {
         <div className="flex items-center gap-2">
           <span className="text-xl">{region.icon}</span>
           <div>
-            <h3 className="text-sm font-bold text-navy group-hover:text-gold transition-colors">{region.name}</h3>
+            <h3 className="text-subsection text-navy group-hover:text-gold transition-colors">{region.name}</h3>
             <p className="text-[10px] text-gray-400">{region.spirit}</p>
           </div>
         </div>
@@ -762,7 +762,7 @@ const RegionCard = ({ region, onClick }) => {
       <div className="flex items-center justify-between">
         <div>
           <p className="text-[10px] text-gray-400">Latest Yield ({latest?.[0]})</p>
-          <p className="text-sm font-bold text-navy">{typeof latest?.[1]?.yield === 'number' && latest[1].yield > 100 ? latest[1].yield.toLocaleString() : latest?.[1]?.yield} <span className="text-[10px] font-normal text-gray-400">{region.yieldUnit}</span></p>
+          <p className="text-subsection text-navy">{typeof latest?.[1]?.yield === 'number' && latest[1].yield > 100 ? latest[1].yield.toLocaleString() : latest?.[1]?.yield} <span className="text-[10px] font-normal text-gray-400">{region.yieldUnit}</span></p>
         </div>
         {yieldChange && (
           <span className={`text-xs font-semibold ${parseFloat(yieldChange) >= 0 ? 'text-green-600' : 'text-red-600'}`}>
@@ -785,8 +785,8 @@ export default function ClimateYield() {
   return (
     <div className="max-w-7xl mx-auto space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-navy">Climate \u0026 Yield Intelligence</h1>
-        <p className="text-sm text-gray-500 mt-1">Agricultural inputs, weather patterns, and forward-looking yield analysis for every major spirits category</p>
+        <h1 className="font-display text-page text-navy">Climate \u0026 Yield Intelligence</h1>
+        <p className="text-caption text-gray-500 mt-1">Agricultural inputs, weather patterns, and forward-looking yield analysis for every major spirits category</p>
       </div>
 
       {!selectedRegion ? (
@@ -804,7 +804,7 @@ export default function ClimateYield() {
 
           {/* Region Grid */}
           <div>
-            <h2 className="text-sm font-bold text-navy uppercase tracking-wider mb-3">Input Regions \u0026 Crops</h2>
+            <h2 className="text-subsection text-navy uppercase tracking-wider mb-3">Input Regions \u0026 Crops</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {REGIONS.map(r => (
                 <RegionCard key={r.id} region={r} onClick={() => setSelectedRegion(r.id)} />

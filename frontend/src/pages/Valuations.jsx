@@ -471,12 +471,12 @@ export default function Valuations() {
     return (
       <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
         <div className="p-5 border-b border-gray-100">
-          <h2 className="font-display text-lg text-navy mb-2">Brand Valuations</h2>
+          <h2 className="font-display text-section text-navy mb-2">Brand Valuations</h2>
           <p className="text-sm text-gray-600">Estimated brand equity across leading spirits companies</p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
-            <thead className="bg-navy text-white">
+            <thead className="bg-gray-50 text-navy border-b border-gray-200">
               <tr>
                 <th className="text-left px-4 py-3 font-medium">Brand</th>
                 <th className="text-left px-4 py-3 font-medium">Parent</th>
@@ -531,12 +531,12 @@ export default function Valuations() {
     return (
       <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
         <div className="p-5 border-b border-gray-100">
-          <h2 className="font-display text-lg text-navy mb-2">Sector Trading Multiples</h2>
+          <h2 className="font-display text-section text-navy mb-2">Sector Trading Multiples</h2>
           <p className="text-sm text-gray-600">Current valuation multiples by beverage alcohol segment</p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
-            <thead className="bg-navy text-white">
+            <thead className="bg-gray-50 text-navy border-b border-gray-200">
               <tr>
                 <th className="text-left px-4 py-3 font-medium">Category</th>
                 <th className="text-center px-4 py-3 font-medium">EV/Revenue</th>
@@ -573,12 +573,12 @@ export default function Valuations() {
     return (
       <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
         <div className="p-5 border-b border-gray-100">
-          <h2 className="font-display text-lg text-navy mb-2">M&A Valuation Benchmarks</h2>
+          <h2 className="font-display text-section text-navy mb-2">M&A Valuation Benchmarks</h2>
           <p className="text-sm text-gray-600">Recent spirits industry acquisitions and implied multiples</p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
-            <thead className="bg-navy text-white">
+            <thead className="bg-gray-50 text-navy border-b border-gray-200">
               <tr>
                 <th className="text-center px-4 py-3 font-medium">Year</th>
                 <th className="text-left px-4 py-3 font-medium">Target Brand</th>
@@ -614,7 +614,7 @@ export default function Valuations() {
   const ValuationInsights = () => {
     return (
       <div>
-        <h2 className="font-display text-lg text-navy mb-4">Valuation Insights & Trends</h2>
+        <h2 className="font-display text-section text-navy mb-4">Valuation Insights & Trends</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {VALUATION_INSIGHTS.map((insight, i) => (
             <div key={i} className="bg-white rounded-xl border border-gray-100 p-5">
@@ -641,7 +641,7 @@ export default function Valuations() {
 
     return (
       <div>
-        <h2 className="font-display text-lg text-navy mb-4">Brand Valuation Methodologies</h2>
+        <h2 className="font-display text-section text-navy mb-4">Brand Valuation Methodologies</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {BRAND_VALUATION_MODELS.map((method, i) => (
             <div 
@@ -726,8 +726,8 @@ export default function Valuations() {
     <div className="space-y-8">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="font-display text-2xl text-navy">Valuations & Arbitrage</h1>
-          <p className="text-gray-500 text-sm mt-1">P/E ratios, valuation gaps, and arbitrage signals</p>
+          <h1 className="font-display text-page text-navy">Valuations & Arbitrage</h1>
+          <p className="text-caption text-gray-500 mt-1">P/E ratios, valuation gaps, and arbitrage signals</p>
         </div>
         <div className="flex gap-2">
           {[30, 90, 180, 365].map(d => (
@@ -743,7 +743,7 @@ export default function Valuations() {
       {/* P/E Ratio Chart */}
       {chartData.length > 1 && (
         <div className="bg-white rounded-xl border border-gray-100 p-6">
-          <h2 className="font-display text-lg text-navy mb-4">P/E Ratio Trend</h2>
+          <h2 className="font-display text-section text-navy mb-4">P/E Ratio Trend</h2>
           <ResponsiveContainer width="100%" height={350}>
             <LineChart data={chartData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
@@ -763,11 +763,11 @@ export default function Valuations() {
       {/* P/E Comparison Table */}
       <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
         <div className="p-5 border-b border-gray-100">
-          <h2 className="font-display text-lg text-navy">Valuation Comparison</h2>
+          <h2 className="font-display text-section text-navy">Valuation Comparison</h2>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
-            <thead className="bg-navy text-white">
+            <thead className="bg-gray-50 text-navy border-b border-gray-200">
               <tr>
                 <th className="text-left px-4 py-3 font-medium">Company</th>
                 <th className="text-left px-4 py-3 font-medium">Ticker</th>
@@ -803,7 +803,7 @@ export default function Valuations() {
 
       {/* Arbitrage Signals */}
       <div>
-        <h2 className="font-display text-lg text-navy mb-4">Arbitrage & Intelligence Signals</h2>
+        <h2 className="font-display text-section text-navy mb-4">Arbitrage & Intelligence Signals</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {signals.map((s, i) => (
             <SignalCard key={i} signal={s} />

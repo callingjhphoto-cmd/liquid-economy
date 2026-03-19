@@ -388,7 +388,7 @@ function MaterialSection({ category }) {
               {category.icon}
             </div>
             <div>
-              <h3 className="font-bold text-navy">{category.name}</h3>
+              <h3 className="text-subsection text-navy">{category.name}</h3>
               <p className="text-sm text-gray-500 mt-0.5">{category.description}</p>
             </div>
           </div>
@@ -464,7 +464,7 @@ function DisruptionCard({ strategy }) {
               <Icon size={20} className="text-gold" />
             </div>
             <div>
-              <h3 className="font-bold text-navy">{strategy.title}</h3>
+              <h3 className="text-subsection text-navy">{strategy.title}</h3>
               <p className="text-sm text-gold font-medium mt-0.5">{strategy.impact}</p>
             </div>
           </div>
@@ -512,7 +512,7 @@ function ClientSegmentCard({ segment }) {
               <Icon size={20} className="text-white" />
             </div>
             <div>
-              <h3 className="font-bold text-navy">{segment.segment}</h3>
+              <h3 className="text-subsection text-navy">{segment.segment}</h3>
               <p className="text-sm text-gray-500">Budget: <span className="text-gold font-semibold">{segment.budget}</span></p>
             </div>
           </div>
@@ -623,8 +623,8 @@ export default function POSIntelligence() {
             <Package size={20} className="text-gold" />
           </div>
           <div>
-            <h1 className="text-2xl font-display font-bold text-navy">POS Manufacturing Intelligence</h1>
-            <p className="text-sm text-gray-500">Factory directory, sourcing strategy & market disruption for spirits POS</p>
+            <h1 className="font-display text-page text-navy">POS Manufacturing Intelligence</h1>
+            <p className="text-caption text-gray-500">Factory directory, sourcing strategy & market disruption for spirits POS</p>
           </div>
         </div>
       </div>
@@ -672,7 +672,7 @@ export default function POSIntelligence() {
       {activeTab === 'directory' && (
         <div className="space-y-3">
           <div className="bg-gradient-to-r from-navy to-blue-800 rounded-xl p-5 text-white">
-            <h2 className="font-bold text-lg mb-2">Factory Directory by Material</h2>
+            <h2 className="font-display text-section text-navy mb-2">Factory Directory by Material</h2>
             <p className="text-blue-200 text-sm">Direct-to-factory contacts across 9 material categories. These are verified manufacturers in China{"'"}s key POS production hubs. Click any category to see individual factories, capabilities, MOQs, and certifications.</p>
           </div>
           {filteredCategories.map(cat => (
@@ -684,7 +684,7 @@ export default function POSIntelligence() {
       {activeTab === 'companies' && (
         <div className="space-y-4">
           <div className="bg-gradient-to-r from-navy to-blue-800 rounded-xl p-5 text-white">
-            <h2 className="font-bold text-lg mb-2">POS Companies in Spirits</h2>
+            <h2 className="font-display text-section text-navy mb-2">POS Companies in Spirits</h2>
             <p className="text-blue-200 text-sm">The current competitive landscape of companies providing POS solutions to alcohol brands. Understanding their business models reveals the disruption opportunity: most are intermediaries adding 40-60% markup while guarding supplier contacts.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-3">
@@ -698,7 +698,7 @@ export default function POSIntelligence() {
       {activeTab === 'sourcing' && (
         <div className="space-y-4">
           <div className="bg-gradient-to-r from-navy to-blue-800 rounded-xl p-5 text-white">
-            <h2 className="font-bold text-lg mb-2">Sourcing Platforms & Trade Shows</h2>
+            <h2 className="font-display text-section text-navy mb-2">Sourcing Platforms & Trade Shows</h2>
             <p className="text-blue-200 text-sm">Direct access to Chinese manufacturers through B2B platforms and trade exhibitions. These are the same channels that POS intermediaries use \u2014 there is no secret beyond knowing where to look and how to verify suppliers.</p>
           </div>
           <div className="space-y-3">
@@ -706,7 +706,7 @@ export default function POSIntelligence() {
               <div key={i} className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
                 <div className="flex items-center justify-between mb-3">
                   <div>
-                    <h3 className="font-bold text-navy">{platform.name}</h3>
+                    <h3 className="text-subsection text-navy">{platform.name}</h3>
                     <span className="text-xs text-gray-500">{platform.type}</span>
                   </div>
                   <a href={`https://${platform.url}`} target="_blank" rel="noopener noreferrer" className="text-gold hover:text-gold/80 flex items-center gap-1 text-sm">
@@ -736,7 +736,7 @@ export default function POSIntelligence() {
       {activeTab === 'costs' && (
         <div className="space-y-4">
           <div className="bg-gradient-to-r from-navy to-blue-800 rounded-xl p-5 text-white">
-            <h2 className="font-bold text-lg mb-2">Cost Benchmarks: Factory vs Intermediary vs Retail</h2>
+            <h2 className="font-display text-section text-navy mb-2">Cost Benchmarks: Factory vs Intermediary vs Retail</h2>
             <p className="text-blue-200 text-sm">The true cost of POS materials at each stage of the supply chain. These benchmarks reveal why intermediaries guard their supplier contacts so fiercely \u2014 the markups are extraordinary, often 250-400% above factory-gate pricing.</p>
           </div>
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
@@ -757,7 +757,7 @@ export default function POSIntelligence() {
       {activeTab === 'disruption' && (
         <div className="space-y-4">
           <div className="bg-gradient-to-r from-navy to-blue-800 rounded-xl p-5 text-white">
-            <h2 className="font-bold text-lg mb-2">Market Disruption Strategy</h2>
+            <h2 className="font-display text-section text-navy mb-2">Market Disruption Strategy</h2>
             <p className="text-blue-200 text-sm">Four strategic pillars for disrupting the spirits POS industry. The market relies on information asymmetry, relationship gatekeeping, and artificial scarcity \u2014 all of which can be systematically dismantled.</p>
           </div>
           {DISRUPTION_STRATEGIES.map(strategy => (
@@ -769,7 +769,7 @@ export default function POSIntelligence() {
       {activeTab === 'clients' && (
         <div className="space-y-4">
           <div className="bg-gradient-to-r from-navy to-blue-800 rounded-xl p-5 text-white">
-            <h2 className="font-bold text-lg mb-2">Client Value Framework</h2>
+            <h2 className="font-display text-section text-navy mb-2">Client Value Framework</h2>
             <p className="text-blue-200 text-sm">Tailored POS solutions for every stage of brand growth. From startup launch kits to enterprise innovation partnerships, each segment has distinct needs, budgets, and pain points that we can address with targeted packages.</p>
           </div>
           {CLIENT_SEGMENTS.map((segment, i) => (

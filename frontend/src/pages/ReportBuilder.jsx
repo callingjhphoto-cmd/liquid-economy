@@ -235,8 +235,8 @@ export default function ReportBuilder() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="font-display text-2xl text-navy">Report Builder</h1>
-        <p className="text-gray-500 text-xs mt-0.5">Generate intelligence briefs and portfolio reports with AI-powered analysis</p>
+        <h1 className="font-display text-page text-navy">Report Builder</h1>
+        <p className="text-caption text-gray-500 mt-0.5">Generate intelligence briefs and portfolio reports with AI-powered analysis</p>
       </div>
 
       {/* Tabs */}
@@ -391,7 +391,7 @@ export default function ReportBuilder() {
         <div className="px-5 py-3 border-b border-gray-100 bg-gradient-to-r from-gray-50 to-white">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-sm font-semibold text-navy flex items-center gap-1.5">
+              <h3 className="text-subsection text-navy flex items-center gap-1.5">
                 <Plus size={14} className="text-gold" />
                 Quick Add to Briefing
               </h3>
@@ -448,7 +448,7 @@ export default function ReportBuilder() {
       {/* Report History */}
       <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
         <div className="px-6 py-4 border-b border-gray-200">
-          <h2 className="text-lg font-bold text-navy">Report History</h2>
+          <h2 className="font-display text-section text-navy">Report History</h2>
         </div>
 
         {loading ? (
@@ -462,7 +462,7 @@ export default function ReportBuilder() {
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-navy text-white">
+              <thead className="bg-gray-50 text-navy border-b border-gray-200">
                 <tr>
                   <th className="px-6 py-3 text-left text-sm font-medium">Title</th>
                   <th className="px-6 py-3 text-left text-sm font-medium">Type</th>

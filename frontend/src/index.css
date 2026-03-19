@@ -2,6 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: 'Inter', system-ui, sans-serif;
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    @apply text-body text-gray-700 antialiased;
+  }
+
+  /* Editorial heading hierarchy — Georgia serif for display headings */
+  h1, h2 {
+    font-family: Georgia, serif;
+  }
+
+  h1 {
+    @apply text-page text-navy;
+  }
+
+  h2 {
+    @apply text-section text-navy;
+  }
+
+  h3 {
+    @apply text-subsection text-navy;
+  }
+
+  /* Consistent spacing between sections */
+  section + section {
+    @apply mt-section;
+  }
+}
+
+@layer components {
+  /* Page container — consistent padding across all pages */
+  .page-container {
+    @apply min-h-screen bg-surface p-3 sm:p-4 lg:p-6;
+  }
+
+  /* Page-level header pattern */
+  .page-title {
+    @apply font-display text-page text-navy;
+  }
+
+  /* Section header pattern */
+  .section-title {
+    @apply font-display text-section text-navy;
+  }
+
+  /* Subsection header pattern */
+  .subsection-title {
+    @apply text-subsection text-navy font-semibold;
+  }
+
+  /* Small uppercase label — for card sub-sections, group headers */
+  .section-label {
+    @apply text-label text-gray-400 uppercase tracking-wider;
+  }
+
+  /* Body text variants */
+  .text-editorial {
+    @apply text-body-lg text-gray-700 leading-relaxed;
+  }
+
+  .text-muted {
+    @apply text-caption text-gray-400;
+  }
+
+  /* Bento card — standard white card */
+  .bento-card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 p-5;
+  }
+
+  /* Metric value — large bold navy numbers */
+  .metric-value {
+    @apply text-2xl font-bold text-navy;
+  }
+
+  /* Metric label — small uppercase descriptor */
+  .metric-label {
+    @apply text-xs font-medium text-gray-500 uppercase tracking-wide;
+  }
 }

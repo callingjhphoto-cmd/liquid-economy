@@ -1409,8 +1409,8 @@ const CampaignPlanner = () => {
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-4xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-3xl font-display font-bold text-gray-900 mb-2">Campaign Planner</h1>
-          <p className="text-sm text-gray-600">5-step wizard to turn market intelligence into actionable campaign plans.</p>
+          <h1 className="font-display text-page text-navy mb-2">Campaign Planner</h1>
+          <p className="text-caption text-gray-500">5-step wizard to turn market intelligence into actionable campaign plans.</p>
         </div>
 
         <div className="mb-8">

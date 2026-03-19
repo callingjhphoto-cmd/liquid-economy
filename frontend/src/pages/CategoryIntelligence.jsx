@@ -6291,7 +6291,7 @@ const CategoryDetail = ({ cat, selectedYear }) => {
               {cat.icon}
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-gray-900">{cat.label}</h2>
+              <h2 className="font-display text-section text-navy">{cat.label}</h2>
               <div className="flex items-center gap-4 mt-1">
                 <span className="text-lg font-semibold text-gray-700">{yd.marketSize}</span>
                 <GrowthIndicator dir={yd.growthDir} value={yd.growth} />
@@ -6321,11 +6321,11 @@ const CategoryDetail = ({ cat, selectedYear }) => {
       {activeTab === 'overview' && (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           <div>
-            <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">Channel Distribution</h3>
+            <h3 className="text-label text-gray-400 uppercase tracking-wider mb-3">Channel Distribution</h3>
             <ChannelSplit channels={yd.channels} />
           </div>
           <div>
-            <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">Key Metrics</h3>
+            <h3 className="text-label text-gray-400 uppercase tracking-wider mb-3">Key Metrics</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="p-3 bg-gray-50 rounded-xl">
                 <div className="text-xs text-gray-500">Market Size</div>
@@ -6349,12 +6349,12 @@ const CategoryDetail = ({ cat, selectedYear }) => {
           </div>
           {yd.tradeKPIs && (
             <div className="sm:col-span-2">
-              <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">Trade KPIs</h3>
+              <h3 className="text-label text-gray-400 uppercase tracking-wider mb-3">Trade KPIs</h3>
               <TradeKPIs kpis={yd.tradeKPIs} />
             </div>
           )}
           <div className="sm:col-span-2">
-            <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">Top Growth Markets</h3>
+            <h3 className="text-label text-gray-400 uppercase tracking-wider mb-3">Top Growth Markets</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
               {yd.topMarkets.map((m, i) => (
                 <div key={i} className="p-3 bg-white border border-gray-100 rounded-xl text-center">
@@ -6404,8 +6404,8 @@ export default function CategoryIntelligence() {
       <div className="mb-4 lg:mb-6">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-2">
           <div>
-            <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Category Intelligence</h1>
-            <p className="text-xs sm:text-sm text-gray-500 mt-1">Deep market analysis across 11 beverage categories (2021\u20132025)</p>
+            <h1 className="font-display text-page text-navy">Category Intelligence</h1>
+            <p className="text-caption text-gray-500 mt-1">Deep market analysis across 11 beverage categories (2021\u20132025)</p>
           </div>
           <YearSelector selectedYear={selectedYear} onChange={setSelectedYear} />
         </div>
@@ -6419,7 +6419,7 @@ export default function CategoryIntelligence() {
             onClick={() => setActiveCat(cat.key)}
             className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium whitespace-nowrap shrink-0 transition-colors ${
               activeCat === cat.key
-                ? 'bg-gray-900 text-white'
+                ? 'bg-navy text-white'
                 : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50'
             }`}
           >

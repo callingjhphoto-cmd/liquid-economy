@@ -2803,8 +2803,8 @@ export default function VenueIntelligence() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-display text-navy">Venue & On-Trade Intelligence</h1>
-        <p className="text-gray-500 text-sm mt-1">
+        <h1 className="font-display text-page text-navy">Venue & On-Trade Intelligence</h1>
+        <p className="text-caption text-gray-500 mt-1">
           World's 50 Best Bars (2021–2025), London key accounts, brand mapping, and on-trade analysis
         </p>
       </div>
@@ -2862,7 +2862,7 @@ export default function VenueIntelligence() {
           {/* Region Pie + City Bar Chart */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="bg-white rounded-xl p-5 border border-gray-100">
-              <h3 className="text-sm font-semibold text-navy mb-4">Regional Distribution — {selectedYear}</h3>
+              <h3 className="text-subsection text-navy mb-4">Regional Distribution — {selectedYear}</h3>
               <ResponsiveContainer width="100%" height={280}>
                 <PieChart>
                   <Pie data={regionAnalysis} cx="50%" cy="50%" outerRadius={100} dataKey="value" label={({ name, value }) => `${name}: ${value}`}>
@@ -2873,7 +2873,7 @@ export default function VenueIntelligence() {
               </ResponsiveContainer>
             </div>
             <div className="bg-white rounded-xl p-5 border border-gray-100">
-              <h3 className="text-sm font-semibold text-navy mb-4">Top Cities by Entries — {selectedYear}</h3>
+              <h3 className="text-subsection text-navy mb-4">Top Cities by Entries — {selectedYear}</h3>
               <ResponsiveContainer width="100%" height={280}>
                 <BarChart data={(() => {
                   const cityCount = {}
@@ -2891,7 +2891,7 @@ export default function VenueIntelligence() {
 
           {/* London Representation Over Time */}
           <div className="bg-white rounded-xl p-5 border border-gray-100">
-            <h3 className="text-sm font-semibold text-navy mb-4">London & UK Representation in 50 Best (2021–2025)</h3>
+            <h3 className="text-subsection text-navy mb-4">London & UK Representation in 50 Best (2021–2025)</h3>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead><tr className="border-b border-gray-100">
@@ -2920,7 +2920,7 @@ export default function VenueIntelligence() {
 
           {/* Perennial Bars */}
           <div className="bg-white rounded-xl p-5 border border-gray-100">
-            <h3 className="text-sm font-semibold text-navy mb-1">Perennial Bars — Appeared 4+ Years (2021–2025)</h3>
+            <h3 className="text-subsection text-navy mb-1">Perennial Bars — Appeared 4+ Years (2021–2025)</h3>
             <p className="text-xs text-gray-400 mb-4">These are the most consistently ranked bars globally — key accounts for brand partnerships</p>
             <div className="space-y-2 max-h-96 overflow-y-auto">
               {perennialBars.map(bar => (
@@ -2946,7 +2946,7 @@ export default function VenueIntelligence() {
 
           {/* Full 50 Best List for Selected Year */}
           <div className="bg-white rounded-xl p-5 border border-gray-100">
-            <h3 className="text-sm font-semibold text-navy mb-4">Complete List — World's 50 Best Bars {selectedYear}</h3>
+            <h3 className="text-subsection text-navy mb-4">Complete List — World's 50 Best Bars {selectedYear}</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1 max-h-[500px] overflow-y-auto">
               {FIFTY_BEST_BARS[selectedYear].map(bar => (
                 <div key={bar.rank} className={`flex items-center gap-3 py-1.5 text-sm ${bar.country === 'UK' ? 'bg-blue-50 rounded px-2 -mx-2' : ''}`}>
@@ -2988,7 +2988,7 @@ export default function VenueIntelligence() {
 
           {/* Account Type Explanation */}
           <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
-            <h4 className="text-sm font-semibold text-navy mb-2">On-Trade Account Types</h4>
+            <h4 className="text-subsection text-navy mb-2">On-Trade Account Types</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs text-gray-700">
               <div><span className="font-bold text-purple-600">Luxury:</span> High-value, notoriety-driven accounts. Brands invest marketing spend for featuring, menu placement, and brand association. Lower volume but high visibility.</div>
               <div><span className="font-bold text-green-600">Volume:</span> High-throughput accounts. Brands offer retros (retrospective discounts) based on volume. More aggressive pricing. Think clubs, large restaurant groups.</div>
@@ -3112,7 +3112,7 @@ export default function VenueIntelligence() {
           {brandSubTab === 'profiles' && (
             <div className="space-y-4">
               <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
-                <h4 className="text-sm font-semibold text-navy mb-1">Parent Company Deep Dives</h4>
+                <h4 className="text-subsection text-navy mb-1">Parent Company Deep Dives</h4>
                 <p className="text-xs text-gray-600">Click any company to see their full on-trade strategy, key brands, distribution model, deal structures, and where they\u2019re vulnerable to smaller brands.</p>
               </div>
 
@@ -3142,7 +3142,7 @@ export default function VenueIntelligence() {
 
               {/* Penetration Chart */}
               <div className="bg-white rounded-xl p-5 border border-gray-100">
-                <h3 className="text-sm font-semibold text-navy mb-1">Parent Company Penetration: % of Top 50 Bars ({selectedYear})</h3>
+                <h3 className="text-subsection text-navy mb-1">Parent Company Penetration: % of Top 50 Bars ({selectedYear})</h3>
                 <p className="text-xs text-gray-400 mb-4">Click a company name below the chart for their full profile</p>
                 <ResponsiveContainer width="100%" height={280}>
                   <BarChart data={parentPenetration[selectedYear] || []} layout="vertical">
@@ -3277,14 +3277,14 @@ export default function VenueIntelligence() {
 
               {/* Award Sponsor Intelligence */}
               <div className="bg-white rounded-xl p-5 border border-gray-100">
-                <h3 className="text-sm font-semibold text-navy mb-1">50 Best Bars {'—'} Award Sponsor Intelligence</h3>
+                <h3 className="text-subsection text-navy mb-1">50 Best Bars {'—'} Award Sponsor Intelligence</h3>
                 <p className="text-xs text-gray-400 mb-4">Brands that sponsor named awards gain massive bartender community visibility</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {sponsorAnalysis.map(s => (
                     <div key={s.brand} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg border border-gray-100">
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
-                          <span className="text-sm font-semibold text-navy">{s.brand}</span>
+                          <span className="text-subsection text-navy">{s.brand}</span>
                           <span className="text-xs px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 font-medium">{s.parent}</span>
                         </div>
                         <div className="mt-1 space-y-0.5">
@@ -3305,7 +3305,7 @@ export default function VenueIntelligence() {
           {brandSubTab === 'mapping' && (
             <div className="space-y-4">
               <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
-                <h4 className="text-sm font-semibold text-navy mb-1">Brand-to-Venue Mapping</h4>
+                <h4 className="text-subsection text-navy mb-1">Brand-to-Venue Mapping</h4>
                 <p className="text-xs text-gray-600">See exactly which brands appear in which London venues. Filter by parent company to understand their footprint.</p>
               </div>
 
@@ -3359,14 +3359,14 @@ export default function VenueIntelligence() {
           {brandSubTab === 'heatmap' && (
             <div className="space-y-4">
               <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
-                <h4 className="text-sm font-semibold text-navy mb-1">Competitive Heat Map</h4>
+                <h4 className="text-subsection text-navy mb-1">Competitive Heat Map</h4>
                 <p className="text-xs text-gray-600">Which company dominates which category in each venue tier. Use this to find white space for your brand.</p>
               </div>
 
               {Object.entries(COMPETITIVE_HEAT).map(([category, tiers]) => (
                 <div key={category} className="bg-white rounded-xl border border-gray-100 overflow-hidden">
                   <div className="bg-gray-50 px-4 py-3 border-b border-gray-100">
-                    <h4 className="text-sm font-semibold text-navy">{category}</h4>
+                    <h4 className="text-subsection text-navy">{category}</h4>
                   </div>
                   <div className="p-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -3401,7 +3401,7 @@ export default function VenueIntelligence() {
           {brandSubTab === 'landscape' && (
             <div className="space-y-4">
               <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
-                <h4 className="text-sm font-semibold text-navy mb-1">Category Density Across London Venues</h4>
+                <h4 className="text-subsection text-navy mb-1">Category Density Across London Venues</h4>
                 <p className="text-xs text-gray-600">Market saturation data showing how crowded each spirit category is and who dominates.</p>
               </div>
 
@@ -3410,7 +3410,7 @@ export default function VenueIntelligence() {
                   <div key={cat} className="bg-white rounded-xl p-4 border border-gray-100">
                     <div className="flex items-center gap-2 mb-3">
                       <Wine size={16} className="text-navy" />
-                      <h4 className="text-sm font-semibold text-navy">{cat}</h4>
+                      <h4 className="text-subsection text-navy">{cat}</h4>
                     </div>
                     <div className="space-y-2 text-xs">
                       <div className="flex justify-between"><span className="text-gray-500">Total Listings (28 venues):</span><span className="font-bold text-navy">{data.totalListings}</span></div>
@@ -3433,7 +3433,7 @@ export default function VenueIntelligence() {
 
               {/* London Penetration Chart (existing) */}
               <div className="bg-white rounded-xl p-5 border border-gray-100">
-                <h3 className="text-sm font-semibold text-navy mb-4">London Key Account Penetration by Parent Company</h3>
+                <h3 className="text-subsection text-navy mb-4">London Key Account Penetration by Parent Company</h3>
                 <ResponsiveContainer width="100%" height={280}>
                   <BarChart data={parentCompanyPresence} layout="vertical">
                     <XAxis type="number" />
@@ -3455,7 +3455,7 @@ export default function VenueIntelligence() {
             <div className="space-y-4">
               {/* Budget Benchmarks */}
               <div className="bg-white rounded-xl p-5 border border-gray-100">
-                <h3 className="text-sm font-semibold text-navy mb-1">On-Trade Budget Benchmarks {'—'} What Brands Actually Spend</h3>
+                <h3 className="text-subsection text-navy mb-1">On-Trade Budget Benchmarks {'—'} What Brands Actually Spend</h3>
                 <p className="text-xs text-gray-400 mb-4">Industry-standard ranges for retros, marketing spend, and activation by account type</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {Object.entries(BUDGET_BENCHMARKS).map(([key, data]) => (
@@ -3475,7 +3475,7 @@ export default function VenueIntelligence() {
               {/* Corporate vs Independent + Penetration Trend Charts */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="bg-white rounded-xl p-5 border border-gray-100">
-                  <h3 className="text-sm font-semibold text-navy mb-4">Corporate vs Independent (2021{'–'}2025)</h3>
+                  <h3 className="text-subsection text-navy mb-4">Corporate vs Independent (2021{'–'}2025)</h3>
                   <ResponsiveContainer width="100%" height={250}>
                     <BarChart data={independentVsCorporate}>
                       <XAxis dataKey="year" />
@@ -3488,7 +3488,7 @@ export default function VenueIntelligence() {
                   </ResponsiveContainer>
                 </div>
                 <div className="bg-white rounded-xl p-5 border border-gray-100">
-                  <h3 className="text-sm font-semibold text-navy mb-4">Top 5 Penetration Trend (%)</h3>
+                  <h3 className="text-subsection text-navy mb-4">Top 5 Penetration Trend (%)</h3>
                   <ResponsiveContainer width="100%" height={250}>
                     <LineChart data={penetrationTrend}>
                       <XAxis dataKey="year" />
@@ -3505,7 +3505,7 @@ export default function VenueIntelligence() {
 
               {/* 5-Year Dominance */}
               <div className="bg-white rounded-xl p-5 border border-gray-100">
-                <h3 className="text-sm font-semibold text-navy mb-4">5-Year Cumulative Dominance</h3>
+                <h3 className="text-subsection text-navy mb-4">5-Year Cumulative Dominance</h3>
                 <div className="space-y-2">
                   {overallDominance.map(d => (
                     <div key={d.name} className="flex items-center gap-3">
@@ -3527,7 +3527,7 @@ export default function VenueIntelligence() {
                   <div key={name} className="bg-white rounded-xl p-4 border border-gray-100">
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-3 h-3 rounded-full" style={{ backgroundColor: data.color }} />
-                      <h4 className="text-sm font-semibold text-navy">{name}</h4>
+                      <h4 className="text-subsection text-navy">{name}</h4>
                       <span className="text-xs text-gray-400 ml-auto">{data.brands.length} brands</span>
                     </div>
                     <div className="flex flex-wrap gap-1">
@@ -3573,7 +3573,7 @@ export default function VenueIntelligence() {
           {/* ─── DISTRIBUTION LANDSCAPE ─── */}
           <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
             <div className="bg-gray-50 px-5 py-3 border-b border-gray-100">
-              <h3 className="text-sm font-semibold text-navy flex items-center gap-2"><Briefcase size={16} /> UK Distribution Landscape</h3>
+              <h3 className="text-subsection text-navy flex items-center gap-2"><Briefcase size={16} /> UK Distribution Landscape</h3>
               <p className="text-xs text-gray-500 mt-0.5">Key distributors and wholesalers for the UK on-trade {'—'} click for details</p>
             </div>
             <div className="p-5 space-y-3">
@@ -3609,7 +3609,7 @@ export default function VenueIntelligence() {
           {/* ─── MARKET ENTRY PLAYBOOKS ─── */}
           <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
             <div className="bg-gray-50 px-5 py-3 border-b border-gray-100">
-              <h3 className="text-sm font-semibold text-navy flex items-center gap-2"><BookOpen size={16} /> Category Entry Playbooks</h3>
+              <h3 className="text-subsection text-navy flex items-center gap-2"><BookOpen size={16} /> Category Entry Playbooks</h3>
               <p className="text-xs text-gray-500 mt-0.5">Phased market entry strategies by spirit category {'—'} realistic timelines, budgets, and target venues</p>
             </div>
             <div className="p-5 space-y-3">
@@ -3733,7 +3733,7 @@ export default function VenueIntelligence() {
         <div className="space-y-6">
           {/* Regional Trend Over Time */}
           <div className="bg-white rounded-xl p-5 border border-gray-100">
-            <h3 className="text-sm font-semibold text-navy mb-4">Regional Representation in 50 Best Bars (2021–2025)</h3>
+            <h3 className="text-subsection text-navy mb-4">Regional Representation in 50 Best Bars (2021–2025)</h3>
             <ResponsiveContainer width="100%" height={350}>
               <LineChart data={regionalTrend}>
                 <XAxis dataKey="year" />
@@ -3752,7 +3752,7 @@ export default function VenueIntelligence() {
 
           {/* City Dominance Heatmap */}
           <div className="bg-white rounded-xl p-5 border border-gray-100">
-            <h3 className="text-sm font-semibold text-navy mb-4">City Representation Heatmap (2021–2025)</h3>
+            <h3 className="text-subsection text-navy mb-4">City Representation Heatmap (2021–2025)</h3>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead><tr className="border-b border-gray-200">

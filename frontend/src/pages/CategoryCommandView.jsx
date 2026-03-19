@@ -650,7 +650,7 @@ function ChannelBar({ channels }) {
 function CategoryHealth({ cat }) {
   return (
     <div className="bg-white rounded-xl border border-gray-100 p-4">
-      <h3 className="text-sm font-semibold text-navy mb-3 flex items-center gap-2">
+      <h3 className="text-subsection text-navy mb-3 flex items-center gap-2">
         <BarChart3 size={14} className="text-editorial" /> Category Health
       </h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-4">
@@ -698,7 +698,7 @@ function CategoryHealth({ cat }) {
 function SupplyChainPressure({ cat }) {
   return (
     <div className="bg-white rounded-xl border border-gray-100 p-4">
-      <h3 className="text-sm font-semibold text-navy mb-3 flex items-center gap-2">
+      <h3 className="text-subsection text-navy mb-3 flex items-center gap-2">
         <Package size={14} className="text-red-500" /> Supply Chain Pressure
       </h3>
       <div className="space-y-2">
@@ -748,7 +748,7 @@ function CompetitivePricing({ cat }) {
   ]
   return (
     <div className="bg-white rounded-xl border border-gray-100 p-4">
-      <h3 className="text-sm font-semibold text-navy mb-3 flex items-center gap-2">
+      <h3 className="text-subsection text-navy mb-3 flex items-center gap-2">
         <DollarSign size={14} className="text-gold" /> Competitive Pricing
       </h3>
       <div className="space-y-3">
@@ -780,7 +780,7 @@ function CompetitivePricing({ cat }) {
 function GeographicOpportunity({ cat }) {
   return (
     <div className="bg-white rounded-xl border border-gray-100 p-4">
-      <h3 className="text-sm font-semibold text-navy mb-3 flex items-center gap-2">
+      <h3 className="text-subsection text-navy mb-3 flex items-center gap-2">
         <Globe size={14} className="text-blue-500" /> Top Markets
       </h3>
       <div className="space-y-1.5">
@@ -806,7 +806,7 @@ function ClimateRisk({ cat }) {
   if (!cat.climate.historicalYield.length) {
     return (
       <div className="bg-white rounded-xl border border-gray-100 p-4">
-        <h3 className="text-sm font-semibold text-navy mb-2 flex items-center gap-2">
+        <h3 className="text-subsection text-navy mb-2 flex items-center gap-2">
           <CloudRain size={14} className="text-sky-500" /> Climate & Yield Risk
         </h3>
         <p className="text-xs text-gray-500">{cat.climate.note}</p>
@@ -819,7 +819,7 @@ function ClimateRisk({ cat }) {
   const riskColor = cat.climate.riskLevel === 'High' ? 'bg-red-50 text-red-700' : cat.climate.riskLevel === 'Medium' ? 'bg-amber-50 text-amber-700' : 'bg-green-50 text-green-700'
   return (
     <div className="bg-white rounded-xl border border-gray-100 p-4">
-      <h3 className="text-sm font-semibold text-navy mb-3 flex items-center gap-2">
+      <h3 className="text-subsection text-navy mb-3 flex items-center gap-2">
         <CloudRain size={14} className="text-sky-500" /> Climate & Yield Risk
       </h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
@@ -865,7 +865,7 @@ function VenueSignals({ cat }) {
   if (!cat.venueSignals.length) return null
   return (
     <div className="bg-white rounded-xl border border-gray-100 p-4">
-      <h3 className="text-sm font-semibold text-navy mb-3 flex items-center gap-2">
+      <h3 className="text-subsection text-navy mb-3 flex items-center gap-2">
         <MapPin size={14} className="text-pink-500" /> Venue Signals
       </h3>
       <div className="space-y-1.5">
@@ -886,7 +886,7 @@ function VenueSignals({ cat }) {
 function POSQuickStart({ cat }) {
   return (
     <div className="bg-white rounded-xl border border-gray-100 p-4">
-      <h3 className="text-sm font-semibold text-navy mb-3 flex items-center gap-2">
+      <h3 className="text-subsection text-navy mb-3 flex items-center gap-2">
         <ShoppingBag size={14} className="text-purple-500" /> POS Quick-Start
       </h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -922,7 +922,7 @@ export default function CategoryCommandView() {
   if (!cat) {
     return (
       <div className="text-center py-20">
-        <h2 className="text-xl font-bold text-navy mb-4">Category not found</h2>
+        <h2 className="font-display text-section text-navy mb-4">Category not found</h2>
         <p className="text-gray-500 mb-4">Select a category from the Command Centre</p>
         <Link to="/" className="text-editorial hover:underline">Back to Command Centre</Link>
       </div>
@@ -939,7 +939,7 @@ export default function CategoryCommandView() {
         <div className="flex-1">
           <div className="flex items-center gap-2">
             <span className="text-xl">{cat.emoji}</span>
-            <h1 className="font-display text-2xl text-navy">{cat.name}</h1>
+            <h1 className="font-display text-page text-navy">{cat.name}</h1>
             <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${cat.dir === 'up' ? 'bg-green-50 text-green-600' : 'bg-red-50 text-red-600'}`}>
               {cat.growth}
             </span>

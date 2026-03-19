@@ -255,7 +255,7 @@ function ReadinessRadar({ data }) {
   return (
     <div className="bg-white rounded-xl border border-gray-200 p-4">
       <div className="flex items-center justify-between mb-3">
-        <h3 className="text-sm font-semibold text-navy flex items-center gap-2"><Target size={14} /> Launch Readiness Scorecard</h3>
+        <h3 className="text-subsection text-navy flex items-center gap-2"><Target size={14} /> Launch Readiness Scorecard</h3>
         <div className="flex items-center gap-2">
           <span className="text-2xl font-bold" style={{ color }}>{score}</span>
           <span className="text-[10px] text-gray-400">/100</span>
@@ -303,7 +303,7 @@ function CompetitorPriceGap({ category, channel, userRRP }) {
 
   return (
     <div className="bg-white rounded-xl border border-gray-200 p-4">
-      <h3 className="text-sm font-semibold text-navy flex items-center gap-2 mb-3"><BarChart3 size={14} /> Competitive Price Positioning</h3>
+      <h3 className="text-subsection text-navy flex items-center gap-2 mb-3"><BarChart3 size={14} /> Competitive Price Positioning</h3>
       <div className="flex items-center gap-4 mb-3">
         <div className="text-center">
           <div className="text-[10px] text-gray-400">Your RRP</div>
@@ -453,7 +453,7 @@ export default function MarginCalculator() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="font-display text-xl text-navy flex items-center gap-2">
+          <h1 className="font-display text-page text-navy flex items-center gap-2">
             <Gauge size={20} className="text-gold" /> Scenario Modelling
           </h1>
           <p className="text-xs text-gray-400 mt-1">Margin calculator, launch readiness & competitive positioning</p>
@@ -509,7 +509,7 @@ export default function MarginCalculator() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
           {/* COGS Breakdown */}
           <div className="lg:col-span-5 bg-white rounded-xl border border-gray-200 p-4">
-            <h3 className="text-sm font-semibold text-navy mb-3 flex items-center gap-2"><Package size={14} /> COGS Breakdown ({BOTTLE_SIZES[bottleSize].label})</h3>
+            <h3 className="text-subsection text-navy mb-3 flex items-center gap-2"><Package size={14} /> COGS Breakdown ({BOTTLE_SIZES[bottleSize].label})</h3>
             <div className="space-y-1">
               {costEntries.map(e => (
                 <MarginBar key={e.key} label={e.label} value={computed.costs[e.key]} max={computed.total} color={e.color} />
@@ -530,7 +530,7 @@ export default function MarginCalculator() {
           {/* COGS Pie + Margin Gauges */}
           <div className="lg:col-span-3 space-y-4">
             <div className="bg-white rounded-xl border border-gray-200 p-4">
-              <h3 className="text-sm font-semibold text-navy mb-2">Cost Split</h3>
+              <h3 className="text-subsection text-navy mb-2">Cost Split</h3>
               <div className="h-40">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
@@ -557,7 +557,7 @@ export default function MarginCalculator() {
 
           {/* What-If Scenarios */}
           <div className="lg:col-span-4 bg-white rounded-xl border border-gray-200 p-4">
-            <h3 className="text-sm font-semibold text-navy mb-3 flex items-center gap-2"><Zap size={14} className="text-gold" /> What-If Scenarios</h3>
+            <h3 className="text-subsection text-navy mb-3 flex items-center gap-2"><Zap size={14} className="text-gold" /> What-If Scenarios</h3>
             <div className="space-y-2">
               {Object.entries(cat.scenarios).map(([key, sc]) => (
                 <ScenarioToggle

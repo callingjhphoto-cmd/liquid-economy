@@ -761,7 +761,7 @@ function FinancialTimeline({ financials }) {
   return (
     <div className="bg-white rounded-xl border border-gray-100 p-5 mb-6">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-sm font-semibold text-navy uppercase tracking-wide flex items-center gap-2"><BarChart3 size={16} /> 5-Year Financial Time Machine</h3>
+        <h3 className="text-subsection text-navy uppercase tracking-wide flex items-center gap-2"><BarChart3 size={16} /> 5-Year Financial Time Machine</h3>
         <div className="flex gap-1 bg-gray-100 rounded-lg p-0.5">
           {years.map(y => (
             <button key={y} onClick={() => setSelectedYear(y)}
@@ -823,7 +823,7 @@ function GeoRevenue({ geoRevenue }) {
   const data = Object.entries(geoRevenue).map(([region, pct]) => ({ region, pct })).sort((a, b) => b.pct - a.pct)
   return (
     <div className="bg-white rounded-xl border border-gray-100 p-5 mb-6">
-      <h3 className="text-sm font-semibold text-navy uppercase tracking-wide mb-4 flex items-center gap-2"><Globe size={16} /> Revenue by Region</h3>
+      <h3 className="text-subsection text-navy uppercase tracking-wide mb-4 flex items-center gap-2"><Globe size={16} /> Revenue by Region</h3>
       <div className="space-y-3">
         {data.map(d => (
           <div key={d.region}>
@@ -852,7 +852,7 @@ function CategoryPresence({ categoryPresence }) {
 
   return (
     <div className="bg-white rounded-xl border border-gray-100 p-5 mb-6">
-      <h3 className="text-sm font-semibold text-navy uppercase tracking-wide mb-4 flex items-center gap-2"><Layers size={16} /> Category Presence & Market Share</h3>
+      <h3 className="text-subsection text-navy uppercase tracking-wide mb-4 flex items-center gap-2"><Layers size={16} /> Category Presence & Market Share</h3>
       <div className="space-y-3">
         {entries.map(([cat, info]) => (
           <div key={cat} className="border border-gray-50 rounded-lg p-3 hover:border-gray-200 transition-colors">
@@ -883,7 +883,7 @@ function HowToCompete({ company }) {
   return (
     <div className="space-y-6">
       <div className="bg-gradient-to-br from-navy/5 to-navy/10 rounded-xl border border-navy/20 p-5">
-        <h3 className="text-sm font-semibold text-navy uppercase tracking-wide mb-1 flex items-center gap-2">
+        <h3 className="text-subsection text-navy uppercase tracking-wide mb-1 flex items-center gap-2">
           <Target size={16} /> Opportunities — {company.name}
         </h3>
         <p className="text-xs text-gray-500 mb-4">Strategic intelligence for brand managers and startup founders</p>
@@ -932,7 +932,7 @@ function RecentMoves({ moves }) {
   if (!moves || moves.length === 0) return null
   return (
     <div className="bg-white rounded-xl border border-gray-100 p-5 mb-6">
-      <h3 className="text-sm font-semibold text-navy uppercase tracking-wide mb-4 flex items-center gap-2"><AlertTriangle size={16} /> Threat Radar: Recent Moves</h3>
+      <h3 className="text-subsection text-navy uppercase tracking-wide mb-4 flex items-center gap-2"><AlertTriangle size={16} /> Threat Radar: Recent Moves</h3>
       <div className="space-y-3">
         {moves.map((m, i) => (
           <div key={i} className={`flex gap-4 items-start p-3 rounded-lg border ${THREAT_COLORS[m.threat]}`}>
@@ -952,7 +952,7 @@ function MATimeline({ timeline }) {
   if (!timeline || timeline.length === 0) return null
   return (
     <div className="bg-white rounded-xl border border-gray-100 p-5 mb-6">
-      <h3 className="text-sm font-semibold text-navy uppercase tracking-wide mb-4 flex items-center gap-2"><Briefcase size={16} /> M&A History</h3>
+      <h3 className="text-subsection text-navy uppercase tracking-wide mb-4 flex items-center gap-2"><Briefcase size={16} /> M&A History</h3>
       <div className="relative pl-6">
         <div className="absolute left-2 top-2 bottom-2 w-0.5 bg-gray-200" />
         {timeline.map((m, i) => (
@@ -974,7 +974,7 @@ function DistributionIntel({ distribution, dealTerms }) {
   if (!distribution) return null
   return (
     <div className="bg-white rounded-xl border border-gray-100 p-5 mb-6">
-      <h3 className="text-sm font-semibold text-navy uppercase tracking-wide mb-4 flex items-center gap-2"><MapPin size={16} /> UK Distribution & Deal Terms</h3>
+      <h3 className="text-subsection text-navy uppercase tracking-wide mb-4 flex items-center gap-2"><MapPin size={16} /> UK Distribution & Deal Terms</h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
         {Object.entries(distribution).map(([channel, desc]) => (
           <div key={channel} className="bg-gray-50 rounded-lg p-3">
@@ -1004,7 +1004,7 @@ function WhiteSpaceAnalysis() {
   const oppColors = { 'Highest': 'bg-green-100 text-green-700 border-green-200', 'High': 'bg-blue-100 text-blue-700 border-blue-200', 'Moderate': 'bg-amber-100 text-amber-700 border-amber-200' }
   return (
     <div className="bg-gradient-to-br from-green-50/50 to-emerald-50/50 rounded-xl border border-green-200 p-5">
-      <h3 className="text-sm font-semibold text-navy uppercase tracking-wide mb-1 flex items-center gap-2">
+      <h3 className="text-subsection text-navy uppercase tracking-wide mb-1 flex items-center gap-2">
         <Target size={16} className="text-green-600" /> Category White Space Analysis
       </h3>
       <p className="text-xs text-gray-500 mb-4">Where the major companies are NOT competing — your biggest opportunities</p>
@@ -1040,7 +1040,7 @@ function IndustryIntelligence({ company }) {
       <div className={`rounded-xl border-2 p-5 ${company.isPrivate ? 'border-amber-200 bg-amber-50/30' : 'border-blue-200 bg-blue-50/30'}`}>
         <div className="flex items-center gap-2 mb-3">
           {company.isPrivate ? <Lock className="w-5 h-5 text-amber-600" /> : <TrendingUp className="w-5 h-5 text-blue-600" />}
-          <h3 className="text-sm font-bold text-navy uppercase tracking-wide">
+          <h3 className="text-subsection text-navy uppercase tracking-wide">
             Industry Intelligence ({company.isPrivate ? 'Private Company' : 'Public Company — ' + company.ticker})
           </h3>
         </div>
@@ -1084,7 +1084,7 @@ function IndustryIntelligence({ company }) {
 
       {/* Brand Intelligence Cards */}
       <div>
-        <h3 className="text-sm font-bold text-navy uppercase tracking-wide mb-3 flex items-center gap-2"><Star size={16} className="text-gold" /> Brand Intelligence</h3>
+        <h3 className="text-subsection text-navy uppercase tracking-wide mb-3 flex items-center gap-2"><Star size={16} className="text-gold" /> Brand Intelligence</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {intel.brandIntel.map((brand, i) => (
             <div key={i} className="bg-white rounded-lg border border-gray-100 p-4 hover:shadow-md transition-shadow">
@@ -1102,7 +1102,7 @@ function IndustryIntelligence({ company }) {
 
       {/* Recent Developments */}
       <div>
-        <h3 className="text-sm font-bold text-navy uppercase tracking-wide mb-3 flex items-center gap-2"><Zap size={16} className="text-gold" /> Recent Developments</h3>
+        <h3 className="text-subsection text-navy uppercase tracking-wide mb-3 flex items-center gap-2"><Zap size={16} className="text-gold" /> Recent Developments</h3>
         <div className="space-y-3">
           {intel.recentDevelopments.map((dev, i) => (
             <div key={i} className="flex gap-4 items-start">
@@ -1115,7 +1115,7 @@ function IndustryIntelligence({ company }) {
 
       {/* Analyst Outlook */}
       <div className="bg-gradient-to-r from-navy/5 to-gold/5 rounded-xl border border-gray-100 p-5">
-        <h3 className="text-sm font-bold text-navy uppercase tracking-wide mb-3 flex items-center gap-2"><BookOpen size={16} className="text-navy" /> Analyst Outlook</h3>
+        <h3 className="text-subsection text-navy uppercase tracking-wide mb-3 flex items-center gap-2"><BookOpen size={16} className="text-navy" /> Analyst Outlook</h3>
         <p className="text-sm text-gray-700 leading-relaxed">{intel.analystOutlook}</p>
       </div>
     </div>
@@ -1141,7 +1141,7 @@ function CompanyDetail({ company }) {
         <Building2 className="w-6 h-6 text-navy" />
         <div className="flex-1">
           <div className="flex items-center gap-2">
-            <h2 className="text-xl font-bold text-navy">{company.name}</h2>
+            <h2 className="font-display text-section text-navy">{company.name}</h2>
             {company.isPrivate && <span className="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full font-medium">Private</span>}
             {!company.isPrivate && <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-medium">{company.ticker}</span>}
           </div>
@@ -1163,7 +1163,7 @@ function CompanyDetail({ company }) {
       {companyTab === 'overview' && (
         <div>
           <div className="bg-white rounded-xl border border-gray-100 p-5 mb-6">
-            <h3 className="text-sm font-semibold text-navy uppercase tracking-wide mb-3 flex items-center gap-2"><Star size={16} /> Key Brands</h3>
+            <h3 className="text-subsection text-navy uppercase tracking-wide mb-3 flex items-center gap-2"><Star size={16} /> Key Brands</h3>
             <div className="flex flex-wrap gap-1.5">
               {company.keyBrands.map((b, i) => <Link key={i} to="/pricing" className="px-2.5 py-1 bg-navy/5 text-navy rounded-full text-xs font-medium hover:bg-navy/10 transition-colors">{b} {'\u2192'}</Link>)}
             </div>
@@ -1171,7 +1171,7 @@ function CompanyDetail({ company }) {
           <RecentMoves moves={company.recentMoves} />
           {company.profileSources && (
             <div className="bg-gray-50 rounded-xl border border-gray-200 p-5 mt-6">
-              <h3 className="text-sm font-semibold text-navy uppercase tracking-wide mb-3 flex items-center gap-2"><BookOpen size={16} /> Data Sources & Citations</h3>
+              <h3 className="text-subsection text-navy uppercase tracking-wide mb-3 flex items-center gap-2"><BookOpen size={16} /> Data Sources & Citations</h3>
               <div className="space-y-2">
                 {company.profileSources.map((s, i) => (
                   <div key={i} className="flex items-center gap-2 text-xs text-gray-600">
@@ -1218,8 +1218,8 @@ export default function Companies() {
     <div>
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-display font-bold text-navy">Competitive Intelligence</h1>
-          <p className="text-gray-400 text-sm mt-1">Who dominates your category? Where are the gaps? How do you compete?</p>
+          <h1 className="font-display text-page text-navy">Competitive Intelligence</h1>
+          <p className="text-caption text-gray-500 mt-1">Who dominates your category? Where are the gaps? How do you compete?</p>
         </div>
         <button onClick={() => setShowWhiteSpace(!showWhiteSpace)}
           className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${showWhiteSpace ? 'bg-green-600 text-white' : 'bg-green-50 text-green-700 border border-green-200 hover:bg-green-100'}`}>

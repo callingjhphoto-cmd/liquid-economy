@@ -266,7 +266,7 @@ function ModeSelector({ mode, onChange }) {
           }`}>
           <m.icon size={20} className={mode === m.id ? 'text-[#C9A96E]' : 'text-gray-400'} />
           <div className="text-left">
-            <div className={`text-sm font-semibold ${mode === m.id ? 'text-[#1A1F36]' : 'text-gray-600'}`}>{m.label}</div>
+            <div className={`text-sm font-semibold ${mode === m.id ? 'text-navy' : 'text-gray-600'}`}>{m.label}</div>
             <div className="text-[10px] text-gray-400">{m.desc}</div>
           </div>
         </button>
@@ -318,7 +318,7 @@ function CostWaterfall({ category }) {
   ]
   return (
     <div className="bg-white rounded-xl border border-gray-100 p-4">
-      <h4 className="text-xs font-semibold text-[#1A1F36] mb-1">Unit Economics Breakdown</h4>
+      <h4 className="text-xs font-semibold text-navy mb-1">Unit Economics Breakdown</h4>
       <p className="text-[10px] text-gray-400 mb-3">Cost waterfall from production to shelf (per unit, GBP)</p>
       <ResponsiveContainer width="100%" height={200}>
         <BarChart data={items} margin={{ top: 5, right: 5, bottom: 5, left: 5 }}>
@@ -332,7 +332,7 @@ function CostWaterfall({ category }) {
         </BarChart>
       </ResponsiveContainer>
       <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 text-center border-t border-gray-100 pt-3">
-        <div><div className="text-[9px] text-gray-400">Total COGS</div><div className="text-sm font-bold text-[#1A1F36]">{'\u00a3'}{costs.total_cogs.toFixed(2)}</div></div>
+        <div><div className="text-[9px] text-gray-400">Total COGS</div><div className="text-sm font-bold text-navy">{'\u00a3'}{costs.total_cogs.toFixed(2)}</div></div>
         <div><div className="text-[9px] text-gray-400">RRP Range</div><div className="text-sm font-bold text-[#C9A96E]">{'\u00a3'}{costs.rrp_low}-{'\u00a3'}{costs.rrp_high}</div></div>
         <div><div className="text-[9px] text-gray-400">Gross Margin</div><div className="text-sm font-bold text-green-600">{((1 - costs.total_cogs / costs.rrp_mid) * 100).toFixed(0)}%</div></div>
       </div>
@@ -346,7 +346,7 @@ function PitfallsPanel() {
   return (
     <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
       <div className="px-4 py-3 border-b border-gray-100">
-        <h4 className="text-xs font-semibold text-[#1A1F36] flex items-center gap-1.5">
+        <h4 className="text-xs font-semibold text-navy flex items-center gap-1.5">
           <ShieldAlert size={14} className="text-red-500" />
           Pitfalls & Risk Register
         </h4>
@@ -367,7 +367,7 @@ function PitfallsPanel() {
               {cat.items.map((item, ii) => (
                 <div key={ii} className="px-4 py-2.5 bg-gray-50/30">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-[11px] font-semibold text-[#1A1F36]">{item.risk}</span>
+                    <span className="text-[11px] font-semibold text-navy">{item.risk}</span>
                     <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded ${
                       item.impact === 'Critical' ? 'bg-red-100 text-red-700' : item.impact === 'High' ? 'bg-orange-100 text-orange-700' : 'bg-amber-50 text-amber-600'
                     }`}>{item.impact}</span>
@@ -387,7 +387,7 @@ function PitfallsPanel() {
 function LaunchTimeline() {
   return (
     <div className="bg-white rounded-xl border border-gray-100 p-4">
-      <h4 className="text-xs font-semibold text-[#1A1F36] flex items-center gap-1.5 mb-3">
+      <h4 className="text-xs font-semibold text-navy flex items-center gap-1.5 mb-3">
         <Clock size={14} className="text-[#C9A96E]" />
         Go-to-Market Timeline
       </h4>
@@ -404,7 +404,7 @@ function LaunchTimeline() {
               }`}>
                 {m.month === 0 ? 'LAUNCH' : m.month > 0 ? `+${m.month}mo` : `${m.month}mo`}
               </span>
-              <span className="text-[11px] font-semibold text-[#1A1F36]">{m.label}</span>
+              <span className="text-[11px] font-semibold text-navy">{m.label}</span>
             </div>
             <div className="flex flex-wrap gap-1">
               {m.tasks.map((t, ti) => (
@@ -427,13 +427,13 @@ function ArchetypeCards({ selected, onChange }) {
           className={`text-left p-3 rounded-xl border-2 transition-all ${
             selected === a.id ? 'border-[#C9A96E] bg-[#C9A96E]/5' : 'border-gray-100 bg-white hover:border-gray-200'
           }`}>
-          <div className="text-[11px] font-semibold text-[#1A1F36]">{a.label}</div>
+          <div className="text-[11px] font-semibold text-navy">{a.label}</div>
           <div className="text-[9px] text-gray-400 mt-0.5">{a.examples}</div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 mt-2 text-[9px]">
-            <div><span className="text-gray-400">Premium:</span> <span className="font-medium text-[#1A1F36]">{a.premiumMultiple}</span></div>
-            <div><span className="text-gray-400">Risk:</span> <span className="font-medium text-[#1A1F36]">{a.riskLevel}</span></div>
+            <div><span className="text-gray-400">Premium:</span> <span className="font-medium text-navy">{a.premiumMultiple}</span></div>
+            <div><span className="text-gray-400">Risk:</span> <span className="font-medium text-navy">{a.riskLevel}</span></div>
             <div><span className="text-gray-400">Success rate:</span> <span className="font-medium text-green-600">{a.successRate}</span></div>
-            <div><span className="text-gray-400">Marketing:</span> <span className="font-medium text-[#1A1F36]">{a.marketingWeight}</span></div>
+            <div><span className="text-gray-400">Marketing:</span> <span className="font-medium text-navy">{a.marketingWeight}</span></div>
           </div>
         </button>
       ))}
@@ -452,7 +452,7 @@ function RegionAnalysis({ regions }) {
             className="w-full flex items-center justify-between px-4 py-3 hover:bg-gray-50/50 transition-colors">
             <div className="flex items-center gap-3">
               <div>
-                <div className="text-[11px] font-semibold text-[#1A1F36]">{region.name}</div>
+                <div className="text-[11px] font-semibold text-navy">{region.name}</div>
                 <div className="text-[9px] text-gray-400">Pop: {region.pop} {'\u2022'} Avg spend: {region.avgSpend}/head</div>
               </div>
             </div>
@@ -472,7 +472,7 @@ function RegionAnalysis({ regions }) {
               {region.zones.map((zone, zi) => (
                 <div key={zi} className="px-4 py-2.5">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-[11px] font-medium text-[#1A1F36]">{zone.name}</span>
+                    <span className="text-[11px] font-medium text-navy">{zone.name}</span>
                     <div className="flex gap-2">
                       <span className="text-[9px] bg-blue-50 text-blue-600 px-1.5 py-0.5 rounded">{zone.bars} bars</span>
                       <span className="text-[9px] bg-green-50 text-green-600 px-1.5 py-0.5 rounded">{zone.terraces} terraces</span>
@@ -506,7 +506,7 @@ function VenueTypeGrid() {
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
               <v.icon size={14} className="text-[#C9A96E]" />
-              <span className="text-[11px] font-semibold text-[#1A1F36]">{v.type}</span>
+              <span className="text-[11px] font-semibold text-navy">{v.type}</span>
             </div>
             <div className="flex items-center gap-1.5">
               <span className="text-[9px] bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">{v.avgCover} avg cover</span>
@@ -522,8 +522,8 @@ function VenueTypeGrid() {
           </div>
           <p className="text-[10px] text-gray-600 leading-relaxed">{v.notes}</p>
           <div className="mt-2 flex justify-between text-[9px]">
-            <span className="text-gray-400">Cost: <span className="text-[#1A1F36] font-medium">{v.costPer}</span></span>
-            <span className="text-gray-400">Reach: <span className="text-[#1A1F36] font-medium">{v.reachPer}</span></span>
+            <span className="text-gray-400">Cost: <span className="text-navy font-medium">{v.costPer}</span></span>
+            <span className="text-gray-400">Reach: <span className="text-navy font-medium">{v.reachPer}</span></span>
           </div>
         </div>
       ))}
@@ -539,7 +539,7 @@ function SocialTargetingPanel() {
     <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
       <div className="px-4 py-3 border-b border-gray-100">
         <div className="flex items-center justify-between mb-2">
-          <h4 className="text-xs font-semibold text-[#1A1F36] flex items-center gap-1.5">
+          <h4 className="text-xs font-semibold text-navy flex items-center gap-1.5">
             <Share2 size={14} className="text-[#C9A96E]" />
             Social Media Geo-Targeting
           </h4>
@@ -571,11 +571,11 @@ function SocialTargetingPanel() {
               <div key={i} className="flex items-center justify-between py-1.5 border-b border-gray-50 last:border-0">
                 <div className="flex items-center gap-2">
                   <MapPin size={10} className="text-[#C9A96E]" />
-                  <span className="text-[11px] text-[#1A1F36] font-medium">{g.area}</span>
+                  <span className="text-[11px] text-navy font-medium">{g.area}</span>
                 </div>
                 <div className="flex items-center gap-3 text-[9px]">
-                  <span className="text-gray-400">Reach: <span className="font-medium text-[#1A1F36]">{g.reach}</span></span>
-                  <span className="text-gray-400">CPM: <span className="font-medium text-[#1A1F36]">{g.cpm}</span></span>
+                  <span className="text-gray-400">Reach: <span className="font-medium text-navy">{g.reach}</span></span>
+                  <span className="text-gray-400">CPM: <span className="font-medium text-navy">{g.cpm}</span></span>
                   <span className={`font-bold px-1.5 py-0.5 rounded ${
                     g.affinity === 'Very High' ? 'bg-green-100 text-green-700' : g.affinity === 'High' ? 'bg-green-50 text-green-600' : 'bg-amber-50 text-amber-600'
                   }`}>{g.affinity}</span>
@@ -588,8 +588,8 @@ function SocialTargetingPanel() {
           <div>
             <div className="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-1">Peak Posting Times</div>
             <div className="text-[10px] text-gray-600">
-              <div>Weekday: <span className="font-medium text-[#1A1F36]">{data.peakTimes.weekday}</span></div>
-              <div>Weekend: <span className="font-medium text-[#1A1F36]">{data.peakTimes.weekend}</span></div>
+              <div>Weekday: <span className="font-medium text-navy">{data.peakTimes.weekday}</span></div>
+              <div>Weekend: <span className="font-medium text-navy">{data.peakTimes.weekend}</span></div>
             </div>
           </div>
           <div>
@@ -623,7 +623,7 @@ function BudgetTierCards() {
             <div className="flex items-center justify-between mb-2">
               <div>
                 <span className="text-[10px] font-bold bg-[#C9A96E]/10 text-[#C9A96E] px-2 py-0.5 rounded">{tier.tier}</span>
-                <div className="text-lg font-bold text-[#1A1F36] mt-1">{tier.budget}</div>
+                <div className="text-lg font-bold text-navy mt-1">{tier.budget}</div>
                 <div className="text-[9px] text-gray-400">{tier.duration} campaign</div>
               </div>
               <ResponsiveContainer width={70} height={70}>
@@ -635,7 +635,7 @@ function BudgetTierCards() {
               </ResponsiveContainer>
             </div>
             <p className="text-[10px] text-gray-500 mb-2">{tier.bestFor}</p>
-            <div className="text-[9px] text-gray-400 mb-1">Reach: <span className="font-medium text-[#1A1F36]">{tier.reach}</span></div>
+            <div className="text-[9px] text-gray-400 mb-1">Reach: <span className="font-medium text-navy">{tier.reach}</span></div>
             <div className="text-[9px] text-gray-400 mb-2">Expected ROI: <span className="font-bold text-green-600">{tier.expectedROI}</span></div>
             <div className="border-t border-gray-100 pt-2">
               <div className="text-[9px] font-bold text-gray-400 uppercase mb-1">Key Activities</div>
@@ -660,7 +660,7 @@ function ManufacturingComparison({ selectedMarkets }) {
   return (
     <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
       <div className="px-4 py-3 border-b border-gray-100">
-        <h4 className="text-xs font-semibold text-[#1A1F36] flex items-center gap-1.5">
+        <h4 className="text-xs font-semibold text-navy flex items-center gap-1.5">
           <Truck size={14} className="text-[#C9A96E]" />
           Manufacturing Origin Comparison
         </h4>
@@ -683,10 +683,10 @@ function ManufacturingComparison({ selectedMarkets }) {
           <tbody className="divide-y divide-gray-50">
             {MANUFACTURING_ORIGINS.map((origin, i) => (
               <tr key={i} className="hover:bg-gray-50/50">
-                <td className="px-3 py-2 font-medium text-[#1A1F36]">{origin.label}</td>
+                <td className="px-3 py-2 font-medium text-navy">{origin.label}</td>
                 <td className="px-3 py-2 text-gray-600">{origin.leadTime}</td>
                 <td className="px-3 py-2 text-gray-600">{origin.minOrder}</td>
-                <td className="px-3 py-2 font-medium text-[#1A1F36]">{origin.avgCost}</td>
+                <td className="px-3 py-2 font-medium text-navy">{origin.avgCost}</td>
                 {selectedMarkets.map(m => (
                   <td key={m} className="px-3 py-2">
                     <span className={`font-medium ${
@@ -747,8 +747,8 @@ export default function ScenarioModeling() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="font-display text-2xl text-[#1A1F36]">Scenario Modeling</h1>
-          <p className="text-gray-500 text-xs mt-0.5">Go-to-market planning, campaign intelligence & financial modeling</p>
+          <h1 className="font-display text-page text-navy">Scenario Modeling</h1>
+          <p className="text-caption text-gray-500 mt-0.5">Go-to-market planning, campaign intelligence & financial modeling</p>
         </div>
         <Link to="/" className="text-[10px] text-[#C9A96E] hover:underline flex items-center gap-1">
           <ChevronRight size={12} className="rotate-180" /> Command Centre
@@ -778,12 +778,12 @@ export default function ScenarioModeling() {
           {brandStep === 0 && (
             <>
               <div className="bg-white rounded-xl border border-gray-100 p-4">
-                <h3 className="text-xs font-semibold text-[#1A1F36] mb-1">What are you bringing to market?</h3>
+                <h3 className="text-xs font-semibold text-navy mb-1">What are you bringing to market?</h3>
                 <p className="text-[10px] text-gray-400 mb-3">Select your product category</p>
                 <PillSelector options={PRODUCT_CATEGORIES} selected={selectedCategory} onChange={setSelectedCategory} />
               </div>
               <div className="bg-white rounded-xl border border-gray-100 p-4">
-                <h3 className="text-xs font-semibold text-[#1A1F36] mb-1">Target Markets</h3>
+                <h3 className="text-xs font-semibold text-navy mb-1">Target Markets</h3>
                 <p className="text-[10px] text-gray-400 mb-3">Select one or more launch markets</p>
                 <PillSelector options={TARGET_MARKETS.map(m => ({ ...m, label: `${m.flag} ${m.label}` }))} selected={selectedMarkets} onChange={setSelectedMarkets} multi />
               </div>
@@ -800,7 +800,7 @@ export default function ScenarioModeling() {
                     ]
                     return (
                       <div key={mId} className="bg-white rounded-xl border border-gray-100 p-3">
-                        <div className="text-[11px] font-semibold text-[#1A1F36] mb-1">{m.flag} {m.label}</div>
+                        <div className="text-[11px] font-semibold text-navy mb-1">{m.flag} {m.label}</div>
                         <div className="text-[9px] text-gray-400 mb-2">Pop: {m.pop} {'\u2022'} Market: {m.spiritsMarket}</div>
                         <div className="flex items-center gap-3">
                           <ResponsiveContainer width={60} height={60}>
@@ -817,7 +817,7 @@ export default function ScenarioModeling() {
                                   <div className="w-2 h-2 rounded-full" style={{ backgroundColor: c.fill }} />
                                   <span className="text-gray-500">{c.name}</span>
                                 </div>
-                                <span className="font-medium text-[#1A1F36]">{c.value}%</span>
+                                <span className="font-medium text-navy">{c.value}%</span>
                               </div>
                             ))}
                           </div>
@@ -838,7 +838,7 @@ export default function ScenarioModeling() {
           {brandStep === 1 && (
             <>
               <div className="bg-white rounded-xl border border-gray-100 p-4">
-                <h3 className="text-xs font-semibold text-[#1A1F36] mb-1">Brand Archetype</h3>
+                <h3 className="text-xs font-semibold text-navy mb-1">Brand Archetype</h3>
                 <p className="text-[10px] text-gray-400 mb-3">How will your brand be positioned? This affects marketing strategy, pricing power, and success probability.</p>
                 <ArchetypeCards selected={selectedArchetype} onChange={setSelectedArchetype} />
               </div>
@@ -903,14 +903,14 @@ export default function ScenarioModeling() {
           {campaignStep === 0 && (
             <>
               <div className="bg-gradient-to-br from-[#C9A96E]/5 to-transparent rounded-xl border border-[#C9A96E]/20 p-4 mb-4">
-                <h3 className="text-sm font-semibold text-[#1A1F36] mb-1">Campaign Example: UK Sherry Spritz 2026</h3>
+                <h3 className="text-sm font-semibold text-navy mb-1">Campaign Example: UK Sherry Spritz 2026</h3>
                 <p className="text-[10px] text-gray-500 leading-relaxed">
                   Running a Fino Manzanilla Spritz campaign for the Sherry Council of Jerez. Targeting UK summer 2026.
                   Below: optimal regions, venues, and digital activation zones ranked by engagement potential and ROI.
                 </p>
               </div>
               <div className="bg-white rounded-xl border border-gray-100 p-4">
-                <h3 className="text-xs font-semibold text-[#1A1F36] flex items-center gap-1.5 mb-3">
+                <h3 className="text-xs font-semibold text-navy flex items-center gap-1.5 mb-3">
                   <MapPin size={14} className="text-[#C9A96E]" />
                   UK Region Analysis {'\u2014'} Spritz Campaign Suitability
                 </h3>
@@ -927,7 +927,7 @@ export default function ScenarioModeling() {
           {campaignStep === 1 && (
             <>
               <div className="bg-white rounded-xl border border-gray-100 p-4">
-                <h3 className="text-xs font-semibold text-[#1A1F36] flex items-center gap-1.5 mb-3">
+                <h3 className="text-xs font-semibold text-navy flex items-center gap-1.5 mb-3">
                   <Building2 size={14} className="text-[#C9A96E]" />
                   Venue Type Strategy {'\u2014'} Spritz Suitability Scores
                 </h3>
@@ -961,7 +961,7 @@ export default function ScenarioModeling() {
           {campaignStep === 3 && (
             <>
               <div className="bg-white rounded-xl border border-gray-100 p-4">
-                <h3 className="text-xs font-semibold text-[#1A1F36] flex items-center gap-1.5 mb-3">
+                <h3 className="text-xs font-semibold text-navy flex items-center gap-1.5 mb-3">
                   <DollarSign size={14} className="text-[#C9A96E]" />
                   Campaign Budget Tiers & ROI Projections
                 </h3>

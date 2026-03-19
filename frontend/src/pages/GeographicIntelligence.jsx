@@ -553,7 +553,7 @@ const SourceLink = ({ source, url }) => (
     href={url}
     target="_blank"
     rel="noopener noreferrer"
-    className="inline-flex items-center gap-1 text-slate-800 hover:text-slate-600 transition-colors"
+    className="inline-flex items-center gap-1 text-navy hover:text-gray-500 transition-colors"
   >
     <span className="text-xs font-medium">{source}</span>
     <ExternalLink size={12} />
@@ -567,7 +567,7 @@ const RegionCard = ({ region, isActive, onClick }) => (
     className={`w-full p-4 rounded-lg border transition-all text-left ${
       isActive
         ? 'bg-navy/10 text-navy border-navy/20 shadow-sm'
-        : 'bg-white border-gray-100 text-slate-800 hover:bg-gray-50'
+        : 'bg-white border-gray-100 text-navy hover:bg-gray-50'
     }`}
   >
     <div className="flex items-start gap-3">
@@ -593,7 +593,7 @@ const YearlyReports = ({ reports }) => {
 
   return (
     <div className="bg-white rounded-lg border border-gray-100 p-6">
-      <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+      <h3 className="font-display text-section text-navy mb-4 flex items-center gap-2">
         <Calendar size={20} />
         Market Performance Timeline
       </h3>
@@ -606,7 +606,7 @@ const YearlyReports = ({ reports }) => {
             className={`px-4 py-2 rounded-lg border text-sm font-medium transition-all whitespace-nowrap ${
               selectedYear === r.year
                 ? 'bg-navy/10 text-navy border-navy/20 font-bold'
-                : 'bg-gray-50 text-slate-800 border-gray-100 hover:border-gray-200'
+                : 'bg-gray-50 text-navy border-gray-100 hover:border-gray-200'
             }`}
           >
             {r.year}
@@ -619,12 +619,12 @@ const YearlyReports = ({ reports }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
               <p className="text-xs text-gray-600 mb-1">Market Size</p>
-              <p className="text-xl font-bold text-slate-800">{report.marketSize}</p>
+              <p className="text-xl font-bold text-navy">{report.marketSize}</p>
             </div>
             <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
               <p className="text-xs text-gray-600 mb-1">Growth Rate</p>
               <div className="flex items-center gap-2">
-                <p className="text-xl font-bold text-slate-800">{report.growth}%</p>
+                <p className="text-xl font-bold text-navy">{report.growth}%</p>
                 {report.growth > 0 ? (
                   <TrendingUp size={16} className="text-green-600" />
                 ) : (
@@ -637,11 +637,11 @@ const YearlyReports = ({ reports }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
               <p className="text-xs text-gray-600 mb-1">Volume (Cases)</p>
-              <p className="text-lg font-bold text-slate-800">{report.volumeCases}</p>
+              <p className="text-lg font-bold text-navy">{report.volumeCases}</p>
             </div>
             <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
               <p className="text-xs text-gray-600 mb-1">Top Performer</p>
-              <p className="text-sm font-semibold text-slate-800">{report.topPerformer}</p>
+              <p className="text-sm font-semibold text-navy">{report.topPerformer}</p>
             </div>
           </div>
 
@@ -655,7 +655,7 @@ const YearlyReports = ({ reports }) => {
             <ul className="space-y-2">
               {report.keyEvents.map((event, idx) => (
                 <li key={idx} className="flex gap-3 text-sm text-gray-700">
-                  <span className="text-slate-800 font-bold min-w-6">{idx + 1}.</span>
+                  <span className="text-navy font-bold min-w-6">{idx + 1}.</span>
                   <span>{event}</span>
                 </li>
               ))}
@@ -695,7 +695,7 @@ const RegulatoryLandscape = ({ regulatory }) => {
 
   return (
     <div className="bg-white rounded-lg border border-gray-100 p-6">
-      <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+      <h3 className="font-display text-section text-navy mb-4 flex items-center gap-2">
         <Shield size={20} />
         Regulatory Landscape
       </h3>
@@ -720,41 +720,41 @@ const RegulatoryLandscape = ({ regulatory }) => {
 // TradeFlows Component
 const TradeFlows = ({ importExport }) => (
   <div className="bg-white rounded-lg border border-gray-100 p-6">
-    <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+    <h3 className="font-display text-section text-navy mb-4 flex items-center gap-2">
       <Ship size={20} />
       Trade Flows
     </h3>
 
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
       <div>
-        <h4 className="text-sm font-semibold text-slate-800 mb-3">Top Imports</h4>
+        <h4 className="text-sm font-semibold text-navy mb-3">Top Imports</h4>
         <div className="space-y-3">
           {importExport.topImports.map((item, idx) => (
             <div key={idx} className="bg-gray-50 border border-gray-100 rounded-lg p-3">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium text-slate-800">{item.country}</span>
+                <span className="text-sm font-medium text-navy">{item.country}</span>
                 <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">
                   {item.share}
                 </span>
               </div>
-              <p className="text-lg font-bold text-slate-800">{item.value}</p>
+              <p className="text-lg font-bold text-navy">{item.value}</p>
             </div>
           ))}
         </div>
       </div>
 
       <div>
-        <h4 className="text-sm font-semibold text-slate-800 mb-3">Top Exports</h4>
+        <h4 className="text-sm font-semibold text-navy mb-3">Top Exports</h4>
         <div className="space-y-3">
           {importExport.topExports.map((item, idx) => (
             <div key={idx} className="bg-gray-50 border border-gray-100 rounded-lg p-3">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium text-slate-800">{item.country}</span>
+                <span className="text-sm font-medium text-navy">{item.country}</span>
                 <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">
                   {item.share}
                 </span>
               </div>
-              <p className="text-lg font-bold text-slate-800">{item.value}</p>
+              <p className="text-lg font-bold text-navy">{item.value}</p>
             </div>
           ))}
         </div>
@@ -767,7 +767,7 @@ const TradeFlows = ({ importExport }) => (
 // MarketEntryAnalysis Component
 const MarketEntryAnalysis = ({ entry }) => (
   <div className="bg-white rounded-lg border border-gray-100 p-6">
-    <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+    <h2 className="font-display text-section text-navy mb-4 flex items-center gap-2">
       <Briefcase size={20} />
       Market Entry Analysis
     </h2>
@@ -776,16 +776,16 @@ const MarketEntryAnalysis = ({ entry }) => (
         <p className="text-xs font-semibold text-gray-600 uppercase mb-2">Barriers to Entry</p>
         <p className="text-sm text-gray-700 mb-4">{entry.barriers}</p>
         <p className="text-xs font-semibold text-gray-600 uppercase mb-2">Minimum Investment</p>
-        <p className="text-sm font-semibold text-slate-800 mb-4">{entry.minInvestment}</p>
+        <p className="text-sm font-semibold text-navy mb-4">{entry.minInvestment}</p>
         <p className="text-xs font-semibold text-gray-600 uppercase mb-2">Time to Market</p>
-        <p className="text-sm text-slate-800 font-medium">{entry.timeToMarket}</p>
+        <p className="text-sm text-navy font-medium">{entry.timeToMarket}</p>
       </div>
       <div>
         <p className="text-xs font-semibold text-gray-600 uppercase mb-3">Key Partners</p>
         <div className="space-y-2 mb-4">
           {entry.keyPartners.map((partner, idx) => (
             <div key={idx} className="flex items-start gap-2">
-              <Users size={14} className="text-slate-600 mt-1 flex-shrink-0" />
+              <Users size={14} className="text-gray-500 mt-1 flex-shrink-0" />
               <span className="text-sm text-gray-700">{partner}</span>
             </div>
           ))}
@@ -801,7 +801,7 @@ const MarketEntryAnalysis = ({ entry }) => (
 // DutyTariffTable Component
 const DutyTariffTable = ({ duties }) => (
   <div className="bg-white rounded-lg border border-gray-100 p-6">
-    <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+    <h2 className="font-display text-section text-navy mb-4 flex items-center gap-2">
       <AlertTriangle size={20} />
       Duty & Tariff Structure
     </h2>
@@ -817,8 +817,8 @@ const DutyTariffTable = ({ duties }) => (
         <tbody>
           {duties.map((duty, idx) => (
             <tr key={idx} className="border-b border-gray-50 hover:bg-gray-50">
-              <td className="py-3 px-4 text-slate-800 font-medium">{duty.category}</td>
-              <td className="py-3 px-4 text-slate-800 font-bold">{duty.rate}</td>
+              <td className="py-3 px-4 text-navy font-medium">{duty.category}</td>
+              <td className="py-3 px-4 text-navy font-bold">{duty.rate}</td>
               <td className="py-3 px-4 text-gray-600">{duty.notes}</td>
             </tr>
           ))}
@@ -831,14 +831,14 @@ const DutyTariffTable = ({ duties }) => (
 // DistributorLandscape Component
 const DistributorLandscape = ({ distributors }) => (
   <div className="bg-white rounded-lg border border-gray-100 p-6">
-    <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+    <h2 className="font-display text-section text-navy mb-4 flex items-center gap-2">
       <Building2 size={20} />
       Distributor Landscape
     </h2>
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       {distributors.map((dist, idx) => (
         <div key={idx} className="border border-gray-200 rounded-lg p-4">
-          <p className="font-semibold text-slate-800">{dist.name}</p>
+          <p className="font-semibold text-navy">{dist.name}</p>
           <p className="text-xs text-gray-600 mt-1">{dist.type}</p>
           <div className="mt-3 space-y-2 text-sm">
             <div>
@@ -859,7 +859,7 @@ const DistributorLandscape = ({ distributors }) => (
 // CompetitiveEntry Component
 const CompetitiveEntry = ({ competitive }) => (
   <div className="bg-white rounded-lg border border-gray-100 p-6">
-    <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+    <h2 className="font-display text-section text-navy mb-4 flex items-center gap-2">
       <Target size={20} />
       Competitive Landscape
     </h2>
@@ -875,7 +875,7 @@ const CompetitiveEntry = ({ competitive }) => (
               />
             </div>
           </div>
-          <span className="text-lg font-bold text-slate-800">{competitive.easeOfEntry}/10</span>
+          <span className="text-lg font-bold text-navy">{competitive.easeOfEntry}/10</span>
         </div>
       </div>
       <div>
@@ -889,7 +889,7 @@ const CompetitiveEntry = ({ competitive }) => (
               />
             </div>
           </div>
-          <span className="text-lg font-bold text-slate-800">{competitive.premiumOpportunity}/10</span>
+          <span className="text-lg font-bold text-navy">{competitive.premiumOpportunity}/10</span>
         </div>
       </div>
     </div>
@@ -918,7 +918,7 @@ const RegionDetail = ({ region, data }) => (
       <div className="flex items-start gap-4 mb-4">
         <span className="w-14 h-14 rounded-xl flex items-center justify-center text-4xl">{region.flag}</span>
         <div className="flex-1">
-          <h1 className="text-3xl font-bold text-slate-800">{region.name}</h1>
+          <h1 className="font-display text-page text-navy">{region.name}</h1>
           <p className="text-gray-600 mt-2">{region.trajectory}</p>
         </div>
       </div>
@@ -932,13 +932,13 @@ const RegionDetail = ({ region, data }) => (
 
     {/* KPIs Grid */}
     <div className="bg-white rounded-lg border border-gray-100 p-6">
-      <h2 className="text-lg font-semibold text-slate-800 mb-4">Key Performance Indicators</h2>
+      <h2 className="font-display text-section text-navy mb-4">Key Performance Indicators</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {data.kpis.map((kpi, idx) => (
           <div key={idx} className="bg-gray-50 rounded-lg border border-gray-100 p-4">
             <p className="text-xs text-gray-600 font-medium mb-2">{kpi.label}</p>
             <div className="flex items-end justify-between">
-              <div className="text-2xl font-bold text-slate-800">{kpi.value}</div>
+              <div className="text-2xl font-bold text-navy">{kpi.value}</div>
               <div className="flex items-center gap-1">
                 {kpi.changeDir === 'up' ? (
                   <TrendingUp size={16} className="text-green-600" />
@@ -967,7 +967,7 @@ const RegionDetail = ({ region, data }) => (
 
     {/* Channel Performance */}
     <div className="bg-white rounded-lg border border-gray-100 p-6">
-      <h2 className="text-lg font-semibold text-slate-800 mb-4">Channel Performance</h2>
+      <h2 className="font-display text-section text-navy mb-4">Channel Performance</h2>
       <div className="space-y-4">
         {Object.entries(data.channels).map(([channel, percentage]) => {
           const channelNames = {
@@ -1266,8 +1266,8 @@ const RegionDetail = ({ region, data }) => (
           return (
             <div key={channel}>
               <div className="flex justify-between mb-2">
-                <span className="text-sm font-medium text-slate-800">{channelNames[channel]}</span>
-                <span className="text-sm font-bold text-slate-800">{percentage}%</span>
+                <span className="text-sm font-medium text-navy">{channelNames[channel]}</span>
+                <span className="text-sm font-bold text-navy">{percentage}%</span>
               </div>
               <div className="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
                 <div
@@ -1283,7 +1283,7 @@ const RegionDetail = ({ region, data }) => (
 
     {/* Leading Brands */}
     <div className="bg-white rounded-lg border border-gray-100 p-6">
-      <h2 className="text-lg font-semibold text-slate-800 mb-4">Leading Brands</h2>
+      <h2 className="font-display text-section text-navy mb-4">Leading Brands</h2>
       <div className="flex flex-wrap gap-2">
         {data.topBrands.map((brand, idx) => (
           <Link
@@ -1299,7 +1299,7 @@ const RegionDetail = ({ region, data }) => (
 
     {/* Trend Insights */}
     <div className="bg-white rounded-lg border border-gray-100 p-6">
-      <h2 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+      <h2 className="font-display text-section text-navy mb-4 flex items-center gap-2">
         <TrendingUp size={20} />
         Trend Insights
       </h2>
@@ -1307,7 +1307,7 @@ const RegionDetail = ({ region, data }) => (
         {data.trends.map((trend, idx) => (
           <li key={idx} className="flex gap-4">
             <div className="flex-shrink-0 w-7 h-7 bg-slate-100 rounded-full flex items-center justify-center">
-              <span className="text-xs font-bold text-slate-800">{idx + 1}</span>
+              <span className="text-xs font-bold text-navy">{idx + 1}</span>
             </div>
             <div className="flex-1 pt-0.5">
               <p className="text-sm text-gray-700 mb-2">{trend.text}</p>
@@ -1353,8 +1353,8 @@ export default function GeographicIntelligence() {
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-2">
-            <Globe size={32} className="text-slate-800" />
-            <h1 className="text-4xl font-bold text-slate-800">Geographic Intelligence</h1>
+            <Globe size={32} className="text-navy" />
+            <h1 className="font-display text-page text-navy">Geographic Intelligence</h1>
           </div>
           <p className="text-gray-600">
             Liquid economy market insights across key regions worldwide

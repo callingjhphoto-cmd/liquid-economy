@@ -1,6 +1,10 @@
 import React, { useState, useMemo } from 'react'
 import { LineChart, Line, BarChart, Bar, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid, Cell, PieChart, Pie, Area, AreaChart } from 'recharts'
 import { Package, Factory, Fuel, AlertTriangle, Thermometer, ExternalLink, X, TrendingUp, TrendingDown, Info, DollarSign, Globe, Shield, Truck, Droplets, ChevronDown, ChevronUp, ArrowUpDown, Filter } from 'lucide-react'
+import { PageHeader } from '../components/ui/PageHeader'
+import { TabGroup } from '../components/ui/TabGroup'
+import { FilterPills } from '../components/ui/TabGroup'
+import { SectionHeader } from '../components/ui/SectionHeader'
 
 const COGS_DATA = {
   glass_ppi: {
@@ -570,19 +574,29 @@ export default function SupplyChain() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-4">
-        <div>
-          <h1 className="font-display text-page text-navy">Supply Chain & COGS Matrix</h1>
-          <p className="text-caption text-gray-500 mt-1">Real-time commodity tracking, cost breakdown, supplier intelligence, and strategic risk scenarios</p>
-        </div>
-        <div className="flex gap-1 bg-gray-100 rounded-lg p-1 overflow-x-auto">
-          {['costs', 'categories', 'suppliers', 'margins', 'disruption', 'currency'].map(tab => (
-            <button key={tab} onClick={() => setActiveTab(tab)} className={`px-3 py-2 rounded-md text-xs font-medium whitespace-nowrap transition-colors ${activeTab === tab ? 'bg-white text-navy shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}>
-              {tab === 'costs' ? 'Input Costs' : tab === 'categories' ? 'Category COGS' : tab === 'suppliers' ? 'Suppliers' : tab === 'margins' ? 'Margin Alerts' : tab === 'disruption' ? 'Disruption' : 'Currency & Climate'}
-            </button>
-          ))}
-        </div>
-      </div>
+      <PageHeader
+        title="Supply Chain & COGS Matrix"
+        subtitle="Real-time commodity tracking, cost breakdown, supplier intelligence, and strategic risk scenarios"
+        breadcrumbs={[
+          { label: 'Command Centre', to: '/' },
+          { label: 'Supply Chain' },
+        ]}
+        action={
+          <TabGroup
+            tabs={[
+              { key: 'costs', label: 'Input Costs' },
+              { key: 'categories', label: 'Category COGS' },
+              { key: 'suppliers', label: 'Suppliers' },
+              { key: 'margins', label: 'Margin Alerts' },
+              { key: 'disruption', label: 'Disruption' },
+              { key: 'currency', label: 'Currency & Climate' },
+            ]}
+            active={activeTab}
+            onChange={setActiveTab}
+            size="sm"
+          />
+        }
+      />
 
       {activeTab === 'costs' && (
         <div>
@@ -611,13 +625,20 @@ export default function SupplyChain() {
           {/* Filter bar */}
           <div className="flex items-center gap-2 mb-3">
             <Filter className="w-3.5 h-3.5 text-gray-400" />
-            <div className="flex gap-1">
-              {['all', 'agricultural', 'packaging', 'freight', 'energy', 'premium', 'metals'].map(g => (
-                <button key={g} onClick={() => setGroupFilter(g)} className={`px-2.5 py-1 rounded text-[10px] font-medium transition-colors ${groupFilter === g ? 'bg-navy text-white' : 'bg-gray-100 text-gray-500 hover:text-gray-700'}`}>
-                  {g === 'all' ? 'All' : GROUP_LABELS[g] || g}
-                </button>
-              ))}
-            </div>
+            <FilterPills
+              options={[
+                { key: 'all', label: 'All' },
+                { key: 'agricultural', label: 'Agricultural Inputs' },
+                { key: 'packaging', label: 'Packaging & Board' },
+                { key: 'freight', label: 'Freight & Shipping' },
+                { key: 'energy', label: 'Energy & Carbon' },
+                { key: 'premium', label: 'Premium Inputs' },
+                { key: 'metals', label: 'Metals' },
+              ]}
+              active={groupFilter}
+              onChange={setGroupFilter}
+              size="sm"
+            />
           </div>
 
           {/* Heatmap table */}

@@ -3,6 +3,10 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { api } from '../lib/api'
 import { SignalCard } from '../components/MetricCard'
 import { TrendingUp, TrendingDown, BarChart3, DollarSign, Target, Scale, Layers, Building2, ArrowUpRight, ArrowDownRight, Info } from 'lucide-react'
+import { PageHeader } from '../components/ui/PageHeader'
+import { ChartCard } from '../components/ui/ChartCard'
+import { TabGroup } from '../components/ui/TabGroup'
+import { SectionHeader } from '../components/ui/SectionHeader'
 
 const COLORS = ['#2B6CB0', '#C9A96E', '#38A169', '#C53030', '#DD6B20', '#6B46C1',
   '#2D3142', '#D69E2E', '#3182CE', '#E53E3E', '#38B2AC', '#805AD5', '#1A1F36', '#ED8936']
@@ -724,40 +728,43 @@ export default function Valuations() {
 
   return (
     <div className="space-y-8">
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="font-display text-page text-navy">Valuations & Arbitrage</h1>
-          <p className="text-caption text-gray-500 mt-1">P/E ratios, valuation gaps, and arbitrage signals</p>
-        </div>
-        <div className="flex gap-2">
-          {[30, 90, 180, 365].map(d => (
-            <button key={d} onClick={() => setDays(d)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors
-                ${days === d ? 'bg-navy text-white' : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50'}`}>
-              {d}d
-            </button>
-          ))}
-        </div>
-      </div>
+      <PageHeader
+        title="Valuations & Arbitrage"
+        subtitle="P/E ratios, valuation gaps, and arbitrage signals"
+        breadcrumbs={[
+          { label: 'Command Centre', to: '/' },
+          { label: 'Valuations' },
+        ]}
+        action={
+          <TabGroup
+            tabs={[
+              { key: 30, label: '30d' },
+              { key: 90, label: '90d' },
+              { key: 180, label: '180d' },
+              { key: 365, label: '365d' },
+            ]}
+            active={days}
+            onChange={setDays}
+            size="sm"
+          />
+        }
+      />
 
       {/* P/E Ratio Chart */}
       {chartData.length > 1 && (
-        <div className="bg-white rounded-xl border border-gray-100 p-6">
-          <h2 className="font-display text-section text-navy mb-4">P/E Ratio Trend</h2>
-          <ResponsiveContainer width="100%" height={350}>
-            <LineChart data={chartData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
-              <XAxis dataKey="date" tick={{ fontSize: 11 }} />
-              <YAxis tick={{ fontSize: 11 }} domain={[0, 'auto']} />
-              <Tooltip contentStyle={{ fontSize: 12, borderRadius: 8 }} />
-              <Legend wrapperStyle={{ fontSize: 11 }} />
-              {companyNames.map((name, i) => (
-                <Line key={name} type="monotone" dataKey={name} stroke={COLORS[i % COLORS.length]}
-                  strokeWidth={2} dot={false} connectNulls />
-              ))}
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
+        <ChartCard title="P/E Ratio Trend" subtitle="Trailing twelve-month price-to-earnings across major spirits companies" height={350}>
+          <LineChart data={chartData}>
+            <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
+            <XAxis dataKey="date" tick={{ fontSize: 11 }} />
+            <YAxis tick={{ fontSize: 11 }} domain={[0, 'auto']} />
+            <Tooltip contentStyle={{ fontSize: 12, borderRadius: 8 }} />
+            <Legend wrapperStyle={{ fontSize: 11 }} />
+            {companyNames.map((name, i) => (
+              <Line key={name} type="monotone" dataKey={name} stroke={COLORS[i % COLORS.length]}
+                strokeWidth={2} dot={false} connectNulls />
+            ))}
+          </LineChart>
+        </ChartCard>
       )}
 
       {/* P/E Comparison Table */}

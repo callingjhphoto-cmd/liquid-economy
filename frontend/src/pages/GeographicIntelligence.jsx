@@ -19,6 +19,11 @@ import {
   Target,
   AlertTriangle,
 } from 'lucide-react';
+import { PageHeader } from '../components/ui/PageHeader';
+import { MetricCard } from '../components/ui/MetricCard';
+import { YearSelector } from '../components/ui/YearSelector';
+import { SourceLink as SharedSourceLink, SourceList } from '../components/ui/SourceLink';
+import { SectionHeader } from '../components/ui/SectionHeader';
 
 // Regions data
 const REGIONS = [
@@ -547,17 +552,9 @@ const REGION_DATA = {
   },
 };
 
-// SourceLink Component
-const SourceLink = ({ source, url }) => (
-  <a
-    href={url}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex items-center gap-1 text-navy hover:text-gray-500 transition-colors"
-  >
-    <span className="text-xs font-medium">{source}</span>
-    <ExternalLink size={12} />
-  </a>
+// SourceLink — use shared component with local adapter
+const SourceLinkLocal = ({ source, url }) => (
+  <SharedSourceLink label={source} url={url} />
 );
 
 // RegionCard Component (Sidebar)
@@ -590,28 +587,20 @@ const RegionCard = ({ region, isActive, onClick }) => (
 const YearlyReports = ({ reports }) => {
   const [selectedYear, setSelectedYear] = useState(reports[reports.length - 1].year);
   const report = reports.find((r) => r.year === selectedYear);
+  const years = reports.map(r => r.year).sort((a, b) => b - a);
 
   return (
     <div className="bg-white rounded-lg border border-gray-100 p-6">
-      <h3 className="font-display text-section text-navy mb-4 flex items-center gap-2">
-        <Calendar size={20} />
-        Market Performance Timeline
-      </h3>
-
-      <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
-        {reports.map((r) => (
-          <button
-            key={r.year}
-            onClick={() => setSelectedYear(r.year)}
-            className={`px-4 py-2 rounded-lg border text-sm font-medium transition-all whitespace-nowrap ${
-              selectedYear === r.year
-                ? 'bg-navy/10 text-navy border-navy/20 font-bold'
-                : 'bg-gray-50 text-navy border-gray-100 hover:border-gray-200'
-            }`}
-          >
-            {r.year}
-          </button>
-        ))}
+      <div className="flex items-center justify-between mb-4">
+        <SectionHeader size="lg">
+          Market Performance Timeline
+        </SectionHeader>
+        <YearSelector
+          activeYear={selectedYear}
+          onChange={setSelectedYear}
+          years={years}
+          size="sm"
+        />
       </div>
 
       {report && (
@@ -931,36 +920,17 @@ const RegionDetail = ({ region, data }) => (
     </div>
 
     {/* KPIs Grid */}
-    <div className="bg-white rounded-lg border border-gray-100 p-6">
-      <h2 className="font-display text-section text-navy mb-4">Key Performance Indicators</h2>
+    <div>
+      <SectionHeader size="lg">Key Performance Indicators</SectionHeader>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {data.kpis.map((kpi, idx) => (
-          <div key={idx} className="bg-gray-50 rounded-lg border border-gray-100 p-4">
-            <p className="text-xs text-gray-600 font-medium mb-2">{kpi.label}</p>
-            <div className="flex items-end justify-between">
-              <div className="text-2xl font-bold text-navy">{kpi.value}</div>
-              <div className="flex items-center gap-1">
-                {kpi.changeDir === 'up' ? (
-                  <TrendingUp size={16} className="text-green-600" />
-                ) : kpi.changeDir === 'down' ? (
-                  <TrendingDown size={16} className="text-red-600" />
-                ) : (
-                  <div className="text-gray-400 text-xs">-</div>
-                )}
-                <span
-                  className={`text-sm font-semibold ${
-                    kpi.changeDir === 'up'
-                      ? 'text-green-600'
-                      : kpi.changeDir === 'down'
-                      ? 'text-red-600'
-                      : 'text-gray-600'
-                  }`}
-                >
-                  {kpi.change > 0 ? '+' : ''}{kpi.change}%
-                </span>
-              </div>
-            </div>
-          </div>
+          <MetricCard
+            key={idx}
+            label={kpi.label}
+            value={kpi.value}
+            change={`${kpi.change > 0 ? '+' : ''}${kpi.change}%`}
+            direction={kpi.changeDir === 'up' ? 'up' : 'down'}
+          />
         ))}
       </div>
     </div>
@@ -1311,7 +1281,7 @@ const RegionDetail = ({ region, data }) => (
             </div>
             <div className="flex-1 pt-0.5">
               <p className="text-sm text-gray-700 mb-2">{trend.text}</p>
-              <SourceLink source={trend.source} url={trend.url} />
+              <SourceLinkLocal source={trend.source} url={trend.url} />
             </div>
           </li>
         ))}
@@ -1351,15 +1321,14 @@ export default function GeographicIntelligence() {
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 py-8">
         {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center gap-3 mb-2">
-            <Globe size={32} className="text-navy" />
-            <h1 className="font-display text-page text-navy">Geographic Intelligence</h1>
-          </div>
-          <p className="text-gray-600">
-            Liquid economy market insights across key regions worldwide
-          </p>
-        </div>
+        <PageHeader
+          title="Geographic Intelligence"
+          subtitle="Liquid economy market insights across key regions worldwide"
+          breadcrumbs={[
+            { label: 'Command Centre', to: '/' },
+            { label: 'Geographic Intelligence' },
+          ]}
+        />
 
         {/* Main Grid */}
         <div className="grid grid-cols-12 gap-6">

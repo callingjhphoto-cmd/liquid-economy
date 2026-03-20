@@ -1,0 +1,345 @@
+# The Curious Bartender Podcast - Topic Analysis Report
+
+## Most Discussed Topics (by frequency across episodes)
+
+Rank   Topic                                         Episodes
+--------------------------------------------------------------
+1      fermentation                                         6
+2      rum                                                  3
+3      non-alcoholic                                        3
+4      cocktail culture                                     3
+5      tea                                                  3
+6      mezcal                                               3
+7      tequila                                              3
+8      sustainability                                       3
+9      community                                            2
+10     creativity                                           2
+11     career                                               2
+12     cider                                                2
+13     agriculture                                          2
+14     tasting                                              2
+15     apples                                               2
+16     gin                                                  2
+17     history                                              2
+18     terroir                                              2
+19     japanese whisky                                      2
+20     distillation                                         2
+21     flavour                                              2
+22     brora                                                2
+23     agave spirits                                        2
+24     dick bradsell                                        2
+25     martinis                                             2
+26     vodka                                                2
+27     awards                                               2
+28     innovation                                           2
+29     cocktail history                                     2
+30     motivation                                           2
+31     psychology                                           2
+32     london cocktail week                                 1
+33     pinnacle guide                                       1
+34     bar ratings                                          1
+35     london cocktail scene                                1
+36     events                                               1
+37     connaught bar                                        1
+38     italian hospitality                                  1
+39     martini trolley                                      1
+40     photography                                          1
+41     perry                                                1
+42     orchards                                             1
+43     herefordshire                                        1
+44     somerset cider brandy                                1
+45     craft distilling                                     1
+46     pgi                                                  1
+47     cask aging                                           1
+48     british empire                                       1
+49     churchill                                            1
+50     fortified wine                                       1
+51     bordeaux                                             1
+52     flair bartending                                     1
+53     competition                                          1
+54     world flair association                              1
+55     bar magic                                            1
+56     wine                                                 1
+57     soil science                                         1
+58     rootstocks                                           1
+59     wine education                                       1
+60     cynicism                                             1
+61     savoy hotel                                          1
+62     american bar                                         1
+63     harry craddock                                       1
+64     hospitality history                                  1
+65     retirement                                           1
+66     social connection                                    1
+67     healthspan                                           1
+68     happiness                                            1
+69     dry january                                          1
+70     pubs                                                 1
+71     pub history                                          1
+72     cask ale                                             1
+73     craft beer                                           1
+74     guinness                                             1
+75     british culture                                      1
+76     drinks as art                                        1
+77     bar concepts                                         1
+78     ai in hospitality                                    1
+79     drink design                                         1
+80     philosophy                                           1
+81     best of                                              1
+82     year in review                                       1
+83     highlights                                           1
+84     2025                                                 1
+85     cider production                                     1
+86     cider history                                        1
+87     english cider                                        1
+88     american cider                                       1
+89     appreciation                                         1
+90     diffordsguide                                        1
+91     class magazine                                       1
+92     publishing                                           1
+93     london bars                                          1
+94     daiquiris                                            1
+95     flavour science                                      1
+96     microbes                                             1
+97     food systems                                         1
+98     gut health                                           1
+99     chocolate                                            1
+100    future of food                                       1
+101    barbados rum                                         1
+102    foursquare distillery                                1
+103    rum distillation                                     1
+104    rum history                                          1
+105    cocktail writing                                     1
+106    clyde common                                         1
+107    50 best bars                                         1
+108    trends                                               1
+109    fuji gotemba                                         1
+110    four roses                                           1
+111    mizunara                                             1
+112    san francisco bars                                   1
+113    clear ice                                            1
+114    alcohol as medicine                                  1
+115    water sommeliers                                     1
+116    food science                                         1
+117    smell                                                1
+118    aroma                                                1
+119    writing                                              1
+120    whisky scoring                                       1
+121    clynelish                                            1
+122    independent bottlers                                 1
+123    wine casks                                           1
+124    maturation                                           1
+125    st george spirits                                    1
+126    eau de vie                                           1
+127    absinthe                                             1
+128    whisky                                               1
+129    brewing                                              1
+130    yeast genetics                                       1
+131    0% abv beer                                          1
+132    beer for health                                      1
+133    terpenes                                             1
+134    sotol                                                1
+135    salon de agave                                       1
+136    durango                                              1
+137    sourdough                                            1
+138    bread culture                                        1
+139    cereals                                              1
+140    copenhagen                                           1
+141    sandwiches                                           1
+142    whisky writing                                       1
+143    world whisky                                         1
+144    terroir in spirits                                   1
+145    whisky market                                        1
+146    punches                                              1
+147    hawksmoor                                            1
+148    hepple gin                                           1
+149    restaurant bars                                      1
+150    brewing tea                                          1
+151    tea agriculture                                      1
+152    economics                                            1
+153    rare tea                                             1
+154    matcha                                               1
+155    king of cocktails                                    1
+156    rainbow room                                         1
+157    jazz                                                 1
+158    nyc history                                          1
+159    bars and restaurants                                 1
+160    planteray                                            1
+161    maison ferrand                                       1
+162    cognac                                               1
+163    jamaican rum                                         1
+164    barbados                                             1
+165    brand building                                       1
+166    koji                                                 1
+167    sake                                                 1
+168    lactic acid bacteria                                 1
+169    wild fermentation                                    1
+170    kefir                                                1
+171    kombucha                                             1
+172    cosmopolitan                                         1
+173    nyc bars                                             1
+174    andy warhol                                          1
+175    long island bar                                      1
+176    guest shifts                                         1
+177    master blender                                       1
+178    jamaica rum                                          1
+179    appleton estate                                      1
+180    rum chemistry                                        1
+181    raicilla                                             1
+182    grey goose                                           1
+183    maitre de chai                                       1
+184    vodka production                                     1
+185    wheat                                                1
+186    france                                               1
+187    gin history                                          1
+188    g&t                                                  1
+189    distillation history                                 1
+190    gin craze                                            1
+191    female distillers                                    1
+192    london dry gin                                       1
+193    old tom                                              1
+194    citrus                                               1
+195    citrus history                                       1
+196    cultivation                                          1
+197    biology                                              1
+198    medicine                                             1
+199    hybrids                                              1
+200    satan's whiskers                                     1
+201    drinks knowledge                                     1
+202    match bar group                                      1
+203    agave biology                                        1
+204    celebrity spirits                                    1
+205    mexican whisky                                       1
+206    classification                                       1
+207    haiti                                                1
+208    caroni                                               1
+209    nomad project                                        1
+210    velier                                               1
+211    beefeater                                            1
+212    gin distillation                                     1
+213    50 years                                             1
+214    gin category                                         1
+215    milk & honey                                         1
+216    sasha petraske                                       1
+217    street feast                                         1
+218    regulation                                           1
+219    tequila arette                                       1
+220    agave economics                                      1
+221    family history                                       1
+222    beer sommelier                                       1
+223    beer styles                                          1
+224    sharps brewery                                       1
+225    bailey's                                             1
+226    tanqueray ten                                        1
+227    smirnoff black                                       1
+228    the singleton                                        1
+229    design                                               1
+230    greatest bartender                                   1
+231    greatest bar                                         1
+232    cocktail books                                       1
+233    distillery design                                    1
+234    gin production                                       1
+235    baijiu                                               1
+236    dukes hotel                                          1
+237    ian fleming                                          1
+238    bartending career                                    1
+239    wine masterclass                                     1
+240    wine regions                                         1
+241    biodynamic                                           1
+242    natural wine                                         1
+243    bar entrepreneurship                                 1
+244    dive bars                                            1
+245    manchester                                           1
+246    vertical distillery                                  1
+247    port of leith                                        1
+248    sherry                                               1
+249    regeneration                                         1
+250    scotch whisky                                        1
+251    whisky tasting                                       1
+252    luxury scotch                                        1
+253    historic whisky                                      1
+254    charity                                              1
+255    rick stein                                           1
+256    television                                           1
+257    chefs                                                1
+258    fishing industry                                     1
+259    cornwall                                             1
+260    whisky detective                                     1
+261    counterfeits                                         1
+262    secondary market                                     1
+263    valuation                                            1
+264    whisky investment                                    1
+265    record cocktails                                     1
+266    dukes martini                                        1
+267    celebrity                                            1
+268    corks                                                1
+269    cork production                                      1
+270    cork taint                                           1
+271    coffee                                               1
+272    caffeine                                             1
+273    world barista championships                          1
+274    coffee economics                                     1
+275    youtube                                              1
+276    drinking vessels                                     1
+277    egypt                                                1
+278    wine history                                         1
+279    greek symposium                                      1
+280    poison                                               1
+281    mr lyan                                              1
+282    bar philosophy                                       1
+283    whiskies                                             1
+284    goals                                                1
+285    internal dialogue                                    1
+286    perspective                                          1
+287    taylor's port                                        1
+288    port wine                                            1
+289    port history                                         1
+290    tourism                                              1
+291    bar industry                                         1
+292    tanqueray                                            1
+293    classic cocktails                                    1
+294    ukraine                                              1
+295    indian spirits                                       1
+296    indian bar culture                                   1
+297    indian whisky                                        1
+298    food chemistry                                       1
+299    molecules                                            1
+300    noma                                                 1
+301    islay                                                1
+302    rare casks                                           1
+303    port ellen                                           1
+304    hospitality business                                 1
+305    success                                              1
+306    rum classification                                   1
+307    spiced rum                                           1
+308    origin stories                                       1
+309    bars                                                 1
+310    multisensory science                                 1
+311    perception                                           1
+312    martini                                              1
+313    journalism                                           1
+314    drinks trends                                        1
+
+## Total unique topics: 314
+
+## Top 20 Topics Visualization
+
+  fermentation                        ######################################## (6)
+  rum                                 #################### (3)
+  non-alcoholic                       #################### (3)
+  cocktail culture                    #################### (3)
+  tea                                 #################### (3)
+  mezcal                              #################### (3)
+  tequila                             #################### (3)
+  sustainability                      #################### (3)
+  community                           ############# (2)
+  creativity                          ############# (2)
+  career                              ############# (2)
+  cider                               ############# (2)
+  agriculture                         ############# (2)
+  tasting                             ############# (2)
+  apples                              ############# (2)
+  gin                                 ############# (2)
+  history                             ############# (2)
+  terroir                             ############# (2)
+  japanese whisky                     ############# (2)
+  distillation                        ############# (2)

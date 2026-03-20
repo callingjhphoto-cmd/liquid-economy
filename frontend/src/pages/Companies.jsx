@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, Cell, PieChart, Pie } from 'recharts'
 import { Building2, TrendingUp, TrendingDown, Globe, DollarSign, Users, ChevronRight, ChevronDown, ChevronUp, Lock, ExternalLink, Briefcase, Star, BarChart3, Target, Shield, Zap, AlertTriangle, MapPin, Layers, Search, ArrowRight, BookOpen } from 'lucide-react'
+import { PageHeader, SourceList } from '../components/ui'
 
 const COMPANIES = [
   {
@@ -1172,14 +1173,8 @@ function CompanyDetail({ company }) {
           {company.profileSources && (
             <div className="bg-gray-50 rounded-xl border border-gray-200 p-5 mt-6">
               <h3 className="text-subsection text-navy uppercase tracking-wide mb-3 flex items-center gap-2"><BookOpen size={16} /> Data Sources & Citations</h3>
-              <div className="space-y-2">
-                {company.profileSources.map((s, i) => (
-                  <div key={i} className="flex items-center gap-2 text-xs text-gray-600">
-                    <span className="w-1.5 h-1.5 bg-gold rounded-full flex-shrink-0" />
-                    {s.url ? <a href={s.url} target="_blank" rel="noopener noreferrer" className="hover:text-navy hover:underline transition-colors">{s.label} <ExternalLink size={10} className="inline ml-0.5 opacity-50" /></a> : <span>{s.label}</span>}
-                  </div>
-                ))}
-              </div>
+              {/* Uses shared SourceList component */}
+              <SourceList sources={company.profileSources} />
               <p className="text-[10px] text-gray-400 mt-3 border-t border-gray-200 pt-2">Financial data sourced from annual reports, SEC/regulatory filings, and industry databases. Market share estimates from IWSR and Euromonitor. Last updated: February 2026.</p>
             </div>
           )}
@@ -1216,16 +1211,17 @@ export default function Companies() {
 
   return (
     <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
-        <div>
-          <h1 className="font-display text-page text-navy">Competitive Intelligence</h1>
-          <p className="text-caption text-gray-500 mt-1">Who dominates your category? Where are the gaps? How do you compete?</p>
-        </div>
-        <button onClick={() => setShowWhiteSpace(!showWhiteSpace)}
-          className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-colors ${showWhiteSpace ? 'bg-green-600 text-white' : 'bg-white text-green-700 border border-green-200 hover:bg-green-50'}`}>
-          <Target size={16} /> {showWhiteSpace ? 'Hide White Space' : 'Category White Space'}
-        </button>
-      </div>
+      {/* Header — uses shared PageHeader component */}
+      <PageHeader
+        title="Competitive Intelligence"
+        subtitle="Who dominates your category? Where are the gaps? How do you compete?"
+        action={
+          <button onClick={() => setShowWhiteSpace(!showWhiteSpace)}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-colors ${showWhiteSpace ? 'bg-green-600 text-white' : 'bg-white text-green-700 border border-green-200 hover:bg-green-50'}`}>
+            <Target size={16} /> {showWhiteSpace ? 'Hide White Space' : 'Category White Space'}
+          </button>
+        }
+      />
 
       {showWhiteSpace && (
         <div className="mb-6">

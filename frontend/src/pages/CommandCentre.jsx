@@ -12,6 +12,7 @@ import {
   ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid
 } from 'recharts'
 import LiveFeed from '../components/LiveFeed'
+import { PageHeader } from '../components/ui'
 
 // ── KPI Sparkline Data (3-5 points for micro-charts behind values) ──
 const KPI_TRENDS = {
@@ -1484,17 +1485,17 @@ export default function CommandCentre() {
 
   return (
     <div className="space-y-5">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="font-display text-page text-navy">Command Centre</h1>
-          <p className="text-caption text-gray-500 mt-0.5">Global beverage alcohol intelligence {'\u2014'} curated daily</p>
-        </div>
-        <div className="text-right">
-          <div className="text-[10px] text-gray-400">Last updated</div>
-          <div className="text-xs font-medium text-navy">Feb 26, 2026 14:30 GMT</div>
-        </div>
-      </div>
+      {/* Header — uses shared PageHeader component */}
+      <PageHeader
+        title="Command Centre"
+        subtitle={`Global beverage alcohol intelligence ${'\u2014'} curated daily`}
+        action={
+          <div className="text-right">
+            <div className="text-[10px] text-gray-400">Last updated</div>
+            <div className="text-xs font-medium text-navy">Feb 26, 2026 14:30 GMT</div>
+          </div>
+        }
+      />
 
       {/* Persona Selector */}
       <div className="flex items-center gap-3">

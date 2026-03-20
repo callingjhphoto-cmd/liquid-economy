@@ -53,12 +53,12 @@
       "agent": "Frontend UX Agent",
       "title": "Add global search bar — searches across categories, brands, venues, companies",
       "priority": 1,
-      "status": "TODO",
+      "status": "DONE",
       "files": ["frontend/src/components/GlobalSearch.jsx", "frontend/src/App.jsx"],
       "acceptance": "Search bar in header, returns results from multiple pages",
-      "done_evidence": "",
+      "done_evidence": "Commit 1a8301c — GlobalSearch.jsx rebuilt to 273 lines, 90+ searchable entries (13 pages, 11 categories, 45+ brands, 30 venues, 12 companies), Cmd+K shortcut, keyboard nav, pushed to main",
       "created": "2026-03-18",
-      "updated": "2026-03-18"
+      "updated": "2026-03-20"
     },
     {
       "id": "ux-006",

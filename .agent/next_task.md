@@ -1,7 +1,7 @@
 agent: Frontend UX Agent
-task: Add global search bar — keyword search across categories, brands, venues, companies
+task: Implement mobile responsive breakpoints across all 15 pages — usable at 375px width
 priority: 1
-files: frontend/src/App.jsx (search in header/sidebar)
-acceptance: Search input visible in mobile header and desktop sidebar. Typing filters results from category names, brand names, venue names, company names. Results link to relevant pages.
-context: Nav rename DONE, code-splitting DONE, progressive disclosure DONE (already existed), bottom tab bar DONE. Next UX item is global search.
+files: frontend/src/pages/*.jsx, frontend/src/App.jsx
+acceptance: All 15 pages render at 375px width without horizontal scroll. Grid layouts collapse to single column. Tables become scrollable or card-based. Font sizes adjust for mobile readability.
+context: ux-001 through ux-005 DONE. This is the last Priority 1 UX task. Focus on the most-visited pages first: CommandCentre, CategoryIntelligence, VenueIntelligence, BrandPricing, Companies. Use Tailwind responsive prefixes (sm:, md:, lg:). Test mentally at 375px (iPhone SE).
 steering: none

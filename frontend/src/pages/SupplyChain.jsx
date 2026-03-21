@@ -125,11 +125,27 @@ export default function SupplyChain() {
     { key: 'message', label: 'Alert Detail', sortable: false },
   ], [])
 
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto space-y-6">
+        <PageHeader title="Supply Chain & COGS Matrix" subtitle="Loading supply chain data\u2026" />
+        <BentoGrid>
+          <BentoGrid.Hero><SkeletonCard className="h-40" /></BentoGrid.Hero>
+          <SkeletonCard />
+          <SkeletonCard />
+          <SkeletonCard />
+          <SkeletonCard />
+        </BentoGrid>
+        <SkeletonCard className="h-24" />
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto space-y-6">
       <PageHeader
         title="Supply Chain & COGS Matrix"
-        subtitle={`${totalCommodities} commodities tracked \u00b7 ${Object.keys(CATEGORY_COGS).length} category breakdowns \u00b7 Data as of March 2026`}
+        subtitle={`${totalCommodities} commodities tracked \u00b7 ${Object.keys(CATEGORY_COGS).length} category breakdowns \u00b7 ${selectedYear} data`}
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Supply Chain' },
@@ -148,7 +164,7 @@ export default function SupplyChain() {
           <Card className="h-full">
             <div className="flex items-start justify-between mb-3">
               <div>
-                <p className="text-label text-gray-500">Composite Pressure Index</p>
+                <p className="text-label text-gray-500">Composite Pressure Index ({selectedYear})</p>
                 <p className="text-3xl font-bold text-red-600 mt-1">7.2%</p>
                 <p className="text-sm text-gray-500 mt-0.5">Weighted input cost rise</p>
               </div>

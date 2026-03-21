@@ -33,7 +33,7 @@ export function StatusDot({ status = 'default', label }) {
   }
   return (
     <span className="inline-flex items-center gap-1.5">
-      <span className={`w-2 h-2 rounded-full ${colors[status] || colors.default}`} />
+      <span className={`w-3 h-3 rounded-full ${colors[status] || colors.default}`} />
       {label && <span className="text-xs text-gray-600">{label}</span>}
     </span>
   )

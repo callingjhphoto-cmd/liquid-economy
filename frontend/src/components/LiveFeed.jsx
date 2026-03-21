@@ -84,8 +84,8 @@ function FeedItem({ item, expanded, onToggle }) {
       {/* Compressed row */}
       <div className="flex items-center gap-1.5 px-2.5 py-1.5">
         <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${sev.dot}`} />
-        <span className="text-[9px] text-gray-400 w-5 flex-shrink-0 text-right tabular-nums">{timeAgo(item.timestamp)}</span>
-        <span className={`text-[9px] font-medium px-1.5 py-0 rounded ${catColor} flex-shrink-0`}>{item.category}</span>
+        <span className="text-[11px] text-gray-400 w-5 flex-shrink-0 text-right tabular-nums">{timeAgo(item.timestamp)}</span>
+        <span className={`text-[11px] font-medium px-1.5 py-0 rounded ${catColor} flex-shrink-0`}>{item.category}</span>
         <span className="text-[11px] text-navy font-medium truncate flex-1 leading-tight">{item.title}</span>
         <div className="flex items-center gap-1 flex-shrink-0">
           {item.url && (
@@ -103,10 +103,10 @@ function FeedItem({ item, expanded, onToggle }) {
           {item.body && <p className="text-[10px] text-gray-600 leading-relaxed">{item.body}</p>}
           <div className="flex items-center gap-3 mt-1.5">
             {item.source && (
-              <span className="text-[9px] text-gray-400 italic">{item.source}</span>
+              <span className="text-[11px] text-gray-400 italic">{item.source}</span>
             )}
             {item.url && (
-              <a href={item.url} target="_blank" rel="noopener noreferrer" className="text-[9px] text-gold hover:text-navy font-medium flex items-center gap-0.5 transition-colors" onClick={e => e.stopPropagation()}>
+              <a href={item.url} target="_blank" rel="noopener noreferrer" className="text-[11px] text-gold hover:text-navy font-medium flex items-center gap-0.5 transition-colors" onClick={e => e.stopPropagation()}>
                 Read article <ExternalLink size={8} />
               </a>
             )}
@@ -158,10 +158,10 @@ export default function LiveFeed({ maxItems = 30, compact = false }) {
           </div>
           <div className="flex items-center gap-1.5">
             {critCount > 0 && (
-              <span className="text-[9px] font-bold bg-red-50 text-red-600 border border-red-200 px-1.5 py-0.5 rounded-full">{critCount} critical</span>
+              <span className="text-[11px] font-bold bg-red-50 text-red-600 border border-red-200 px-1.5 py-0.5 rounded-full">{critCount} critical</span>
             )}
             {alertCount > 0 && (
-              <span className="text-[9px] font-bold bg-amber-50 text-amber-600 border border-amber-200 px-1.5 py-0.5 rounded-full">{alertCount} alert</span>
+              <span className="text-[11px] font-bold bg-amber-50 text-amber-600 border border-amber-200 px-1.5 py-0.5 rounded-full">{alertCount} alert</span>
             )}
             <button
               onClick={() => setShowFilters(!showFilters)}
@@ -181,7 +181,7 @@ export default function LiveFeed({ maxItems = 30, compact = false }) {
                 <button
                   key={sev}
                   onClick={() => setSeverityFilter(sev)}
-                  className={`px-2 py-0.5 rounded-full text-[9px] font-medium transition-all ${
+                  className={`px-2 py-0.5 rounded-full text-[11px] font-medium transition-all ${
                     severityFilter === sev
                       ? 'bg-navy text-white'
                       : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
@@ -197,7 +197,7 @@ export default function LiveFeed({ maxItems = 30, compact = false }) {
                 <button
                   key={cat}
                   onClick={() => setCategoryFilter(cat)}
-                  className={`px-2 py-0.5 rounded-full text-[9px] font-medium transition-all ${
+                  className={`px-2 py-0.5 rounded-full text-[11px] font-medium transition-all ${
                     categoryFilter === cat
                       ? 'bg-navy text-white'
                       : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
@@ -238,10 +238,10 @@ export default function LiveFeed({ maxItems = 30, compact = false }) {
 
       {/* Footer */}
       <div className="px-3 py-1.5 border-t border-gray-100 bg-gray-50/50 flex items-center justify-between">
-        <span className="text-[9px] text-gray-400">
+        <span className="text-[11px] text-gray-400">
           {lastUpdate ? `Updated ${lastUpdate.toLocaleTimeString()}` : 'Waiting for data'}
         </span>
-        <span className="text-[9px] text-gray-400">
+        <span className="text-[11px] text-gray-400">
           {filtered.length} of {feedItems.length}
         </span>
       </div>

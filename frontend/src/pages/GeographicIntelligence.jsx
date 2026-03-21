@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from 'react'
+import React, { useState, useMemo, useCallback, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import {
   Globe, MapPin, TrendingUp, TrendingDown, BarChart3, Shield, Ship,
@@ -7,7 +7,7 @@ import {
 import {
   Card, MetricCard, PageHeader, BentoGrid, DrillDown, DataTable,
   EntityLink, SourceLink, SourceList, Badge, BottomSheet, SectionHeader,
-  YearSelector
+  YearSelector, SkeletonCard
 } from '../components/ui'
 import { REGIONS, REGION_DATA } from '../data/geographicData'
 
@@ -563,6 +563,12 @@ export default function GeographicIntelligence() {
   const [tier3Region, setTier3Region] = useState(null)
   const [mobileSheet, setMobileSheet] = useState(null)
   const [searchTerm, setSearchTerm] = useState('')
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 300)
+    return () => clearTimeout(timer)
+  }, [])
 
   const highlightedCountry = searchParams.get('country')
 
@@ -585,6 +591,24 @@ export default function GeographicIntelligence() {
       setMobileSheet(region)
     }
   }, [expandedRegion])
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto space-y-6">
+        <PageHeader title="Geographic Intelligence" subtitle="Loading markets\u2026" />
+        <BentoGrid>
+          <BentoGrid.Hero><SkeletonCard className="h-40" /></BentoGrid.Hero>
+          <SkeletonCard />
+          <SkeletonCard />
+          <SkeletonCard />
+          <SkeletonCard />
+        </BentoGrid>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {Array.from({ length: 6 }).map((_, i) => <SkeletonCard key={i} />)}
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto">

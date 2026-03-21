@@ -222,221 +222,252 @@ export default function ScenarioModeling() {
         </>
       )}
 
-      {/* \u2550\u2550\u2550\u2550\u2550 TIER 2: BRAND-TO-MARKET SCENARIO \u2550\u2550\u2550\u2550\u2550 */}
+      {/* \u2550\u2550\u2550\u2550\u2550 TIER 2: BRAND-TO-MARKET SCENARIO (stepped flow) \u2550\u2550\u2550\u2550\u2550 */}
       {mode === 'brand' && (
         <div className="space-y-6">
-          {/* Configuration bar */}
-          <Card padding="p-4">
-            <div className="space-y-4">
-              <div>
-                <p className="text-[10px] font-semibold text-gray-400 uppercase mb-2">Product Category</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {PRODUCT_CATEGORIES.map(cat => (
-                    <button
-                      key={cat.id}
-                      onClick={() => setSelectedCategory(cat.id)}
-                      className={`px-2.5 py-1.5 rounded-lg text-[11px] font-medium transition-all border ${
-                        selectedCategory === cat.id
-                          ? 'bg-navy text-white border-navy'
-                          : 'bg-white text-gray-500 border-gray-200 hover:border-navy/30'
-                      }`}
-                    >
-                      {cat.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <p className="text-[10px] font-semibold text-gray-400 uppercase mb-2">Target Markets</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {TARGET_MARKETS.map(m => {
-                    const active = selectedMarkets.includes(m.id)
-                    return (
-                      <button
-                        key={m.id}
-                        onClick={() => setSelectedMarkets(active ? selectedMarkets.filter(s => s !== m.id) : [...selectedMarkets, m.id])}
-                        className={`px-2.5 py-1.5 rounded-lg text-[11px] font-medium transition-all border ${
-                          active ? 'bg-navy text-white border-navy' : 'bg-white text-gray-500 border-gray-200 hover:border-navy/30'
-                        }`}
-                      >
-                        {m.flag} {m.label}
-                      </button>
-                    )
-                  })}
-                </div>
-              </div>
-              <div>
-                <p className="text-[10px] font-semibold text-gray-400 uppercase mb-2">Brand Archetype</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {BRAND_ARCHETYPES.map(a => (
-                    <button
-                      key={a.id}
-                      onClick={() => setSelectedArchetype(a.id)}
-                      className={`px-2.5 py-1.5 rounded-lg text-[11px] font-medium transition-all border ${
-                        selectedArchetype === a.id
-                          ? 'bg-navy text-white border-navy'
-                          : 'bg-white text-gray-500 border-gray-200 hover:border-navy/30'
-                      }`}
-                    >
-                      {a.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
+          {/* Step tabs */}
+          <Card padding="p-3">
+            <div className="flex items-center gap-1 overflow-x-auto relative">
+              {[
+                { label: 'Category & Market', icon: Target },
+                { label: 'Cost Breakdown', icon: DollarSign },
+                { label: 'Timeline & GTM', icon: Clock },
+                { label: 'Risk Assessment', icon: ShieldAlert },
+              ].map((step, idx) => {
+                const StepIcon = step.icon
+                return (
+                  <button
+                    key={idx}
+                    onClick={() => setBrandStep(idx)}
+                    className={`flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-lg text-xs font-medium whitespace-nowrap transition-all touch-manipulation ${
+                      brandStep === idx
+                        ? 'bg-navy text-white'
+                        : 'bg-gray-50 text-gray-500 hover:bg-gray-100'
+                    }`}
+                  >
+                    <StepIcon size={14} />
+                    {step.label}
+                  </button>
+                )
+              })}
             </div>
           </Card>
 
-          {/* Scenario summary KPIs */}
-          <BentoGrid>
-            <MetricCard
-              label="COGS per Unit"
-              value={gbp(costs.total_cogs)}
-              subtitle={`${PRODUCT_CATEGORIES.find(c => c.id === selectedCategory)?.label || selectedCategory}`}
-              icon={DollarSign}
-            />
-            <MetricCard
-              label="RRP Range"
-              value={`${gbp(costs.rrp_low)}\u2013${gbp(costs.rrp_high)}`}
-              subtitle={`Mid: ${gbp(costs.rrp_mid)}`}
-              icon={Package}
-            />
-            <MetricCard
-              label="Gross Margin"
-              value={`${margin}%`}
-              subtitle="At mid-range RRP"
-              icon={TrendingUp}
-              direction={Number(margin) > 50 ? 'up' : 'down'}
-            />
-            <MetricCard
-              label="Risk Level"
-              value={archetype.riskLevel}
-              subtitle={`Success rate: ${archetype.successRate}`}
-              icon={ShieldAlert}
-            />
-          </BentoGrid>
-
-          {/* Unit economics breakdown */}
-          <DrillDown
-            title="Unit Economics Breakdown"
-            summary={`Cost waterfall: ${gbp(costs.total_cogs)} COGS \u2192 ${gbp(costs.rrp_mid)} RRP \u2192 ${margin}% margin`}
-            defaultOpen
-          >
-            <CostWaterfall costs={costs} />
-          </DrillDown>
-
-          {/* Archetype detail */}
-          <DrillDown
-            title="Brand Archetype Analysis"
-            summary={`${archetype.label} \u2014 ${archetype.premiumMultiple} premium, ${archetype.successRate} success rate`}
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {BRAND_ARCHETYPES.map(a => (
-                <Card
-                  key={a.id}
-                  hover
-                  onClick={() => setSelectedArchetype(a.id)}
-                  padding="p-3"
-                  className={selectedArchetype === a.id ? 'ring-2 ring-gold' : ''}
-                >
-                  <p className="text-xs font-semibold text-navy">{a.label}</p>
-                  <p className="text-[11px] text-gray-400 mt-0.5">{a.examples}</p>
-                  <div className="grid grid-cols-2 gap-x-3 mt-2 text-[11px]">
-                    <div><span className="text-gray-400">Premium:</span> <span className="font-medium text-navy">{a.premiumMultiple}</span></div>
-                    <div><span className="text-gray-400">Risk:</span> <span className="font-medium text-navy">{a.riskLevel}</span></div>
-                    <div><span className="text-gray-400">Success:</span> <span className="font-medium text-emerald-600">{a.successRate}</span></div>
-                    <div><span className="text-gray-400">Marketing:</span> <span className="font-medium text-navy">{a.marketingWeight}</span></div>
+          {/* STEP 0: Select Category + Market + Archetype */}
+          {brandStep === 0 && (
+            <>
+              <Card padding="p-4">
+                <div className="space-y-4">
+                  <div>
+                    <p className="text-[10px] font-semibold text-gray-400 uppercase mb-2">Product Category</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {PRODUCT_CATEGORIES.map(cat => (
+                        <button
+                          key={cat.id}
+                          onClick={() => setSelectedCategory(cat.id)}
+                          className={`px-2.5 py-1.5 rounded-lg text-[11px] font-medium transition-all border ${
+                            selectedCategory === cat.id
+                              ? 'bg-navy text-white border-navy'
+                              : 'bg-white text-gray-500 border-gray-200 hover:border-navy/30'
+                          }`}
+                        >
+                          {cat.label}
+                        </button>
+                      ))}
+                    </div>
                   </div>
-                </Card>
-              ))}
-            </div>
-          </DrillDown>
+                  <div>
+                    <p className="text-[10px] font-semibold text-gray-400 uppercase mb-2">Target Markets</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {TARGET_MARKETS.map(m => {
+                        const active = selectedMarkets.includes(m.id)
+                        return (
+                          <button
+                            key={m.id}
+                            onClick={() => setSelectedMarkets(active ? selectedMarkets.filter(s => s !== m.id) : [...selectedMarkets, m.id])}
+                            className={`px-2.5 py-1.5 rounded-lg text-[11px] font-medium transition-all border ${
+                              active ? 'bg-navy text-white border-navy' : 'bg-white text-gray-500 border-gray-200 hover:border-navy/30'
+                            }`}
+                          >
+                            {m.flag} {m.label}
+                          </button>
+                        )
+                      })}
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-semibold text-gray-400 uppercase mb-2">Brand Archetype</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {BRAND_ARCHETYPES.map(a => (
+                        <button
+                          key={a.id}
+                          onClick={() => setSelectedArchetype(a.id)}
+                          className={`px-2.5 py-1.5 rounded-lg text-[11px] font-medium transition-all border ${
+                            selectedArchetype === a.id
+                              ? 'bg-navy text-white border-navy'
+                              : 'bg-white text-gray-500 border-gray-200 hover:border-navy/30'
+                          }`}
+                        >
+                          {a.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </Card>
 
-          {/* Market channel splits */}
-          {selectedMarkets.length > 0 && (
-            <DrillDown
-              title="Market Channel Analysis"
-              summary={`${selectedMarkets.length} market${selectedMarkets.length > 1 ? 's' : ''} selected \u2014 channel split breakdown`}
-            >
+              <BentoGrid>
+                <MetricCard label="COGS per Unit" value={gbp(costs.total_cogs)} subtitle={`${PRODUCT_CATEGORIES.find(c => c.id === selectedCategory)?.label || selectedCategory}`} icon={DollarSign} />
+                <MetricCard label="RRP Range" value={`${gbp(costs.rrp_low)}\u2013${gbp(costs.rrp_high)}`} subtitle={`Mid: ${gbp(costs.rrp_mid)}`} icon={Package} />
+                <MetricCard label="Gross Margin" value={`${margin}%`} subtitle="At mid-range RRP" icon={TrendingUp} direction={Number(margin) > 50 ? 'up' : 'down'} />
+                <MetricCard label="Risk Level" value={archetype.riskLevel} subtitle={`Success rate: ${archetype.successRate}`} icon={ShieldAlert} />
+              </BentoGrid>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                {selectedMarkets.map(mId => {
-                  const m = TARGET_MARKETS.find(t => t.id === mId)
-                  if (!m) return null
-                  const channelData = [
-                    { name: 'On-Trade', value: m.channels.onTrade, fill: NAVY },
-                    { name: 'Off-Trade', value: m.channels.offTrade, fill: GOLD },
-                    { name: 'E-Comm', value: m.channels.eComm, fill: '#2563EB' },
-                    { name: 'Travel Retail', value: m.channels.travelRetail, fill: '#059669' },
-                  ]
-                  return (
-                    <Card key={mId} padding="p-3">
-                      <p className="text-xs font-semibold text-navy mb-0.5">{m.flag} {m.label}</p>
-                      <p className="text-[11px] text-gray-400 mb-2">Pop: {m.pop} \u00b7 Market: {m.spiritsMarket}</p>
-                      <div className="space-y-1.5">
-                        {channelData.map((c, j) => (
-                          <div key={j}>
-                            <div className="flex items-center justify-between text-[11px] mb-0.5">
-                              <div className="flex items-center gap-1">
-                                <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: c.fill }} />
-                                <span className="text-gray-500">{c.name}</span>
-                              </div>
-                              <span className="font-medium text-navy">{c.value}%</span>
-                            </div>
-                            <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                              <div className="h-full rounded-full" style={{ width: `${c.value}%`, backgroundColor: c.fill }} />
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </Card>
-                  )
-                })}
+                {BRAND_ARCHETYPES.map(a => (
+                  <Card key={a.id} hover onClick={() => setSelectedArchetype(a.id)} padding="p-3" className={selectedArchetype === a.id ? 'ring-2 ring-gold' : ''}>
+                    <p className="text-xs font-semibold text-navy">{a.label}</p>
+                    <p className="text-[10px] text-gray-400 mt-0.5">{a.examples}</p>
+                    <div className="grid grid-cols-2 gap-x-3 mt-2 text-[10px]">
+                      <div><span className="text-gray-400">Premium:</span> <span className="font-medium text-navy">{a.premiumMultiple}</span></div>
+                      <div><span className="text-gray-400">Risk:</span> <span className="font-medium text-navy">{a.riskLevel}</span></div>
+                      <div><span className="text-gray-400">Success:</span> <span className="font-medium text-emerald-600">{a.successRate}</span></div>
+                      <div><span className="text-gray-400">Marketing:</span> <span className="font-medium text-navy">{a.marketingWeight}</span></div>
+                    </div>
+                  </Card>
+                ))}
               </div>
-            </DrillDown>
+            </>
           )}
 
-          {/* Manufacturing comparison */}
-          <DrillDown
-            title="Manufacturing Origin Comparison"
-            summary={`${MANUFACTURING_ORIGINS.length} production origins \u2014 duty rates, lead times & costs`}
-          >
-            <DataTable
-              columns={[
-                { key: 'label', label: 'Origin', sortable: true, render: (v) => <span className="font-medium text-navy">{v}</span> },
-                { key: 'leadTime', label: 'Lead Time' },
-                { key: 'minOrder', label: 'Min Order' },
-                { key: 'avgCost', label: 'Avg Cost', align: 'right' },
-                ...selectedMarkets.map(mId => {
-                  const market = TARGET_MARKETS.find(t => t.id === mId)
-                  return {
-                    key: `duty_${mId}`,
-                    label: `${market?.label || mId} Duty`,
-                    render: (_, row) => {
-                      const duty = row.duties[mId]
-                      const isFree = duty === 0 || (typeof duty === 'string' && duty.includes('0%'))
-                      return <span className={`text-[10px] font-medium ${isFree ? 'text-emerald-600' : 'text-red-600'}`}>
-                        {duty === 0 ? '0% (duty free)' : duty}
-                      </span>
-                    }
-                  }
-                }),
-              ]}
-              data={MANUFACTURING_ORIGINS}
-              compact
-            />
-          </DrillDown>
+          {/* STEP 1: Cost Breakdown + Economics */}
+          {brandStep === 1 && (
+            <>
+              <CostWaterfall costs={costs} />
 
-          {/* Tier 3: Risks & Timeline */}
-          <DrillDown
-            title="Go-to-Market Risks & Timeline"
-            summary={`${totalRisks} risks across ${GO_TO_MARKET_PITFALLS.length} categories \u00b7 18-month launch timeline`}
-          >
+              {selectedMarkets.length > 0 && (
+                <div className="space-y-4">
+                  <SectionHeader size="md">Market Channel Analysis</SectionHeader>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {selectedMarkets.map(mId => {
+                      const m = TARGET_MARKETS.find(t => t.id === mId)
+                      if (!m) return null
+                      const channelData = [
+                        { name: 'On-Trade', value: m.channels.onTrade, fill: NAVY },
+                        { name: 'Off-Trade', value: m.channels.offTrade, fill: GOLD },
+                        { name: 'E-Comm', value: m.channels.eComm, fill: '#2563EB' },
+                        { name: 'Travel Retail', value: m.channels.travelRetail, fill: '#059669' },
+                      ]
+                      return (
+                        <Card key={mId} padding="p-3">
+                          <p className="text-xs font-semibold text-navy mb-0.5">{m.flag} {m.label}</p>
+                          <p className="text-[10px] text-gray-400 mb-2">Pop: {m.pop} \u00b7 Market: {m.spiritsMarket}</p>
+                          <div className="space-y-1.5">
+                            {channelData.map((c, j) => (
+                              <div key={j}>
+                                <div className="flex items-center justify-between text-[10px] mb-0.5">
+                                  <div className="flex items-center gap-1">
+                                    <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: c.fill }} />
+                                    <span className="text-gray-500">{c.name}</span>
+                                  </div>
+                                  <span className="font-medium text-navy">{c.value}%</span>
+                                </div>
+                                <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                                  <div className="h-full rounded-full" style={{ width: `${c.value}%`, backgroundColor: c.fill }} />
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </Card>
+                      )
+                    })}
+                  </div>
+                </div>
+              )}
+
+              <DrillDown title="Manufacturing Origin Comparison" summary={`${MANUFACTURING_ORIGINS.length} production origins \u2014 duty rates, lead times & costs`}>
+                <DataTable
+                  columns={[
+                    { key: 'label', label: 'Origin', sortable: true, render: (v) => <span className="font-medium text-navy">{v}</span> },
+                    { key: 'leadTime', label: 'Lead Time' },
+                    { key: 'minOrder', label: 'Min Order' },
+                    { key: 'avgCost', label: 'Avg Cost', align: 'right' },
+                    ...selectedMarkets.map(mId => {
+                      const market = TARGET_MARKETS.find(t => t.id === mId)
+                      return {
+                        key: `duty_${mId}`,
+                        label: `${market?.label || mId} Duty`,
+                        render: (_, row) => {
+                          const duty = row.duties[mId]
+                          const isFree = duty === 0 || (typeof duty === 'string' && duty.includes('0%'))
+                          return <span className={`text-[10px] font-medium ${isFree ? 'text-emerald-600' : 'text-red-600'}`}>
+                            {duty === 0 ? '0% (duty free)' : duty}
+                          </span>
+                        }
+                      }
+                    }),
+                  ]}
+                  data={MANUFACTURING_ORIGINS}
+                  compact
+                />
+              </DrillDown>
+            </>
+          )}
+
+          {/* STEP 2: Timeline + Go-to-Market */}
+          {brandStep === 2 && (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-              <PitfallsPanel />
               <LaunchTimeline />
+              <Card padding="p-4">
+                <p className="text-xs font-semibold text-navy mb-3">Scenario Summary</p>
+                <div className="space-y-2 text-xs">
+                  <div className="flex justify-between border-b border-gray-100 pb-2"><span className="text-gray-500">Category</span><span className="font-medium text-navy">{PRODUCT_CATEGORIES.find(c => c.id === selectedCategory)?.label}</span></div>
+                  <div className="flex justify-between border-b border-gray-100 pb-2"><span className="text-gray-500">Archetype</span><span className="font-medium text-navy">{archetype.label}</span></div>
+                  <div className="flex justify-between border-b border-gray-100 pb-2"><span className="text-gray-500">Markets</span><span className="font-medium text-navy">{selectedMarkets.map(m => TARGET_MARKETS.find(t => t.id === m)?.label).join(', ')}</span></div>
+                  <div className="flex justify-between border-b border-gray-100 pb-2"><span className="text-gray-500">COGS / Unit</span><span className="font-medium text-navy">{gbp(costs.total_cogs)}</span></div>
+                  <div className="flex justify-between border-b border-gray-100 pb-2"><span className="text-gray-500">Gross Margin</span><span className="font-medium text-emerald-600">{margin}%</span></div>
+                  <div className="flex justify-between"><span className="text-gray-500">Success Rate</span><span className="font-medium text-navy">{archetype.successRate}</span></div>
+                </div>
+              </Card>
             </div>
-          </DrillDown>
+          )}
 
-          <SourceList sources={SCENARIO_SOURCES} />
+          {/* STEP 3: Risk Assessment + Pitfalls */}
+          {brandStep === 3 && (
+            <>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <PitfallsPanel />
+                <Card padding="p-4">
+                  <p className="text-xs font-semibold text-navy mb-1">Risk Summary</p>
+                  <p className="text-[10px] text-gray-400 mb-3">{totalRisks} risks across {GO_TO_MARKET_PITFALLS.length} categories</p>
+                  <div className="space-y-2">
+                    <div className="bg-red-50 rounded-lg p-3 border border-red-100">
+                      <p className="text-xs font-semibold text-red-800">{criticalRisks} Critical Risks</p>
+                      <p className="text-[10px] text-red-700 mt-0.5">Require immediate mitigation before launch</p>
+                    </div>
+                    <div className="bg-amber-50 rounded-lg p-3 border border-amber-100">
+                      <p className="text-xs font-semibold text-amber-800">{totalRisks - criticalRisks} Non-Critical Risks</p>
+                      <p className="text-[10px] text-amber-700 mt-0.5">Monitor and plan contingencies</p>
+                    </div>
+                  </div>
+                </Card>
+              </div>
+              <SourceList sources={SCENARIO_SOURCES} />
+            </>
+          )}
+
+          {/* Step navigation */}
+          <div className="flex items-center justify-between gap-4">
+            <button onClick={() => setBrandStep(Math.max(0, brandStep - 1))} disabled={brandStep === 0}
+              className="flex items-center gap-1.5 px-4 py-2.5 min-h-[44px] bg-gray-100 text-gray-700 font-medium text-xs rounded-lg hover:bg-gray-200 disabled:opacity-40 disabled:cursor-not-allowed transition touch-manipulation">
+              <ChevronRight size={14} className="rotate-180" /> Previous
+            </button>
+            <span className="text-[10px] text-gray-400">Step {brandStep + 1} of 4</span>
+            <button onClick={() => setBrandStep(Math.min(3, brandStep + 1))} disabled={brandStep === 3}
+              className="flex items-center gap-1.5 px-4 py-2.5 min-h-[44px] bg-navy text-white font-medium text-xs rounded-lg hover:bg-navy/90 disabled:opacity-40 disabled:cursor-not-allowed transition touch-manipulation">
+              Next <ChevronRight size={14} />
+            </button>
+          </div>
         </div>
       )}
 

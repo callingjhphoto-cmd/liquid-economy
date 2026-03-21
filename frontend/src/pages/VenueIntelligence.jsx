@@ -1,59 +1,51 @@
 import React, { useState, useMemo } from 'react'
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, Legend } from 'recharts'
-import { MapPin, TrendingUp, Star, Wine, Search, Filter, ChevronDown, ChevronUp, ExternalLink, Award, Users, DollarSign, Building2, Globe, Briefcase, Target, Layers, Shield, Zap, BookOpen, Check, X, ArrowRight, BarChart3 } from 'lucide-react'
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LineChart, Line, Legend, Cell } from 'recharts'
+import { MapPin, TrendingUp, Star, Wine, Search, ChevronDown, ChevronUp, ExternalLink, Award, Users, DollarSign, Building2, Globe, Briefcase, Target, Layers, Shield, Zap, BookOpen, Check, X, ArrowRight, BarChart3 } from 'lucide-react'
 import { PageHeader } from '../components/ui/PageHeader'
-import { TabGroup } from '../components/ui/TabGroup'
-import { YearSelector } from '../components/ui/YearSelector'
+import { Card } from '../components/ui/Card'
 import { MetricCard } from '../components/ui/MetricCard'
+import { BentoGrid } from '../components/ui/BentoGrid'
+import { DrillDown } from '../components/ui/DrillDown'
+import { DataTable } from '../components/ui/DataTable'
+import { ChartCard } from '../components/ui/ChartCard'
+import { SourceList } from '../components/ui/SourceLink'
+import { TabGroup, FilterPills } from '../components/ui/TabGroup'
+import { YearSelector } from '../components/ui/YearSelector'
+import { EntityLink } from '../components/ui/EntityLink'
+import { Badge } from '../components/ui/Badge'
 
-import { FIFTY_BEST_BARS, LONDON_VENUES, AWARD_SPONSORS, SPONSOR_TO_PARENT, BAR_AFFILIATIONS, BUDGET_BENCHMARKS, PARENT_COMPANIES, COMPANY_PROFILES, DISTRIBUTORS, BRAND_VENUE_MAP, CATEGORY_DENSITY, ENTRY_PLAYBOOKS, COLORS, YEARS } from '../data/venueData'
+import {
+  FIFTY_BEST_BARS, LONDON_VENUES, AWARD_SPONSORS, SPONSOR_TO_PARENT,
+  BAR_AFFILIATIONS, BUDGET_BENCHMARKS, PARENT_COMPANIES, COMPANY_PROFILES,
+  DISTRIBUTORS, BRAND_VENUE_MAP, CATEGORY_DENSITY, ENTRY_PLAYBOOKS,
+  COMPETITIVE_HEAT, COLORS, YEARS
+} from '../data/venueData'
 
-export default function VenueIntelligence() {
-  const [activeTab, setActiveTab] = useState('overview')
-  const [selectedYear, setSelectedYear] = useState(2025)
-  const [venueSearch, setVenueSearch] = useState('')
-  const [accountFilter, setAccountFilter] = useState('All')
-  const [expandedVenue, setExpandedVenue] = useState(null)
-  const [selectedCompany, setSelectedCompany] = useState(null)
-  const [brandSubTab, setBrandSubTab] = useState('profiles')
-  const [brandFilterCompany, setBrandFilterCompany] = useState('All')
-  const [entryCategory, setEntryCategory] = useState(null)
-  const [expandedDistributor, setExpandedDistributor] = useState(null)
+// ===== COMPUTED DATA HOOKS =====
 
-  // Compute London bars in 50 Best each year
-  const londonIn50Best = useMemo(() => {
-    return YEARS.map(year => {
-      const bars = FIFTY_BEST_BARS[year].filter(b => b.city === 'London')
-      return { year, count: bars.length, bars: bars.map(b => `#${b.rank} ${b.name}`).join(', ') }
+function useVenueMetrics(selectedYear) {
+  const londonCount = useMemo(() =>
+    FIFTY_BEST_BARS[selectedYear]?.filter(b => b.city === 'London').length || 0,
+    [selectedYear]
+  )
+  const ukCount = useMemo(() =>
+    FIFTY_BEST_BARS[selectedYear]?.filter(b => b.country === 'UK').length || 0,
+    [selectedYear]
+  )
+  const citiesCount = useMemo(() =>
+    new Set(FIFTY_BEST_BARS[selectedYear]?.map(b => b.city) || []).size,
+    [selectedYear]
+  )
+  const topCity = useMemo(() => {
+    const cityCount = {}
+    ;(FIFTY_BEST_BARS[selectedYear] || []).forEach(b => {
+      cityCount[b.city] = (cityCount[b.city] || 0) + 1
     })
-  }, [])
+    const sorted = Object.entries(cityCount).sort((a, b) => b[1] - a[1])
+    return sorted[0] ? `${sorted[0][0]} (${sorted[0][1]})` : '\u2014'
+  }, [selectedYear])
 
-  // Compute UK bars in 50 Best each year (includes Edinburgh)
-  const ukIn50Best = useMemo(() => {
-    return YEARS.map(year => {
-      const bars = FIFTY_BEST_BARS[year].filter(b => b.country === 'UK')
-      return { year, count: bars.length, bars: bars.map(b => `#${b.rank} ${b.name} (${b.city})`).join(', ') }
-    })
-  }, [])
-
-  // City dominance across years
-  const cityDominance = useMemo(() => {
-    const cityMap = {}
-    YEARS.forEach(year => {
-      FIFTY_BEST_BARS[year].forEach(bar => {
-        if (!cityMap[bar.city]) cityMap[bar.city] = {}
-        if (!cityMap[bar.city][year]) cityMap[bar.city][year] = 0
-        cityMap[bar.city][year]++
-      })
-    })
-    return Object.entries(cityMap)
-      .map(([city, years]) => ({ city, ...years, total: Object.values(years).reduce((a,b) => a + b, 0) }))
-      .sort((a, b) => b.total - a.total)
-      .slice(0, 15)
-  }, [])
-
-  // Parent company presence across London venues
-  const parentCompanyPresence = useMemo(() => {
+  const topParentCompany = useMemo(() => {
     const counts = {}
     LONDON_VENUES.forEach(v => {
       (v.parentCompanies || []).forEach(pc => {
@@ -61,27 +53,14 @@ export default function VenueIntelligence() {
         counts[pc] = (counts[pc] || 0) + 1
       })
     })
-    return Object.entries(counts)
-      .map(([name, venues]) => ({ name, venues, color: PARENT_COMPANIES[name]?.color || '#666' }))
-      .sort((a, b) => b.venues - a.venues)
+    const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1])
+    return sorted[0] ? sorted[0][0] : '\u2014'
   }, [])
 
-  // Region analysis for selected year
-  const regionAnalysis = useMemo(() => {
-    const regionMap = {}
-    FIFTY_BEST_BARS[selectedYear].forEach(bar => {
-      regionMap[bar.region] = (regionMap[bar.region] || 0) + 1
-    })
-    return Object.entries(regionMap)
-      .map(([name, value]) => ({ name, value }))
-      .sort((a, b) => b.value - a.value)
-  }, [selectedYear])
-
-  // Perennial bars (appeared in all 5 years)
   const perennialBars = useMemo(() => {
     const barYearMap = {}
     YEARS.forEach(year => {
-      FIFTY_BEST_BARS[year].forEach(bar => {
+      ;(FIFTY_BEST_BARS[year] || []).forEach(bar => {
         if (!barYearMap[bar.name]) barYearMap[bar.name] = { name: bar.name, city: bar.city, years: [], ranks: {} }
         barYearMap[bar.name].years.push(year)
         barYearMap[bar.name].ranks[year] = bar.rank
@@ -92,34 +71,39 @@ export default function VenueIntelligence() {
       .sort((a, b) => b.years.length - a.years.length || (a.ranks[2025] || 99) - (b.ranks[2025] || 99))
   }, [])
 
-  // Filtered London venues
-  const filteredVenues = useMemo(() => {
-    return LONDON_VENUES.filter(v => {
-      const matchSearch = venueSearch === '' ||
-        v.name.toLowerCase().includes(venueSearch.toLowerCase()) ||
-        v.area.toLowerCase().includes(venueSearch.toLowerCase()) ||
-        (v.knownBrands || []).some(b => b.toLowerCase().includes(venueSearch.toLowerCase()))
-      const matchAccount = accountFilter === 'All' || v.accountType === accountFilter
-      return matchSearch && matchAccount
-    })
-  }, [venueSearch, accountFilter])
+  return { londonCount, ukCount, citiesCount, topCity, topParentCompany, perennialBars }
+}
 
-  // Regional trend over time
-  const regionalTrend = useMemo(() => {
-    return YEARS.map(year => {
-      const regions = {}
-      FIFTY_BEST_BARS[year].forEach(bar => {
-        regions[bar.region] = (regions[bar.region] || 0) + 1
-      })
-      return { year: year.toString(), ...regions }
+function useCityData(selectedYear) {
+  return useMemo(() => {
+    const cityCount = {}
+    ;(FIFTY_BEST_BARS[selectedYear] || []).forEach(b => {
+      cityCount[b.city] = (cityCount[b.city] || 0) + 1
     })
-  }, [])
+    return Object.entries(cityCount)
+      .map(([city, count]) => ({ city, count }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 12)
+  }, [selectedYear])
+}
 
-  // Parent company penetration across ALL 50 Best bars per year
-  const parentPenetration = useMemo(() => {
+function useRegionAnalysis(selectedYear) {
+  return useMemo(() => {
+    const regionMap = {}
+    ;(FIFTY_BEST_BARS[selectedYear] || []).forEach(bar => {
+      regionMap[bar.region] = (regionMap[bar.region] || 0) + 1
+    })
+    return Object.entries(regionMap)
+      .map(([name, value]) => ({ name, value, pct: Math.round(value / 50 * 100) }))
+      .sort((a, b) => b.value - a.value)
+  }, [selectedYear])
+}
+
+function useParentPenetration() {
+  return useMemo(() => {
     const result = {}
     YEARS.forEach(year => {
-      const bars = FIFTY_BEST_BARS[year]
+      const bars = FIFTY_BEST_BARS[year] || []
       const parentCounts = {}
       bars.forEach(bar => {
         const affiliations = BAR_AFFILIATIONS[bar.name] || []
@@ -134,13 +118,30 @@ export default function VenueIntelligence() {
     })
     return result
   }, [])
+}
 
-  // Overall 5-year parent company dominance (unique bars across all years)
-  const overallDominance = useMemo(() => {
+function useIndependentVsCorporate() {
+  return useMemo(() => {
+    return YEARS.map(year => {
+      const bars = FIFTY_BEST_BARS[year] || []
+      let corporate = 0, independent = 0
+      bars.forEach(bar => {
+        const affiliations = BAR_AFFILIATIONS[bar.name] || []
+        const nonIndependent = affiliations.filter(a => a !== 'Independent')
+        if (nonIndependent.length > 0) corporate++
+        else independent++
+      })
+      return { year: year.toString(), 'Corporate-Backed': corporate, Independent: independent, corpPct: Math.round(corporate / 50 * 100) }
+    })
+  }, [])
+}
+
+function useOverallDominance() {
+  return useMemo(() => {
     const parentBars = {}
     const totalUniqueBars = new Set()
     YEARS.forEach(year => {
-      FIFTY_BEST_BARS[year].forEach(bar => {
+      ;(FIFTY_BEST_BARS[year] || []).forEach(bar => {
         totalUniqueBars.add(bar.name)
         const affiliations = BAR_AFFILIATIONS[bar.name] || []
         affiliations.forEach(parent => {
@@ -154,9 +155,10 @@ export default function VenueIntelligence() {
       .map(([name, bars]) => ({ name, bars: bars.size, total: totalUniqueBars.size, pct: Math.round(bars.size / totalUniqueBars.size * 100), color: PARENT_COMPANIES[name]?.color || '#666' }))
       .sort((a, b) => b.bars - a.bars)
   }, [])
+}
 
-  // Award sponsor spend analysis
-  const sponsorAnalysis = useMemo(() => {
+function useSponsorAnalysis() {
+  return useMemo(() => {
     const sponsors = {}
     YEARS.forEach(year => {
       Object.entries(AWARD_SPONSORS[year] || {}).forEach(([brand, award]) => {
@@ -168,9 +170,22 @@ export default function VenueIntelligence() {
     })
     return Object.values(sponsors).sort((a, b) => b.years.length - a.years.length)
   }, [])
+}
 
-  // Parent company penetration trend (for line chart)
-  const penetrationTrend = useMemo(() => {
+function useRegionalTrend() {
+  return useMemo(() => {
+    return YEARS.map(year => {
+      const regions = {}
+      ;(FIFTY_BEST_BARS[year] || []).forEach(bar => {
+        regions[bar.region] = (regions[bar.region] || 0) + 1
+      })
+      return { year: year.toString(), ...regions }
+    })
+  }, [])
+}
+
+function usePenetrationTrend(parentPenetration) {
+  return useMemo(() => {
     return YEARS.map(year => {
       const entry = { year: year.toString() }
       const data = parentPenetration[year] || []
@@ -178,1048 +193,992 @@ export default function VenueIntelligence() {
       return entry
     })
   }, [parentPenetration])
+}
 
-  // Independent vs corporate split per year
-  const independentVsCorporate = useMemo(() => {
-    return YEARS.map(year => {
-      const bars = FIFTY_BEST_BARS[year]
-      let corporate = 0, independent = 0
-      bars.forEach(bar => {
-        const affiliations = BAR_AFFILIATIONS[bar.name] || []
-        const nonIndependent = affiliations.filter(a => a !== 'Independent')
-        if (nonIndependent.length > 0) corporate++
-        else independent++
+function useCityDominance() {
+  return useMemo(() => {
+    const cityMap = {}
+    YEARS.forEach(year => {
+      ;(FIFTY_BEST_BARS[year] || []).forEach(bar => {
+        if (!cityMap[bar.city]) cityMap[bar.city] = {}
+        if (!cityMap[bar.city][year]) cityMap[bar.city][year] = 0
+        cityMap[bar.city][year]++
       })
-      return { year: year.toString(), 'Corporate-Backed': corporate, 'Independent': independent, corpPct: Math.round(corporate / 50 * 100) }
     })
+    return Object.entries(cityMap)
+      .map(([city, years]) => ({ city, ...years, total: Object.values(years).reduce((a, b) => a + b, 0) }))
+      .sort((a, b) => b.total - a.total)
+      .slice(0, 15)
   }, [])
+}
 
-  const tabs = [
-    { id: 'overview', label: '50 Best Analysis', icon: Award },
-    { id: 'venues', label: 'London Key Accounts', icon: MapPin },
-    { id: 'brands', label: 'Company Intelligence', icon: Building2 },
-    { id: 'entry', label: 'Market Entry', icon: Target },
-    { id: 'trends', label: 'Longitudinal Trends', icon: TrendingUp },
-  ]
+function useParentCompanyPresence() {
+  return useMemo(() => {
+    const counts = {}
+    LONDON_VENUES.forEach(v => {
+      (v.parentCompanies || []).forEach(pc => {
+        if (pc === 'Independent') return
+        counts[pc] = (counts[pc] || 0) + 1
+      })
+    })
+    return Object.entries(counts)
+      .map(([name, venues]) => ({ name, venues, color: PARENT_COMPANIES[name]?.color || '#666' }))
+      .sort((a, b) => b.venues - a.venues)
+  }, [])
+}
+
+// ===== MAIN COMPONENT =====
+
+export default function VenueIntelligence() {
+  // State
+  const [selectedYear, setSelectedYear] = useState(2025)
+  const [venueSearch, setVenueSearch] = useState('')
+  const [expandedSection, setExpandedSection] = useState(null)
+  const [expandedVenue, setExpandedVenue] = useState(null)
+  const [selectedCompany, setSelectedCompany] = useState(null)
+  const [showFullList, setShowFullList] = useState(false)
+  const [showFullVenueTable, setShowFullVenueTable] = useState(false)
+  const [accountFilter, setAccountFilter] = useState('All')
+  const [brandFilterCompany, setBrandFilterCompany] = useState('All')
+  const [entryCategory, setEntryCategory] = useState(null)
+  const [expandedDistributor, setExpandedDistributor] = useState(null)
+
+  // Data hooks
+  const { londonCount, ukCount, citiesCount, topCity, topParentCompany, perennialBars } = useVenueMetrics(selectedYear)
+  const cityData = useCityData(selectedYear)
+  const regionAnalysis = useRegionAnalysis(selectedYear)
+  const parentPenetration = useParentPenetration()
+  const independentVsCorporate = useIndependentVsCorporate()
+  const overallDominance = useOverallDominance()
+  const sponsorAnalysis = useSponsorAnalysis()
+  const regionalTrend = useRegionalTrend()
+  const penetrationTrend = usePenetrationTrend(parentPenetration)
+  const cityDominance = useCityDominance()
+  const parentCompanyPresence = useParentCompanyPresence()
+
+  // Filtered London venues
+  const filteredVenues = useMemo(() => {
+    return LONDON_VENUES.filter(v => {
+      const q = venueSearch.toLowerCase()
+      const matchSearch = !q ||
+        v.name.toLowerCase().includes(q) ||
+        v.area.toLowerCase().includes(q) ||
+        (v.knownBrands || []).some(b => b.toLowerCase().includes(q))
+      const matchAccount = accountFilter === 'All' || v.accountType === accountFilter
+      return matchSearch && matchAccount
+    })
+  }, [venueSearch, accountFilter])
+
+  // DataTable columns for Tier 3 venue table
+  const venueTableColumns = useMemo(() => [
+    { key: 'name', label: 'Venue', sortable: true, render: (val) => <span className="font-medium text-navy">{val}</span> },
+    { key: 'area', label: 'Area', sortable: true },
+    { key: 'type', label: 'Type', sortable: true },
+    { key: 'accountType', label: 'Account', sortable: true, render: (val) => {
+      const colors = { Luxury: 'bg-purple-100 text-purple-700', Volume: 'bg-green-100 text-green-700', Both: 'bg-amber-100 text-amber-700' }
+      return <span className={`px-1.5 py-0.5 rounded text-[10px] font-medium ${colors[val] || 'bg-gray-100 text-gray-600'}`}>{val}</span>
+    }},
+    { key: 'estRevenue', label: 'Est. Revenue', sortable: true, align: 'right' },
+    { key: 'parentCompanies', label: 'Parent Cos', sortable: false, render: (val) => (val || []).join(', ') },
+  ], [])
+
+  // DataTable columns for full 50 Best list
+  const fiftyBestColumns = useMemo(() => [
+    { key: 'rank', label: '#', sortable: true, align: 'right', width: 'w-12', render: (val) => <span className={`font-bold ${val <= 10 ? 'text-gold' : 'text-gray-500'}`}>{val}</span> },
+    { key: 'name', label: 'Bar', sortable: true, render: (val) => <span className="font-medium text-navy">{val}</span> },
+    { key: 'city', label: 'City', sortable: true },
+    { key: 'country', label: 'Country', sortable: true },
+    { key: 'region', label: 'Region', sortable: true },
+  ], [])
+
+  const toggleSection = (section) => {
+    setExpandedSection(expandedSection === section ? null : section)
+  }
 
   return (
     <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto space-y-6">
       <PageHeader
         title="Venue & On-Trade Intelligence"
-        subtitle="World\u2019s 50 Best Bars (2021\u20132025), London key accounts, brand mapping, and on-trade analysis"
+        subtitle={`${LONDON_VENUES.length} London venues \u00b7 World\u2019s 50 Best Bars 2021\u20132025 \u00b7 ${Object.keys(COMPANY_PROFILES).length} company profiles`}
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Venue Intelligence' },
         ]}
+        action={<YearSelector activeYear={selectedYear} onChange={setSelectedYear} years={YEARS} />}
       />
 
-      {/* Tab Navigation */}
-      <TabGroup
-        tabs={tabs.map(t => ({ key: t.id, label: t.label }))}
-        active={activeTab}
-        onChange={setActiveTab}
-      />
+      {/* ═══════ SEARCH BAR (Search-First UX) ═══════ */}
+      <div className="relative">
+        <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+        <input
+          type="text"
+          placeholder="Search venues, areas, brands, or companies\u2026"
+          value={venueSearch}
+          onChange={e => setVenueSearch(e.target.value)}
+          className="w-full pl-12 pr-4 py-3.5 bg-white border border-gray-200 rounded-xl text-sm shadow-sm focus:ring-2 focus:ring-navy/20 focus:border-navy transition-all"
+        />
+        {venueSearch && (
+          <button onClick={() => setVenueSearch('')} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+            <X size={16} />
+          </button>
+        )}
+      </div>
 
-      {/* ═══════ TAB: 50 BEST ANALYSIS ═══════ */}
-      {activeTab === 'overview' && (
-        <div className="space-y-6">
-          {/* Year Selector */}
-          <YearSelector
-            activeYear={selectedYear}
-            onChange={setSelectedYear}
-            years={YEARS}
-          />
-
-          {/* Stats Row */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            <MetricCard
-              label="London Bars in Top 50"
-              value={FIFTY_BEST_BARS[selectedYear].filter(b => b.city === 'London').length}
-              subtitle={`${FIFTY_BEST_BARS[selectedYear].filter(b => b.country === 'UK').length} total UK`}
-              icon={MapPin}
-            />
-            <MetricCard
-              label="Cities Represented"
-              value={new Set(FIFTY_BEST_BARS[selectedYear].map(b => b.city)).size}
-              icon={Globe}
-            />
-            <MetricCard
-              label="European Bars"
-              value={FIFTY_BEST_BARS[selectedYear].filter(b => b.region === 'Europe').length}
-              subtitle={`${Math.round(FIFTY_BEST_BARS[selectedYear].filter(b => b.region === 'Europe').length / 50 * 100)}% of list`}
-            />
-            <MetricCard
-              label="Asian Bars"
-              value={FIFTY_BEST_BARS[selectedYear].filter(b => b.region === 'Asia').length}
-              subtitle={`${Math.round(FIFTY_BEST_BARS[selectedYear].filter(b => b.region === 'Asia').length / 50 * 100)}% of list`}
-            />
-          </div>
-
-          {/* Region Pie + City Bar Chart */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="bg-white rounded-xl p-5 border border-gray-100">
-              <h3 className="text-subsection text-navy mb-4">Regional Distribution — {selectedYear}</h3>
-              <ResponsiveContainer width="100%" height={280}>
-                <PieChart>
-                  <Pie data={regionAnalysis} cx="50%" cy="50%" outerRadius={100} dataKey="value" label={({ name, value }) => `${name}: ${value}`}>
-                    {regionAnalysis.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
-                  </Pie>
-                  <Tooltip />
-                </PieChart>
-              </ResponsiveContainer>
-            </div>
-            <div className="bg-white rounded-xl p-5 border border-gray-100">
-              <h3 className="text-subsection text-navy mb-4">Top Cities by Entries — {selectedYear}</h3>
-              <ResponsiveContainer width="100%" height={280}>
-                <BarChart data={(() => {
-                  const cityCount = {}
-                  FIFTY_BEST_BARS[selectedYear].forEach(b => { cityCount[b.city] = (cityCount[b.city] || 0) + 1 })
-                  return Object.entries(cityCount).map(([city, count]) => ({ city, count })).sort((a,b) => b.count - a.count).slice(0, 10)
-                })()}  layout="vertical">
-                  <XAxis type="number" />
-                  <YAxis dataKey="city" type="category" width={120} tick={{ fontSize: 11 }} />
-                  <Tooltip />
-                  <Bar dataKey="count" fill="#1e293b" radius={[0,4,4,0]} />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-          </div>
-
-          {/* London Representation Over Time */}
-          <div className="bg-white rounded-xl p-5 border border-gray-100">
-            <h3 className="text-subsection text-navy mb-4">London & UK Representation in 50 Best (2021–2025)</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead><tr className="border-b border-gray-100">
-                  <th className="text-left py-2 text-gray-500 font-medium">Year</th>
-                  <th className="text-center py-2 text-gray-500 font-medium">London Bars</th>
-                  <th className="text-center py-2 text-gray-500 font-medium">Total UK</th>
-                  <th className="text-left py-2 text-gray-500 font-medium">Bars</th>
-                </tr></thead>
-                <tbody>
-                  {ukIn50Best.map(row => (
-                    <tr key={row.year} className="border-b border-gray-50">
-                      <td className="py-3 font-semibold text-navy">{row.year}</td>
-                      <td className="py-3 text-center">
-                        <span className="bg-navy text-white px-2 py-0.5 rounded-full text-xs font-bold">
-                          {londonIn50Best.find(l => l.year === row.year)?.count}
-                        </span>
-                      </td>
-                      <td className="py-3 text-center">{row.count}</td>
-                      <td className="py-3 text-xs text-gray-600">{row.bars}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          {/* Perennial Bars */}
-          <div className="bg-white rounded-xl p-5 border border-gray-100">
-            <h3 className="text-subsection text-navy mb-1">Perennial Bars — Appeared 4+ Years (2021–2025)</h3>
-            <p className="text-xs text-gray-400 mb-4">These are the most consistently ranked bars globally — key accounts for brand partnerships</p>
-            <div className="space-y-2 max-h-96 overflow-y-auto">
-              {perennialBars.map(bar => (
-                <div key={bar.name} className="flex items-center gap-4 py-2 border-b border-gray-50">
-                  <div className="w-40 font-medium text-sm text-navy truncate">{bar.name}</div>
-                  <div className="w-24 text-xs text-gray-500">{bar.city}</div>
-                  <div className="flex gap-1">
-                    <span className={`px-1.5 py-0.5 rounded text-xs font-bold ${bar.years.length === 5 ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700'}`}>
-                      {bar.years.length}/5 yrs
-                    </span>
-                  </div>
-                  <div className="flex gap-2 flex-1">
-                    {YEARS.map(y => (
-                      <span key={y} className={`text-xs w-12 text-center ${bar.ranks[y] ? (bar.ranks[y] <= 10 ? 'font-bold text-green-600' : 'text-gray-600') : 'text-gray-300'}`}>
-                        {bar.ranks[y] ? `#${bar.ranks[y]}` : '—'}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Full 50 Best List for Selected Year */}
-          <div className="bg-white rounded-xl p-5 border border-gray-100">
-            <h3 className="text-subsection text-navy mb-4">Complete List — World's 50 Best Bars {selectedYear}</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1 max-h-[500px] overflow-y-auto">
-              {FIFTY_BEST_BARS[selectedYear].map(bar => (
-                <div key={bar.rank} className={`flex items-center gap-3 py-1.5 text-sm ${bar.country === 'UK' ? 'bg-blue-50 rounded px-2 -mx-2' : ''}`}>
-                  <span className={`w-7 text-right font-bold ${bar.rank <= 10 ? 'text-gold' : 'text-gray-400'}`}>{bar.rank}</span>
-                  <span className={`font-medium ${bar.country === 'UK' ? 'text-navy' : 'text-gray-800'}`}>{bar.name}</span>
-                  <span className="text-xs text-gray-400 ml-auto">{bar.city}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+      {/* Show search results if searching */}
+      {venueSearch ? (
+        <div className="space-y-3">
+          <p className="text-xs text-gray-500">{filteredVenues.length} venue{filteredVenues.length !== 1 ? 's' : ''} matching &ldquo;{venueSearch}&rdquo;</p>
+          {filteredVenues.map((venue, i) => (
+            <VenueCard key={i} venue={venue} index={i} expanded={expandedVenue === i}
+              onToggle={() => setExpandedVenue(expandedVenue === i ? null : i)} />
+          ))}
         </div>
-      )}
-
-      {/* ═══════ TAB: LONDON KEY ACCOUNTS ═══════ */}
-      {activeTab === 'venues' && (
-        <div className="space-y-6">
-          {/* Search & Filter */}
-          <div className="flex gap-4 items-center">
-            <div className="relative flex-1">
-              <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-              <input type="text" placeholder="Search venues, areas, or brands..." value={venueSearch} onChange={e => setVenueSearch(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-navy focus:border-transparent" />
-            </div>
-            <div className="flex gap-1">
-              {['All','Luxury','Volume','Both'].map(f => (
-                <button key={f} onClick={() => setAccountFilter(f)}
-                  className={`px-3 py-2 rounded-lg text-xs font-medium ${accountFilter === f ? 'bg-navy text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
-                  {f}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Revenue Methodology Note */}
-          <div className="bg-green-50 border border-green-100 rounded-xl p-4 mb-4">
-            <h4 className="text-sm font-semibold text-green-800 mb-1 flex items-center gap-2"><Building2 size={14} /> Revenue Data Sources</h4>
-            <p className="text-xs text-green-700">Revenue figures are sourced from <span className="font-semibold">Companies House filings</span> (UK registered companies), <span className="font-semibold">SEC filings</span> (US-listed groups), and <span className="font-semibold">industry estimates</span> (for independent venues without public filings). Where a venue is part of a larger hotel or restaurant group, revenue is allocated based on standard F&B revenue splits. Click any venue to see the specific source for its revenue figure.</p>
-          </div>
-
-          {/* Account Type Explanation */}
-          <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
-            <h4 className="text-subsection text-navy mb-2">On-Trade Account Types</h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs text-gray-700">
-              <div><span className="font-bold text-purple-600">Luxury:</span> High-value, notoriety-driven accounts. Brands invest marketing spend for featuring, menu placement, and brand association. Lower volume but high visibility.</div>
-              <div><span className="font-bold text-green-600">Volume:</span> High-throughput accounts. Brands offer retros (retrospective discounts) based on volume. More aggressive pricing. Think clubs, large restaurant groups.</div>
-              <div><span className="font-bold text-amber-600">Both:</span> Rare accounts with both high volume AND prestige. e.g. Annabel\'s (~£55.6M revenue per Companies House), Sexy Fish (~£35M). Brands compete aggressively for these — offering retros + marketing spend + suspension pricing.</div>
-            </div>
-          </div>
-
-          {/* Venue Cards */}
-          <div className="space-y-3">
-            {filteredVenues.map((venue, i) => (
-              <div key={i} className="bg-white rounded-xl border border-gray-100 overflow-hidden">
-                <div className="p-4 flex items-start gap-4 cursor-pointer" onClick={() => setExpandedVenue(expandedVenue === i ? null : i)}>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2">
-                      <h3 className="font-semibold text-navy">{venue.name}</h3>
-                      {venue.stars && <span className="text-amber-500 text-xs">{'⭐'.repeat(venue.stars)}</span>}
-                      <span className={`px-2 py-0.5 rounded text-xs font-medium ${venue.accountType === 'Luxury' ? 'bg-purple-100 text-purple-700' : venue.accountType === 'Volume' ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700'}`}>
-                        {venue.accountType}
-                      </span>
-                      <span className="px-2 py-0.5 bg-gray-100 text-gray-600 rounded text-xs">{venue.type}</span>
-                    </div>
-                    <div className="flex items-center gap-4 mt-1 text-xs text-gray-500">
-                      <span className="flex items-center gap-1"><MapPin size={12} /> {venue.area}</span>
-                      <span className="flex items-center gap-1"><DollarSign size={12} /> Est. {venue.estRevenue}/yr</span>
-                      {venue.menuUrl && (
-                        <a href={venue.menuUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-blue-500 hover:text-blue-700" onClick={e => e.stopPropagation()}>
-                          <ExternalLink size={12} /> Menu
-                        </a>
-                      )}
-                      {venue.fiftyBest && venue.fiftyBest.some(r => r) && (
-                        <span className="flex items-center gap-1"><Award size={12} /> 50 Best: {venue.fiftyBest.filter(r => r).length} appearances</span>
-                      )}
-                    </div>
+      ) : (
+        <>
+          {/* ═══════ TIER 1: BENTO GRID SUMMARY ═══════ */}
+          <BentoGrid>
+            {/* Hero card */}
+            <BentoGrid.Hero>
+              <Card className="h-full" hover onClick={() => toggleSection('50best')}>
+                <div className="flex items-start justify-between mb-3">
+                  <div>
+                    <p className="text-label text-gray-500">World\u2019s 50 Best Bars {selectedYear}</p>
+                    <p className="text-3xl font-bold text-navy mt-1">{londonCount}</p>
+                    <p className="text-sm text-gray-500 mt-0.5">London bars in Top 50</p>
                   </div>
-                  {expandedVenue === i ? <ChevronUp size={18} className="text-gray-400" /> : <ChevronDown size={18} className="text-gray-400" />}
+                  <Award size={24} className="text-gold" />
                 </div>
-                {expandedVenue === i && (
-                  <div className="border-t border-gray-100 p-4 bg-gray-50 space-y-3">
-                    {venue.fiftyBest && venue.fiftyBest.some(r => r) && (
-                      <div>
-                        <p className="text-xs font-semibold text-gray-500 uppercase mb-1">50 Best Rankings (2021→2025)</p>
-                        <div className="flex gap-2">
-                          {YEARS.map((y, idx) => (
-                            <span key={y} className={`px-2 py-1 rounded text-xs ${venue.fiftyBest[idx] ? (venue.fiftyBest[idx] <= 10 ? 'bg-green-100 text-green-700 font-bold' : 'bg-blue-100 text-blue-700') : 'bg-gray-100 text-gray-400'}`}>
-                              {y}: {venue.fiftyBest[idx] ? `#${venue.fiftyBest[idx]}` : '—'}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                    {venue.knownBrands && venue.knownBrands.length > 0 && (
-                      <div>
-                        <p className="text-xs font-semibold text-gray-500 uppercase mb-1">Brands on Menu / Known Partnerships</p>
-                        <div className="flex flex-wrap gap-1">
-                          {venue.knownBrands.map(brand => (
-                            <span key={brand} className="px-2 py-0.5 bg-white border border-gray-200 rounded text-xs text-gray-700">{brand}</span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                    {venue.parentCompanies && venue.parentCompanies.length > 0 && (
-                      <div>
-                        <p className="text-xs font-semibold text-gray-500 uppercase mb-1">Parent Companies Present</p>
-                        <div className="flex flex-wrap gap-1">
-                          {venue.parentCompanies.map(pc => (
-                            <span key={pc} className="px-2 py-0.5 rounded text-xs font-medium" style={{ backgroundColor: (PARENT_COMPANIES[pc]?.color || '#666') + '20', color: PARENT_COMPANIES[pc]?.color || '#666' }}>
-                              {pc}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                    {venue.founders && <p className="text-xs text-gray-600"><span className="font-semibold">Key People:</span> {venue.founders}</p>}
-                    <p className="text-xs text-gray-600"><span className="font-semibold">Intel:</span> {venue.notes}</p>
-                    {venue.menuUrl && (
-                      <div className="flex items-center gap-2">
-                        <p className="text-xs text-gray-600">
-                          <span className="font-semibold">Menu:</span>{' '}
-                          <a href={venue.menuUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline inline-flex items-center gap-1">
-                            View Menu <ExternalLink size={10} />
-                          </a>
-                        </p>
-                      </div>
-                    )}
-                    {venue.revenueSource && (
-                      <div className="bg-amber-50 border border-amber-100 rounded-lg p-2 mt-1">
-                        <p className="text-xs text-amber-800">
-                          <span className="font-semibold">Revenue Source:</span> {venue.revenueSource}
-                        </p>
-                      </div>
-                    )}
+                <div className="space-y-2 mt-4">
+                  <div className="flex justify-between text-xs">
+                    <span className="text-gray-500">Total UK bars</span>
+                    <span className="font-semibold text-navy">{ukCount}</span>
                   </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* ═══════ TAB: COMPANY INTELLIGENCE ═══════ */}
-      {activeTab === 'brands' && (
-        <div className="space-y-6">
-          {/* Sub-navigation */}
-          <div className="flex gap-1 bg-gray-50 p-1 rounded-lg">
-            {[
-              { id: 'profiles', label: 'Company Profiles', icon: Building2 },
-              { id: 'mapping', label: 'Brand Mapping', icon: Layers },
-              { id: 'heatmap', label: 'Competitive Heat Map', icon: BarChart3 },
-              { id: 'landscape', label: 'Category Landscape', icon: Wine },
-              { id: 'benchmarks', label: 'Budget & Benchmarks', icon: DollarSign },
-            ].map(sub => (
-              <button key={sub.id} onClick={() => setBrandSubTab(sub.id)}
-                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium transition-colors ${brandSubTab === sub.id ? 'bg-white text-navy shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}>
-                <sub.icon size={14} />
-                {sub.label}
-              </button>
-            ))}
-          </div>
-
-          {/* ─── COMPANY PROFILES ─── */}
-          {brandSubTab === 'profiles' && (
-            <div className="space-y-4">
-              <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
-                <h4 className="text-subsection text-navy mb-1">Parent Company Deep Dives</h4>
-                <p className="text-xs text-gray-600">Click any company to see their full on-trade strategy, key brands, distribution model, deal structures, and where they\u2019re vulnerable to smaller brands.</p>
-              </div>
-
-              {/* Headline Stats */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                <div className="bg-white rounded-xl p-4 border border-gray-100">
-                  <p className="text-xs text-gray-500 uppercase tracking-wider">Corporate-Backed Bars (2025)</p>
-                  <p className="text-3xl font-bold text-navy mt-1">{independentVsCorporate.find(d => d.year === '2025')?.corpPct || 0}%</p>
-                  <p className="text-xs text-gray-400 mt-1">of Top 50 have major company presence</p>
+                  <div className="flex justify-between text-xs">
+                    <span className="text-gray-500">Cities represented</span>
+                    <span className="font-semibold text-navy">{citiesCount}</span>
+                  </div>
+                  <div className="flex justify-between text-xs">
+                    <span className="text-gray-500">Top city</span>
+                    <span className="font-semibold text-navy">{topCity}</span>
+                  </div>
+                  <div className="flex justify-between text-xs">
+                    <span className="text-gray-500">Perennial bars (4+ yrs)</span>
+                    <span className="font-semibold text-navy">{perennialBars.length}</span>
+                  </div>
                 </div>
-                <div className="bg-white rounded-xl p-4 border border-gray-100">
-                  <p className="text-xs text-gray-500 uppercase tracking-wider">Top Company (2025)</p>
-                  <p className="text-xl font-bold mt-1" style={{ color: parentPenetration[2025]?.[0]?.name ? (PARENT_COMPANIES[parentPenetration[2025][0].name]?.color || '#333') : '#333' }}>{parentPenetration[2025]?.[0]?.name || '—'}</p>
-                  <p className="text-xs text-gray-400 mt-1">{parentPenetration[2025]?.[0]?.pct}% penetration</p>
-                </div>
-                <div className="bg-white rounded-xl p-4 border border-gray-100">
-                  <p className="text-xs text-gray-500 uppercase tracking-wider">Companies Profiled</p>
-                  <p className="text-3xl font-bold text-navy mt-1">{Object.keys(COMPANY_PROFILES).length}</p>
-                  <p className="text-xs text-gray-400 mt-1">major parent companies</p>
-                </div>
-                <div className="bg-white rounded-xl p-4 border border-gray-100">
-                  <p className="text-xs text-gray-500 uppercase tracking-wider">Independent Bars (2025)</p>
-                  <p className="text-3xl font-bold text-green-600 mt-1">{independentVsCorporate.find(d => d.year === '2025')?.['Independent'] || 0}</p>
-                  <p className="text-xs text-gray-400 mt-1">not tied to a major parent company</p>
-                </div>
-              </div>
+                <p className="text-[10px] text-gray-400 mt-3">Click to explore rankings \u2192</p>
+              </Card>
+            </BentoGrid.Hero>
 
-              {/* Penetration Chart */}
-              <div className="bg-white rounded-xl p-5 border border-gray-100">
-                <h3 className="text-subsection text-navy mb-1">Parent Company Penetration: % of Top 50 Bars ({selectedYear})</h3>
-                <p className="text-xs text-gray-400 mb-4">Click a company name below the chart for their full profile</p>
-                <ResponsiveContainer width="100%" height={280}>
-                  <BarChart data={parentPenetration[selectedYear] || []} layout="vertical">
-                    <XAxis type="number" domain={[0, 70]} tickFormatter={v => `${v}%`} />
-                    <YAxis dataKey="name" type="category" width={140} tick={{ fontSize: 11 }} />
-                    <Tooltip formatter={(val) => [`${val}%`, 'Penetration']} />
-                    <Bar dataKey="pct" radius={[0,4,4,0]} cursor="pointer" onClick={(data) => setSelectedCompany(data?.name || null)}>
-                      {(parentPenetration[selectedYear] || []).map((entry, i) => (
-                        <Cell key={i} fill={PARENT_COMPANIES[entry.name]?.color || '#666'} />
-                      ))}
+            {/* KPI cards */}
+            <Card hover onClick={() => toggleSection('venues')}>
+              <MetricCard
+                label="London Venue Profiles"
+                value={LONDON_VENUES.length}
+                subtitle="Key on-trade accounts"
+                icon={MapPin}
+              />
+            </Card>
+
+            <Card hover onClick={() => toggleSection('companies')}>
+              <MetricCard
+                label="Top Parent Company"
+                value={topParentCompany}
+                subtitle={`${Object.keys(COMPANY_PROFILES).length} companies profiled`}
+                icon={Building2}
+              />
+            </Card>
+
+            <Card hover onClick={() => toggleSection('venues')}>
+              <MetricCard
+                label="Avg Budget Range"
+                value={BUDGET_BENCHMARKS?.luxury?.marketingSpend || '\u00a315-50k'}
+                subtitle="Luxury account marketing/yr"
+                icon={DollarSign}
+              />
+            </Card>
+
+            <Card hover onClick={() => toggleSection('entry')}>
+              <MetricCard
+                label="Entry Playbooks"
+                value={Object.keys(ENTRY_PLAYBOOKS).length}
+                subtitle="Category-specific strategies"
+                icon={Target}
+              />
+            </Card>
+          </BentoGrid>
+
+          {/* ═══════ TIER 2: DRILL-DOWN SECTIONS ═══════ */}
+
+          {/* --- 50 Best Bars Analysis --- */}
+          <DrillDown
+            title="50 Best Bars Analysis"
+            summary={`London: ${londonCount} bars \u00b7 ${citiesCount} cities \u00b7 ${perennialBars.length} perennial bars`}
+            defaultOpen={expandedSection === '50best'}
+          >
+            <div className="space-y-6">
+              {/* Region + City charts */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <ChartCard title={`Regional Distribution \u2014 ${selectedYear}`} height={240}>
+                  <BarChart data={regionAnalysis} layout="vertical">
+                    <XAxis type="number" />
+                    <YAxis dataKey="name" type="category" width={120} tick={{ fontSize: 11 }} />
+                    <Tooltip formatter={(val) => [`${val} bars (${Math.round(val / 50 * 100)}%)`]} />
+                    <Bar dataKey="value" fill="#1e293b" radius={[0, 4, 4, 0]}>
+                      {regionAnalysis.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
                     </Bar>
                   </BarChart>
-                </ResponsiveContainer>
-                <div className="flex gap-2 mt-3 justify-center">
-                  {YEARS.map(year => (
-                    <button key={year} onClick={() => setSelectedYear(year)}
-                      className={`px-3 py-1 rounded text-xs font-medium border ${selectedYear === year ? 'bg-navy text-white border-navy' : 'bg-white text-gray-500 border-gray-200 hover:border-navy'}`}>
-                      {year}
-                    </button>
-                  ))}
-                </div>
+                </ChartCard>
+
+                <ChartCard title={`Top Cities by Entries \u2014 ${selectedYear}`} height={240}>
+                  <BarChart data={cityData} layout="vertical">
+                    <XAxis type="number" />
+                    <YAxis dataKey="city" type="category" width={100} tick={{ fontSize: 11 }} />
+                    <Tooltip />
+                    <Bar dataKey="count" fill="#1e293b" radius={[0, 4, 4, 0]} />
+                  </BarChart>
+                </ChartCard>
               </div>
 
-              {/* Company Cards Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {Object.entries(COMPANY_PROFILES).map(([name, profile]) => (
-                  <div key={name} className={`bg-white rounded-xl border transition-all cursor-pointer ${selectedCompany === name ? 'border-navy shadow-lg' : 'border-gray-100 hover:border-gray-300'}`}
-                    onClick={() => setSelectedCompany(selectedCompany === name ? null : name)}>
-                    <div className="p-4">
-                      <div className="flex items-center gap-3 mb-2">
-                        <div className="w-4 h-4 rounded-full" style={{ backgroundColor: PARENT_COMPANIES[name]?.color || '#666' }} />
-                        <h4 className="text-sm font-bold text-navy">{name}</h4>
-                        <span className="text-xs text-gray-400 ml-auto">{profile.revenue}</span>
-                        {selectedCompany === name ? <ChevronUp size={16} className="text-gray-400" /> : <ChevronDown size={16} className="text-gray-400" />}
+              {/* Perennial bars */}
+              <Card>
+                <h4 className="text-sm font-semibold text-navy mb-1">Perennial Bars \u2014 Appeared 4+ Years</h4>
+                <p className="text-[10px] text-gray-400 mb-3">Key accounts for brand partnerships</p>
+                <div className="space-y-1.5 max-h-72 overflow-y-auto">
+                  {perennialBars.map(bar => (
+                    <div key={bar.name} className="flex items-center gap-3 py-1.5 border-b border-gray-50 last:border-0">
+                      <div className="w-36 font-medium text-xs text-navy truncate">{bar.name}</div>
+                      <div className="w-20 text-[10px] text-gray-500">{bar.city}</div>
+                      <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${bar.years.length === 5 ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700'}`}>
+                        {bar.years.length}/5
+                      </span>
+                      <div className="flex gap-1.5 flex-1">
+                        {YEARS.map(y => (
+                          <span key={y} className={`text-[10px] w-10 text-center ${bar.ranks[y] ? (bar.ranks[y] <= 10 ? 'font-bold text-green-600' : 'text-gray-600') : 'text-gray-300'}`}>
+                            {bar.ranks[y] ? `#${bar.ranks[y]}` : '\u2014'}
+                          </span>
+                        ))}
                       </div>
-                      <p className="text-xs text-gray-500">{profile.headquarters} {'•'} CEO: {profile.ceo}</p>
-                      <p className="text-xs text-gray-500 mt-1">On-trade share: {profile.onTradeShare}</p>
                     </div>
+                  ))}
+                </div>
+              </Card>
 
-                    {selectedCompany === name && (
-                      <div className="border-t border-gray-100 p-4 bg-gray-50 space-y-4">
-                        {/* Strategy */}
-                        <div>
-                          <h5 className="text-xs font-bold text-navy uppercase tracking-wider mb-1 flex items-center gap-1"><Target size={12} /> On-Trade Strategy</h5>
-                          <p className="text-xs text-gray-700 leading-relaxed">{profile.strategy}</p>
-                        </div>
+              {/* Tier 3 CTA */}
+              <div className="flex justify-center">
+                <button
+                  onClick={() => setShowFullList(!showFullList)}
+                  className="px-4 py-2 text-xs font-medium text-navy border border-navy/20 rounded-lg hover:bg-navy hover:text-white transition-colors"
+                >
+                  {showFullList ? 'Hide Full Rankings' : `View Full ${selectedYear} Rankings (50 bars)`}
+                </button>
+              </div>
 
-                        {/* Key Brands */}
-                        <div>
-                          <h5 className="text-xs font-bold text-navy uppercase tracking-wider mb-2 flex items-center gap-1"><Wine size={12} /> Key On-Trade Brands</h5>
-                          <div className="grid grid-cols-1 gap-1.5">
-                            {(profile.keyBrandsOnTrade || []).map((brand, bi) => (
-                              <div key={bi} className="flex items-center gap-2 text-xs bg-white rounded px-2 py-1.5 border border-gray-100">
-                                <span className="font-semibold text-navy w-32 truncate">{brand.name}</span>
-                                <span className="text-gray-400">{brand.category}</span>
-                                <span className="ml-auto text-gray-500">{brand.pricePoint}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
+              {/* Tier 3: Full DataTable */}
+              {showFullList && (
+                <DataTable
+                  columns={fiftyBestColumns}
+                  data={FIFTY_BEST_BARS[selectedYear] || []}
+                  searchable
+                  searchPlaceholder="Search bars\u2026"
+                  searchKey="name"
+                  compact
+                />
+              )}
 
-                        {/* Strengths & Weaknesses */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                          <div>
-                            <h5 className="text-xs font-bold text-green-700 uppercase tracking-wider mb-1 flex items-center gap-1"><Shield size={12} /> Strengths</h5>
-                            <div className="space-y-1">
-                              {(profile.strengths || []).map((s, si) => (
-                                <p key={si} className="text-xs text-gray-700 flex items-start gap-1"><Check size={10} className="text-green-500 mt-0.5 flex-shrink-0" /> {s}</p>
-                              ))}
-                            </div>
-                          </div>
-                          <div>
-                            <h5 className="text-xs font-bold text-red-700 uppercase tracking-wider mb-1 flex items-center gap-1"><Zap size={12} /> Vulnerabilities</h5>
-                            <div className="space-y-1">
-                              {(profile.weaknesses || []).map((w, wi) => (
-                                <p key={wi} className="text-xs text-gray-700 flex items-start gap-1"><X size={10} className="text-red-500 mt-0.5 flex-shrink-0" /> {w}</p>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
+              <SourceList sources={[
+                { label: "World\u2019s 50 Best Bars", url: 'https://www.worlds50bestbars.com/' },
+              ]} />
+            </div>
+          </DrillDown>
 
-                        {/* London Presence */}
-                        <div>
-                          <h5 className="text-xs font-bold text-navy uppercase tracking-wider mb-1 flex items-center gap-1"><MapPin size={12} /> London Presence</h5>
-                          <p className="text-xs text-gray-700">{profile.londonPresence}</p>
-                        </div>
-
-                        {/* Distribution & Deal Structure */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                          <div className="bg-white rounded-lg p-3 border border-gray-100">
-                            <h5 className="text-xs font-bold text-navy mb-1">UK Distribution</h5>
-                            <p className="text-xs text-gray-600">{profile.distributionUK}</p>
-                          </div>
-                          <div className="bg-white rounded-lg p-3 border border-gray-100">
-                            <h5 className="text-xs font-bold text-navy mb-1">Typical Deal Structure</h5>
-                            <p className="text-xs text-gray-600">{profile.typicalDealStructure}</p>
-                          </div>
-                        </div>
-
-                        {/* UK On-Trade Team */}
-                        <div>
-                          <h5 className="text-xs font-bold text-navy uppercase tracking-wider mb-1 flex items-center gap-1"><Users size={12} /> UK On-Trade Team</h5>
-                          <p className="text-xs text-gray-700">{profile.ukOnTradeTeam}</p>
-                        </div>
-
-                        {/* Recent Moves */}
-                        <div>
-                          <h5 className="text-xs font-bold text-navy uppercase tracking-wider mb-1 flex items-center gap-1"><TrendingUp size={12} /> Recent Strategic Moves (2024-25)</h5>
-                          <div className="space-y-1">
-                            {(profile.recentMoves || []).map((m, mi) => (
-                              <p key={mi} className="text-xs text-gray-700 flex items-start gap-1"><ArrowRight size={10} className="text-navy mt-0.5 flex-shrink-0" /> {m}</p>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Threat/Opportunity for SMBs */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                          <div className="bg-red-50 rounded-lg p-3 border border-red-100">
-                            <h5 className="text-xs font-bold text-red-800 mb-1">Threat to Small Brands</h5>
-                            <p className="text-xs text-red-700">{profile.threatToSmallBrands}</p>
-                          </div>
-                          <div className="bg-green-50 rounded-lg p-3 border border-green-100">
-                            <h5 className="text-xs font-bold text-green-800 mb-1">Opportunity for Small Brands</h5>
-                            <p className="text-xs text-green-700">{profile.opportunityForSmallBrands}</p>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
+          {/* --- London Venue Profiles --- */}
+          <DrillDown
+            title="London Key Account Profiles"
+            summary={`${LONDON_VENUES.length} venues profiled \u00b7 Search by name, area, or brand`}
+            defaultOpen={expandedSection === 'venues'}
+          >
+            <div className="space-y-4">
+              {/* Filter pills */}
+              <div className="flex gap-2 flex-wrap">
+                {['All', 'Luxury', 'Volume', 'Both'].map(f => (
+                  <button key={f} onClick={() => setAccountFilter(f)}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors ${accountFilter === f ? 'bg-navy text-white border-navy' : 'bg-white text-gray-500 border-gray-200 hover:border-gray-400'}`}>
+                    {f}
+                  </button>
                 ))}
               </div>
 
-              {/* Award Sponsor Intelligence */}
-              <div className="bg-white rounded-xl p-5 border border-gray-100">
-                <h3 className="text-subsection text-navy mb-1">50 Best Bars {'—'} Award Sponsor Intelligence</h3>
-                <p className="text-xs text-gray-400 mb-4">Brands that sponsor named awards gain massive bartender community visibility</p>
+              {/* Account Type Legend */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-[10px] text-gray-600">
+                <div><span className="font-bold text-purple-600">Luxury:</span> Notoriety-driven, marketing spend, menu placement</div>
+                <div><span className="font-bold text-green-600">Volume:</span> High-throughput, retros, aggressive pricing</div>
+                <div><span className="font-bold text-amber-600">Both:</span> Rare \u2014 high volume AND prestige (e.g. Annabel\u2019s)</div>
+              </div>
+
+              {/* Venue cards */}
+              <div className="space-y-2">
+                {filteredVenues.slice(0, 10).map((venue, i) => (
+                  <VenueCard key={i} venue={venue} index={i} expanded={expandedVenue === i}
+                    onToggle={() => setExpandedVenue(expandedVenue === i ? null : i)} />
+                ))}
+              </div>
+
+              {/* Tier 3 CTA */}
+              <div className="flex justify-center">
+                <button
+                  onClick={() => setShowFullVenueTable(!showFullVenueTable)}
+                  className="px-4 py-2 text-xs font-medium text-navy border border-navy/20 rounded-lg hover:bg-navy hover:text-white transition-colors"
+                >
+                  {showFullVenueTable ? 'Hide Full Venue Table' : `View All ${LONDON_VENUES.length} Venues in Table`}
+                </button>
+              </div>
+
+              {showFullVenueTable && (
+                <DataTable
+                  columns={venueTableColumns}
+                  data={LONDON_VENUES}
+                  searchable
+                  searchPlaceholder="Search venues\u2026"
+                  searchKey="name"
+                  compact
+                />
+              )}
+
+              <SourceList sources={[
+                { label: 'Companies House', url: 'https://www.gov.uk/government/organisations/companies-house' },
+                { label: 'Venue menus & press releases' },
+              ]} />
+            </div>
+          </DrillDown>
+
+          {/* --- Company Intelligence --- */}
+          <DrillDown
+            title="Parent Company Intelligence"
+            summary={`${Object.keys(COMPANY_PROFILES).length} companies \u00b7 Penetration, strategy, brand mapping`}
+            defaultOpen={expandedSection === 'companies'}
+          >
+            <div className="space-y-6">
+              {/* Headline stats */}
+              <BentoGrid>
+                <Card>
+                  <p className="text-label text-gray-500">Corporate-Backed ({selectedYear})</p>
+                  <p className="text-2xl font-bold text-navy mt-1">{independentVsCorporate.find(d => d.year === selectedYear.toString())?.corpPct || 0}%</p>
+                  <p className="text-[10px] text-gray-400">of Top 50 have major company presence</p>
+                </Card>
+                <Card>
+                  <p className="text-label text-gray-500">Top Company ({selectedYear})</p>
+                  <p className="text-lg font-bold mt-1" style={{ color: PARENT_COMPANIES[parentPenetration[selectedYear]?.[0]?.name]?.color || '#333' }}>
+                    {parentPenetration[selectedYear]?.[0]?.name || '\u2014'}
+                  </p>
+                  <p className="text-[10px] text-gray-400">{parentPenetration[selectedYear]?.[0]?.pct}% penetration</p>
+                </Card>
+                <Card>
+                  <p className="text-label text-gray-500">Independent Bars ({selectedYear})</p>
+                  <p className="text-2xl font-bold text-green-600 mt-1">{independentVsCorporate.find(d => d.year === selectedYear.toString())?.Independent || 0}</p>
+                  <p className="text-[10px] text-gray-400">not tied to a major parent</p>
+                </Card>
+                <Card>
+                  <p className="text-label text-gray-500">Companies Profiled</p>
+                  <p className="text-2xl font-bold text-navy mt-1">{Object.keys(COMPANY_PROFILES).length}</p>
+                  <p className="text-[10px] text-gray-400">major parent companies</p>
+                </Card>
+              </BentoGrid>
+
+              {/* Penetration chart */}
+              <ChartCard title={`Parent Company Penetration: % of Top 50 Bars (${selectedYear})`} subtitle="Click a company bar for their full profile" height={280}>
+                <BarChart data={parentPenetration[selectedYear] || []} layout="vertical">
+                  <XAxis type="number" domain={[0, 70]} tickFormatter={v => `${v}%`} />
+                  <YAxis dataKey="name" type="category" width={140} tick={{ fontSize: 11 }} />
+                  <Tooltip formatter={(val) => [`${val}%`, 'Penetration']} />
+                  <Bar dataKey="pct" radius={[0, 4, 4, 0]} cursor="pointer" onClick={(data) => setSelectedCompany(data?.name || null)}>
+                    {(parentPenetration[selectedYear] || []).map((entry, i) => (
+                      <Cell key={i} fill={PARENT_COMPANIES[entry.name]?.color || '#666'} />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ChartCard>
+
+              {/* Company cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {Object.entries(COMPANY_PROFILES).map(([name, profile]) => (
+                  <CompanyCard
+                    key={name}
+                    name={name}
+                    profile={profile}
+                    expanded={selectedCompany === name}
+                    onToggle={() => setSelectedCompany(selectedCompany === name ? null : name)}
+                  />
+                ))}
+              </div>
+
+              {/* Sponsor analysis */}
+              <Card>
+                <h4 className="text-sm font-semibold text-navy mb-1">Award Sponsor Intelligence</h4>
+                <p className="text-[10px] text-gray-400 mb-3">Brands sponsoring 50 Best Bar awards gain bartender community visibility</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {sponsorAnalysis.map(s => (
                     <div key={s.brand} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg border border-gray-100">
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
-                          <span className="text-subsection text-navy">{s.brand}</span>
-                          <span className="text-xs px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 font-medium">{s.parent}</span>
+                          <span className="text-sm font-semibold text-navy">{s.brand}</span>
+                          <EntityLink type="company" id={s.parent.toLowerCase().replace(/\s+/g, '-')} label={s.parent} className="text-[10px]" />
                         </div>
                         <div className="mt-1 space-y-0.5">
                           {s.awards.map(a => (
-                            <p key={a.year} className="text-xs text-gray-500">{a.year}: {a.award}</p>
+                            <p key={a.year} className="text-[10px] text-gray-500">{a.year}: {a.award}</p>
                           ))}
                         </div>
-                        <p className="text-xs font-medium text-amber-700 mt-1">{s.years.length}/5 years as sponsor</p>
+                        <p className="text-[10px] font-medium text-amber-700 mt-1">{s.years.length}/5 years as sponsor</p>
                       </div>
                     </div>
                   ))}
                 </div>
-              </div>
+              </Card>
             </div>
-          )}
+          </DrillDown>
 
-          {/* ─── BRAND MAPPING ─── */}
-          {brandSubTab === 'mapping' && (
-            <div className="space-y-4">
-              <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
-                <h4 className="text-subsection text-navy mb-1">Brand-to-Venue Mapping</h4>
-                <p className="text-xs text-gray-600">See exactly which brands appear in which London venues. Filter by parent company to understand their footprint.</p>
-              </div>
-
-              {/* Filter */}
-              <div className="flex gap-2 flex-wrap">
-                {['All', ...Object.keys(PARENT_COMPANIES)].map(co => (
-                  <button key={co} onClick={() => setBrandFilterCompany(co)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-medium border ${brandFilterCompany === co ? 'bg-navy text-white border-navy' : 'bg-white text-gray-500 border-gray-200 hover:border-gray-400'}`}>
-                    {co}
-                  </button>
-                ))}
-              </div>
-
-              {/* Brand Cards with venue listings */}
-              <div className="space-y-2">
-                {Object.entries(BRAND_VENUE_MAP)
-                  .filter(([brand]) => {
-                    if (brandFilterCompany === 'All') return true;
-                    const companyBrands = PARENT_COMPANIES[brandFilterCompany]?.brands || [];
-                    return companyBrands.some(b => b.toLowerCase() === brand.toLowerCase() || brand.toLowerCase().includes(b.toLowerCase()));
-                  })
-                  .sort((a, b) => b[1].length - a[1].length)
-                  .map(([brand, venues]) => {
-                    const parentMatch = Object.entries(PARENT_COMPANIES).find(([, data]) =>
-                      data.brands.some(b => b.toLowerCase() === brand.toLowerCase() || brand.toLowerCase().includes(b.toLowerCase()))
-                    );
-                    return (
-                      <div key={brand} className="bg-white rounded-lg border border-gray-100 p-3">
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className="font-semibold text-sm text-navy">{brand}</span>
-                          {parentMatch && (
-                            <span className="text-xs px-1.5 py-0.5 rounded font-medium" style={{ backgroundColor: (parentMatch[1].color || '#666') + '15', color: parentMatch[1].color || '#666' }}>
-                              {parentMatch[0]}
-                            </span>
-                          )}
-                          <span className="ml-auto text-xs font-bold text-navy bg-navy/10 px-2 py-0.5 rounded">{venues.length} venues</span>
+          {/* --- Brand Mapping & Competition --- */}
+          <DrillDown
+            title="Brand Mapping & Competitive Heat"
+            summary={`${Object.keys(BRAND_VENUE_MAP).length}+ brands mapped across venues \u00b7 Category density analysis`}
+          >
+            <div className="space-y-6">
+              {/* Brand-to-Venue Mapping */}
+              <Card>
+                <h4 className="text-sm font-semibold text-navy mb-2">Brand-to-Venue Mapping</h4>
+                <p className="text-[10px] text-gray-400 mb-3">Filter by parent company to see their venue footprint</p>
+                <div className="flex gap-1.5 flex-wrap mb-4">
+                  {['All', ...Object.keys(PARENT_COMPANIES)].map(co => (
+                    <button key={co} onClick={() => setBrandFilterCompany(co)}
+                      className={`px-2 py-1 rounded text-[10px] font-medium border transition-colors ${brandFilterCompany === co ? 'bg-navy text-white border-navy' : 'bg-white text-gray-500 border-gray-200 hover:border-gray-400'}`}>
+                      {co}
+                    </button>
+                  ))}
+                </div>
+                <div className="space-y-2 max-h-96 overflow-y-auto">
+                  {Object.entries(BRAND_VENUE_MAP)
+                    .filter(([brand]) => {
+                      if (brandFilterCompany === 'All') return true
+                      const companyBrands = PARENT_COMPANIES[brandFilterCompany]?.brands || []
+                      return companyBrands.some(b => b.toLowerCase() === brand.toLowerCase() || brand.toLowerCase().includes(b.toLowerCase()))
+                    })
+                    .sort((a, b) => b[1].length - a[1].length)
+                    .map(([brand, venues]) => {
+                      const parentMatch = Object.entries(PARENT_COMPANIES).find(([, data]) =>
+                        data.brands.some(b => b.toLowerCase() === brand.toLowerCase() || brand.toLowerCase().includes(b.toLowerCase()))
+                      )
+                      return (
+                        <div key={brand} className="p-2.5 rounded-lg border border-gray-100">
+                          <div className="flex items-center gap-2 mb-1.5">
+                            <span className="font-medium text-xs text-navy">{brand}</span>
+                            {parentMatch && <span className="text-[10px] px-1.5 py-0.5 rounded font-medium" style={{ backgroundColor: (parentMatch[1].color || '#666') + '15', color: parentMatch[1].color }}>{parentMatch[0]}</span>}
+                            <span className="ml-auto text-[10px] font-bold text-navy bg-navy/10 px-1.5 py-0.5 rounded">{venues.length}</span>
+                          </div>
+                          <div className="flex flex-wrap gap-1">
+                            {venues.map(v => <span key={v} className="px-1.5 py-0.5 text-[10px] rounded bg-gray-50 text-gray-600 border border-gray-100">{v}</span>)}
+                          </div>
                         </div>
-                        <div className="flex flex-wrap gap-1">
-                          {venues.map(v => (
-                            <span key={v} className="px-2 py-0.5 text-xs rounded bg-gray-50 text-gray-600 border border-gray-100">{v}</span>
-                          ))}
+                      )
+                    })}
+                </div>
+              </Card>
+
+              {/* Category Density */}
+              <Card>
+                <h4 className="text-sm font-semibold text-navy mb-2">Category Density Across London Venues</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {Object.entries(CATEGORY_DENSITY).map(([cat, data]) => (
+                    <div key={cat} className="p-3 rounded-lg border border-gray-100">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Wine size={14} className="text-navy" />
+                        <h5 className="text-xs font-semibold text-navy">{cat}</h5>
+                      </div>
+                      <div className="space-y-1 text-[10px]">
+                        <div className="flex justify-between"><span className="text-gray-500">Total listings:</span><span className="font-bold text-navy">{data.totalListings}</span></div>
+                        <div className="flex justify-between"><span className="text-gray-500">Avg per venue:</span><span className="font-bold text-navy">{data.avgPerVenue}</span></div>
+                        <div className="flex justify-between"><span className="text-gray-500">Dominant:</span>
+                          <EntityLink type="company" id={data.dominantCompany?.toLowerCase().replace(/\s+/g, '-')} label={data.dominantCompany} className="font-bold text-[10px]" />
+                        </div>
+                        <div className="flex flex-wrap gap-1 mt-1">
+                          {(data.topBrands || []).map(b => <span key={b} className="px-1 py-0.5 rounded bg-gray-50 text-gray-700 border border-gray-100">{b}</span>)}
                         </div>
                       </div>
-                    );
-                  })}
-              </div>
-            </div>
-          )}
+                    </div>
+                  ))}
+                </div>
+              </Card>
 
-          {/* ─── COMPETITIVE HEAT MAP ─── */}
-          {brandSubTab === 'heatmap' && (
-            <div className="space-y-4">
-              <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
-                <h4 className="text-subsection text-navy mb-1">Competitive Heat Map</h4>
-                <p className="text-xs text-gray-600">Which company dominates which category in each venue tier. Use this to find white space for your brand.</p>
-              </div>
-
-              {Object.entries(COMPETITIVE_HEAT).map(([category, tiers]) => (
-                <div key={category} className="bg-white rounded-xl border border-gray-100 overflow-hidden">
-                  <div className="bg-gray-50 px-4 py-3 border-b border-gray-100">
-                    <h4 className="text-subsection text-navy">{category}</h4>
-                  </div>
-                  <div className="p-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              {/* Competitive Heat Map */}
+              <Card>
+                <h4 className="text-sm font-semibold text-navy mb-2">Competitive Heat Map</h4>
+                <p className="text-[10px] text-gray-400 mb-3">Which company dominates which category in each venue tier</p>
+                {Object.entries(COMPETITIVE_HEAT).map(([category, tiers]) => (
+                  <div key={category} className="mb-4 last:mb-0">
+                    <h5 className="text-xs font-semibold text-navy mb-2 border-b border-gray-100 pb-1">{category}</h5>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
                       {Object.entries(tiers).map(([tier, data]) => {
-                        const dominantColor = PARENT_COMPANIES[data.dominant]?.color || '#666';
-                        const challengerColor = PARENT_COMPANIES[data.challenger]?.color || '#999';
+                        const dominantColor = PARENT_COMPANIES[data.dominant]?.color || '#666'
                         return (
-                          <div key={tier} className="rounded-lg p-3 border" style={{ borderColor: dominantColor + '30', backgroundColor: dominantColor + '05' }}>
-                            <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">{tier.replace(/([A-Z])/g, ' $1').trim()}</p>
-                            <div className="space-y-1.5">
-                              <div>
-                                <p className="text-xs font-bold" style={{ color: dominantColor }}>{data.dominant}</p>
-                                <p className="text-xs text-gray-500">{(data.brands || []).join(', ')}</p>
-                              </div>
-                              <div className="border-t border-gray-100 pt-1">
-                                <p className="text-xs text-gray-400">Challenger:</p>
-                                <p className="text-xs font-medium" style={{ color: challengerColor }}>{data.challenger}</p>
-                                <p className="text-xs text-gray-500">{(data.challengerBrands || []).join(', ')}</p>
-                              </div>
+                          <div key={tier} className="rounded-lg p-2.5 border" style={{ borderColor: dominantColor + '30', backgroundColor: dominantColor + '05' }}>
+                            <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">{tier.replace(/([A-Z])/g, ' $1').trim()}</p>
+                            <p className="text-[10px] font-bold" style={{ color: dominantColor }}>{data.dominant}</p>
+                            <p className="text-[10px] text-gray-500">{(data.brands || []).join(', ')}</p>
+                            <div className="border-t border-gray-100 pt-1 mt-1">
+                              <p className="text-[10px] text-gray-400">Challenger: <span className="font-medium" style={{ color: PARENT_COMPANIES[data.challenger]?.color || '#999' }}>{data.challenger}</span></p>
                             </div>
                           </div>
-                        );
+                        )
                       })}
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </Card>
             </div>
-          )}
+          </DrillDown>
 
-          {/* ─── CATEGORY LANDSCAPE ─── */}
-          {brandSubTab === 'landscape' && (
-            <div className="space-y-4">
-              <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
-                <h4 className="text-subsection text-navy mb-1">Category Density Across London Venues</h4>
-                <p className="text-xs text-gray-600">Market saturation data showing how crowded each spirit category is and who dominates.</p>
-              </div>
-
+          {/* --- Budget & Benchmarks --- */}
+          <DrillDown
+            title="Budget Benchmarks & Trends"
+            summary="On-trade spend benchmarks, corporate vs independent trends, 5-year penetration"
+          >
+            <div className="space-y-6">
+              {/* Budget Benchmarks */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {Object.entries(CATEGORY_DENSITY).map(([cat, data]) => (
-                  <div key={cat} className="bg-white rounded-xl p-4 border border-gray-100">
-                    <div className="flex items-center gap-2 mb-3">
-                      <Wine size={16} className="text-navy" />
-                      <h4 className="text-subsection text-navy">{cat}</h4>
-                    </div>
-                    <div className="space-y-2 text-xs">
-                      <div className="flex justify-between"><span className="text-gray-500">Total Listings (28 venues):</span><span className="font-bold text-navy">{data.totalListings}</span></div>
-                      <div className="flex justify-between"><span className="text-gray-500">Avg. per Venue:</span><span className="font-bold text-navy">{data.avgPerVenue}</span></div>
-                      <div className="flex justify-between"><span className="text-gray-500">Dominant Company:</span>
-                        <span className="font-bold" style={{ color: PARENT_COMPANIES[data.dominantCompany]?.color || '#333' }}>{data.dominantCompany}</span>
-                      </div>
-                      <div>
-                        <span className="text-gray-500">Top Brands:</span>
-                        <div className="flex flex-wrap gap-1 mt-1">
-                          {(data.topBrands || []).map(b => (
-                            <span key={b} className="px-1.5 py-0.5 rounded bg-gray-50 text-gray-700 border border-gray-100 text-xs">{b}</span>
-                          ))}
-                        </div>
-                      </div>
+                {Object.entries(BUDGET_BENCHMARKS).map(([key, data]) => (
+                  <div key={key} className="p-4 rounded-lg border" style={{ borderColor: data.color + '40', backgroundColor: data.color + '08' }}>
+                    <h4 className="text-sm font-semibold mb-2" style={{ color: data.color }}>{data.label}</h4>
+                    <div className="space-y-1.5 text-xs">
+                      <div className="flex justify-between"><span className="text-gray-500">Retro Range:</span><span className="font-semibold text-gray-700">{data.retro}</span></div>
+                      <div className="flex justify-between"><span className="text-gray-500">Marketing Spend/Yr:</span><span className="font-semibold text-gray-700">{data.marketingSpend}</span></div>
+                      <div><span className="text-gray-500">Features:</span><p className="text-gray-700 mt-0.5">{data.features}</p></div>
+                      <div><span className="text-gray-500">Examples:</span><p className="font-medium text-gray-700 mt-0.5">{data.examples}</p></div>
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* London Penetration Chart (existing) */}
-              <div className="bg-white rounded-xl p-5 border border-gray-100">
-                <h3 className="text-subsection text-navy mb-4">London Key Account Penetration by Parent Company</h3>
-                <ResponsiveContainer width="100%" height={280}>
-                  <BarChart data={parentCompanyPresence} layout="vertical">
-                    <XAxis type="number" />
-                    <YAxis dataKey="name" type="category" width={140} tick={{ fontSize: 11 }} />
-                    <Tooltip formatter={(val) => [`${val} venues`, 'Presence']} />
-                    <Bar dataKey="venues" radius={[0,4,4,0]}>
-                      {parentCompanyPresence.map((entry, i) => (
-                        <Cell key={i} fill={entry.color} />
-                      ))}
-                    </Bar>
-                  </BarChart>
-                </ResponsiveContainer>
-              </div>
-            </div>
-          )}
-
-          {/* ─── BUDGET & BENCHMARKS ─── */}
-          {brandSubTab === 'benchmarks' && (
-            <div className="space-y-4">
-              {/* Budget Benchmarks */}
-              <div className="bg-white rounded-xl p-5 border border-gray-100">
-                <h3 className="text-subsection text-navy mb-1">On-Trade Budget Benchmarks {'—'} What Brands Actually Spend</h3>
-                <p className="text-xs text-gray-400 mb-4">Industry-standard ranges for retros, marketing spend, and activation by account type</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {Object.entries(BUDGET_BENCHMARKS).map(([key, data]) => (
-                    <div key={key} className="p-4 rounded-lg border" style={{ borderColor: data.color + '40', backgroundColor: data.color + '08' }}>
-                      <h4 className="text-sm font-semibold mb-2" style={{ color: data.color }}>{data.label}</h4>
-                      <div className="space-y-1.5 text-xs">
-                        <div className="flex justify-between"><span className="text-gray-500">Retro Range:</span><span className="font-semibold text-gray-700">{data.retro}</span></div>
-                        <div className="flex justify-between"><span className="text-gray-500">Marketing Spend/Yr:</span><span className="font-semibold text-gray-700">{data.marketingSpend}</span></div>
-                        <div><span className="text-gray-500">Typical Features:</span><p className="text-gray-700 mt-0.5">{data.features}</p></div>
-                        <div><span className="text-gray-500">Example Accounts:</span><p className="font-medium text-gray-700 mt-0.5">{data.examples}</p></div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Corporate vs Independent + Penetration Trend Charts */}
+              {/* Charts */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="bg-white rounded-xl p-5 border border-gray-100">
-                  <h3 className="text-subsection text-navy mb-4">Corporate vs Independent (2021{'–'}2025)</h3>
-                  <ResponsiveContainer width="100%" height={250}>
-                    <BarChart data={independentVsCorporate}>
-                      <XAxis dataKey="year" />
-                      <YAxis domain={[0, 50]} />
-                      <Tooltip />
-                      <Legend />
-                      <Bar dataKey="Corporate-Backed" stackId="a" fill="#1a237e" radius={[4,4,0,0]} />
-                      <Bar dataKey="Independent" stackId="a" fill="#4caf50" radius={[4,4,0,0]} />
-                    </BarChart>
-                  </ResponsiveContainer>
-                </div>
-                <div className="bg-white rounded-xl p-5 border border-gray-100">
-                  <h3 className="text-subsection text-navy mb-4">Top 5 Penetration Trend (%)</h3>
-                  <ResponsiveContainer width="100%" height={250}>
-                    <LineChart data={penetrationTrend}>
-                      <XAxis dataKey="year" />
-                      <YAxis tickFormatter={v => `${v}%`} />
-                      <Tooltip formatter={(val) => [`${val}%`]} />
-                      <Legend />
-                      {(overallDominance.slice(0, 5)).map(d => (
-                        <Line key={d.name} type="monotone" dataKey={d.name} stroke={d.color} strokeWidth={2} dot={{ r: 3 }} />
-                      ))}
-                    </LineChart>
-                  </ResponsiveContainer>
-                </div>
+                <ChartCard title="Corporate vs Independent (2021\u20132025)" height={250}>
+                  <BarChart data={independentVsCorporate}>
+                    <XAxis dataKey="year" />
+                    <YAxis domain={[0, 50]} />
+                    <Tooltip />
+                    <Legend />
+                    <Bar dataKey="Corporate-Backed" stackId="a" fill="#1a237e" radius={[4, 4, 0, 0]} />
+                    <Bar dataKey="Independent" stackId="a" fill="#4caf50" radius={[4, 4, 0, 0]} />
+                  </BarChart>
+                </ChartCard>
+
+                <ChartCard title="Top 5 Penetration Trend (%)" height={250}>
+                  <LineChart data={penetrationTrend}>
+                    <XAxis dataKey="year" />
+                    <YAxis tickFormatter={v => `${v}%`} />
+                    <Tooltip formatter={(val) => [`${val}%`]} />
+                    <Legend />
+                    {overallDominance.slice(0, 5).map(d => (
+                      <Line key={d.name} type="monotone" dataKey={d.name} stroke={d.color} strokeWidth={2} dot={{ r: 3 }} />
+                    ))}
+                  </LineChart>
+                </ChartCard>
               </div>
 
-              {/* 5-Year Dominance */}
-              <div className="bg-white rounded-xl p-5 border border-gray-100">
-                <h3 className="text-subsection text-navy mb-4">5-Year Cumulative Dominance</h3>
+              {/* 5-Year Dominance bars */}
+              <Card>
+                <h4 className="text-sm font-semibold text-navy mb-3">5-Year Cumulative Dominance</h4>
                 <div className="space-y-2">
                   {overallDominance.map(d => (
                     <div key={d.name} className="flex items-center gap-3">
-                      <div className="w-32 text-sm font-medium text-navy">{d.name}</div>
-                      <div className="flex-1 bg-gray-100 rounded-full h-6 relative overflow-hidden">
+                      <div className="w-28 text-xs font-medium text-navy truncate">{d.name}</div>
+                      <div className="flex-1 bg-gray-100 rounded-full h-5 relative overflow-hidden">
                         <div className="h-full rounded-full flex items-center" style={{ width: `${d.pct}%`, backgroundColor: d.color }}>
-                          <span className="text-white text-xs font-bold pl-2">{d.pct}%</span>
+                          <span className="text-white text-[10px] font-bold pl-2">{d.pct}%</span>
                         </div>
                       </div>
-                      <div className="text-xs text-gray-500 w-24 text-right">{d.bars}/{d.total} bars</div>
+                      <div className="text-[10px] text-gray-500 w-20 text-right">{d.bars}/{d.total} bars</div>
                     </div>
                   ))}
                 </div>
-              </div>
+              </Card>
+            </div>
+          </DrillDown>
 
-              {/* Parent Company Portfolio */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {Object.entries(PARENT_COMPANIES).map(([name, data]) => (
-                  <div key={name} className="bg-white rounded-xl p-4 border border-gray-100">
-                    <div className="flex items-center gap-2 mb-2">
-                      <div className="w-3 h-3 rounded-full" style={{ backgroundColor: data.color }} />
-                      <h4 className="text-subsection text-navy">{name}</h4>
-                      <span className="text-xs text-gray-400 ml-auto">{data.brands.length} brands</span>
-                    </div>
-                    <div className="flex flex-wrap gap-1">
-                      {data.brands.map(brand => (
-                        <span key={brand} className="px-1.5 py-0.5 text-xs rounded bg-gray-50 text-gray-600 border border-gray-100">{brand}</span>
+          {/* --- Longitudinal Trends --- */}
+          <DrillDown
+            title="Longitudinal Trends (2021\u20132025)"
+            summary="Regional shifts, city dominance heatmap, geographic trends"
+          >
+            <div className="space-y-6">
+              <ChartCard title="Regional Representation in 50 Best Bars" height={300}>
+                <LineChart data={regionalTrend}>
+                  <XAxis dataKey="year" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Line type="monotone" dataKey="Europe" stroke="#1a237e" strokeWidth={2} dot={{ r: 4 }} />
+                  <Line type="monotone" dataKey="Asia" stroke="#c41e3a" strokeWidth={2} dot={{ r: 4 }} />
+                  <Line type="monotone" dataKey="North America" stroke="#e65100" strokeWidth={2} dot={{ r: 4 }} />
+                  <Line type="monotone" dataKey="South America" stroke="#1b5e20" strokeWidth={2} dot={{ r: 4 }} />
+                  <Line type="monotone" dataKey="Australasia" stroke="#4a148c" strokeWidth={2} dot={{ r: 4 }} />
+                  <Line type="monotone" dataKey="Middle East & Africa" stroke="#bf360c" strokeWidth={2} dot={{ r: 4 }} />
+                </LineChart>
+              </ChartCard>
+
+              {/* City dominance heatmap */}
+              <Card>
+                <h4 className="text-sm font-semibold text-navy mb-3">City Representation Heatmap</h4>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b border-gray-200">
+                        <th className="text-left py-2 text-gray-500 font-medium">City</th>
+                        {YEARS.map(y => <th key={y} className="text-center py-2 text-gray-500 font-medium">{y}</th>)}
+                        <th className="text-center py-2 text-gray-500 font-medium">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {cityDominance.map(row => (
+                        <tr key={row.city} className="border-b border-gray-50">
+                          <td className="py-1.5 font-medium text-navy">{row.city}</td>
+                          {YEARS.map(y => (
+                            <td key={y} className="py-1.5 text-center">
+                              {row[y] ? (
+                                <span className={`inline-block w-7 h-5 leading-5 rounded text-[10px] font-bold ${row[y] >= 4 ? 'bg-green-500 text-white' : row[y] >= 3 ? 'bg-green-300 text-green-900' : row[y] >= 2 ? 'bg-blue-200 text-blue-800' : 'bg-gray-100 text-gray-600'}`}>
+                                  {row[y]}
+                                </span>
+                              ) : <span className="text-gray-300">\u2014</span>}
+                            </td>
+                          ))}
+                          <td className="py-1.5 text-center font-bold text-navy">{row.total}</td>
+                        </tr>
                       ))}
+                    </tbody>
+                  </table>
+                </div>
+              </Card>
+            </div>
+          </DrillDown>
+
+          {/* --- Market Entry Intelligence --- */}
+          <DrillDown
+            title="Market Entry Intelligence"
+            summary={`${Object.keys(ENTRY_PLAYBOOKS).length} category playbooks \u00b7 ${Object.keys(DISTRIBUTORS).length} distributors \u00b7 Budget benchmarks`}
+            defaultOpen={expandedSection === 'entry'}
+          >
+            <div className="space-y-6">
+              {/* Distribution Landscape */}
+              <Card>
+                <h4 className="text-sm font-semibold text-navy mb-1 flex items-center gap-2"><Briefcase size={14} /> UK Distribution Landscape</h4>
+                <p className="text-[10px] text-gray-400 mb-3">Key distributors for the UK on-trade</p>
+                <div className="space-y-2">
+                  {Object.entries(DISTRIBUTORS).map(([name, dist]) => (
+                    <div key={name} className="border border-gray-100 rounded-lg overflow-hidden">
+                      <div className="p-2.5 flex items-center gap-3 cursor-pointer hover:bg-gray-50 transition-colors"
+                        onClick={() => setExpandedDistributor(expandedDistributor === name ? null : name)}>
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2">
+                            <span className="font-medium text-xs text-navy">{name}</span>
+                            <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-50 text-blue-700">{dist.type}</span>
+                            {dist.parent && <span className="text-[10px] text-gray-400">({dist.parent})</span>}
+                          </div>
+                        </div>
+                        {expandedDistributor === name ? <ChevronUp size={14} className="text-gray-400" /> : <ChevronDown size={14} className="text-gray-400" />}
+                      </div>
+                      {expandedDistributor === name && (
+                        <div className="border-t border-gray-100 p-2.5 bg-gray-50 space-y-1 text-[10px]">
+                          <div><span className="font-semibold text-gray-500">Coverage:</span> <span className="text-gray-700">{dist.coverage}</span></div>
+                          <div><span className="font-semibold text-gray-500">Key Clients:</span> <span className="text-gray-700">{(dist.keyClients || []).join(', ')}</span></div>
+                          <div><span className="font-semibold text-gray-500">Min Order:</span> <span className="text-gray-700">{dist.minOrder}</span></div>
+                          <div><span className="font-semibold text-gray-500">Strengths:</span> <span className="text-gray-700">{dist.strengths}</span></div>
+                          <div className="bg-green-50 border border-green-100 rounded p-1.5">
+                            <span className="font-semibold text-green-800">Best For:</span> <span className="text-green-700">{dist.bestFor}</span>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </Card>
+
+              {/* Entry Playbooks */}
+              <Card>
+                <h4 className="text-sm font-semibold text-navy mb-1 flex items-center gap-2"><BookOpen size={14} /> Category Entry Playbooks</h4>
+                <p className="text-[10px] text-gray-400 mb-3">Phased strategies by spirit category</p>
+                <div className="space-y-2">
+                  {Object.entries(ENTRY_PLAYBOOKS).map(([key, pb]) => (
+                    <div key={key} className="border border-gray-100 rounded-lg overflow-hidden">
+                      <div className="p-3 flex items-center gap-3 cursor-pointer hover:bg-gray-50 transition-colors"
+                        onClick={() => setEntryCategory(entryCategory === key ? null : key)}>
+                        <div className="flex-1">
+                          <h5 className="font-medium text-xs text-navy">{pb.title}</h5>
+                          <div className="flex gap-4 mt-0.5 text-[10px] text-gray-500">
+                            <span>Budget: {pb.estimatedBudget}</span>
+                            <span>Timeline: {pb.timeline}</span>
+                          </div>
+                        </div>
+                        {entryCategory === key ? <ChevronUp size={14} className="text-gray-400" /> : <ChevronDown size={14} className="text-gray-400" />}
+                      </div>
+                      {entryCategory === key && (
+                        <div className="border-t border-gray-100 p-3 bg-gray-50 space-y-3">
+                          <div className="bg-red-50 border border-red-100 rounded-lg p-2.5">
+                            <h6 className="text-[10px] font-bold text-red-800 mb-0.5">Competitive Landscape</h6>
+                            <p className="text-[10px] text-red-700">{pb.competition}</p>
+                          </div>
+                          <div className="space-y-2">
+                            {['phase1', 'phase2', 'phase3'].map(phaseKey => {
+                              const phase = pb[phaseKey]
+                              if (!phase) return null
+                              return (
+                                <div key={phaseKey} className="bg-white rounded-lg p-2.5 border border-gray-200">
+                                  <div className="flex items-center gap-2 mb-1.5">
+                                    <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold text-white ${phaseKey === 'phase1' ? 'bg-blue-500' : phaseKey === 'phase2' ? 'bg-amber-500' : 'bg-green-500'}`}>
+                                      {phaseKey.slice(-1)}
+                                    </span>
+                                    <h6 className="text-[10px] font-bold text-navy">{phase.name}</h6>
+                                    <span className="text-[10px] text-gray-400 ml-auto">{phase.duration}</span>
+                                  </div>
+                                  <div className="space-y-0.5 mb-1.5">
+                                    {(phase.actions || []).map((a, ai) => (
+                                      <p key={ai} className="text-[10px] text-gray-700 flex items-start gap-1"><ArrowRight size={8} className="text-navy mt-0.5 flex-shrink-0" /> {a}</p>
+                                    ))}
+                                  </div>
+                                  {phase.targetVenues && phase.targetVenues.length > 0 && (
+                                    <div className="flex flex-wrap gap-1">
+                                      <span className="text-[10px] text-gray-500">Target:</span>
+                                      {phase.targetVenues.map(v => <span key={v} className="px-1 py-0.5 text-[10px] rounded bg-navy/10 text-navy font-medium">{v}</span>)}
+                                    </div>
+                                  )}
+                                </div>
+                              )
+                            })}
+                          </div>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            <div className="bg-blue-50 rounded-lg p-2.5 border border-blue-100">
+                              <h6 className="text-[10px] font-bold text-blue-800 mb-0.5 flex items-center gap-1"><Users size={10} /> Key People</h6>
+                              <p className="text-[10px] text-blue-700">{pb.keyPeople}</p>
+                            </div>
+                            <div className="bg-amber-50 rounded-lg p-2.5 border border-amber-100">
+                              <h6 className="text-[10px] font-bold text-amber-800 mb-0.5 flex items-center gap-1"><Shield size={10} /> Pitfalls</h6>
+                              <div className="space-y-0.5">
+                                {(pb.pitfalls || []).map((p, pi) => (
+                                  <p key={pi} className="text-[10px] text-amber-700 flex items-start gap-1"><X size={8} className="text-amber-600 mt-0.5 flex-shrink-0" /> {p}</p>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </Card>
+
+              {/* Strategic Insights */}
+              <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl p-5 border border-amber-200">
+                <h4 className="font-semibold text-navy text-sm mb-3 flex items-center gap-2"><Building2 size={16} /> Strategic Insights for SMBs</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-gray-700">
+                  <div className="space-y-2">
+                    <div>
+                      <h5 className="font-semibold text-navy">Entry Strategy \u2014 Luxury Accounts</h5>
+                      <p>Target independent-minded bars like Satan\u2019s Whiskers, Tay\u0113r + Elementary, and Lyaness. These venues select on quality, not corporate spend.</p>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-navy">Visibility \u2014 50 Best Bars</h5>
+                      <p>Perennial bars (Tay\u0113r, Connaught, Jigger & Pony, Paradiso) offer global bartender community visibility through long-term partnerships.</p>
                     </div>
                   </div>
-                ))}
-              </div>
-
-              {/* Market Insight Box */}
-              <div className="bg-gradient-to-r from-navy to-navy-light rounded-xl p-6 text-white">
-                <h3 className="font-semibold mb-3">On-Trade Market Intelligence {'—'} Key Findings</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                   <div className="space-y-2">
-                    <p className="text-white/90">{'•'} <strong>LVMH</strong> dominates the Michelin-starred restaurant circuit {'—'} Dom P{'é'}rignon and Krug feature in virtually every 2-3 star venue</p>
-                    <p className="text-white/90">{'•'} <strong>Bacardi</strong> has the strongest hotel bar programme {'—'} American Bar at The Savoy is a known incubator</p>
-                    <p className="text-white/90">{'•'} <strong>Beam Suntory</strong> gaining through Roku Gin partnerships and Nikka award sponsorship {'—'} only company sponsoring 2 separate 50 Best awards</p>
-                    <p className="text-white/90">{'•'} <strong>Diageo</strong> covers the widest range {'—'} from volume accounts to luxury, plus Ketel One sponsors the Sustainable Bar Award</p>
-                  </div>
-                  <div className="space-y-2">
-                    <p className="text-white/90">{'•'} <strong>Independent brands</strong> getting shelf space: Renais Gin (Scarfes Bar), Desi Daru (Tay{'ē'}r), The Lakes (American Bar, Scarfes)</p>
-                    <p className="text-white/90">{'•'} <strong>No/Low</strong> is growing: Seedlip (Diageo) at Plates, Everleaf at Tay{'ē'}r, Lyre{'\u2019'}s expanding</p>
-                    <p className="text-white/90">{'•'} <strong>Agave spirits</strong> are the fastest-growing backbar category {'—'} Kol driving from Michelin level</p>
-                    <p className="text-white/90">{'•'} <strong>Private members clubs</strong> (Annabel{'\u2019'}s {'£'}55.6M, Arts Club {'£'}30.9M) command highest marketing spend</p>
+                    <div>
+                      <h5 className="font-semibold text-navy">Volume vs. Marketing Budget</h5>
+                      <p>Avoid competing with LVMH/Diageo in volume accounts. Focus on 5-10 key luxury accounts where quality trumps spend.</p>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-navy">Geographic Trend</h5>
+                      <p>Asia\u2019s share has grown to match Europe. London remains the strongest single-city hub for on-trade credibility globally.</p>
+                    </div>
                   </div>
                 </div>
               </div>
+            </div>
+          </DrillDown>
+        </>
+      )}
+
+      {/* Data Source Footer */}
+      <SourceList sources={[
+        { label: "World\u2019s 50 Best Bars (2021\u20132025)", url: 'https://www.worlds50bestbars.com/' },
+        { label: 'Companies House UK', url: 'https://www.gov.uk/government/organisations/companies-house' },
+        { label: 'Venue menus & industry sources' },
+      ]} />
+    </div>
+  )
+}
+
+// ===== SUB-COMPONENTS =====
+
+function VenueCard({ venue, index, expanded, onToggle }) {
+  return (
+    <Card hover={!expanded} onClick={!expanded ? onToggle : undefined} className="overflow-hidden">
+      <div className="flex items-start gap-3 cursor-pointer" onClick={expanded ? onToggle : undefined}>
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2 flex-wrap">
+            <h4 className="font-semibold text-sm text-navy">{venue.name}</h4>
+            <span className={`px-1.5 py-0.5 rounded text-[10px] font-medium ${venue.accountType === 'Luxury' ? 'bg-purple-100 text-purple-700' : venue.accountType === 'Volume' ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700'}`}>
+              {venue.accountType}
+            </span>
+            <span className="px-1.5 py-0.5 bg-gray-100 text-gray-600 rounded text-[10px]">{venue.type}</span>
+          </div>
+          <div className="flex items-center gap-3 mt-1 text-[10px] text-gray-500 flex-wrap">
+            <span className="flex items-center gap-0.5"><MapPin size={10} /> {venue.area}</span>
+            <span className="flex items-center gap-0.5"><DollarSign size={10} /> {venue.estRevenue}/yr</span>
+            {venue.fiftyBest && venue.fiftyBest.some(r => r) && (
+              <span className="flex items-center gap-0.5"><Award size={10} /> 50 Best: {venue.fiftyBest.filter(r => r).length}x</span>
+            )}
+            {venue.menuUrl && (
+              <a href={venue.menuUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-0.5 text-blue-500 hover:text-blue-700" onClick={e => e.stopPropagation()}>
+                <ExternalLink size={10} /> Menu
+              </a>
+            )}
+          </div>
+        </div>
+        {expanded ? <ChevronUp size={16} className="text-gray-400 flex-shrink-0" /> : <ChevronDown size={16} className="text-gray-400 flex-shrink-0" />}
+      </div>
+
+      {expanded && (
+        <div className="border-t border-gray-100 mt-3 pt-3 space-y-2.5">
+          {venue.fiftyBest && venue.fiftyBest.some(r => r) && (
+            <div>
+              <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1">50 Best Rankings (2021\u21922025)</p>
+              <div className="flex gap-1.5">
+                {YEARS.map((y, idx) => (
+                  <span key={y} className={`px-1.5 py-0.5 rounded text-[10px] ${venue.fiftyBest[idx] ? (venue.fiftyBest[idx] <= 10 ? 'bg-green-100 text-green-700 font-bold' : 'bg-blue-100 text-blue-700') : 'bg-gray-100 text-gray-400'}`}>
+                    {y}: {venue.fiftyBest[idx] ? `#${venue.fiftyBest[idx]}` : '\u2014'}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+          {venue.knownBrands && venue.knownBrands.length > 0 && (
+            <div>
+              <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1">Brands / Partnerships</p>
+              <div className="flex flex-wrap gap-1">
+                {venue.knownBrands.map(brand => <span key={brand} className="px-1.5 py-0.5 bg-white border border-gray-200 rounded text-[10px] text-gray-700">{brand}</span>)}
+              </div>
+            </div>
+          )}
+          {venue.parentCompanies && venue.parentCompanies.length > 0 && (
+            <div>
+              <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1">Parent Companies</p>
+              <div className="flex flex-wrap gap-1">
+                {venue.parentCompanies.map(pc => (
+                  <EntityLink key={pc} type="company" id={pc.toLowerCase().replace(/\s+/g, '-')} label={pc}
+                    className="px-1.5 py-0.5 rounded text-[10px] font-medium" />
+                ))}
+              </div>
+            </div>
+          )}
+          {venue.founders && <p className="text-[10px] text-gray-600"><span className="font-semibold">Key People:</span> {venue.founders}</p>}
+          <p className="text-[10px] text-gray-600"><span className="font-semibold">Intel:</span> {venue.notes}</p>
+          {venue.revenueSource && (
+            <div className="bg-amber-50 border border-amber-100 rounded p-1.5">
+              <p className="text-[10px] text-amber-800"><span className="font-semibold">Revenue Source:</span> {venue.revenueSource}</p>
             </div>
           )}
         </div>
       )}
+    </Card>
+  )
+}
 
-      {/* ═══════ TAB: MARKET ENTRY ═══════ */}
-      {activeTab === 'entry' && (
-        <div className="space-y-6">
-          <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl p-5 border border-amber-200">
-            <h3 className="font-semibold text-navy mb-2 flex items-center gap-2"><Target size={18} /> Market Entry Intelligence</h3>
-            <p className="text-sm text-gray-700">Practical intelligence for brands entering the London on-trade. Distribution partners, phased entry playbooks, budget benchmarks, and competitive positioning {'—'} all from the perspective of a small-to-medium brand coming to market.</p>
-          </div>
-
-          {/* ─── DISTRIBUTION LANDSCAPE ─── */}
-          <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
-            <div className="bg-gray-50 px-5 py-3 border-b border-gray-100">
-              <h3 className="text-subsection text-navy flex items-center gap-2"><Briefcase size={16} /> UK Distribution Landscape</h3>
-              <p className="text-xs text-gray-500 mt-0.5">Key distributors and wholesalers for the UK on-trade {'—'} click for details</p>
-            </div>
-            <div className="p-5 space-y-3">
-              {Object.entries(DISTRIBUTORS).map(([name, dist]) => (
-                <div key={name} className="border border-gray-100 rounded-lg overflow-hidden">
-                  <div className="p-3 flex items-center gap-3 cursor-pointer hover:bg-gray-50"
-                    onClick={() => setExpandedDistributor(expandedDistributor === name ? null : name)}>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2">
-                        <span className="font-semibold text-sm text-navy">{name}</span>
-                        <span className="text-xs px-2 py-0.5 rounded bg-blue-50 text-blue-700">{dist.type}</span>
-                        {dist.parent && <span className="text-xs text-gray-400">({dist.parent})</span>}
-                      </div>
-                    </div>
-                    {expandedDistributor === name ? <ChevronUp size={16} className="text-gray-400" /> : <ChevronDown size={16} className="text-gray-400" />}
-                  </div>
-                  {expandedDistributor === name && (
-                    <div className="border-t border-gray-100 p-3 bg-gray-50 space-y-2 text-xs">
-                      <div><span className="font-semibold text-gray-500">Coverage:</span> <span className="text-gray-700">{dist.coverage}</span></div>
-                      <div><span className="font-semibold text-gray-500">Key Clients:</span> <span className="text-gray-700">{(dist.keyClients || []).join(', ')}</span></div>
-                      <div><span className="font-semibold text-gray-500">Min Order:</span> <span className="text-gray-700">{dist.minOrder}</span></div>
-                      <div><span className="font-semibold text-gray-500">Strengths:</span> <span className="text-gray-700">{dist.strengths}</span></div>
-                      <div className="bg-green-50 border border-green-100 rounded p-2">
-                        <span className="font-semibold text-green-800">Best For:</span> <span className="text-green-700">{dist.bestFor}</span>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* ─── MARKET ENTRY PLAYBOOKS ─── */}
-          <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
-            <div className="bg-gray-50 px-5 py-3 border-b border-gray-100">
-              <h3 className="text-subsection text-navy flex items-center gap-2"><BookOpen size={16} /> Category Entry Playbooks</h3>
-              <p className="text-xs text-gray-500 mt-0.5">Phased market entry strategies by spirit category {'—'} realistic timelines, budgets, and target venues</p>
-            </div>
-            <div className="p-5 space-y-3">
-              {Object.entries(ENTRY_PLAYBOOKS).map(([key, pb]) => (
-                <div key={key} className="border border-gray-100 rounded-lg overflow-hidden">
-                  <div className="p-4 flex items-center gap-3 cursor-pointer hover:bg-gray-50"
-                    onClick={() => setEntryCategory(entryCategory === key ? null : key)}>
-                    <div className="flex-1">
-                      <h4 className="font-semibold text-sm text-navy">{pb.title}</h4>
-                      <div className="flex gap-4 mt-1 text-xs text-gray-500">
-                        <span>Budget: {pb.estimatedBudget}</span>
-                        <span>Timeline: {pb.timeline}</span>
-                      </div>
-                    </div>
-                    {entryCategory === key ? <ChevronUp size={16} className="text-gray-400" /> : <ChevronDown size={16} className="text-gray-400" />}
-                  </div>
-                  {entryCategory === key && (
-                    <div className="border-t border-gray-100 p-4 bg-gray-50 space-y-4">
-                      {/* Competition */}
-                      <div className="bg-red-50 border border-red-100 rounded-lg p-3">
-                        <h5 className="text-xs font-bold text-red-800 mb-1">Competitive Landscape</h5>
-                        <p className="text-xs text-red-700">{pb.competition}</p>
-                      </div>
-
-                      {/* Phases */}
-                      <div className="space-y-3">
-                        {['phase1', 'phase2', 'phase3'].map(phaseKey => {
-                          const phase = pb[phaseKey];
-                          if (!phase) return null;
-                          return (
-                            <div key={phaseKey} className="bg-white rounded-lg p-3 border border-gray-200">
-                              <div className="flex items-center gap-2 mb-2">
-                                <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white ${phaseKey === 'phase1' ? 'bg-blue-500' : phaseKey === 'phase2' ? 'bg-amber-500' : 'bg-green-500'}`}>
-                                  {phaseKey.slice(-1)}
-                                </span>
-                                <h5 className="text-xs font-bold text-navy">{phase.name}</h5>
-                                <span className="text-xs text-gray-400 ml-auto">{phase.duration}</span>
-                              </div>
-                              <div className="space-y-1 mb-2">
-                                {(phase.actions || []).map((a, ai) => (
-                                  <p key={ai} className="text-xs text-gray-700 flex items-start gap-1"><ArrowRight size={10} className="text-navy mt-0.5 flex-shrink-0" /> {a}</p>
-                                ))}
-                              </div>
-                              {phase.targetVenues && phase.targetVenues.length > 0 && (
-                                <div className="flex flex-wrap gap-1">
-                                  <span className="text-xs text-gray-500">Target:</span>
-                                  {phase.targetVenues.map(v => (
-                                    <span key={v} className="px-1.5 py-0.5 text-xs rounded bg-navy/10 text-navy font-medium">{v}</span>
-                                  ))}
-                                </div>
-                              )}
-                            </div>
-                          );
-                        })}
-                      </div>
-
-                      {/* Key People & Pitfalls */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div className="bg-blue-50 rounded-lg p-3 border border-blue-100">
-                          <h5 className="text-xs font-bold text-blue-800 mb-1 flex items-center gap-1"><Users size={12} /> Key People to Know</h5>
-                          <p className="text-xs text-blue-700">{pb.keyPeople}</p>
-                        </div>
-                        <div className="bg-amber-50 rounded-lg p-3 border border-amber-100">
-                          <h5 className="text-xs font-bold text-amber-800 mb-1 flex items-center gap-1"><Shield size={12} /> Critical Pitfalls</h5>
-                          <div className="space-y-1">
-                            {(pb.pitfalls || []).map((p, pi) => (
-                              <p key={pi} className="text-xs text-amber-700 flex items-start gap-1"><X size={10} className="text-amber-600 mt-0.5 flex-shrink-0" /> {p}</p>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Strategic Insights for Small/Medium Brands */}
-          <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl p-6 border border-amber-200">
-            <h3 className="font-semibold text-navy mb-3 flex items-center gap-2">
-              <Building2 size={18} /> Strategic Insights for Small-to-Medium Brands
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm text-gray-700">
-              <div className="space-y-3">
-                <div>
-                  <h4 className="font-semibold text-navy">Entry Strategy {'—'} Luxury Accounts</h4>
-                  <p>Target independent-minded bars like Satan{'\u2019'}s Whiskers (blind tasting selection), Tay{'ē'}r + Elementary (ingredient-led menus), and Lyaness (6-month R&D cycles). These venues select on quality, not corporate spend.</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-navy">Visibility Strategy {'—'} 50 Best Bars</h4>
-                  <p>Bars appearing 4+ years in the list (Tay{'ē'}r, Connaught, Jigger & Pony, Paradiso) are the most valuable long-term partnerships. A brand featured here gets global bartender community visibility.</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-navy">Sponsorship {'—'} Awards</h4>
-                  <p>50 Best award sponsors: Roku (Industry Icon), Nikka (Highest Climber), Disaronno (Highest New Entry), Ketel One (Sustainable Bar). These brands get massive awareness in the bartender community.</p>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <div>
-                  <h4 className="font-semibold text-navy">Volume vs. Marketing Budget</h4>
-                  <p>With limited budgets, avoid competing with LVMH/Diageo in volume accounts. Focus on 5-10 key luxury accounts where quality trumps spend. One listing at Connaught or Scarfes is worth more than 50 generic bar listings.</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-navy">Michelin Restaurant Route</h4>
-                  <p>The restaurant wine list is harder to crack than the cocktail bar. Start with cocktail-forward Michelin venues (Kol, Brat) rather than wine-focused fine dining (The Ledbury, Core).</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-navy">Geographic Trend</h4>
-                  <p>Asia{'\u2019'}s share has grown from 32% (2021) to match Europe. Latin America is rising. London remains the strongest single-city hub for on-trade credibility globally.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-
-            {/* ═══════ TAB: LONGITUDINAL TRENDS ═══════ */}
-      {activeTab === 'trends' && (
-        <div className="space-y-6">
-          {/* Regional Trend Over Time */}
-          <div className="bg-white rounded-xl p-5 border border-gray-100">
-            <h3 className="text-subsection text-navy mb-4">Regional Representation in 50 Best Bars (2021–2025)</h3>
-            <ResponsiveContainer width="100%" height={350}>
-              <LineChart data={regionalTrend}>
-                <XAxis dataKey="year" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="Europe" stroke="#1a237e" strokeWidth={2} dot={{ r: 4 }} />
-                <Line type="monotone" dataKey="Asia" stroke="#c41e3a" strokeWidth={2} dot={{ r: 4 }} />
-                <Line type="monotone" dataKey="North America" stroke="#e65100" strokeWidth={2} dot={{ r: 4 }} />
-                <Line type="monotone" dataKey="South America" stroke="#1b5e20" strokeWidth={2} dot={{ r: 4 }} />
-                <Line type="monotone" dataKey="Australasia" stroke="#4a148c" strokeWidth={2} dot={{ r: 4 }} />
-                <Line type="monotone" dataKey="Middle East & Africa" stroke="#bf360c" strokeWidth={2} dot={{ r: 4 }} />
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
-
-          {/* City Dominance Heatmap */}
-          <div className="bg-white rounded-xl p-5 border border-gray-100">
-            <h3 className="text-subsection text-navy mb-4">City Representation Heatmap (2021–2025)</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead><tr className="border-b border-gray-200">
-                  <th className="text-left py-2 text-gray-500 font-medium">City</th>
-                  {YEARS.map(y => <th key={y} className="text-center py-2 text-gray-500 font-medium">{y}</th>)}
-                  <th className="text-center py-2 text-gray-500 font-medium">Total</th>
-                </tr></thead>
-                <tbody>
-                  {cityDominance.map(row => (
-                    <tr key={row.city} className="border-b border-gray-50">
-                      <td className="py-2 font-medium text-navy">{row.city}</td>
-                      {YEARS.map(y => (
-                        <td key={y} className="py-2 text-center">
-                          {row[y] ? (
-                            <span className={`inline-block w-8 h-6 leading-6 rounded text-xs font-bold ${row[y] >= 4 ? 'bg-green-500 text-white' : row[y] >= 3 ? 'bg-green-300 text-green-900' : row[y] >= 2 ? 'bg-blue-200 text-blue-800' : 'bg-gray-100 text-gray-600'}`}>
-                              {row[y]}
-                            </span>
-                          ) : <span className="text-gray-300">—</span>}
-                        </td>
-                      ))}
-                      <td className="py-2 text-center font-bold text-navy">{row.total}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          {/* Strategic Insights for Small/Medium Brands */}
-          <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl p-6 border border-amber-200">
-            <h3 className="font-semibold text-navy mb-3 flex items-center gap-2">
-              <Building2 size={18} /> Strategic Insights for Small-to-Medium Brands
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm text-gray-700">
-              <div className="space-y-3">
-                <div>
-                  <h4 className="font-semibold text-navy">Entry Strategy — Luxury Accounts</h4>
-                  <p>Target independent-minded bars like Satan's Whiskers (blind tasting selection), Tayēr + Elementary (ingredient-led menus), and Lyaness (6-month R&D cycles). These venues select on quality, not corporate spend.</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-navy">Visibility Strategy — 50 Best Bars</h4>
-                  <p>Bars appearing 4+ years in the list (Tayēr, Connaught, Jigger & Pony, Paradiso) are the most valuable long-term partnerships. A brand featured here gets global bartender community visibility.</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-navy">Sponsorship Awards</h4>
-                  <p>50 Best award sponsors: Roku (Industry Icon), Nikka (Highest Climber), Disaronno (Highest New Entry), Ketel One (Sustainable Bar). These brands get massive awareness in the bartender community.</p>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <div>
-                  <h4 className="font-semibold text-navy">Volume vs. Marketing Budget</h4>
-                  <p>With limited budgets, avoid competing with LVMH/Diageo in volume accounts. Focus on 5-10 key luxury accounts where quality trumps spend. One listing at Connaught or Scarfes is worth more than 50 generic bar listings.</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-navy">Michelin Restaurant Route</h4>
-                  <p>The restaurant wine list is harder to crack than the cocktail bar. Start with cocktail-forward Michelin venues (Kol, Brat) rather than wine-focused fine dining (The Ledbury, Core).</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-navy">Geographic Trend</h4>
-                  <p>Asia's share has grown from 32% (2021) to match Europe. Latin America is rising. London remains the strongest single-city hub for on-trade credibility globally.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Data Source Note */}
-      <div className="text-xs text-gray-400 border-t border-gray-100 pt-4">
-        <p>Data compiled from The World's 50 Best Bars (2021–2025), venue menus, press releases, and industry sources. Revenue estimates are approximate based on industry benchmarks and published reports. Brand presence data reflects published menus and known partnerships — actual backbar selection may vary.</p>
+function CompanyCard({ name, profile, expanded, onToggle }) {
+  return (
+    <Card hover={!expanded} onClick={onToggle} className={`cursor-pointer transition-all ${expanded ? 'border-navy shadow-lg' : ''}`}>
+      <div className="flex items-center gap-3 mb-1.5">
+        <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: PARENT_COMPANIES[name]?.color || '#666' }} />
+        <h4 className="text-xs font-bold text-navy">{name}</h4>
+        <span className="text-[10px] text-gray-400 ml-auto">{profile.revenue}</span>
+        {expanded ? <ChevronUp size={14} className="text-gray-400" /> : <ChevronDown size={14} className="text-gray-400" />}
       </div>
-    </div>
+      <p className="text-[10px] text-gray-500">{profile.headquarters} {'\u00b7'} CEO: {profile.ceo}</p>
+      <p className="text-[10px] text-gray-500 mt-0.5">On-trade share: {profile.onTradeShare}</p>
+
+      {expanded && (
+        <div className="border-t border-gray-100 mt-3 pt-3 space-y-3">
+          <div>
+            <h5 className="text-[10px] font-bold text-navy uppercase tracking-wider mb-0.5 flex items-center gap-1"><Target size={10} /> On-Trade Strategy</h5>
+            <p className="text-[10px] text-gray-700 leading-relaxed">{profile.strategy}</p>
+          </div>
+
+          <div>
+            <h5 className="text-[10px] font-bold text-navy uppercase tracking-wider mb-1 flex items-center gap-1"><Wine size={10} /> Key On-Trade Brands</h5>
+            <div className="space-y-1">
+              {(profile.keyBrandsOnTrade || []).map((brand, bi) => (
+                <div key={bi} className="flex items-center gap-2 text-[10px] bg-white rounded px-2 py-1 border border-gray-100">
+                  <EntityLink type="brand" id={brand.name?.toLowerCase().replace(/\s+/g, '-')} label={brand.name} className="font-semibold w-28 truncate text-[10px]" />
+                  <span className="text-gray-400">{brand.category}</span>
+                  <span className="ml-auto text-gray-500">{brand.pricePoint}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div>
+              <h5 className="text-[10px] font-bold text-green-700 uppercase tracking-wider mb-0.5 flex items-center gap-1"><Shield size={10} /> Strengths</h5>
+              <div className="space-y-0.5">
+                {(profile.strengths || []).map((s, si) => (
+                  <p key={si} className="text-[10px] text-gray-700 flex items-start gap-1"><Check size={8} className="text-green-500 mt-0.5 flex-shrink-0" /> {s}</p>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h5 className="text-[10px] font-bold text-red-700 uppercase tracking-wider mb-0.5 flex items-center gap-1"><Zap size={10} /> Vulnerabilities</h5>
+              <div className="space-y-0.5">
+                {(profile.weaknesses || []).map((w, wi) => (
+                  <p key={wi} className="text-[10px] text-gray-700 flex items-start gap-1"><X size={8} className="text-red-500 mt-0.5 flex-shrink-0" /> {w}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h5 className="text-[10px] font-bold text-navy uppercase tracking-wider mb-0.5 flex items-center gap-1"><MapPin size={10} /> London Presence</h5>
+            <p className="text-[10px] text-gray-700">{profile.londonPresence}</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div className="bg-white rounded-lg p-2.5 border border-gray-100">
+              <h5 className="text-[10px] font-bold text-navy mb-0.5">UK Distribution</h5>
+              <p className="text-[10px] text-gray-600">{profile.distributionUK}</p>
+            </div>
+            <div className="bg-white rounded-lg p-2.5 border border-gray-100">
+              <h5 className="text-[10px] font-bold text-navy mb-0.5">Deal Structure</h5>
+              <p className="text-[10px] text-gray-600">{profile.typicalDealStructure}</p>
+            </div>
+          </div>
+
+          <div>
+            <h5 className="text-[10px] font-bold text-navy uppercase tracking-wider mb-0.5 flex items-center gap-1"><TrendingUp size={10} /> Recent Moves (2024-25)</h5>
+            <div className="space-y-0.5">
+              {(profile.recentMoves || []).map((m, mi) => (
+                <p key={mi} className="text-[10px] text-gray-700 flex items-start gap-1"><ArrowRight size={8} className="text-navy mt-0.5 flex-shrink-0" /> {m}</p>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div className="bg-red-50 rounded-lg p-2.5 border border-red-100">
+              <h5 className="text-[10px] font-bold text-red-800 mb-0.5">Threat to Small Brands</h5>
+              <p className="text-[10px] text-red-700">{profile.threatToSmallBrands}</p>
+            </div>
+            <div className="bg-green-50 rounded-lg p-2.5 border border-green-100">
+              <h5 className="text-[10px] font-bold text-green-800 mb-0.5">Opportunity for Small Brands</h5>
+              <p className="text-[10px] text-green-700">{profile.opportunityForSmallBrands}</p>
+            </div>
+          </div>
+        </div>
+      )}
+    </Card>
   )
 }

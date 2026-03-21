@@ -2143,7 +2143,7 @@ export const ENTRY_PLAYBOOKS = {
   }
 };
 
-const COMPETITIVE_HEAT = {
+export const COMPETITIVE_HEAT = {
   "Gin": {
     "luxuryBars": {
       "dominant": "Diageo (Tanqueray)",

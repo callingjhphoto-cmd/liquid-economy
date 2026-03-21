@@ -38,9 +38,19 @@ export default {
           '0%': { opacity: '0', transform: 'translateY(-8px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
+        slideUp: {
+          '0%': { transform: 'translateY(100%)' },
+          '100%': { transform: 'translateY(0)' },
+        },
+        expandDown: {
+          '0%': { opacity: '0', transform: 'scaleY(0.95)' },
+          '100%': { opacity: '1', transform: 'scaleY(1)' },
+        },
       },
       animation: {
         fadeIn: 'fadeIn 0.3s ease-out',
+        slideUp: 'slideUp 0.3s ease-out',
+        expandDown: 'expandDown 0.2s ease-out',
       },
       borderWidth: {
         '3': '3px',

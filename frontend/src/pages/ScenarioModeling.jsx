@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react'
 import {
-  BarChart, Bar,
+  BarChart, Bar, Cell,
   ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid
 } from 'recharts'
 import {
@@ -10,7 +10,8 @@ import {
 } from 'lucide-react'
 import {
   Card, MetricCard, PageHeader, BentoGrid, DataTable, ChartCard,
-  DrillDown, Badge, SectionHeader, SourceList, TabGroup, FilterBar, EntityLink
+  DrillDown, Badge, SectionHeader, SourceList, TabGroup, FilterBar, EntityLink,
+  BottomSheet, SubPageNav
 } from '../components/ui'
 import {
   PRODUCT_CATEGORIES, TARGET_MARKETS, MANUFACTURING_ORIGINS,
@@ -73,8 +74,10 @@ export default function ScenarioModeling() {
   const [brandStep, setBrandStep] = useState(0) // 0=Select, 1=Economics, 2=Timeline, 3=Risks
 
   /* \u2500\u2500 Campaign state \u2500\u2500 */
+  const [campaignStep, setCampaignStep] = useState(0)
   const [expandedRegion, setExpandedRegion] = useState(null)
   const [socialPlatform, setSocialPlatform] = useState('instagram')
+  const [sheetTemplate, setSheetTemplate] = useState(null)
 
   /* \u2500\u2500 Derived \u2500\u2500 */
   const costs = COST_BREAKDOWN[selectedCategory] || COST_BREAKDOWN.gin
@@ -181,7 +184,15 @@ export default function ScenarioModeling() {
           <SectionHeader size="md">Quick-Start Scenarios</SectionHeader>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {SCENARIO_TEMPLATES.map((t) => (
-              <Card key={t.id} hover onClick={() => selectTemplate(t)} padding="p-4">
+              <Card key={t.id} hover padding="p-4"
+                onClick={() => {
+                  if (window.innerWidth < 1024) {
+                    setSheetTemplate(t)
+                  } else {
+                    selectTemplate(t)
+                  }
+                }}
+              >
                 <div className="flex items-center gap-2 mb-2">
                   <div className="p-2 rounded-lg bg-gold/10">
                     <t.icon size={16} className="text-gold" />
@@ -195,6 +206,45 @@ export default function ScenarioModeling() {
               </Card>
             ))}
           </div>
+
+          {/* Mobile BottomSheet for template detail */}
+          <BottomSheet
+            open={!!sheetTemplate}
+            onClose={() => setSheetTemplate(null)}
+            title={sheetTemplate?.label}
+          >
+            {sheetTemplate && (
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-3 rounded-xl bg-gold/10">
+                    <sheetTemplate.icon size={20} className="text-gold" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-navy">{sheetTemplate.label}</p>
+                    <p className="text-xs text-gray-500 mt-0.5">{sheetTemplate.desc}</p>
+                  </div>
+                </div>
+                {sheetTemplate.defaults.category && (
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="bg-gray-50 rounded-lg p-3">
+                      <p className="text-[10px] text-gray-400 uppercase">Category</p>
+                      <p className="text-sm font-bold text-navy">{sheetTemplate.defaults.category}</p>
+                    </div>
+                    <div className="bg-gray-50 rounded-lg p-3">
+                      <p className="text-[10px] text-gray-400 uppercase">Markets</p>
+                      <p className="text-sm font-bold text-navy">{sheetTemplate.defaults.markets?.join(', ').toUpperCase()}</p>
+                    </div>
+                  </div>
+                )}
+                <button
+                  onClick={() => { selectTemplate(sheetTemplate); setSheetTemplate(null) }}
+                  className="w-full flex items-center justify-center gap-2 px-4 py-3 min-h-[44px] bg-navy text-white font-medium text-sm rounded-lg hover:bg-navy/90 transition touch-manipulation"
+                >
+                  Launch Scenario <ArrowRight size={14} />
+                </button>
+              </div>
+            )}
+          </BottomSheet>
 
           {/* Key assumptions summary */}
           <DrillDown
@@ -225,33 +275,17 @@ export default function ScenarioModeling() {
       {/* \u2550\u2550\u2550\u2550\u2550 TIER 2: BRAND-TO-MARKET SCENARIO (stepped flow) \u2550\u2550\u2550\u2550\u2550 */}
       {mode === 'brand' && (
         <div className="space-y-6">
-          {/* Step tabs */}
-          <Card padding="p-3">
-            <div className="flex items-center gap-1 overflow-x-auto relative">
-              {[
-                { label: 'Category & Market', icon: Target },
-                { label: 'Cost Breakdown', icon: DollarSign },
-                { label: 'Timeline & GTM', icon: Clock },
-                { label: 'Risk Assessment', icon: ShieldAlert },
-              ].map((step, idx) => {
-                const StepIcon = step.icon
-                return (
-                  <button
-                    key={idx}
-                    onClick={() => setBrandStep(idx)}
-                    className={`flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-lg text-xs font-medium whitespace-nowrap transition-all touch-manipulation ${
-                      brandStep === idx
-                        ? 'bg-navy text-white'
-                        : 'bg-gray-50 text-gray-500 hover:bg-gray-100'
-                    }`}
-                  >
-                    <StepIcon size={14} />
-                    {step.label}
-                  </button>
-                )
-              })}
-            </div>
-          </Card>
+          {/* Step progress indicator */}
+          <StepProgress
+            steps={[
+              { label: 'Category & Market', icon: Target },
+              { label: 'Cost Breakdown', icon: DollarSign },
+              { label: 'Timeline & GTM', icon: Clock },
+              { label: 'Risk Assessment', icon: ShieldAlert },
+            ]}
+            current={brandStep}
+            onChange={setBrandStep}
+          />
 
           {/* STEP 0: Select Category + Market + Archetype */}
           {brandStep === 0 && (
@@ -457,119 +491,159 @@ export default function ScenarioModeling() {
           )}
 
           {/* Step navigation */}
-          <div className="flex items-center justify-between gap-4">
-            <button onClick={() => setBrandStep(Math.max(0, brandStep - 1))} disabled={brandStep === 0}
-              className="flex items-center gap-1.5 px-4 py-2.5 min-h-[44px] bg-gray-100 text-gray-700 font-medium text-xs rounded-lg hover:bg-gray-200 disabled:opacity-40 disabled:cursor-not-allowed transition touch-manipulation">
-              <ChevronRight size={14} className="rotate-180" /> Previous
-            </button>
-            <span className="text-[10px] text-gray-400">Step {brandStep + 1} of 4</span>
-            <button onClick={() => setBrandStep(Math.min(3, brandStep + 1))} disabled={brandStep === 3}
-              className="flex items-center gap-1.5 px-4 py-2.5 min-h-[44px] bg-navy text-white font-medium text-xs rounded-lg hover:bg-navy/90 disabled:opacity-40 disabled:cursor-not-allowed transition touch-manipulation">
-              Next <ChevronRight size={14} />
-            </button>
-          </div>
+          <StepNav
+            current={brandStep}
+            total={4}
+            onPrev={() => setBrandStep(Math.max(0, brandStep - 1))}
+            onNext={() => setBrandStep(Math.min(3, brandStep + 1))}
+            onReset={() => { setBrandStep(0); setMode('overview') }}
+          />
         </div>
       )}
 
       {/* \u2550\u2550\u2550\u2550\u2550 TIER 2: CAMPAIGN PLANNER \u2550\u2550\u2550\u2550\u2550 */}
       {mode === 'campaign' && (
         <div className="space-y-6">
-          {/* Campaign context */}
-          <Card padding="p-4" className="border-l-3 border-l-gold">
-            <p className="text-sm font-semibold text-navy mb-1">UK Regional Campaign Planner</p>
-            <p className="text-[10px] text-gray-500 leading-relaxed">
-              Optimal regions, venues, and digital activation zones ranked by engagement potential and ROI.
-              Data covers {UK_REGIONS.length} UK cities with zone-level targeting.
-            </p>
-          </Card>
+          {/* Campaign step progress */}
+          <StepProgress
+            steps={[
+              { label: 'Overview & KPIs', icon: Target },
+              { label: 'Region Analysis', icon: MapPin },
+              { label: 'Venues & Social', icon: Building2 },
+              { label: 'Budgets & ROI', icon: DollarSign },
+            ]}
+            current={campaignStep}
+            onChange={setCampaignStep}
+          />
 
-          {/* Campaign KPIs */}
-          <BentoGrid>
-            <MetricCard
-              label="Cities Covered"
-              value={`${UK_REGIONS.length}`}
-              subtitle="Zone-level activation data"
-              icon={MapPin}
-            />
-            <MetricCard
-              label="Venue Types"
-              value={`${VENUE_TYPES.length}`}
-              subtitle="With fit scoring & cost data"
-              icon={Building2}
-            />
-            <MetricCard
-              label="Social Platforms"
-              value="3"
-              subtitle="Instagram, TikTok, Meta"
-              icon={Share2}
-            />
-            <MetricCard
-              label="Budget Tiers"
-              value={`${CAMPAIGN_BUDGET_TIERS.length}`}
-              subtitle="\u00a315K to \u00a3350K"
-              icon={DollarSign}
-            />
-          </BentoGrid>
+          {/* STEP 0: Campaign overview + KPIs */}
+          {campaignStep === 0 && (
+            <>
+              <Card padding="p-4" className="border-l-3 border-l-gold">
+                <p className="text-sm font-semibold text-navy mb-1">UK Regional Campaign Planner</p>
+                <p className="text-[10px] text-gray-500 leading-relaxed">
+                  Optimal regions, venues, and digital activation zones ranked by engagement potential and ROI.
+                  Data covers {UK_REGIONS.length} UK cities with zone-level targeting.
+                </p>
+              </Card>
 
-          {/* Region targeting */}
-          <DrillDown
-            title="UK Region Analysis"
-            summary={`${UK_REGIONS.length} cities \u2014 ranked by cocktail index and activation potential`}
-            defaultOpen
-          >
-            <RegionAnalysis regions={UK_REGIONS} expanded={expandedRegion} setExpanded={setExpandedRegion} />
-          </DrillDown>
+              <BentoGrid>
+                <MetricCard
+                  label="Cities Covered"
+                  value={`${UK_REGIONS.length}`}
+                  subtitle="Zone-level activation data"
+                  icon={MapPin}
+                />
+                <MetricCard
+                  label="Venue Types"
+                  value={`${VENUE_TYPES.length}`}
+                  subtitle="With fit scoring & cost data"
+                  icon={Building2}
+                />
+                <MetricCard
+                  label="Social Platforms"
+                  value="3"
+                  subtitle="Instagram, TikTok, Meta"
+                  icon={Share2}
+                />
+                <MetricCard
+                  label="Budget Tiers"
+                  value={`${CAMPAIGN_BUDGET_TIERS.length}`}
+                  subtitle="\u00a315K to \u00a3350K"
+                  icon={DollarSign}
+                />
+              </BentoGrid>
 
-          {/* Venue strategy */}
-          <DrillDown
-            title="Venue Type Strategy"
-            summary={`${VENUE_TYPES.length} venue types with suitability scoring and activation costs`}
-          >
-            <VenueTypeGrid />
-          </DrillDown>
+              <DrillDown
+                title="Key Assumptions & Methodology"
+                summary="Cost models, duty rates, and market sizing data sources"
+              >
+                <SourceList sources={SCENARIO_SOURCES} />
+              </DrillDown>
+            </>
+          )}
 
-          {/* Social targeting */}
-          <DrillDown
-            title="Social Media Geo-Targeting"
-            summary="Platform-specific audience data, CPM ranges, and geo-targets"
-          >
-            <SocialTargetingPanel platform={socialPlatform} setPlatform={setSocialPlatform} />
-          </DrillDown>
+          {/* STEP 1: Region targeting */}
+          {campaignStep === 1 && (
+            <>
+              <DrillDown
+                title="UK Region Analysis"
+                summary={`${UK_REGIONS.length} cities \u2014 ranked by cocktail index and activation potential`}
+                defaultOpen
+              >
+                <RegionAnalysis regions={UK_REGIONS} expanded={expandedRegion} setExpanded={setExpandedRegion} />
+              </DrillDown>
 
-          {/* Budget tiers */}
-          <DrillDown
-            title="Campaign Budget Tiers & ROI"
-            summary={`${CAMPAIGN_BUDGET_TIERS.length} tiers from \u00a315K to \u00a3350K with projected ROI`}
-          >
-            <BudgetTierCards />
-          </DrillDown>
+              <DrillDown
+                title="Full Region Data"
+                summary="Searchable table of all UK regions and zones"
+              >
+                <DataTable
+                  columns={[
+                    { key: 'name', label: 'City', sortable: true, render: (v) => <span className="font-medium text-navy">{v}</span> },
+                    { key: 'pop', label: 'Population', sortable: true },
+                    { key: 'avgSpend', label: 'Avg Spend', align: 'right', sortable: true },
+                    { key: 'cocktailIndex', label: 'Cocktail Index', align: 'right', sortable: true, render: (v) => (
+                      <span className={`font-semibold ${v > 120 ? 'text-emerald-600' : v > 100 ? 'text-gold' : 'text-gray-500'}`}>{v}</span>
+                    )},
+                    { key: 'spritzAffinity', label: 'Affinity', render: (v) => (
+                      <Badge variant={v === 'Very High' ? 'success' : v === 'High' ? 'default' : 'warning'}>{v}</Badge>
+                    )},
+                    { key: 'zones', label: 'Zones', align: 'right', render: (v) => v?.length || 0, sortable: false },
+                  ]}
+                  data={UK_REGIONS}
+                  searchable
+                  searchPlaceholder="Search cities\u2026"
+                  searchKey="name"
+                />
+              </DrillDown>
+            </>
+          )}
 
-          {/* Tier 3: full data */}
-          <DrillDown
-            title="Full Region Data"
-            summary="Searchable table of all UK regions and zones"
-          >
-            <DataTable
-              columns={[
-                { key: 'name', label: 'City', sortable: true, render: (v) => <span className="font-medium text-navy">{v}</span> },
-                { key: 'pop', label: 'Population', sortable: true },
-                { key: 'avgSpend', label: 'Avg Spend', align: 'right', sortable: true },
-                { key: 'cocktailIndex', label: 'Cocktail Index', align: 'right', sortable: true, render: (v) => (
-                  <span className={`font-semibold ${v > 120 ? 'text-emerald-600' : v > 100 ? 'text-gold' : 'text-gray-500'}`}>{v}</span>
-                )},
-                { key: 'spritzAffinity', label: 'Affinity', render: (v) => (
-                  <Badge variant={v === 'Very High' ? 'success' : v === 'High' ? 'default' : 'warning'}>{v}</Badge>
-                )},
-                { key: 'zones', label: 'Zones', align: 'right', render: (v) => v?.length || 0, sortable: false },
-              ]}
-              data={UK_REGIONS}
-              searchable
-              searchPlaceholder="Search cities\u2026"
-              searchKey="name"
-            />
-          </DrillDown>
+          {/* STEP 2: Venues & Social */}
+          {campaignStep === 2 && (
+            <>
+              <DrillDown
+                title="Venue Type Strategy"
+                summary={`${VENUE_TYPES.length} venue types with suitability scoring and activation costs`}
+                defaultOpen
+              >
+                <VenueTypeGrid />
+              </DrillDown>
 
-          <SourceList sources={SCENARIO_SOURCES} />
+              <DrillDown
+                title="Social Media Geo-Targeting"
+                summary="Platform-specific audience data, CPM ranges, and geo-targets"
+                defaultOpen
+              >
+                <SocialTargetingPanel platform={socialPlatform} setPlatform={setSocialPlatform} />
+              </DrillDown>
+            </>
+          )}
+
+          {/* STEP 3: Budget tiers */}
+          {campaignStep === 3 && (
+            <>
+              <DrillDown
+                title="Campaign Budget Tiers & ROI"
+                summary={`${CAMPAIGN_BUDGET_TIERS.length} tiers from \u00a315K to \u00a3350K with projected ROI`}
+                defaultOpen
+              >
+                <BudgetTierCards />
+              </DrillDown>
+
+              <SourceList sources={SCENARIO_SOURCES} />
+            </>
+          )}
+
+          {/* Campaign step navigation */}
+          <StepNav
+            current={campaignStep}
+            total={4}
+            onPrev={() => setCampaignStep(Math.max(0, campaignStep - 1))}
+            onNext={() => setCampaignStep(Math.min(3, campaignStep + 1))}
+            onReset={() => { setCampaignStep(0); setMode('overview') }}
+          />
         </div>
       )}
     </div>
@@ -578,6 +652,77 @@ export default function ScenarioModeling() {
 
 
 /* \u2550\u2550\u2550\u2550\u2550 SUB-COMPONENTS \u2550\u2550\u2550\u2550\u2550 */
+
+function StepProgress({ steps, current, onChange }) {
+  return (
+    <Card padding="p-3">
+      <div className="flex items-center gap-0 overflow-x-auto">
+        {steps.map((step, idx) => {
+          const StepIcon = step.icon
+          const isActive = current === idx
+          const isComplete = current > idx
+          return (
+            <React.Fragment key={idx}>
+              {idx > 0 && (
+                <div className={`flex-shrink-0 w-6 sm:w-10 h-0.5 ${isComplete ? 'bg-gold' : 'bg-gray-200'}`} />
+              )}
+              <button
+                onClick={() => onChange(idx)}
+                className={`flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-lg text-xs font-medium whitespace-nowrap transition-all touch-manipulation flex-shrink-0 ${
+                  isActive
+                    ? 'bg-navy text-white'
+                    : isComplete
+                    ? 'bg-gold/10 text-gold hover:bg-gold/20'
+                    : 'bg-gray-50 text-gray-500 hover:bg-gray-100'
+                }`}
+              >
+                <div className={`flex items-center justify-center w-5 h-5 rounded-full text-[10px] font-bold flex-shrink-0 ${
+                  isActive ? 'bg-white/20 text-white' : isComplete ? 'bg-gold text-white' : 'bg-gray-200 text-gray-500'
+                }`}>
+                  {isComplete ? <Check size={10} /> : idx + 1}
+                </div>
+                <StepIcon size={14} className="hidden sm:block" />
+                <span className="hidden sm:inline">{step.label}</span>
+              </button>
+            </React.Fragment>
+          )
+        })}
+      </div>
+    </Card>
+  )
+}
+
+function StepNav({ current, total, onPrev, onNext, onReset }) {
+  return (
+    <div className="flex items-center justify-between gap-4">
+      <button
+        onClick={onPrev}
+        disabled={current === 0}
+        className="flex items-center gap-1.5 px-4 py-2.5 min-h-[44px] w-full sm:w-auto bg-gray-100 text-gray-700 font-medium text-xs rounded-lg hover:bg-gray-200 disabled:opacity-40 disabled:cursor-not-allowed transition touch-manipulation"
+      >
+        <ChevronRight size={14} className="rotate-180" /> Previous
+      </button>
+      <span className="text-[10px] text-gray-400 flex-shrink-0">Step {current + 1} of {total}</span>
+      {current === total - 1 ? (
+        onReset ? (
+          <button
+            onClick={onReset}
+            className="flex items-center gap-1.5 px-4 py-2.5 min-h-[44px] w-full sm:w-auto bg-gold text-white font-medium text-xs rounded-lg hover:bg-gold/90 transition touch-manipulation"
+          >
+            Start Over
+          </button>
+        ) : null
+      ) : (
+        <button
+          onClick={onNext}
+          className="flex items-center gap-1.5 px-4 py-2.5 min-h-[44px] w-full sm:w-auto bg-navy text-white font-medium text-xs rounded-lg hover:bg-navy/90 transition touch-manipulation"
+        >
+          Next <ChevronRight size={14} />
+        </button>
+      )}
+    </div>
+  )
+}
 
 function CostWaterfall({ costs }) {
   const items = [

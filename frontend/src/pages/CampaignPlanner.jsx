@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react'
+import React, { useState, useCallback, useMemo, useEffect } from 'react'
 import {
   Target, Calendar, Sliders, AlertTriangle, BarChart3,
   ChevronRight, ChevronLeft, ChevronDown, ChevronUp,
@@ -10,7 +10,7 @@ import {
 import { ResponsiveContainer, Tooltip } from 'recharts'
 import {
   PageHeader, MetricCard, Card, Section, BentoGrid, DrillDown,
-  TabGroup, FilterPills, DataTable, EntityLink
+  TabGroup, FilterPills, DataTable, EntityLink, BottomSheet
 } from '../components/ui'
 import {
   BRANDS_BY_CATEGORY, CATEGORIES, SEGMENTS, BASE_SPIRITS,
@@ -30,6 +30,16 @@ const CampaignPlanner = () => {
   const [expandedOccasion, setExpandedOccasion] = useState(null)
   const [expandedEvent, setExpandedEvent] = useState(null)
   const [showComparison, setShowComparison] = useState(false)
+  const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' && window.innerWidth < 1024)
+  const [mobileStep, setMobileStep] = useState(0) // 0 = overview, 1 = brief, 2 = budget & timing, 3 = review & export
+  const [templateSheet, setTemplateSheet] = useState(null) // holds template data for BottomSheet
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 1024)
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
   const [campaignData, setCampaignData] = useState({
     campaignType: 'existing',
     brand: '',
@@ -1066,6 +1076,448 @@ const CampaignPlanner = () => {
     )
   }
 
+  // ─── MOBILE TEMPLATES DATA ─────────────────────────────────────────────────
+  const mobileTemplates = [
+    { label: 'On-Trade Activation', desc: 'Bar activations, tasting events, venue partnerships', icon: Wine, preset: { onTrade: 60, digital: 25, offTrade: 5, travelRetail: 10, objective: 'trial' } },
+    { label: 'Digital-First Launch', desc: 'Social media, influencer partnerships, e-commerce', icon: Sparkles, preset: { digital: 55, onTrade: 15, offTrade: 20, travelRetail: 10, objective: 'awareness' } },
+    { label: 'Festival Season', desc: 'Multi-festival activations, sampling, experiential', icon: MapPin, preset: { onTrade: 45, digital: 30, offTrade: 15, travelRetail: 10, objective: 'trial' } },
+    { label: 'Off-Trade Push', desc: 'Supermarket promos, specialist retailers, gifting', icon: ShoppingCart, preset: { offTrade: 50, digital: 25, onTrade: 15, travelRetail: 10, objective: 'volume' } },
+    { label: 'Premium Launch', desc: 'High-end positioning, cocktail bars, press events', icon: Star, preset: { onTrade: 40, digital: 30, offTrade: 15, travelRetail: 15, objective: 'premium' } },
+    { label: 'Travel Retail Focus', desc: 'Duty-free activations, airport displays, gifting', icon: Globe, preset: { travelRetail: 45, digital: 20, offTrade: 20, onTrade: 15, objective: 'volume' } },
+  ]
+
+  // ─── MOBILE WIZARD RENDERERS ─────────────────────────────────────────────
+
+  const renderMobileOverview = () => (
+    <div className="space-y-6">
+      <Card className="bg-gradient-to-r from-navy to-blue-800 border-0">
+        <div className="flex items-start gap-4">
+          <div className="p-3 rounded-xl bg-white/10">
+            <Target size={24} className="text-gold" />
+          </div>
+          <div className="flex-1">
+            <h2 className="font-display text-lg text-white mb-1">Campaign Planner</h2>
+            <p className="text-blue-200 text-sm mb-4">3-step mobile flow: choose your campaign, set budget, then review and export.</p>
+            <button
+              onClick={() => setMobileStep(1)}
+              className="inline-flex items-center gap-2 bg-gold text-navy px-4 py-3 rounded-lg text-sm font-semibold hover:bg-gold/90 transition-colors touch-manipulation"
+            >
+              Start Campaign <ChevronRight size={16} />
+            </button>
+          </div>
+        </div>
+      </Card>
+
+      <Section>
+        <h3 className="text-sm font-semibold text-navy mb-3">Quick-Start Templates</h3>
+        <div className="grid grid-cols-1 gap-3">
+          {mobileTemplates.map((template, i) => {
+            const Icon = template.icon
+            return (
+              <Card
+                key={i}
+                hover
+                onClick={() => setTemplateSheet(template)}
+              >
+                <div className="flex items-center gap-3">
+                  <div className="p-2.5 rounded-lg bg-gray-50">
+                    <Icon size={20} className="text-navy" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-sm font-semibold text-navy">{template.label}</h4>
+                    <p className="text-xs text-gray-500 mt-0.5 truncate">{template.desc}</p>
+                  </div>
+                  <ChevronRight size={16} className="text-gray-400 flex-shrink-0" />
+                </div>
+              </Card>
+            )
+          })}
+        </div>
+      </Section>
+
+      <Section>
+        <h3 className="text-sm font-semibold text-navy mb-3">Campaign Benchmarks</h3>
+        <div className="grid grid-cols-2 gap-3">
+          <MetricCard label="Avg ROI" value="2.4x" icon={TrendingUp} subtitle="Spirits campaigns" direction="up" />
+          <MetricCard label="Avg Budget" value="\u00a350k" icon={DollarSign} subtitle="UK mid-tier" />
+          <MetricCard label="Best Channel" value="On-Trade" icon={Wine} subtitle="For trial" />
+          <MetricCard label="Events" value={Object.values(CULTURAL_CALENDARS).flat().length} icon={Calendar} subtitle="8 markets" />
+        </div>
+      </Section>
+    </div>
+  )
+
+  const renderMobileStep1 = () => (
+    <div className="space-y-5">
+      <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-100">
+        <div className="flex items-start gap-3">
+          <Target className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+          <div>
+            <h3 className="font-display font-bold text-sm text-blue-900 mb-1">Step 1: Campaign Brief</h3>
+            <p className="text-xs text-blue-700">Choose your category, market, and campaign type.</p>
+          </div>
+        </div>
+      </Card>
+
+      {/* Campaign Type - simplified card selection */}
+      <div>
+        <label className="block text-xs font-semibold text-gray-700 mb-3">Campaign Type</label>
+        <div className="grid grid-cols-1 gap-2">
+          {CAMPAIGN_TYPES.map(type => {
+            const IconComponent = ICON_MAP[type.iconName] || Target
+            return (
+              <div key={type.id} onClick={() => setCampaignData(prev => ({ ...prev, campaignType: type.id }))}
+                className={`p-4 rounded-xl border-2 cursor-pointer transition flex items-center gap-3 touch-manipulation ${
+                  campaignData.campaignType === type.id ? 'border-gold bg-gold/5' : 'border-gray-200 bg-white'
+                }`}>
+                <IconComponent className={`w-5 h-5 flex-shrink-0 ${campaignData.campaignType === type.id ? 'text-gold' : 'text-gray-500'}`} />
+                <p className="font-semibold text-sm text-gray-900">{type.label}</p>
+                {campaignData.campaignType === type.id && <CheckCircle className="w-4 h-4 text-gold ml-auto flex-shrink-0" />}
+              </div>
+            )
+          })}
+        </div>
+      </div>
+
+      {/* Category */}
+      <div>
+        <label className="block text-xs font-semibold text-gray-700 mb-2">Category</label>
+        <select name="category" value={campaignData.category} onChange={handleInputChange}
+          className="w-full px-3 py-3 text-sm border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold touch-manipulation">
+          <option value="">Select Category</option>
+          {CATEGORIES.map(c => <option key={c.id} value={c.id}>{c.label}</option>)}
+        </select>
+      </div>
+
+      {/* Brand (existing) */}
+      {campaignData.campaignType === 'existing' && campaignData.category && (
+        <div>
+          <label className="block text-xs font-semibold text-gray-700 mb-2">Brand</label>
+          <select name="brand" value={campaignData.brand} onChange={handleInputChange}
+            className="w-full px-3 py-3 text-sm border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold touch-manipulation">
+            <option value="">Select Brand</option>
+            {BRANDS_BY_CATEGORY[campaignData.category]?.map(b => <option key={b} value={b}>{b}</option>)}
+          </select>
+        </div>
+      )}
+
+      {/* New Product fields */}
+      {campaignData.campaignType === 'newProduct' && (
+        <div className="space-y-3">
+          <div>
+            <label className="block text-xs font-semibold text-gray-700 mb-2">Brand Name</label>
+            <input type="text" name="customBrandName" value={campaignData.customBrandName} onChange={handleInputChange}
+              placeholder="e.g., Aurora Spirits" className="w-full px-3 py-3 text-sm border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold touch-manipulation" />
+          </div>
+          <div>
+            <label className="block text-xs font-semibold text-gray-700 mb-2">Segment</label>
+            <select name="segment" value={campaignData.segment} onChange={handleInputChange}
+              className="w-full px-3 py-3 text-sm border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold touch-manipulation">
+              <option value="">Select Segment</option>
+              {SEGMENTS.map(s => <option key={s} value={s}>{s}</option>)}
+            </select>
+          </div>
+        </div>
+      )}
+
+      {/* Cocktail fields */}
+      {campaignData.campaignType === 'cocktail' && (
+        <div className="space-y-3">
+          <div>
+            <label className="block text-xs font-semibold text-gray-700 mb-2">Cocktail Name</label>
+            <input type="text" name="cocktailName" value={campaignData.cocktailName} onChange={handleInputChange}
+              placeholder="e.g., Fino Spritz" className="w-full px-3 py-3 text-sm border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold touch-manipulation" />
+          </div>
+          <div>
+            <label className="block text-xs font-semibold text-gray-700 mb-2">Base Spirit</label>
+            <select name="baseSpirit" value={campaignData.baseSpirit} onChange={handleInputChange}
+              className="w-full px-3 py-3 text-sm border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold touch-manipulation">
+              <option value="">Select Base Spirit</option>
+              {BASE_SPIRITS.map(s => <option key={s} value={s}>{s}</option>)}
+            </select>
+          </div>
+        </div>
+      )}
+
+      {/* Market */}
+      <div>
+        <label className="block text-xs font-semibold text-gray-700 mb-2">Market</label>
+        <select name="market" value={campaignData.market} onChange={handleInputChange}
+          className="w-full px-3 py-3 text-sm border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold touch-manipulation">
+          <option value="">Select Market</option>
+          {MARKETS.map(m => <option key={m.code} value={m.code}>{m.code}</option>)}
+        </select>
+      </div>
+
+      {/* Objective */}
+      <div>
+        <label className="block text-xs font-semibold text-gray-700 mb-3">Primary Objective</label>
+        <div className="grid grid-cols-1 gap-2">
+          {OBJECTIVES.map(obj => (
+            <div key={obj.id} onClick={() => setCampaignData(prev => ({ ...prev, objective: obj.id }))}
+              className={`p-3 rounded-lg border-2 cursor-pointer transition touch-manipulation flex items-center gap-3 ${
+                campaignData.objective === obj.id ? 'border-gold bg-gold/5' : 'border-gray-200 bg-white'
+              }`}>
+              <div className="flex-1">
+                <p className="font-semibold text-sm text-gray-900">{obj.label}</p>
+                <p className="text-xs text-gray-600">{obj.desc}</p>
+              </div>
+              {campaignData.objective === obj.id && <CheckCircle className="w-4 h-4 text-gold flex-shrink-0" />}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+
+  const renderMobileStep2 = () => {
+    const budget = parseFloat(campaignData.budget) || 0
+    const channelLabels = { digital: 'Digital/Social', onTrade: 'On-Trade', offTrade: 'Off-Trade', travelRetail: 'Travel Retail' }
+    const channelColors = { digital: '#1A1F36', onTrade: '#C9A96E', offTrade: '#8B6F47', travelRetail: '#D4AF96' }
+
+    return (
+      <div className="space-y-5">
+        <Card className="bg-gradient-to-r from-green-50 to-emerald-50 border-green-100">
+          <div className="flex items-start gap-3">
+            <DollarSign className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+            <div>
+              <h3 className="font-display font-bold text-sm text-green-900 mb-1">Step 2: Budget & Timing</h3>
+              <p className="text-xs text-green-700">Set your total budget and date range. We\u2019ll show the recommended channel split.</p>
+            </div>
+          </div>
+        </Card>
+
+        {/* Budget Input */}
+        <div>
+          <label className="block text-xs font-semibold text-gray-700 mb-2">Total Budget ({getCurrency()})</label>
+          <input type="number" name="budget" value={campaignData.budget} onChange={handleInputChange}
+            placeholder="e.g., 50000" className="w-full px-3 py-3 text-sm border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold touch-manipulation" />
+        </div>
+
+        {/* Date Range */}
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <label className="block text-xs font-semibold text-gray-700 mb-2">Start</label>
+            <select name="startMonth" value={campaignData.startMonth} onChange={handleInputChange}
+              className="w-full px-3 py-3 text-sm border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold touch-manipulation">
+              {MONTHS.map(m => <option key={m} value={m}>{m}</option>)}
+            </select>
+          </div>
+          <div>
+            <label className="block text-xs font-semibold text-gray-700 mb-2">End</label>
+            <select name="endMonth" value={campaignData.endMonth} onChange={handleInputChange}
+              className="w-full px-3 py-3 text-sm border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold touch-manipulation">
+              {MONTHS.map(m => <option key={m} value={m}>{m}</option>)}
+            </select>
+          </div>
+        </div>
+
+        {/* Recommended Allocation — read-only progress bars */}
+        <Card>
+          <h4 className="font-semibold text-xs text-navy mb-1">Recommended Channel Split</h4>
+          <p className="text-[10px] text-gray-500 mb-4">Based on your template selection. Adjust on desktop for fine-tuning.</p>
+          <div className="space-y-3">
+            {['digital', 'onTrade', 'offTrade', 'travelRetail'].map(ch => {
+              const pct = campaignData[ch]
+              const spend = Math.round(budget * (pct / 100))
+              return (
+                <div key={ch}>
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-xs font-semibold text-gray-800">{channelLabels[ch]}</span>
+                    <div className="flex items-center gap-2">
+                      {budget > 0 && <span className="text-[10px] text-gray-500">{getCurrency()}{spend.toLocaleString()}</span>}
+                      <span className="text-xs font-bold text-navy w-10 text-right">{pct.toFixed(0)}%</span>
+                    </div>
+                  </div>
+                  <div className="h-3 bg-gray-100 rounded-full overflow-hidden">
+                    <div className="h-full rounded-full transition-all duration-300" style={{ width: `${pct}%`, backgroundColor: channelColors[ch] }} />
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </Card>
+
+        {/* Digital Sub-Split — read-only */}
+        {campaignData.digital > 0 && (
+          <Card>
+            <h4 className="font-semibold text-xs text-navy mb-3">Digital Platform Split</h4>
+            <div className="grid grid-cols-2 gap-2">
+              {[
+                { key: 'metaInstagram', label: 'Meta/Instagram' },
+                { key: 'tiktok', label: 'TikTok' },
+                { key: 'youtube', label: 'YouTube' },
+                { key: 'influencer', label: 'Influencer' },
+              ].map(({ key, label }) => (
+                <div key={key} className="bg-blue-50 rounded-lg p-3 text-center">
+                  <p className="text-sm font-bold text-blue-900">{campaignData[key].toFixed(0)}%</p>
+                  <p className="text-[10px] text-blue-700 mt-0.5">{label}</p>
+                </div>
+              ))}
+            </div>
+          </Card>
+        )}
+
+        {/* Advanced Options — collapsed DrillDown for users who want to tweak on mobile */}
+        <DrillDown title="Advanced: Adjust Sliders" summary="Fine-tune allocation manually">
+          <div className="space-y-4">
+            {['digital', 'onTrade', 'offTrade', 'travelRetail'].map(channel => {
+              const value = campaignData[channel]
+              return (
+                <div key={channel} className="space-y-1">
+                  <div className="flex items-center justify-between">
+                    <label className="text-xs font-semibold text-gray-900">{channelLabels[channel]}</label>
+                    <span className="text-xs font-bold text-gray-900">{value.toFixed(0)}%</span>
+                  </div>
+                  <input type="range" min="0" max="100" step="1" value={value}
+                    onChange={(e) => handleSliderChange(channel, parseFloat(e.target.value))}
+                    className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gold touch-manipulation" />
+                </div>
+              )
+            })}
+          </div>
+        </DrillDown>
+      </div>
+    )
+  }
+
+  const renderMobileStep3 = () => {
+    const budget = parseFloat(campaignData.budget) || 0
+    const objective = OBJECTIVES.find(o => o.id === campaignData.objective)
+    const competitors = getCompetitors()
+    const deliverables = getContentDeliverables()
+    const roiData = getROIData()
+    const isAwareness = campaignData.objective === 'awareness'
+
+    return (
+      <div className="space-y-5">
+        <Card className="bg-gradient-to-r from-indigo-50 to-blue-50 border-indigo-100">
+          <div className="flex items-start gap-3">
+            <CheckCircle className="w-5 h-5 text-indigo-600 mt-0.5 flex-shrink-0" />
+            <div>
+              <h3 className="font-display font-bold text-sm text-indigo-900 mb-1">Step 3: Review & Export</h3>
+              <p className="text-xs text-indigo-700">Review your campaign plan and export the brief.</p>
+            </div>
+          </div>
+        </Card>
+
+        {/* Campaign Summary */}
+        <Card>
+          <h4 className="font-semibold text-sm text-navy mb-3">Campaign Summary</h4>
+          <div className="space-y-2.5 text-xs">
+            <div className="flex justify-between py-1.5 border-b border-gray-100">
+              <span className="text-gray-600">Brand</span>
+              <span className="font-semibold text-gray-900 text-right">{getBrandDisplay() || '\u2014'}</span>
+            </div>
+            <div className="flex justify-between py-1.5 border-b border-gray-100">
+              <span className="text-gray-600">Objective</span>
+              <span className="font-semibold text-gray-900">{objective?.label || '\u2014'}</span>
+            </div>
+            <div className="flex justify-between py-1.5 border-b border-gray-100">
+              <span className="text-gray-600">Market</span>
+              <span className="font-semibold text-gray-900">{campaignData.market || '\u2014'}</span>
+            </div>
+            <div className="flex justify-between py-1.5 border-b border-gray-100">
+              <span className="text-gray-600">Timeline</span>
+              <span className="font-semibold text-gray-900">{campaignData.startMonth} \u2013 {campaignData.endMonth}</span>
+            </div>
+            <div className="flex justify-between py-1.5">
+              <span className="text-gray-600">Total Budget</span>
+              <span className="font-bold text-navy text-sm">{getCurrency()}{Number(campaignData.budget || 0).toLocaleString()}</span>
+            </div>
+          </div>
+        </Card>
+
+        {/* Channel Allocation Summary */}
+        <Card>
+          <h4 className="font-semibold text-xs text-navy mb-3">Channel Allocation</h4>
+          <div className="grid grid-cols-2 gap-2">
+            {[
+              { label: 'Digital', pct: campaignData.digital },
+              { label: 'On-Trade', pct: campaignData.onTrade },
+              { label: 'Off-Trade', pct: campaignData.offTrade },
+              { label: 'Travel Retail', pct: campaignData.travelRetail },
+            ].map(ch => (
+              <div key={ch.label} className="bg-gray-50 rounded-lg p-3 text-center">
+                <p className="font-bold text-navy text-sm">{ch.pct.toFixed(0)}%</p>
+                <p className="text-gray-600 text-[10px] mt-0.5">{ch.label}</p>
+                {budget > 0 && <p className="text-gray-500 text-[10px]">{getCurrency()}{Math.round(budget * (ch.pct / 100)).toLocaleString()}</p>}
+              </div>
+            ))}
+          </div>
+        </Card>
+
+        {/* Forecasted ROI */}
+        <Card>
+          <h4 className="font-semibold text-xs text-navy mb-3">Forecasted Performance (Base Case)</h4>
+          <div className="grid grid-cols-2 gap-2">
+            {isAwareness ? (<>
+              <div className="bg-blue-50 rounded-lg p-3 text-center">
+                <p className="font-bold text-blue-900 text-sm">{(roiData[1].impressions / 1000000).toFixed(1)}M</p>
+                <p className="text-blue-700 text-[10px]">Impressions</p>
+              </div>
+              <div className="bg-blue-50 rounded-lg p-3 text-center">
+                <p className="font-bold text-blue-900 text-sm">{roiData[1].awarenessLift}</p>
+                <p className="text-blue-700 text-[10px]">Awareness Lift</p>
+              </div>
+            </>) : (<>
+              <div className="bg-green-50 rounded-lg p-3 text-center">
+                <p className="font-bold text-green-900 text-sm">{roiData[1].volume.toFixed(0)}</p>
+                <p className="text-green-700 text-[10px]">Cases</p>
+              </div>
+              <div className="bg-green-50 rounded-lg p-3 text-center">
+                <p className="font-bold text-green-900 text-sm">{roiData[1].roas.toFixed(2)}x</p>
+                <p className="text-green-700 text-[10px]">ROAS</p>
+              </div>
+            </>)}
+          </div>
+        </Card>
+
+        {/* Competitors */}
+        {competitors.length > 0 && (
+          <DrillDown title="Key Competitors" summary={`${competitors.length} identified`}>
+            <div className="space-y-2">
+              {competitors.map((c, idx) => (
+                <div key={idx} className={`border rounded-lg p-3 ${
+                  c.threat === 'high' ? 'border-red-200 bg-red-50' : c.threat === 'medium' ? 'border-amber-200 bg-amber-50' : 'border-green-200 bg-green-50'
+                }`}>
+                  <div className="flex items-center justify-between mb-1">
+                    <p className="font-semibold text-xs text-gray-900">{c.name}</p>
+                    <span className={`text-[10px] px-2 py-0.5 rounded-full font-semibold ${
+                      c.threat === 'high' ? 'bg-red-200 text-red-800' : c.threat === 'medium' ? 'bg-amber-200 text-amber-800' : 'bg-green-200 text-green-800'
+                    }`}>{c.threat}</span>
+                  </div>
+                  <p className="text-xs text-gray-700">{c.position}</p>
+                </div>
+              ))}
+            </div>
+          </DrillDown>
+        )}
+
+        {/* Content Deliverables */}
+        {deliverables.length > 0 && (
+          <DrillDown title="Content Deliverables" summary={`${deliverables.length} items`}>
+            <div className="space-y-2">
+              {deliverables.map((d, idx) => (
+                <div key={idx} className="bg-gray-50 border border-gray-200 rounded-lg p-3">
+                  <p className="font-semibold text-xs text-gray-900">{d.type}</p>
+                  <p className="text-xs text-gray-600 mt-0.5">{d.quantity} \u00b7 {d.timeline}</p>
+                </div>
+              ))}
+            </div>
+          </DrillDown>
+        )}
+
+        {/* Export Button */}
+        <button onClick={handleExport}
+          className="w-full flex items-center justify-center gap-2 bg-navy hover:bg-navy/90 text-white font-semibold text-sm py-4 rounded-lg transition touch-manipulation">
+          <Download className="w-5 h-5" />
+          Export Campaign Brief
+        </button>
+      </div>
+    )
+  }
+
   // ─── MAIN RENDER ──────────────────────────────────────────────────────────
   const steps = [
     { label: 'Overview', render: renderOverview },
@@ -1076,6 +1528,155 @@ const CampaignPlanner = () => {
     { label: 'ROI & Handoff', render: renderStep5 },
   ]
 
+  // ─── MOBILE RENDER ────────────────────────────────────────────────────────
+  const mobileSteps = [
+    { label: 'Overview', render: renderMobileOverview },
+    { label: 'Brief', render: renderMobileStep1 },
+    { label: 'Budget & Timing', render: renderMobileStep2 },
+    { label: 'Review & Export', render: renderMobileStep3 },
+  ]
+
+  if (isMobile) {
+    return (
+      <div className="space-y-6">
+        <PageHeader
+          title="Campaign Planner"
+          subtitle="3-step mobile flow \u00b7 Data as of March 2026"
+          breadcrumbs={[
+            { label: 'Command Centre', to: '/' },
+            { label: 'Campaign Planner' }
+          ]}
+        />
+
+        {/* Mobile Step Indicator */}
+        {mobileStep > 0 && (
+          <Card>
+            <div className="flex items-center justify-between mb-2">
+              {[1, 2, 3].map((step, idx) => (
+                <React.Fragment key={step}>
+                  <button onClick={() => setMobileStep(step)}
+                    className={`flex items-center justify-center w-11 h-11 rounded-full font-semibold text-xs transition touch-manipulation ${
+                      step === mobileStep ? 'bg-gold text-navy'
+                      : step < mobileStep ? 'bg-emerald-500 text-white'
+                      : 'bg-gray-200 text-gray-500'
+                    }`}>
+                    {step < mobileStep ? <CheckCircle className="w-5 h-5" /> : step}
+                  </button>
+                  {idx < 2 && <div className={`flex-1 h-1 mx-3 rounded ${step < mobileStep ? 'bg-emerald-500' : 'bg-gray-200'}`} />}
+                </React.Fragment>
+              ))}
+            </div>
+            <div className="flex items-center justify-between text-[10px] text-gray-500 px-2">
+              <span>Brief</span>
+              <span>Budget</span>
+              <span>Review</span>
+            </div>
+          </Card>
+        )}
+
+        {/* Mobile Content */}
+        <div className="min-h-[400px]">
+          {mobileSteps[mobileStep].render()}
+        </div>
+
+        {/* Mobile Navigation */}
+        {mobileStep > 0 && (
+          <div className="flex items-center justify-between gap-4">
+            <button onClick={() => setMobileStep(Math.max(0, mobileStep - 1))}
+              className="flex items-center gap-2 px-4 py-3 min-h-[44px] bg-gray-100 text-gray-700 font-semibold text-sm rounded-lg hover:bg-gray-200 transition touch-manipulation">
+              <ChevronLeft className="w-4 h-4" /> {mobileStep === 1 ? 'Overview' : 'Back'}
+            </button>
+            <div className="text-xs text-gray-500">Step {mobileStep} of 3</div>
+            {mobileStep < 3 ? (
+              <button onClick={() => setMobileStep(mobileStep + 1)}
+                className="flex items-center gap-2 px-4 py-3 min-h-[44px] bg-navy hover:bg-navy/90 text-white font-semibold text-sm rounded-lg transition touch-manipulation">
+                Next <ChevronRight className="w-4 h-4" />
+              </button>
+            ) : (
+              <button onClick={handleExport}
+                className="flex items-center gap-2 px-4 py-3 min-h-[44px] bg-navy hover:bg-navy/90 text-white font-semibold text-sm rounded-lg transition touch-manipulation">
+                <Download className="w-4 h-4" /> Export
+              </button>
+            )}
+          </div>
+        )}
+
+        {/* Template BottomSheet */}
+        <BottomSheet
+          open={!!templateSheet}
+          onClose={() => setTemplateSheet(null)}
+          title={templateSheet?.label || ''}
+        >
+          {templateSheet && (() => {
+            const Icon = templateSheet.icon
+            return (
+              <div className="space-y-5">
+                <div className="flex items-center gap-3">
+                  <div className="p-3 rounded-xl bg-gray-50">
+                    <Icon size={24} className="text-navy" />
+                  </div>
+                  <div>
+                    <h3 className="font-display font-bold text-base text-navy">{templateSheet.label}</h3>
+                    <p className="text-xs text-gray-600 mt-0.5">{templateSheet.desc}</p>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-xs font-semibold text-gray-700 mb-3">Recommended Channel Split</h4>
+                  <div className="space-y-2.5">
+                    {[
+                      { label: 'Digital/Social', key: 'digital', color: '#1A1F36' },
+                      { label: 'On-Trade', key: 'onTrade', color: '#C9A96E' },
+                      { label: 'Off-Trade', key: 'offTrade', color: '#8B6F47' },
+                      { label: 'Travel Retail', key: 'travelRetail', color: '#D4AF96' },
+                    ].map(ch => {
+                      const pct = templateSheet.preset[ch.key] || 0
+                      return (
+                        <div key={ch.key}>
+                          <div className="flex items-center justify-between mb-1">
+                            <span className="text-xs text-gray-800">{ch.label}</span>
+                            <span className="text-xs font-bold text-navy">{pct}%</span>
+                          </div>
+                          <div className="h-3 bg-gray-100 rounded-full overflow-hidden">
+                            <div className="h-full rounded-full" style={{ width: `${pct}%`, backgroundColor: ch.color }} />
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+
+                <div className="bg-blue-50 rounded-lg p-3">
+                  <p className="text-xs text-blue-800">
+                    <span className="font-semibold">Objective: </span>
+                    {OBJECTIVES.find(o => o.id === templateSheet.preset.objective)?.label || templateSheet.preset.objective}
+                  </p>
+                </div>
+
+                <button
+                  onClick={() => {
+                    setCampaignData(prev => ({ ...prev, ...templateSheet.preset }))
+                    setTemplateSheet(null)
+                    setMobileStep(1)
+                  }}
+                  className="w-full flex items-center justify-center gap-2 bg-gold text-navy font-semibold text-sm py-4 rounded-lg transition touch-manipulation"
+                >
+                  Use This Template <ChevronRight size={16} />
+                </button>
+              </div>
+            )
+          })()}
+        </BottomSheet>
+
+        {/* Footer */}
+        <div className="text-center py-4 text-[10px] text-gray-400">
+          Campaign Planner \u2022 Liquid Economy Platform \u2022 Palmer Liquid Studios
+        </div>
+      </div>
+    )
+  }
+
+  // ─── DESKTOP RENDER ──────────────────────────────────────────────────────
   return (
     <div className="space-y-6">
       <PageHeader

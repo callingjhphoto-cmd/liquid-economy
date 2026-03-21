@@ -596,6 +596,47 @@ function CategoryDetail({ cat, year, onBack }) {
             </Card>
           </div>
 
+          {/* Trade KPIs */}
+          {yd.tradeKPIs && (
+            <Card>
+              <div className="flex items-center gap-2 mb-3">
+                <SectionLabel>Trade KPIs ({year})</SectionLabel>
+                {yd.tradeKPIs.isEstimated && (
+                  <span className="px-1.5 py-0.5 bg-orange-100 text-orange-700 text-[9px] font-bold rounded uppercase tracking-wider">Est.</span>
+                )}
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+                <div className="bg-gray-50 rounded-lg p-2.5">
+                  <div className="text-[10px] text-gray-400">ACV Distribution</div>
+                  <div className="text-sm font-bold text-navy">{yd.tradeKPIs.acvDistribution}%</div>
+                </div>
+                <div className="bg-gray-50 rounded-lg p-2.5">
+                  <div className="text-[10px] text-gray-400">CE Depletions</div>
+                  <div className="text-sm font-bold text-navy">{(yd.tradeKPIs.ceDepletions / 1000000).toFixed(1)}M</div>
+                </div>
+                <div className="bg-gray-50 rounded-lg p-2.5">
+                  <div className="text-[10px] text-gray-400">Avg Billback</div>
+                  <div className="text-sm font-bold text-navy">{yd.tradeKPIs.billback}%</div>
+                </div>
+                <div className="bg-gray-50 rounded-lg p-2.5">
+                  <div className="text-[10px] text-gray-400">Gross Margin</div>
+                  <div className="text-sm font-bold text-navy">{yd.tradeKPIs.grossMarginPct}%</div>
+                </div>
+                <div className="bg-gray-50 rounded-lg p-2.5">
+                  <div className="text-[10px] text-gray-400">CAC</div>
+                  <div className="text-sm font-bold text-navy">${yd.tradeKPIs.cac}</div>
+                </div>
+                <div className="bg-gray-50 rounded-lg p-2.5">
+                  <div className="text-[10px] text-gray-400">Inventory Turnover</div>
+                  <div className="text-sm font-bold text-navy">{yd.tradeKPIs.itr}x</div>
+                </div>
+              </div>
+              {yd.tradeKPIs.isEstimated && (
+                <p className="text-[10px] text-gray-400 mt-2 italic">{yd.tradeKPIs.methodology}</p>
+              )}
+            </Card>
+          )}
+
           {/* View Full Report CTA (Tier 3 gate) */}
           <button
             onClick={() => setShowFullReport(!showFullReport)}

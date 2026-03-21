@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useCallback } from 'react'
 import {
   Package, Factory, Globe, ChevronDown, ChevronRight, ExternalLink,
   AlertTriangle, Target, Users, Lightbulb, DollarSign, Clock, Shield,
@@ -6,7 +6,7 @@ import {
 } from 'lucide-react'
 import {
   PageHeader, MetricCard, Card, Section, BentoGrid, DrillDown,
-  TabGroup, FilterPills, DataTable, EntityLink
+  TabGroup, FilterPills, DataTable, EntityLink, BottomSheet
 } from '../components/ui'
 import {
   MATERIAL_CATEGORIES, POS_COMPANIES, TRADE_PLATFORMS,
@@ -31,11 +31,18 @@ const topHub = 'Guangdong Province'
 
 // ─── SUB-COMPONENTS ──────────────────────────────────────────────────────────
 
-function FactoryCard({ factory }) {
+function FactoryCard({ factory, onMobileTap }) {
   const [expanded, setExpanded] = useState(false)
+  const handleClick = () => {
+    if (onMobileTap && window.innerWidth < 1024) {
+      onMobileTap(factory)
+    } else {
+      setExpanded(!expanded)
+    }
+  }
   return (
     <div className="bg-gray-50 rounded-lg border border-gray-100 overflow-hidden">
-      <button onClick={() => setExpanded(!expanded)} className="w-full text-left p-4 min-h-[44px] hover:bg-gray-100 transition-colors touch-manipulation">
+      <button onClick={handleClick} className="w-full text-left p-4 min-h-[44px] hover:bg-gray-100 transition-colors touch-manipulation">
         <div className="flex items-center justify-between">
           <div>
             <h4 className="font-semibold text-navy text-sm">{factory.name}</h4>
@@ -84,7 +91,7 @@ function FactoryCard({ factory }) {
   )
 }
 
-function MaterialSection({ category }) {
+function MaterialSection({ category, onFactoryTap }) {
   const [expanded, setExpanded] = useState(false)
   return (
     <Card hover={!expanded} onClick={() => !expanded && setExpanded(true)}>
@@ -125,7 +132,7 @@ function MaterialSection({ category }) {
           </div>
           <div className="space-y-2">
             {category.factories.map((f, i) => (
-              <FactoryCard key={i} factory={f} />
+              <FactoryCard key={i} factory={f} onMobileTap={onFactoryTap} />
             ))}
           </div>
         </div>
@@ -285,6 +292,50 @@ export default function POSIntelligence() {
   const [searchTerm, setSearchTerm] = useState('')
   const [materialFilter, setMaterialFilter] = useState('all')
   const [showFullTable, setShowFullTable] = useState(false)
+  const [mobileDetail, setMobileDetail] = useState(null)
+
+  const handleFactoryTap = useCallback((factory) => {
+    if (window.innerWidth < 1024) {
+      setMobileDetail({
+        title: factory.name,
+        content: (
+          <div className="space-y-4">
+            <div className="flex items-center gap-2 text-sm text-gray-500">
+              <MapPin size={14} />{factory.location} &middot; Est. {factory.founded} &middot; {factory.employees} staff
+            </div>
+            <div>
+              <h4 className="text-xs font-semibold text-navy mb-1">Capabilities</h4>
+              <p className="text-sm text-gray-700">{factory.capabilities}</p>
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <span className="text-xs font-medium text-gray-400">MOQ</span>
+                <p className="text-sm font-semibold text-navy">{factory.moq} units</p>
+              </div>
+              <div>
+                <span className="text-xs font-medium text-gray-400">Export Markets</span>
+                <p className="text-sm text-gray-700">{factory.exportMarkets}</p>
+              </div>
+            </div>
+            <div>
+              <span className="text-xs font-medium text-gray-400">Certifications</span>
+              <div className="flex flex-wrap gap-1 mt-1">
+                {factory.certifications.map((c, i) => (
+                  <span key={i} className="px-2 py-0.5 bg-blue-50 text-blue-700 text-xs rounded-full">{c}</span>
+                ))}
+              </div>
+            </div>
+            {factory.notableClients && (
+              <div>
+                <span className="text-xs font-medium text-gray-400">Notable Clients / Sectors</span>
+                <p className="text-sm text-gray-700 mt-1">{factory.notableClients}</p>
+              </div>
+            )}
+          </div>
+        )
+      })
+    }
+  }, [])
 
   const filteredCategories = useMemo(() =>
     MATERIAL_CATEGORIES.filter(c =>
@@ -407,7 +458,7 @@ export default function POSIntelligence() {
             <p className="text-blue-200 text-sm">Direct-to-factory contacts across {MATERIAL_CATEGORIES.length} material categories. Click any category to see individual factories, capabilities, MOQs, and certifications.</p>
           </Card>
           {filteredCategories.map(cat => (
-            <MaterialSection key={cat.id} category={cat} />
+            <MaterialSection key={cat.id} category={cat} onFactoryTap={handleFactoryTap} />
           ))}
 
           {/* Tier 3: Full DataTable */}
@@ -572,6 +623,15 @@ export default function POSIntelligence() {
       <div className="text-center py-4 text-[10px] text-gray-400">
         POS Manufacturing Intelligence \u2022 Liquid Economy Platform \u2022 Palmer Liquid Studios \u2022 Data compiled from trade directories, manufacturer listings, and industry research
       </div>
+
+      {/* Mobile BottomSheet for factory detail */}
+      <BottomSheet
+        open={!!mobileDetail}
+        onClose={() => setMobileDetail(null)}
+        title={mobileDetail?.title || 'Factory Detail'}
+      >
+        {mobileDetail?.content}
+      </BottomSheet>
     </div>
   )
 }

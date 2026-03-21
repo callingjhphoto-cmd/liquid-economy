@@ -163,7 +163,44 @@ export default function ReportBuilder() {
             return (
               <button
                 key={template.id}
-                onClick={() => setSelectedTemplate(isActive ? null : template.id)}
+                onClick={() => {
+                  if (window.innerWidth < 1024) {
+                    setMobileDetail({
+                      title: template.label,
+                      content: (
+                        <div className="space-y-4">
+                          <p className="text-sm text-gray-600">{template.description}</p>
+                          <div className="grid grid-cols-2 gap-3">
+                            <div className="bg-gray-50 rounded-lg p-2.5">
+                              <div className="text-[10px] text-gray-400">Sections</div>
+                              <div className="text-xs font-semibold text-navy">{template.sections.length}</div>
+                            </div>
+                            <div className="bg-gray-50 rounded-lg p-2.5">
+                              <div className="text-[10px] text-gray-400">Est. Pages</div>
+                              <div className="text-xs font-semibold text-navy">~{template.estimatedPages}</div>
+                            </div>
+                          </div>
+                          <div>
+                            <div className="text-[10px] text-gray-400 mb-2">Report structure:</div>
+                            <div className="flex flex-wrap gap-1.5">
+                              {template.sections.map((section, i) => (
+                                <span key={i} className="px-2 py-1 bg-white border border-gray-100 rounded text-[10px] text-navy font-medium">
+                                  {i + 1}. {section}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                          <div className="w-full bg-gray-100 text-gray-500 py-3 rounded-lg font-medium text-sm flex items-center justify-center gap-2">
+                            <Clock size={16} />
+                            Generate Report \u2014 Coming Soon
+                          </div>
+                        </div>
+                      )
+                    })
+                  } else {
+                    setSelectedTemplate(isActive ? null : template.id)
+                  }
+                }}
                 className={`text-left rounded-xl border p-4 transition-all ${
                   isActive
                     ? 'border-gold bg-gold/5 shadow-md ring-1 ring-gold/20'
@@ -272,6 +309,15 @@ export default function ReportBuilder() {
           </DrillDown>
         </div>
       )}
+
+      {/* Mobile BottomSheet for template detail */}
+      <BottomSheet
+        open={!!mobileDetail}
+        onClose={() => setMobileDetail(null)}
+        title={mobileDetail?.title || 'Template Detail'}
+      >
+        {mobileDetail?.content}
+      </BottomSheet>
     </div>
   )
 }

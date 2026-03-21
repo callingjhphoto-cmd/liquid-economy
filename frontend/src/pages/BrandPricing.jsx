@@ -270,12 +270,12 @@ function CategoryExpanded({ category, onClose }) {
   return (
     <div className="col-span-full space-y-4 animate-in fade-in duration-300">
       <Card padding="p-6">
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
           <div>
             <h2 className="font-display text-lg font-semibold text-navy">{category}</h2>
             <p className="text-xs text-gray-500">{items.length} expressions tracked across {TOTAL_MARKETS} markets</p>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 overflow-x-auto">
             <TabGroup
               tabs={Object.entries(MARKET_CONFIG).map(([key, cfg]) => ({
                 key,
@@ -287,7 +287,7 @@ function CategoryExpanded({ category, onClose }) {
             />
             <button
               onClick={onClose}
-              className="p-1.5 rounded-lg hover:bg-gray-100 transition-colors text-gray-400 hover:text-gray-600"
+              className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors text-gray-400 hover:text-gray-600 touch-manipulation"
             >
               <X size={16} />
             </button>
@@ -492,7 +492,7 @@ function FullPriceTable({ onClose }) {
             </button>
             <button
               onClick={onClose}
-              className="p-1.5 rounded-lg hover:bg-gray-100 transition-colors text-gray-400 hover:text-gray-600"
+              className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors text-gray-400 hover:text-gray-600 touch-manipulation"
             >
               <X size={16} />
             </button>

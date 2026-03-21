@@ -4,11 +4,11 @@ import React from 'react'
  * Bento Box card — white bg, rounded corners, subtle shadow.
  * The foundational layout primitive for the Liquid Economy design system.
  */
-export function Card({ children, className = '', padding = 'p-5', onClick, hover = false }) {
+export function Card({ children, className = '', padding = 'p-4 sm:p-5', onClick, hover = false }) {
   return (
     <div
       onClick={onClick}
-      className={`bg-white rounded-xl shadow-sm border border-gray-100 ${padding} ${hover ? 'hover:shadow-md hover:border-gray-200 transition-shadow cursor-pointer' : ''} ${className}`}
+      className={`bg-white rounded-xl shadow-sm border border-gray-100 ${padding} ${hover ? 'hover:shadow-md hover:border-gray-200 transition-shadow cursor-pointer touch-manipulation' : ''} ${onClick && !hover ? 'touch-manipulation' : ''} ${className}`}
     >
       {children}
     </div>

@@ -339,7 +339,7 @@ export default function SupplyChain() {
           <div className="flex justify-center">
             <button
               onClick={() => setShowFullTable(!showFullTable)}
-              className="px-4 py-2 text-xs font-medium text-navy border border-navy/20 rounded-lg hover:bg-navy hover:text-white transition-colors"
+              className="px-4 py-2 min-h-[44px] text-xs font-medium text-navy border border-navy/20 rounded-lg hover:bg-navy hover:text-white transition-colors touch-manipulation"
             >
               {showFullTable ? 'Hide Full Data Table' : 'View Full Commodity Table'}
             </button>
@@ -539,7 +539,7 @@ export default function SupplyChain() {
           <div className="flex justify-center">
             <button
               onClick={() => setShowFullMarginTable(!showFullMarginTable)}
-              className="px-4 py-2 text-xs font-medium text-navy border border-navy/20 rounded-lg hover:bg-navy hover:text-white transition-colors"
+              className="px-4 py-2 min-h-[44px] text-xs font-medium text-navy border border-navy/20 rounded-lg hover:bg-navy hover:text-white transition-colors touch-manipulation"
             >
               {showFullMarginTable ? 'Hide Table View' : 'View as Sortable Table'}
             </button>

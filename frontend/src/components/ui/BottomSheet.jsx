@@ -100,7 +100,7 @@ export function BottomSheet({ open, onClose, title, children }) {
         </div>
 
         {/* Content */}
-        <div className="px-6 pb-6">
+        <div className="px-5 pb-6" style={{ paddingBottom: 'max(1.5rem, env(safe-area-inset-bottom, 1.5rem))' }}>
           {title && (
             <h2 className="text-section text-navy mb-4">{title}</h2>
           )}

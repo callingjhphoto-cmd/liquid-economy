@@ -448,7 +448,7 @@ function MarketSignalsFeed() {
         ))}
       </div>
       {MARKET_SIGNALS.length > 3 && (
-        <button onClick={() => setExpanded(!expanded)} className="text-[10px] text-editorial hover:underline flex items-center gap-0.5 mt-2">
+        <button onClick={() => setExpanded(!expanded)} className="text-[10px] text-editorial hover:underline flex items-center gap-0.5 mt-2 min-h-[44px] touch-manipulation">
           {expanded ? 'Show less' : `View all ${MARKET_SIGNALS.length} signals`}
           {expanded ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
         </button>
@@ -506,7 +506,7 @@ function MarketPulseExpanded() {
         })}
       </div>
       {MARKET_PULSE.length > 3 && (
-        <button onClick={() => setShowAll(!showAll)} className="text-[10px] text-editorial hover:underline flex items-center gap-0.5 mt-2">
+        <button onClick={() => setShowAll(!showAll)} className="text-[10px] text-editorial hover:underline flex items-center gap-0.5 mt-2 min-h-[44px] touch-manipulation">
           {showAll ? 'Show less' : `View all ${MARKET_PULSE.length} movements`}
           {showAll ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
         </button>
@@ -641,10 +641,10 @@ function InsightBriefing({ briefing, onClose }) {
             </div>
           </div>
           <div className="flex items-center gap-1">
-            <button onClick={() => { navigator.clipboard.writeText(`${briefing.title}\n\n${briefing.summary}\n\n${briefing.keyPoints.join('\n')}\n\n${briefing.actionable}`) }} className="p-1.5 rounded-lg hover:bg-gray-100 text-gray-400 hover:text-navy transition-colors" title="Copy to clipboard">
+            <button onClick={() => { navigator.clipboard.writeText(`${briefing.title}\n\n${briefing.summary}\n\n${briefing.keyPoints.join('\n')}\n\n${briefing.actionable}`) }} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-400 hover:text-navy transition-colors touch-manipulation" title="Copy to clipboard">
               <Copy size={14} />
             </button>
-            <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 text-gray-400 hover:text-navy transition-colors">
+            <button onClick={onClose} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-400 hover:text-navy transition-colors touch-manipulation">
               <X size={16} />
             </button>
           </div>

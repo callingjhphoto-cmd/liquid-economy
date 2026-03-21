@@ -6,13 +6,13 @@ import React from 'react'
  */
 export function TabGroup({ tabs, active, onChange, size = 'md', className = '' }) {
   const sizes = {
-    sm: 'text-[10px] px-2 py-1',
-    md: 'text-xs px-3 py-1.5',
-    lg: 'text-sm px-4 py-2',
+    sm: 'text-[10px] px-2 py-1 min-h-[32px]',
+    md: 'text-xs px-3 py-1.5 min-h-[36px]',
+    lg: 'text-sm px-4 py-2 min-h-[44px]',
   }
 
   return (
-    <div className={`inline-flex items-center gap-1 bg-gray-100 rounded-lg p-1 ${className}`}>
+    <div className={`inline-flex items-center gap-1 bg-gray-100 rounded-lg p-1 overflow-x-auto whitespace-nowrap ${className}`}>
       {tabs.map(tab => {
         const key = typeof tab === 'object' ? tab.key : tab
         const label = typeof tab === 'object' ? tab.label : tab
@@ -22,7 +22,7 @@ export function TabGroup({ tabs, active, onChange, size = 'md', className = '' }
           <button
             key={key}
             onClick={() => onChange(key)}
-            className={`${sizes[size]} rounded-md font-medium transition-colors ${
+            className={`${sizes[size]} rounded-md font-medium transition-colors touch-manipulation flex-shrink-0 ${
               isActive
                 ? 'bg-white text-navy shadow-sm'
                 : 'text-gray-500 hover:text-gray-700'
@@ -41,9 +41,9 @@ export function TabGroup({ tabs, active, onChange, size = 'md', className = '' }
  */
 export function FilterPills({ options, active, onChange, size = 'md' }) {
   const sizes = {
-    sm: 'text-[10px] px-2 py-1',
-    md: 'text-xs px-3 py-1.5',
-    lg: 'text-sm px-4 py-2',
+    sm: 'text-[10px] px-2 py-1 min-h-[32px]',
+    md: 'text-xs px-3 py-1.5 min-h-[36px]',
+    lg: 'text-sm px-4 py-2 min-h-[44px]',
   }
 
   return (
@@ -57,7 +57,7 @@ export function FilterPills({ options, active, onChange, size = 'md' }) {
           <button
             key={key}
             onClick={() => onChange(key)}
-            className={`${sizes[size]} rounded-lg font-medium transition-colors border ${
+            className={`${sizes[size]} rounded-lg font-medium transition-colors border touch-manipulation ${
               isActive
                 ? 'bg-navy text-white border-navy'
                 : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50'

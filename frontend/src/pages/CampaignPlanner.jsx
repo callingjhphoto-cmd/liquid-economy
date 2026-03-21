@@ -1086,7 +1086,7 @@ const CampaignPlanner = () => {
             {[1, 2, 3, 4, 5].map((step, idx) => (
               <React.Fragment key={step}>
                 <button onClick={() => setCurrentStep(step)}
-                  className={`flex items-center justify-center w-10 h-10 rounded-full font-semibold text-xs transition ${
+                  className={`flex items-center justify-center w-11 h-11 rounded-full font-semibold text-xs transition touch-manipulation ${
                     step === currentStep ? 'bg-gold text-navy'
                     : step < currentStep ? 'bg-emerald-500 text-white'
                     : 'bg-gray-200 text-gray-500'
@@ -1116,12 +1116,12 @@ const CampaignPlanner = () => {
       {currentStep > 0 && (
         <div className="flex items-center justify-between gap-4">
           <button onClick={() => setCurrentStep(Math.max(0, currentStep - 1))}
-            className="flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 font-semibold text-sm rounded-lg hover:bg-gray-200 transition">
+            className="flex items-center gap-2 px-4 py-3 min-h-[44px] bg-gray-100 text-gray-700 font-semibold text-sm rounded-lg hover:bg-gray-200 transition touch-manipulation">
             <ChevronLeft className="w-4 h-4" /> {currentStep === 1 ? 'Overview' : 'Back'}
           </button>
           <div className="text-xs text-gray-500">Step {currentStep} of 5</div>
           <button onClick={() => setCurrentStep(Math.min(5, currentStep + 1))} disabled={currentStep === 5}
-            className="flex items-center gap-2 px-4 py-2 bg-navy hover:bg-navy/90 text-white font-semibold text-sm rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition">
+            className="flex items-center gap-2 px-4 py-3 min-h-[44px] bg-navy hover:bg-navy/90 text-white font-semibold text-sm rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition touch-manipulation">
             Next <ChevronRight className="w-4 h-4" />
           </button>
         </div>

@@ -20,7 +20,7 @@ export function DrillDown({ title, summary, children, defaultOpen = false }) {
     <Card className="col-span-full" hover={!open} onClick={() => !open && setOpen(true)}>
       {/* Header row */}
       <div
-        className="flex items-center justify-between cursor-pointer"
+        className="flex items-center justify-between cursor-pointer min-h-[44px] touch-manipulation"
         onClick={(e) => {
           e.stopPropagation()
           setOpen((prev) => !prev)

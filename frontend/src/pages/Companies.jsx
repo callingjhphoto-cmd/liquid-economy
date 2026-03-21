@@ -196,7 +196,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
               </div>
             </div>
           </div>
-          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 text-gray-400 hover:text-gray-600 transition-colors">
+          <button onClick={onClose} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-400 hover:text-gray-600 transition-colors touch-manipulation">
             <X size={16} />
           </button>
         </div>
@@ -240,12 +240,12 @@ function CompanyTier2({ company, onViewFull, onClose }) {
       </div>
 
       {/* Section tabs */}
-      <div className="flex gap-1 px-5 pt-3 pb-0 overflow-x-auto">
+      <div className="flex gap-1 px-5 pt-3 pb-0 overflow-x-auto whitespace-nowrap">
         {sections.map(s => (
           <button
             key={s.id}
             onClick={() => setActiveSection(s.id)}
-            className={`px-3 py-2 rounded-t-lg text-xs font-medium whitespace-nowrap transition-colors ${
+            className={`px-3 py-2 min-h-[44px] rounded-t-lg text-xs font-medium whitespace-nowrap transition-colors touch-manipulation ${
               activeSection === s.id
                 ? 'bg-gray-50 text-navy border-b-2 border-navy'
                 : 'text-gray-400 hover:text-gray-600'
@@ -524,18 +524,18 @@ function CompanyTier3({ company, onClose }) {
               <div className="text-xs text-gray-500">{company.hq} \u00b7 {company.revenue} \u00b7 Est. {company.founded}</div>
             </div>
           </div>
-          <button onClick={onClose} className="p-2 rounded-lg hover:bg-gray-100 text-gray-400 hover:text-gray-600 transition-colors">
+          <button onClick={onClose} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-400 hover:text-gray-600 transition-colors touch-manipulation">
             <X size={18} />
           </button>
         </div>
 
         {/* Tab nav */}
-        <div className="flex gap-1 px-6 py-2 border-b border-gray-100 overflow-x-auto">
+        <div className="flex gap-1 px-4 sm:px-6 py-2 border-b border-gray-100 overflow-x-auto whitespace-nowrap">
           {tabs.map(t => (
             <button
               key={t.id}
               onClick={() => setDeepTab(t.id)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-colors ${
+              className={`px-3 py-2 min-h-[44px] rounded-lg text-xs font-medium whitespace-nowrap transition-colors touch-manipulation ${
                 deepTab === t.id ? 'bg-navy text-white' : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
               }`}
             >
@@ -893,7 +893,7 @@ export default function Companies() {
         {searchTerm && (
           <button
             onClick={() => setSearchTerm('')}
-            className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-full hover:bg-gray-100 text-gray-400"
+            className="absolute right-2 top-1/2 -translate-y-1/2 p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-full hover:bg-gray-100 text-gray-400 touch-manipulation"
           >
             <X size={14} />
           </button>

@@ -39,7 +39,7 @@ export function ChartCard({
 
       {/* Chart Area */}
       {loading ? (
-        <div className="flex items-center justify-center" style={{ height }}>
+        <div className="flex items-center justify-center" style={{ height: Math.min(height, 200) }}>
           <div className="flex flex-col items-center gap-2">
             <div className="w-8 h-8 border-2 border-navy/20 border-t-navy rounded-full animate-spin" />
             <span className="text-[10px] text-gray-400">Loading chart data\u2026</span>

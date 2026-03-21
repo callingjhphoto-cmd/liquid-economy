@@ -35,7 +35,7 @@ function FactoryCard({ factory }) {
   const [expanded, setExpanded] = useState(false)
   return (
     <div className="bg-gray-50 rounded-lg border border-gray-100 overflow-hidden">
-      <button onClick={() => setExpanded(!expanded)} className="w-full text-left p-4 hover:bg-gray-100 transition-colors">
+      <button onClick={() => setExpanded(!expanded)} className="w-full text-left p-4 min-h-[44px] hover:bg-gray-100 transition-colors touch-manipulation">
         <div className="flex items-center justify-between">
           <div>
             <h4 className="font-semibold text-navy text-sm">{factory.name}</h4>

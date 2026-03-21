@@ -26,7 +26,7 @@ export function MetricCard({
   return (
     <div
       onClick={onClick}
-      className={`bg-white rounded-xl shadow-sm border border-gray-100 p-5 ${onClick ? 'hover:shadow-md hover:border-gray-200 transition-all cursor-pointer' : ''} ${className}`}
+      className={`bg-white rounded-xl shadow-sm border border-gray-100 p-4 sm:p-5 ${onClick ? 'hover:shadow-md hover:border-gray-200 transition-all cursor-pointer touch-manipulation' : ''} ${className}`}
     >
       <div className="flex items-start justify-between mb-3">
         <div className="flex items-center gap-2">

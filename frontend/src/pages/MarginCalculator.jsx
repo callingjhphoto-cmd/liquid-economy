@@ -602,7 +602,7 @@ export default function MarginCalculator() {
         <div className="text-center">
           <button
             onClick={() => setShowTier3(true)}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-navy text-white rounded-lg font-medium text-sm hover:bg-navy/90 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 min-h-[44px] bg-navy text-white rounded-lg font-medium text-sm hover:bg-navy/90 transition-colors touch-manipulation"
           >
             <Eye size={16} />
             View Full Data & Export

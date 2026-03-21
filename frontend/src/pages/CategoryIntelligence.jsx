@@ -157,7 +157,7 @@ function MarketDrillDown({ market }) {
   return (
     <div className="border border-gray-100 rounded-xl overflow-hidden">
       <button onClick={() => setExpanded(!expanded)}
-        className="w-full flex items-center justify-between p-3 hover:bg-gray-50 transition-colors">
+        className="w-full flex items-center justify-between p-3 min-h-[44px] hover:bg-gray-50 transition-colors touch-manipulation">
         <div className="flex items-center gap-3">
           <Globe size={16} className="text-gray-400" />
           <span className="font-semibold text-sm text-gray-900">{market.name}</span>
@@ -715,7 +715,7 @@ export default function CategoryIntelligence() {
         {/* Back + Header */}
         <div className="mb-4 lg:mb-6">
           <button onClick={handleBack}
-            className="flex items-center gap-2 text-sm text-gray-500 hover:text-navy transition-colors mb-3 group">
+            className="flex items-center gap-2 text-sm text-gray-500 hover:text-navy transition-colors mb-3 group min-h-[44px] touch-manipulation">
             <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
             All Categories
           </button>
@@ -727,12 +727,12 @@ export default function CategoryIntelligence() {
         </div>
 
         {/* Quick category nav strip */}
-        <div className="flex gap-1.5 overflow-x-auto pb-3 mb-4 scrollbar-hide">
+        <div className="flex gap-1.5 overflow-x-auto pb-3 mb-4 scrollbar-hide whitespace-nowrap -mx-1 px-1">
           {CATEGORIES.map(cat => (
             <button
               key={cat.key}
               onClick={() => handleSelectCategory(cat.key)}
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium whitespace-nowrap shrink-0 transition-colors ${
+              className={`flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-lg text-xs font-medium whitespace-nowrap shrink-0 transition-colors touch-manipulation ${
                 activeCat === cat.key
                   ? 'bg-navy text-white'
                   : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50'

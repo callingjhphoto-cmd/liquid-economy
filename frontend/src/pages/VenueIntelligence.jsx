@@ -312,7 +312,7 @@ export default function VenueIntelligence() {
           className="w-full pl-12 pr-4 py-3.5 bg-white border border-gray-200 rounded-xl text-sm shadow-sm focus:ring-2 focus:ring-navy/20 focus:border-navy transition-all"
         />
         {venueSearch && (
-          <button onClick={() => setVenueSearch('')} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+          <button onClick={() => setVenueSearch('')} className="absolute right-2 top-1/2 -translate-y-1/2 p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-gray-400 hover:text-gray-600 touch-manipulation">
             <X size={16} />
           </button>
         )}
@@ -462,7 +462,7 @@ export default function VenueIntelligence() {
               <div className="flex justify-center">
                 <button
                   onClick={() => setShowFullList(!showFullList)}
-                  className="px-4 py-2 text-xs font-medium text-navy border border-navy/20 rounded-lg hover:bg-navy hover:text-white transition-colors"
+                  className="px-4 py-2 min-h-[44px] text-xs font-medium text-navy border border-navy/20 rounded-lg hover:bg-navy hover:text-white transition-colors touch-manipulation"
                 >
                   {showFullList ? 'Hide Full Rankings' : `View Full ${selectedYear} Rankings (50 bars)`}
                 </button>
@@ -497,7 +497,7 @@ export default function VenueIntelligence() {
               <div className="flex gap-2 flex-wrap">
                 {['All', 'Luxury', 'Volume', 'Both'].map(f => (
                   <button key={f} onClick={() => setAccountFilter(f)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors ${accountFilter === f ? 'bg-navy text-white border-navy' : 'bg-white text-gray-500 border-gray-200 hover:border-gray-400'}`}>
+                    className={`px-3 py-2 min-h-[44px] rounded-lg text-xs font-medium border transition-colors touch-manipulation ${accountFilter === f ? 'bg-navy text-white border-navy' : 'bg-white text-gray-500 border-gray-200 hover:border-gray-400'}`}>
                     {f}
                   </button>
                 ))}
@@ -522,7 +522,7 @@ export default function VenueIntelligence() {
               <div className="flex justify-center">
                 <button
                   onClick={() => setShowFullVenueTable(!showFullVenueTable)}
-                  className="px-4 py-2 text-xs font-medium text-navy border border-navy/20 rounded-lg hover:bg-navy hover:text-white transition-colors"
+                  className="px-4 py-2 min-h-[44px] text-xs font-medium text-navy border border-navy/20 rounded-lg hover:bg-navy hover:text-white transition-colors touch-manipulation"
                 >
                   {showFullVenueTable ? 'Hide Full Venue Table' : `View All ${LONDON_VENUES.length} Venues in Table`}
                 </button>
@@ -645,7 +645,7 @@ export default function VenueIntelligence() {
                 <div className="flex gap-1.5 flex-wrap mb-4">
                   {['All', ...Object.keys(PARENT_COMPANIES)].map(co => (
                     <button key={co} onClick={() => setBrandFilterCompany(co)}
-                      className={`px-2 py-1 rounded text-[10px] font-medium border transition-colors ${brandFilterCompany === co ? 'bg-navy text-white border-navy' : 'bg-white text-gray-500 border-gray-200 hover:border-gray-400'}`}>
+                      className={`px-2.5 py-1.5 min-h-[36px] rounded text-[10px] font-medium border transition-colors touch-manipulation ${brandFilterCompany === co ? 'bg-navy text-white border-navy' : 'bg-white text-gray-500 border-gray-200 hover:border-gray-400'}`}>
                       {co}
                     </button>
                   ))}
@@ -822,8 +822,8 @@ export default function VenueIntelligence() {
               {/* City dominance heatmap */}
               <Card>
                 <h4 className="text-sm font-semibold text-navy mb-3">City Representation Heatmap</h4>
-                <div className="overflow-x-auto">
-                  <table className="w-full text-xs">
+                <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+                  <table className="w-full text-xs min-w-[500px]">
                     <thead>
                       <tr className="border-b border-gray-200">
                         <th className="text-left py-2 text-gray-500 font-medium">City</th>

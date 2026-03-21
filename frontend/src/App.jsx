@@ -102,12 +102,12 @@ function BottomTabBar() {
   ]
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-t border-gray-200/80 lg:hidden safe-area-bottom">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-t border-gray-200/80 lg:hidden" style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}>
       <div className="flex items-center justify-around h-14">
         {tabs.map(tab => {
           const active = tab.match.includes(path) || (tab.match[0] === '/categories' && path.startsWith('/category/'))
           return (
-            <Link key={tab.label} to={tab.to} className={`flex flex-col items-center gap-0.5 px-3 py-1.5 transition-colors ${active ? 'text-navy' : 'text-gray-400'}`}>
+            <Link key={tab.label} to={tab.to} className={`flex flex-col items-center justify-center gap-0.5 min-h-[44px] min-w-[44px] px-3 py-1.5 transition-colors touch-manipulation ${active ? 'text-navy' : 'text-gray-400'}`}>
               <tab.icon size={20} strokeWidth={active ? 2 : 1.5} />
               <span className="text-[10px] font-medium">{tab.label}</span>
             </Link>
@@ -185,7 +185,7 @@ function NavItem({ to, icon: Icon, label }) {
   return (
     <Link
       to={to}
-      className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors text-[13px] font-medium ${active ? 'bg-navy/5 text-navy' : 'text-gray-500 hover:text-navy hover:bg-gray-50'}`}
+      className={`flex items-center gap-3 px-3 py-2 min-h-[44px] rounded-lg transition-colors text-[13px] font-medium touch-manipulation ${active ? 'bg-navy/5 text-navy' : 'text-gray-500 hover:text-navy hover:bg-gray-50'}`}
     >
       <Icon size={15} />
       <span>{label}</span>
@@ -354,16 +354,16 @@ function Layout({ onLogout }) {
 
       {/* Main content */}
       <main className="flex-1 overflow-auto">
-        <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between lg:hidden">
-          <button onClick={() => setSidebarOpen(true)}>
+        <header className="bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between lg:hidden">
+          <button onClick={() => setSidebarOpen(true)} className="min-h-[44px] min-w-[44px] flex items-center justify-center touch-manipulation">
             <Menu size={24} className="text-navy" />
           </button>
           <h1 className="font-display text-section text-navy">Liquid Economy</h1>
-          <button onClick={() => setSearchOpen(true)}>
+          <button onClick={() => setSearchOpen(true)} className="min-h-[44px] min-w-[44px] flex items-center justify-center touch-manipulation">
             <Search size={20} className="text-navy" />
           </button>
         </header>
-        <div className="p-6 pb-20 lg:p-8 lg:pb-8">
+        <div className="px-4 pb-20 pt-4 lg:px-8 lg:pb-8 lg:pt-8">
           <Breadcrumb />
           <Suspense fallback={<PageLoader />}>
             <Routes>

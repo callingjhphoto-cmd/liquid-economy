@@ -69,6 +69,9 @@ export default function ScenarioModeling() {
   const [selectedMarkets, setSelectedMarkets] = useState(['uk'])
   const [selectedArchetype, setSelectedArchetype] = useState('craft')
 
+  /* \u2500\u2500 Brand mode step flow \u2500\u2500 */
+  const [brandStep, setBrandStep] = useState(0) // 0=Select, 1=Economics, 2=Timeline, 3=Risks
+
   /* \u2500\u2500 Campaign state \u2500\u2500 */
   const [expandedRegion, setExpandedRegion] = useState(null)
   const [socialPlatform, setSocialPlatform] = useState('instagram')
@@ -96,7 +99,7 @@ export default function ScenarioModeling() {
     <div className="space-y-6">
       <PageHeader
         title="Scenario Modeling"
-        subtitle="Go-to-market planning, unit economics, campaign intelligence & financial modeling"
+        subtitle="Go-to-market planning, unit economics, campaign intelligence & financial modeling \u00b7 Data as of March 2026"
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Scenarios' },
@@ -336,8 +339,8 @@ export default function ScenarioModeling() {
                   className={selectedArchetype === a.id ? 'ring-2 ring-gold' : ''}
                 >
                   <p className="text-xs font-semibold text-navy">{a.label}</p>
-                  <p className="text-[9px] text-gray-400 mt-0.5">{a.examples}</p>
-                  <div className="grid grid-cols-2 gap-x-3 mt-2 text-[9px]">
+                  <p className="text-[11px] text-gray-400 mt-0.5">{a.examples}</p>
+                  <div className="grid grid-cols-2 gap-x-3 mt-2 text-[11px]">
                     <div><span className="text-gray-400">Premium:</span> <span className="font-medium text-navy">{a.premiumMultiple}</span></div>
                     <div><span className="text-gray-400">Risk:</span> <span className="font-medium text-navy">{a.riskLevel}</span></div>
                     <div><span className="text-gray-400">Success:</span> <span className="font-medium text-emerald-600">{a.successRate}</span></div>
@@ -367,13 +370,13 @@ export default function ScenarioModeling() {
                   return (
                     <Card key={mId} padding="p-3">
                       <p className="text-xs font-semibold text-navy mb-0.5">{m.flag} {m.label}</p>
-                      <p className="text-[9px] text-gray-400 mb-2">Pop: {m.pop} \u00b7 Market: {m.spiritsMarket}</p>
+                      <p className="text-[11px] text-gray-400 mb-2">Pop: {m.pop} \u00b7 Market: {m.spiritsMarket}</p>
                       <div className="space-y-1.5">
                         {channelData.map((c, j) => (
                           <div key={j}>
-                            <div className="flex items-center justify-between text-[9px] mb-0.5">
+                            <div className="flex items-center justify-between text-[11px] mb-0.5">
                               <div className="flex items-center gap-1">
-                                <div className="w-2 h-2 rounded-sm" style={{ backgroundColor: c.fill }} />
+                                <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: c.fill }} />
                                 <span className="text-gray-500">{c.name}</span>
                               </div>
                               <span className="font-medium text-navy">{c.value}%</span>
@@ -572,15 +575,15 @@ function CostWaterfall({ costs }) {
       </ChartCard>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         <Card padding="p-3" className="text-center">
-          <p className="text-[9px] text-gray-400">Total COGS</p>
+          <p className="text-[11px] text-gray-400">Total COGS</p>
           <p className="text-lg font-bold text-navy">\u00a3{costs.total_cogs.toFixed(2)}</p>
         </Card>
         <Card padding="p-3" className="text-center">
-          <p className="text-[9px] text-gray-400">RRP Range</p>
+          <p className="text-[11px] text-gray-400">RRP Range</p>
           <p className="text-lg font-bold text-gold">\u00a3{costs.rrp_low}\u2013\u00a3{costs.rrp_high}</p>
         </Card>
         <Card padding="p-3" className="text-center">
-          <p className="text-[9px] text-gray-400">Gross Margin</p>
+          <p className="text-[11px] text-gray-400">Gross Margin</p>
           <p className="text-lg font-bold text-emerald-600">{((1 - costs.total_cogs / costs.rrp_mid) * 100).toFixed(0)}%</p>
         </Card>
       </div>
@@ -617,7 +620,7 @@ function PitfallsPanel() {
                 <div key={ii} className="px-4 py-2.5 bg-gray-50/30">
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-[11px] font-semibold text-navy">{item.risk}</span>
-                    <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded ${
+                    <span className={`text-[11px] font-bold px-1.5 py-0.5 rounded ${
                       item.impact === 'Critical' ? 'bg-red-100 text-red-700'
                         : item.impact === 'High' ? 'bg-orange-100 text-orange-700'
                         : 'bg-amber-50 text-amber-600'
@@ -661,7 +664,7 @@ function LaunchTimeline() {
             </div>
             <div className="flex flex-wrap gap-1">
               {m.tasks.map((t, ti) => (
-                <span key={ti} className="text-[9px] bg-gray-50 text-gray-600 px-1.5 py-0.5 rounded border border-gray-100">{t}</span>
+                <span key={ti} className="text-[11px] bg-gray-50 text-gray-600 px-1.5 py-0.5 rounded border border-gray-100">{t}</span>
               ))}
             </div>
           </div>
@@ -682,16 +685,16 @@ function RegionAnalysis({ regions, expanded, setExpanded }) {
           >
             <div>
               <p className="text-[11px] font-semibold text-navy text-left">{region.name}</p>
-              <p className="text-[9px] text-gray-400">Pop: {region.pop} \u00b7 Avg spend: {region.avgSpend}/head</p>
+              <p className="text-[11px] text-gray-400">Pop: {region.pop} \u00b7 Avg spend: {region.avgSpend}/head</p>
             </div>
             <div className="flex items-center gap-3">
               <div className="text-right">
-                <p className="text-[9px] text-gray-400">Cocktail Index</p>
+                <p className="text-[11px] text-gray-400">Cocktail Index</p>
                 <p className={`text-[11px] font-bold ${region.cocktailIndex > 120 ? 'text-emerald-600' : region.cocktailIndex > 100 ? 'text-gold' : 'text-gray-500'}`}>
                   {region.cocktailIndex}
                 </p>
               </div>
-              <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded ${
+              <span className={`text-[11px] font-bold px-1.5 py-0.5 rounded ${
                 region.spritzAffinity === 'Very High' ? 'bg-green-100 text-green-700'
                   : region.spritzAffinity === 'High' ? 'bg-green-50 text-green-600'
                   : 'bg-amber-50 text-amber-600'
@@ -706,15 +709,15 @@ function RegionAnalysis({ regions, expanded, setExpanded }) {
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-[11px] font-medium text-navy">{zone.name}</span>
                     <div className="flex gap-2">
-                      <span className="text-[9px] bg-blue-50 text-blue-600 px-1.5 py-0.5 rounded">{zone.bars} bars</span>
-                      <span className="text-[9px] bg-green-50 text-green-600 px-1.5 py-0.5 rounded">{zone.terraces} terraces</span>
-                      <span className={`text-[9px] px-1.5 py-0.5 rounded font-medium ${
+                      <span className="text-[11px] bg-blue-50 text-blue-600 px-1.5 py-0.5 rounded">{zone.bars} bars</span>
+                      <span className="text-[11px] bg-green-50 text-green-600 px-1.5 py-0.5 rounded">{zone.terraces} terraces</span>
+                      <span className={`text-[11px] px-1.5 py-0.5 rounded font-medium ${
                         zone.engagement === 'Very High' ? 'bg-green-100 text-green-700' : 'bg-amber-50 text-amber-600'
                       }`}>{zone.engagement}</span>
                     </div>
                   </div>
-                  <p className="text-[9px] text-gray-500"><span className="text-gray-400">Demographic:</span> {zone.demographic}</p>
-                  <p className="text-[9px] text-gray-500 mt-0.5"><span className="text-gray-400">Best for:</span> <span className="text-gold font-medium">{zone.bestFor}</span></p>
+                  <p className="text-[11px] text-gray-500"><span className="text-gray-400">Demographic:</span> {zone.demographic}</p>
+                  <p className="text-[11px] text-gray-500 mt-0.5"><span className="text-gray-400">Best for:</span> <span className="text-gold font-medium">{zone.bestFor}</span></p>
                 </div>
               ))}
             </div>
@@ -733,8 +736,8 @@ function VenueTypeGrid() {
           <div className="flex items-center justify-between mb-2">
             <p className="text-[11px] font-semibold text-navy">{v.type}</p>
             <div className="flex items-center gap-1.5">
-              <span className="text-[9px] bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">{v.avgCover} avg cover</span>
-              <span className="text-[9px] bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">{v.bestSeason}</span>
+              <span className="text-[11px] bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">{v.avgCover} avg cover</span>
+              <span className="text-[11px] bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">{v.bestSeason}</span>
             </div>
           </div>
           <div className="flex items-center gap-2 mb-2">
@@ -742,10 +745,10 @@ function VenueTypeGrid() {
               <div className="h-1.5 rounded-full bg-gold" style={{ width: `${v.spritzFit}%` }} />
             </div>
             <span className="text-[10px] font-bold text-gold">{v.spritzFit}%</span>
-            <span className="text-[9px] text-gray-400">fit</span>
+            <span className="text-[11px] text-gray-400">fit</span>
           </div>
           <p className="text-[10px] text-gray-600 leading-relaxed">{v.notes}</p>
-          <div className="mt-2 flex justify-between text-[9px]">
+          <div className="mt-2 flex justify-between text-[11px]">
             <span className="text-gray-400">Cost: <span className="text-navy font-medium">{v.costPer}</span></span>
             <span className="text-gray-400">Reach: <span className="text-navy font-medium">{v.reachPer}</span></span>
           </div>
@@ -777,7 +780,7 @@ function SocialTargetingPanel({ platform, setPlatform }) {
         <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-2">Best Formats</p>
         <div className="flex flex-wrap gap-1">
           {data.bestFormats.map((f, i) => (
-            <span key={i} className="text-[9px] bg-blue-50 text-blue-600 px-2 py-0.5 rounded">{f}</span>
+            <span key={i} className="text-[11px] bg-blue-50 text-blue-600 px-2 py-0.5 rounded">{f}</span>
           ))}
         </div>
       </div>
@@ -791,7 +794,7 @@ function SocialTargetingPanel({ platform, setPlatform }) {
                 <MapPin size={10} className="text-gold" />
                 <span className="text-[11px] text-navy font-medium">{g.area}</span>
               </div>
-              <div className="flex items-center gap-3 text-[9px]">
+              <div className="flex items-center gap-3 text-[11px]">
                 <span className="text-gray-400">Reach: <span className="font-medium text-navy">{g.reach}</span></span>
                 <span className="text-gray-400">CPM: <span className="font-medium text-navy">{g.cpm}</span></span>
                 <span className={`font-bold px-1.5 py-0.5 rounded ${
@@ -841,7 +844,7 @@ function BudgetTierCards() {
               <div>
                 <Badge variant="default">{tier.tier}</Badge>
                 <p className="text-lg font-bold text-navy mt-1">{tier.budget}</p>
-                <p className="text-[9px] text-gray-400">{tier.duration} campaign</p>
+                <p className="text-[11px] text-gray-400">{tier.duration} campaign</p>
               </div>
               <div className="w-[70px] space-y-1">
                 {pieData.map((entry, j) => (
@@ -854,13 +857,13 @@ function BudgetTierCards() {
               </div>
             </div>
             <p className="text-[10px] text-gray-500 mb-2">{tier.bestFor}</p>
-            <div className="text-[9px] text-gray-400 mb-1">Reach: <span className="font-medium text-navy">{tier.reach}</span></div>
-            <div className="text-[9px] text-gray-400 mb-2">Expected ROI: <span className="font-bold text-emerald-600">{tier.expectedROI}</span></div>
+            <div className="text-[11px] text-gray-400 mb-1">Reach: <span className="font-medium text-navy">{tier.reach}</span></div>
+            <div className="text-[11px] text-gray-400 mb-2">Expected ROI: <span className="font-bold text-emerald-600">{tier.expectedROI}</span></div>
             <div className="border-t border-gray-100 pt-2">
-              <p className="text-[9px] font-bold text-gray-400 uppercase mb-1">Key Activities</p>
+              <p className="text-[11px] font-bold text-gray-400 uppercase mb-1">Key Activities</p>
               <ul className="space-y-0.5">
                 {tier.activities.map((a, ai) => (
-                  <li key={ai} className="text-[9px] text-gray-600 flex items-start gap-1">
+                  <li key={ai} className="text-[11px] text-gray-600 flex items-start gap-1">
                     <Check size={8} className="text-emerald-500 mt-0.5 flex-shrink-0" />
                     {a}
                   </li>

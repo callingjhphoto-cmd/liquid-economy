@@ -47,7 +47,7 @@ function Sparkline({ data, color = '#22c55e', height = 40 }) {
 
 function AlertDot({ level }) {
   const colors = { red: 'bg-red-500', amber: 'bg-amber-400', green: 'bg-green-500' }
-  return <span className={`inline-block w-2 h-2 rounded-full ${colors[level] || 'bg-gray-300'}`} />
+  return <span className={`inline-block w-3 h-3 rounded-full ${colors[level] || 'bg-gray-300'}`} />
 }
 
 function ChannelBar({ channels }) {
@@ -65,8 +65,8 @@ function ChannelBar({ channels }) {
       <div className="flex flex-wrap gap-3">
         {items.map(it => (
           <div key={it.key} className="flex items-center gap-1">
-            <div className="w-2 h-2 rounded-full" style={{ backgroundColor: it.color }} />
-            <span className="text-[9px] text-gray-500">{it.label} {it.pct}%</span>
+            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: it.color }} />
+            <span className="text-[11px] text-gray-500">{it.label} {it.pct}%</span>
           </div>
         ))}
       </div>
@@ -139,7 +139,7 @@ function PricingSection({ cat }) {
               <div key={j} className={`flex items-center justify-between p-2 bg-gray-50 rounded border-l-2 ${tier.accent}`}>
                 <div>
                   <span className="text-xs font-medium text-navy">{b.brand}</span>
-                  <span className="text-[9px] text-gray-400 ml-2">{b.segment}</span>
+                  <span className="text-[11px] text-gray-400 ml-2">{b.segment}</span>
                 </div>
                 <span className="text-xs font-bold text-navy">{b.price}</span>
               </div>
@@ -148,7 +148,7 @@ function PricingSection({ cat }) {
         </div>
       ))}
       <div className="p-3 bg-emerald-50 rounded-lg border border-emerald-100">
-        <div className="text-[9px] font-bold text-emerald-700 uppercase">White Space Opportunity</div>
+        <div className="text-[11px] font-bold text-emerald-700 uppercase">White Space Opportunity</div>
         <p className="text-xs text-emerald-800 mt-1">{cat.pricing.whiteSpace}</p>
       </div>
     </div>
@@ -167,7 +167,7 @@ function MarketsSection({ cat }) {
           </div>
           <div className="text-right flex-shrink-0">
             <div className={`text-xs font-bold ${parseFloat(m.growth) > 0 ? 'text-emerald-600' : 'text-red-500'}`}>{m.growth}</div>
-            <div className="text-[9px] text-gray-400">{m.share} share</div>
+            <div className="text-[11px] text-gray-400">{m.share} share</div>
           </div>
         </div>
       ))}
@@ -191,15 +191,15 @@ function ClimateRiskSection({ cat }) {
     <div className="space-y-3">
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
         <div className="p-2 bg-gray-50 rounded-lg">
-          <div className="text-[9px] text-gray-500">Region</div>
+          <div className="text-[11px] text-gray-500">Region</div>
           <div className="text-[11px] font-medium text-navy">{cat.climate.region}</div>
         </div>
         <div className="p-2 bg-gray-50 rounded-lg">
-          <div className="text-[9px] text-gray-500">Crop</div>
+          <div className="text-[11px] text-gray-500">Crop</div>
           <div className="text-[11px] font-medium text-navy">{cat.climate.crop}</div>
         </div>
         <div className={`p-2 rounded-lg ${riskColor}`}>
-          <div className="text-[9px]">Risk Level</div>
+          <div className="text-[11px]">Risk Level</div>
           <div className="text-xs font-bold">{cat.climate.riskLevel}</div>
         </div>
       </div>
@@ -226,7 +226,7 @@ function VenueSignalsSection({ cat }) {
         <div key={i} className="p-2 bg-gray-50 rounded-lg">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-navy">{v.venue}</span>
-            <span className="text-[9px] font-bold text-gold">{v.rank}</span>
+            <span className="text-[11px] font-bold text-gold">{v.rank}</span>
           </div>
           <p className="text-[10px] text-gray-500 mt-0.5">{v.signal}</p>
         </div>
@@ -303,7 +303,7 @@ export default function CategoryCommandView() {
       {/* HEADER */}
       <PageHeader
         title={cat.name}
-        subtitle="Unified Intelligence View \u2014 Cross-page composite"
+        subtitle="Unified Intelligence View \u2014 Cross-page composite \u00b7 Data as of March 2026"
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Categories', to: '/categories' },
@@ -320,7 +320,7 @@ export default function CategoryCommandView() {
                 const d = CATEGORY_DATA[k]
                 return (
                   <Link key={k} to={`/category/${k}`}
-                    className={`text-[9px] font-medium px-2 py-1 rounded-full transition-colors ${k === categoryId ? 'bg-navy text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>
+                    className={`text-[11px] font-medium px-2 py-1 rounded-full transition-colors ${k === categoryId ? 'bg-navy text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>
                     {d.emoji}
                   </Link>
                 )

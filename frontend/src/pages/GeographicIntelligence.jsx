@@ -591,7 +591,7 @@ export default function GeographicIntelligence() {
       {/* Page Header */}
       <PageHeader
         title="Geographic Intelligence"
-        subtitle={`${totalMarkets} markets tracked \u00b7 Global spirits market insights`}
+        subtitle={`${totalMarkets} markets tracked \u00b7 Global spirits market insights \u00b7 Data as of March 2026`}
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Geographic Intelligence' },
@@ -729,7 +729,7 @@ export default function GeographicIntelligence() {
               <div className="grid grid-cols-2 gap-2">
                 {REGION_DATA[mobileSheet.key].kpis.slice(0, 4).map((kpi, i) => (
                   <div key={i} className="bg-gray-50 rounded-lg p-2 text-center">
-                    <div className="text-[9px] text-gray-400 uppercase">{kpi.label}</div>
+                    <div className="text-[11px] text-gray-400 uppercase">{kpi.label}</div>
                     <div className="text-sm font-bold text-navy tabular-nums">{kpi.value}</div>
                   </div>
                 ))}

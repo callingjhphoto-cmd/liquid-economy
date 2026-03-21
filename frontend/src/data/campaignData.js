@@ -1,3 +1,5 @@
+export const DATA_LAST_UPDATED = '2026-03-21'
+
 // ─── CAMPAIGN PLANNER DATA ─────────────────────────────────────────────────
 // Extracted from CampaignPlanner.jsx for data/component separation
 

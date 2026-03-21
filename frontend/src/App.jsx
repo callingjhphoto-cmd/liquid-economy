@@ -1,9 +1,10 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, Link, Navigate, useLocation } from 'react-router-dom'
-import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, LogOut, Menu, MessageCircle, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag, Crosshair, ChevronDown, ChevronRight, Target, Loader2, Search, BarChart3, Store, Lightbulb, Calculator } from 'lucide-react'
+import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, LogOut, Menu, MessageCircle, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag, Crosshair, ChevronDown, ChevronRight, Target, Loader2, Search, BarChart3, Store, Lightbulb, Calculator, MoreHorizontal, Rocket } from 'lucide-react'
 import { useLiveData } from './context/LiveDataContext'
 import { api, getToken, setToken, clearToken } from './lib/api'
-import ChatPanel from './components/ChatPanel'
+// ChatPanel disabled — backend not deployed; gated as "Coming Soon"
+// import ChatPanel from './components/ChatPanel'
 import GlobalSearch from './components/GlobalSearch'
 import { LiveDataProvider } from './context/LiveDataContext'
 
@@ -25,20 +26,20 @@ const MarginCalculator = lazy(() => import('./pages/MarginCalculator'))
 
 /* Route metadata for breadcrumbs */
 const routeMeta = {
-  '/': { label: 'Dashboard', group: 'Dashboard' },
-  '/categories': { label: 'Category Intelligence', group: 'Market' },
-  '/companies': { label: 'Company Intelligence', group: 'Market' },
-  '/valuations': { label: 'Valuations & Arbitrage', group: 'Market' },
-  '/pricing': { label: 'Brand Pricing', group: 'Market' },
-  '/supply-chain': { label: 'Supply Chain & COGS', group: 'Operations' },
-  '/geographic': { label: 'Geographic Intelligence', group: 'Operations' },
-  '/climate': { label: 'Climate & Yield', group: 'Operations' },
-  '/pos': { label: 'POS Manufacturing', group: 'Operations' },
-  '/venues': { label: 'Venue Intelligence', group: 'Retail' },
-  '/scenario': { label: 'Scenario Modelling', group: 'Retail' },
-  '/campaigns': { label: 'Campaign Planner', group: 'Retail' },
-  '/margin': { label: 'Margin Calculator', group: 'Tools' },
-  '/reports': { label: 'Report Builder', group: 'Intelligence' },
+  '/': { label: 'Dashboard', group: 'Intelligence' },
+  '/categories': { label: 'Categories', group: 'Intelligence' },
+  '/companies': { label: 'Companies', group: 'Intelligence' },
+  '/pricing': { label: 'Pricing', group: 'Intelligence' },
+  '/venues': { label: 'Venues', group: 'Intelligence' },
+  '/geographic': { label: 'Geographic', group: 'Intelligence' },
+  '/supply-chain': { label: 'Supply Chain', group: 'Planning' },
+  '/scenario': { label: 'Market Entry', group: 'Planning' },
+  '/margin': { label: 'Margin Calculator', group: 'Planning' },
+  '/campaigns': { label: 'Campaign Planner', group: 'Planning' },
+  '/reports': { label: 'Report Builder', group: 'Reports' },
+  '/valuations': { label: 'Valuations', group: 'Reports' },
+  '/climate': { label: 'Climate & Yield', group: 'Tools' },
+  '/pos': { label: 'POS Manufacturing', group: 'Tools' },
 }
 
 function PageLoader() {
@@ -95,10 +96,10 @@ function BottomTabBar() {
 
   const tabs = [
     { to: '/', icon: LayoutDashboard, label: 'Dashboard', match: ['/'] },
-    { to: '/categories', icon: BarChart3, label: 'Market', match: ['/categories', '/companies', '/valuations', '/pricing'] },
-    { to: '/supply-chain', icon: Package, label: 'Operations', match: ['/supply-chain', '/geographic', '/climate', '/pos'] },
-    { to: '/venues', icon: Store, label: 'Retail', match: ['/venues', '/scenario', '/campaigns'] },
-    { to: '/reports', icon: Lightbulb, label: 'Intelligence', match: ['/reports'] },
+    { to: '/categories', icon: BarChart3, label: 'Intelligence', match: ['/categories', '/companies', '/pricing', '/venues', '/geographic'] },
+    { to: '/supply-chain', icon: Rocket, label: 'Planning', match: ['/supply-chain', '/scenario', '/margin', '/campaigns'] },
+    { to: '/reports', icon: FileText, label: 'Reports', match: ['/reports', '/valuations'] },
+    { to: '/climate', icon: MoreHorizontal, label: 'Tools', match: ['/climate', '/pos'] },
   ]
 
   return (
@@ -109,7 +110,7 @@ function BottomTabBar() {
           return (
             <Link key={tab.label} to={tab.to} className={`flex flex-col items-center justify-center gap-0.5 min-h-[44px] min-w-[44px] px-3 py-1.5 transition-colors touch-manipulation ${active ? 'text-navy' : 'text-gray-400'}`}>
               <tab.icon size={20} strokeWidth={active ? 2 : 1.5} />
-              <span className="text-[10px] font-medium">{tab.label}</span>
+              <span className="text-[11px] font-medium">{tab.label}</span>
             </Link>
           )
         })}
@@ -204,7 +205,7 @@ function NavGroup({ title, children, defaultOpen = true }) {
   }
   return (
     <div className="mb-0.5">
-      <button onClick={toggle} className="flex items-center justify-between w-full px-3 py-1.5 text-[10px] font-semibold uppercase tracking-widest text-gray-400 hover:text-navy transition-colors">
+      <button onClick={toggle} className="flex items-center justify-between w-full px-3 py-1.5 min-h-[36px] text-[11px] font-semibold uppercase tracking-widest text-gray-400 hover:text-navy transition-colors touch-manipulation">
         <span>{title}</span>
         <ChevronDown size={10} className={`transition-transform duration-200 ${open ? '' : '-rotate-90'}`} />
       </button>
@@ -230,11 +231,11 @@ function LivePulse() {
           ) : (
             <span className="h-2 w-2 rounded-full bg-gray-400" />
           )}
-          <span className="text-[10px] text-gray-500 font-medium">
+          <span className="text-[11px] text-gray-500 font-medium">
             {connected ? (mode === 'sse' ? 'LIVE' : 'POLLING') : 'OFFLINE'}
           </span>
         </div>
-        <div className="flex items-center gap-2 text-[10px]">
+        <div className="flex items-center gap-2 text-[11px]">
           {criticals > 0 && (
             <span className="text-red-500 font-bold">{criticals} critical</span>
           )}
@@ -247,7 +248,8 @@ function LivePulse() {
 
 function Layout({ onLogout }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
-  const [chatOpen, setChatOpen] = useState(false)
+  // Chat disabled — backend not deployed
+  // const [chatOpen, setChatOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const location = useLocation()
 
@@ -286,42 +288,34 @@ function Layout({ onLogout }) {
           <LivePulse />
 
           <nav className="flex-1 px-2 space-y-0.5 overflow-y-auto">
-            {/* Dashboard */}
-            <div className="mb-1">
-              <NavItem to="/" icon={LayoutDashboard} label="Command Centre" />
-            </div>
-
-            {/* Market */}
-            <NavGroup title="Market">
-              <NavItem to="/categories" icon={Wine} label="Category Intelligence" />
-              <NavItem to="/companies" icon={Building2} label="Company Intelligence" />
-              <NavItem to="/valuations" icon={TrendingUp} label="Valuations & Arbitrage" />
-              <NavItem to="/pricing" icon={DollarSign} label="Brand Pricing" />
+            {/* Intelligence — core data pages */}
+            <NavGroup title="Intelligence">
+              <NavItem to="/" icon={LayoutDashboard} label="Dashboard" />
+              <NavItem to="/categories" icon={Wine} label="Categories" />
+              <NavItem to="/companies" icon={Building2} label="Companies" />
+              <NavItem to="/pricing" icon={DollarSign} label="Pricing" />
+              <NavItem to="/venues" icon={MapPin} label="Venues" />
+              <NavItem to="/geographic" icon={Globe} label="Geographic" />
             </NavGroup>
 
-            {/* Operations */}
-            <NavGroup title="Operations">
-              <NavItem to="/supply-chain" icon={Package} label="Supply Chain & COGS" />
-              <NavItem to="/geographic" icon={Globe} label="Geographic Intelligence" />
-              <NavItem to="/climate" icon={CloudRain} label="Climate & Yield" />
-              <NavItem to="/pos" icon={ShoppingBag} label="POS Manufacturing" />
-            </NavGroup>
-
-            {/* Retail */}
-            <NavGroup title="Retail">
-              <NavItem to="/venues" icon={MapPin} label="Venue Intelligence" />
-              <NavItem to="/scenario" icon={Crosshair} label="Scenario Modelling" />
+            {/* Planning — action-oriented tools */}
+            <NavGroup title="Planning">
+              <NavItem to="/supply-chain" icon={Package} label="Supply Chain" />
+              <NavItem to="/scenario" icon={Crosshair} label="Market Entry" />
+              <NavItem to="/margin" icon={Calculator} label="Margin Calculator" />
               <NavItem to="/campaigns" icon={Target} label="Campaign Planner" />
             </NavGroup>
 
-            {/* Tools */}
-            <NavGroup title="Tools">
-              <NavItem to="/margin" icon={Calculator} label="Margin Calculator" />
+            {/* Reports — output */}
+            <NavGroup title="Reports">
+              <NavItem to="/reports" icon={FileText} label="Report Builder" />
+              <NavItem to="/valuations" icon={TrendingUp} label="Valuations" />
             </NavGroup>
 
-            {/* Intelligence */}
-            <NavGroup title="Intelligence">
-              <NavItem to="/reports" icon={FileText} label="Report Builder" />
+            {/* Tools — specialist utilities */}
+            <NavGroup title="Tools" defaultOpen={false}>
+              <NavItem to="/climate" icon={CloudRain} label="Climate & Yield" />
+              <NavItem to="/pos" icon={ShoppingBag} label="POS Manufacturing" />
             </NavGroup>
           </nav>
 
@@ -329,16 +323,22 @@ function Layout({ onLogout }) {
             <button onClick={() => setSearchOpen(true)} className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-500 hover:text-navy hover:bg-gray-50 w-full text-left text-[13px] font-medium">
               <Search size={15} />
               <span>Search</span>
-              <kbd className="ml-auto text-[10px] text-gray-400 bg-gray-100 px-1.5 py-0.5 rounded font-mono">{'\u2318'}K</kbd>
+              <kbd className="ml-auto text-[11px] text-gray-400 bg-gray-100 px-1.5 py-0.5 rounded font-mono">{'\u2318'}K</kbd>
             </button>
-            <button onClick={() => setChatOpen(true)} className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-500 hover:text-navy hover:bg-gray-50 w-full text-left text-[13px] font-medium">
-              <MessageCircle size={15} />
-              <span>Analyst Chat</span>
-            </button>
-            <button onClick={() => api.downloadExcel()} className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-500 hover:text-navy hover:bg-gray-50 w-full text-left text-[13px] font-medium">
-              <Download size={15} />
-              <span>Export Tracker</span>
-            </button>
+            <div className="relative group">
+              <button disabled className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 cursor-not-allowed w-full text-left text-[13px] font-medium">
+                <MessageCircle size={15} />
+                <span>Analyst Chat</span>
+                <span className="ml-auto text-[11px] bg-gray-100 text-gray-400 px-1.5 py-0.5 rounded-full font-medium">Soon</span>
+              </button>
+            </div>
+            <div className="relative group">
+              <button disabled className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 cursor-not-allowed w-full text-left text-[13px] font-medium">
+                <Download size={15} />
+                <span>Export Tracker</span>
+                <span className="ml-auto text-[11px] bg-gray-100 text-gray-400 px-1.5 py-0.5 rounded-full font-medium">Soon</span>
+              </button>
+            </div>
             <button onClick={onLogout} className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-500 hover:text-red-500 hover:bg-red-50 w-full text-left text-[13px] font-medium">
               <LogOut size={15} />
               <span>Sign Out</span>
@@ -388,8 +388,7 @@ function Layout({ onLogout }) {
         </div>
       </main>
 
-      {/* Chat Panel */}
-      <ChatPanel isOpen={chatOpen} onClose={() => setChatOpen(false)} />
+      {/* Chat Panel — disabled, backend not deployed */}
 
       {/* Global Search (Cmd+K) */}
       <GlobalSearch isOpen={searchOpen} onClose={() => setSearchOpen(false)} />

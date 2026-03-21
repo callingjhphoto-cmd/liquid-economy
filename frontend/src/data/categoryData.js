@@ -1,3 +1,5 @@
+export const DATA_LAST_UPDATED = '2026-03-21'
+
 // ============================================
 // DATA: 11 Categories x 5 Years (2021-2025)
 // ============================================
@@ -27,7 +29,7 @@ export const CATEGORIES = [
               { name: 'Nayarit', share: '12%', growth: '+7.8%' },
             ],
             sources: [
-              { name: 'IWSR Mexico Spirits 2025', url: 'https://www.theiwsr.com/' },
+              { name: 'IWSR Global Spirits Report 2025, Tequila & Mezcal: Mexico Market', url: 'https://www.theiwsr.com/global-spirits-report' },
             ]
           },
           {
@@ -41,7 +43,7 @@ export const CATEGORIES = [
               { name: 'Arizona', share: '19%', growth: '+8.1%' },
             ],
             sources: [
-              { name: 'DISCUS Annual Report 2025', url: 'https://www.discus.org/' },
+              { name: 'DISCUS Annual Economic Briefing 2025, US Spirits Category Performance', url: 'https://www.discus.org/economics/research' },
             ]
           },
           {
@@ -55,7 +57,7 @@ export const CATEGORIES = [
               { name: 'Valencia', share: '12%', growth: '+10.1%' },
             ],
             sources: [
-              { name: 'Beverage Daily Spain 2025', url: 'https://www.beveragedaily.com/' },
+              { name: 'Beverage Daily Spirits Market Report 2025, Spain & Iberian Markets', url: 'https://www.beveragedaily.com/Article/spirits-market-trends' },
             ]
           },
           {
@@ -69,7 +71,7 @@ export const CATEGORIES = [
               { name: 'Edinburgh', share: '22%', growth: '+6.5%' },
             ],
             sources: [
-              { name: 'The Spirits Business UK 2025', url: 'https://www.thespiritsbusiness.com/' },
+              { name: 'The Spirits Business Annual Review 2025, UK Market Section', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
             ]
           },
           {
@@ -83,7 +85,7 @@ export const CATEGORIES = [
               { name: 'Perth', share: '14%', growth: '+9.8%' },
             ],
             sources: [
-              { name: 'Euromonitor Tequila Australia 2025', url: 'https://www.euromonitor.com/' },
+              { name: 'Euromonitor Passport 2025, Tequila in Australia', url: 'https://www.euromonitor.com/alcoholic-drinks' },
             ]
           },
         ],
@@ -102,11 +104,11 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Aged and ultra-premium tequila (añejo/extra añejo) growing faster than blanco, driven by cocktail culture maturation', source: 'IWSR', url: 'https://www.theiwsr.com/' },
-          { text: 'Mezcal subspecialty gaining 18% CAGR as consumers explore agave terroir and artisanal production', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/' },
-          { text: 'Travel retail premiumization: luxury tequila duty-free sales up 22% YoY driven by Asia travel recovery', source: 'Euromonitor', url: 'https://www.euromonitor.com/' },
-          { text: 'RTD tequila cocktails surging +45% in convenience channels as on-premise costs drive home consumption', source: 'Beverage Daily', url: 'https://www.beveragedaily.com/' },
-          { text: 'DTC and allocations model gaining traction; independent brands now 11% of premium segment vs 6% in 2021', source: 'Market Watch Magazine', url: 'https://www.marketwatch.com/' },
+          { text: 'Aged and ultra-premium tequila (añejo/extra añejo) growing faster than blanco, driven by cocktail culture maturation', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
+          { text: 'Mezcal subspecialty gaining 18% CAGR as consumers explore agave terroir and artisanal production', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
+          { text: 'Travel retail premiumization: luxury tequila duty-free sales up 22% YoY driven by Asia travel recovery', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com/alcoholic-drinks' },
+          { text: 'RTD tequila cocktails surging +45% in convenience channels as on-premise costs drive home consumption', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com/Article/spirits-market-trends' },
+          { text: 'DTC and allocations model gaining traction; independent brands now 11% of premium segment vs 6% in 2021', source: 'Market Watch Magazine Category Report', url: 'https://www.marketwatchmag.com/category-reports/' },
         ],
         report: {
           keyEvents: ['Clase Azul achieved $500M valuation; premium brand consolidation accelerates', 'Mexico announces new protected designation for Tequila 2.0 to combat counterfeit, strengthens supply chain confidence', 'Gen Z cocktail culture drives 15% growth in agave-forward drinking occasions', 'Travel retail recovery post-Asia normalization unlocks $180M in previously dormant sales'],
@@ -132,7 +134,7 @@ export const CATEGORIES = [
               { name: 'Nayarit', share: '12%', growth: '+6.2%' },
             ],
             sources: [
-              { name: 'IWSR Mexico 2024', url: 'https://www.theiwsr.com/' },
+              { name: 'IWSR Global Spirits Report 2024, Tequila & Mezcal: Mexico Market', url: 'https://www.theiwsr.com/global-spirits-report' },
             ]
           },
           {
@@ -146,7 +148,7 @@ export const CATEGORIES = [
               { name: 'Arizona', share: '19%', growth: '+12.2%' },
             ],
             sources: [
-              { name: 'DISCUS 2024', url: 'https://www.discus.org/' },
+              { name: 'DISCUS Annual Economic Briefing 2024, US Spirits Category Performance', url: 'https://www.discus.org/economics/research' },
             ]
           },
           {
@@ -160,7 +162,7 @@ export const CATEGORIES = [
               { name: 'Hamburg', share: '21%', growth: '+8.9%' },
             ],
             sources: [
-              { name: 'Euromonitor Germany 2024', url: 'https://www.euromonitor.com/' },
+              { name: 'Euromonitor Passport 2024, Spirits in Germany', url: 'https://www.euromonitor.com/alcoholic-drinks' },
             ]
           },
           {
@@ -174,7 +176,7 @@ export const CATEGORIES = [
               { name: 'Edinburgh', share: '21%', growth: '+8.1%' },
             ],
             sources: [
-              { name: 'The Spirits Business 2024', url: 'https://www.thespiritsbusiness.com/' },
+              { name: 'The Spirits Business Annual Review 2024, UK & European Markets', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
             ]
           },
           {
@@ -188,7 +190,7 @@ export const CATEGORIES = [
               { name: 'Calgary', share: '12%', growth: '+12.5%' },
             ],
             sources: [
-              { name: 'Euromonitor Canada 2024', url: 'https://www.euromonitor.com/' },
+              { name: 'Euromonitor Passport 2024, Spirits in Canada', url: 'https://www.euromonitor.com/alcoholic-drinks' },
             ]
           },
         ],
@@ -207,11 +209,11 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Añejo tequila (aged 1–3 years) surged 19% as craft cocktail programs emphasize sipping-quality spirits', source: 'IWSR', url: 'https://www.theiwsr.com/' },
-          { text: 'Mezcal entering mainstream distribution; 250+ SKUs now available in US compared to 40 in 2020', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/' },
-          { text: 'Craft independents gaining market share; DTC brands now 8% of premium tequila segment', source: 'Euromonitor', url: 'https://www.euromonitor.com/' },
-          { text: 'RTD tequila cocktails up 38% YoY; becoming fastest-growing sub-category after spirits collapse fear 2023', source: 'Beverage Daily', url: 'https://www.beveragedaily.com/' },
-          { text: 'Travel retail recovery: tequila duty-free sales rebounded +26% as Asia tourism resumed post-COVID', source: 'Market Watch', url: 'https://www.marketwatch.com/' },
+          { text: 'Añejo tequila (aged 1–3 years) surged 19% as craft cocktail programs emphasize sipping-quality spirits', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
+          { text: 'Mezcal entering mainstream distribution; 250+ SKUs now available in US compared to 40 in 2020', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
+          { text: 'Craft independents gaining market share; DTC brands now 8% of premium tequila segment', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com/alcoholic-drinks' },
+          { text: 'RTD tequila cocktails up 38% YoY; becoming fastest-growing sub-category after spirits collapse fear 2023', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com/Article/spirits-market-trends' },
+          { text: 'Travel retail recovery: tequila duty-free sales rebounded +26% as Asia tourism resumed post-COVID', source: 'Market Watch Magazine Category Report', url: 'https://www.marketwatchmag.com/category-reports/' },
         ],
         report: {
           keyEvents: ['Bacardi acquired Patrón parent company Bacardi Limited for strategic tequila consolidation', 'Mexico\u2019s spirits regulatory body (CRT) expanded export certifications; market access improved for craft brands', 'Asia travel recovery unleashed $150M in pent-up demand; Macao, Singapore, HK airports saw 45% tequila growth', 'RTD tequila cocktail category exploded as Gen Z home-consumption preferences shifted'],
@@ -237,7 +239,7 @@ export const CATEGORIES = [
               { name: 'New York', share: '18%', growth: '+14.9%' },
             ],
             sources: [
-              { name: 'DISCUS 2023', url: 'https://www.discus.org/' },
+              { name: 'DISCUS Annual Economic Briefing 2023, US Spirits', url: 'https://www.discus.org/economics/research' },
             ]
           },
           {
@@ -251,7 +253,7 @@ export const CATEGORIES = [
               { name: 'Monterrey', share: '12%', growth: '+6.1%' },
             ],
             sources: [
-              { name: 'Euromonitor Mexico 2023', url: 'https://www.euromonitor.com/' },
+              { name: 'Euromonitor Mexico 2023', url: 'https://www.euromonitor.com/alcoholic-drinks' },
             ]
           },
           {
@@ -265,7 +267,7 @@ export const CATEGORIES = [
               { name: 'Glasgow', share: '20%', growth: '+7.6%' },
             ],
             sources: [
-              { name: 'The Spirits Business 2023', url: 'https://www.thespiritsbusiness.com/' },
+              { name: 'The Spirits Business Annual Review 2023', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
             ]
           },
         ],
@@ -284,9 +286,9 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Blanco tequila facing slight headwinds as premium aged variants claim younger drinker preference', source: 'IWSR', url: 'https://www.theiwsr.com/' },
-          { text: 'Mezcal specialty category emerging with 120+ distinct offerings in US market', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/' },
-          { text: 'Sustainability narratives gaining importance; brands highlighting sustainable agave farming practices', source: 'Euromonitor', url: 'https://www.euromonitor.com/' },
+          { text: 'Blanco tequila facing slight headwinds as premium aged variants claim younger drinker preference', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
+          { text: 'Mezcal specialty category emerging with 120+ distinct offerings in US market', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
+          { text: 'Sustainability narratives gaining importance; brands highlighting sustainable agave farming practices', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com/alcoholic-drinks' },
         ],
         report: {
           keyEvents: ['Pandemic-driven home consumption premiumization peaked; growth decelerated from 18% to 12.5%', 'Mega-brands consolidated on core SKUs; Patrón and Don Julio expanded aged variants', 'Craft mezcal crossed into mainstream consciousness via cocktail culture and social media'],
@@ -312,7 +314,7 @@ export const CATEGORIES = [
               { name: 'Colorado', share: '17%', growth: '+20.1%' },
             ],
             sources: [
-              { name: 'DISCUS 2022', url: 'https://www.discus.org/' },
+              { name: 'DISCUS Annual Economic Briefing 2022, US Spirits', url: 'https://www.discus.org/economics/research' },
             ]
           },
           {
@@ -326,7 +328,7 @@ export const CATEGORIES = [
               { name: 'Monterrey', share: '12%', growth: '+5.8%' },
             ],
             sources: [
-              { name: 'Euromonitor Mexico 2022', url: 'https://www.euromonitor.com/' },
+              { name: 'Euromonitor Mexico 2022', url: 'https://www.euromonitor.com/alcoholic-drinks' },
             ]
           },
           {
@@ -340,7 +342,7 @@ export const CATEGORIES = [
               { name: 'Calgary', share: '12%', growth: '+14.5%' },
             ],
             sources: [
-              { name: 'Euromonitor Canada 2022', url: 'https://www.euromonitor.com/' },
+              { name: 'Euromonitor Passport 2022, Spirits in Canada', url: 'https://www.euromonitor.com/alcoholic-drinks' },
             ]
           },
         ],
@@ -359,9 +361,9 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Pandemic at-home consumption driving tequila premiumization; aged variants surged 25% YoY', source: 'IWSR', url: 'https://www.theiwsr.com/' },
-          { text: 'Skincare and lifestyle brands entering spirits category; celebrity-backed tequila launches proliferated', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/' },
-          { text: 'Supply constraints emerging; agave shortages drove prices up 12–15% at retail', source: 'Euromonitor', url: 'https://www.euromonitor.com/' },
+          { text: 'Pandemic at-home consumption driving tequila premiumization; aged variants surged 25% YoY', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
+          { text: 'Skincare and lifestyle brands entering spirits category; celebrity-backed tequila launches proliferated', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
+          { text: 'Supply constraints emerging; agave shortages drove prices up 12–15% at retail', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com/alcoholic-drinks' },
         ],
         report: {
           keyEvents: ['Pandemic-driven spirits category explosion; tequila grew 18.2%, fastest among major spirits', 'At-home consumption drove off-premise growth to 52% of volume; on-premise depressed due to lockdowns', 'Celebrity tequila brands launched (George Clooney\u2019s Casamigos, Mark Wahlberg ventures) capturing millennial attention'],
@@ -387,7 +389,7 @@ export const CATEGORIES = [
               { name: 'New York', share: '16%', growth: '+19.2%' },
             ],
             sources: [
-              { name: 'DISCUS 2021', url: 'https://www.discus.org/' },
+              { name: 'DISCUS Annual Economic Briefing 2021, US Spirits', url: 'https://www.discus.org/economics/research' },
             ]
           },
           {
@@ -401,7 +403,7 @@ export const CATEGORIES = [
               { name: 'Guadalajara', share: '12%', growth: '+3.5%' },
             ],
             sources: [
-              { name: 'Euromonitor Mexico 2021', url: 'https://www.euromonitor.com/' },
+              { name: 'Euromonitor Mexico 2021', url: 'https://www.euromonitor.com/alcoholic-drinks' },
             ]
           },
           {
@@ -415,7 +417,7 @@ export const CATEGORIES = [
               { name: 'Calgary', share: '12%', growth: '+11.2%' },
             ],
             sources: [
-              { name: 'Euromonitor Canada 2021', url: 'https://www.euromonitor.com/' },
+              { name: 'Euromonitor Passport 2021, Spirits in Canada', url: 'https://www.euromonitor.com/alcoholic-drinks' },
             ]
           },
         ],
@@ -434,9 +436,9 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Spirits category entered pandemic boom; tequila became trendy with younger demographics', source: 'IWSR', url: 'https://www.theiwsr.com/' },
-          { text: 'Agave shortage concerns emerged; prices began rising as demand outpaced supply', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/' },
-          { text: 'Craft distilleries gaining attention; artisanal mezcal and small-batch tequila interest rising', source: 'Euromonitor', url: 'https://www.euromonitor.com/' },
+          { text: 'Spirits category entered pandemic boom; tequila became trendy with younger demographics', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
+          { text: 'Agave shortage concerns emerged; prices began rising as demand outpaced supply', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
+          { text: 'Craft distilleries gaining attention; artisanal mezcal and small-batch tequila interest rising', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com/alcoholic-drinks' },
         ],
         report: {
           keyEvents: ['COVID-19 pandemic drove unprecedented at-home spirits consumption growth across all categories', 'Tequila surged +15.8%; younger Gen Z consumers embraced tequila as aspirational premium category', 'Supply chain stress began affecting agave availability; prices increased 8‑0% YoY'],
@@ -472,7 +474,7 @@ export const CATEGORIES = [
               { name: 'Sochi', share: '19%', growth: '-8.9%' },
             ],
             sources: [
-              { name: 'IWSR Europe 2025', url: 'https://www.theiwsr.com/' },
+              { name: 'IWSR Global Spirits Report 2025, Vodka & White Spirits Section', url: 'https://www.theiwsr.com/global-spirits-report' },
             ]
           },
           {
@@ -486,7 +488,7 @@ export const CATEGORIES = [
               { name: 'Illinois', share: '18%', growth: '+1.8%' },
             ],
             sources: [
-              { name: 'DISCUS 2025', url: 'https://www.discus.org/' },
+              { name: 'DISCUS Annual Economic Briefing 2025, US Spirits', url: 'https://www.discus.org/economics/research' },
             ]
           },
           {
@@ -500,7 +502,7 @@ export const CATEGORIES = [
               { name: 'Gdansk', share: '17%', growth: '-2.8%' },
             ],
             sources: [
-              { name: 'Euromonitor Poland 2025', url: 'https://www.euromonitor.com/' },
+              { name: 'Euromonitor Poland 2025', url: 'https://www.euromonitor.com/alcoholic-drinks' },
             ]
           },
           {
@@ -514,7 +516,7 @@ export const CATEGORIES = [
               { name: 'Dnipro', share: '14%', growth: '-15.8%' },
             ],
             sources: [
-              { name: 'Euromonitor Ukraine 2025', url: 'https://www.euromonitor.com/' },
+              { name: 'Euromonitor Ukraine 2025', url: 'https://www.euromonitor.com/alcoholic-drinks' },
             ]
           },
           {
@@ -528,7 +530,7 @@ export const CATEGORIES = [
               { name: 'Uppsala', share: '14%', growth: '-1.1%' },
             ],
             sources: [
-              { name: 'The Spirits Business 2025', url: 'https://www.thespiritsbusiness.com/' },
+              { name: 'The Spirits Business Annual Review 2025', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
             ]
           },
         ],
@@ -547,11 +549,11 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'RTD vodka-based cocktails gaining +18% CAGR; consumers prefer convenience over premiumization', source: 'IWSR', url: 'https://www.theiwsr.com/' },
-          { text: 'Flavored vodka segment (naturally infused) growing 7% while unflavored vodka declining 3% YoY', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/' },
-          { text: 'Premium vodka losing share to craft spirits; craft gin and whisky stealing younger demographic preference', source: 'Euromonitor', url: 'https://www.euromonitor.com/' },
-          { text: 'Eastern European supply disruption continuing to impact category; geopolitical tensions limit sourcing', source: 'Beverage Daily', url: 'https://www.beveragedaily.com/' },
-          { text: 'Gen Z association with vodka declining; tequila, gin, and rum perceived as more sophisticated', source: 'Market Watch', url: 'https://www.marketwatch.com/' },
+          { text: 'RTD vodka-based cocktails gaining +18% CAGR; consumers prefer convenience over premiumization', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
+          { text: 'Flavored vodka segment (naturally infused) growing 7% while unflavored vodka declining 3% YoY', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
+          { text: 'Premium vodka losing share to craft spirits; craft gin and whisky stealing younger demographic preference', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com/alcoholic-drinks' },
+          { text: 'Eastern European supply disruption continuing to impact category; geopolitical tensions limit sourcing', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com/Article/spirits-market-trends' },
+          { text: 'Gen Z association with vodka declining; tequila, gin, and rum perceived as more sophisticated', source: 'Market Watch Magazine Category Report', url: 'https://www.marketwatchmag.com/category-reports/' },
         ],
         report: {
           keyEvents: ['Vodka category contracted 1.2% globally; Eastern European supply disruption combined with generational preference shift', 'Grey Goose premium positioning held; mass-market brands (Smirnoff, Absolut) faced structural pressure', 'RTD vodka cocktails surged +18%; shift from spirits consumption to pre-packaged convenience beverages', 'Belvedere (Poland) supply normalized post-conflict disruptions; market share stabilization began'],
@@ -577,7 +579,7 @@ export const CATEGORIES = [
               { name: 'Texas', share: '18%', growth: '+2.8%' },
             ],
             sources: [
-              { name: 'DISCUS 2024', url: 'https://www.discus.org/' },
+              { name: 'DISCUS Annual Economic Briefing 2024, US Spirits Category Performance', url: 'https://www.discus.org/economics/research' },
             ]
           },
           {
@@ -591,7 +593,7 @@ export const CATEGORIES = [
               { name: 'Sochi', share: '18%', growth: '-4.2%' },
             ],
             sources: [
-              { name: 'IWSR Europe 2024', url: 'https://www.theiwsr.com/' },
+              { name: 'IWSR Global Spirits Report 2024, Vodka & White Spirits Section', url: 'https://www.theiwsr.com/global-spirits-report' },
             ]
           },
           {
@@ -605,7 +607,7 @@ export const CATEGORIES = [
               { name: 'Gdansk', share: '16%', growth: '+0.6%' },
             ],
             sources: [
-              { name: 'Euromonitor Poland 2024', url: 'https://www.euromonitor.com/' },
+              { name: 'Euromonitor Poland 2024', url: 'https://www.euromonitor.com/alcoholic-drinks' },
             ]
           },
           {
@@ -619,7 +621,7 @@ export const CATEGORIES = [
               { name: 'Uppsala', share: '13%', growth: '+1.3%' },
             ],
             sources: [
-              { name: 'The Spirits Business 2024', url: 'https://www.thespiritsbusiness.com/' },
+              { name: 'The Spirits Business Annual Review 2024, UK & European Markets', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
             ]
           },
           {
@@ -633,7 +635,7 @@ export const CATEGORIES = [
               { name: 'Hamburg', share: '23%', growth: '-0.5%' },
             ],
             sources: [
-              { name: 'Euromonitor Germany 2024', url: 'https://www.euromonitor.com/' },
+              { name: 'Euromonitor Passport 2024, Spirits in Germany', url: 'https://www.euromonitor.com/alcoholic-drinks' },
             ]
           },
         ],
@@ -652,11 +654,11 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Vodka losing mindshare to craft spirits among younger demographics; gin and whisky perceived as more sophisticated', source: 'IWSR', url: 'https://www.theiwsr.com/' },
-          { text: 'Flavored vodka sub-segment showing modest growth (+5%) while unflavored declining (-2%)', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/' },
-          { text: 'Eastern European supply chain disruption continuing; Russia/Ukraine conflict reducing global production capacity', source: 'Euromonitor', url: 'https://www.euromonitor.com/' },
-          { text: 'RTD cocktails surging (+15%) as spirits consumed increasingly as ready-made convenience beverages', source: 'Beverage Daily', url: 'https://www.beveragedaily.com/' },
-          { text: 'Premium vodka resilient; Grey Goose, Belvedere maintained share while mass-market brands declined 2–3%', source: 'Market Watch', url: 'https://www.marketwatch.com/' },
+          { text: 'Vodka losing mindshare to craft spirits among younger demographics; gin and whisky perceived as more sophisticated', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
+          { text: 'Flavored vodka sub-segment showing modest growth (+5%) while unflavored declining (-2%)', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
+          { text: 'Eastern European supply chain disruption continuing; Russia/Ukraine conflict reducing global production capacity', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com/alcoholic-drinks' },
+          { text: 'RTD cocktails surging (+15%) as spirits consumed increasingly as ready-made convenience beverages', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com/Article/spirits-market-trends' },
+          { text: 'Premium vodka resilient; Grey Goose, Belvedere maintained share while mass-market brands declined 2–3%', source: 'Market Watch Magazine Category Report', url: 'https://www.marketwatchmag.com/category-reports/' },
         ],
         report: {
           keyEvents: ['Vodka category reached inflection point; declined for first time in 15 years', 'Eastern European supply disruptions persisted; Russia output fell 12%, Ukraine fell 28%', 'Gen Z spiritism shift accelerated; gin and whisky now preferred by younger consumers over vodka', 'RTD cocktail category explosion (+15%) began cannibalizing spirits category share'],
@@ -682,7 +684,7 @@ export const CATEGORIES = [
               { name: 'Texas', share: '17%', growth: '+4.2%' },
             ],
             sources: [
-              { name: 'DISCUS 2023', url: 'https://www.discus.org/' },
+              { name: 'DISCUS Annual Economic Briefing 2023, US Spirits', url: 'https://www.discus.org/economics/research' },
             ]
           },
           {
@@ -696,7 +698,7 @@ export const CATEGORIES = [
               { name: 'Sochi', share: '18%', growth: '-5.5%' },
             ],
             sources: [
-              { name: 'IWSR Europe 2023', url: 'https://www.theiwsr.com/' },
+              { name: 'IWSR Global Spirits Report 2023, Vodka & White Spirits Section', url: 'https://www.theiwsr.com/global-spirits-report' },
             ]
           },
           {
@@ -710,7 +712,7 @@ export const CATEGORIES = [
               { name: 'Gdansk', share: '16%', growth: '+1.5%' },
             ],
             sources: [
-              { name: 'Euromonitor Poland 2023', url: 'https://www.euromonitor.com/' },
+              { name: 'Euromonitor Poland 2023', url: 'https://www.euromonitor.com/alcoholic-drinks' },
             ]
           },
           {
@@ -724,7 +726,7 @@ export const CATEGORIES = [
               { name: 'Uppsala', share: '13%', growth: '+2.6%' },
             ],
             sources: [
-              { name: 'The Spirits Business 2023', url: 'https://www.thespiritsbusiness.com/' },
+              { name: 'The Spirits Business Annual Review 2023', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
             ]
           },
           {
@@ -738,7 +740,7 @@ export const CATEGORIES = [
               { name: 'Hyderabad', share: '13%', growth: '+7.9%' },
             ],
             sources: [
-              { name: 'Euromonitor India 2023', url: 'https://www.euromonitor.com/' },
+              { name: 'Euromonitor Passport 2023, Spirits in India', url: 'https://www.euromonitor.com/alcoholic-drinks' },
             ]
           },
         ],
@@ -757,10 +759,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Vodka category stabilizing post-COVID; growth rates normalizing from pandemic inflation', source: 'IWSR', url: 'https://www.theiwsr.com/' },
-          { text: 'Craft vodka emerging with barrel-aged and locally-sourced narratives; gaining 12% YoY', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/' },
-          { text: 'Flavor innovation gaining traction; vodka-based RTD cocktails and infusions showing strongest segment growth', source: 'Euromonitor', url: 'https://www.euromonitor.com/' },
-          { text: 'Russian supply disruption beginning impact; export volumes down 18% YoY due to sanctions and conflict', source: 'Beverage Daily', url: 'https://www.beveragedaily.com/' },
+          { text: 'Vodka category stabilizing post-COVID; growth rates normalizing from pandemic inflation', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
+          { text: 'Craft vodka emerging with barrel-aged and locally-sourced narratives; gaining 12% YoY', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
+          { text: 'Flavor innovation gaining traction; vodka-based RTD cocktails and infusions showing strongest segment growth', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com/alcoholic-drinks' },
+          { text: 'Russian supply disruption beginning impact; export volumes down 18% YoY due to sanctions and conflict', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com/Article/spirits-market-trends' },
         ],
         report: {
           keyEvents: ['Russian invasion of Ukraine triggered geopolitical supply disruptions; vodka export sanctioned', 'Craft vodka movement accelerated; 200+ new vodka brands launched in US alone', 'Gen Z cocktail culture emphasized flavor-forward spirits; vodka losing category mindshare', 'RTD innovation: vodka-based ready-to-drink cocktails began capturing pre-mixed beverage growth'],
@@ -786,7 +788,7 @@ export const CATEGORIES = [
               { name: 'Texas', share: '17%', growth: '+4.8%' },
             ],
             sources: [
-              { name: 'DISCUS 2022', url: 'https://www.discus.org/' },
+              { name: 'DISCUS Annual Economic Briefing 2022, US Spirits', url: 'https://www.discus.org/economics/research' },
             ]
           },
           {
@@ -800,7 +802,7 @@ export const CATEGORIES = [
               { name: 'Sochi', share: '17%', growth: '-3.4%' },
             ],
             sources: [
-              { name: 'IWSR Europe 2022', url: 'https://www.theiwsr.com/' },
+              { name: 'IWSR Global Spirits Report 2022, Vodka & White Spirits Section', url: 'https://www.theiwsr.com/global-spirits-report' },
             ]
           },
           {
@@ -814,7 +816,7 @@ export const CATEGORIES = [
               { name: 'Gdansk', share: '16%', growth: '+3.3%' },
             ],
             sources: [
-              { name: 'Euromonitor Poland 2022', url: 'https://www.euromonitor.com/' },
+              { name: 'Euromonitor Poland 2022', url: 'https://www.euromonitor.com/alcoholic-drinks' },
             ]
           },
           {
@@ -828,7 +830,7 @@ export const CATEGORIES = [
               { name: 'Uppsala', share: '13%', growth: '+2.2%' },
             ],
             sources: [
-              { name: 'The Spirits Business 2022', url: 'https://www.thespiritsbusiness.com/' },
+              { name: 'The Spirits Business Annual Review 2022', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
             ]
           },
           {
@@ -842,7 +844,7 @@ export const CATEGORIES = [
               { name: 'Hyderabad', share: '13%', growth: '+8.8%' },
             ],
             sources: [
-              { name: 'Euromonitor India 2022', url: 'https://www.euromonitor.com/' },
+              { name: 'Euromonitor Passport 2022, Spirits in India', url: 'https://www.euromonitor.com/alcoholic-drinks' },
             ]
           },
         ],
@@ -861,10 +863,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Vodka sales remained relatively stable during broader spirits growth; category losing momentum vs peers', source: 'IWSR', url: 'https://www.theiwsr.com/' },
-          { text: 'RTD vodka cocktails emerging as growth channel; +22% YoY in convenience channels', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/' },
-          { text: 'Premium vodka premiumization trend continuing; ultra-premium vodka (+18% growth) offsetting value decline', source: 'Euromonitor', url: 'https://www.euromonitor.com/' },
-          { text: 'Geopolitical risk emerging as supply chain concern; Russia and Ukraine account for 51% of global production', source: 'Beverage Daily', url: 'https://www.beveragedaily.com/' },
+          { text: 'Vodka sales remained relatively stable during broader spirits growth; category losing momentum vs peers', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
+          { text: 'RTD vodka cocktails emerging as growth channel; +22% YoY in convenience channels', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
+          { text: 'Premium vodka premiumization trend continuing; ultra-premium vodka (+18% growth) offsetting value decline', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com/alcoholic-drinks' },
+          { text: 'Geopolitical risk emerging as supply chain concern; Russia and Ukraine account for 51% of global production', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com/Article/spirits-market-trends' },
         ],
         report: {
           keyEvents: ['Spirits category surged during pandemic; vodka grew only 1.2%, lagging tequila (+18%), rum (+15%)', 'Premium vodka segment grew +18% driven by on-premise sophistication and age-statement positioning', 'Geopolitical tensions between Russia and Ukraine emerged as supply chain risk', 'RTD vodka cocktails gained traction in convenience channels, capturing growth from pure spirits'],
@@ -890,7 +892,7 @@ export const CATEGORIES = [
               { name: 'Texas', share: '17%', growth: '+1.8%' },
             ],
             sources: [
-              { name: 'DISCUS 2021', url: 'https://www.discus.org/' },
+              { name: 'DISCUS Annual Economic Briefing 2021, US Spirits', url: 'https://www.discus.org/economics/research' },
             ]
           },
           {
@@ -904,7 +906,7 @@ export const CATEGORIES = [
               { name: 'Sochi', share: '17%', growth: '-2.1%' },
             ],
             sources: [
-              { name: 'IWSR Europe 2021', url: 'https://www.theiwsr.com/' },
+              { name: 'IWSR Global Spirits Report 2021, Vodka & White Spirits Section', url: 'https://www.theiwsr.com/global-spirits-report' },
             ]
           },
           {
@@ -918,7 +920,7 @@ export const CATEGORIES = [
               { name: 'Gdansk', share: '16%', growth: '+1.3%' },
             ],
             sources: [
-              { name: 'Euromonitor Poland 2021', url: 'https://www.euromonitor.com/' },
+              { name: 'Euromonitor Poland 2021', url: 'https://www.euromonitor.com/alcoholic-drinks' },
             ]
           },
           {
@@ -932,7 +934,7 @@ export const CATEGORIES = [
               { name: 'Uppsala', share: '13%', growth: '+0.9%' },
             ],
             sources: [
-              { name: 'The Spirits Business 2021', url: 'https://www.thespiritsbusiness.com/' },
+              { name: 'The Spirits Business Annual Review 2021', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
             ]
           },
           {
@@ -946,7 +948,7 @@ export const CATEGORIES = [
               { name: 'Hyderabad', share: '13%', growth: '+7.5%' },
             ],
             sources: [
-              { name: 'Euromonitor India 2021', url: 'https://www.euromonitor.com/' },
+              { name: 'Euromonitor Passport 2021, Spirits in India', url: 'https://www.euromonitor.com/alcoholic-drinks' },
             ]
           },
         ],
@@ -965,10 +967,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Vodka category contracted during pandemic spirits boom; consumers preferring flavored spirits and tequila', source: 'IWSR', url: 'https://www.theiwsr.com/' },
-          { text: 'Tequila surge came at vodka\u2019s expense; premium spirits preferences shifted toward character-driven categories', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/' },
-          { text: 'On-premise closures devastated vodka category; relies on cocktail culture more than other spirits', source: 'Euromonitor', url: 'https://www.euromonitor.com/' },
-          { text: 'At-home consumption shift favored sipping spirits (whiskey, brandy) over cocktail spirits (vodka, gin)', source: 'Beverage Daily', url: 'https://www.beveragedaily.com/' },
+          { text: 'Vodka category contracted during pandemic spirits boom; consumers preferring flavored spirits and tequila', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
+          { text: 'Tequila surge came at vodka\u2019s expense; premium spirits preferences shifted toward character-driven categories', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
+          { text: 'On-premise closures devastated vodka category; relies on cocktail culture more than other spirits', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com/alcoholic-drinks' },
+          { text: 'At-home consumption shift favored sipping spirits (whiskey, brandy) over cocktail spirits (vodka, gin)', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com/Article/spirits-market-trends' },
         ],
         report: {
           keyEvents: ['Vodka contracted 3.2% during pandemic; only major spirits category to decline during lockdown boom', 'On-premise closures hit vodka hardest; category historically dependent on cocktail consumption', 'Consumers shifted to sipping spirits (whiskey, brandy, tequila) for at-home entertaining', 'Home consumption trend toward premiumization favored aged/category-defining spirits over neutral vodka'],
@@ -1084,10 +1086,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Japanese gin category growing at +22% YoY, driven by Roku and Ki No Bi premiumization', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'Pink gin category declining -8% as novelty wears off; focus shifting to aged and barrel-finished expressions', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
-          { text: 'Craft gin consolidation accelerating with major groups acquiring artisanal brands', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
-          { text: 'Spain consolidating position as world\u2019s largest gin market by per-capita consumption', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Japanese gin category growing at +22% YoY, driven by Roku and Ki No Bi premiumization', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'Pink gin category declining -8% as novelty wears off; focus shifting to aged and barrel-finished expressions', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Craft gin consolidation accelerating with major groups acquiring artisanal brands', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com' },
+          { text: 'Spain consolidating position as world\u2019s largest gin market by per-capita consumption', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'Gin serving ritual evolving beyond G&T toward sophisticated cocktails and premium mixology', source: 'MarketWatch', url: 'https://www.marketwatchmag.com' },
         ],
         report: {
@@ -1194,10 +1196,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Roku gin achieves 20% YoY growth becoming fastest-growing premium gin globally', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'Pink gin category entering decline phase, down -12% YoY as trend fades', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
-          { text: 'Barrel-aged and aged gin sub-category emerging as next innovation frontier', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
-          { text: 'Spanish gin market now larger than UK market by volume and value', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Roku gin achieves 20% YoY growth becoming fastest-growing premium gin globally', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'Pink gin category entering decline phase, down -12% YoY as trend fades', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Barrel-aged and aged gin sub-category emerging as next innovation frontier', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com' },
+          { text: 'Spanish gin market now larger than UK market by volume and value', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'Craft gin brands consolidating under major spirits groups seeking portfolio premiumization', source: 'MarketWatch', url: 'https://www.marketwatchmag.com' },
         ],
         report: {
@@ -1304,10 +1306,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Pink gin trend approaching saturation with growth decelerating', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'Japanese gin gaining traction with Roku and Ki No Bi entering major markets', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
-          { text: 'Spain consolidating position as Europe\u2019s largest gin consumer market', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
-          { text: 'Craft gin innovation focusing on botanical blends and flavor experimentation', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Pink gin trend approaching saturation with growth decelerating', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'Japanese gin gaining traction with Roku and Ki No Bi entering major markets', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Spain consolidating position as Europe\u2019s largest gin consumer market', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com' },
+          { text: 'Craft gin innovation focusing on botanical blends and flavor experimentation', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'E-commerce gin sales growing faster than traditional retail channels', source: 'MarketWatch', url: 'https://www.marketwatchmag.com' },
         ],
         report: {
@@ -1414,10 +1416,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Pink gin trend continues strong growth, driving novelty purchases and trial', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'Spain overtaking UK as gin market leader driven by premiumization', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
-          { text: 'Post-pandemic on-trade recovery driving spirits premiumization across cocktails', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
-          { text: 'Botanical innovation and flavor experimentation dominating craft gin launches', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Pink gin trend continues strong growth, driving novelty purchases and trial', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'Spain overtaking UK as gin market leader driven by premiumization', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Post-pandemic on-trade recovery driving spirits premiumization across cocktails', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com' },
+          { text: 'Botanical innovation and flavor experimentation dominating craft gin launches', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'Asian markets emerging as high-growth gin destinations', source: 'MarketWatch', url: 'https://www.marketwatchmag.com' },
         ],
         report: {
@@ -1524,10 +1526,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Pink gin phenomenon accelerates with mass-market brands entering category', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'Home consumption surge during pandemic drives off-trade premiumization', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
-          { text: 'Craft gin market consolidation as large groups acquire artisanal brands', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
-          { text: 'Geographic expansion accelerates, particularly in Asia-Pacific', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Pink gin phenomenon accelerates with mass-market brands entering category', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'Home consumption surge during pandemic drives off-trade premiumization', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Craft gin market consolidation as large groups acquire artisanal brands', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com' },
+          { text: 'Geographic expansion accelerates, particularly in Asia-Pacific', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'E-commerce and direct-to-consumer channels gain significant market share', source: 'MarketWatch', url: 'https://www.marketwatchmag.com' },
         ],
         report: {
@@ -1644,10 +1646,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Japanese whisky supply crisis intensifies, premium prices surge 35%+ YoY', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'Indian whisky emerging as fastest-growing premium category globally', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
-          { text: 'Bourbon category growth moderating from peak as supply constraints ease', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
-          { text: 'Scotch single malt premiumization accelerating, blended declining', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Japanese whisky supply crisis intensifies, premium prices surge 35%+ YoY', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'Indian whisky emerging as fastest-growing premium category globally', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Bourbon category growth moderating from peak as supply constraints ease', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com' },
+          { text: 'Scotch single malt premiumization accelerating, blended declining', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'Travel retail reaching 9% channel share driven by duty-free shopping', source: 'MarketWatch', url: 'https://www.marketwatchmag.com' },
         ],
         report: {
@@ -1754,10 +1756,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Japanese whisky scarcity driving 25%+ price premiums in secondary markets', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'Indian whisky brands expanding internationally with premium positioning', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
-          { text: 'Bourbon category moderating from 7-8% growth to 2-3% normalized levels', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
-          { text: 'China emerging as second-largest premium whisky market surpassing Europe', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Japanese whisky scarcity driving 25%+ price premiums in secondary markets', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'Indian whisky brands expanding internationally with premium positioning', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Bourbon category moderating from 7-8% growth to 2-3% normalized levels', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com' },
+          { text: 'China emerging as second-largest premium whisky market surpassing Europe', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'Single malt Scotch growing 5% while blended whisky declining 1%', source: 'MarketWatch', url: 'https://www.marketwatchmag.com' },
         ],
         report: {
@@ -1864,10 +1866,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Chinese whisky market surges 12%+ driven by luxury consumption recovery', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'Japanese whisky production hitting structural capacity limits amid demand surge', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
-          { text: 'Bourbon premiumization accelerating with sub-$30 segment declining', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
-          { text: 'Indian whisky gaining credibility in premium cocktail bars globally', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Chinese whisky market surges 12%+ driven by luxury consumption recovery', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'Japanese whisky production hitting structural capacity limits amid demand surge', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Bourbon premiumization accelerating with sub-$30 segment declining', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com' },
+          { text: 'Indian whisky gaining credibility in premium cocktail bars globally', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'Single malt Scotch now 42% of production volume at 68% of value', source: 'MarketWatch', url: 'https://www.marketwatchmag.com' },
         ],
         report: {
@@ -1974,10 +1976,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Chinese whisky market experiences explosive growth as ultra-wealthy consumers adopt premium spirits', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'Bourbon boom continues with supply constraints keeping aged whiskey prices elevated', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
-          { text: 'Japanese whisky gaining collectible status with Yamazaki achieving trophy asset positioning', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
-          { text: 'Indian whisky exports beginning to grow as domestic premiumization accelerates', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Chinese whisky market experiences explosive growth as ultra-wealthy consumers adopt premium spirits', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'Bourbon boom continues with supply constraints keeping aged whiskey prices elevated', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Japanese whisky gaining collectible status with Yamazaki achieving trophy asset positioning', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com' },
+          { text: 'Indian whisky exports beginning to grow as domestic premiumization accelerates', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'Premium whisky shortages creating allocation systems and rationing in retail channels', source: 'MarketWatch', url: 'https://www.marketwatchmag.com' },
         ],
         report: {
@@ -2084,10 +2086,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Bourbon boom accelerates with craft distillery expansion and allocation systems emerging', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'Japanese whisky achieving status symbol positioning among global luxury consumers', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
-          { text: 'China emerging as third-largest whisky market following US and India recovery', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
-          { text: 'Scotch single malt premiumization accelerating with age-statement variants leading growth', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Bourbon boom accelerates with craft distillery expansion and allocation systems emerging', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'Japanese whisky achieving status symbol positioning among global luxury consumers', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'China emerging as third-largest whisky market following US and India recovery', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com' },
+          { text: 'Scotch single malt premiumization accelerating with age-statement variants leading growth', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'Off-trade channels surge during pandemic with home entertaining driving premium purchases', source: 'MarketWatch', url: 'https://www.marketwatchmag.com' },
         ],
         report: {
@@ -2204,10 +2206,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Aged rum segment growing +8% YoY as premium positioning strengthens', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'Rhum agricole gaining bartender credibility with white rhum agricole mixology trend', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
-          { text: 'Spiced rum category declining -6% as novelty fades', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
-          { text: 'Rum replacing bourbon as bartender\u2019s spirit of choice for craft cocktails', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Aged rum segment growing +8% YoY as premium positioning strengthens', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'Rhum agricole gaining bartender credibility with white rhum agricole mixology trend', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Spiced rum category declining -6% as novelty fades', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com' },
+          { text: 'Rum replacing bourbon as bartender\u2019s spirit of choice for craft cocktails', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'Millennial consumers shifting to rum from vodka as premium mixer category', source: 'MarketWatch', url: 'https://www.marketwatchmag.com' },
         ],
         report: {
@@ -2314,10 +2316,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Premium aged rum achieves +10% growth as consumer trading up accelerates', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'Rhum agricole category expanding rapidly with craft bartenders driving awareness', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
-          { text: 'Spiced rum declines -8% as trend fatigue sets in globally', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
-          { text: 'Craft rum distilleries gaining shelf space in US and European premium bars', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Premium aged rum achieves +10% growth as consumer trading up accelerates', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'Rhum agricole category expanding rapidly with craft bartenders driving awareness', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Spiced rum declines -8% as trend fatigue sets in globally', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com' },
+          { text: 'Craft rum distilleries gaining shelf space in US and European premium bars', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'Rum positioning as bourbon alternative for craft cocktail programs', source: 'MarketWatch', url: 'https://www.marketwatchmag.com' },
         ],
         report: {
@@ -2424,10 +2426,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Aged rum category growing +9% YoY exceeding overall category growth', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'Rhum agricole achieving rapid growth as bartenders champion terroir-driven craft', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
-          { text: 'Spiced rum declining -5% as consumer tastes mature away from flavored spirits', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
-          { text: 'Rum positioning as premium cocktail ingredient replacing bourbon in craft bars', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Aged rum category growing +9% YoY exceeding overall category growth', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'Rhum agricole achieving rapid growth as bartenders champion terroir-driven craft', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Spiced rum declining -5% as consumer tastes mature away from flavored spirits', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com' },
+          { text: 'Rum positioning as premium cocktail ingredient replacing bourbon in craft bars', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'Tourism recovery driving Caribbean market expansion and premium consumption', source: 'MarketWatch', url: 'https://www.marketwatchmag.com' },
         ],
         report: {
@@ -2534,10 +2536,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Post-pandemic on-trade recovery driving rum cocktail culture growth', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'Spiced rum trend peaking as consumer interest stabilizes', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
-          { text: 'Aged rum gaining prominence as premiumization strategy for major brands', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
-          { text: 'Caribbean travel recovery driving tourism-related rum consumption', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Post-pandemic on-trade recovery driving rum cocktail culture growth', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'Spiced rum trend peaking as consumer interest stabilizes', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Aged rum gaining prominence as premiumization strategy for major brands', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com' },
+          { text: 'Caribbean travel recovery driving tourism-related rum consumption', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'Rhum agricole emerging as category growth opportunity for craft distillers', source: 'MarketWatch', url: 'https://www.marketwatchmag.com' },
         ],
         report: {
@@ -2644,10 +2646,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Spiced rum trend accelerates with mass-market brand entries', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'Home entertaining surge during pandemic drives off-trade premiumization', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
-          { text: 'Coconut rum gaining shelf space as flavored rum category expands', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
-          { text: 'Caribbean rum brands pursuing tourism and collector positioning', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Spiced rum trend accelerates with mass-market brand entries', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'Home entertaining surge during pandemic drives off-trade premiumization', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Coconut rum gaining shelf space as flavored rum category expands', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com' },
+          { text: 'Caribbean rum brands pursuing tourism and collector positioning', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'On-trade closure impacts volume but premiumization drives value growth', source: 'MarketWatch', url: 'https://www.marketwatchmag.com' },
         ],
         report: {
@@ -2764,10 +2766,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Nigerian market emergence driving 12%+ growth, younger demographics shifting from traditional to contemporary brands', source: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
+          { text: 'Nigerian market emergence driving 12%+ growth, younger demographics shifting from traditional to contemporary brands', source: 'The Spirits Business Annual Review', url: 'https://thespiritsbusiness.com' },
           { text: 'US hip-hop culture maintaining luxury positioning for Hennessy, limiting competitor share gains', source: 'Market Watch Mag', url: 'https://marketwatchmag.com' },
           { text: 'Travel retail channel growing due to luxury tourism recovery in Asia Pacific and Middle East', source: 'The IWSR', url: 'https://theiwsr.com' },
-          { text: 'VS segment stabilizing volume decline; VSOP and XO maintaining value premiumization', source: 'Beverage Daily', url: 'https://beveragedaily.com' },
+          { text: 'VS segment stabilizing volume decline; VSOP and XO maintaining value premiumization', source: 'Beverage Daily Spirits Market Report', url: 'https://beveragedaily.com' },
           { text: 'China anti-corruption regulations moderating but not reversing, domestic consumption replacing gifting', source: 'Wine Searcher', url: 'https://wine-searcher.com' },
         ],
         report: {
@@ -2874,9 +2876,9 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'China gifting market contraction accelerating as anti-corruption enforcement deepens', source: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
+          { text: 'China gifting market contraction accelerating as anti-corruption enforcement deepens', source: 'The Spirits Business Annual Review', url: 'https://thespiritsbusiness.com' },
           { text: 'Nigeria high-growth momentum emerging as consumer spending rises in oil-rich regions', source: 'Market Watch Mag', url: 'https://marketwatchmag.com' },
-          { text: 'US market maturation leading to consolidation around heritage brands, smaller players losing shelf space', source: 'Beverage Daily', url: 'https://beveragedaily.com' },
+          { text: 'US market maturation leading to consolidation around heritage brands, smaller players losing shelf space', source: 'Beverage Daily Spirits Market Report', url: 'https://beveragedaily.com' },
           { text: 'Travel retail beginning to show recovery signals as international tourism rebounds', source: 'The IWSR', url: 'https://theiwsr.com' },
           { text: 'VSOP tier showing resilience as consumers trade down from ultra-premium XO', source: 'Wine Searcher', url: 'https://wine-searcher.com' },
         ],
@@ -2984,8 +2986,8 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'China anti-corruption regulations implemented, gifting market structurally diminished', source: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
-          { text: 'US inflation pressuring on-trade margins, causing venue consolidation and cocktail pricing acceleration', source: 'Beverage Daily', url: 'https://beveragedaily.com' },
+          { text: 'China anti-corruption regulations implemented, gifting market structurally diminished', source: 'The Spirits Business Annual Review', url: 'https://thespiritsbusiness.com' },
+          { text: 'US inflation pressuring on-trade margins, causing venue consolidation and cocktail pricing acceleration', source: 'Beverage Daily Spirits Market Report', url: 'https://beveragedaily.com' },
           { text: 'Nigeria market beginning to gain category attention as emerging consumer segment expands', source: 'Market Watch Mag', url: 'https://marketwatchmag.com' },
           { text: 'VS tier volume declining faster than VSOP/XO as premiumization accelerates', source: 'The IWSR', url: 'https://theiwsr.com' },
           { text: 'Travel retail recovering gradually as international tourism patterns normalize', source: 'Wine Searcher', url: 'https://wine-searcher.com' },
@@ -3094,9 +3096,9 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'US market acceleration driven by hip-hop cultural moment and luxury positioning', source: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
+          { text: 'US market acceleration driven by hip-hop cultural moment and luxury positioning', source: 'The Spirits Business Annual Review', url: 'https://thespiritsbusiness.com' },
           { text: 'China market stabilizing as gifting demand recovered from 2021 lows', source: 'The IWSR', url: 'https://theiwsr.com' },
-          { text: 'On-trade recovery driving growth as bars and restaurants returned to full operations', source: 'Beverage Daily', url: 'https://beveragedaily.com' },
+          { text: 'On-trade recovery driving growth as bars and restaurants returned to full operations', source: 'Beverage Daily Spirits Market Report', url: 'https://beveragedaily.com' },
           { text: 'VSOP tier gaining share as consumers seek quality improvement over value brand offerings', source: 'Wine Searcher', url: 'https://wine-searcher.com' },
           { text: 'Travel retail beginning slow recovery from pandemic disruption', source: 'Market Watch Mag', url: 'https://marketwatchmag.com' },
         ],
@@ -3204,9 +3206,9 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Post-pandemic celebration surge driving 22%+ growth in US on-premise hospitality recovery', source: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
+          { text: 'Post-pandemic celebration surge driving 22%+ growth in US on-premise hospitality recovery', source: 'The Spirits Business Annual Review', url: 'https://thespiritsbusiness.com' },
           { text: 'China gifting market accelerating as luxury consumption rebounded from COVID depths', source: 'The IWSR', url: 'https://theiwsr.com' },
-          { text: 'E-commerce channel capturing 14% share as direct-to-consumer sales exploded during lockdown recovery', source: 'Beverage Daily', url: 'https://beveragedaily.com' },
+          { text: 'E-commerce channel capturing 14% share as direct-to-consumer sales exploded during lockdown recovery', source: 'Beverage Daily Spirits Market Report', url: 'https://beveragedaily.com' },
           { text: 'Off-trade dominance reflecting continued at-home consumption patterns as on-premise remained capacity-constrained', source: 'Wine Searcher', url: 'https://wine-searcher.com' },
           { text: 'Hennessy hip-hop positioning crystallizing in consumer cultural consciousness', source: 'Market Watch Mag', url: 'https://marketwatchmag.com' },
         ],
@@ -3324,7 +3326,7 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Rosé champagne category growing 8%+ YoY, driven by younger demographic appeal and restaurant promotion', source: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
+          { text: 'Rosé champagne category growing 8%+ YoY, driven by younger demographic appeal and restaurant promotion', source: 'The Spirits Business Annual Review', url: 'https://thespiritsbusiness.com' },
           { text: 'Grower champagne movement gaining distribution in premium on-trade venues across UK and North America', source: 'Decanter', url: 'https://decanter.com' },
           { text: 'English sparkling wine expanding share at expense of entry-level champagne in domestic market', source: 'Wine Searcher', url: 'https://wine-searcher.com' },
           { text: 'Premium positioning sustaining off-trade growth despite prosecco competition in volume segments', source: 'The IWSR', url: 'https://theiwsr.com' },
@@ -3434,7 +3436,7 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Prosecco cannibalizing entry-level champagne share in off-trade channel, particularly Europe', source: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
+          { text: 'Prosecco cannibalizing entry-level champagne share in off-trade channel, particularly Europe', source: 'The Spirits Business Annual Review', url: 'https://thespiritsbusiness.com' },
           { text: 'Rosé champagne gaining 6%+ share as category bright spot with +7.5% growth', source: 'Decanter', url: 'https://decanter.com' },
           { text: 'Grower champagne movement accelerating as independent producers gain on-trade distribution', source: 'Wine Searcher', url: 'https://wine-searcher.com' },
           { text: 'English sparkling wine capturing shelf space in UK retail, beginning to displace entry-level champagne', source: 'The IWSR', url: 'https://theiwsr.com' },
@@ -3544,7 +3546,7 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Prosecco market share gains accelerating at expense of entry-level champagne across Europe', source: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
+          { text: 'Prosecco market share gains accelerating at expense of entry-level champagne across Europe', source: 'The Spirits Business Annual Review', url: 'https://thespiritsbusiness.com' },
           { text: 'Rosé champagne sub-segment growing 5%+ despite overall category contraction', source: 'Decanter', url: 'https://decanter.com' },
           { text: 'Grower champagne movement gaining traction in high-end on-trade segments', source: 'Wine Searcher', url: 'https://wine-searcher.com' },
           { text: 'Macroeconomic headwinds pressuring on-trade consumption in developed markets', source: 'The IWSR', url: 'https://theiwsr.com' },
@@ -3654,7 +3656,7 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Post-pandemic celebration surge driving on-premise champagne consumption recovery', source: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
+          { text: 'Post-pandemic celebration surge driving on-premise champagne consumption recovery', source: 'The Spirits Business Annual Review', url: 'https://thespiritsbusiness.com' },
           { text: 'Rosé champagne gaining share as younger demographic consumption increases', source: 'Decanter', url: 'https://decanter.com' },
           { text: 'E-commerce channel expansion accelerating as direct-to-consumer sales gain traction', source: 'Wine Searcher', url: 'https://wine-searcher.com' },
           { text: 'UK market outperforming globally with strong on-trade recovery momentum', source: 'The IWSR', url: 'https://theiwsr.com' },
@@ -3764,7 +3766,7 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Record celebration demand surge as lockdowns ended and pent-up occasion consumption released', source: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
+          { text: 'Record celebration demand surge as lockdowns ended and pent-up occasion consumption released', source: 'The Spirits Business Annual Review', url: 'https://thespiritsbusiness.com' },
           { text: 'Off-trade dominance at 48% reflecting continued at-home consumption patterns', source: 'Decanter', url: 'https://decanter.com' },
           { text: 'E-commerce channel growth to 10% from pandemic-driven direct-to-consumer expansion', source: 'Wine Searcher', url: 'https://wine-searcher.com' },
           { text: 'US market experiencing exceptional +38.2% growth on celebration occasions', source: 'The IWSR', url: 'https://theiwsr.com' },
@@ -3887,8 +3889,8 @@ export const CATEGORIES = [
           { text: 'Younger demographic consumption volume declining 5%+ YoY as generational shift accelerates', source: 'The IWSR', url: 'https://theiwsr.com' },
           { text: 'Premium and natural wine segments growing 8-12% despite overall category contraction', source: 'Wine Searcher', url: 'https://wine-searcher.com' },
           { text: 'Bag-in-box premium repositioning gaining market share at expense of bulk wine', source: 'Decanter', url: 'https://decanter.com' },
-          { text: 'Rosé wine maintaining growth momentum with +3.5% expansion, driven by younger consumer appeal', source: 'Beverage Daily', url: 'https://beveragedaily.com' },
-          { text: 'China wine market collapse continuing with -25%+ YoY contraction', source: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
+          { text: 'Rosé wine maintaining growth momentum with +3.5% expansion, driven by younger consumer appeal', source: 'Beverage Daily Spirits Market Report', url: 'https://beveragedaily.com' },
+          { text: 'China wine market collapse continuing with -25%+ YoY contraction', source: 'The Spirits Business Annual Review', url: 'https://thespiritsbusiness.com' },
         ],
         report: {
           keyEvents: ['Global wine market contracted -1.8% with structural volume decline accelerating', 'Premiumization and natural wine growth partially offset mainstream volume loss', 'US market stabilized at -0.5% through California premiumization momentum', 'China market collapse accelerated with -25% contraction from 2020 peak'],
@@ -3997,8 +3999,8 @@ export const CATEGORIES = [
           { text: 'China wine market collapse accelerating to -22.1% YoY as trade tensions persist', source: 'The IWSR', url: 'https://theiwsr.com' },
           { text: 'Generational consumption shift driving 5%+ YoY volume decline in younger demographics', source: 'Wine Searcher', url: 'https://wine-searcher.com' },
           { text: 'Premiumization and natural wine gaining share at expense of mainstream bulk wine', source: 'Decanter', url: 'https://decanter.com' },
-          { text: 'Premium bag-in-box repositioning as lifestyle choice gaining traction among affluent consumers', source: 'Beverage Daily', url: 'https://beveragedaily.com' },
-          { text: 'Rosé wine maintaining growth momentum with +2.8% expansion', source: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
+          { text: 'Premium bag-in-box repositioning as lifestyle choice gaining traction among affluent consumers', source: 'Beverage Daily Spirits Market Report', url: 'https://beveragedaily.com' },
+          { text: 'Rosé wine maintaining growth momentum with +2.8% expansion', source: 'The Spirits Business Annual Review', url: 'https://thespiritsbusiness.com' },
         ],
         report: {
           keyEvents: ['Global wine market contracted -2.5% as structural volume decline accelerated', 'China market collapse deepened to -22.1% from 2020 peak values', 'US premiumization in California (+1.5%) partially offset mainstream volume loss', 'Natural/organic wine segment growing 9% despite overall category contraction'],
@@ -4107,8 +4109,8 @@ export const CATEGORIES = [
           { text: 'China wine market collapsed -18.5% YoY from 2020 peak as trade restrictions tightened', source: 'The IWSR', url: 'https://theiwsr.com' },
           { text: 'Generational consumption shift accelerating with millennials/Gen Z drinking 40%+ less wine than predecessors', source: 'Wine Searcher', url: 'https://wine-searcher.com' },
           { text: 'Premium wine segment growing 7% despite overall category contraction', source: 'Decanter', url: 'https://decanter.com' },
-          { text: 'Natural/organic wine gaining 8% YoY share as health consciousness drives consumer preferences', source: 'Beverage Daily', url: 'https://beveragedaily.com' },
-          { text: 'Rosé wine growing 2% YoY, gaining share among younger female-led occasions', source: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
+          { text: 'Natural/organic wine gaining 8% YoY share as health consciousness drives consumer preferences', source: 'Beverage Daily Spirits Market Report', url: 'https://beveragedaily.com' },
+          { text: 'Rosé wine growing 2% YoY, gaining share among younger female-led occasions', source: 'The Spirits Business Annual Review', url: 'https://thespiritsbusiness.com' },
         ],
         report: {
           keyEvents: ['Global wine market contracted -1.2% with volume decline accelerating', 'China market collapse continued at -18.5% from 2015 peak values', 'California premium wine grew +2.1% as premiumization offset mainstream volume', 'Natural/organic wine segment expanded 8% globally'],
@@ -4217,8 +4219,8 @@ export const CATEGORIES = [
           { text: 'Post-pandemic at-home consumption sustaining off-trade growth at 54%', source: 'The IWSR', url: 'https://theiwsr.com' },
           { text: 'California wine market growing 4.2% on premiumization and sustainably-focused brands', source: 'Wine Searcher', url: 'https://wine-searcher.com' },
           { text: 'China wine market recovered +5.2% on trade normalization and luxury gifting rebound', source: 'Decanter', url: 'https://decanter.com' },
-          { text: 'Natural/organic wine segment growing 6% globally on health/sustainability appeal', source: 'Beverage Daily', url: 'https://beveragedaily.com' },
-          { text: 'Rosé wine gaining 1.5% share on younger demographic appeal', source: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
+          { text: 'Natural/organic wine segment growing 6% globally on health/sustainability appeal', source: 'Beverage Daily Spirits Market Report', url: 'https://beveragedaily.com' },
+          { text: 'Rosé wine gaining 1.5% share on younger demographic appeal', source: 'The Spirits Business Annual Review', url: 'https://thespiritsbusiness.com' },
         ],
         report: {
           keyEvents: ['Global wine market rebounded to +1.5% growth on post-pandemic normalization', 'California premiumization drove +4.2% growth offsetting broader demographic decline', 'China wine market recovery to +5.2% on trade normalization and gifting rebound', 'Off-trade sustained 54% channel dominance on at-home consumption persistence'],
@@ -4327,8 +4329,8 @@ export const CATEGORIES = [
           { text: 'Pandemic-driven at-home consumption surge boosting off-trade to 60% channel dominance', source: 'The IWSR', url: 'https://theiwsr.com' },
           { text: 'California premium wine (+5.8%) driving category growth despite generational demographic decline', source: 'Wine Searcher', url: 'https://wine-searcher.com' },
           { text: 'China wine market strong at +8.5% on luxury gifting acceleration', source: 'Decanter', url: 'https://decanter.com' },
-          { text: 'E-commerce expanding to 6% share from pandemic-driven direct-to-consumer growth', source: 'Beverage Daily', url: 'https://beveragedaily.com' },
-          { text: 'Rosé wine emerging with +2.5% growth as younger demographic appeal increases', source: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
+          { text: 'E-commerce expanding to 6% share from pandemic-driven direct-to-consumer growth', source: 'Beverage Daily Spirits Market Report', url: 'https://beveragedaily.com' },
+          { text: 'Rosé wine emerging with +2.5% growth as younger demographic appeal increases', source: 'The Spirits Business Annual Review', url: 'https://thespiritsbusiness.com' },
         ],
         report: {
           keyEvents: ['Pandemic-driven at-home consumption surge boosted global wine market +2.8%', 'Off-trade surged to 60% dominance on lockdown-driven home entertaining', 'California premium wine grew +5.8% as premiumization offset mainstream volume', 'China market strong at +8.5% on luxury gifting and investment demand'],
@@ -4445,9 +4447,9 @@ export const CATEGORIES = [
         },
         trends: [
           { text: 'Mexican lager category surging with Corona and Modelo gaining share in North America', source: 'Brewers Association', url: 'https://www.brewersassociation.org' },
-          { text: 'Craft beer consolidation accelerating with major acquisitions by AB InBev and Molson Coors', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
-          { text: 'Non-alcoholic beer emerging as growth segment with mainstream adoption in Western Europe', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'Bud Light boycott aftermath continues to reshape American light lager market dynamics', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Craft beer consolidation accelerating with major acquisitions by AB InBev and Molson Coors', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Non-alcoholic beer emerging as growth segment with mainstream adoption in Western Europe', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'Bud Light boycott aftermath continues to reshape American light lager market dynamics', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'Premiumization in import segments offsetting volume declines in domestic macro lagers', source: 'Mintel', url: 'https://www.mintel.com' },
         ],
         report: {
@@ -4555,9 +4557,9 @@ export const CATEGORIES = [
         },
         trends: [
           { text: 'Bud Light continues recovery trajectory as market stabilizes post-boycott', source: 'Brewers Association', url: 'https://www.brewersassociation.org' },
-          { text: 'Mexican lager exports to US surged 8% year-over-year driven by Corona and Modelo', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
-          { text: 'Craft beer segment consolidation reached peak activity with 12 major acquisitions', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'Non-alcoholic beer adoption in Western Europe accelerated to mainstream status', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Mexican lager exports to US surged 8% year-over-year driven by Corona and Modelo', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Craft beer segment consolidation reached peak activity with 12 major acquisitions', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'Non-alcoholic beer adoption in Western Europe accelerated to mainstream status', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'Asian craft beer scene emerging in Vietnam and Thailand with imported premium brands', source: 'Mintel', url: 'https://www.mintel.com' },
         ],
         report: {
@@ -4665,9 +4667,9 @@ export const CATEGORIES = [
         },
         trends: [
           { text: 'Bud Light boycott in US created unprecedented market share disruption', source: 'Brewers Association', url: 'https://www.brewersassociation.org' },
-          { text: 'Mexican lager category growth accelerating as Corona and Modelo gain US share', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
-          { text: 'Non-alcoholic beer reaching 1% penetration milestone in Western Europe', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'Craft beer segment showing consolidation pressure with smaller independents struggling', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Mexican lager category growth accelerating as Corona and Modelo gain US share', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Non-alcoholic beer reaching 1% penetration milestone in Western Europe', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'Craft beer segment showing consolidation pressure with smaller independents struggling', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'Premium import lagers outpacing domestic macro lager category growth', source: 'Mintel', url: 'https://www.mintel.com' },
         ],
         report: {
@@ -4774,10 +4776,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Post-COVID rebound driving on-trade recovery and premiumization acceleration', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'Mexican lager category achieving record growth rates in North American markets', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Post-COVID rebound driving on-trade recovery and premiumization acceleration', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'Mexican lager category achieving record growth rates in North American markets', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
           { text: 'Craft beer segment expanding with new brewery openings despite consolidation trends', source: 'Brewers Association', url: 'https://www.brewersassociation.org' },
-          { text: 'Non-alcoholic beer achieving mainstream distribution in Western European channels', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Non-alcoholic beer achieving mainstream distribution in Western European channels', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'Import premium lagers gaining shelf space at expense of domestic macro brands', source: 'Mintel', url: 'https://www.mintel.com' },
         ],
         report: {
@@ -4884,10 +4886,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Home consumption surge during COVID-19 lockdowns driving off-trade channel growth', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'E-commerce adoption accelerating rapidly for beer delivery services', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Home consumption surge during COVID-19 lockdowns driving off-trade channel growth', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'E-commerce adoption accelerating rapidly for beer delivery services', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
           { text: 'Craft beer segment resilient despite on-trade closures with retail expansion', source: 'Brewers Association', url: 'https://www.brewersassociation.org' },
-          { text: 'Mexican lager exports surging as consumers seek premium import options', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Mexican lager exports surging as consumers seek premium import options', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'Non-alcoholic beer achieving visibility in mainstream retail channels', source: 'Mintel', url: 'https://www.mintel.com' },
         ],
         report: {
@@ -5004,10 +5006,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Major spirits companies launching 0.0% line extensions across portfolio', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
-          { text: 'Gen Z and Millennials driving moderation trend with no/low alcohol preferences', source: 'IWSR', url: 'https://www.theiwsr.com' },
+          { text: 'Major spirits companies launching 0.0% line extensions across portfolio', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Gen Z and Millennials driving moderation trend with no/low alcohol preferences', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
           { text: 'Athletic Brewing achieving category leadership with premium positioning', source: 'Mintel', url: 'https://www.mintel.com' },
-          { text: 'Quality gap narrowing dramatically between no/low alcohol and traditional spirits', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Quality gap narrowing dramatically between no/low alcohol and traditional spirits', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'On-trade adoption accelerating with dedicated mocktail programs in premium bars', source: 'Just-Drinks', url: 'https://www.just-drinks.com' },
         ],
         report: {
@@ -5114,10 +5116,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Athletic Brewing expansion into UK and European markets accelerating', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
-          { text: 'Heineken and Gordon\u2019s 0.0% achieving mainstream retail penetration', source: 'IWSR', url: 'https://www.theiwsr.com' },
+          { text: 'Athletic Brewing expansion into UK and European markets accelerating', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Heineken and Gordon\u2019s 0.0% achieving mainstream retail penetration', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
           { text: 'E-commerce channel emerging as primary discovery platform for category', source: 'Mintel', url: 'https://www.mintel.com' },
-          { text: 'On-trade adoption expanding beyond health-focused venues to mainstream bars', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'On-trade adoption expanding beyond health-focused venues to mainstream bars', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'Quality perception gap closing between no/low alcohol and traditional spirits', source: 'Just-Drinks', url: 'https://www.just-drinks.com' },
         ],
         report: {
@@ -5224,10 +5226,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Athletic Brewing achieving breakout success with premium DTC positioning', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'Major brands beginning 0.0% extensions signaling mainstream acceptance', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Athletic Brewing achieving breakout success with premium DTC positioning', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'Major brands beginning 0.0% extensions signaling mainstream acceptance', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
           { text: 'Moderation trend among Gen Z accelerating category discovery', source: 'Mintel', url: 'https://www.mintel.com' },
-          { text: 'Quality perception rapidly improving as premium options gain distribution', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Quality perception rapidly improving as premium options gain distribution', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'E-commerce becoming primary growth channel for discovery-driven consumers', source: 'Just-Drinks', url: 'https://www.just-drinks.com' },
         ],
         report: {
@@ -5334,10 +5336,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Wellness-focused consumers driving rapid adoption of no/low alcohol beverages', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'Athletic Brewing achieving strong growth with premium craft positioning', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Wellness-focused consumers driving rapid adoption of no/low alcohol beverages', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'Athletic Brewing achieving strong growth with premium craft positioning', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
           { text: 'Major spirits brands testing 0.0% extensions across portfolios', source: 'Mintel', url: 'https://www.mintel.com' },
-          { text: 'On-trade adoption accelerating in health-conscious venues', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'On-trade adoption accelerating in health-conscious venues', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'E-commerce channels proving valuable for health-trend product discovery', source: 'Just-Drinks', url: 'https://www.just-drinks.com' },
         ],
         report: {
@@ -5444,10 +5446,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Wellness movement accelerating with sober-curious consumer trend', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'Seedlip and Lyre\u2019s achieving mainstream retail distribution', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Wellness movement accelerating with sober-curious consumer trend', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'Seedlip and Lyre\u2019s achieving mainstream retail distribution', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
           { text: 'E-commerce platforms emerging as key discovery channel', source: 'Mintel', url: 'https://www.mintel.com' },
-          { text: 'Health-focused consumers treating no/low alcohol as wellness product', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Health-focused consumers treating no/low alcohol as wellness product', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'Premium positioning establishing premium price points', source: 'Just-Drinks', url: 'https://www.just-drinks.com' },
         ],
         report: {
@@ -5564,10 +5566,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Spirits-based RTDs overtaking hard seltzer as growth leader', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'Japanese chuhai influence driving premiumization in Asian RTD markets', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Spirits-based RTDs overtaking hard seltzer as growth leader', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'Japanese chuhai influence driving premiumization in Asian RTD markets', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
           { text: 'Convenience stores dominating off-trade channel with RTD focus', source: 'Mintel', url: 'https://www.mintel.com' },
-          { text: 'Premium RTD cocktails with real spirits commanding price premiums', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Premium RTD cocktails with real spirits commanding price premiums', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'Hard seltzer category normalizing after peak volume in 2020-2021', source: 'Just-Drinks', url: 'https://www.just-drinks.com' },
         ],
         report: {
@@ -5674,10 +5676,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Premium spirits-based RTDs achieving mainstream on-trade adoption', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'Convenience store channel maintaining dominance with 70%+ share', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Premium spirits-based RTDs achieving mainstream on-trade adoption', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'Convenience store channel maintaining dominance with 70%+ share', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
           { text: 'Hard seltzer market consolidation with top 3 brands holding 65% share', source: 'Mintel', url: 'https://www.mintel.com' },
-          { text: 'Japanese chuhai gaining Western market share with international distribution', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Japanese chuhai gaining Western market share with international distribution', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'Real spirits positioning driving premiumization in RTD cocktail segment', source: 'Just-Drinks', url: 'https://www.just-drinks.com' },
         ],
         report: {
@@ -5784,10 +5786,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Hard seltzer boom peaking with market saturation evident', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'Premium spirits-based RTDs emerging as next growth segment', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Hard seltzer boom peaking with market saturation evident', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'Premium spirits-based RTDs emerging as next growth segment', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
           { text: 'Japanese chuhai becoming mainstream discovery in Western markets', source: 'Mintel', url: 'https://www.mintel.com' },
-          { text: 'Convenience channels cannibalizing traditional spirits mixing occasions', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Convenience channels cannibalizing traditional spirits mixing occasions', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'Malt-based coolers declining as spirits-based and hard seltzer dominate', source: 'Just-Drinks', url: 'https://www.just-drinks.com' },
         ],
         report: {
@@ -5894,10 +5896,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Hard seltzer category achieving mainstream acceptance and convenience store ubiquity', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'White Claw and Truly consolidating market dominance with 50%+ combined share', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Hard seltzer category achieving mainstream acceptance and convenience store ubiquity', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'White Claw and Truly consolidating market dominance with 50%+ combined share', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
           { text: 'RTDs cannibalizing traditional beer and spirits mixing occasions', source: 'Mintel', url: 'https://www.mintel.com' },
-          { text: 'Japanese chuhai gaining international awareness through Asian trend discovery', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'Japanese chuhai gaining international awareness through Asian trend discovery', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'Convenience stores becoming primary RTD distribution channel', source: 'Just-Drinks', url: 'https://www.just-drinks.com' },
         ],
         report: {
@@ -6004,10 +6006,10 @@ export const CATEGORIES = [
           itr: null,               // Inventory turnover ratio — COGS / average inventory value
         },
         trends: [
-          { text: 'Hard seltzer boom driven by home consumption during pandemic lockdowns', source: 'IWSR', url: 'https://www.theiwsr.com' },
-          { text: 'White Claw achieving cult status with aggressive social media marketing', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
+          { text: 'Hard seltzer boom driven by home consumption during pandemic lockdowns', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
+          { text: 'White Claw achieving cult status with aggressive social media marketing', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
           { text: 'Convenience stores expanding RTD shelf space dramatically', source: 'Mintel', url: 'https://www.mintel.com' },
-          { text: 'RTD category cannibalizing traditional spirit mixing occasions', source: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
+          { text: 'RTD category cannibalizing traditional spirit mixing occasions', source: 'Beverage Daily Spirits Market Report', url: 'https://www.beveragedaily.com' },
           { text: 'Japanese chuhai achieving record sales in home market', source: 'Just-Drinks', url: 'https://www.just-drinks.com' },
         ],
         report: {
@@ -6020,3 +6022,21 @@ export const CATEGORIES = [
     }
   }
 ]
+
+// ── Data Methodology ──
+export const DATA_METHODOLOGY = {
+  overview: 'Market size estimates synthesized from IWSR Global Spirits Database, Euromonitor Passport Alcoholic Drinks, and DISCUS public disclosures. Growth rates represent year-over-year value change in USD at constant exchange rates unless otherwise stated.',
+  pricing: 'Pricing data collected from retailer websites (Tesco, Sainsbury\'s, Waitrose, Master of Malt, Total Wine, Drizly, El Corte Ingl\u00e9s) during March 2026. Prices reflect standard retail, not promotional pricing, unless flagged.',
+  sources: [
+    { name: 'IWSR Global Spirits Database 2025', description: 'Proprietary database covering 160+ markets with volume and value data by category, price band, and channel.', url: 'https://www.theiwsr.com/global-spirits-report' },
+    { name: 'Euromonitor Passport \u2014 Alcoholic Drinks', description: 'Market sizing, forecasts, and competitive landscape data for spirits, wine, and beer across 100+ countries.', url: 'https://www.euromonitor.com/alcoholic-drinks' },
+    { name: 'DISCUS Annual Economic Briefing', description: 'US spirits industry data: shipments, revenue, state-level trends, and category performance from the Distilled Spirits Council.', url: 'https://www.discus.org/economics/research' },
+    { name: 'NielsenIQ Off-Trade Panel', description: 'Retail scanner data from off-premise channels (supermarkets, liquor stores) covering sales volume, value, and distribution metrics.', url: 'https://www.nielseniq.com/global/en/insights/' },
+    { name: 'The Spirits Business / Drinks International', description: 'Trade publication market intelligence, brand rankings, and industry trend analysis.', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
+    { name: 'OIV (International Organisation of Vine and Wine)', description: 'Global wine production, consumption, and trade statistics. Primary source for wine category data.', url: 'https://www.oiv.int/what-we-do/global-report' },
+  ],
+  lastUpdated: 'March 2026',
+  updateFrequency: 'Quarterly (Jan, Apr, Jul, Oct)',
+  disclaimer: 'All market data represents best estimates compiled from multiple public and proprietary sources. Figures may differ from individual source reports due to methodology differences in market definition, exchange rates, and reporting periods.',
+}
+

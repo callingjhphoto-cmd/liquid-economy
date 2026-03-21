@@ -314,7 +314,7 @@ export default function POSIntelligence() {
       {/* ─── TIER 1: Hero + KPIs ─────────────────────────────────────────── */}
       <PageHeader
         title="POS Manufacturing Intelligence"
-        subtitle="Factory directory, sourcing strategy & market disruption for spirits POS"
+        subtitle="Factory directory, sourcing strategy & market disruption for spirits POS \u00b7 Data as of March 2026"
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'POS Intelligence' }

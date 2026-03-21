@@ -1,3 +1,5 @@
+export const DATA_LAST_UPDATED = '2026-03-21'
+
 /**
  * Category Command View Data
  * Extracted from CategoryCommandView.jsx for separation of concerns.

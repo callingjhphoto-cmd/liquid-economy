@@ -1,3 +1,5 @@
+export const DATA_LAST_UPDATED = '2026-03-21'
+
 // Geographic intelligence data extracted from GeographicIntelligence.jsx
 // 10 regions/countries with KPIs, channels, trends, yearly reports, regulatory, trade flows
 
@@ -97,11 +99,11 @@ export const REGION_DATA = {
     topBrands: ['Jack Daniel\'s', 'Hennessy', 'Smirnoff', 'Jose Cuervo', 'Grey Goose'],
     channels: { onPremise: 38, offPremise: 45, eCommerce: 12, travelRetail: 5 },
     trends: [
-      { text: 'Super-premium growth outpacing mass market by 3x', source: 'IWSR', url: 'https://iwsr.com' },
-      { text: 'RTD cocktails seeing accelerated adoption among Gen Z consumers', source: 'Nielsen', url: 'https://www.nielsen.com' },
-      { text: 'Sustainable packaging drives premiumization strategy', source: 'Drinks International', url: 'https://www.drinksinternational.com' },
-      { text: 'Direct-to-consumer channels growing 15% annually', source: 'IWSR', url: 'https://iwsr.com' },
-      { text: 'Non-alcoholic spirits market expanding at 18% CAGR', source: 'Statista', url: 'https://www.statista.com' },
+      { text: 'Super-premium growth outpacing mass market by 3x', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
+      { text: 'RTD cocktails seeing accelerated adoption among Gen Z consumers', source: 'NielsenIQ Off-Trade Panel', url: 'https://www.nielseniq.com/global/en/insights/' },
+      { text: 'Sustainable packaging drives premiumization strategy', source: 'Drinks International Market Intelligence', url: 'https://www.drinksinternational.com/market-intelligence/' },
+      { text: 'Direct-to-consumer channels growing 15% annually', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
+      { text: 'Non-alcoholic spirits market expanding at 18% CAGR', source: 'Statista Alcoholic Drinks Outlook', url: 'https://www.statista.com/outlook/cmo/alcoholic-drinks/worldwide' },
     ],
     yearlyReports: [
       {
@@ -185,11 +187,11 @@ export const REGION_DATA = {
     topBrands: ['Gordon\'s', 'Diageo Portfolio', 'Bacardi', 'Absolut', 'The Glenmorangie'],
     channels: { onPremise: 42, offPremise: 48, eCommerce: 7, travelRetail: 3 },
     trends: [
-      { text: 'Premium gin market growing faster than vodka segment', source: 'The Spirits Business', url: 'https://www.thewinebusiness.com' },
-      { text: 'Hospitality venues reporting record footfall post-pandemic', source: 'Drinks International', url: 'https://www.drinksinternational.com' },
-      { text: 'Craft spirits gaining shelf space in off-license retail', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
-      { text: 'Scotch whisky exports maintain premium positioning', source: 'Statista', url: 'https://www.statista.com' },
-      { text: 'Low alcohol beverages expanding in high street venues', source: 'IWSR', url: 'https://iwsr.com' },
+      { text: 'Premium gin market growing faster than vodka segment', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
+      { text: 'Hospitality venues reporting record footfall post-pandemic', source: 'Drinks International Market Intelligence', url: 'https://www.drinksinternational.com/market-intelligence/' },
+      { text: 'Craft spirits gaining shelf space in off-license retail', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com' },
+      { text: 'Scotch whisky exports maintain premium positioning', source: 'Statista Alcoholic Drinks Outlook', url: 'https://www.statista.com/outlook/cmo/alcoholic-drinks/worldwide' },
+      { text: 'Low alcohol beverages expanding in high street venues', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
     ],
     yearlyReports: [
       {
@@ -273,11 +275,11 @@ export const REGION_DATA = {
     topBrands: ['Smirnoff', 'Bacardi', 'Martell', 'Moet & Chandon', 'Bombay Sapphire'],
     channels: { onPremise: 35, offPremise: 52, eCommerce: 9, travelRetail: 4 },
     trends: [
-      { text: 'Health-conscious consumers driving low/no alcohol category', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
-      { text: 'Sustainability certifications becoming purchase criteria', source: 'The Spirits Business', url: 'https://www.thewinebusiness.com' },
-      { text: 'Regional craft spirits gaining market share in off-trade', source: 'IWSR', url: 'https://iwsr.com' },
-      { text: 'Wine-to-spirits trading down evident in mature markets', source: 'Statista', url: 'https://www.statista.com' },
-      { text: 'E-commerce penetration varying significantly by country', source: 'Drinks International', url: 'https://www.drinksinternational.com' },
+      { text: 'Health-conscious consumers driving low/no alcohol category', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com' },
+      { text: 'Sustainability certifications becoming purchase criteria', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
+      { text: 'Regional craft spirits gaining market share in off-trade', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
+      { text: 'Wine-to-spirits trading down evident in mature markets', source: 'Statista Alcoholic Drinks Outlook', url: 'https://www.statista.com/outlook/cmo/alcoholic-drinks/worldwide' },
+      { text: 'E-commerce penetration varying significantly by country', source: 'Drinks International Market Intelligence', url: 'https://www.drinksinternational.com/market-intelligence/' },
     ],
     yearlyReports: [
       {
@@ -361,11 +363,11 @@ export const REGION_DATA = {
     topBrands: ['Hennessy', 'Johnnie Walker', 'Remy Martin', 'Patron', 'Non-alc Beverages'],
     channels: { onPremise: 25, offPremise: 45, eCommerce: 6, travelRetail: 24 },
     trends: [
-      { text: 'Premium cognac driving luxury hospitality segment expansion', source: 'IWSR', url: 'https://iwsr.com' },
-      { text: 'Travel retail recovery accelerating with luxury consumer spending', source: 'Statista', url: 'https://www.statista.com' },
-      { text: 'Non-alcoholic premium beverages gaining status in region', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
-      { text: 'Rising middle class adopting imported spirits as status symbol', source: 'Drinks International', url: 'https://www.drinksinternational.com' },
-      { text: 'African market showing strongest growth trajectory globally', source: 'The Spirits Business', url: 'https://www.thewinebusiness.com' },
+      { text: 'Premium cognac driving luxury hospitality segment expansion', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
+      { text: 'Travel retail recovery accelerating with luxury consumer spending', source: 'Statista Alcoholic Drinks Outlook', url: 'https://www.statista.com/outlook/cmo/alcoholic-drinks/worldwide' },
+      { text: 'Non-alcoholic premium beverages gaining status in region', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com' },
+      { text: 'Rising middle class adopting imported spirits as status symbol', source: 'Drinks International Market Intelligence', url: 'https://www.drinksinternational.com/market-intelligence/' },
+      { text: 'African market showing strongest growth trajectory globally', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
     ],
     yearlyReports: [
       {
@@ -449,11 +451,11 @@ export const REGION_DATA = {
     topBrands: ['Moutai', 'Wuliangye', 'Johnnie Walker', 'Hennessy', 'Absolut'],
     channels: { onPremise: 20, offPremise: 28, eCommerce: 45, travelRetail: 7 },
     trends: [
-      { text: 'Gen Z embracing imported spirits over traditional baijiu', source: 'Nielsen', url: 'https://www.nielsen.com' },
-      { text: 'E-commerce transformation driving direct-to-consumer adoption', source: 'Drinks Business Asia', url: 'https://www.drinksbusiness.com' },
-      { text: 'Live streaming commerce revolutionizing spirits retail', source: 'IWSR', url: 'https://iwsr.com' },
-      { text: 'Luxury cognac and whisky gaining prestige status among affluent', source: 'Statista', url: 'https://www.statista.com' },
-      { text: 'Health-conscious consumers driving baijiu alternatives growth', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
+      { text: 'Gen Z embracing imported spirits over traditional baijiu', source: 'NielsenIQ Off-Trade Panel', url: 'https://www.nielseniq.com/global/en/insights/' },
+      { text: 'E-commerce transformation driving direct-to-consumer adoption', source: 'Drinks Business Asia Market Report', url: 'https://www.thedrinksbusiness.com/category/market-data/' },
+      { text: 'Live streaming commerce revolutionizing spirits retail', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
+      { text: 'Luxury cognac and whisky gaining prestige status among affluent', source: 'Statista Alcoholic Drinks Outlook', url: 'https://www.statista.com/outlook/cmo/alcoholic-drinks/worldwide' },
+      { text: 'Health-conscious consumers driving baijiu alternatives growth', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com' },
     ],
     yearlyReports: [
       {
@@ -537,11 +539,11 @@ export const REGION_DATA = {
     topBrands: ['Johnnie Walker', 'Diageo Prestige', 'Royal Salute', 'McDowell\'s Premium', 'Pernod'],
     channels: { onPremise: 45, offPremise: 42, eCommerce: 8, travelRetail: 5 },
     trends: [
-      { text: 'Premiumization accelerating among affluent urban consumers', source: 'Nielsen India', url: 'https://www.nielsen.com' },
-      { text: 'E-commerce emerging as fastest-growing channel for spirits', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
-      { text: 'Craft spirits and single-malts gaining traction in metro cities', source: 'Drinks Business Asia', url: 'https://www.drinksbusiness.com' },
-      { text: 'Travel retail accounting for significant portion of premium imports', source: 'IWSR', url: 'https://iwsr.com' },
-      { text: 'Health-conscious consumers driving non-alcoholic premium category', source: 'Statista India', url: 'https://www.statista.com' },
+      { text: 'Premiumization accelerating among affluent urban consumers', source: 'NielsenIQ India Off-Trade Panel', url: 'https://www.nielseniq.com/global/en/insights/' },
+      { text: 'E-commerce emerging as fastest-growing channel for spirits', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com' },
+      { text: 'Craft spirits and single-malts gaining traction in metro cities', source: 'Drinks Business Asia Market Report', url: 'https://www.thedrinksbusiness.com/category/market-data/' },
+      { text: 'Travel retail accounting for significant portion of premium imports', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
+      { text: 'Health-conscious consumers driving non-alcoholic premium category', source: 'Statista India Spirits Outlook', url: 'https://www.statista.com/outlook/cmo/alcoholic-drinks/worldwide' },
     ],
     yearlyReports: [
       { year: 2022, marketSize: '$4.8B', growth: 12.4, volumeCases: '28M', keyEvents: ['Post-pandemic recovery accelerating', 'E-commerce platforms emerging'], topPerformer: 'Premium imported whisky', outlook: 'Strong premiumization trend with younger affluent consumers' },
@@ -594,11 +596,11 @@ export const REGION_DATA = {
     topBrands: ['Yamazaki', 'Hibiki', 'Suntory Chief', 'Kirin Ichiban', 'Asahi Super Dry'],
     channels: { onPremise: 44, offPremise: 38, eCommerce: 12, travelRetail: 6 },
     trends: [
-      { text: 'Japanese single-malt whisky commanding global premiums', source: 'IWSR', url: 'https://iwsr.com' },
-      { text: 'Craft gin and shochu innovation driving premiumization', source: 'Drinks Business Asia', url: 'https://www.drinksbusiness.com' },
-      { text: 'E-commerce penetration accelerating in premium segment', source: 'Nielsen Japan', url: 'https://www.nielsen.com' },
-      { text: 'Bartender-led recommendations shaping consumer preferences', source: 'The Spirits Business', url: 'https://www.thespirits.com' },
-      { text: 'Non-alcoholic spirits gaining traction among younger consumers', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
+      { text: 'Japanese single-malt whisky commanding global premiums', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
+      { text: 'Craft gin and shochu innovation driving premiumization', source: 'Drinks Business Asia Market Report', url: 'https://www.thedrinksbusiness.com/category/market-data/' },
+      { text: 'E-commerce penetration accelerating in premium segment', source: 'NielsenIQ Japan Off-Trade Panel', url: 'https://www.nielseniq.com/global/en/insights/' },
+      { text: 'Bartender-led recommendations shaping consumer preferences', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
+      { text: 'Non-alcoholic spirits gaining traction among younger consumers', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com' },
     ],
     yearlyReports: [
       { year: 2022, marketSize: '$17.3B', growth: 1.2, volumeCases: '42M', keyEvents: ['Whisky scarcity supporting premiums', 'On-premise recovery strong post-pandemic'], topPerformer: 'Single-malt whisky premium segment', outlook: 'Premiumization offsetting declining volume; mature market dynamics' },
@@ -651,11 +653,11 @@ export const REGION_DATA = {
     topBrands: ['Johnnie Walker', 'Hennessy', 'Grey Goose', 'Ypioca Cach\u00e9a', 'Pitu Cach\u00e9a'],
     channels: { onPremise: 42, offPremise: 40, eCommerce: 13, travelRetail: 5 },
     trends: [
-      { text: 'Premium imported spirits gaining share vs. traditional cachaca', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
-      { text: 'E-commerce and digital channels accelerating for spirits category', source: 'Nielsen Brasil', url: 'https://www.nielsen.com' },
-      { text: 'Craft cocktail culture emerging in major metropolitan areas', source: 'Drinks Business Latin America', url: 'https://www.drinksbusiness.com' },
-      { text: 'Sustainability and ethical sourcing resonating with younger consumers', source: 'IWSR', url: 'https://iwsr.com' },
-      { text: 'Travel retail expanding rapidly with airport privatization', source: 'Statista Brasil', url: 'https://www.statista.com' },
+      { text: 'Premium imported spirits gaining share vs. traditional cachaca', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com' },
+      { text: 'E-commerce and digital channels accelerating for spirits category', source: 'NielsenIQ Brazil Off-Trade Panel', url: 'https://www.nielseniq.com/global/en/insights/' },
+      { text: 'Craft cocktail culture emerging in major metropolitan areas', source: 'Drinks Business Latin America', url: 'https://www.thedrinksbusiness.com/category/market-data/' },
+      { text: 'Sustainability and ethical sourcing resonating with younger consumers', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
+      { text: 'Travel retail expanding rapidly with airport privatization', source: 'Statista Brasil', url: 'https://www.statista.com/outlook/cmo/alcoholic-drinks/worldwide' },
     ],
     yearlyReports: [
       { year: 2022, marketSize: '$10.1B', growth: 4.8, volumeCases: '126M', keyEvents: ['Economic recovery driving consumption', 'E-commerce adoption accelerating'], topPerformer: 'Premium imported whisky and vodka', outlook: 'Strong growth in premium segments offsetting value market pressure' },
@@ -708,11 +710,11 @@ export const REGION_DATA = {
     topBrands: ['Johnnie Walker', 'Jack Daniel\'s', 'Bundaberg Rum', 'Tanqueray', 'Jim Beam'],
     channels: { onPremise: 46, offPremise: 37, eCommerce: 11, travelRetail: 6 },
     trends: [
-      { text: 'Craft gin and premium whisky segment growing 10%+ annually', source: 'IWSR', url: 'https://iwsr.com' },
-      { text: 'Sustainability and ethical production driving premiumization', source: 'Nielsen Australia', url: 'https://www.nielsen.com' },
-      { text: 'Bartender-led innovation shaping on-premise category evolution', source: 'Drinks Business Australia', url: 'https://www.drinksbusiness.com' },
-      { text: 'E-commerce and specialty retailers gaining significant market share', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
-      { text: 'Experiential consumption driving growth in premium venues and events', source: 'IWSR', url: 'https://iwsr.com' },
+      { text: 'Craft gin and premium whisky segment growing 10%+ annually', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
+      { text: 'Sustainability and ethical production driving premiumization', source: 'Nielsen Australia', url: 'https://www.nielseniq.com/global/en/insights/' },
+      { text: 'Bartender-led innovation shaping on-premise category evolution', source: 'Drinks Business Australia', url: 'https://www.thedrinksbusiness.com/category/market-data/' },
+      { text: 'E-commerce and specialty retailers gaining significant market share', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com' },
+      { text: 'Experiential consumption driving growth in premium venues and events', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
     ],
     yearlyReports: [
       { year: 2022, marketSize: '$7.9B', growth: 3.2, volumeCases: '72M', keyEvents: ['On-premise recovery post-lockdowns', 'E-commerce adoption accelerating'], topPerformer: 'Premium gin and craft spirits', outlook: 'Strong premiumization with on-premise driving value growth' },
@@ -765,11 +767,11 @@ export const REGION_DATA = {
     topBrands: ['Johnnie Walker', 'Hennessy', 'Jack Daniel\'s', 'Chivas Regal', 'Tanqueray'],
     channels: { onPremise: 43, offPremise: 25, eCommerce: 10, travelRetail: 22 },
     trends: [
-      { text: 'Travel retail accounting for majority of premium spirits growth', source: 'IWSR', url: 'https://iwsr.com' },
-      { text: 'Rising middle class in emerging SE Asian markets driving premiumization', source: 'Euromonitor', url: 'https://www.euromonitor.com' },
-      { text: 'E-commerce platforms (Lazada, Shopee) transforming distribution landscape', source: 'Nielsen Southeast Asia', url: 'https://www.nielsen.com' },
-      { text: 'Craft cocktail bars and premium nightlife emerging in tier-1 cities', source: 'Drinks Business Asia', url: 'https://www.drinksbusiness.com' },
-      { text: 'Functional and low/no alcohol spirits gaining traction among younger drinkers', source: 'IWSR', url: 'https://iwsr.com' },
+      { text: 'Travel retail accounting for majority of premium spirits growth', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
+      { text: 'Rising middle class in emerging SE Asian markets driving premiumization', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com' },
+      { text: 'E-commerce platforms (Lazada, Shopee) transforming distribution landscape', source: 'Nielsen Southeast Asia', url: 'https://www.nielseniq.com/global/en/insights/' },
+      { text: 'Craft cocktail bars and premium nightlife emerging in tier-1 cities', source: 'Drinks Business Asia Market Report', url: 'https://www.thedrinksbusiness.com/category/market-data/' },
+      { text: 'Functional and low/no alcohol spirits gaining traction among younger drinkers', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
     ],
     yearlyReports: [
       { year: 2022, marketSize: '$11.8B', growth: 8.2, volumeCases: '156M', keyEvents: ['Travel retail recovery beginning', 'E-commerce adoption accelerating post-pandemic'], topPerformer: 'Premium imported spirits in travel retail', outlook: 'Strong growth led by premium positioning and travel retail expansion' },
@@ -812,4 +814,21 @@ export const REGION_DATA = {
   },
 
 };
+
+// ── Data Methodology ──
+export const DATA_METHODOLOGY = {
+  overview: 'Market size estimates synthesized from IWSR Global Spirits Database, Euromonitor Passport Alcoholic Drinks, and DISCUS public disclosures. Growth rates represent year-over-year value change in USD at constant exchange rates unless otherwise stated.',
+  pricing: 'Pricing data collected from retailer websites (Tesco, Sainsbury\'s, Waitrose, Master of Malt, Total Wine, Drizly, El Corte Ingl\u00e9s) during March 2026. Prices reflect standard retail, not promotional pricing, unless flagged.',
+  sources: [
+    { name: 'IWSR Global Spirits Database 2025', description: 'Proprietary database covering 160+ markets with volume and value data by category, price band, and channel.', url: 'https://www.theiwsr.com/global-spirits-report' },
+    { name: 'Euromonitor Passport \u2014 Alcoholic Drinks', description: 'Market sizing, forecasts, and competitive landscape data for spirits, wine, and beer across 100+ countries.', url: 'https://www.euromonitor.com/alcoholic-drinks' },
+    { name: 'DISCUS Annual Economic Briefing', description: 'US spirits industry data: shipments, revenue, state-level trends, and category performance from the Distilled Spirits Council.', url: 'https://www.discus.org/economics/research' },
+    { name: 'NielsenIQ Off-Trade Panel', description: 'Retail scanner data from off-premise channels (supermarkets, liquor stores) covering sales volume, value, and distribution metrics.', url: 'https://www.nielseniq.com/global/en/insights/' },
+    { name: 'The Spirits Business / Drinks International', description: 'Trade publication market intelligence, brand rankings, and industry trend analysis.', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
+    { name: 'OIV (International Organisation of Vine and Wine)', description: 'Global wine production, consumption, and trade statistics. Primary source for wine category data.', url: 'https://www.oiv.int/what-we-do/global-report' },
+  ],
+  lastUpdated: 'March 2026',
+  updateFrequency: 'Quarterly (Jan, Apr, Jul, Oct)',
+  disclaimer: 'All market data represents best estimates compiled from multiple public and proprietary sources. Figures may differ from individual source reports due to methodology differences in market definition, exchange rates, and reporting periods.',
+}
 

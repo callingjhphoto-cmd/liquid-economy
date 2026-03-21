@@ -13,7 +13,8 @@ import { CATEGORIES } from '../data/categoryData'
 import {
   Card, MetricCard, PageHeader, YearSelector,
   BentoGrid, SectionHeader, SectionLabel, TabGroup,
-  ChartCard, DataTable, SourceLink, SourceList, EntityLink, BottomSheet
+  ChartCard, DataTable, SourceLink, SourceList, EntityLink, BottomSheet,
+  SkeletonCard, SkeletonChart
 } from '../components/ui'
 
 // ============================================
@@ -667,6 +668,12 @@ export default function CategoryIntelligence() {
   const [activeCat, setActiveCat] = useState(null)
   const [selectedYear, setSelectedYear] = useState(2025)
   const [mobileDetail, setMobileDetail] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 300)
+    return () => clearTimeout(timer)
+  }, [])
 
   // Read URL params on mount
   useEffect(() => {
@@ -681,8 +688,65 @@ export default function CategoryIntelligence() {
     }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Sync URL params when state changes
+  // Sync URL params when state changes — mobile gets BottomSheet preview
   const handleSelectCategory = useCallback((key) => {
+    if (window.innerWidth < 1024) {
+      const cat = CATEGORIES.find(c => c.key === key)
+      if (cat) {
+        const yd = cat.yearData[selectedYear]
+        setMobileDetail({
+          title: cat.label,
+          content: yd ? (
+            <div className="space-y-4">
+              <div className="grid grid-cols-2 gap-2">
+                <div className="bg-gray-50 rounded-lg p-2.5 text-center">
+                  <div className="text-[10px] text-gray-400 uppercase">Market Size</div>
+                  <div className="text-sm font-bold text-navy">{yd.marketSize}</div>
+                </div>
+                <div className="bg-gray-50 rounded-lg p-2.5 text-center">
+                  <div className="text-[10px] text-gray-400 uppercase">Growth</div>
+                  <div className="text-sm font-bold"><GrowthBadge value={yd.growth} /></div>
+                </div>
+              </div>
+              {yd.topMarkets && yd.topMarkets.length > 0 && (
+                <div>
+                  <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1.5">Top Markets</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {yd.topMarkets.slice(0, 5).map((m, i) => (
+                      <span key={i} className="text-[10px] bg-gray-100 text-gray-700 px-2 py-0.5 rounded-full">{m.name} {m.growth}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {yd.trends && yd.trends.length > 0 && (
+                <div>
+                  <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1.5">Key Trends</p>
+                  <div className="space-y-1.5">
+                    {yd.trends.slice(0, 3).map((t, i) => (
+                      <p key={i} className="text-[10px] text-gray-600 leading-relaxed">{t.text}</p>
+                    ))}
+                  </div>
+                </div>
+              )}
+              <button
+                onClick={() => {
+                  setMobileDetail(null)
+                  setActiveCat(key)
+                  const next = new URLSearchParams(searchParams)
+                  next.set('category', key)
+                  next.set('year', String(selectedYear))
+                  setSearchParams(next, { replace: true })
+                }}
+                className="w-full py-2.5 bg-navy text-white rounded-xl text-xs font-medium"
+              >
+                View Full Detail
+              </button>
+            </div>
+          ) : <p className="text-xs text-gray-500">No data for {selectedYear}</p>
+        })
+      }
+      return
+    }
     setActiveCat(key)
     const next = new URLSearchParams(searchParams)
     next.set('category', key)
@@ -707,6 +771,23 @@ export default function CategoryIntelligence() {
   const active = activeCat ? CATEGORIES.find(c => c.key === activeCat) : null
   const agg = useAggregateMetrics(selectedYear)
   const sorted = useSortedCategories(selectedYear)
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-6xl mx-auto space-y-6">
+        <PageHeader title="Category Intelligence" subtitle="Loading categories\u2026" />
+        <BentoGrid>
+          <BentoGrid.Hero><SkeletonCard className="h-40" /></BentoGrid.Hero>
+          <SkeletonCard />
+          <SkeletonCard />
+          <SkeletonCard />
+        </BentoGrid>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+          {Array.from({ length: 8 }).map((_, i) => <SkeletonCard key={i} />)}
+        </div>
+      </div>
+    )
+  }
 
   // ---- TIER 2/3: Detail view for selected category ----
   if (active) {
@@ -756,7 +837,7 @@ export default function CategoryIntelligence() {
       {/* Page Header */}
       <PageHeader
         title="Category Intelligence"
-        subtitle={`${agg.categoryCount} categories \u00b7 2021\u20132025 \u00b7 Deep market analysis for brand managers`}
+        subtitle={`${agg.categoryCount} categories \u00b7 2021\u20132025 \u00b7 Deep market analysis for brand managers \u00b7 Data as of March 2026`}
         action={<YearSelector activeYear={selectedYear} onChange={handleYearChange} />}
       />
 

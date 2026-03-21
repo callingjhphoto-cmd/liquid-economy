@@ -75,7 +75,7 @@ export default function SupplyChain() {
       const alert = getAlertLevel(Math.abs(parseChange(row.change)))
       return (
         <div className="flex items-center gap-2">
-          <div className={`w-2 h-2 rounded-full flex-shrink-0 ${ALERT_COLORS[alert].dot}`} />
+          <div className={`w-3 h-3 rounded-full flex-shrink-0 ${ALERT_COLORS[alert].dot}`} />
           <div>
             <span className="font-medium text-navy">{val}</span>
             <span className="text-[10px] text-gray-400 block">{row.source}</span>
@@ -122,7 +122,7 @@ export default function SupplyChain() {
     <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto space-y-6">
       <PageHeader
         title="Supply Chain & COGS Matrix"
-        subtitle={`${totalCommodities} commodities tracked \u00b7 ${Object.keys(CATEGORY_COGS).length} category breakdowns \u00b7 Real-time risk monitoring`}
+        subtitle={`${totalCommodities} commodities tracked \u00b7 ${Object.keys(CATEGORY_COGS).length} category breakdowns \u00b7 Data as of March 2026`}
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Supply Chain' },
@@ -394,7 +394,7 @@ export default function SupplyChain() {
                       <div key={i} style={{ width: `${s.value}%`, backgroundColor: s.color }} title={`${s.label}: ${s.value}%`} />
                     ))}
                   </div>
-                  <div className="grid grid-cols-4 gap-1 text-[9px]">
+                  <div className="grid grid-cols-4 gap-1 text-[11px]">
                     {segments.map((seg, i) => (
                       <div key={i} className="flex items-center gap-0.5">
                         <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: seg.color }} />

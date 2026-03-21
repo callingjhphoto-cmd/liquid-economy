@@ -1072,7 +1072,7 @@ const CampaignPlanner = () => {
     <div className="space-y-6">
       <PageHeader
         title="Campaign Planner"
-        subtitle="5-step wizard to turn market intelligence into actionable campaign plans."
+        subtitle="5-step wizard to turn market intelligence into actionable campaign plans \u00b7 Data as of March 2026"
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Campaign Planner' }

@@ -261,7 +261,7 @@ export default function MarginCalculator() {
       {/* ══════ PAGE HEADER ══════ */}
       <PageHeader
         title="Margin Calculator"
-        subtitle="Model COGS, test scenarios, and benchmark margins across 11 drinks categories"
+        subtitle="Model COGS, test scenarios, and benchmark margins across 11 drinks categories \u00b7 Data as of March 2026"
         breadcrumbs={[{ label: 'Command Centre', to: '/' }, { label: 'Margin Calculator' }]}
       />
 

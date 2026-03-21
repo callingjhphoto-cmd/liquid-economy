@@ -11,7 +11,8 @@ import {
 import {
   PageHeader, Card, AccentCard, MetricCard, BentoGrid, DataTable,
   ChartCard, Badge, FilterBar, TabGroup, FilterPills, SectionHeader,
-  SectionLabel, SourceList, EntityLink, BottomSheet
+  SectionLabel, SourceList, EntityLink, BottomSheet,
+  SkeletonCard
 } from '../components/ui'
 
 import { SEGMENT_INFO, MARKET_CONFIG, RETAILERS, BRAND_DATABASE } from '../data/brandData'
@@ -210,7 +211,7 @@ function CategorySummaryCard({ stat, isExpanded, onToggle }) {
           count > 0 && (
             <span
               key={tier}
-              className={`text-[9px] px-1.5 py-0.5 rounded font-medium ${TIER_COLORS[tier].bg} ${TIER_COLORS[tier].text}`}
+              className={`text-[11px] px-1.5 py-0.5 rounded font-medium ${TIER_COLORS[tier].bg} ${TIER_COLORS[tier].text}`}
             >
               {tier}: {count}
             </span>
@@ -560,8 +561,14 @@ export default function BrandPricing() {
   const [expandedCategory, setExpandedCategory] = useState(initialCategory)
   const [showFullTable, setShowFullTable] = useState(false)
   const [mobileDetail, setMobileDetail] = useState(null)
+  const [loading, setLoading] = useState(true)
 
   const stats = useGlobalStats()
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 300)
+    return () => clearTimeout(timer)
+  }, [])
 
   // URL param handling: auto-expand category from cross-page link
   useEffect(() => {
@@ -572,6 +579,57 @@ export default function BrandPricing() {
   }, [initialCategory])
 
   const handleCategoryToggle = (category) => {
+    // On mobile, show category detail in BottomSheet
+    if (window.innerWidth < 1024) {
+      const stat = stats.categoryStats.find(s => s.category === category)
+      if (stat) {
+        setMobileDetail({
+          title: category,
+          content: (
+            <div className="space-y-4">
+              <div className="grid grid-cols-2 gap-2">
+                <div className="bg-gray-50 rounded-lg p-2.5 text-center">
+                  <div className="text-[10px] text-gray-400 uppercase">Brands</div>
+                  <div className="text-sm font-bold text-navy">{stat.count}</div>
+                </div>
+                <div className="bg-gray-50 rounded-lg p-2.5 text-center">
+                  <div className="text-[10px] text-gray-400 uppercase">Max Spread</div>
+                  <div className="text-sm font-bold text-navy">${stat.maxDiff}</div>
+                </div>
+                <div className="bg-gray-50 rounded-lg p-2.5 text-center">
+                  <div className="text-[10px] text-gray-400 uppercase">Avg US</div>
+                  <div className="text-sm font-bold text-navy">{stat.avgUs !== null ? `$${stat.avgUs}` : '\u2014'}</div>
+                </div>
+                <div className="bg-gray-50 rounded-lg p-2.5 text-center">
+                  <div className="text-[10px] text-gray-400 uppercase">Avg UK</div>
+                  <div className="text-sm font-bold text-navy">{stat.avgUk !== null ? `\u00a3${stat.avgUk}` : '\u2014'}</div>
+                </div>
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {Object.entries(stat.tiers).map(([tier, count]) =>
+                  count > 0 && (
+                    <span key={tier} className={`text-[11px] px-1.5 py-0.5 rounded font-medium ${TIER_COLORS[tier].bg} ${TIER_COLORS[tier].text}`}>
+                      {tier}: {count}
+                    </span>
+                  )
+                )}
+              </div>
+              <p className="text-[10px] text-gray-500">Top brand: {stat.topBrand}</p>
+              <button
+                onClick={() => {
+                  setMobileDetail(null)
+                  setExpandedCategory(category)
+                }}
+                className="w-full py-2.5 bg-navy text-white rounded-xl text-xs font-medium"
+              >
+                View Full Breakdown
+              </button>
+            </div>
+          )
+        })
+      }
+      return
+    }
     setShowFullTable(false)
     setExpandedCategory(prev => prev === category ? null : category)
   }
@@ -581,11 +639,28 @@ export default function BrandPricing() {
     setShowFullTable(true)
   }
 
+  if (loading) {
+    return (
+      <div className="space-y-6">
+        <PageHeader title="Brand Pricing Monitor" subtitle="Loading pricing data\u2026" />
+        <BentoGrid>
+          <SkeletonCard />
+          <SkeletonCard />
+          <SkeletonCard />
+          <SkeletonCard />
+        </BentoGrid>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {Array.from({ length: 6 }).map((_, i) => <SkeletonCard key={i} />)}
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="space-y-6">
       <PageHeader
         title="Brand Pricing Monitor"
-        subtitle={`Cross-market RRP comparison \u2014 ${PRICING.length} expressions across ${TOTAL_RETAILERS} retailers in ${TOTAL_MARKETS} markets`}
+        subtitle={`Cross-market RRP comparison \u2014 ${PRICING.length} expressions across ${TOTAL_RETAILERS} retailers in ${TOTAL_MARKETS} markets \u00b7 Data as of March 2026`}
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Brand Pricing' },

@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from 'react'
+import React, { useState, useMemo, useCallback, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import {
@@ -8,7 +8,8 @@ import {
 } from 'lucide-react'
 import {
   Card, MetricCard, PageHeader, BentoGrid, FilterBar, Badge, DataTable,
-  DrillDown, EntityLink, SourceList, BottomSheet, SectionHeader
+  DrillDown, EntityLink, SourceList, BottomSheet, SectionHeader,
+  SkeletonCard
 } from '../components/ui'
 import { COMPANIES, WHITE_SPACE } from '../data/companyData'
 
@@ -736,6 +737,12 @@ export default function Companies() {
   const [expandedCompany, setExpandedCompany] = useState(null)
   const [tier3Company, setTier3Company] = useState(null)
   const [mobileSheet, setMobileSheet] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 300)
+    return () => clearTimeout(timer)
+  }, [])
 
   // Filters
   const [filterCategory, setFilterCategory] = useState('all')
@@ -827,11 +834,26 @@ export default function Companies() {
   }, [])
 
   return (
+    loading ? (
+      <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto space-y-6">
+        <PageHeader title="Competitive Intelligence" subtitle="Loading companies\u2026" />
+        <BentoGrid>
+          <BentoGrid.Hero><SkeletonCard className="h-40" /></BentoGrid.Hero>
+          <SkeletonCard />
+          <SkeletonCard />
+          <SkeletonCard />
+          <SkeletonCard />
+        </BentoGrid>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {Array.from({ length: 6 }).map((_, i) => <SkeletonCard key={i} />)}
+        </div>
+      </div>
+    ) : (
     <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto">
       {/* Page Header */}
       <PageHeader
         title="Competitive Intelligence"
-        subtitle={`${totalCompanies} companies tracked \u00b7 $${totalRevenue.toFixed(0)}B+ combined revenue`}
+        subtitle={`${totalCompanies} companies tracked \u00b7 $${totalRevenue.toFixed(0)}B+ combined revenue \u00b7 Data as of March 2026`}
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Companies' },
@@ -844,7 +866,7 @@ export default function Companies() {
           <MetricCard
             label="Companies Tracked"
             value={String(totalCompanies)}
-            subtitle={`$${totalRevenue.toFixed(0)}B+ combined revenue`}
+            subtitle={`$${totalRevenue.toFixed(0)}B+ combined revenue \u00b7 Data as of March 2026`}
             icon={Building2}
             sparkData={COMPANIES.slice(0, 5).map((c, i) => ({ v: parseRevenue(c.revenue) }))}
           />
@@ -1032,5 +1054,6 @@ export default function Companies() {
         )}
       </BottomSheet>
     </div>
+    )
   )
 }

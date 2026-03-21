@@ -227,6 +227,7 @@ export default function VenueIntelligence() {
   const [selectedYear, setSelectedYear] = useState(2025)
   const [venueSearch, setVenueSearch] = useState('')
   const [expandedSection, setExpandedSection] = useState(null)
+  const [showMoreAnalysis, setShowMoreAnalysis] = useState(false)
   const [expandedVenue, setExpandedVenue] = useState(null)
   const [selectedCompany, setSelectedCompany] = useState(null)
   const [showFullList, setShowFullList] = useState(false)
@@ -289,11 +290,74 @@ export default function VenueIntelligence() {
     setExpandedSection(expandedSection === section ? null : section)
   }
 
+  // Mobile: show venue detail in BottomSheet instead of inline expand
+  const handleVenueToggle = (venue, index) => {
+    if (window.innerWidth < 1024) {
+      setMobileDetail({
+        title: venue.name,
+        content: (
+          <div className="space-y-3">
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className={`px-1.5 py-0.5 rounded text-[10px] font-medium ${venue.accountType === 'Luxury' ? 'bg-purple-100 text-purple-700' : venue.accountType === 'Volume' ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700'}`}>
+                {venue.accountType}
+              </span>
+              <span className="px-1.5 py-0.5 bg-gray-100 text-gray-600 rounded text-[10px]">{venue.type}</span>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div className="bg-gray-50 rounded-lg p-2.5 text-center">
+                <div className="text-[10px] text-gray-400 uppercase">Area</div>
+                <div className="text-xs font-bold text-navy">{venue.area}</div>
+              </div>
+              <div className="bg-gray-50 rounded-lg p-2.5 text-center">
+                <div className="text-[10px] text-gray-400 uppercase">Est. Revenue</div>
+                <div className="text-xs font-bold text-navy">{venue.estRevenue}/yr</div>
+              </div>
+            </div>
+            {venue.fiftyBest && venue.fiftyBest.some(r => r) && (
+              <div>
+                <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1">50 Best Rankings (2021\u21922025)</p>
+                <div className="flex gap-1.5 flex-wrap">
+                  {YEARS.map((y, idx) => (
+                    <span key={y} className={`px-1.5 py-0.5 rounded text-[10px] ${venue.fiftyBest[idx] ? (venue.fiftyBest[idx] <= 10 ? 'bg-green-100 text-green-700 font-bold' : 'bg-blue-100 text-blue-700') : 'bg-gray-100 text-gray-400'}`}>
+                      {y}: {venue.fiftyBest[idx] ? `#${venue.fiftyBest[idx]}` : '\u2014'}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+            {venue.knownBrands && venue.knownBrands.length > 0 && (
+              <div>
+                <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1">Brands / Partnerships</p>
+                <div className="flex flex-wrap gap-1">
+                  {venue.knownBrands.map(brand => <span key={brand} className="px-1.5 py-0.5 bg-white border border-gray-200 rounded text-[10px] text-gray-700">{brand}</span>)}
+                </div>
+              </div>
+            )}
+            {venue.parentCompanies && venue.parentCompanies.length > 0 && (
+              <div>
+                <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1">Parent Companies</p>
+                <div className="flex flex-wrap gap-1">
+                  {venue.parentCompanies.map(pc => (
+                    <span key={pc} className="px-1.5 py-0.5 bg-gold/10 text-navy rounded text-[10px] font-medium">{pc}</span>
+                  ))}
+                </div>
+              </div>
+            )}
+            {venue.founders && <p className="text-[10px] text-gray-600"><span className="font-semibold">Key People:</span> {venue.founders}</p>}
+            <p className="text-[10px] text-gray-600"><span className="font-semibold">Intel:</span> {venue.notes}</p>
+          </div>
+        )
+      })
+      return
+    }
+    setExpandedVenue(expandedVenue === index ? null : index)
+  }
+
   return (
     <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto space-y-6">
       <PageHeader
         title="Venue & On-Trade Intelligence"
-        subtitle={`${LONDON_VENUES.length} London venues \u00b7 World\u2019s 50 Best Bars 2021\u20132025 \u00b7 ${Object.keys(COMPANY_PROFILES).length} company profiles`}
+        subtitle={`${LONDON_VENUES.length} London venues \u00b7 World\u2019s 50 Best Bars 2021\u20132025 \u00b7 ${Object.keys(COMPANY_PROFILES).length} company profiles \u00b7 Data as of March 2026`}
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Venue Intelligence' },
@@ -324,7 +388,7 @@ export default function VenueIntelligence() {
           <p className="text-xs text-gray-500">{filteredVenues.length} venue{filteredVenues.length !== 1 ? 's' : ''} matching &ldquo;{venueSearch}&rdquo;</p>
           {filteredVenues.map((venue, i) => (
             <VenueCard key={i} venue={venue} index={i} expanded={expandedVenue === i}
-              onToggle={() => setExpandedVenue(expandedVenue === i ? null : i)} />
+              onToggle={() => handleVenueToggle(venue, i)} />
           ))}
         </div>
       ) : (
@@ -406,9 +470,8 @@ export default function VenueIntelligence() {
 
           {/* --- 50 Best Bars Analysis --- */}
           <DrillDown
-            title="50 Best Bars Analysis"
+            title="50 Best Bars Rankings"
             summary={`London: ${londonCount} bars \u00b7 ${citiesCount} cities \u00b7 ${perennialBars.length} perennial bars`}
-            defaultOpen={expandedSection === '50best'}
           >
             <div className="space-y-6">
               {/* Region + City charts */}
@@ -488,9 +551,8 @@ export default function VenueIntelligence() {
 
           {/* --- London Venue Profiles --- */}
           <DrillDown
-            title="London Key Account Profiles"
+            title="London Key Accounts"
             summary={`${LONDON_VENUES.length} venues profiled \u00b7 Search by name, area, or brand`}
-            defaultOpen={expandedSection === 'venues'}
           >
             <div className="space-y-4">
               {/* Filter pills */}
@@ -514,7 +576,7 @@ export default function VenueIntelligence() {
               <div className="space-y-2">
                 {filteredVenues.slice(0, 10).map((venue, i) => (
                   <VenueCard key={i} venue={venue} index={i} expanded={expandedVenue === i}
-                    onToggle={() => setExpandedVenue(expandedVenue === i ? null : i)} />
+                    onToggle={() => handleVenueToggle(venue, i)} />
                 ))}
               </div>
 
@@ -546,11 +608,10 @@ export default function VenueIntelligence() {
             </div>
           </DrillDown>
 
-          {/* --- Company Intelligence --- */}
+          {/* --- Brand & Category Intelligence (merged Parent Company + Brand Mapping) --- */}
           <DrillDown
-            title="Parent Company Intelligence"
-            summary={`${Object.keys(COMPANY_PROFILES).length} companies \u00b7 Penetration, strategy, brand mapping`}
-            defaultOpen={expandedSection === 'companies'}
+            title="Brand & Category Intelligence"
+            summary={`${Object.keys(COMPANY_PROFILES).length} companies \u00b7 ${Object.keys(BRAND_VENUE_MAP).length}+ brands mapped \u00b7 Competitive heat`}
           >
             <div className="space-y-6">
               {/* Headline stats */}
@@ -629,16 +690,8 @@ export default function VenueIntelligence() {
                   ))}
                 </div>
               </Card>
-            </div>
-          </DrillDown>
 
-          {/* --- Brand Mapping & Competition --- */}
-          <DrillDown
-            title="Brand Mapping & Competitive Heat"
-            summary={`${Object.keys(BRAND_VENUE_MAP).length}+ brands mapped across venues \u00b7 Category density analysis`}
-          >
-            <div className="space-y-6">
-              {/* Brand-to-Venue Mapping */}
+              {/* Brand-to-Venue Mapping (merged from Brand Mapping section) */}
               <Card>
                 <h4 className="text-sm font-semibold text-navy mb-2">Brand-to-Venue Mapping</h4>
                 <p className="text-[10px] text-gray-400 mb-3">Filter by parent company to see their venue footprint</p>
@@ -731,7 +784,22 @@ export default function VenueIntelligence() {
             </div>
           </DrillDown>
 
-          {/* --- Budget & Benchmarks --- */}
+          {/* --- More Analysis (collapsed by default, explicit click required) --- */}
+          <div className="border border-gray-200 rounded-xl overflow-hidden">
+            <button
+              onClick={() => setShowMoreAnalysis(!showMoreAnalysis)}
+              className="w-full flex items-center justify-between px-5 py-3 bg-gray-50 hover:bg-gray-100 transition-colors touch-manipulation"
+            >
+              <div className="flex items-center gap-2">
+                <BarChart3 size={16} className="text-gray-400" />
+                <span className="text-sm font-semibold text-gray-600">More Analysis</span>
+                <span className="text-xs text-gray-400">Budget benchmarks, longitudinal trends, city heatmap</span>
+              </div>
+              {showMoreAnalysis ? <ChevronUp size={16} className="text-gray-400" /> : <ChevronDown size={16} className="text-gray-400" />}
+            </button>
+            {showMoreAnalysis && (
+              <div className="p-4 space-y-4 border-t border-gray-200">
+
           <DrillDown
             title="Budget Benchmarks & Trends"
             summary="On-trade spend benchmarks, corporate vs independent trends, 5-year penetration"
@@ -854,11 +922,14 @@ export default function VenueIntelligence() {
             </div>
           </DrillDown>
 
-          {/* --- Market Entry Intelligence --- */}
+              </div>
+            )}
+          </div>
+
+          {/* --- Market Entry Playbooks --- */}
           <DrillDown
-            title="Market Entry Intelligence"
+            title="Market Entry Playbooks"
             summary={`${Object.keys(ENTRY_PLAYBOOKS).length} category playbooks \u00b7 ${Object.keys(DISTRIBUTORS).length} distributors \u00b7 Budget benchmarks`}
-            defaultOpen={expandedSection === 'entry'}
           >
             <div className="space-y-6">
               {/* Distribution Landscape */}

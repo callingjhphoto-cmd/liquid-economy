@@ -57,7 +57,7 @@ export default function Valuations() {
     <div className="space-y-6">
       <PageHeader
         title="Valuations & M&A Intelligence"
-        subtitle="Brand valuations, sector multiples, deal benchmarks, and methodology analysis"
+        subtitle="Brand valuations, sector multiples, deal benchmarks, and methodology analysis \u00b7 Data as of March 2026"
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Valuations' },
@@ -275,7 +275,7 @@ export default function Valuations() {
               <p className="text-[10px] text-gray-500 mb-2">{acq.focus}</p>
               <div className="flex flex-wrap gap-1">
                 {acq.keyBrands.map((b) => (
-                  <span key={b} className="text-[9px] bg-gray-50 text-gray-600 px-1.5 py-0.5 rounded border border-gray-100">{b}</span>
+                  <span key={b} className="text-[11px] bg-gray-50 text-gray-600 px-1.5 py-0.5 rounded border border-gray-100">{b}</span>
                 ))}
               </div>
             </Card>

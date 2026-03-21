@@ -1,3 +1,5 @@
+export const DATA_LAST_UPDATED = '2026-03-21'
+
 // ══════════════════════════════════════════════════════════
 // Command Centre Data — extracted from inline JSX
 // ══════════════════════════════════════════════════════════
@@ -43,7 +45,7 @@ export const MARKET_SIGNALS = [
   { type: 'Supply', urgency: 'medium', headline: 'Mexican agave surplus reaches 5-year high', date: 'Feb 15, 2026', source: 'CRT', impact: 'Tequila input costs may decline 15-20%; benefits Becle, Cuervo brands' },
   { type: 'Trade', urgency: 'high', headline: 'China maintains 30% import duty on EU spirits', date: 'Feb 12, 2026', source: 'Reuters', impact: 'Cognac exports to China remain depressed; R\u00e9my Cointreau most exposed' },
   { type: 'M&A', urgency: 'medium', headline: 'Craft distillery consolidation accelerates \u2014 47 acquisitions in Q4', date: 'Feb 10, 2026', source: 'Spirits Business', impact: 'Mid-tier brands being absorbed; entry multiples averaging 8-12x EBITDA' },
-  { type: 'Category', urgency: 'low', headline: 'RTD category growth decelerates to +8.2% (was +15% in 2023)', date: 'Feb 8, 2026', source: 'IWSR', impact: 'Market maturing; winners emerging (BuzzBallz, High Noon, Cutwater)' },
+  { type: 'Category', urgency: 'low', headline: 'RTD category growth decelerates to +8.2% (was +15% in 2023)', date: 'Feb 8, 2026', source: 'IWSR Global Spirits Report', impact: 'Market maturing; winners emerging (BuzzBallz, High Noon, Cutwater)' },
 ]
 
 // ── Market Pulse (progressive disclosure items) ──
@@ -72,7 +74,8 @@ export const PRICE_ALERTS = [
 export const INSIGHT_BRIEFINGS = {
   'Global Spirits Market': {
     title: 'Global Spirits Market Intelligence Brief',
-    summary: 'The global spirits market reached $635B in 2025, growing at 3.1% despite macroeconomic headwinds. Premiumisation continues to be the dominant theme, with super-premium and above segments growing at 6.8% versus mainstream at just 1.2%.',
+    summary: 'The global spirits market reached $635B in 2025, growing at 3.1% despite macroeconomic headwinds. This figure covers distilled spirits only (excluding beer at $623B, wine at $38.2B, and cider). Premiumisation continues to be the dominant theme, with super-premium and above segments growing at 6.8% versus mainstream at just 1.2%.',
+    methodology: 'Methodology: $635B represents the global distilled spirits market (IWSR 2025). Category pages include beer, wine, and non-alcoholic segments for full drinks industry coverage. Totals should not be summed across category types.',
     keyPoints: [
       'Asia-Pacific remains the largest region ($210B) growing at 4.1%, driven by India and Southeast Asia',
       'North America ($98B) seeing RTD cannibalisation of traditional spirits volume but value growth continues',
@@ -155,3 +158,21 @@ export const RECENT_MOVERS = [
   { name: 'Dalmore 18yr', type: 'brand', change: '+13.5%', dir: 'up', context: 'Ultra-premium Emperador effect', link: '/pricing', entityType: 'brand', entityId: 'dalmore' },
   { name: 'Fever-Tree Tonic', type: 'brand', change: '-6.1%', dir: 'down', context: 'Promotional pricing; acquisition rumours', link: '/pricing', entityType: 'brand', entityId: 'fever-tree' },
 ]
+
+// ── Data Methodology ──
+export const DATA_METHODOLOGY = {
+  overview: 'Market size estimates synthesized from IWSR Global Spirits Database, Euromonitor Passport Alcoholic Drinks, and DISCUS public disclosures. Growth rates represent year-over-year value change in USD at constant exchange rates unless otherwise stated.',
+  pricing: 'Pricing data collected from retailer websites (Tesco, Sainsbury\'s, Waitrose, Master of Malt, Total Wine, Drizly, El Corte Ingl\u00e9s) during March 2026. Prices reflect standard retail, not promotional pricing, unless flagged.',
+  sources: [
+    { name: 'IWSR Global Spirits Database 2025', description: 'Proprietary database covering 160+ markets with volume and value data by category, price band, and channel.', url: 'https://www.theiwsr.com/global-spirits-report' },
+    { name: 'Euromonitor Passport \u2014 Alcoholic Drinks', description: 'Market sizing, forecasts, and competitive landscape data for spirits, wine, and beer across 100+ countries.', url: 'https://www.euromonitor.com/alcoholic-drinks' },
+    { name: 'DISCUS Annual Economic Briefing', description: 'US spirits industry data: shipments, revenue, state-level trends, and category performance from the Distilled Spirits Council.', url: 'https://www.discus.org/economics/research' },
+    { name: 'NielsenIQ Off-Trade Panel', description: 'Retail scanner data from off-premise channels (supermarkets, liquor stores) covering sales volume, value, and distribution metrics.', url: 'https://www.nielseniq.com/global/en/insights/' },
+    { name: 'The Spirits Business / Drinks International', description: 'Trade publication market intelligence, brand rankings, and industry trend analysis.', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
+    { name: 'OIV (International Organisation of Vine and Wine)', description: 'Global wine production, consumption, and trade statistics. Primary source for wine category data.', url: 'https://www.oiv.int/what-we-do/global-report' },
+  ],
+  lastUpdated: 'March 2026',
+  updateFrequency: 'Quarterly (Jan, Apr, Jul, Oct)',
+  disclaimer: 'All market data represents best estimates compiled from multiple public and proprietary sources. Figures may differ from individual source reports due to methodology differences in market definition, exchange rates, and reporting periods.',
+}
+

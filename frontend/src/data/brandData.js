@@ -1,3 +1,5 @@
+export const DATA_LAST_UPDATED = '2026-03-21'
+
 // ── Segment Definitions ──
 export const SEGMENT_INFO = {
   'Value': { color: 'bg-gray-100 text-gray-600', desc: 'Entry-level / economy pricing. High volume, lower margin.', range: '\u00a310\u2013\u00a318' },
@@ -217,3 +219,21 @@ export const BRAND_DATABASE = [
     prices: { uk: { tesco: 9.95, sainsburys: 12, waitrose: 13, masterofmalt: null, thewhiskyexchange: null }, us: { totalwine: 16, drizly: 18, bevmo: 17, costco: 14, reservebar: null }, spain: { elcorteingles: 10, carrefour_es: 9, lavinia_es: null, bodeboca: null, mercadona: 8 }, france: { carrefour_fr: 10, monoprix: 11, nicolas: null, lavinia_fr: null, auchan_fr: 9 }, germany: { edeka: 9, rewe: 10, kaufland: 8, weinquelle: null, amazon_de: 10 }, italy: { esselunga: 10, tannico: null, callmewine: null, conad: 9, carrefour_it: 10 }, netherlands: { gall: 11, albert_heijn: 10, drankdozijn: 10, jumbo: 9, sligro: 8 }, me: { mmidubai: 22, africaneastern: 20, dutyfree_dxb: 16, lfrr: null, centaurus: 20 } },
     offers: {} },
 ]
+
+// ── Data Methodology ──
+export const DATA_METHODOLOGY = {
+  overview: 'Market size estimates synthesized from IWSR Global Spirits Database, Euromonitor Passport Alcoholic Drinks, and DISCUS public disclosures. Growth rates represent year-over-year value change in USD at constant exchange rates unless otherwise stated.',
+  pricing: 'Pricing data collected from retailer websites (Tesco, Sainsbury\'s, Waitrose, Master of Malt, Total Wine, Drizly, El Corte Ingl\u00e9s) during March 2026. Prices reflect standard retail, not promotional pricing, unless flagged.',
+  sources: [
+    { name: 'IWSR Global Spirits Database 2025', description: 'Proprietary database covering 160+ markets with volume and value data by category, price band, and channel.', url: 'https://www.theiwsr.com/global-spirits-report' },
+    { name: 'Euromonitor Passport \u2014 Alcoholic Drinks', description: 'Market sizing, forecasts, and competitive landscape data for spirits, wine, and beer across 100+ countries.', url: 'https://www.euromonitor.com/alcoholic-drinks' },
+    { name: 'DISCUS Annual Economic Briefing', description: 'US spirits industry data: shipments, revenue, state-level trends, and category performance from the Distilled Spirits Council.', url: 'https://www.discus.org/economics/research' },
+    { name: 'NielsenIQ Off-Trade Panel', description: 'Retail scanner data from off-premise channels (supermarkets, liquor stores) covering sales volume, value, and distribution metrics.', url: 'https://www.nielseniq.com/global/en/insights/' },
+    { name: 'The Spirits Business / Drinks International', description: 'Trade publication market intelligence, brand rankings, and industry trend analysis.', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
+    { name: 'OIV (International Organisation of Vine and Wine)', description: 'Global wine production, consumption, and trade statistics. Primary source for wine category data.', url: 'https://www.oiv.int/what-we-do/global-report' },
+  ],
+  lastUpdated: 'March 2026',
+  updateFrequency: 'Quarterly (Jan, Apr, Jul, Oct)',
+  disclaimer: 'All market data represents best estimates compiled from multiple public and proprietary sources. Figures may differ from individual source reports due to methodology differences in market definition, exchange rates, and reporting periods.',
+}
+

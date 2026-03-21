@@ -276,7 +276,7 @@ function CategoryPerformance() {
             >
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs font-semibold text-navy group-hover:text-gold transition-colors truncate">{cat.name}</span>
-                <span className={`text-[10px] font-bold ${isUp ? 'text-emerald-600' : 'text-red-500'}`}>{cat.growth}</span>
+                <span className={`text-[10px] font-bold ${isUp ? 'text-emerald-600' : 'text-red-500'}`}>{cat.growth} YoY</span>
               </div>
               <div className="text-lg font-bold text-navy mb-1">{cat.size}</div>
               <div className="w-full h-6 mb-2">

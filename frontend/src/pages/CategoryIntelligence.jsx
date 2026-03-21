@@ -72,11 +72,12 @@ function growthDir(val) {
   return 'flat'
 }
 
-function GrowthBadge({ value }) {
+function GrowthBadge({ value, showYoY = false }) {
   const dir = growthDir(value)
-  if (dir === 'up') return <span className="inline-flex items-center gap-0.5 text-emerald-600 font-semibold text-xs"><TrendingUp size={12} />{value}</span>
-  if (dir === 'down') return <span className="inline-flex items-center gap-0.5 text-red-500 font-semibold text-xs"><TrendingDown size={12} />{value}</span>
-  return <span className="inline-flex items-center gap-0.5 text-gray-500 font-semibold text-xs"><Minus size={12} />{value}</span>
+  const suffix = showYoY ? ' YoY' : ''
+  if (dir === 'up') return <span className="inline-flex items-center gap-0.5 text-emerald-600 font-semibold text-xs"><TrendingUp size={12} />{value}{suffix}</span>
+  if (dir === 'down') return <span className="inline-flex items-center gap-0.5 text-red-500 font-semibold text-xs"><TrendingDown size={12} />{value}{suffix}</span>
+  return <span className="inline-flex items-center gap-0.5 text-gray-500 font-semibold text-xs"><Minus size={12} />{value}{suffix}</span>
 }
 
 // ============================================
@@ -420,7 +421,7 @@ function CategoryCard({ cat, year, isHero, onClick }) {
             <div>
               <div className="text-[10px] text-gray-500 uppercase tracking-wider font-medium">Growth</div>
               <div className={`${isHero ? 'text-xl' : 'text-lg'} font-bold`}>
-                <GrowthBadge value={yd.growth} />
+                <GrowthBadge value={yd.growth} showYoY />
               </div>
             </div>
             {isHero && (
@@ -441,14 +442,8 @@ function CategoryCard({ cat, year, isHero, onClick }) {
         </div>
       </div>
       <div className="px-4 sm:px-5 py-2.5 flex items-center justify-between">
-        <div className="flex items-center gap-2 text-[10px] text-gray-500">
-          <span>{yd.topMarkets.length} markets</span>
-          <span>\u00b7</span>
-          <span>{brandCount} brands</span>
-          <span>\u00b7</span>
-          <span>{yd.trends.length} trends</span>
-        </div>
-        <span className="text-[10px] font-semibold text-gold group-hover:underline">Explore \u2192</span>
+        <span className="text-[10px] text-gray-500 whitespace-nowrap">{yd.topMarkets.length} markets {'\u00b7'} {brandCount} brands {'\u00b7'} {yd.trends.length} trends</span>
+        <span className="text-[10px] font-semibold text-gold group-hover:underline flex-shrink-0 ml-2">Explore {'\u2192'}</span>
       </div>
     </button>
   )
@@ -891,10 +886,11 @@ export default function CategoryIntelligence() {
         <MetricCard
           label="Total Market"
           value={agg.totalSize}
-          subtitle={`${agg.categoryCount} categories combined`}
+          subtitle={`${agg.categoryCount} categories incl. beer, wine & cider`}
           icon={BarChart3}
           sparkData={agg.sparkData}
           direction="up"
+          onClick={() => handleYearChange(selectedYear)}
         />
         <MetricCard
           label="Fastest Growing"
@@ -916,6 +912,7 @@ export default function CategoryIntelligence() {
           value={agg.totalVolume}
           subtitle="9L cases across all categories"
           icon={Layers}
+          onClick={() => handleYearChange(selectedYear)}
         />
       </div>
 

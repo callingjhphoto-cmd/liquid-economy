@@ -12,7 +12,7 @@ import {
 import LiveFeed from '../components/LiveFeed'
 import {
   PageHeader, Card, SectionHeader, MetricCard, BentoGrid, DrillDown, EntityLink, YearSelector,
-  SkeletonCard, SkeletonChart
+  SkeletonCard, SkeletonChart, BottomSheet
 } from '../components/ui'
 import {
   KPI_TRENDS, CATEGORY_SNAPSHOT, REGIONAL_PULSE, MARKET_SIGNALS,
@@ -699,6 +699,7 @@ export default function CommandCentre() {
   const [activeBriefing, setActiveBriefing] = useState(null)
   const [selectedYear, setSelectedYear] = useState(2025)
   const [loading, setLoading] = useState(true)
+  const [mobileDetail, setMobileDetail] = useState(null)
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 300)
@@ -707,7 +708,40 @@ export default function CommandCentre() {
 
   const handleBriefingClick = useCallback((label) => {
     const briefing = INSIGHT_BRIEFINGS[label]
-    if (briefing) setActiveBriefing(briefing)
+    if (!briefing) return
+    // On mobile, show briefing in BottomSheet instead of slide-out panel
+    if (window.innerWidth < 1024) {
+      setMobileDetail({
+        title: briefing.title,
+        content: (
+          <div className="space-y-4">
+            <p className="text-xs text-gray-700 leading-relaxed">{briefing.summary}</p>
+            <div>
+              <p className="text-[10px] font-bold text-navy mb-1.5">Key Intelligence Points</p>
+              <div className="space-y-1.5">
+                {briefing.keyPoints.map((point, i) => (
+                  <div key={i} className="flex gap-2 text-[10px] text-gray-700 bg-gray-50 rounded-lg p-2.5">
+                    <span className="text-gold font-bold">{i + 1}.</span>
+                    <span className="leading-relaxed">{point}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="bg-gold/5 border border-gold/20 rounded-xl p-3">
+              <p className="text-[10px] font-bold text-navy mb-1">Actionable Recommendation</p>
+              <p className="text-[10px] text-navy leading-relaxed">{briefing.actionable}</p>
+            </div>
+            <div className="flex flex-wrap gap-1">
+              {briefing.sources.map((src, i) => (
+                <span key={i} className="text-[10px] bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{src}</span>
+              ))}
+            </div>
+          </div>
+        )
+      })
+      return
+    }
+    setActiveBriefing(briefing)
   }, [])
 
   if (loading) {
@@ -843,8 +877,17 @@ export default function CommandCentre() {
         </div>
       </div>
 
-      {/* Insight Briefing Slide-Out */}
+      {/* Insight Briefing Slide-Out (desktop) */}
       <InsightBriefing briefing={activeBriefing} onClose={() => setActiveBriefing(null)} />
+
+      {/* Mobile BottomSheet for briefing detail */}
+      <BottomSheet
+        open={!!mobileDetail}
+        onClose={() => setMobileDetail(null)}
+        title={mobileDetail?.title || 'Detail'}
+      >
+        {mobileDetail?.content}
+      </BottomSheet>
     </div>
   )
 }

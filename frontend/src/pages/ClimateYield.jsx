@@ -22,6 +22,7 @@ import {
   Badge,
   TabGroup,
   EntityLink,
+  BottomSheet,
 } from '../components/ui'
 
 /* ================================================================
@@ -473,7 +474,75 @@ function ForwardSignals() {
 
 export default function ClimateYield() {
   const [selectedRegion, setSelectedRegion] = useState(null)
+  const [mobileDetail, setMobileDetail] = useState(null)
   const region = REGIONS.find(r => r.id === selectedRegion)
+
+  // Mobile: show region summary in BottomSheet, desktop: full detail view
+  const handleRegionClick = (regionId) => {
+    if (window.innerWidth < 1024) {
+      const r = REGIONS.find(reg => reg.id === regionId)
+      if (r) {
+        const years = Object.entries(r.historical).filter(([_, d]) => d.yield !== null)
+        const latest = years[years.length - 1]
+        const prev = years.length > 1 ? years[years.length - 2] : null
+        const yieldChange = latest && prev ? (((latest[1].yield - prev[1].yield) / prev[1].yield) * 100).toFixed(1) : null
+        setMobileDetail({
+          title: r.name,
+          content: (
+            <div className="space-y-3">
+              <div className="flex items-center gap-2">
+                <span className="text-2xl">{r.icon}</span>
+                <div>
+                  <p className="text-xs text-gray-500">{r.crop} \u2014 {r.spirit}</p>
+                  <p className="text-[10px] text-gray-400">{r.country}</p>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <div className="bg-gray-50 rounded-lg p-2.5 text-center">
+                  <div className="text-[10px] text-gray-400 uppercase">Latest Yield</div>
+                  <div className="text-sm font-bold text-navy">
+                    {typeof latest?.[1]?.yield === 'number' && latest[1].yield > 100 ? latest[1].yield.toLocaleString() : latest?.[1]?.yield}
+                    <span className="text-[10px] font-normal text-gray-400 ml-0.5">{r.yieldUnit}</span>
+                  </div>
+                </div>
+                <div className="bg-gray-50 rounded-lg p-2.5 text-center">
+                  <div className="text-[10px] text-gray-400 uppercase">YoY Change</div>
+                  <div className={`text-sm font-bold ${yieldChange && parseFloat(yieldChange) >= 0 ? 'text-emerald-600' : 'text-red-500'}`}>
+                    {yieldChange ? `${parseFloat(yieldChange) >= 0 ? '+' : ''}${yieldChange}%` : '\u2014'}
+                  </div>
+                </div>
+              </div>
+              {latest && <OutlookBadge outlook={latest[1].outlook} />}
+              <div>
+                <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1">Critical Yield Factors</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {r.criticalFactors.map((f, i) => (
+                    <span key={i} className="text-[10px] bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">{f}</span>
+                  ))}
+                </div>
+              </div>
+              {latest && (
+                <div className="bg-gray-50 rounded-lg p-3">
+                  <p className="text-[10px] text-gray-600 leading-relaxed">{latest[1].season}</p>
+                </div>
+              )}
+              <button
+                onClick={() => {
+                  setMobileDetail(null)
+                  setSelectedRegion(regionId)
+                }}
+                className="w-full py-2.5 bg-navy text-white rounded-xl text-xs font-medium"
+              >
+                View Full Detail
+              </button>
+            </div>
+          )
+        })
+      }
+      return
+    }
+    setSelectedRegion(regionId)
+  }
 
   // Compute summary KPIs for Tier 1
   const summaryKpis = useMemo(() => {
@@ -561,7 +630,7 @@ export default function ClimateYield() {
             </SectionHeader>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {REGIONS.map(r => (
-                <RegionCard key={r.id} region={r} onClick={() => setSelectedRegion(r.id)} />
+                <RegionCard key={r.id} region={r} onClick={() => handleRegionClick(r.id)} />
               ))}
             </div>
           </div>
@@ -582,6 +651,15 @@ export default function ClimateYield() {
         /* TIER 2/3: Region Deep Dive (full detail) */
         <RegionDetailPanel region={region} onClose={() => setSelectedRegion(null)} />
       )}
+
+      {/* Mobile BottomSheet for region detail */}
+      <BottomSheet
+        open={!!mobileDetail}
+        onClose={() => setMobileDetail(null)}
+        title={mobileDetail?.title || 'Detail'}
+      >
+        {mobileDetail?.content}
+      </BottomSheet>
     </div>
   )
 }

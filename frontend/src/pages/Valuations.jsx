@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import {
   BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
   ResponsiveContainer, Cell
@@ -9,7 +9,8 @@ import {
 } from 'lucide-react'
 import {
   Card, MetricCard, PageHeader, BentoGrid, DataTable, ChartCard, DrillDown,
-  Badge, SectionHeader, SourceList, TabGroup, EntityLink, YearSelector, BottomSheet
+  Badge, SectionHeader, SourceList, TabGroup, EntityLink, YearSelector, BottomSheet,
+  SkeletonCard
 } from '../components/ui'
 import {
   BRAND_VALUATION_MODELS, BRAND_VALUATIONS, SECTOR_MULTIPLES,
@@ -51,6 +52,50 @@ export default function Valuations() {
   const [expandedInsight, setExpandedInsight] = useState(null)
   const [selectedYear, setSelectedYear] = useState(2025)
   const [mobileDetail, setMobileDetail] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 300)
+    return () => clearTimeout(timer)
+  }, [])
+
+  // Filter M&A deals by selected year (show selected year and earlier)
+  const filteredDeals = useMemo(() => {
+    return MA_VALUATION_BENCHMARKS.filter(d => d.year <= selectedYear)
+      .sort((a, b) => b.year - a.year)
+  }, [selectedYear])
+
+  const filteredDealCount = filteredDeals.length
+  const filteredDealValue = filteredDeals.reduce((s, d) => s + d.valueNum, 0)
+  const filteredAvgPremium = filteredDealCount > 0
+    ? (filteredDeals.reduce((s, d) => s + d.premiumNum, 0) / filteredDealCount).toFixed(0)
+    : 0
+
+  // M&A chart filtered by year
+  const filteredMaByYear = filteredDeals.reduce((acc, d) => {
+    acc[d.year] = (acc[d.year] || 0) + d.valueNum
+    return acc
+  }, {})
+  const filteredMaYearChart = Object.entries(filteredMaByYear)
+    .sort(([a], [b]) => Number(a) - Number(b))
+    .map(([year, val]) => ({ year, value: val }))
+
+  if (loading) {
+    return (
+      <div className="space-y-6">
+        <PageHeader title="Valuations & M&A Intelligence" subtitle="Loading valuation data\u2026" />
+        <BentoGrid>
+          <BentoGrid.Hero><SkeletonCard className="h-40" /></BentoGrid.Hero>
+          <SkeletonCard />
+          <SkeletonCard />
+          <SkeletonCard />
+          <SkeletonCard />
+        </BentoGrid>
+        <SkeletonCard className="h-24" />
+        <SkeletonCard className="h-24" />
+      </div>
+    )
+  }
 
   /* \u2550\u2550\u2550\u2550\u2550 TIER 1: EXECUTIVE SUMMARY \u2550\u2550\u2550\u2550\u2550 */
   return (
@@ -124,8 +169,8 @@ export default function Valuations() {
         />
         <MetricCard
           label="M&A Activity"
-          value={`${totalMaDeals} deals`}
-          subtitle="2020\u20132024 tracked transactions"
+          value={`${filteredDealCount} deals`}
+          subtitle={`Up to ${selectedYear} \u2014 $${(filteredDealValue / 1000).toFixed(1)}B total`}
           icon={Building2}
         />
       </BentoGrid>
@@ -219,15 +264,15 @@ export default function Valuations() {
       {/* M&A benchmarks */}
       <DrillDown
         title="M&A Valuation Benchmarks"
-        summary={`${totalMaDeals} transactions (2020\u20132024) \u2014 avg premium ${avgMaPremium}% above public comps`}
+        summary={`${filteredDealCount} transactions (up to ${selectedYear}) \u2014 $${(filteredDealValue / 1000).toFixed(1)}B total \u2014 avg premium ${filteredAvgPremium}%`}
       >
         <div className="space-y-4">
           <ChartCard
-            title="M&A Deal Volume by Year"
+            title={`M&A Deal Volume by Year (up to ${selectedYear})`}
             subtitle="Total transaction value ($M) by year"
             height={220}
           >
-            <BarChart data={maYearChart} margin={{ top: 5, right: 20, bottom: 5, left: 5 }}>
+            <BarChart data={filteredMaYearChart} margin={{ top: 5, right: 20, bottom: 5, left: 5 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis dataKey="year" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 10 }} tickFormatter={v => `$${v}M`} />
@@ -250,7 +295,7 @@ export default function Valuations() {
               { key: 'category', label: 'Category' },
               { key: 'premium', label: 'Premium', align: 'right', render: (v) => <span className="font-semibold text-emerald-600">{v}</span> },
             ]}
-            data={[...MA_VALUATION_BENCHMARKS].sort((a, b) => b.year - a.year)}
+            data={filteredDeals}
             searchable
             searchPlaceholder="Search deals\u2026"
             searchKey="target"
@@ -290,7 +335,25 @@ export default function Valuations() {
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {VALUATION_INSIGHTS.map((insight, i) => (
-            <Card key={i} padding="p-4" hover onClick={() => setExpandedInsight(expandedInsight === i ? null : i)}>
+            <Card key={i} padding="p-4" hover onClick={() => {
+              if (window.innerWidth < 1024) {
+                setMobileDetail({
+                  title: insight.title,
+                  content: (
+                    <div className="space-y-3">
+                      <p className="text-xs text-gray-600 leading-relaxed">{insight.insight}</p>
+                      <div className="bg-blue-50 border border-blue-100 rounded-lg p-3">
+                        <p className="text-[10px] font-medium text-blue-900 mb-1">Implication for new brands:</p>
+                        <p className="text-[10px] text-blue-800">{insight.implication}</p>
+                      </div>
+                      <p className="text-[10px] text-gray-400 italic">Source: {insight.source.label}</p>
+                    </div>
+                  )
+                })
+                return
+              }
+              setExpandedInsight(expandedInsight === i ? null : i)
+            }}>
               <div className="flex gap-3 mb-2">
                 <Info size={16} className="text-gold flex-shrink-0 mt-0.5" />
                 <p className="text-sm font-semibold text-navy">{insight.title}</p>

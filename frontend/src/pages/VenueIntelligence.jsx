@@ -1,10 +1,10 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LineChart, Line, Legend, Cell } from 'recharts'
 import { MapPin, TrendingUp, Star, Wine, Search, ChevronDown, ChevronUp, ExternalLink, Award, Users, DollarSign, Building2, Globe, Briefcase, Target, Layers, Shield, Zap, BookOpen, Check, X, ArrowRight, BarChart3 } from 'lucide-react'
 import {
   PageHeader, Card, MetricCard, BentoGrid, DrillDown, DataTable,
   ChartCard, SourceList, TabGroup, FilterPills, YearSelector,
-  EntityLink, Badge, BottomSheet
+  EntityLink, Badge, BottomSheet, SkeletonCard, SkeletonChart
 } from '../components/ui'
 
 import {
@@ -237,6 +237,12 @@ export default function VenueIntelligence() {
   const [entryCategory, setEntryCategory] = useState(null)
   const [expandedDistributor, setExpandedDistributor] = useState(null)
   const [mobileDetail, setMobileDetail] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 300)
+    return () => clearTimeout(timer)
+  }, [])
 
   // Data hooks
   const { londonCount, ukCount, citiesCount, topCity, topParentCompany, perennialBars } = useVenueMetrics(selectedYear)
@@ -351,6 +357,23 @@ export default function VenueIntelligence() {
       return
     }
     setExpandedVenue(expandedVenue === index ? null : index)
+  }
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto space-y-6">
+        <PageHeader title="Venue & On-Trade Intelligence" subtitle="Loading venue data\u2026" />
+        <BentoGrid>
+          <BentoGrid.Hero><SkeletonCard className="h-40" /></BentoGrid.Hero>
+          <SkeletonCard />
+          <SkeletonCard />
+          <SkeletonCard />
+          <SkeletonCard />
+        </BentoGrid>
+        <SkeletonChart />
+        <SkeletonCard className="h-24" />
+      </div>
+    )
   }
 
   return (

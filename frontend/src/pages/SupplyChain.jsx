@@ -1,9 +1,10 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import { AreaChart, Area, BarChart, Bar, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid, Cell } from 'recharts'
 import { Package, Factory, Truck, AlertTriangle, TrendingUp, TrendingDown, ExternalLink, DollarSign, Globe, Shield, Droplets, ChevronDown, ChevronUp, ArrowUpDown } from 'lucide-react'
 import {
   PageHeader, Card, MetricCard, BentoGrid, DrillDown, DataTable,
-  ChartCard, SourceList, FilterPills, EntityLink, YearSelector, BottomSheet
+  ChartCard, SourceList, FilterPills, EntityLink, YearSelector, BottomSheet,
+  SkeletonCard
 } from '../components/ui'
 
 import {
@@ -43,6 +44,12 @@ export default function SupplyChain() {
   const [expandedStage, setExpandedStage] = useState(null)
   const [selectedYear, setSelectedYear] = useState(2025)
   const [mobileDetail, setMobileDetail] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 300)
+    return () => clearTimeout(timer)
+  }, [])
 
   // Computed stats
   const totalCommodities = Object.keys(COGS_DATA).length
@@ -270,7 +277,48 @@ export default function SupplyChain() {
               const isExpanded = expandedMetric === key
 
               return (
-                <Card key={key} hover={!isExpanded} onClick={() => setExpandedMetric(isExpanded ? null : key)}
+                <Card key={key} hover={!isExpanded} onClick={() => {
+                  if (window.innerWidth < 1024) {
+                    setMobileDetail({
+                      title: data.label,
+                      content: (
+                        <div className="space-y-3">
+                          <div className="grid grid-cols-2 gap-2">
+                            <div className="bg-gray-50 rounded-lg p-2.5 text-center">
+                              <div className="text-[10px] text-gray-400 uppercase">Current</div>
+                              <div className="text-sm font-bold text-navy">{typeof data.value === 'number' ? data.value.toLocaleString() : data.value}{data.unit && <span className="text-[10px] text-gray-400 ml-0.5">{data.unit}</span>}</div>
+                            </div>
+                            <div className="bg-gray-50 rounded-lg p-2.5 text-center">
+                              <div className="text-[10px] text-gray-400 uppercase">YoY Change</div>
+                              <div className={`text-sm font-bold ${changeNum > 0 ? 'text-red-600' : changeNum < 0 ? 'text-green-600' : 'text-gray-600'}`}>{data.change}</div>
+                            </div>
+                          </div>
+                          <p className="text-xs text-gray-600 leading-relaxed">{data.description}</p>
+                          <div className="flex items-center gap-2 text-[10px] text-gray-400">
+                            <span>Source: {data.source}</span>
+                            <span>{'\u00b7'}</span>
+                            <span>Updated: {data.updated}</span>
+                          </div>
+                          {data.relevantCategories && (
+                            <div>
+                              <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1">Relevant Categories</p>
+                              <div className="flex flex-wrap gap-1">
+                                {data.relevantCategories[0] === 'all'
+                                  ? <span className="text-[10px] bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">All categories</span>
+                                  : data.relevantCategories.map(c => (
+                                    <span key={c} className="text-[10px] bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{c}</span>
+                                  ))
+                                }
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      )
+                    })
+                    return
+                  }
+                  setExpandedMetric(isExpanded ? null : key)
+                }}
                   className={`cursor-pointer transition-all ${isExpanded ? 'border-navy shadow-md' : ''}`} padding="p-3">
                   <div className="flex items-center gap-3">
                     <div className={`w-2.5 h-2.5 rounded-full flex-shrink-0 ${colors.dot}`} />

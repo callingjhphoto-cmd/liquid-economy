@@ -737,7 +737,7 @@ export default function CategoryIntelligence() {
                   next.set('year', String(selectedYear))
                   setSearchParams(next, { replace: true })
                 }}
-                className="w-full py-2.5 bg-navy text-white rounded-xl text-xs font-medium"
+                className="w-full py-2.5 min-h-[44px] bg-navy text-white rounded-xl text-xs font-medium touch-manipulation"
               >
                 View Full Detail
               </button>

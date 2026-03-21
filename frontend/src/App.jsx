@@ -401,16 +401,17 @@ function Layout({ onLogout }) {
 }
 
 export default function App() {
-  const [authenticated, setAuthenticated] = useState(!!getToken())
+  // Auth bypassed — backend not deployed on Railway yet
+  const [authenticated, setAuthenticated] = useState(true)
 
   const handleLogout = () => {
     clearToken()
     setAuthenticated(false)
   }
 
-  if (!authenticated) {
-    return <Login onLogin={() => setAuthenticated(true)} />
-  }
+  // if (!authenticated) {
+  //   return <Login onLogin={() => setAuthenticated(true)} />
+  // }
 
   return (
     <BrowserRouter>

@@ -118,6 +118,7 @@ export default function ScenarioModeling() {
           )
         }
       />
+      <SubPageNav group="planning" />
 
       {/* \u2550\u2550\u2550\u2550\u2550 TIER 1: OVERVIEW (DEFAULT) \u2550\u2550\u2550\u2550\u2550 */}
       {mode === 'overview' && (

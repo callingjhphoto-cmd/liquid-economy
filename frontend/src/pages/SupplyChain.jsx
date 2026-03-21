@@ -4,7 +4,7 @@ import { Package, Factory, Truck, AlertTriangle, TrendingUp, TrendingDown, Exter
 import {
   PageHeader, Card, MetricCard, BentoGrid, DrillDown, DataTable,
   ChartCard, SourceList, FilterPills, EntityLink, YearSelector, BottomSheet,
-  SkeletonCard
+  SkeletonCard, SubPageNav
 } from '../components/ui'
 
 import {
@@ -151,6 +151,7 @@ export default function SupplyChain() {
           { label: 'Supply Chain' },
         ]}
       />
+      <SubPageNav group="planning" />
 
       {/* Year Selector */}
       <div className="flex items-center justify-end">

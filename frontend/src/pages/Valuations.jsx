@@ -10,7 +10,7 @@ import {
 import {
   Card, MetricCard, PageHeader, BentoGrid, DataTable, ChartCard, DrillDown,
   Badge, SectionHeader, SourceList, TabGroup, EntityLink, YearSelector, BottomSheet,
-  SkeletonCard
+  SkeletonCard, SubPageNav
 } from '../components/ui'
 import {
   BRAND_VALUATION_MODELS, BRAND_VALUATIONS, SECTOR_MULTIPLES,
@@ -108,6 +108,7 @@ export default function Valuations() {
           { label: 'Valuations' },
         ]}
       />
+      <SubPageNav group="reports" />
 
       {/* Year Selector */}
       <div className="flex items-center justify-between">

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, Link, Navigate, useLocation, useParams } from 'react-router-dom'
-import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, LogOut, Menu, MessageCircle, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag, Crosshair, ChevronDown, ChevronRight, Target, Loader2, Search, BarChart3, Store, Lightbulb, Calculator, MoreHorizontal, Rocket } from 'lucide-react'
+import { LayoutDashboard, TrendingUp, DollarSign, Building2, LogOut, Menu, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag, Crosshair, ChevronDown, ChevronRight, Target, Loader2, Search, BarChart3, Calculator, MoreHorizontal, Rocket } from 'lucide-react'
 import { useLiveData } from './context/LiveDataContext'
 import { api, getToken, setToken, clearToken } from './lib/api'
 // ChatPanel disabled — backend not deployed; gated as "Coming Soon"

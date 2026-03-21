@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useCallback } from 'react'
 import {
   Calculator, TrendingUp, TrendingDown, ChevronDown, ChevronRight,
   ToggleLeft, ToggleRight, Target, AlertTriangle, CheckCircle2,
@@ -17,7 +17,7 @@ import {
 } from '../data/marginCalcData'
 import {
   Card, AccentCard, MetricCard, PageHeader, BentoGrid, DrillDown,
-  ChartCard, DataTable, TabGroup, EntityLink
+  ChartCard, DataTable, TabGroup, EntityLink, SubPageNav, BottomSheet
 } from '../components/ui'
 
 // ── Helpers ──
@@ -87,6 +87,7 @@ export default function MarginCalculator() {
   const [targetRRP, setTargetRRP] = useState(35)
   const [scenarios, setScenarios] = useState({})
   const [showTier3, setShowTier3] = useState(false)
+  const [mobileDetail, setMobileDetail] = useState(null)
 
   const cat = CATEGORY_COGS[category]
   const sizeFactor = BOTTLE_SIZES[bottleSize].factor
@@ -264,6 +265,7 @@ export default function MarginCalculator() {
         subtitle="Model COGS, test scenarios, and benchmark margins across 11 drinks categories \u00b7 Data as of March 2026"
         breadcrumbs={[{ label: 'Command Centre', to: '/' }, { label: 'Margin Calculator' }]}
       />
+      <SubPageNav group="planning" />
 
       {/* ══════ TIER 1: HERO + KPI BENTO ══════ */}
       <BentoGrid>
@@ -309,8 +311,36 @@ export default function MarginCalculator() {
                   min={0} step={0.5} />
               </div>
             </div>
-            {/* Quick result preview */}
-            <div className="flex items-center gap-6 p-3 bg-gray-50 rounded-lg">
+            {/* Quick result preview — tap for detail on mobile */}
+            <div
+              className="flex items-center gap-6 p-3 bg-gray-50 rounded-lg cursor-pointer lg:cursor-default"
+              onClick={() => {
+                if (window.innerWidth < 1024) {
+                  setMobileDetail({
+                    title: cat.label + ' Margin Results',
+                    content: (
+                      <div className="space-y-4">
+                        <div className="flex justify-center"><MarginGauge margin={computed.margin} size="lg" /></div>
+                        <div className="grid grid-cols-2 gap-3">
+                          <div className="bg-gray-50 rounded-lg p-3"><div className="text-[10px] text-gray-400">Total COGS</div><div className="text-lg font-bold text-navy">{fmt(computed.total)}</div></div>
+                          <div className="bg-gray-50 rounded-lg p-3"><div className="text-[10px] text-gray-400">Gross Profit</div><div className="text-lg font-bold text-green-600">{fmt(Math.max(0, targetRRP - computed.total))}</div></div>
+                          <div className="bg-gray-50 rounded-lg p-3"><div className="text-[10px] text-gray-400">RRP</div><div className="text-sm font-semibold text-navy">{fmt(targetRRP)}</div></div>
+                          <div className="bg-gray-50 rounded-lg p-3"><div className="text-[10px] text-gray-400">Margin</div><div className={'text-sm font-semibold ' + (computed.margin >= 35 ? 'text-green-600' : computed.margin >= 25 ? 'text-amber-500' : 'text-red-500')}>{computed.margin.toFixed(1)}%</div></div>
+                        </div>
+                        <div className="bg-gray-50 rounded-lg p-3">
+                          <div className="text-[10px] text-gray-400 mb-1">Base Margin vs Scenario</div>
+                          <div className="flex items-center justify-around">
+                            <div className="text-center"><div className="text-xs text-gray-400">Base</div><div className="text-sm font-bold text-navy">{computed.baseMargin.toFixed(1)}%</div></div>
+                            <div className="text-center"><div className="text-xs text-gray-400">With Scenarios</div><div className={'text-sm font-bold ' + (computed.margin >= computed.baseMargin ? 'text-green-600' : 'text-red-500')}>{computed.margin.toFixed(1)}%</div></div>
+                          </div>
+                        </div>
+                        <div className="text-[10px] text-gray-400 text-center">Industry avg margin for {cat.label}: {benchmarks.avgMargin}%</div>
+                      </div>
+                    )
+                  })
+                }
+              }}
+            >
               <MarginGauge margin={computed.margin} size="lg" />
               <div className="flex-1 grid grid-cols-2 gap-3">
                 <div>
@@ -691,6 +721,15 @@ export default function MarginCalculator() {
       <div className="bg-navy/5 rounded-xl p-3 text-xs text-gray-600">
         <span className="font-medium text-navy">Methodology:</span> COGS estimates use category-average commodity prices, standard UK duty rates (Feb 2025), and typical freight-to-UK costs. Actual costs vary by supplier, volume, and contract terms. Duty calculated per 700ml equivalent at category ABV. Industry benchmarks sourced from IWSR, NielsenIQ, and trade body reports.
       </div>
+
+      {/* Mobile BottomSheet for margin results */}
+      <BottomSheet
+        open={!!mobileDetail}
+        onClose={() => setMobileDetail(null)}
+        title={mobileDetail?.title || 'Margin Detail'}
+      >
+        {mobileDetail?.content}
+      </BottomSheet>
     </div>
   )
 }

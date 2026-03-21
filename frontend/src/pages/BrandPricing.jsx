@@ -12,7 +12,7 @@ import {
   PageHeader, Card, AccentCard, MetricCard, BentoGrid, DataTable,
   ChartCard, Badge, FilterBar, TabGroup, FilterPills, SectionHeader,
   SectionLabel, SourceList, EntityLink, BottomSheet,
-  SkeletonCard
+  SkeletonCard, SubPageNav
 } from '../components/ui'
 
 import { SEGMENT_INFO, MARKET_CONFIG, RETAILERS, BRAND_DATABASE } from '../data/brandData'
@@ -672,6 +672,7 @@ export default function BrandPricing() {
           { label: 'Brand Pricing' },
         ]}
       />
+      <SubPageNav group="intelligence" />
 
       {/* ── TIER 1: Executive Metrics ── */}
       <BentoGrid>

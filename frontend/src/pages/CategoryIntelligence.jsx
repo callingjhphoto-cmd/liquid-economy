@@ -14,7 +14,7 @@ import {
   Card, MetricCard, PageHeader, YearSelector,
   BentoGrid, SectionHeader, SectionLabel, TabGroup,
   ChartCard, DataTable, SourceLink, SourceList, EntityLink, BottomSheet,
-  SkeletonCard, SkeletonChart
+  SkeletonCard, SkeletonChart, SubPageNav
 } from '../components/ui'
 
 // ============================================
@@ -843,6 +843,7 @@ export default function CategoryIntelligence() {
         subtitle={`${agg.categoryCount} categories \u00b7 2021\u20132025 \u00b7 Deep market analysis for brand managers \u00b7 Data as of March 2026`}
         action={<YearSelector activeYear={selectedYear} onChange={handleYearChange} />}
       />
+      <SubPageNav group="intelligence" />
 
       {/* Tier 1: Aggregate Executive Metrics */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">

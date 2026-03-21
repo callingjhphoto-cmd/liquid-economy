@@ -10,7 +10,7 @@ import {
 import { ResponsiveContainer, Tooltip } from 'recharts'
 import {
   PageHeader, MetricCard, Card, Section, BentoGrid, DrillDown,
-  TabGroup, FilterPills, DataTable, EntityLink, BottomSheet
+  TabGroup, FilterPills, DataTable, EntityLink, BottomSheet, SubPageNav
 } from '../components/ui'
 import {
   BRANDS_BY_CATEGORY, CATEGORIES, SEGMENTS, BASE_SPIRITS,
@@ -1547,6 +1547,7 @@ const CampaignPlanner = () => {
             { label: 'Campaign Planner' }
           ]}
         />
+        <SubPageNav group="planning" />
 
         {/* Mobile Step Indicator */}
         {mobileStep > 0 && (
@@ -1687,6 +1688,7 @@ const CampaignPlanner = () => {
           { label: 'Campaign Planner' }
         ]}
       />
+      <SubPageNav group="planning" />
 
       {/* Step Indicator (only show when in wizard) */}
       {currentStep > 0 && (

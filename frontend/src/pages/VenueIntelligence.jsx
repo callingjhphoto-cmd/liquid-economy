@@ -4,7 +4,7 @@ import { MapPin, TrendingUp, Star, Wine, Search, ChevronDown, ChevronUp, Externa
 import {
   PageHeader, Card, MetricCard, BentoGrid, DrillDown, DataTable,
   ChartCard, SourceList, TabGroup, FilterPills, YearSelector,
-  EntityLink, Badge, BottomSheet, SkeletonCard, SkeletonChart
+  EntityLink, Badge, BottomSheet, SkeletonCard, SkeletonChart, SubPageNav
 } from '../components/ui'
 
 import {
@@ -387,6 +387,7 @@ export default function VenueIntelligence() {
         ]}
         action={<YearSelector activeYear={selectedYear} onChange={setSelectedYear} years={YEARS} />}
       />
+      <SubPageNav group="intelligence" />
 
       {/* ═══════ SEARCH BAR (Search-First UX) ═══════ */}
       <div className="relative">

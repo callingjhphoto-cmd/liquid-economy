@@ -9,7 +9,7 @@ import {
 import {
   Card, MetricCard, PageHeader, BentoGrid, FilterBar, Badge, DataTable,
   DrillDown, EntityLink, SourceList, BottomSheet, SectionHeader,
-  SkeletonCard
+  SkeletonCard, SubPageNav
 } from '../components/ui'
 import { COMPANIES, WHITE_SPACE } from '../data/companyData'
 
@@ -865,6 +865,7 @@ export default function Companies() {
           { label: 'Companies' },
         ]}
       />
+      <SubPageNav group="intelligence" />
 
       {/* ── TIER 1: Executive Metrics ── */}
       <BentoGrid className="mb-6">

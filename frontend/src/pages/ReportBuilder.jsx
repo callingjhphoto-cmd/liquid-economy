@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import {
   FileText, Check, BarChart3, Globe, TrendingUp, DollarSign,
   Package, AlertTriangle, Target, Calendar, Briefcase,
@@ -11,7 +11,7 @@ import {
 } from '../data/reportBuilderData'
 import {
   Card, AccentCard, MetricCard, PageHeader, BentoGrid, DrillDown,
-  DataTable, TabGroup, Badge, EntityLink
+  DataTable, TabGroup, Badge, EntityLink, SubPageNav, BottomSheet
 } from '../components/ui'
 
 // Icon resolver for data-driven widget rendering
@@ -27,6 +27,7 @@ const resolveIcon = (name) => ICON_MAP[name] || FileText
 export default function ReportBuilder() {
   // ── State ──
   const [selectedTemplate, setSelectedTemplate] = useState(null)
+  const [mobileDetail, setMobileDetail] = useState(null)
 
   // Config state (Tier 2)
   const [selectedCategories, setSelectedCategories] = useState([])
@@ -74,6 +75,7 @@ export default function ReportBuilder() {
         subtitle="Build custom intelligence reports from templates, data sources, and dashboard widgets \u00b7 Data as of March 2026"
         breadcrumbs={[{ label: 'Command Centre', to: '/' }, { label: 'Report Builder' }]}
       />
+      <SubPageNav group="reports" />
 
       {/* ══════ COMING SOON — WAITLIST CARD ══════ */}
       <AccentCard>

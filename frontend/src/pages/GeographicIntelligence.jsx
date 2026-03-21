@@ -7,7 +7,7 @@ import {
 import {
   Card, MetricCard, PageHeader, BentoGrid, DrillDown, DataTable,
   EntityLink, SourceLink, SourceList, Badge, BottomSheet, SectionHeader,
-  YearSelector, SkeletonCard
+  YearSelector, SkeletonCard, SubPageNav
 } from '../components/ui'
 import { REGIONS, REGION_DATA } from '../data/geographicData'
 
@@ -627,6 +627,7 @@ export default function GeographicIntelligence() {
           { label: 'Geographic Intelligence' },
         ]}
       />
+      <SubPageNav group="intelligence" />
 
       {/* ── TIER 1: Executive Metrics ── */}
       <BentoGrid className="mb-6">

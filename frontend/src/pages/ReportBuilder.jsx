@@ -10,14 +10,10 @@ import {
   REPORT_TEMPLATES, AVAILABLE_CATEGORIES, AVAILABLE_MARKETS,
   METRIC_OPTIONS, DATA_SOURCES, DASHBOARD_WIDGETS
 } from '../data/reportBuilderData'
-import { Card, AccentCard } from '../components/ui/Card'
-import { MetricCard } from '../components/ui/MetricCard'
-import { PageHeader } from '../components/ui/PageHeader'
-import { BentoGrid } from '../components/ui/BentoGrid'
-import { DrillDown } from '../components/ui/DrillDown'
-import { DataTable } from '../components/ui/DataTable'
-import { TabGroup } from '../components/ui/TabGroup'
-import { Badge } from '../components/ui/Badge'
+import {
+  Card, AccentCard, MetricCard, PageHeader, BentoGrid, DrillDown,
+  DataTable, TabGroup, Badge, EntityLink
+} from '../components/ui'
 
 // Icon resolver for data-driven widget rendering
 const ICON_MAP = {

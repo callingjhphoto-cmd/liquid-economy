@@ -11,7 +11,7 @@ import {
 } from 'recharts'
 import LiveFeed from '../components/LiveFeed'
 import {
-  PageHeader, Card, SectionHeader, MetricCard, BentoGrid, DrillDown, EntityLink
+  PageHeader, Card, SectionHeader, MetricCard, BentoGrid, DrillDown, EntityLink, YearSelector
 } from '../components/ui'
 import {
   KPI_TRENDS, CATEGORY_SNAPSHOT, REGIONAL_PULSE, MARKET_SIGNALS,
@@ -696,6 +696,7 @@ function InsightBriefing({ briefing, onClose }) {
 
 export default function CommandCentre() {
   const [activeBriefing, setActiveBriefing] = useState(null)
+  const [selectedYear, setSelectedYear] = useState(2025)
 
   const handleBriefingClick = useCallback((label) => {
     const briefing = INSIGHT_BRIEFINGS[label]
@@ -709,9 +710,12 @@ export default function CommandCentre() {
         title="Command Centre"
         subtitle={`Global beverage alcohol intelligence ${'\u2014'} curated daily`}
         action={
-          <div className="text-right">
-            <div className="text-[10px] text-gray-400">Last updated</div>
-            <div className="text-xs font-medium text-navy">Feb 26, 2026 14:30 GMT</div>
+          <div className="flex items-center gap-4">
+            <YearSelector activeYear={selectedYear} onChange={setSelectedYear} size="sm" />
+            <div className="text-right">
+              <div className="text-[10px] text-gray-400">Last updated</div>
+              <div className="text-xs font-medium text-navy">Feb 26, 2026 14:30 GMT</div>
+            </div>
           </div>
         }
       />

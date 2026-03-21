@@ -1,18 +1,11 @@
 import React, { useState, useMemo } from 'react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LineChart, Line, Legend, Cell } from 'recharts'
 import { MapPin, TrendingUp, Star, Wine, Search, ChevronDown, ChevronUp, ExternalLink, Award, Users, DollarSign, Building2, Globe, Briefcase, Target, Layers, Shield, Zap, BookOpen, Check, X, ArrowRight, BarChart3 } from 'lucide-react'
-import { PageHeader } from '../components/ui/PageHeader'
-import { Card } from '../components/ui/Card'
-import { MetricCard } from '../components/ui/MetricCard'
-import { BentoGrid } from '../components/ui/BentoGrid'
-import { DrillDown } from '../components/ui/DrillDown'
-import { DataTable } from '../components/ui/DataTable'
-import { ChartCard } from '../components/ui/ChartCard'
-import { SourceList } from '../components/ui/SourceLink'
-import { TabGroup, FilterPills } from '../components/ui/TabGroup'
-import { YearSelector } from '../components/ui/YearSelector'
-import { EntityLink } from '../components/ui/EntityLink'
-import { Badge } from '../components/ui/Badge'
+import {
+  PageHeader, Card, MetricCard, BentoGrid, DrillDown, DataTable,
+  ChartCard, SourceList, TabGroup, FilterPills, YearSelector,
+  EntityLink, Badge, BottomSheet
+} from '../components/ui'
 
 import {
   FIFTY_BEST_BARS, LONDON_VENUES, AWARD_SPONSORS, SPONSOR_TO_PARENT,
@@ -242,6 +235,7 @@ export default function VenueIntelligence() {
   const [brandFilterCompany, setBrandFilterCompany] = useState('All')
   const [entryCategory, setEntryCategory] = useState(null)
   const [expandedDistributor, setExpandedDistributor] = useState(null)
+  const [mobileDetail, setMobileDetail] = useState(null)
 
   // Data hooks
   const { londonCount, ukCount, citiesCount, topCity, topParentCompany, perennialBars } = useVenueMetrics(selectedYear)
@@ -1011,6 +1005,15 @@ export default function VenueIntelligence() {
         { label: 'Companies House UK', url: 'https://www.gov.uk/government/organisations/companies-house' },
         { label: 'Venue menus & industry sources' },
       ]} />
+
+      {/* Mobile BottomSheet for venue detail */}
+      <BottomSheet
+        open={!!mobileDetail}
+        onClose={() => setMobileDetail(null)}
+        title={mobileDetail?.title || 'Detail'}
+      >
+        {mobileDetail?.content}
+      </BottomSheet>
     </div>
   )
 }

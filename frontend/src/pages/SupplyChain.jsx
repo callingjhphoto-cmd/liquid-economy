@@ -1,16 +1,10 @@
 import React, { useState, useMemo } from 'react'
 import { AreaChart, Area, BarChart, Bar, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid, Cell } from 'recharts'
 import { Package, Factory, Truck, AlertTriangle, TrendingUp, TrendingDown, ExternalLink, DollarSign, Globe, Shield, Droplets, ChevronDown, ChevronUp, ArrowUpDown } from 'lucide-react'
-import { PageHeader } from '../components/ui/PageHeader'
-import { Card } from '../components/ui/Card'
-import { MetricCard } from '../components/ui/MetricCard'
-import { BentoGrid } from '../components/ui/BentoGrid'
-import { DrillDown } from '../components/ui/DrillDown'
-import { DataTable } from '../components/ui/DataTable'
-import { ChartCard } from '../components/ui/ChartCard'
-import { SourceList } from '../components/ui/SourceLink'
-import { FilterPills } from '../components/ui/TabGroup'
-import { EntityLink } from '../components/ui/EntityLink'
+import {
+  PageHeader, Card, MetricCard, BentoGrid, DrillDown, DataTable,
+  ChartCard, SourceList, FilterPills, EntityLink, YearSelector, BottomSheet
+} from '../components/ui'
 
 import {
   COGS_DATA, CATEGORY_COGS, GLASS_SUPPLIERS, CLOSURE_SUPPLIERS, LABEL_SUPPLIERS,
@@ -47,6 +41,8 @@ export default function SupplyChain() {
   const [showFullTable, setShowFullTable] = useState(false)
   const [showFullMarginTable, setShowFullMarginTable] = useState(false)
   const [expandedStage, setExpandedStage] = useState(null)
+  const [selectedYear, setSelectedYear] = useState(2025)
+  const [mobileDetail, setMobileDetail] = useState(null)
 
   // Computed stats
   const totalCommodities = Object.keys(COGS_DATA).length
@@ -132,6 +128,11 @@ export default function SupplyChain() {
           { label: 'Supply Chain' },
         ]}
       />
+
+      {/* Year Selector */}
+      <div className="flex items-center justify-end">
+        <YearSelector activeYear={selectedYear} onChange={setSelectedYear} size="sm" />
+      </div>
 
       {/* ═══════ TIER 1: BENTO GRID SUMMARY ═══════ */}
       <BentoGrid>
@@ -659,6 +660,15 @@ export default function SupplyChain() {
         { label: 'ICE Futures', url: 'https://www.ice.com' },
         { label: 'EU ETS', url: 'https://ec.europa.eu/clima' },
       ]} />
+
+      {/* Mobile BottomSheet for detail views */}
+      <BottomSheet
+        open={!!mobileDetail}
+        onClose={() => setMobileDetail(null)}
+        title={mobileDetail?.title || 'Detail'}
+      >
+        {mobileDetail?.content}
+      </BottomSheet>
     </div>
   )
 }

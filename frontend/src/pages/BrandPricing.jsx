@@ -8,17 +8,11 @@ import {
   Eye, BarChart3, Download, ArrowRight, X,
   Edit3, RefreshCw
 } from 'lucide-react'
-import { PageHeader } from '../components/ui/PageHeader'
-import { Card, AccentCard } from '../components/ui/Card'
-import { MetricCard } from '../components/ui/MetricCard'
-import { BentoGrid } from '../components/ui/BentoGrid'
-import { DataTable } from '../components/ui/DataTable'
-import { ChartCard } from '../components/ui/ChartCard'
-import { Badge } from '../components/ui/Badge'
-import { FilterBar } from '../components/ui/FilterBar'
-import { TabGroup, FilterPills } from '../components/ui/TabGroup'
-import { SectionHeader, SectionLabel } from '../components/ui/SectionHeader'
-import { SourceList } from '../components/ui/SourceLink'
+import {
+  PageHeader, Card, AccentCard, MetricCard, BentoGrid, DataTable,
+  ChartCard, Badge, FilterBar, TabGroup, FilterPills, SectionHeader,
+  SectionLabel, SourceList, EntityLink, BottomSheet
+} from '../components/ui'
 
 import { SEGMENT_INFO, MARKET_CONFIG, RETAILERS, BRAND_DATABASE } from '../data/brandData'
 
@@ -565,6 +559,7 @@ export default function BrandPricing() {
 
   const [expandedCategory, setExpandedCategory] = useState(initialCategory)
   const [showFullTable, setShowFullTable] = useState(false)
+  const [mobileDetail, setMobileDetail] = useState(null)
 
   const stats = useGlobalStats()
 
@@ -733,6 +728,15 @@ export default function BrandPricing() {
           ))}
         </div>
       </Card>
+
+      {/* Mobile BottomSheet for category detail */}
+      <BottomSheet
+        open={!!mobileDetail}
+        onClose={() => setMobileDetail(null)}
+        title={mobileDetail?.title || 'Detail'}
+      >
+        {mobileDetail?.content}
+      </BottomSheet>
     </div>
   )
 }

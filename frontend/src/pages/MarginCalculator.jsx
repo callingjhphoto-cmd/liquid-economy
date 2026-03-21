@@ -7,7 +7,7 @@ import {
 } from 'lucide-react'
 import {
   BarChart, Bar, ResponsiveContainer, XAxis, YAxis, Tooltip,
-  PieChart, Pie, Cell, RadarChart, Radar, PolarGrid,
+  Cell, RadarChart, Radar, PolarGrid,
   PolarAngleAxis, PolarRadiusAxis, CartesianGrid, Legend,
   AreaChart, Area
 } from 'recharts'
@@ -15,14 +15,10 @@ import {
   CATEGORY_COGS, LAUNCH_READINESS, BOTTLE_SIZES, CHANNELS,
   CHANNEL_LABELS, INDUSTRY_BENCHMARKS, COST_ENTRIES
 } from '../data/marginCalcData'
-import { Card, AccentCard } from '../components/ui/Card'
-import { MetricCard } from '../components/ui/MetricCard'
-import { PageHeader } from '../components/ui/PageHeader'
-import { BentoGrid } from '../components/ui/BentoGrid'
-import { DrillDown } from '../components/ui/DrillDown'
-import { ChartCard } from '../components/ui/ChartCard'
-import { DataTable } from '../components/ui/DataTable'
-import { TabGroup } from '../components/ui/TabGroup'
+import {
+  Card, AccentCard, MetricCard, PageHeader, BentoGrid, DrillDown,
+  ChartCard, DataTable, TabGroup, EntityLink
+} from '../components/ui'
 
 // ── Helpers ──
 const fmt = (v) => '\u00a3' + v.toFixed(2)
@@ -416,15 +412,22 @@ export default function MarginCalculator() {
           <div className="lg:col-span-3 space-y-4">
             <div className="bg-gray-50 rounded-xl p-4">
               <h4 className="text-xs font-semibold text-navy mb-2">Cost Split</h4>
-              <div className="h-40">
-                <ResponsiveContainer width="100%" height="100%">
-                  <PieChart>
-                    <Pie data={pieData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={55} innerRadius={30} strokeWidth={1}>
-                      {pieData.map((e, i) => <Cell key={i} fill={e.color} />)}
-                    </Pie>
-                    <Tooltip formatter={(v) => fmt(v)} contentStyle={{ fontSize: 11, borderRadius: 8 }} />
-                  </PieChart>
-                </ResponsiveContainer>
+              <div className="space-y-1.5">
+                {pieData.map((entry, i) => {
+                  const total = pieData.reduce((s, e) => s + e.value, 0)
+                  const pctVal = total > 0 ? ((entry.value / total) * 100).toFixed(1) : '0.0'
+                  return (
+                    <div key={i}>
+                      <div className="flex items-center justify-between text-[10px] mb-0.5">
+                        <span className="text-gray-600">{entry.name}</span>
+                        <span className="font-medium text-navy">{fmt(entry.value)} ({pctVal}%)</span>
+                      </div>
+                      <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                        <div className="h-full rounded-full transition-all" style={{ width: `${pctVal}%`, backgroundColor: entry.color }} />
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
             </div>
             <div className="bg-gray-50 rounded-xl p-4">

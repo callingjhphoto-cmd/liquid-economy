@@ -6,7 +6,7 @@ import {
 } from 'lucide-react'
 import {
   PageHeader, MetricCard, Card, Section, BentoGrid, DrillDown,
-  TabGroup, FilterPills, DataTable
+  TabGroup, FilterPills, DataTable, EntityLink
 } from '../components/ui'
 import {
   MATERIAL_CATEGORIES, POS_COMPANIES, TRADE_PLATFORMS,

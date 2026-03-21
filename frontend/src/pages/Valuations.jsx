@@ -9,7 +9,7 @@ import {
 } from 'lucide-react'
 import {
   Card, MetricCard, PageHeader, BentoGrid, DataTable, ChartCard, DrillDown,
-  Badge, SectionHeader, SourceList, TabGroup
+  Badge, SectionHeader, SourceList, TabGroup, EntityLink, YearSelector, BottomSheet
 } from '../components/ui'
 import {
   BRAND_VALUATION_MODELS, BRAND_VALUATIONS, SECTOR_MULTIPLES,
@@ -49,6 +49,8 @@ const maYearChart = Object.entries(maByYear).sort(([a], [b]) => Number(a) - Numb
 
 export default function Valuations() {
   const [expandedInsight, setExpandedInsight] = useState(null)
+  const [selectedYear, setSelectedYear] = useState(2025)
+  const [mobileDetail, setMobileDetail] = useState(null)
 
   /* \u2550\u2550\u2550\u2550\u2550 TIER 1: EXECUTIVE SUMMARY \u2550\u2550\u2550\u2550\u2550 */
   return (
@@ -61,6 +63,11 @@ export default function Valuations() {
           { label: 'Valuations' },
         ]}
       />
+
+      {/* Year Selector */}
+      <div className="flex items-center justify-between">
+        <YearSelector activeYear={selectedYear} onChange={setSelectedYear} />
+      </div>
 
       {/* \u2500\u2500 Tier 1: Bento Grid \u2500\u2500 */}
       <BentoGrid>
@@ -313,6 +320,15 @@ export default function Valuations() {
 
       {/* Sources */}
       <SourceList sources={VALUATION_SOURCES} />
+
+      {/* Mobile BottomSheet for detail views */}
+      <BottomSheet
+        open={!!mobileDetail}
+        onClose={() => setMobileDetail(null)}
+        title={mobileDetail?.title || 'Detail'}
+      >
+        {mobileDetail?.content}
+      </BottomSheet>
     </div>
   )
 }

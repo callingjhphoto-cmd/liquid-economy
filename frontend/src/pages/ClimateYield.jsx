@@ -21,6 +21,7 @@ import {
   DataTable,
   Badge,
   TabGroup,
+  EntityLink,
 } from '../components/ui'
 
 /* ================================================================

@@ -13,7 +13,7 @@ import { CATEGORIES } from '../data/categoryData'
 import {
   Card, MetricCard, PageHeader, YearSelector,
   BentoGrid, SectionHeader, SectionLabel, TabGroup,
-  ChartCard, DataTable, SourceLink, SourceList, EntityLink
+  ChartCard, DataTable, SourceLink, SourceList, EntityLink, BottomSheet
 } from '../components/ui'
 
 // ============================================
@@ -666,6 +666,7 @@ export default function CategoryIntelligence() {
   const [searchParams, setSearchParams] = useSearchParams()
   const [activeCat, setActiveCat] = useState(null)
   const [selectedYear, setSelectedYear] = useState(2025)
+  const [mobileDetail, setMobileDetail] = useState(null)
 
   // Read URL params on mount
   useEffect(() => {
@@ -809,6 +810,15 @@ export default function CategoryIntelligence() {
       <div className="mt-8 text-center">
         <p className="text-[10px] text-gray-400">Data sourced from IWSR, Euromonitor, DISCUS, OIV, and trade publications \u00b7 Updated quarterly</p>
       </div>
+
+      {/* Mobile BottomSheet for category detail */}
+      <BottomSheet
+        open={!!mobileDetail}
+        onClose={() => setMobileDetail(null)}
+        title={mobileDetail?.title || 'Detail'}
+      >
+        {mobileDetail?.content}
+      </BottomSheet>
     </div>
   )
 }

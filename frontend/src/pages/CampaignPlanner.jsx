@@ -7,10 +7,10 @@ import {
   Download, ExternalLink, Sparkles, Film, Camera, Image,
   FileText, Music, Mic, Star, Heart, Sun, Snowflake
 } from 'lucide-react'
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts'
+import { ResponsiveContainer, Tooltip } from 'recharts'
 import {
   PageHeader, MetricCard, Card, Section, BentoGrid, DrillDown,
-  TabGroup, FilterPills, DataTable
+  TabGroup, FilterPills, DataTable, EntityLink
 } from '../components/ui'
 import {
   BRANDS_BY_CATEGORY, CATEGORIES, SEGMENTS, BASE_SPIRITS,
@@ -646,15 +646,22 @@ const CampaignPlanner = () => {
 
       <Card>
         <h4 className="font-semibold text-xs text-gray-900 mb-4">Budget Allocation Breakdown</h4>
-        <ResponsiveContainer width="100%" height={250}>
-          <PieChart>
-            <Pie data={allocationData} cx="50%" cy="50%" labelLine={false}
-              label={({ name, value }) => `${name}: ${value.toFixed(0)}%`} outerRadius={80} fill="#8884d8" dataKey="value">
-              {allocationData.map((entry, index) => <Cell key={`cell-${index}`} fill={entry.color} />)}
-            </Pie>
-            <Tooltip formatter={(value) => `${value.toFixed(1)}%`} />
-          </PieChart>
-        </ResponsiveContainer>
+        <div className="space-y-2">
+          {allocationData.map((entry, index) => (
+            <div key={index}>
+              <div className="flex items-center justify-between text-[11px] mb-0.5">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: entry.color }} />
+                  <span className="text-gray-700">{entry.name}</span>
+                </div>
+                <span className="font-semibold text-navy">{entry.value.toFixed(1)}%</span>
+              </div>
+              <div className="h-3 bg-gray-100 rounded-full overflow-hidden">
+                <div className="h-full rounded-full transition-all" style={{ width: `${entry.value}%`, backgroundColor: entry.color }} />
+              </div>
+            </div>
+          ))}
+        </div>
       </Card>
 
       <DrillDown title="Channel Metrics & Impact" summary="Estimated reach and volume by channel">

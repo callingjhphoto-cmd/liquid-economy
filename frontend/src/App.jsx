@@ -1,6 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, Link, Navigate, useLocation } from 'react-router-dom'
-import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, LogOut, Menu, MessageCircle, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag, Crosshair, ChevronDown, ChevronRight, Target, Loader2, Search, BarChart3, Store, Lightbulb } from 'lucide-react'
+import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, LogOut, Menu, MessageCircle, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag, Crosshair, ChevronDown, ChevronRight, Target, Loader2, Search, BarChart3, Store, Lightbulb, Calculator } from 'lucide-react'
 import { useLiveData } from './context/LiveDataContext'
 import { api, getToken, setToken, clearToken } from './lib/api'
 import ChatPanel from './components/ChatPanel'
@@ -21,6 +21,7 @@ const POSIntelligence = lazy(() => import('./pages/POSIntelligence'))
 const CategoryCommandView = lazy(() => import('./pages/CategoryCommandView'))
 const ScenarioModeling = lazy(() => import('./pages/ScenarioModeling'))
 const CampaignPlanner = lazy(() => import('./pages/CampaignPlanner'))
+const MarginCalculator = lazy(() => import('./pages/MarginCalculator'))
 
 /* Route metadata for breadcrumbs */
 const routeMeta = {
@@ -36,6 +37,7 @@ const routeMeta = {
   '/venues': { label: 'Venue Intelligence', group: 'Retail' },
   '/scenario': { label: 'Scenario Modelling', group: 'Retail' },
   '/campaigns': { label: 'Campaign Planner', group: 'Retail' },
+  '/margin': { label: 'Margin Calculator', group: 'Tools' },
   '/reports': { label: 'Report Builder', group: 'Intelligence' },
 }
 
@@ -312,6 +314,11 @@ function Layout({ onLogout }) {
               <NavItem to="/campaigns" icon={Target} label="Campaign Planner" />
             </NavGroup>
 
+            {/* Tools */}
+            <NavGroup title="Tools">
+              <NavItem to="/margin" icon={Calculator} label="Margin Calculator" />
+            </NavGroup>
+
             {/* Intelligence */}
             <NavGroup title="Intelligence">
               <NavItem to="/reports" icon={FileText} label="Report Builder" />
@@ -373,6 +380,7 @@ function Layout({ onLogout }) {
               <Route path="/pos" element={<POSIntelligence />} />
               <Route path="/scenario" element={<ScenarioModeling />} />
               <Route path="/campaigns" element={<CampaignPlanner />} />
+              <Route path="/margin" element={<MarginCalculator />} />
               <Route path="/reports" element={<ReportBuilder />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>

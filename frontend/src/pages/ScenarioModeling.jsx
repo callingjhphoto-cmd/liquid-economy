@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react'
 import {
-  BarChart, Bar, PieChart as RechartsPie, Pie, Cell,
+  BarChart, Bar,
   ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid
 } from 'recharts'
 import {
@@ -10,7 +10,7 @@ import {
 } from 'lucide-react'
 import {
   Card, MetricCard, PageHeader, BentoGrid, DataTable, ChartCard,
-  DrillDown, Badge, SectionHeader, SourceList, TabGroup, FilterBar
+  DrillDown, Badge, SectionHeader, SourceList, TabGroup, FilterBar, EntityLink
 } from '../components/ui'
 import {
   PRODUCT_CATEGORIES, TARGET_MARKETS, MANUFACTURING_ORIGINS,
@@ -368,25 +368,21 @@ export default function ScenarioModeling() {
                     <Card key={mId} padding="p-3">
                       <p className="text-xs font-semibold text-navy mb-0.5">{m.flag} {m.label}</p>
                       <p className="text-[9px] text-gray-400 mb-2">Pop: {m.pop} \u00b7 Market: {m.spiritsMarket}</p>
-                      <div className="flex items-center gap-3">
-                        <ResponsiveContainer width={60} height={60}>
-                          <RechartsPie>
-                            <Pie data={channelData} dataKey="value" cx="50%" cy="50%" innerRadius={15} outerRadius={28} paddingAngle={2}>
-                              {channelData.map((c, j) => <Cell key={j} fill={c.fill} />)}
-                            </Pie>
-                          </RechartsPie>
-                        </ResponsiveContainer>
-                        <div className="flex-1 space-y-1">
-                          {channelData.map((c, j) => (
-                            <div key={j} className="flex items-center justify-between text-[9px]">
+                      <div className="space-y-1.5">
+                        {channelData.map((c, j) => (
+                          <div key={j}>
+                            <div className="flex items-center justify-between text-[9px] mb-0.5">
                               <div className="flex items-center gap-1">
-                                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: c.fill }} />
+                                <div className="w-2 h-2 rounded-sm" style={{ backgroundColor: c.fill }} />
                                 <span className="text-gray-500">{c.name}</span>
                               </div>
                               <span className="font-medium text-navy">{c.value}%</span>
                             </div>
-                          ))}
-                        </div>
+                            <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                              <div className="h-full rounded-full" style={{ width: `${c.value}%`, backgroundColor: c.fill }} />
+                            </div>
+                          </div>
+                        ))}
                       </div>
                     </Card>
                   )
@@ -847,13 +843,15 @@ function BudgetTierCards() {
                 <p className="text-lg font-bold text-navy mt-1">{tier.budget}</p>
                 <p className="text-[9px] text-gray-400">{tier.duration} campaign</p>
               </div>
-              <ResponsiveContainer width={70} height={70}>
-                <RechartsPie>
-                  <Pie data={pieData} dataKey="value" cx="50%" cy="50%" innerRadius={18} outerRadius={30} paddingAngle={2}>
-                    {pieData.map((_, j) => <Cell key={j} fill={PIE_COLORS[j % PIE_COLORS.length]} />)}
-                  </Pie>
-                </RechartsPie>
-              </ResponsiveContainer>
+              <div className="w-[70px] space-y-1">
+                {pieData.map((entry, j) => (
+                  <div key={j} className="flex items-center gap-1 text-[8px]">
+                    <div className="w-1.5 h-1.5 rounded-sm flex-shrink-0" style={{ backgroundColor: PIE_COLORS[j % PIE_COLORS.length] }} />
+                    <span className="text-gray-500 truncate">{entry.name}</span>
+                    <span className="font-medium text-navy ml-auto">{entry.value}%</span>
+                  </div>
+                ))}
+              </div>
             </div>
             <p className="text-[10px] text-gray-500 mb-2">{tier.bestFor}</p>
             <div className="text-[9px] text-gray-400 mb-1">Reach: <span className="font-medium text-navy">{tier.reach}</span></div>

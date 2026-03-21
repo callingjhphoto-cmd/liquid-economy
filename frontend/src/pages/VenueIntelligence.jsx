@@ -913,7 +913,8 @@ export default function VenueIntelligence() {
               {/* City dominance heatmap */}
               <Card>
                 <h4 className="text-sm font-semibold text-navy mb-3">City Representation Heatmap</h4>
-                <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+                <div className="relative">
+                  <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
                   <table className="w-full text-xs min-w-[500px]">
                     <thead>
                       <tr className="border-b border-gray-200">
@@ -940,6 +941,8 @@ export default function VenueIntelligence() {
                       ))}
                     </tbody>
                   </table>
+                  </div>
+                  <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent sm:hidden" />
                 </div>
               </Card>
             </div>

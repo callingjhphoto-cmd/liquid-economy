@@ -43,14 +43,14 @@ export function PageHeader({
       )}
 
       {/* Title Row */}
-      <div className="flex items-start justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
         <div>
           <h1 className="font-display text-page text-navy">{title}</h1>
           {subtitle && (
             <p className="text-caption text-gray-500 mt-1 max-w-2xl">{subtitle}</p>
           )}
         </div>
-        {action && <div className="flex-shrink-0 ml-4">{action}</div>}
+        {action && <div className="flex-shrink-0">{action}</div>}
       </div>
     </div>
   )

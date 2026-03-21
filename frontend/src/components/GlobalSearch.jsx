@@ -23,17 +23,17 @@ const PAGES = [
 ]
 
 const CATEGORIES = [
-  { type: 'category', label: 'Tequila & Mezcal', path: '/category/tequila', keywords: ['tequila', 'mezcal', 'agave', 'jose cuervo', 'patron', 'don julio', 'casamigos'] },
-  { type: 'category', label: 'Vodka', path: '/category/vodka', keywords: ['vodka', 'grey goose', 'belvedere', 'absolut', 'smirnoff', 'ketel one'] },
-  { type: 'category', label: 'Gin', path: '/category/gin', keywords: ['gin', 'hendricks', 'tanqueray', 'bombay', 'beefeater', 'monkey 47'] },
-  { type: 'category', label: 'Whisky', path: '/category/whisky', keywords: ['whisky', 'whiskey', 'scotch', 'bourbon', 'japanese', 'johnnie walker', 'macallan', 'glenfiddich'] },
-  { type: 'category', label: 'Rum', path: '/category/rum', keywords: ['rum', 'bacardi', 'havana club', 'diplomatico', 'appleton', 'mount gay'] },
-  { type: 'category', label: 'Cognac & Brandy', path: '/category/cognac', keywords: ['cognac', 'brandy', 'hennessy', 'remy martin', 'courvoisier', 'martell'] },
-  { type: 'category', label: 'Champagne & Sparkling', path: '/category/champagne', keywords: ['champagne', 'sparkling', 'prosecco', 'cava', 'moet', 'veuve clicquot', 'dom perignon'] },
-  { type: 'category', label: 'Wine', path: '/category/wine', keywords: ['wine', 'red', 'white', 'rose', 'natural', 'organic', 'bordeaux', 'burgundy'] },
-  { type: 'category', label: 'Beer & Cider', path: '/category/beer', keywords: ['beer', 'cider', 'craft', 'lager', 'ale', 'ipa', 'stout'] },
-  { type: 'category', label: 'No & Low Alcohol', path: '/category/nolo', keywords: ['nolo', 'no alcohol', 'low alcohol', 'non alcoholic', 'seedlip', 'lyre'] },
-  { type: 'category', label: 'RTD & Hard Seltzer', path: '/category/rtd', keywords: ['rtd', 'ready to drink', 'hard seltzer', 'white claw', 'high noon'] },
+  { type: 'category', label: 'Tequila & Mezcal', path: '/categories?category=tequila', keywords: ['tequila', 'mezcal', 'agave', 'jose cuervo', 'patron', 'don julio', 'casamigos'] },
+  { type: 'category', label: 'Vodka', path: '/categories?category=vodka', keywords: ['vodka', 'grey goose', 'belvedere', 'absolut', 'smirnoff', 'ketel one'] },
+  { type: 'category', label: 'Gin', path: '/categories?category=gin', keywords: ['gin', 'hendricks', 'tanqueray', 'bombay', 'beefeater', 'monkey 47'] },
+  { type: 'category', label: 'Whisky', path: '/categories?category=whisky', keywords: ['whisky', 'whiskey', 'scotch', 'bourbon', 'japanese', 'johnnie walker', 'macallan', 'glenfiddich'] },
+  { type: 'category', label: 'Rum', path: '/categories?category=rum', keywords: ['rum', 'bacardi', 'havana club', 'diplomatico', 'appleton', 'mount gay'] },
+  { type: 'category', label: 'Cognac & Brandy', path: '/categories?category=cognac', keywords: ['cognac', 'brandy', 'hennessy', 'remy martin', 'courvoisier', 'martell'] },
+  { type: 'category', label: 'Champagne & Sparkling', path: '/categories?category=champagne', keywords: ['champagne', 'sparkling', 'prosecco', 'cava', 'moet', 'veuve clicquot', 'dom perignon'] },
+  { type: 'category', label: 'Wine', path: '/categories?category=wine', keywords: ['wine', 'red', 'white', 'rose', 'natural', 'organic', 'bordeaux', 'burgundy'] },
+  { type: 'category', label: 'Beer & Cider', path: '/categories?category=beer', keywords: ['beer', 'cider', 'craft', 'lager', 'ale', 'ipa', 'stout'] },
+  { type: 'category', label: 'No & Low Alcohol', path: '/categories?category=nolo', keywords: ['nolo', 'no alcohol', 'low alcohol', 'non alcoholic', 'seedlip', 'lyre'] },
+  { type: 'category', label: 'RTD & Hard Seltzer', path: '/categories?category=rtd', keywords: ['rtd', 'ready to drink', 'hard seltzer', 'white claw', 'high noon'] },
 ]
 
 const BRANDS = [

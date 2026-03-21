@@ -1,5 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react'
-import { BrowserRouter, Routes, Route, Link, Navigate, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link, Navigate, useLocation, useParams } from 'react-router-dom'
 import { LayoutDashboard, TrendingUp, DollarSign, Building2, Download, LogOut, Menu, MessageCircle, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag, Crosshair, ChevronDown, ChevronRight, Target, Loader2, Search, BarChart3, Store, Lightbulb, Calculator, MoreHorizontal, Rocket } from 'lucide-react'
 import { useLiveData } from './context/LiveDataContext'
 import { api, getToken, setToken, clearToken } from './lib/api'
@@ -19,7 +19,6 @@ const CategoryIntelligence = lazy(() => import('./pages/CategoryIntelligence'))
 const VenueIntelligence = lazy(() => import('./pages/VenueIntelligence'))
 const ClimateYield = lazy(() => import('./pages/ClimateYield'))
 const POSIntelligence = lazy(() => import('./pages/POSIntelligence'))
-const CategoryCommandView = lazy(() => import('./pages/CategoryCommandView'))
 const ScenarioModeling = lazy(() => import('./pages/ScenarioModeling'))
 const CampaignPlanner = lazy(() => import('./pages/CampaignPlanner'))
 const MarginCalculator = lazy(() => import('./pages/MarginCalculator'))
@@ -42,6 +41,12 @@ const routeMeta = {
   '/pos': { label: 'POS Manufacturing', group: 'Tools' },
 }
 
+/** Redirect legacy /category/:id routes to /categories?category=:id */
+function CategoryRedirect() {
+  const { categoryId } = useParams()
+  return <Navigate to={`/categories?category=${categoryId}`} replace />
+}
+
 function PageLoader() {
   return (
     <div className="flex items-center justify-center h-64">
@@ -54,20 +59,13 @@ function Breadcrumb() {
   const location = useLocation()
   const path = location.pathname
 
-  /* Handle dynamic routes like /category/:id */
-  const isCategory = path.startsWith('/category/')
   const meta = routeMeta[path]
 
   if (path === '/') return null
 
   const crumbs = [{ label: 'Dashboard', to: '/' }]
 
-  if (isCategory) {
-    const slug = path.split('/').pop()
-    const name = slug.charAt(0).toUpperCase() + slug.slice(1)
-    crumbs.push({ label: 'Category Intelligence', to: '/categories' })
-    crumbs.push({ label: name, to: path })
-  } else if (meta) {
+  if (meta) {
     if (meta.group !== 'Dashboard') {
       crumbs.push({ label: meta.group })
     }
@@ -106,7 +104,7 @@ function BottomTabBar() {
     <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-t border-gray-200/80 lg:hidden" style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}>
       <div className="flex items-center justify-around h-14">
         {tabs.map(tab => {
-          const active = tab.match.includes(path) || (tab.match[0] === '/categories' && path.startsWith('/category/'))
+          const active = tab.match.includes(path)
           return (
             <Link key={tab.label} to={tab.to} className={`flex flex-col items-center justify-center gap-0.5 min-h-[44px] min-w-[44px] px-3 py-1.5 transition-colors touch-manipulation ${active ? 'text-navy' : 'text-gray-400'}`}>
               <tab.icon size={20} strokeWidth={active ? 2 : 1.5} />
@@ -325,20 +323,12 @@ function Layout({ onLogout }) {
               <span>Search</span>
               <kbd className="ml-auto text-[11px] text-gray-400 bg-gray-100 px-1.5 py-0.5 rounded font-mono">{'\u2318'}K</kbd>
             </button>
-            <div className="relative group">
-              <button disabled className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 cursor-not-allowed w-full text-left text-[13px] font-medium">
-                <MessageCircle size={15} />
-                <span>Analyst Chat</span>
-                <span className="ml-auto text-[11px] bg-gray-100 text-gray-400 px-1.5 py-0.5 rounded-full font-medium">Soon</span>
-              </button>
-            </div>
-            <div className="relative group">
-              <button disabled className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 cursor-not-allowed w-full text-left text-[13px] font-medium">
-                <Download size={15} />
-                <span>Export Tracker</span>
-                <span className="ml-auto text-[11px] bg-gray-100 text-gray-400 px-1.5 py-0.5 rounded-full font-medium">Soon</span>
-              </button>
-            </div>
+            <NavGroup title="Coming Soon" defaultOpen={false}>
+              <div className="px-3 py-2 text-[11px] text-gray-400">
+                <p>Analyst Chat and Export Tracker are in development.</p>
+                <a href="mailto:james@huertas.co.uk" className="text-navy hover:underline">Join the waitlist {'\u2192'}</a>
+              </div>
+            </NavGroup>
             <button onClick={onLogout} className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-500 hover:text-red-500 hover:bg-red-50 w-full text-left text-[13px] font-medium">
               <LogOut size={15} />
               <span>Sign Out</span>
@@ -372,7 +362,7 @@ function Layout({ onLogout }) {
               <Route path="/supply-chain" element={<SupplyChain />} />
               <Route path="/geographic" element={<GeographicIntelligence />} />
               <Route path="/categories" element={<CategoryIntelligence />} />
-              <Route path="/category/:categoryId" element={<CategoryCommandView />} />
+              <Route path="/category/:categoryId" element={<CategoryRedirect />} />
               <Route path="/venues" element={<VenueIntelligence />} />
               <Route path="/valuations" element={<Valuations />} />
               <Route path="/pricing" element={<BrandPricing />} />

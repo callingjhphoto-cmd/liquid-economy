@@ -514,8 +514,8 @@ const CampaignPlanner = () => {
           </div>
         </Card>
 
-        {/* Competitive Landscape */}
-        <DrillDown title="Competitive Landscape" summary={`${competitors.length} competitors identified in ${CATEGORIES.find(c => c.id === campaignData.category)?.label || 'category'}`} defaultOpen>
+        {/* Competitive Landscape (advanced - collapsed by default) */}
+        <DrillDown title="Advanced: Competitive Landscape" summary={`${competitors.length} competitors identified in ${CATEGORIES.find(c => c.id === campaignData.category)?.label || 'category'}`}>
           {competitors.length > 0 ? (
             <div className="space-y-2">
               {competitors.map((comp, idx) => (
@@ -689,67 +689,72 @@ const CampaignPlanner = () => {
         </div>
       </DrillDown>
 
-      {/* Sub-allocation DrillDowns */}
-      {campaignData.digital > 0 && (
-        <DrillDown title="Digital/Social Sub-Allocation" summary={`Meta/IG ${campaignData.metaInstagram.toFixed(0)}% | TikTok ${campaignData.tiktok.toFixed(0)}% | YouTube ${campaignData.youtube.toFixed(0)}%`}>
-          {[
-            { key: 'metaInstagram', label: 'Meta/Instagram' },
-            { key: 'tiktok', label: 'TikTok' },
-            { key: 'youtube', label: 'YouTube' },
-            { key: 'influencer', label: 'Influencer/KOL' },
-          ].map(({ key, label }) => (
-            <div key={key} className="space-y-2 mb-3 last:mb-0">
-              <div className="flex items-center justify-between">
-                <label className="text-xs font-semibold text-gray-900">{label}</label>
-                <span className="text-xs font-bold text-gray-900">{campaignData[key].toFixed(1)}%</span>
+      {/* Advanced: Sub-allocation sliders (collapsed by default to reduce complexity) */}
+      <DrillDown title="Advanced: Channel Sub-Allocation" summary="Fine-tune digital platform splits, on-trade/off-trade breakdowns">
+        <div className="space-y-6">
+          {campaignData.digital > 0 && (
+            <div>
+              <h5 className="text-xs font-semibold text-navy mb-3">Digital/Social Split</h5>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                {[
+                  { key: 'metaInstagram', label: 'Meta/IG' },
+                  { key: 'tiktok', label: 'TikTok' },
+                  { key: 'youtube', label: 'YouTube' },
+                  { key: 'influencer', label: 'Influencer' },
+                ].map(({ key, label }) => (
+                  <div key={key} className="bg-blue-50 rounded-lg p-2 text-center">
+                    <p className="text-xs font-bold text-blue-900">{campaignData[key].toFixed(0)}%</p>
+                    <p className="text-[10px] text-blue-700">{label}</p>
+                    <input type="range" min="0" max="100" step="1" value={campaignData[key]}
+                      onChange={(e) => handleSubSliderChange('digital', key, parseFloat(e.target.value))}
+                      className="w-full h-1.5 mt-1 bg-blue-200 rounded-lg appearance-none cursor-pointer accent-blue-600" />
+                  </div>
+                ))}
               </div>
-              <input type="range" min="0" max="100" step="0.1" value={campaignData[key]}
-                onChange={(e) => handleSubSliderChange('digital', key, parseFloat(e.target.value))}
-                className="w-full h-2 bg-blue-200 rounded-lg appearance-none cursor-pointer accent-blue-600" />
             </div>
-          ))}
-        </DrillDown>
-      )}
-
-      {campaignData.onTrade > 0 && (
-        <DrillDown title="On-Trade Sub-Allocation" summary={`Bars ${campaignData.barActivations.toFixed(0)}% | Restaurants ${campaignData.restaurantPartnerships.toFixed(0)}%`}>
-          {[
-            { key: 'barActivations', label: 'Bar Activations' },
-            { key: 'restaurantPartnerships', label: 'Restaurant Partnerships' },
-            { key: 'festivalSponsorship', label: 'Festival Sponsorship' },
-          ].map(({ key, label }) => (
-            <div key={key} className="space-y-2 mb-3 last:mb-0">
-              <div className="flex items-center justify-between">
-                <label className="text-xs font-semibold text-gray-900">{label}</label>
-                <span className="text-xs font-bold text-gray-900">{campaignData[key].toFixed(1)}%</span>
+          )}
+          {campaignData.onTrade > 0 && (
+            <div>
+              <h5 className="text-xs font-semibold text-navy mb-3">On-Trade Split</h5>
+              <div className="grid grid-cols-3 gap-3">
+                {[
+                  { key: 'barActivations', label: 'Bar Activations' },
+                  { key: 'restaurantPartnerships', label: 'Restaurant' },
+                  { key: 'festivalSponsorship', label: 'Festival' },
+                ].map(({ key, label }) => (
+                  <div key={key} className="bg-gold/10 rounded-lg p-2 text-center">
+                    <p className="text-xs font-bold text-navy">{campaignData[key].toFixed(0)}%</p>
+                    <p className="text-[10px] text-gray-600">{label}</p>
+                    <input type="range" min="0" max="100" step="1" value={campaignData[key]}
+                      onChange={(e) => handleSubSliderChange('onTrade', key, parseFloat(e.target.value))}
+                      className="w-full h-1.5 mt-1 bg-gold/30 rounded-lg appearance-none cursor-pointer accent-gold" />
+                  </div>
+                ))}
               </div>
-              <input type="range" min="0" max="100" step="0.1" value={campaignData[key]}
-                onChange={(e) => handleSubSliderChange('onTrade', key, parseFloat(e.target.value))}
-                className="w-full h-2 bg-gold/30 rounded-lg appearance-none cursor-pointer accent-gold" />
             </div>
-          ))}
-        </DrillDown>
-      )}
-
-      {campaignData.offTrade > 0 && (
-        <DrillDown title="Off-Trade Sub-Allocation" summary={`Supermarket ${campaignData.supermarketPromo.toFixed(0)}% | Specialist ${campaignData.specialistRetailer.toFixed(0)}%`}>
-          {[
-            { key: 'supermarketPromo', label: 'Supermarket Promotions' },
-            { key: 'specialistRetailer', label: 'Specialist Retailer Displays' },
-            { key: 'ecommerce', label: 'E-commerce' },
-          ].map(({ key, label }) => (
-            <div key={key} className="space-y-2 mb-3 last:mb-0">
-              <div className="flex items-center justify-between">
-                <label className="text-xs font-semibold text-gray-900">{label}</label>
-                <span className="text-xs font-bold text-gray-900">{campaignData[key].toFixed(1)}%</span>
+          )}
+          {campaignData.offTrade > 0 && (
+            <div>
+              <h5 className="text-xs font-semibold text-navy mb-3">Off-Trade Split</h5>
+              <div className="grid grid-cols-3 gap-3">
+                {[
+                  { key: 'supermarketPromo', label: 'Supermarket' },
+                  { key: 'specialistRetailer', label: 'Specialist' },
+                  { key: 'ecommerce', label: 'E-commerce' },
+                ].map(({ key, label }) => (
+                  <div key={key} className="bg-green-50 rounded-lg p-2 text-center">
+                    <p className="text-xs font-bold text-green-900">{campaignData[key].toFixed(0)}%</p>
+                    <p className="text-[10px] text-green-700">{label}</p>
+                    <input type="range" min="0" max="100" step="1" value={campaignData[key]}
+                      onChange={(e) => handleSubSliderChange('offTrade', key, parseFloat(e.target.value))}
+                      className="w-full h-1.5 mt-1 bg-green-200 rounded-lg appearance-none cursor-pointer accent-green-600" />
+                  </div>
+                ))}
               </div>
-              <input type="range" min="0" max="100" step="0.1" value={campaignData[key]}
-                onChange={(e) => handleSubSliderChange('offTrade', key, parseFloat(e.target.value))}
-                className="w-full h-2 bg-green-200 rounded-lg appearance-none cursor-pointer accent-green-600" />
             </div>
-          ))}
-        </DrillDown>
-      )}
+          )}
+        </div>
+      </DrillDown>
     </div>
   )
 

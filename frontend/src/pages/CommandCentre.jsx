@@ -264,6 +264,7 @@ function CategoryPerformance() {
         <SectionHeader size="md">Category Performance</SectionHeader>
         <ChannelLegend />
       </div>
+      <div className="relative">
       <div className="flex gap-3 overflow-x-auto pb-2 -mx-1 px-1 scrollbar-thin">
         {CATEGORY_SNAPSHOT.map((cat) => {
           const isUp = cat.dir === 'up'
@@ -290,6 +291,8 @@ function CategoryPerformance() {
             </Link>
           )
         })}
+      </div>
+      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent sm:hidden" />
       </div>
     </div>
   )

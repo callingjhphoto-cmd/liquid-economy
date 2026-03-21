@@ -808,6 +808,7 @@ export default function CategoryIntelligence() {
         </div>
 
         {/* Quick category nav strip */}
+        <div className="relative">
         <div className="flex gap-1.5 overflow-x-auto pb-3 mb-4 scrollbar-hide whitespace-nowrap -mx-1 px-1">
           {CATEGORIES.map(cat => (
             <button
@@ -823,6 +824,8 @@ export default function CategoryIntelligence() {
               {cat.label}
             </button>
           ))}
+        </div>
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent sm:hidden" />
         </div>
 
         {/* Category Detail */}

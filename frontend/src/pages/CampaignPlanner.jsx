@@ -665,7 +665,8 @@ const CampaignPlanner = () => {
       </Card>
 
       <DrillDown title="Channel Metrics & Impact" summary="Estimated reach and volume by channel">
-        <div className="overflow-x-auto">
+        <div className="relative">
+          <div className="overflow-x-auto">
           <table className="w-full text-xs">
             <thead className="bg-gray-50 border-b border-gray-200">
               <tr>
@@ -686,6 +687,8 @@ const CampaignPlanner = () => {
               ))}
             </tbody>
           </table>
+          </div>
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent sm:hidden" />
         </div>
       </DrillDown>
 

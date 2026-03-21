@@ -241,6 +241,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
       </div>
 
       {/* Section tabs */}
+      <div className="relative">
       <div className="flex gap-1 px-5 pt-3 pb-0 overflow-x-auto whitespace-nowrap">
         {sections.map(s => (
           <button
@@ -255,6 +256,8 @@ function CompanyTier2({ company, onViewFull, onClose }) {
             {s.label}
           </button>
         ))}
+      </div>
+      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent sm:hidden" />
       </div>
 
       {/* Section content */}
@@ -531,6 +534,7 @@ function CompanyTier3({ company, onClose }) {
         </div>
 
         {/* Tab nav */}
+        <div className="relative">
         <div className="flex gap-1 px-4 sm:px-6 py-2 border-b border-gray-100 overflow-x-auto whitespace-nowrap">
           {tabs.map(t => (
             <button
@@ -543,6 +547,8 @@ function CompanyTier3({ company, onClose }) {
               {t.label}
             </button>
           ))}
+        </div>
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent sm:hidden" />
         </div>
 
         {/* Tab content */}

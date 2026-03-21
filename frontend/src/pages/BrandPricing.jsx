@@ -276,6 +276,7 @@ function CategoryExpanded({ category, onClose }) {
             <h2 className="font-display text-lg font-semibold text-navy">{category}</h2>
             <p className="text-xs text-gray-500">{items.length} expressions tracked across {TOTAL_MARKETS} markets</p>
           </div>
+          <div className="relative">
           <div className="flex items-center gap-3 overflow-x-auto">
             <TabGroup
               tabs={Object.entries(MARKET_CONFIG).map(([key, cfg]) => ({
@@ -293,6 +294,8 @@ function CategoryExpanded({ category, onClose }) {
               <X size={16} />
             </button>
           </div>
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent sm:hidden" />
+          </div>
         </div>
 
         {/* Tiered Brand List */}
@@ -306,6 +309,7 @@ function CategoryExpanded({ category, onClose }) {
                   </span>
                   <span className="text-[10px] text-gray-400">{brands.length} expressions</span>
                 </div>
+                <div className="relative">
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
@@ -347,6 +351,8 @@ function CategoryExpanded({ category, onClose }) {
                       })}
                     </tbody>
                   </table>
+                </div>
+                <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent sm:hidden" />
                 </div>
               </div>
             )

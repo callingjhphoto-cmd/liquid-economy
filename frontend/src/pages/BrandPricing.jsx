@@ -367,7 +367,7 @@ function CategoryExpanded({ category, onClose }) {
         height={280}
         source="Aggregated retailer pricing"
       >
-        <BarChart data={chartData} layout="vertical" margin={{ left: 10, right: 30, top: 5, bottom: 5 }}>
+        <BarChart data={chartData} layout="vertical" margin={{ left: 10, right: 30, top: 5, bottom: 5 }} accessibilityLayer>
           <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
           <XAxis type="number" tick={{ fontSize: 10 }} tickFormatter={v => `${config.currency}${v}`} />
           <YAxis type="category" dataKey="name" tick={{ fontSize: 10 }} width={140} />

@@ -331,7 +331,7 @@ function MarketTrendChart({ catKey }) {
   if (!data.length) return null
   return (
     <ChartCard title="5-Year Market Trend" subtitle="Market size ($B) \u00b7 2021\u20132025" source="IWSR / Euromonitor">
-      <AreaChart data={data}>
+      <AreaChart data={data} accessibilityLayer>
         <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
         <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#9CA3AF' }} />
         <YAxis tick={{ fontSize: 11, fill: '#9CA3AF' }} tickFormatter={v => `$${v}B`} width={55} />
@@ -362,7 +362,7 @@ function ChannelChart({ catKey }) {
 
   return (
     <ChartCard title="Channel Distribution" subtitle="% share by channel \u00b7 2021\u20132025" source="IWSR">
-      <BarChart data={data}>
+      <BarChart data={data} accessibilityLayer>
         <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
         <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#9CA3AF' }} />
         <YAxis tick={{ fontSize: 11, fill: '#9CA3AF' }} tickFormatter={v => `${v}%`} width={45} />
@@ -434,7 +434,7 @@ function CategoryCard({ cat, year, isHero, onClick }) {
           {/* Sparkline */}
           <div className="w-16 h-8 opacity-60">
             <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={sparkData}>
+              <AreaChart data={sparkData} accessibilityLayer>
                 <Area type="monotone" dataKey="v" stroke="#1A1F36" fill="#1A1F36" fillOpacity={0.08} strokeWidth={1.5} dot={false} />
               </AreaChart>
             </ResponsiveContainer>
@@ -514,7 +514,7 @@ function CategoryDetail({ cat, year, onBack }) {
           <h2 className="font-display text-section text-navy">{cat.label}</h2>
           <div className="flex flex-wrap items-center gap-3 mt-1">
             <span className="text-lg font-semibold text-gray-700 tabular-nums">{yd.marketSize}</span>
-            <GrowthBadge value={yd.growth} />
+            <GrowthBadge value={yd.growth} showYoY />
             <span className="text-sm text-gray-500 tabular-nums">{yd.volumeCases} 9L cases</span>
           </div>
           <p className="mt-2 text-sm text-gray-500 leading-relaxed max-w-2xl">{cat.trajectory}</p>
@@ -724,70 +724,17 @@ export default function CategoryIntelligence() {
     }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Sync URL params when state changes — mobile gets BottomSheet preview
+  // Navigate directly to full category detail (mobile and desktop)
   const handleSelectCategory = useCallback((key) => {
-    if (window.innerWidth < 1024) {
-      const cat = CATEGORIES.find(c => c.key === key)
-      if (cat) {
-        const yd = cat.yearData[selectedYear]
-        setMobileDetail({
-          title: cat.label,
-          content: yd ? (
-            <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-2">
-                <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                  <div className="text-[10px] text-gray-500 uppercase">Market Size</div>
-                  <div className="text-sm font-bold text-navy">{yd.marketSize}</div>
-                </div>
-                <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                  <div className="text-[10px] text-gray-500 uppercase">Growth</div>
-                  <div className="text-sm font-bold"><GrowthBadge value={yd.growth} /></div>
-                </div>
-              </div>
-              {yd.topMarkets && yd.topMarkets.length > 0 && (
-                <div>
-                  <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1.5">Top Markets</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {yd.topMarkets.slice(0, 5).map((m, i) => (
-                      <span key={i} className="text-[10px] bg-gray-100 text-gray-700 px-2 py-0.5 rounded-full">{m.name} {m.growth}</span>
-                    ))}
-                  </div>
-                </div>
-              )}
-              {yd.trends && yd.trends.length > 0 && (
-                <div>
-                  <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1.5">Key Trends</p>
-                  <div className="space-y-1.5">
-                    {yd.trends.slice(0, 3).map((t, i) => (
-                      <p key={i} className="text-[10px] text-gray-600 leading-relaxed">{t.text}</p>
-                    ))}
-                  </div>
-                </div>
-              )}
-              <button
-                onClick={() => {
-                  setMobileDetail(null)
-                  setActiveCat(key)
-                  const next = new URLSearchParams(searchParams)
-                  next.set('category', key)
-                  next.set('year', String(selectedYear))
-                  setSearchParams(next, { replace: true })
-                }}
-                className="w-full py-2.5 min-h-[44px] bg-navy text-white rounded-xl text-xs font-medium touch-manipulation"
-              >
-                View Full Detail
-              </button>
-            </div>
-          ) : <p className="text-xs text-gray-500">No data for {selectedYear}</p>
-        })
-      }
-      return
-    }
     setActiveCat(key)
     const next = new URLSearchParams(searchParams)
     next.set('category', key)
     next.set('year', String(selectedYear))
     setSearchParams(next, { replace: true })
+    // Scroll to top on mobile for clean entry into detail view
+    if (window.innerWidth < 1024) {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
   }, [searchParams, setSearchParams, selectedYear])
 
   const handleBack = useCallback(() => {

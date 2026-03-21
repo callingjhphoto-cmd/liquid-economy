@@ -501,7 +501,7 @@ export default function VenueIntelligence() {
               {/* Region + City charts */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <ChartCard title={`Regional Distribution \u2014 ${selectedYear}`} height={240}>
-                  <BarChart data={regionAnalysis} layout="vertical">
+                  <BarChart data={regionAnalysis} layout="vertical" accessibilityLayer>
                     <XAxis type="number" />
                     <YAxis dataKey="name" type="category" width={120} tick={{ fontSize: 11 }} />
                     <Tooltip formatter={(val) => [`${val} bars (${Math.round(val / 50 * 100)}%)`]} />
@@ -512,7 +512,7 @@ export default function VenueIntelligence() {
                 </ChartCard>
 
                 <ChartCard title={`Top Cities by Entries \u2014 ${selectedYear}`} height={240}>
-                  <BarChart data={cityData} layout="vertical">
+                  <BarChart data={cityData} layout="vertical" accessibilityLayer>
                     <XAxis type="number" />
                     <YAxis dataKey="city" type="category" width={100} tick={{ fontSize: 11 }} />
                     <Tooltip />
@@ -666,7 +666,7 @@ export default function VenueIntelligence() {
 
               {/* Penetration chart */}
               <ChartCard title={`Parent Company Penetration: % of Top 50 Bars (${selectedYear})`} subtitle="Click a company bar for their full profile" height={280}>
-                <BarChart data={parentPenetration[selectedYear] || []} layout="vertical">
+                <BarChart data={parentPenetration[selectedYear] || []} layout="vertical" accessibilityLayer>
                   <XAxis type="number" domain={[0, 70]} tickFormatter={v => `${v}%`} />
                   <YAxis dataKey="name" type="category" width={140} tick={{ fontSize: 11 }} />
                   <Tooltip formatter={(val) => [`${val}%`, 'Penetration']} />
@@ -847,7 +847,7 @@ export default function VenueIntelligence() {
               {/* Charts */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <ChartCard title="Corporate vs Independent (2021\u20132025)" height={250}>
-                  <BarChart data={independentVsCorporate}>
+                  <BarChart data={independentVsCorporate} accessibilityLayer>
                     <XAxis dataKey="year" />
                     <YAxis domain={[0, 50]} />
                     <Tooltip />
@@ -858,7 +858,7 @@ export default function VenueIntelligence() {
                 </ChartCard>
 
                 <ChartCard title="Top 5 Penetration Trend (%)" height={250}>
-                  <LineChart data={penetrationTrend}>
+                  <LineChart data={penetrationTrend} accessibilityLayer>
                     <XAxis dataKey="year" />
                     <YAxis tickFormatter={v => `${v}%`} />
                     <Tooltip formatter={(val) => [`${val}%`]} />
@@ -897,7 +897,7 @@ export default function VenueIntelligence() {
           >
             <div className="space-y-6">
               <ChartCard title="Regional Representation in 50 Best Bars" height={300}>
-                <LineChart data={regionalTrend}>
+                <LineChart data={regionalTrend} accessibilityLayer>
                   <XAxis dataKey="year" />
                   <YAxis />
                   <Tooltip />

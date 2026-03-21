@@ -740,7 +740,7 @@ function CostWaterfall({ costs }) {
   return (
     <div className="space-y-4">
       <ChartCard title="Unit Economics Breakdown" subtitle="Cost waterfall from production to shelf (per unit, GBP)" height={220}>
-        <BarChart data={items} margin={{ top: 5, right: 5, bottom: 5, left: 5 }}>
+        <BarChart data={items} margin={{ top: 5, right: 5, bottom: 5, left: 5 }} accessibilityLayer>
           <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
           <XAxis dataKey="name" tick={{ fontSize: 9 }} />
           <YAxis tick={{ fontSize: 9 }} tickFormatter={v => `\u00a3${v.toFixed(2)}`} />

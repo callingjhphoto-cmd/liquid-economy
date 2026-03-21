@@ -517,7 +517,7 @@ export default function MarginCalculator() {
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <ChartCard title="Your Product vs Category Benchmarks" height={220}>
-            <BarChart data={comparisonData} layout="vertical">
+            <BarChart data={comparisonData} layout="vertical" accessibilityLayer>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis type="number" domain={[0, 70]} tick={{ fontSize: 10 }} tickFormatter={v => v + '%'} />
               <YAxis type="category" dataKey="name" width={80} tick={{ fontSize: 10, fill: '#6b7280' }} />
@@ -531,7 +531,7 @@ export default function MarginCalculator() {
           </ChartCard>
 
           <ChartCard title="Channel-Specific Margins" subtitle="Using category average RRP per channel" height={220}>
-            <BarChart data={channelChartData}>
+            <BarChart data={channelChartData} accessibilityLayer>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis dataKey="name" tick={{ fontSize: 10 }} />
               <YAxis tick={{ fontSize: 10 }} tickFormatter={v => v + '%'} />
@@ -569,7 +569,7 @@ export default function MarginCalculator() {
         summary="Visualise how costs stack from raw material to final margin"
       >
         <ChartCard title={'Cost Waterfall \u2014 ' + cat.label + ' (' + BOTTLE_SIZES[bottleSize].label + ')'} subtitle={'Target RRP: ' + fmt(targetRRP)} height={260}>
-          <BarChart data={waterfallData}>
+          <BarChart data={waterfallData} accessibilityLayer>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis dataKey="name" tick={{ fontSize: 9 }} interval={0} angle={-20} textAnchor="end" height={50} />
             <YAxis tick={{ fontSize: 10 }} tickFormatter={v => '\u00a3' + v} />
@@ -601,7 +601,7 @@ export default function MarginCalculator() {
             </div>
             <div className="h-52">
               <ResponsiveContainer width="100%" height="100%">
-                <RadarChart data={radarData}>
+                <RadarChart data={radarData} accessibilityLayer>
                   <PolarGrid stroke="#e5e7eb" />
                   <PolarAngleAxis dataKey="metric" tick={{ fontSize: 10, fill: '#6b7280' }} />
                   <PolarRadiusAxis angle={90} domain={[0, 100]} tick={false} axisLine={false} />

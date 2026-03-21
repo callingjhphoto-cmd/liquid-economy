@@ -42,7 +42,7 @@ function HeroMarketCard() {
       {/* Background sparkline */}
       <div className="absolute bottom-0 left-0 right-0 h-20 opacity-30">
         <ResponsiveContainer width="100%" height="100%">
-          <AreaChart data={sparkData} margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
+          <AreaChart data={sparkData} margin={{ top: 0, right: 0, bottom: 0, left: 0 }} accessibilityLayer>
             <defs>
               <linearGradient id="hero-grad" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor="#059669" stopOpacity={0.2} />
@@ -91,7 +91,7 @@ function MicroSparkline({ data, positive = true }) {
   const color = positive ? '#22c55e' : '#ef4444'
   return (
     <ResponsiveContainer width="100%" height={28}>
-      <AreaChart data={data} margin={{ top: 2, right: 0, bottom: 0, left: 0 }}>
+      <AreaChart data={data} margin={{ top: 2, right: 0, bottom: 0, left: 0 }} accessibilityLayer>
         <defs>
           <linearGradient id={`micro-${positive ? 'pos' : 'neg'}`} x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor={color} stopOpacity={0.15} />
@@ -281,7 +281,7 @@ function CategoryPerformance() {
               <div className="text-lg font-bold text-navy mb-1">{cat.size}</div>
               <div className="w-full h-6 mb-2">
                 <ResponsiveContainer width="100%" height="100%">
-                  <AreaChart data={cat.trend} margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
+                  <AreaChart data={cat.trend} margin={{ top: 0, right: 0, bottom: 0, left: 0 }} accessibilityLayer>
                     <Area type="monotone" dataKey="v" stroke={isUp ? '#22c55e' : '#ef4444'} strokeWidth={1.2} fill={isUp ? '#22c55e10' : '#ef444410'} dot={false} isAnimationActive={false} />
                   </AreaChart>
                 </ResponsiveContainer>
@@ -407,7 +407,7 @@ function GeographicHighlights() {
                 </div>
                 <div className="w-full h-5 mt-1">
                   <ResponsiveContainer width="100%" height="100%">
-                    <AreaChart data={r.trend} margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
+                    <AreaChart data={r.trend} margin={{ top: 0, right: 0, bottom: 0, left: 0 }} accessibilityLayer>
                       <Area type="monotone" dataKey="v" stroke={isUp ? '#22c55e' : '#ef4444'} strokeWidth={1} fill={isUp ? '#22c55e10' : '#ef444410'} dot={false} isAnimationActive={false} />
                     </AreaChart>
                   </ResponsiveContainer>

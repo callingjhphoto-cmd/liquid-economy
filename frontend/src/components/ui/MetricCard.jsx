@@ -40,7 +40,7 @@ export function MetricCard({
         {sparkData && sparkData.length > 0 && (
           <div className="w-16 h-8">
             <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={sparkData}>
+              <AreaChart data={sparkData} accessibilityLayer>
                 <Area
                   type="monotone"
                   dataKey="v"

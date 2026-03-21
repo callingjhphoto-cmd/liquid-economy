@@ -25,9 +25,10 @@ export function ChartCard({
   action,
   children,
   className = '',
+  'aria-label': ariaLabel,
 }) {
   return (
-    <div className={`bg-white rounded-xl shadow-sm border border-gray-100 p-5 ${className}`}>
+    <div role="figure" aria-label={ariaLabel || title} className={`bg-white rounded-xl shadow-sm border border-gray-100 p-5 ${className}`}>
       {/* Header */}
       <div className="flex items-start justify-between mb-4">
         <div>

@@ -561,7 +561,7 @@ function CompanyTier3({ company, onClose }) {
                   <SectionHeader size="md">5-Year Financial Trend</SectionHeader>
                   <div className="h-56 mt-3">
                     <ResponsiveContainer width="100%" height="100%">
-                      <LineChart data={chartData}>
+                      <LineChart data={chartData} accessibilityLayer>
                         <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                         <XAxis dataKey="year" tick={{ fontSize: 11 }} />
                         <YAxis tick={{ fontSize: 11 }} />

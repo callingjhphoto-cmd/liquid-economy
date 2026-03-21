@@ -126,7 +126,7 @@ function RegionCard({ region, onClick }) {
 
       <div className="h-16 mb-2">
         <ResponsiveContainer width="100%" height="100%">
-          <AreaChart data={miniData}>
+          <AreaChart data={miniData} accessibilityLayer>
             <Area type="monotone" dataKey="yield" stroke={region.color} fill={region.color} fillOpacity={0.15} strokeWidth={2} dot={false} />
           </AreaChart>
         </ResponsiveContainer>
@@ -221,7 +221,7 @@ function LiveWeatherPanel({ region }) {
 
       <div className="h-48 mt-4">
         <ResponsiveContainer width="100%" height="100%">
-          <ComposedChart data={chartData} margin={{ top: 5, right: 5, bottom: 5, left: 0 }}>
+          <ComposedChart data={chartData} margin={{ top: 5, right: 5, bottom: 5, left: 0 }} accessibilityLayer>
             <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
             <XAxis dataKey="date" tick={{ fontSize: 9 }} interval={4} />
             <YAxis yAxisId="temp" tick={{ fontSize: 9 }} domain={['auto', 'auto']} />
@@ -264,7 +264,7 @@ function YieldChart({ region }) {
       <p className="text-[10px] text-gray-500 mb-3">{region.yieldUnit}</p>
       <div className="h-52">
         <ResponsiveContainer width="100%" height="100%">
-          <ComposedChart data={data} margin={{ top: 5, right: 5, bottom: 5, left: 0 }}>
+          <ComposedChart data={data} margin={{ top: 5, right: 5, bottom: 5, left: 0 }} accessibilityLayer>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis dataKey="year" tick={{ fontSize: 10 }} />
             <YAxis tick={{ fontSize: 10 }} domain={['auto', 'auto']} />
@@ -308,14 +308,14 @@ function ClimateChart({ region }) {
             <div className="h-36">
               <ResponsiveContainer width="100%" height="100%">
                 {m.isLine ? (
-                  <LineChart data={data}>
+                  <LineChart data={data} accessibilityLayer>
                     <XAxis dataKey="year" tick={{ fontSize: 9 }} />
                     <YAxis tick={{ fontSize: 9 }} domain={['auto', 'auto']} />
                     <Tooltip contentStyle={{ fontSize: 10 }} />
                     <Line dataKey={m.key} stroke={m.color} strokeWidth={2} dot={{ r: 3 }} />
                   </LineChart>
                 ) : (
-                  <BarChart data={data}>
+                  <BarChart data={data} accessibilityLayer>
                     <XAxis dataKey="year" tick={{ fontSize: 9 }} />
                     <YAxis tick={{ fontSize: 9 }} />
                     <Tooltip contentStyle={{ fontSize: 10 }} />

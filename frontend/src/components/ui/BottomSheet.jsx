@@ -15,16 +15,67 @@ import React, { useState, useEffect, useRef, useCallback } from 'react'
 export function BottomSheet({ open, onClose, title, children }) {
   const sheetRef = useRef(null)
   const dragRef = useRef({ startY: 0, currentY: 0, dragging: false })
+  const triggerRef = useRef(null)
   const [visible, setVisible] = useState(false)
   const [closing, setClosing] = useState(false)
+
+  const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
 
   // Sync visibility with open prop
   useEffect(() => {
     if (open) {
+      // Remember the element that triggered the sheet so we can restore focus later
+      triggerRef.current = document.activeElement
       setVisible(true)
       setClosing(false)
     }
   }, [open])
+
+  // Focus trap: move focus into the sheet and cycle Tab within it
+  useEffect(() => {
+    if (!visible || closing || !sheetRef.current) return
+
+    // Small delay so the sheet DOM is fully rendered
+    const raf = requestAnimationFrame(() => {
+      if (!sheetRef.current) return
+      const focusable = sheetRef.current.querySelectorAll(FOCUSABLE)
+      if (focusable.length > 0) {
+        focusable[0].focus()
+      } else {
+        // If nothing focusable, make the sheet itself focusable
+        sheetRef.current.setAttribute('tabindex', '-1')
+        sheetRef.current.focus()
+      }
+    })
+
+    const handleKeyDown = (e) => {
+      if (e.key !== 'Tab' || !sheetRef.current) return
+
+      const focusable = Array.from(sheetRef.current.querySelectorAll(FOCUSABLE))
+      if (focusable.length === 0) return
+
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault()
+          last.focus()
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault()
+          first.focus()
+        }
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => {
+      cancelAnimationFrame(raf)
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [visible, closing])
 
   // Lock body scroll when visible
   useEffect(() => {
@@ -36,7 +87,7 @@ export function BottomSheet({ open, onClose, title, children }) {
     }
   }, [visible])
 
-  // Animate out then unmount
+  // Animate out then unmount, restoring focus to the trigger element
   const handleClose = useCallback(() => {
     if (closing) return
     setClosing(true)
@@ -44,6 +95,10 @@ export function BottomSheet({ open, onClose, title, children }) {
       setClosing(false)
       setVisible(false)
       onClose()
+      // Return focus to the element that opened the sheet
+      if (triggerRef.current && typeof triggerRef.current.focus === 'function') {
+        triggerRef.current.focus()
+      }
     }, 200)
   }, [closing, onClose])
 

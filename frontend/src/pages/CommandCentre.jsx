@@ -77,7 +77,7 @@ function HeroMarketCard() {
           Premiumisation continues to drive value growth. Super-premium segments up 6.8% while mainstream grows just 1.2%.
         </p>
 
-        <div className="flex items-center gap-1 mt-4 text-[10px] text-navy/60 group-hover:text-gold transition-colors">
+        <div className="flex items-center gap-1 mt-4 text-xs text-navy/60 group-hover:text-gold transition-colors">
           <span className="font-medium">Explore categories</span>
           <ChevronRight size={12} />
         </div>
@@ -182,7 +182,7 @@ function KpiSummaryCards() {
               <div className="p-1.5 rounded-lg bg-gray-50">
                 <kpi.icon size={14} className="text-navy" />
               </div>
-              <span className={`inline-flex items-center gap-0.5 text-[10px] font-semibold px-1.5 py-0.5 rounded-full ${
+              <span className={`inline-flex items-center gap-0.5 text-xs font-semibold px-1.5 py-0.5 rounded-full ${
                 kpi.dir === 'up' ? 'bg-emerald-50 text-emerald-600' : 'bg-red-50 text-red-500'
               }`}>
                 {kpi.dir === 'up' ? <ArrowUpRight size={10} /> : <ArrowDownRight size={10} />}
@@ -191,7 +191,7 @@ function KpiSummaryCards() {
             </div>
             <div className="text-lg font-bold text-navy leading-tight">{kpi.value}</div>
             <div className="text-label text-gray-400 uppercase tracking-wider mt-1">{kpi.label}</div>
-            <p className="text-[10px] text-gray-500 mt-1">{kpi.sub}</p>
+            <p className="text-xs text-gray-500 mt-1">{kpi.sub}</p>
           </div>
         </div>
       ))}
@@ -249,7 +249,7 @@ function ChannelLegend() {
       {items.map((it, i) => (
         <div key={i} className="flex items-center gap-1">
           <div className="w-3 h-3 rounded-full" style={{ backgroundColor: it.color }} />
-          <span className="text-[11px] text-gray-500">{it.label}</span>
+          <span className="text-xs text-gray-500">{it.label}</span>
         </div>
       ))}
     </div>
@@ -276,7 +276,7 @@ function CategoryPerformance() {
             >
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs font-semibold text-navy group-hover:text-gold transition-colors truncate">{cat.name}</span>
-                <span className={`text-[10px] font-bold ${isUp ? 'text-emerald-600' : 'text-red-500'}`}>{cat.growth} YoY</span>
+                <span className={`text-xs font-bold ${isUp ? 'text-emerald-600' : 'text-red-500'}`}>{cat.growth} YoY</span>
               </div>
               <div className="text-lg font-bold text-navy mb-1">{cat.size}</div>
               <div className="w-full h-6 mb-2">
@@ -287,7 +287,7 @@ function CategoryPerformance() {
                 </ResponsiveContainer>
               </div>
               <ChannelMiniBar channels={cat.channels} />
-              <p className="text-[11px] text-gray-500 mt-1.5 truncate">{cat.signal}</p>
+              <p className="text-xs text-gray-500 mt-1.5 truncate">{cat.signal}</p>
             </Link>
           )
         })}
@@ -312,7 +312,7 @@ function RecentMovers() {
                 <div className="flex items-start justify-between mb-1">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-1.5">
-                      <span className={`text-[8px] font-bold uppercase px-1.5 py-0.5 rounded-full ${
+                      <span className={`text-[10px] font-bold uppercase px-1.5 py-0.5 rounded-full ${
                         mover.type === 'category' ? 'bg-blue-50 text-blue-600' : 'bg-purple-50 text-purple-600'
                       }`}>{mover.type}</span>
                     </div>
@@ -323,7 +323,7 @@ function RecentMovers() {
                     {mover.change}
                   </span>
                 </div>
-                <p className="text-[10px] text-gray-500">{mover.context}</p>
+                <p className="text-xs text-gray-500">{mover.context}</p>
               </div>
             </Link>
           )
@@ -359,24 +359,24 @@ function PriceAlertsSummary() {
               <div className="bg-white rounded-xl border border-gray-100 p-3 hover:shadow-md transition-all group">
                 <div className="flex items-start justify-between mb-1">
                   <div className="flex-1 min-w-0">
-                    <span className={`text-[8px] font-bold uppercase px-1.5 py-0.5 rounded-full ${sev.bg} ${sev.text}`}>{sev.label}</span>
+                    <span className={`text-[10px] font-bold uppercase px-1.5 py-0.5 rounded-full ${sev.bg} ${sev.text}`}>{sev.label}</span>
                     <div className="text-xs font-semibold text-navy mt-1 group-hover:text-gold transition-colors">{alert.product}</div>
-                    <div className="text-[10px] text-gray-500">{alert.category} \u00b7 {alert.channel}</div>
+                    <div className="text-xs text-gray-500">{alert.category} \u00b7 {alert.channel}</div>
                   </div>
                   <div className="text-right flex-shrink-0 ml-2">
                     <div className="text-sm font-bold text-navy">{alert.pricePoint}</div>
-                    <span className={`text-[10px] font-semibold ${isUp ? 'text-red-500' : 'text-emerald-600'}`}>
+                    <span className={`text-xs font-semibold ${isUp ? 'text-red-500' : 'text-emerald-600'}`}>
                       {alert.change} ({alert.pctChange})
                     </span>
                   </div>
                 </div>
-                <p className="text-[10px] text-gray-500 mt-1">{alert.reason}</p>
+                <p className="text-xs text-gray-500 mt-1">{alert.reason}</p>
               </div>
             </Link>
           )
         })}
       </div>
-      <Link to="/pricing" className="inline-flex items-center gap-1 text-[10px] font-semibold text-editorial hover:text-navy transition-colors mt-2 no-underline">
+      <Link to="/pricing" className="inline-flex items-center gap-1 text-xs font-semibold text-editorial hover:text-navy transition-colors mt-2 no-underline">
         View all {PRICE_ALERTS.length} price movements
         <ChevronRight size={10} />
       </Link>
@@ -403,7 +403,7 @@ function GeographicHighlights() {
                 </div>
                 <div className="flex items-baseline gap-2">
                   <span className="text-lg font-bold text-navy">{r.value}</span>
-                  <span className={`text-[10px] font-semibold ${isUp ? 'text-emerald-600' : 'text-red-500'}`}>{r.growth}</span>
+                  <span className={`text-xs font-semibold ${isUp ? 'text-emerald-600' : 'text-red-500'}`}>{r.growth}</span>
                 </div>
                 <div className="w-full h-5 mt-1">
                   <ResponsiveContainer width="100%" height="100%">
@@ -412,7 +412,7 @@ function GeographicHighlights() {
                     </AreaChart>
                   </ResponsiveContainer>
                 </div>
-                <p className="text-[11px] text-gray-500 mt-1">{r.note}</p>
+                <p className="text-xs text-gray-500 mt-1">{r.note}</p>
               </div>
             </Link>
           )
@@ -433,7 +433,7 @@ function MarketSignalsFeed() {
     <div>
       <div className="flex items-center justify-between mb-3">
         <SectionHeader size="md" className="mb-0">Market Signals</SectionHeader>
-        <span className="text-[11px] font-semibold bg-red-50 text-red-600 px-2 py-0.5 rounded-full">
+        <span className="text-xs font-semibold bg-red-50 text-red-600 px-2 py-0.5 rounded-full">
           {MARKET_SIGNALS.filter(s => s.urgency === 'high').length} high priority
         </span>
       </div>
@@ -441,18 +441,18 @@ function MarketSignalsFeed() {
         {visible.map((signal, i) => (
           <div key={i} className="bg-white rounded-lg border border-gray-100 p-3 hover:shadow-sm transition-shadow">
             <div className="flex items-center gap-2 mb-1.5">
-              <span className={`text-[11px] font-bold uppercase px-1.5 py-0.5 rounded-full ${urgencyColors[signal.urgency]}`}>{signal.urgency}</span>
-              <span className={`text-[11px] font-semibold px-1.5 py-0.5 rounded-full ${typeColors[signal.type] || 'bg-gray-50 text-gray-600'}`}>{signal.type}</span>
-              <span className="text-[11px] text-gray-500 ml-auto">{signal.date}</span>
+              <span className={`text-xs font-bold uppercase px-1.5 py-0.5 rounded-full ${urgencyColors[signal.urgency]}`}>{signal.urgency}</span>
+              <span className={`text-xs font-semibold px-1.5 py-0.5 rounded-full ${typeColors[signal.type] || 'bg-gray-50 text-gray-600'}`}>{signal.type}</span>
+              <span className="text-xs text-gray-500 ml-auto">{signal.date}</span>
             </div>
             <h4 className="text-xs font-semibold text-navy leading-snug">{signal.headline}</h4>
-            <p className="text-[11px] text-gray-500 mt-1 leading-relaxed">{signal.impact}</p>
-            <div className="text-[11px] text-gray-500 mt-1">Source: {signal.source}</div>
+            <p className="text-xs text-gray-500 mt-1 leading-relaxed">{signal.impact}</p>
+            <div className="text-xs text-gray-500 mt-1">Source: {signal.source}</div>
           </div>
         ))}
       </div>
       {MARKET_SIGNALS.length > 3 && (
-        <button onClick={() => setExpanded(!expanded)} className="text-[10px] text-editorial hover:underline flex items-center gap-0.5 mt-2 min-h-[44px] touch-manipulation">
+        <button onClick={() => setExpanded(!expanded)} className="text-xs text-editorial hover:underline flex items-center gap-0.5 mt-2 min-h-[44px] touch-manipulation">
           {expanded ? 'Show less' : `View all ${MARKET_SIGNALS.length} signals`}
           {expanded ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
         </button>
@@ -471,7 +471,7 @@ function MarketPulseExpanded() {
     <div>
       <div className="flex items-center justify-between mb-3">
         <SectionHeader size="md" className="mb-0">Intelligence Feed</SectionHeader>
-        <span className="text-[11px] text-gray-500">{MARKET_PULSE.length} movements tracked</span>
+        <span className="text-xs text-gray-500">{MARKET_PULSE.length} movements tracked</span>
       </div>
       <div className="space-y-2">
         {visible.map((item, i) => {
@@ -485,11 +485,11 @@ function MarketPulseExpanded() {
               >
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-0.5">
-                    <span className="text-[11px] font-bold bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">{item.category}</span>
-                    <span className="text-[11px] text-gray-500">{item.date}</span>
+                    <span className="text-xs font-bold bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">{item.category}</span>
+                    <span className="text-xs text-gray-500">{item.date}</span>
                   </div>
                   <div className="text-xs font-semibold text-navy">{item.event}</div>
-                  <p className="text-[10px] text-gray-500 mt-0.5">{item.impact}</p>
+                  <p className="text-xs text-gray-500 mt-0.5">{item.impact}</p>
                 </div>
                 <span className={`text-xs font-bold flex-shrink-0 ${isUp ? 'text-emerald-600' : 'text-red-500'}`}>
                   {item.change}
@@ -499,7 +499,7 @@ function MarketPulseExpanded() {
               {isExpanded && (
                 <div className="px-4 pb-4 border-t border-gray-50">
                   <p className="text-xs text-gray-700 leading-relaxed mt-3">{item.detail}</p>
-                  <Link to={item.link} className="inline-flex items-center gap-1 text-[10px] font-semibold text-navy hover:text-gold transition-colors mt-2 no-underline">
+                  <Link to={item.link} className="inline-flex items-center gap-1 text-xs font-semibold text-navy hover:text-gold transition-colors mt-2 no-underline">
                     {item.linkLabel}
                     <ChevronRight size={10} />
                   </Link>
@@ -510,7 +510,7 @@ function MarketPulseExpanded() {
         })}
       </div>
       {MARKET_PULSE.length > 3 && (
-        <button onClick={() => setShowAll(!showAll)} className="text-[10px] text-editorial hover:underline flex items-center gap-0.5 mt-2 min-h-[44px] touch-manipulation">
+        <button onClick={() => setShowAll(!showAll)} className="text-xs text-editorial hover:underline flex items-center gap-0.5 mt-2 min-h-[44px] touch-manipulation">
           {showAll ? 'Show less' : `View all ${MARKET_PULSE.length} movements`}
           {showAll ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
         </button>
@@ -529,18 +529,18 @@ function UpcomingEventsMini() {
           const typeColor = evt.type === 'Earnings' ? 'text-editorial bg-blue-50' : 'text-gold bg-gold/10'
           return (
             <div key={i} className="flex items-center gap-2 px-3 py-2">
-              <span className={`text-[11px] font-bold px-1.5 py-0.5 rounded ${typeColor} whitespace-nowrap`}>{evt.date}</span>
+              <span className={`text-xs font-bold px-1.5 py-0.5 rounded ${typeColor} whitespace-nowrap`}>{evt.date}</span>
               <div className="flex-1 min-w-0">
                 <div className="text-xs font-medium text-navy truncate">{evt.company}</div>
-                <div className="text-[10px] text-gray-500">{evt.event}</div>
+                <div className="text-xs text-gray-500">{evt.event}</div>
               </div>
-              <span className={`text-[11px] font-medium px-1.5 py-0.5 rounded-full flex-shrink-0 ${evt.type === 'Earnings' ? 'bg-blue-50 text-blue-600' : 'bg-amber-50 text-amber-600'}`}>{evt.type}</span>
+              <span className={`text-xs font-medium px-1.5 py-0.5 rounded-full flex-shrink-0 ${evt.type === 'Earnings' ? 'bg-blue-50 text-blue-600' : 'bg-amber-50 text-amber-600'}`}>{evt.type}</span>
             </div>
           )
         })}
       </div>
       {UPCOMING_EVENTS.length > 5 && (
-        <Link to="/reports" className="inline-flex items-center gap-1 text-[10px] font-semibold text-editorial hover:text-navy transition-colors mt-2 no-underline">
+        <Link to="/reports" className="inline-flex items-center gap-1 text-xs font-semibold text-editorial hover:text-navy transition-colors mt-2 no-underline">
           View all {UPCOMING_EVENTS.length} events
           <ChevronRight size={10} />
         </Link>
@@ -572,11 +572,11 @@ function RecentlyUpdatedFeed() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-0.5">
-                    <span className="text-[11px] font-bold bg-gray-100 text-gray-500 px-1.5 py-0.5 rounded">{item.section}</span>
-                    <span className="text-[11px] text-gray-500">{item.timestamp}</span>
+                    <span className="text-xs font-bold bg-gray-100 text-gray-500 px-1.5 py-0.5 rounded">{item.section}</span>
+                    <span className="text-xs text-gray-500">{item.timestamp}</span>
                   </div>
                   <div className="text-xs font-medium text-navy group-hover:text-gold transition-colors">{item.item}</div>
-                  <p className="text-[10px] text-gray-500 mt-0.5 leading-relaxed">{item.description}</p>
+                  <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">{item.description}</p>
                 </div>
                 <ChevronRight size={12} className="text-gray-300 group-hover:text-gold transition-colors flex-shrink-0 mt-1" />
               </div>
@@ -614,7 +614,7 @@ function DeepDiveCTAs() {
                 <cta.icon size={18} className="text-navy group-hover:text-gold transition-colors" />
               </div>
               <div className="text-xs font-semibold text-navy group-hover:text-gold transition-colors">{cta.label}</div>
-              <p className="text-[11px] text-gray-500 mt-1">{cta.sub}</p>
+              <p className="text-xs text-gray-500 mt-1">{cta.sub}</p>
             </div>
           </Link>
         ))}
@@ -641,7 +641,7 @@ function InsightBriefing({ briefing, onClose }) {
             </div>
             <div>
               <h3 className="text-sm font-bold text-navy">Intelligence Brief</h3>
-              <p className="text-[10px] text-gray-500">Auto-generated executive summary</p>
+              <p className="text-xs text-gray-500">Auto-generated executive summary</p>
             </div>
           </div>
           <div className="flex items-center gap-1">
@@ -719,10 +719,10 @@ export default function CommandCentre() {
           <div className="space-y-4">
             <p className="text-xs text-gray-700 leading-relaxed">{briefing.summary}</p>
             <div>
-              <p className="text-[10px] font-bold text-navy mb-1.5">Key Intelligence Points</p>
+              <p className="text-xs font-bold text-navy mb-1.5">Key Intelligence Points</p>
               <div className="space-y-1.5">
                 {briefing.keyPoints.map((point, i) => (
-                  <div key={i} className="flex gap-2 text-[10px] text-gray-700 bg-gray-50 rounded-lg p-2.5">
+                  <div key={i} className="flex gap-2 text-xs text-gray-700 bg-gray-50 rounded-lg p-2.5">
                     <span className="text-gold font-bold">{i + 1}.</span>
                     <span className="leading-relaxed">{point}</span>
                   </div>
@@ -730,8 +730,8 @@ export default function CommandCentre() {
               </div>
             </div>
             <div className="bg-gold/5 border border-gold/20 rounded-xl p-3">
-              <p className="text-[10px] font-bold text-navy mb-1">Actionable Recommendation</p>
-              <p className="text-[10px] text-navy leading-relaxed">{briefing.actionable}</p>
+              <p className="text-xs font-bold text-navy mb-1">Actionable Recommendation</p>
+              <p className="text-xs text-navy leading-relaxed">{briefing.actionable}</p>
             </div>
             <div className="flex flex-wrap gap-1">
               {briefing.sources.map((src, i) => (
@@ -775,7 +775,7 @@ export default function CommandCentre() {
         subtitle={`Global beverage alcohol intelligence ${'\u2014'} Data as of March 2026`}
         action={
           <div className="text-right">
-            <div className="text-[10px] text-gray-500">Last updated</div>
+            <div className="text-xs text-gray-500">Last updated</div>
             <div className="text-xs font-medium text-navy">Feb 26, 2026 14:30 GMT</div>
           </div>
         }

@@ -1,16 +1,16 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState } from 'react'
 import {
   BarChart, Bar, Cell,
-  ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid
+  XAxis, YAxis, Tooltip, CartesianGrid
 } from 'recharts'
 import {
-  Target, DollarSign, TrendingUp, Package, Truck, Building2,
+  Target, DollarSign, TrendingUp, Package, Building2,
   ShieldAlert, Clock, Star, ChevronDown, ChevronUp, ChevronRight,
   ArrowRight, Check, MapPin, Share2, Megaphone, Layers
 } from 'lucide-react'
 import {
   Card, MetricCard, PageHeader, BentoGrid, DataTable, ChartCard,
-  DrillDown, Badge, SectionHeader, SourceList, TabGroup, FilterBar, EntityLink,
+  DrillDown, Badge, SectionHeader, SourceList,
   BottomSheet, SubPageNav
 } from '../components/ui'
 import {
@@ -142,11 +142,11 @@ export default function ScenarioModeling() {
                 </div>
                 <div className="grid grid-cols-2 gap-3 mt-auto">
                   <div className="bg-gray-50 rounded-lg p-3">
-                    <p className="text-[10px] text-gray-500 uppercase">Categories</p>
+                    <p className="text-xs text-gray-500 uppercase">Categories</p>
                     <p className="text-lg font-bold text-navy">{PRODUCT_CATEGORIES.length}</p>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-3">
-                    <p className="text-[10px] text-gray-500 uppercase">Markets</p>
+                    <p className="text-xs text-gray-500 uppercase">Markets</p>
                     <p className="text-lg font-bold text-navy">{TARGET_MARKETS.length}</p>
                   </div>
                 </div>
@@ -200,8 +200,8 @@ export default function ScenarioModeling() {
                   </div>
                   <p className="text-sm font-semibold text-navy">{t.label}</p>
                 </div>
-                <p className="text-[10px] text-gray-500 leading-relaxed">{t.desc}</p>
-                <div className="flex items-center gap-1 mt-3 text-[10px] text-gold font-medium">
+                <p className="text-xs text-gray-500 leading-relaxed">{t.desc}</p>
+                <div className="flex items-center gap-1 mt-3 text-xs text-gold font-medium">
                   Start scenario <ArrowRight size={10} />
                 </div>
               </Card>
@@ -228,11 +228,11 @@ export default function ScenarioModeling() {
                 {sheetTemplate.defaults.category && (
                   <div className="grid grid-cols-2 gap-3">
                     <div className="bg-gray-50 rounded-lg p-3">
-                      <p className="text-[10px] text-gray-500 uppercase">Category</p>
+                      <p className="text-xs text-gray-500 uppercase">Category</p>
                       <p className="text-sm font-bold text-navy">{sheetTemplate.defaults.category}</p>
                     </div>
                     <div className="bg-gray-50 rounded-lg p-3">
-                      <p className="text-[10px] text-gray-500 uppercase">Markets</p>
+                      <p className="text-xs text-gray-500 uppercase">Markets</p>
                       <p className="text-sm font-bold text-navy">{sheetTemplate.defaults.markets?.join(', ').toUpperCase()}</p>
                     </div>
                   </div>
@@ -300,7 +300,7 @@ export default function ScenarioModeling() {
                         <button
                           key={cat.id}
                           onClick={() => setSelectedCategory(cat.id)}
-                          className={`px-2.5 py-1.5 rounded-lg text-[11px] font-medium transition-all border ${
+                          className={`px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all border ${
                             selectedCategory === cat.id
                               ? 'bg-navy text-white border-navy'
                               : 'bg-white text-gray-500 border-gray-200 hover:border-navy/30'
@@ -320,7 +320,7 @@ export default function ScenarioModeling() {
                           <button
                             key={m.id}
                             onClick={() => setSelectedMarkets(active ? selectedMarkets.filter(s => s !== m.id) : [...selectedMarkets, m.id])}
-                            className={`px-2.5 py-1.5 rounded-lg text-[11px] font-medium transition-all border ${
+                            className={`px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all border ${
                               active ? 'bg-navy text-white border-navy' : 'bg-white text-gray-500 border-gray-200 hover:border-navy/30'
                             }`}
                           >
@@ -337,7 +337,7 @@ export default function ScenarioModeling() {
                         <button
                           key={a.id}
                           onClick={() => setSelectedArchetype(a.id)}
-                          className={`px-2.5 py-1.5 rounded-lg text-[11px] font-medium transition-all border ${
+                          className={`px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all border ${
                             selectedArchetype === a.id
                               ? 'bg-navy text-white border-navy'
                               : 'bg-white text-gray-500 border-gray-200 hover:border-navy/30'
@@ -362,8 +362,8 @@ export default function ScenarioModeling() {
                 {BRAND_ARCHETYPES.map(a => (
                   <Card key={a.id} hover onClick={() => setSelectedArchetype(a.id)} padding="p-3" className={selectedArchetype === a.id ? 'ring-2 ring-gold' : ''}>
                     <p className="text-xs font-semibold text-navy">{a.label}</p>
-                    <p className="text-[10px] text-gray-500 mt-0.5">{a.examples}</p>
-                    <div className="grid grid-cols-2 gap-x-3 mt-2 text-[10px]">
+                    <p className="text-xs text-gray-500 mt-0.5">{a.examples}</p>
+                    <div className="grid grid-cols-2 gap-x-3 mt-2 text-xs">
                       <div><span className="text-gray-400">Premium:</span> <span className="font-medium text-navy">{a.premiumMultiple}</span></div>
                       <div><span className="text-gray-400">Risk:</span> <span className="font-medium text-navy">{a.riskLevel}</span></div>
                       <div><span className="text-gray-400">Success:</span> <span className="font-medium text-emerald-600">{a.successRate}</span></div>
@@ -396,11 +396,11 @@ export default function ScenarioModeling() {
                       return (
                         <Card key={mId} padding="p-3">
                           <p className="text-xs font-semibold text-navy mb-0.5">{m.flag} {m.label}</p>
-                          <p className="text-[10px] text-gray-500 mb-2">Pop: {m.pop} \u00b7 Market: {m.spiritsMarket}</p>
+                          <p className="text-xs text-gray-500 mb-2">Pop: {m.pop} \u00b7 Market: {m.spiritsMarket}</p>
                           <div className="space-y-1.5">
                             {channelData.map((c, j) => (
                               <div key={j}>
-                                <div className="flex items-center justify-between text-[10px] mb-0.5">
+                                <div className="flex items-center justify-between text-xs mb-0.5">
                                   <div className="flex items-center gap-1">
                                     <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: c.fill }} />
                                     <span className="text-gray-500">{c.name}</span>
@@ -435,7 +435,7 @@ export default function ScenarioModeling() {
                         render: (_, row) => {
                           const duty = row.duties[mId]
                           const isFree = duty === 0 || (typeof duty === 'string' && duty.includes('0%'))
-                          return <span className={`text-[10px] font-medium ${isFree ? 'text-emerald-600' : 'text-red-600'}`}>
+                          return <span className={`text-xs font-medium ${isFree ? 'text-emerald-600' : 'text-red-600'}`}>
                             {duty === 0 ? '0% (duty free)' : duty}
                           </span>
                         }
@@ -474,15 +474,15 @@ export default function ScenarioModeling() {
                 <PitfallsPanel />
                 <Card padding="p-4">
                   <p className="text-xs font-semibold text-navy mb-1">Risk Summary</p>
-                  <p className="text-[10px] text-gray-500 mb-3">{totalRisks} risks across {GO_TO_MARKET_PITFALLS.length} categories</p>
+                  <p className="text-xs text-gray-500 mb-3">{totalRisks} risks across {GO_TO_MARKET_PITFALLS.length} categories</p>
                   <div className="space-y-2">
                     <div className="bg-red-50 rounded-lg p-3 border border-red-100">
                       <p className="text-xs font-semibold text-red-800">{criticalRisks} Critical Risks</p>
-                      <p className="text-[10px] text-red-700 mt-0.5">Require immediate mitigation before launch</p>
+                      <p className="text-xs text-red-700 mt-0.5">Require immediate mitigation before launch</p>
                     </div>
                     <div className="bg-amber-50 rounded-lg p-3 border border-amber-100">
                       <p className="text-xs font-semibold text-amber-800">{totalRisks - criticalRisks} Non-Critical Risks</p>
-                      <p className="text-[10px] text-amber-700 mt-0.5">Monitor and plan contingencies</p>
+                      <p className="text-xs text-amber-700 mt-0.5">Monitor and plan contingencies</p>
                     </div>
                   </div>
                 </Card>
@@ -497,7 +497,7 @@ export default function ScenarioModeling() {
             total={4}
             onPrev={() => setBrandStep(Math.max(0, brandStep - 1))}
             onNext={() => setBrandStep(Math.min(3, brandStep + 1))}
-            onReset={() => { setBrandStep(0); setMode('overview') }}
+            onReset={() => { setMode('overview') }}
           />
         </div>
       )}
@@ -522,7 +522,7 @@ export default function ScenarioModeling() {
             <>
               <Card padding="p-4" className="border-l-3 border-l-gold">
                 <p className="text-sm font-semibold text-navy mb-1">UK Regional Campaign Planner</p>
-                <p className="text-[10px] text-gray-500 leading-relaxed">
+                <p className="text-xs text-gray-500 leading-relaxed">
                   Optimal regions, venues, and digital activation zones ranked by engagement potential and ROI.
                   Data covers {UK_REGIONS.length} UK cities with zone-level targeting.
                 </p>
@@ -643,7 +643,7 @@ export default function ScenarioModeling() {
             total={4}
             onPrev={() => setCampaignStep(Math.max(0, campaignStep - 1))}
             onNext={() => setCampaignStep(Math.min(3, campaignStep + 1))}
-            onReset={() => { setCampaignStep(0); setMode('overview') }}
+            onReset={() => { setMode('overview') }}
           />
         </div>
       )}
@@ -657,7 +657,25 @@ export default function ScenarioModeling() {
 function StepProgress({ steps, current, onChange }) {
   return (
     <Card padding="p-3">
-      <div className="flex items-center gap-0 overflow-x-auto">
+      {/* Mobile: simple text indicator */}
+      <div className="flex sm:hidden items-center justify-between">
+        <span className="text-xs font-medium text-navy">
+          Step {current + 1} of {steps.length} &mdash; {steps[current].label}
+        </span>
+        <div className="flex items-center gap-1">
+          {steps.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => onChange(idx)}
+              className={`w-2 h-2 rounded-full transition-all touch-manipulation ${
+                current === idx ? 'bg-navy' : current > idx ? 'bg-gold' : 'bg-gray-200'
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+      {/* Desktop: full horizontal stepper */}
+      <div className="hidden sm:flex items-center gap-0 overflow-x-auto">
         {steps.map((step, idx) => {
           const StepIcon = step.icon
           const isActive = current === idx
@@ -682,8 +700,8 @@ function StepProgress({ steps, current, onChange }) {
                 }`}>
                   {isComplete ? <Check size={10} /> : idx + 1}
                 </div>
-                <StepIcon size={14} className="hidden sm:block" />
-                <span className="hidden sm:inline">{step.label}</span>
+                <StepIcon size={14} />
+                <span>{step.label}</span>
               </button>
             </React.Fragment>
           )
@@ -703,7 +721,7 @@ function StepNav({ current, total, onPrev, onNext, onReset }) {
       >
         <ChevronRight size={14} className="rotate-180" /> Previous
       </button>
-      <span className="text-[10px] text-gray-500 flex-shrink-0">Step {current + 1} of {total}</span>
+      <span className="text-xs text-gray-500 flex-shrink-0">Step {current + 1} of {total}</span>
       {current === total - 1 ? (
         onReset ? (
           <button
@@ -752,15 +770,15 @@ function CostWaterfall({ costs }) {
       </ChartCard>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         <Card padding="p-3" className="text-center">
-          <p className="text-[11px] text-gray-500">Total COGS</p>
+          <p className="text-xs text-gray-500">Total COGS</p>
           <p className="text-lg font-bold text-navy">\u00a3{costs.total_cogs.toFixed(2)}</p>
         </Card>
         <Card padding="p-3" className="text-center">
-          <p className="text-[11px] text-gray-500">RRP Range</p>
+          <p className="text-xs text-gray-500">RRP Range</p>
           <p className="text-lg font-bold text-gold">\u00a3{costs.rrp_low}\u2013\u00a3{costs.rrp_high}</p>
         </Card>
         <Card padding="p-3" className="text-center">
-          <p className="text-[11px] text-gray-500">Gross Margin</p>
+          <p className="text-xs text-gray-500">Gross Margin</p>
           <p className="text-lg font-bold text-emerald-600">{((1 - costs.total_cogs / costs.rrp_mid) * 100).toFixed(0)}%</p>
         </Card>
       </div>
@@ -777,7 +795,7 @@ function PitfallsPanel() {
           <ShieldAlert size={14} className="text-red-500" />
           Pitfalls & Risk Register
         </p>
-        <p className="text-[10px] text-gray-500">Common failure points when bringing a product to market</p>
+        <p className="text-xs text-gray-500">Common failure points when bringing a product to market</p>
       </div>
       {GO_TO_MARKET_PITFALLS.map((cat, ci) => (
         <div key={ci}>
@@ -787,7 +805,7 @@ function PitfallsPanel() {
           >
             <div className="flex items-center gap-2">
               <span className="text-[10px] font-bold bg-red-50 text-red-600 px-2 py-0.5 rounded">{cat.category}</span>
-              <span className="text-[10px] text-gray-500">{cat.items.length} risks</span>
+              <span className="text-xs text-gray-500">{cat.items.length} risks</span>
             </div>
             {expanded === ci ? <ChevronUp size={14} className="text-gray-400" /> : <ChevronDown size={14} className="text-gray-400" />}
           </button>
@@ -796,14 +814,14 @@ function PitfallsPanel() {
               {cat.items.map((item, ii) => (
                 <div key={ii} className="px-4 py-2.5 bg-gray-50/30">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-[11px] font-semibold text-navy">{item.risk}</span>
-                    <span className={`text-[11px] font-bold px-1.5 py-0.5 rounded ${
+                    <span className="text-xs font-semibold text-navy">{item.risk}</span>
+                    <span className={`text-xs font-bold px-1.5 py-0.5 rounded ${
                       item.impact === 'Critical' ? 'bg-red-100 text-red-700'
                         : item.impact === 'High' ? 'bg-orange-100 text-orange-700'
                         : 'bg-amber-50 text-amber-600'
                     }`}>{item.impact}</span>
                   </div>
-                  <p className="text-[10px] text-gray-600 leading-relaxed">{item.detail}</p>
+                  <p className="text-xs text-gray-600 leading-relaxed">{item.detail}</p>
                 </div>
               ))}
             </div>
@@ -832,16 +850,16 @@ function LaunchTimeline() {
               style={{ top: '2px' }}
             />
             <div className="flex items-center gap-2 mb-1">
-              <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${
+              <span className={`text-xs font-bold px-1.5 py-0.5 rounded ${
                 m.month === 0 ? 'bg-gold text-white' : 'bg-gray-100 text-gray-600'
               }`}>
                 {m.month === 0 ? 'LAUNCH' : m.month > 0 ? `+${m.month}mo` : `${m.month}mo`}
               </span>
-              <span className="text-[11px] font-semibold text-navy">{m.label}</span>
+              <span className="text-xs font-semibold text-navy">{m.label}</span>
             </div>
             <div className="flex flex-wrap gap-1">
               {m.tasks.map((t, ti) => (
-                <span key={ti} className="text-[11px] bg-gray-50 text-gray-600 px-1.5 py-0.5 rounded border border-gray-100">{t}</span>
+                <span key={ti} className="text-xs bg-gray-50 text-gray-600 px-1.5 py-0.5 rounded border border-gray-100">{t}</span>
               ))}
             </div>
           </div>
@@ -861,17 +879,17 @@ function RegionAnalysis({ regions, expanded, setExpanded }) {
             className="w-full flex items-center justify-between px-4 py-3 hover:bg-gray-50/50 transition-colors"
           >
             <div>
-              <p className="text-[11px] font-semibold text-navy text-left">{region.name}</p>
-              <p className="text-[11px] text-gray-500">Pop: {region.pop} \u00b7 Avg spend: {region.avgSpend}/head</p>
+              <p className="text-xs font-semibold text-navy text-left">{region.name}</p>
+              <p className="text-xs text-gray-500">Pop: {region.pop} \u00b7 Avg spend: {region.avgSpend}/head</p>
             </div>
             <div className="flex items-center gap-3">
               <div className="text-right">
-                <p className="text-[11px] text-gray-500">Cocktail Index</p>
-                <p className={`text-[11px] font-bold ${region.cocktailIndex > 120 ? 'text-emerald-600' : region.cocktailIndex > 100 ? 'text-gold' : 'text-gray-500'}`}>
+                <p className="text-xs text-gray-500">Cocktail Index</p>
+                <p className={`text-xs font-bold ${region.cocktailIndex > 120 ? 'text-emerald-600' : region.cocktailIndex > 100 ? 'text-gold' : 'text-gray-500'}`}>
                   {region.cocktailIndex}
                 </p>
               </div>
-              <span className={`text-[11px] font-bold px-1.5 py-0.5 rounded ${
+              <span className={`text-xs font-bold px-1.5 py-0.5 rounded ${
                 region.spritzAffinity === 'Very High' ? 'bg-green-100 text-green-700'
                   : region.spritzAffinity === 'High' ? 'bg-green-50 text-green-600'
                   : 'bg-amber-50 text-amber-600'
@@ -884,17 +902,17 @@ function RegionAnalysis({ regions, expanded, setExpanded }) {
               {region.zones.map((zone, zi) => (
                 <div key={zi} className="px-4 py-2.5">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-[11px] font-medium text-navy">{zone.name}</span>
+                    <span className="text-xs font-medium text-navy">{zone.name}</span>
                     <div className="flex gap-2">
-                      <span className="text-[11px] bg-blue-50 text-blue-600 px-1.5 py-0.5 rounded">{zone.bars} bars</span>
-                      <span className="text-[11px] bg-green-50 text-green-600 px-1.5 py-0.5 rounded">{zone.terraces} terraces</span>
-                      <span className={`text-[11px] px-1.5 py-0.5 rounded font-medium ${
+                      <span className="text-xs bg-blue-50 text-blue-600 px-1.5 py-0.5 rounded">{zone.bars} bars</span>
+                      <span className="text-xs bg-green-50 text-green-600 px-1.5 py-0.5 rounded">{zone.terraces} terraces</span>
+                      <span className={`text-xs px-1.5 py-0.5 rounded font-medium ${
                         zone.engagement === 'Very High' ? 'bg-green-100 text-green-700' : 'bg-amber-50 text-amber-600'
                       }`}>{zone.engagement}</span>
                     </div>
                   </div>
-                  <p className="text-[11px] text-gray-500"><span className="text-gray-500">Demographic:</span> {zone.demographic}</p>
-                  <p className="text-[11px] text-gray-500 mt-0.5"><span className="text-gray-500">Best for:</span> <span className="text-gold font-medium">{zone.bestFor}</span></p>
+                  <p className="text-xs text-gray-500"><span className="text-gray-500">Demographic:</span> {zone.demographic}</p>
+                  <p className="text-xs text-gray-500 mt-0.5"><span className="text-gray-500">Best for:</span> <span className="text-gold font-medium">{zone.bestFor}</span></p>
                 </div>
               ))}
             </div>
@@ -911,21 +929,21 @@ function VenueTypeGrid() {
       {VENUE_TYPES.map((v, i) => (
         <Card key={i} padding="p-3">
           <div className="flex items-center justify-between mb-2">
-            <p className="text-[11px] font-semibold text-navy">{v.type}</p>
+            <p className="text-xs font-semibold text-navy">{v.type}</p>
             <div className="flex items-center gap-1.5">
-              <span className="text-[11px] bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">{v.avgCover} avg cover</span>
-              <span className="text-[11px] bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">{v.bestSeason}</span>
+              <span className="text-xs bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">{v.avgCover} avg cover</span>
+              <span className="text-xs bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">{v.bestSeason}</span>
             </div>
           </div>
           <div className="flex items-center gap-2 mb-2">
             <div className="flex-1 bg-gray-100 rounded-full h-1.5">
               <div className="h-1.5 rounded-full bg-gold" style={{ width: `${v.spritzFit}%` }} />
             </div>
-            <span className="text-[10px] font-bold text-gold">{v.spritzFit}%</span>
-            <span className="text-[11px] text-gray-500">fit</span>
+            <span className="text-xs font-bold text-gold">{v.spritzFit}%</span>
+            <span className="text-xs text-gray-500">fit</span>
           </div>
-          <p className="text-[10px] text-gray-600 leading-relaxed">{v.notes}</p>
-          <div className="mt-2 flex justify-between text-[11px]">
+          <p className="text-xs text-gray-600 leading-relaxed">{v.notes}</p>
+          <div className="mt-2 flex justify-between text-xs">
             <span className="text-gray-400">Cost: <span className="text-navy font-medium">{v.costPer}</span></span>
             <span className="text-gray-400">Reach: <span className="text-navy font-medium">{v.reachPer}</span></span>
           </div>
@@ -944,7 +962,7 @@ function SocialTargetingPanel({ platform, setPlatform }) {
           <button
             key={p}
             onClick={() => setPlatform(p)}
-            className={`px-2.5 py-1 rounded text-[10px] font-semibold transition-colors ${
+            className={`px-2.5 py-1 rounded text-xs font-semibold transition-colors ${
               platform === p ? 'bg-navy text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
             }`}
           >
@@ -957,7 +975,7 @@ function SocialTargetingPanel({ platform, setPlatform }) {
         <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wide mb-2">Best Formats</p>
         <div className="flex flex-wrap gap-1">
           {data.bestFormats.map((f, i) => (
-            <span key={i} className="text-[11px] bg-blue-50 text-blue-600 px-2 py-0.5 rounded">{f}</span>
+            <span key={i} className="text-xs bg-blue-50 text-blue-600 px-2 py-0.5 rounded">{f}</span>
           ))}
         </div>
       </div>
@@ -969,9 +987,9 @@ function SocialTargetingPanel({ platform, setPlatform }) {
             <div key={i} className="flex items-center justify-between py-1.5 border-b border-gray-50 last:border-0">
               <div className="flex items-center gap-2">
                 <MapPin size={10} className="text-gold" />
-                <span className="text-[11px] text-navy font-medium">{g.area}</span>
+                <span className="text-xs text-navy font-medium">{g.area}</span>
               </div>
-              <div className="flex items-center gap-3 text-[11px]">
+              <div className="flex items-center gap-3 text-xs">
                 <span className="text-gray-400">Reach: <span className="font-medium text-navy">{g.reach}</span></span>
                 <span className="text-gray-400">CPM: <span className="font-medium text-navy">{g.cpm}</span></span>
                 <span className={`font-bold px-1.5 py-0.5 rounded ${
@@ -988,8 +1006,8 @@ function SocialTargetingPanel({ platform, setPlatform }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div>
           <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wide mb-1">Peak Posting Times</p>
-          <p className="text-[10px] text-gray-600">Weekday: <span className="font-medium text-navy">{data.peakTimes.weekday}</span></p>
-          <p className="text-[10px] text-gray-600">Weekend: <span className="font-medium text-navy">{data.peakTimes.weekend}</span></p>
+          <p className="text-xs text-gray-600">Weekday: <span className="font-medium text-navy">{data.peakTimes.weekday}</span></p>
+          <p className="text-xs text-gray-600">Weekend: <span className="font-medium text-navy">{data.peakTimes.weekend}</span></p>
         </div>
         <div>
           <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wide mb-1">Avg CPM Range</p>
@@ -1001,7 +1019,7 @@ function SocialTargetingPanel({ platform, setPlatform }) {
         <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wide mb-1">Recommended Hashtags</p>
         <div className="flex flex-wrap gap-1">
           {data.hashtags.map((h, i) => (
-            <span key={i} className="text-[10px] text-gold font-medium">{h}</span>
+            <span key={i} className="text-xs text-gold font-medium">{h}</span>
           ))}
         </div>
       </div>
@@ -1021,11 +1039,11 @@ function BudgetTierCards() {
               <div>
                 <Badge variant="default">{tier.tier}</Badge>
                 <p className="text-lg font-bold text-navy mt-1">{tier.budget}</p>
-                <p className="text-[11px] text-gray-500">{tier.duration} campaign</p>
+                <p className="text-xs text-gray-500">{tier.duration} campaign</p>
               </div>
               <div className="w-[70px] space-y-1">
                 {pieData.map((entry, j) => (
-                  <div key={j} className="flex items-center gap-1 text-[8px]">
+                  <div key={j} className="flex items-center gap-1 text-xs">
                     <div className="w-1.5 h-1.5 rounded-sm flex-shrink-0" style={{ backgroundColor: PIE_COLORS[j % PIE_COLORS.length] }} />
                     <span className="text-gray-500 truncate">{entry.name}</span>
                     <span className="font-medium text-navy ml-auto">{entry.value}%</span>
@@ -1033,14 +1051,14 @@ function BudgetTierCards() {
                 ))}
               </div>
             </div>
-            <p className="text-[10px] text-gray-500 mb-2">{tier.bestFor}</p>
-            <div className="text-[11px] text-gray-500 mb-1">Reach: <span className="font-medium text-navy">{tier.reach}</span></div>
-            <div className="text-[11px] text-gray-500 mb-2">Expected ROI: <span className="font-bold text-emerald-600">{tier.expectedROI}</span></div>
+            <p className="text-xs text-gray-500 mb-2">{tier.bestFor}</p>
+            <div className="text-xs text-gray-500 mb-1">Reach: <span className="font-medium text-navy">{tier.reach}</span></div>
+            <div className="text-xs text-gray-500 mb-2">Expected ROI: <span className="font-bold text-emerald-600">{tier.expectedROI}</span></div>
             <div className="border-t border-gray-100 pt-2">
-              <p className="text-[11px] font-bold text-gray-500 uppercase mb-1">Key Activities</p>
+              <p className="text-xs font-bold text-gray-500 uppercase mb-1">Key Activities</p>
               <ul className="space-y-0.5">
                 {tier.activities.map((a, ai) => (
-                  <li key={ai} className="text-[11px] text-gray-600 flex items-start gap-1">
+                  <li key={ai} className="text-xs text-gray-600 flex items-start gap-1">
                     <Check size={8} className="text-emerald-500 mt-0.5 flex-shrink-0" />
                     {a}
                   </li>

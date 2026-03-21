@@ -1,10 +1,10 @@
 import React, { useState, useMemo, useEffect } from 'react'
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LineChart, Line, Legend, Cell } from 'recharts'
-import { MapPin, TrendingUp, Star, Wine, Search, ChevronDown, ChevronUp, ExternalLink, Award, Users, DollarSign, Building2, Globe, Briefcase, Target, Layers, Shield, Zap, BookOpen, Check, X, ArrowRight, BarChart3 } from 'lucide-react'
+import { BarChart, Bar, XAxis, YAxis, Tooltip, LineChart, Line, Legend, Cell } from 'recharts'
+import { MapPin, TrendingUp, Wine, Search, ChevronDown, ChevronUp, ExternalLink, Award, Users, DollarSign, Building2, Briefcase, Target, Shield, Zap, BookOpen, Check, X, ArrowRight } from 'lucide-react'
 import {
   PageHeader, Card, MetricCard, BentoGrid, DrillDown, DataTable,
-  ChartCard, SourceList, TabGroup, FilterPills, YearSelector,
-  EntityLink, Badge, BottomSheet, SkeletonCard, SkeletonChart, SubPageNav
+  ChartCard, SourceList, YearSelector,
+  EntityLink, BottomSheet, SkeletonCard, SkeletonChart, SubPageNav
 } from '../components/ui'
 
 import {
@@ -227,7 +227,7 @@ export default function VenueIntelligence() {
   const [selectedYear, setSelectedYear] = useState(2025)
   const [venueSearch, setVenueSearch] = useState('')
   const [expandedSection, setExpandedSection] = useState(null)
-  const [showMoreAnalysis, setShowMoreAnalysis] = useState(false)
+  // showMoreAnalysis state removed — DrillDowns are now flat peers
   const [expandedVenue, setExpandedVenue] = useState(null)
   const [selectedCompany, setSelectedCompany] = useState(null)
   const [showFullList, setShowFullList] = useState(false)
@@ -311,11 +311,11 @@ export default function VenueIntelligence() {
             </div>
             <div className="grid grid-cols-2 gap-2">
               <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                <div className="text-[10px] text-gray-500 uppercase">Area</div>
+                <div className="text-xs text-gray-500 uppercase">Area</div>
                 <div className="text-xs font-bold text-navy">{venue.area}</div>
               </div>
               <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                <div className="text-[10px] text-gray-500 uppercase">Est. Revenue</div>
+                <div className="text-xs text-gray-500 uppercase">Est. Revenue</div>
                 <div className="text-xs font-bold text-navy">{venue.estRevenue}/yr</div>
               </div>
             </div>
@@ -349,8 +349,8 @@ export default function VenueIntelligence() {
                 </div>
               </div>
             )}
-            {venue.founders && <p className="text-[10px] text-gray-600"><span className="font-semibold">Key People:</span> {venue.founders}</p>}
-            <p className="text-[10px] text-gray-600"><span className="font-semibold">Intel:</span> {venue.notes}</p>
+            {venue.founders && <p className="text-xs text-gray-600"><span className="font-semibold">Key People:</span> {venue.founders}</p>}
+            <p className="text-xs text-gray-600"><span className="font-semibold">Intel:</span> {venue.notes}</p>
           </div>
         )
       })
@@ -448,7 +448,7 @@ export default function VenueIntelligence() {
                     <span className="font-semibold text-navy">{perennialBars.length}</span>
                   </div>
                 </div>
-                <p className="text-[10px] text-gray-500 mt-3">Click to explore rankings \u2192</p>
+                <p className="text-xs text-gray-500 mt-3">Click to explore rankings \u2192</p>
               </Card>
             </BentoGrid.Hero>
 
@@ -496,6 +496,7 @@ export default function VenueIntelligence() {
           <DrillDown
             title="50 Best Bars Rankings"
             summary={`London: ${londonCount} bars \u00b7 ${citiesCount} cities \u00b7 ${perennialBars.length} perennial bars`}
+            defaultOpen={true}
           >
             <div className="space-y-6">
               {/* Region + City charts */}
@@ -524,12 +525,12 @@ export default function VenueIntelligence() {
               {/* Perennial bars */}
               <Card>
                 <h4 className="text-sm font-semibold text-navy mb-1">Perennial Bars \u2014 Appeared 4+ Years</h4>
-                <p className="text-[10px] text-gray-500 mb-3">Key accounts for brand partnerships</p>
+                <p className="text-xs text-gray-500 mb-3">Key accounts for brand partnerships</p>
                 <div className="space-y-1.5 max-h-72 overflow-y-auto">
                   {perennialBars.map(bar => (
                     <div key={bar.name} className="flex items-center gap-3 py-1.5 border-b border-gray-50 last:border-0">
                       <div className="w-36 font-medium text-xs text-navy truncate">{bar.name}</div>
-                      <div className="w-20 text-[10px] text-gray-500">{bar.city}</div>
+                      <div className="w-20 text-xs text-gray-500">{bar.city}</div>
                       <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${bar.years.length === 5 ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700'}`}>
                         {bar.years.length}/5
                       </span>
@@ -590,7 +591,7 @@ export default function VenueIntelligence() {
               </div>
 
               {/* Account Type Legend */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-[10px] text-gray-600">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-gray-600">
                 <div><span className="font-bold text-purple-600">Luxury:</span> Notoriety-driven, marketing spend, menu placement</div>
                 <div><span className="font-bold text-green-600">Volume:</span> High-throughput, retros, aggressive pricing</div>
                 <div><span className="font-bold text-amber-600">Both:</span> Rare \u2014 high volume AND prestige (e.g. Annabel\u2019s)</div>
@@ -632,10 +633,10 @@ export default function VenueIntelligence() {
             </div>
           </DrillDown>
 
-          {/* --- Brand & Category Intelligence (merged Parent Company + Brand Mapping) --- */}
+          {/* --- Corporate Penetration --- */}
           <DrillDown
-            title="Brand & Category Intelligence"
-            summary={`${Object.keys(COMPANY_PROFILES).length} companies \u00b7 ${Object.keys(BRAND_VENUE_MAP).length}+ brands mapped \u00b7 Competitive heat`}
+            title="Corporate Penetration"
+            summary={`${Object.keys(COMPANY_PROFILES).length} companies profiled \u00b7 Corporate vs independent trends`}
           >
             <div className="space-y-6">
               {/* Headline stats */}
@@ -643,24 +644,24 @@ export default function VenueIntelligence() {
                 <Card>
                   <p className="text-label text-gray-500">Corporate-Backed ({selectedYear})</p>
                   <p className="text-2xl font-bold text-navy mt-1">{independentVsCorporate.find(d => d.year === selectedYear.toString())?.corpPct || 0}%</p>
-                  <p className="text-[10px] text-gray-500">of Top 50 have major company presence</p>
+                  <p className="text-xs text-gray-500">of Top 50 have major company presence</p>
                 </Card>
                 <Card>
                   <p className="text-label text-gray-500">Top Company ({selectedYear})</p>
                   <p className="text-lg font-bold mt-1" style={{ color: PARENT_COMPANIES[parentPenetration[selectedYear]?.[0]?.name]?.color || '#333' }}>
                     {parentPenetration[selectedYear]?.[0]?.name || '\u2014'}
                   </p>
-                  <p className="text-[10px] text-gray-500">{parentPenetration[selectedYear]?.[0]?.pct}% penetration</p>
+                  <p className="text-xs text-gray-500">{parentPenetration[selectedYear]?.[0]?.pct}% penetration</p>
                 </Card>
                 <Card>
                   <p className="text-label text-gray-500">Independent Bars ({selectedYear})</p>
                   <p className="text-2xl font-bold text-green-600 mt-1">{independentVsCorporate.find(d => d.year === selectedYear.toString())?.Independent || 0}</p>
-                  <p className="text-[10px] text-gray-500">not tied to a major parent</p>
+                  <p className="text-xs text-gray-500">not tied to a major parent</p>
                 </Card>
                 <Card>
                   <p className="text-label text-gray-500">Companies Profiled</p>
                   <p className="text-2xl font-bold text-navy mt-1">{Object.keys(COMPANY_PROFILES).length}</p>
-                  <p className="text-[10px] text-gray-500">major parent companies</p>
+                  <p className="text-xs text-gray-500">major parent companies</p>
                 </Card>
               </BentoGrid>
 
@@ -694,31 +695,39 @@ export default function VenueIntelligence() {
               {/* Sponsor analysis */}
               <Card>
                 <h4 className="text-sm font-semibold text-navy mb-1">Award Sponsor Intelligence</h4>
-                <p className="text-[10px] text-gray-500 mb-3">Brands sponsoring 50 Best Bar awards gain bartender community visibility</p>
+                <p className="text-xs text-gray-500 mb-3">Brands sponsoring 50 Best Bar awards gain bartender community visibility</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {sponsorAnalysis.map(s => (
                     <div key={s.brand} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg border border-gray-100">
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
                           <span className="text-sm font-semibold text-navy">{s.brand}</span>
-                          <EntityLink type="company" id={s.parent.toLowerCase().replace(/\s+/g, '-')} label={s.parent} className="text-[10px]" />
+                          <EntityLink type="company" id={s.parent.toLowerCase().replace(/\s+/g, '-')} label={s.parent} className="text-xs" />
                         </div>
                         <div className="mt-1 space-y-0.5">
                           {s.awards.map(a => (
-                            <p key={a.year} className="text-[10px] text-gray-500">{a.year}: {a.award}</p>
+                            <p key={a.year} className="text-xs text-gray-500">{a.year}: {a.award}</p>
                           ))}
                         </div>
-                        <p className="text-[10px] font-medium text-amber-700 mt-1">{s.years.length}/5 years as sponsor</p>
+                        <p className="text-xs font-medium text-amber-700 mt-1">{s.years.length}/5 years as sponsor</p>
                       </div>
                     </div>
                   ))}
                 </div>
               </Card>
+            </div>
+          </DrillDown>
 
-              {/* Brand-to-Venue Mapping (merged from Brand Mapping section) */}
+          {/* --- Brand & Venue Mapping --- */}
+          <DrillDown
+            title="Brand & Venue Mapping"
+            summary={`${Object.keys(BRAND_VENUE_MAP).length}+ brands mapped \u00b7 Category density across London venues`}
+          >
+            <div className="space-y-6">
+              {/* Brand-to-Venue Mapping */}
               <Card>
                 <h4 className="text-sm font-semibold text-navy mb-2">Brand-to-Venue Mapping</h4>
-                <p className="text-[10px] text-gray-500 mb-3">Filter by parent company to see their venue footprint</p>
+                <p className="text-xs text-gray-500 mb-3">Filter by parent company to see their venue footprint</p>
                 <div className="flex gap-1.5 flex-wrap mb-4">
                   {['All', ...Object.keys(PARENT_COMPANIES)].map(co => (
                     <button key={co} onClick={() => setBrandFilterCompany(co)}
@@ -743,7 +752,7 @@ export default function VenueIntelligence() {
                         <div key={brand} className="p-2.5 rounded-lg border border-gray-100">
                           <div className="flex items-center gap-2 mb-1.5">
                             <span className="font-medium text-xs text-navy">{brand}</span>
-                            {parentMatch && <span className="text-[10px] px-1.5 py-0.5 rounded font-medium" style={{ backgroundColor: (parentMatch[1].color || '#666') + '15', color: parentMatch[1].color }}>{parentMatch[0]}</span>}
+                            {parentMatch && <span className="text-xs px-1.5 py-0.5 rounded font-medium" style={{ backgroundColor: (parentMatch[1].color || '#666') + '15', color: parentMatch[1].color }}>{parentMatch[0]}</span>}
                             <span className="ml-auto text-[10px] font-bold text-navy bg-navy/10 px-1.5 py-0.5 rounded">{venues.length}</span>
                           </div>
                           <div className="flex flex-wrap gap-1">
@@ -765,11 +774,11 @@ export default function VenueIntelligence() {
                         <Wine size={14} className="text-navy" />
                         <h5 className="text-xs font-semibold text-navy">{cat}</h5>
                       </div>
-                      <div className="space-y-1 text-[10px]">
+                      <div className="space-y-1 text-xs">
                         <div className="flex justify-between"><span className="text-gray-500">Total listings:</span><span className="font-bold text-navy">{data.totalListings}</span></div>
                         <div className="flex justify-between"><span className="text-gray-500">Avg per venue:</span><span className="font-bold text-navy">{data.avgPerVenue}</span></div>
                         <div className="flex justify-between"><span className="text-gray-500">Dominant:</span>
-                          <EntityLink type="company" id={data.dominantCompany?.toLowerCase().replace(/\s+/g, '-')} label={data.dominantCompany} className="font-bold text-[10px]" />
+                          <EntityLink type="company" id={data.dominantCompany?.toLowerCase().replace(/\s+/g, '-')} label={data.dominantCompany} className="font-bold text-xs" />
                         </div>
                         <div className="flex flex-wrap gap-1 mt-1">
                           {(data.topBrands || []).map(b => <span key={b} className="px-1 py-0.5 rounded bg-gray-50 text-gray-700 border border-gray-100">{b}</span>)}
@@ -779,51 +788,39 @@ export default function VenueIntelligence() {
                   ))}
                 </div>
               </Card>
-
-              {/* Competitive Heat Map */}
-              <Card>
-                <h4 className="text-sm font-semibold text-navy mb-2">Competitive Heat Map</h4>
-                <p className="text-[10px] text-gray-500 mb-3">Which company dominates which category in each venue tier</p>
-                {Object.entries(COMPETITIVE_HEAT).map(([category, tiers]) => (
-                  <div key={category} className="mb-4 last:mb-0">
-                    <h5 className="text-xs font-semibold text-navy mb-2 border-b border-gray-100 pb-1">{category}</h5>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
-                      {Object.entries(tiers).map(([tier, data]) => {
-                        const dominantColor = PARENT_COMPANIES[data.dominant]?.color || '#666'
-                        return (
-                          <div key={tier} className="rounded-lg p-2.5 border" style={{ borderColor: dominantColor + '30', backgroundColor: dominantColor + '05' }}>
-                            <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">{tier.replace(/([A-Z])/g, ' $1').trim()}</p>
-                            <p className="text-[10px] font-bold" style={{ color: dominantColor }}>{data.dominant}</p>
-                            <p className="text-[10px] text-gray-500">{(data.brands || []).join(', ')}</p>
-                            <div className="border-t border-gray-100 pt-1 mt-1">
-                              <p className="text-[10px] text-gray-500">Challenger: <span className="font-medium" style={{ color: PARENT_COMPANIES[data.challenger]?.color || '#999' }}>{data.challenger}</span></p>
-                            </div>
-                          </div>
-                        )
-                      })}
-                    </div>
-                  </div>
-                ))}
-              </Card>
             </div>
           </DrillDown>
 
-          {/* --- More Analysis (collapsed by default, explicit click required) --- */}
-          <div className="border border-gray-200 rounded-xl overflow-hidden">
-            <button
-              onClick={() => setShowMoreAnalysis(!showMoreAnalysis)}
-              className="w-full flex items-center justify-between px-5 py-3 bg-gray-50 hover:bg-gray-100 transition-colors touch-manipulation"
-            >
-              <div className="flex items-center gap-2">
-                <BarChart3 size={16} className="text-gray-400" />
-                <span className="text-sm font-semibold text-gray-600">More Analysis</span>
-                <span className="text-xs text-gray-500">Budget benchmarks, longitudinal trends, city heatmap</span>
-              </div>
-              {showMoreAnalysis ? <ChevronUp size={16} className="text-gray-400" /> : <ChevronDown size={16} className="text-gray-400" />}
-            </button>
-            {showMoreAnalysis && (
-              <div className="p-4 space-y-4 border-t border-gray-200">
+          {/* --- Competitive Heat Map --- */}
+          <DrillDown
+            title="Competitive Heat Map"
+            summary="Which company dominates which category in each venue tier"
+          >
+            <div className="space-y-4">
+              {Object.entries(COMPETITIVE_HEAT).map(([category, tiers]) => (
+                <div key={category} className="mb-4 last:mb-0">
+                  <h5 className="text-xs font-semibold text-navy mb-2 border-b border-gray-100 pb-1">{category}</h5>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
+                    {Object.entries(tiers).map(([tier, data]) => {
+                      const dominantColor = PARENT_COMPANIES[data.dominant]?.color || '#666'
+                      return (
+                        <div key={tier} className="rounded-lg p-2.5 border" style={{ borderColor: dominantColor + '30', backgroundColor: dominantColor + '05' }}>
+                          <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">{tier.replace(/([A-Z])/g, ' $1').trim()}</p>
+                          <p className="text-xs font-bold" style={{ color: dominantColor }}>{data.dominant}</p>
+                          <p className="text-xs text-gray-500">{(data.brands || []).join(', ')}</p>
+                          <div className="border-t border-gray-100 pt-1 mt-1">
+                            <p className="text-xs text-gray-500">Challenger: <span className="font-medium" style={{ color: PARENT_COMPANIES[data.challenger]?.color || '#999' }}>{data.challenger}</span></p>
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </DrillDown>
 
+          {/* --- Budget Benchmarks & Trends --- */}
           <DrillDown
             title="Budget Benchmarks & Trends"
             summary="On-trade spend benchmarks, corporate vs independent trends, 5-year penetration"
@@ -882,7 +879,7 @@ export default function VenueIntelligence() {
                           <span className="text-white text-[10px] font-bold pl-2">{d.pct}%</span>
                         </div>
                       </div>
-                      <div className="text-[10px] text-gray-500 w-20 text-right">{d.bars}/{d.total} bars</div>
+                      <div className="text-xs text-gray-500 w-20 text-right">{d.bars}/{d.total} bars</div>
                     </div>
                   ))}
                 </div>
@@ -949,10 +946,6 @@ export default function VenueIntelligence() {
             </div>
           </DrillDown>
 
-              </div>
-            )}
-          </div>
-
           {/* --- Market Entry Playbooks --- */}
           <DrillDown
             title="Market Entry Playbooks"
@@ -962,7 +955,7 @@ export default function VenueIntelligence() {
               {/* Distribution Landscape */}
               <Card>
                 <h4 className="text-sm font-semibold text-navy mb-1 flex items-center gap-2"><Briefcase size={14} /> UK Distribution Landscape</h4>
-                <p className="text-[10px] text-gray-500 mb-3">Key distributors for the UK on-trade</p>
+                <p className="text-xs text-gray-500 mb-3">Key distributors for the UK on-trade</p>
                 <div className="space-y-2">
                   {Object.entries(DISTRIBUTORS).map(([name, dist]) => (
                     <div key={name} className="border border-gray-100 rounded-lg overflow-hidden">
@@ -972,13 +965,13 @@ export default function VenueIntelligence() {
                           <div className="flex items-center gap-2">
                             <span className="font-medium text-xs text-navy">{name}</span>
                             <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-50 text-blue-700">{dist.type}</span>
-                            {dist.parent && <span className="text-[10px] text-gray-500">({dist.parent})</span>}
+                            {dist.parent && <span className="text-xs text-gray-500">({dist.parent})</span>}
                           </div>
                         </div>
                         {expandedDistributor === name ? <ChevronUp size={14} className="text-gray-400" /> : <ChevronDown size={14} className="text-gray-400" />}
                       </div>
                       {expandedDistributor === name && (
-                        <div className="border-t border-gray-100 p-2.5 bg-gray-50 space-y-1 text-[10px]">
+                        <div className="border-t border-gray-100 p-2.5 bg-gray-50 space-y-1 text-xs">
                           <div><span className="font-semibold text-gray-500">Coverage:</span> <span className="text-gray-700">{dist.coverage}</span></div>
                           <div><span className="font-semibold text-gray-500">Key Clients:</span> <span className="text-gray-700">{(dist.keyClients || []).join(', ')}</span></div>
                           <div><span className="font-semibold text-gray-500">Min Order:</span> <span className="text-gray-700">{dist.minOrder}</span></div>
@@ -996,7 +989,7 @@ export default function VenueIntelligence() {
               {/* Entry Playbooks */}
               <Card>
                 <h4 className="text-sm font-semibold text-navy mb-1 flex items-center gap-2"><BookOpen size={14} /> Category Entry Playbooks</h4>
-                <p className="text-[10px] text-gray-500 mb-3">Phased strategies by spirit category</p>
+                <p className="text-xs text-gray-500 mb-3">Phased strategies by spirit category</p>
                 <div className="space-y-2">
                   {Object.entries(ENTRY_PLAYBOOKS).map(([key, pb]) => (
                     <div key={key} className="border border-gray-100 rounded-lg overflow-hidden">
@@ -1004,7 +997,7 @@ export default function VenueIntelligence() {
                         onClick={() => setEntryCategory(entryCategory === key ? null : key)}>
                         <div className="flex-1">
                           <h5 className="font-medium text-xs text-navy">{pb.title}</h5>
-                          <div className="flex gap-4 mt-0.5 text-[10px] text-gray-500">
+                          <div className="flex gap-4 mt-0.5 text-xs text-gray-500">
                             <span>Budget: {pb.estimatedBudget}</span>
                             <span>Timeline: {pb.timeline}</span>
                           </div>
@@ -1014,8 +1007,8 @@ export default function VenueIntelligence() {
                       {entryCategory === key && (
                         <div className="border-t border-gray-100 p-3 bg-gray-50 space-y-3">
                           <div className="bg-red-50 border border-red-100 rounded-lg p-2.5">
-                            <h6 className="text-[10px] font-bold text-red-800 mb-0.5">Competitive Landscape</h6>
-                            <p className="text-[10px] text-red-700">{pb.competition}</p>
+                            <h6 className="text-xs font-bold text-red-800 mb-0.5">Competitive Landscape</h6>
+                            <p className="text-xs text-red-700">{pb.competition}</p>
                           </div>
                           <div className="space-y-2">
                             {['phase1', 'phase2', 'phase3'].map(phaseKey => {
@@ -1027,17 +1020,17 @@ export default function VenueIntelligence() {
                                     <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold text-white ${phaseKey === 'phase1' ? 'bg-blue-500' : phaseKey === 'phase2' ? 'bg-amber-500' : 'bg-green-500'}`}>
                                       {phaseKey.slice(-1)}
                                     </span>
-                                    <h6 className="text-[10px] font-bold text-navy">{phase.name}</h6>
-                                    <span className="text-[10px] text-gray-500 ml-auto">{phase.duration}</span>
+                                    <h6 className="text-xs font-bold text-navy">{phase.name}</h6>
+                                    <span className="text-xs text-gray-500 ml-auto">{phase.duration}</span>
                                   </div>
                                   <div className="space-y-0.5 mb-1.5">
                                     {(phase.actions || []).map((a, ai) => (
-                                      <p key={ai} className="text-[10px] text-gray-700 flex items-start gap-1"><ArrowRight size={8} className="text-navy mt-0.5 flex-shrink-0" /> {a}</p>
+                                      <p key={ai} className="text-xs text-gray-700 flex items-start gap-1"><ArrowRight size={8} className="text-navy mt-0.5 flex-shrink-0" /> {a}</p>
                                     ))}
                                   </div>
                                   {phase.targetVenues && phase.targetVenues.length > 0 && (
                                     <div className="flex flex-wrap gap-1">
-                                      <span className="text-[10px] text-gray-500">Target:</span>
+                                      <span className="text-xs text-gray-500">Target:</span>
                                       {phase.targetVenues.map(v => <span key={v} className="px-1 py-0.5 text-[10px] rounded bg-navy/10 text-navy font-medium">{v}</span>)}
                                     </div>
                                   )}
@@ -1047,14 +1040,14 @@ export default function VenueIntelligence() {
                           </div>
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             <div className="bg-blue-50 rounded-lg p-2.5 border border-blue-100">
-                              <h6 className="text-[10px] font-bold text-blue-800 mb-0.5 flex items-center gap-1"><Users size={10} /> Key People</h6>
-                              <p className="text-[10px] text-blue-700">{pb.keyPeople}</p>
+                              <h6 className="text-xs font-bold text-blue-800 mb-0.5 flex items-center gap-1"><Users size={10} /> Key People</h6>
+                              <p className="text-xs text-blue-700">{pb.keyPeople}</p>
                             </div>
                             <div className="bg-amber-50 rounded-lg p-2.5 border border-amber-100">
-                              <h6 className="text-[10px] font-bold text-amber-800 mb-0.5 flex items-center gap-1"><Shield size={10} /> Pitfalls</h6>
+                              <h6 className="text-xs font-bold text-amber-800 mb-0.5 flex items-center gap-1"><Shield size={10} /> Pitfalls</h6>
                               <div className="space-y-0.5">
                                 {(pb.pitfalls || []).map((p, pi) => (
-                                  <p key={pi} className="text-[10px] text-amber-700 flex items-start gap-1"><X size={8} className="text-amber-600 mt-0.5 flex-shrink-0" /> {p}</p>
+                                  <p key={pi} className="text-xs text-amber-700 flex items-start gap-1"><X size={8} className="text-amber-600 mt-0.5 flex-shrink-0" /> {p}</p>
                                 ))}
                               </div>
                             </div>
@@ -1130,7 +1123,7 @@ function VenueCard({ venue, index, expanded, onToggle }) {
             </span>
             <span className="px-1.5 py-0.5 bg-gray-100 text-gray-600 rounded text-[10px]">{venue.type}</span>
           </div>
-          <div className="flex items-center gap-3 mt-1 text-[10px] text-gray-500 flex-wrap">
+          <div className="flex items-center gap-3 mt-1 text-xs text-gray-500 flex-wrap">
             <span className="flex items-center gap-0.5"><MapPin size={10} /> {venue.area}</span>
             <span className="flex items-center gap-0.5"><DollarSign size={10} /> {venue.estRevenue}/yr</span>
             {venue.fiftyBest && venue.fiftyBest.some(r => r) && (
@@ -1174,16 +1167,16 @@ function VenueCard({ venue, index, expanded, onToggle }) {
               <div className="flex flex-wrap gap-1">
                 {venue.parentCompanies.map(pc => (
                   <EntityLink key={pc} type="company" id={pc.toLowerCase().replace(/\s+/g, '-')} label={pc}
-                    className="px-1.5 py-0.5 rounded text-[10px] font-medium" />
+                    className="px-1.5 py-0.5 rounded text-xs font-medium" />
                 ))}
               </div>
             </div>
           )}
-          {venue.founders && <p className="text-[10px] text-gray-600"><span className="font-semibold">Key People:</span> {venue.founders}</p>}
-          <p className="text-[10px] text-gray-600"><span className="font-semibold">Intel:</span> {venue.notes}</p>
+          {venue.founders && <p className="text-xs text-gray-600"><span className="font-semibold">Key People:</span> {venue.founders}</p>}
+          <p className="text-xs text-gray-600"><span className="font-semibold">Intel:</span> {venue.notes}</p>
           {venue.revenueSource && (
             <div className="bg-amber-50 border border-amber-100 rounded p-1.5">
-              <p className="text-[10px] text-amber-800"><span className="font-semibold">Revenue Source:</span> {venue.revenueSource}</p>
+              <p className="text-xs text-amber-800"><span className="font-semibold">Revenue Source:</span> {venue.revenueSource}</p>
             </div>
           )}
         </div>
@@ -1198,25 +1191,25 @@ function CompanyCard({ name, profile, expanded, onToggle }) {
       <div className="flex items-center gap-3 mb-1.5">
         <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: PARENT_COMPANIES[name]?.color || '#666' }} />
         <h4 className="text-xs font-bold text-navy">{name}</h4>
-        <span className="text-[10px] text-gray-500 ml-auto">{profile.revenue}</span>
+        <span className="text-xs text-gray-500 ml-auto">{profile.revenue}</span>
         {expanded ? <ChevronUp size={14} className="text-gray-400" /> : <ChevronDown size={14} className="text-gray-400" />}
       </div>
-      <p className="text-[10px] text-gray-500">{profile.headquarters} {'\u00b7'} CEO: {profile.ceo}</p>
-      <p className="text-[10px] text-gray-500 mt-0.5">On-trade share: {profile.onTradeShare}</p>
+      <p className="text-xs text-gray-500">{profile.headquarters} {'\u00b7'} CEO: {profile.ceo}</p>
+      <p className="text-xs text-gray-500 mt-0.5">On-trade share: {profile.onTradeShare}</p>
 
       {expanded && (
         <div className="border-t border-gray-100 mt-3 pt-3 space-y-3">
           <div>
             <h5 className="text-[10px] font-bold text-navy uppercase tracking-wider mb-0.5 flex items-center gap-1"><Target size={10} /> On-Trade Strategy</h5>
-            <p className="text-[10px] text-gray-700 leading-relaxed">{profile.strategy}</p>
+            <p className="text-xs text-gray-700 leading-relaxed">{profile.strategy}</p>
           </div>
 
           <div>
             <h5 className="text-[10px] font-bold text-navy uppercase tracking-wider mb-1 flex items-center gap-1"><Wine size={10} /> Key On-Trade Brands</h5>
             <div className="space-y-1">
               {(profile.keyBrandsOnTrade || []).map((brand, bi) => (
-                <div key={bi} className="flex items-center gap-2 text-[10px] bg-white rounded px-2 py-1 border border-gray-100">
-                  <EntityLink type="brand" id={brand.name?.toLowerCase().replace(/\s+/g, '-')} label={brand.name} className="font-semibold w-28 truncate text-[10px]" />
+                <div key={bi} className="flex items-center gap-2 text-xs bg-white rounded px-2 py-1 border border-gray-100">
+                  <EntityLink type="brand" id={brand.name?.toLowerCase().replace(/\s+/g, '-')} label={brand.name} className="font-semibold w-28 truncate text-xs" />
                   <span className="text-gray-400">{brand.category}</span>
                   <span className="ml-auto text-gray-500">{brand.pricePoint}</span>
                 </div>
@@ -1229,7 +1222,7 @@ function CompanyCard({ name, profile, expanded, onToggle }) {
               <h5 className="text-[10px] font-bold text-green-700 uppercase tracking-wider mb-0.5 flex items-center gap-1"><Shield size={10} /> Strengths</h5>
               <div className="space-y-0.5">
                 {(profile.strengths || []).map((s, si) => (
-                  <p key={si} className="text-[10px] text-gray-700 flex items-start gap-1"><Check size={8} className="text-green-500 mt-0.5 flex-shrink-0" /> {s}</p>
+                  <p key={si} className="text-xs text-gray-700 flex items-start gap-1"><Check size={8} className="text-green-500 mt-0.5 flex-shrink-0" /> {s}</p>
                 ))}
               </div>
             </div>
@@ -1237,7 +1230,7 @@ function CompanyCard({ name, profile, expanded, onToggle }) {
               <h5 className="text-[10px] font-bold text-red-700 uppercase tracking-wider mb-0.5 flex items-center gap-1"><Zap size={10} /> Vulnerabilities</h5>
               <div className="space-y-0.5">
                 {(profile.weaknesses || []).map((w, wi) => (
-                  <p key={wi} className="text-[10px] text-gray-700 flex items-start gap-1"><X size={8} className="text-red-500 mt-0.5 flex-shrink-0" /> {w}</p>
+                  <p key={wi} className="text-xs text-gray-700 flex items-start gap-1"><X size={8} className="text-red-500 mt-0.5 flex-shrink-0" /> {w}</p>
                 ))}
               </div>
             </div>
@@ -1245,17 +1238,17 @@ function CompanyCard({ name, profile, expanded, onToggle }) {
 
           <div>
             <h5 className="text-[10px] font-bold text-navy uppercase tracking-wider mb-0.5 flex items-center gap-1"><MapPin size={10} /> London Presence</h5>
-            <p className="text-[10px] text-gray-700">{profile.londonPresence}</p>
+            <p className="text-xs text-gray-700">{profile.londonPresence}</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             <div className="bg-white rounded-lg p-2.5 border border-gray-100">
-              <h5 className="text-[10px] font-bold text-navy mb-0.5">UK Distribution</h5>
-              <p className="text-[10px] text-gray-600">{profile.distributionUK}</p>
+              <h5 className="text-xs font-bold text-navy mb-0.5">UK Distribution</h5>
+              <p className="text-xs text-gray-600">{profile.distributionUK}</p>
             </div>
             <div className="bg-white rounded-lg p-2.5 border border-gray-100">
-              <h5 className="text-[10px] font-bold text-navy mb-0.5">Deal Structure</h5>
-              <p className="text-[10px] text-gray-600">{profile.typicalDealStructure}</p>
+              <h5 className="text-xs font-bold text-navy mb-0.5">Deal Structure</h5>
+              <p className="text-xs text-gray-600">{profile.typicalDealStructure}</p>
             </div>
           </div>
 
@@ -1263,19 +1256,19 @@ function CompanyCard({ name, profile, expanded, onToggle }) {
             <h5 className="text-[10px] font-bold text-navy uppercase tracking-wider mb-0.5 flex items-center gap-1"><TrendingUp size={10} /> Recent Moves (2024-25)</h5>
             <div className="space-y-0.5">
               {(profile.recentMoves || []).map((m, mi) => (
-                <p key={mi} className="text-[10px] text-gray-700 flex items-start gap-1"><ArrowRight size={8} className="text-navy mt-0.5 flex-shrink-0" /> {m}</p>
+                <p key={mi} className="text-xs text-gray-700 flex items-start gap-1"><ArrowRight size={8} className="text-navy mt-0.5 flex-shrink-0" /> {m}</p>
               ))}
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             <div className="bg-red-50 rounded-lg p-2.5 border border-red-100">
-              <h5 className="text-[10px] font-bold text-red-800 mb-0.5">Threat to Small Brands</h5>
-              <p className="text-[10px] text-red-700">{profile.threatToSmallBrands}</p>
+              <h5 className="text-xs font-bold text-red-800 mb-0.5">Threat to Small Brands</h5>
+              <p className="text-xs text-red-700">{profile.threatToSmallBrands}</p>
             </div>
             <div className="bg-green-50 rounded-lg p-2.5 border border-green-100">
-              <h5 className="text-[10px] font-bold text-green-800 mb-0.5">Opportunity for Small Brands</h5>
-              <p className="text-[10px] text-green-700">{profile.opportunityForSmallBrands}</p>
+              <h5 className="text-xs font-bold text-green-800 mb-0.5">Opportunity for Small Brands</h5>
+              <p className="text-xs text-green-700">{profile.opportunityForSmallBrands}</p>
             </div>
           </div>
         </div>

@@ -95,7 +95,7 @@ function RegionCardTier1({ region, data, onClick, isHighlighted }) {
           <span className="text-2xl">{region.flag}</span>
           <div className="min-w-0">
             <span className="font-semibold text-sm text-navy truncate block">{region.name}</span>
-            <span className="text-[10px] text-gray-500">{region.source}</span>
+            <span className="text-xs text-gray-500">{region.source}</span>
           </div>
         </div>
       </div>
@@ -108,9 +108,9 @@ function RegionCardTier1({ region, data, onClick, isHighlighted }) {
         </span>
       </div>
 
-      <p className="text-[10px] text-gray-500 leading-relaxed line-clamp-2 mb-2">{region.summary}</p>
+      <p className="text-xs text-gray-500 leading-relaxed line-clamp-2 mb-2">{region.summary}</p>
 
-      <div className="flex items-center gap-2 text-[10px] text-gray-500">
+      <div className="flex items-center gap-2 text-xs text-gray-500">
         <span>Top: {topBrand}</span>
         {data && data.channels && (
           <>
@@ -170,9 +170,9 @@ function RegionTier2({ region, data, onClose, onViewFull }) {
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-4">
             {data.kpis.slice(0, 3).map((kpi, i) => (
               <div key={i} className="bg-gray-50 rounded-lg p-2.5 text-center">
-                <div className="text-[10px] text-gray-500 uppercase tracking-wide">{kpi.label}</div>
+                <div className="text-xs text-gray-500 uppercase tracking-wide">{kpi.label}</div>
                 <div className="text-sm font-bold text-navy tabular-nums">{kpi.value}</div>
-                <div className={`text-[10px] font-medium ${kpi.changeDir === 'up' ? 'text-emerald-600' : 'text-red-500'}`}>
+                <div className={`text-xs font-medium ${kpi.changeDir === 'up' ? 'text-emerald-600' : 'text-red-500'}`}>
                   {kpi.change > 0 ? '+' : ''}{kpi.change}%
                 </div>
               </div>
@@ -209,10 +209,10 @@ function RegionTier2({ region, data, onClose, onViewFull }) {
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {data.kpis.map((kpi, i) => (
                 <div key={i} className="bg-white rounded-lg border border-gray-100 p-2.5">
-                  <div className="text-[10px] text-gray-500 uppercase tracking-wide mb-0.5">{kpi.label}</div>
+                  <div className="text-xs text-gray-500 uppercase tracking-wide mb-0.5">{kpi.label}</div>
                   <div className="flex items-baseline gap-1.5">
                     <span className="text-sm font-bold text-navy tabular-nums">{kpi.value}</span>
-                    <span className={`text-[10px] font-medium ${kpi.changeDir === 'up' ? 'text-emerald-600' : kpi.changeDir === 'down' ? 'text-red-500' : 'text-gray-500'}`}>
+                    <span className={`text-xs font-medium ${kpi.changeDir === 'up' ? 'text-emerald-600' : kpi.changeDir === 'down' ? 'text-red-500' : 'text-gray-500'}`}>
                       {kpi.change > 0 ? '+' : ''}{kpi.change}%
                     </span>
                   </div>
@@ -264,7 +264,7 @@ function RegionTier2({ region, data, onClose, onViewFull }) {
             {data.trends.map((trend, i) => (
               <div key={i} className="bg-white rounded-lg border border-gray-100 p-3 flex gap-3 items-start">
                 <div className="w-5 h-5 rounded-full bg-navy/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <span className="text-[10px] font-bold text-navy">{i + 1}</span>
+                  <span className="text-xs font-bold text-navy">{i + 1}</span>
                 </div>
                 <div className="flex-1">
                   <p className="text-xs text-gray-700 leading-relaxed">{trend.text}</p>
@@ -290,11 +290,11 @@ function RegionTier2({ region, data, onClose, onViewFull }) {
               <div className="space-y-3">
                 <div className="grid grid-cols-2 gap-2">
                   <div className="bg-white rounded-lg border border-gray-100 p-3 text-center">
-                    <div className="text-[10px] text-gray-500 uppercase">Market Size</div>
+                    <div className="text-xs text-gray-500 uppercase">Market Size</div>
                     <div className="text-lg font-bold text-navy tabular-nums">{currentReport.marketSize}</div>
                   </div>
                   <div className="bg-white rounded-lg border border-gray-100 p-3 text-center">
-                    <div className="text-[10px] text-gray-500 uppercase">Growth</div>
+                    <div className="text-xs text-gray-500 uppercase">Growth</div>
                     <div className="flex items-center justify-center gap-1">
                       <span className="text-lg font-bold text-navy tabular-nums">{currentReport.growth}%</span>
                       {currentReport.growth > 0 ? <TrendingUp size={14} className="text-emerald-600" /> : <TrendingDown size={14} className="text-red-500" />}
@@ -303,7 +303,7 @@ function RegionTier2({ region, data, onClose, onViewFull }) {
                 </div>
 
                 <div className="bg-white rounded-lg border border-gray-100 p-3">
-                  <div className="text-[10px] text-gray-500 uppercase mb-1">Top Performer</div>
+                  <div className="text-xs text-gray-500 uppercase mb-1">Top Performer</div>
                   <p className="text-xs text-navy font-semibold">{currentReport.topPerformer}</p>
                 </div>
 
@@ -330,7 +330,7 @@ function RegionTier2({ region, data, onClose, onViewFull }) {
 
       {/* Footer CTA */}
       <div className="px-5 py-3 border-t border-gray-100 flex items-center justify-between">
-        <div className="text-[10px] text-gray-500">
+        <div className="text-xs text-gray-500">
           Source: {region.source}
         </div>
         <button
@@ -461,15 +461,15 @@ function RegionTier3({ region, data, onClose }) {
               <SectionHeader size="md">Market Entry Analysis</SectionHeader>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div className="bg-gray-50 rounded-lg p-3">
-                  <div className="text-[10px] text-gray-500 uppercase mb-1">Min Investment</div>
+                  <div className="text-xs text-gray-500 uppercase mb-1">Min Investment</div>
                   <div className="text-sm font-bold text-navy">{data.marketEntry.minInvestment}</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-3">
-                  <div className="text-[10px] text-gray-500 uppercase mb-1">Time to Market</div>
+                  <div className="text-xs text-gray-500 uppercase mb-1">Time to Market</div>
                   <div className="text-sm font-bold text-navy">{data.marketEntry.timeToMarket}</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-3">
-                  <div className="text-[10px] text-gray-500 uppercase mb-1">Barriers</div>
+                  <div className="text-xs text-gray-500 uppercase mb-1">Barriers</div>
                   <div className="text-xs text-gray-600 leading-relaxed">{data.marketEntry.barriers.split(' - ')[0]}</div>
                 </div>
               </div>
@@ -513,7 +513,7 @@ function RegionTier3({ region, data, onClose }) {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <div className="text-[10px] text-gray-500 uppercase mb-1.5">Ease of Entry</div>
+                  <div className="text-xs text-gray-500 uppercase mb-1.5">Ease of Entry</div>
                   <div className="flex items-center gap-3">
                     <div className="flex-1">
                       <div className="w-full bg-gray-100 rounded-full h-2.5 overflow-hidden">
@@ -524,7 +524,7 @@ function RegionTier3({ region, data, onClose }) {
                   </div>
                 </div>
                 <div>
-                  <div className="text-[10px] text-gray-500 uppercase mb-1.5">Premium Opportunity</div>
+                  <div className="text-xs text-gray-500 uppercase mb-1.5">Premium Opportunity</div>
                   <div className="flex items-center gap-3">
                     <div className="flex-1">
                       <div className="w-full bg-gray-100 rounded-full h-2.5 overflow-hidden">
@@ -538,11 +538,11 @@ function RegionTier3({ region, data, onClose }) {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="bg-gray-50 rounded-lg p-3">
-                  <div className="text-[10px] text-gray-500 uppercase mb-1">Consolidation</div>
+                  <div className="text-xs text-gray-500 uppercase mb-1">Consolidation</div>
                   <p className="text-xs text-gray-700 leading-relaxed">{data.competitiveEntry.consolidation}</p>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-3">
-                  <div className="text-[10px] text-gray-500 uppercase mb-1">White Space</div>
+                  <div className="text-xs text-gray-500 uppercase mb-1">White Space</div>
                   <p className="text-xs text-gray-700 leading-relaxed">{data.competitiveEntry.whitespace}</p>
                 </div>
               </div>
@@ -757,7 +757,7 @@ export default function GeographicIntelligence() {
               <div className="grid grid-cols-2 gap-2">
                 {REGION_DATA[mobileSheet.key].kpis.slice(0, 4).map((kpi, i) => (
                   <div key={i} className="bg-gray-50 rounded-lg p-2 text-center">
-                    <div className="text-[11px] text-gray-500 uppercase">{kpi.label}</div>
+                    <div className="text-xs text-gray-500 uppercase">{kpi.label}</div>
                     <div className="text-sm font-bold text-navy tabular-nums">{kpi.value}</div>
                   </div>
                 ))}

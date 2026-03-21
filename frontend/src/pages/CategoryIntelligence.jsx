@@ -442,8 +442,8 @@ function CategoryCard({ cat, year, isHero, onClick }) {
         </div>
       </div>
       <div className="px-4 sm:px-5 py-2.5 flex items-center justify-between">
-        <span className="text-[10px] text-gray-500 whitespace-nowrap">{yd.topMarkets.length} markets {'\u00b7'} {brandCount} brands {'\u00b7'} {yd.trends.length} trends</span>
-        <span className="text-[10px] font-semibold text-gold group-hover:underline flex-shrink-0 ml-2">Explore {'\u2192'}</span>
+        <span className="text-xs text-gray-500 whitespace-nowrap">{yd.topMarkets.length} markets {'\u00b7'} {brandCount} brands {'\u00b7'} {yd.trends.length} trends</span>
+        <span className="text-xs font-semibold text-gold group-hover:underline flex-shrink-0 ml-2">Explore {'\u2192'}</span>
       </div>
     </button>
   )
@@ -597,37 +597,37 @@ function CategoryDetail({ cat, year, onBack }) {
               <div className="flex items-center gap-2 mb-3">
                 <SectionLabel>Trade KPIs ({year})</SectionLabel>
                 {yd.tradeKPIs.isEstimated && (
-                  <span className="px-1.5 py-0.5 bg-orange-100 text-orange-700 text-[9px] font-bold rounded uppercase tracking-wider">Est.</span>
+                  <span className="px-1.5 py-0.5 bg-orange-100 text-orange-700 text-[10px] font-bold rounded uppercase tracking-wider">Est.</span>
                 )}
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
                 <div className="bg-gray-50 rounded-lg p-2.5">
-                  <div className="text-[10px] text-gray-500">ACV Distribution</div>
+                  <div className="text-xs text-gray-500">ACV Distribution</div>
                   <div className="text-sm font-bold text-navy">{yd.tradeKPIs.acvDistribution}%</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-2.5">
-                  <div className="text-[10px] text-gray-500">CE Depletions</div>
+                  <div className="text-xs text-gray-500">CE Depletions</div>
                   <div className="text-sm font-bold text-navy">{(yd.tradeKPIs.ceDepletions / 1000000).toFixed(1)}M</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-2.5">
-                  <div className="text-[10px] text-gray-500">Avg Billback</div>
+                  <div className="text-xs text-gray-500">Avg Billback</div>
                   <div className="text-sm font-bold text-navy">{yd.tradeKPIs.billback}%</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-2.5">
-                  <div className="text-[10px] text-gray-500">Gross Margin</div>
+                  <div className="text-xs text-gray-500">Gross Margin</div>
                   <div className="text-sm font-bold text-navy">{yd.tradeKPIs.grossMarginPct}%</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-2.5">
-                  <div className="text-[10px] text-gray-500">CAC</div>
+                  <div className="text-xs text-gray-500">CAC</div>
                   <div className="text-sm font-bold text-navy">${yd.tradeKPIs.cac}</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-2.5">
-                  <div className="text-[10px] text-gray-500">Inventory Turnover</div>
+                  <div className="text-xs text-gray-500">Inventory Turnover</div>
                   <div className="text-sm font-bold text-navy">{yd.tradeKPIs.itr}x</div>
                 </div>
               </div>
               {yd.tradeKPIs.isEstimated && (
-                <p className="text-[10px] text-gray-500 mt-2 italic">{yd.tradeKPIs.methodology}</p>
+                <p className="text-xs text-gray-500 mt-2 italic">{yd.tradeKPIs.methodology}</p>
               )}
             </Card>
           )}
@@ -878,7 +878,7 @@ export default function CategoryIntelligence() {
 
       {/* Footer source note */}
       <div className="mt-8 text-center">
-        <p className="text-[10px] text-gray-500">Data sourced from IWSR, Euromonitor, DISCUS, OIV, and trade publications \u00b7 Updated quarterly</p>
+        <p className="text-xs text-gray-500">Data sourced from IWSR, Euromonitor, DISCUS, OIV, and trade publications \u00b7 Updated quarterly</p>
       </div>
 
       {/* Mobile BottomSheet for category detail */}

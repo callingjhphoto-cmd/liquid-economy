@@ -6,7 +6,7 @@ import React from 'react'
  */
 export function TabGroup({ tabs, active, onChange, size = 'md', className = '' }) {
   const sizes = {
-    sm: 'text-[10px] px-2 py-1 min-h-[32px]',
+    sm: 'text-xs px-2 py-1 min-h-[32px]',
     md: 'text-xs px-3 py-1.5 min-h-[36px]',
     lg: 'text-sm px-4 py-2 min-h-[44px]',
   }
@@ -41,7 +41,7 @@ export function TabGroup({ tabs, active, onChange, size = 'md', className = '' }
  */
 export function FilterPills({ options, active, onChange, size = 'md' }) {
   const sizes = {
-    sm: 'text-[10px] px-2 py-1 min-h-[32px]',
+    sm: 'text-xs px-2 py-1 min-h-[32px]',
     md: 'text-xs px-3 py-1.5 min-h-[36px]',
     lg: 'text-sm px-4 py-2 min-h-[44px]',
   }

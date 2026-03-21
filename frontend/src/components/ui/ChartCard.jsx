@@ -33,7 +33,7 @@ export function ChartCard({
       <div className="flex items-start justify-between mb-4">
         <div>
           <h3 className="font-display text-sm font-semibold text-navy">{title}</h3>
-          {subtitle && <p className="text-[11px] text-gray-500 mt-0.5">{subtitle}</p>}
+          {subtitle && <p className="text-xs text-gray-500 mt-0.5">{subtitle}</p>}
         </div>
         {action && <div>{action}</div>}
       </div>
@@ -43,7 +43,7 @@ export function ChartCard({
         <div className="flex items-center justify-center" style={{ height: Math.min(height, 200) }}>
           <div className="flex flex-col items-center gap-2">
             <div className="w-8 h-8 border-2 border-navy/20 border-t-navy rounded-full animate-spin" />
-            <span className="text-[10px] text-gray-500">Loading chart data\u2026</span>
+            <span className="text-xs text-gray-500">Loading chart data\u2026</span>
           </div>
         </div>
       ) : (
@@ -57,19 +57,19 @@ export function ChartCard({
       {/* Source Attribution */}
       {source && (
         <div className="mt-3 pt-2 border-t border-gray-50 flex items-center gap-1">
-          <span className="text-[10px] text-gray-500">Source:</span>
+          <span className="text-xs text-gray-500">Source:</span>
           {sourceUrl ? (
             <a
               href={sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[10px] text-navy/60 hover:text-navy flex items-center gap-0.5 no-underline"
+              className="text-xs text-navy/60 hover:text-navy flex items-center gap-0.5 no-underline"
             >
               {source}
               <ExternalLink size={8} />
             </a>
           ) : (
-            <span className="text-[10px] text-gray-500">{source}</span>
+            <span className="text-xs text-gray-500">{source}</span>
           )}
         </div>
       )}

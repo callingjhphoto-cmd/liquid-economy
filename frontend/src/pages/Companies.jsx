@@ -126,7 +126,7 @@ function CompanyCardTier1({ company, onClick, isHighlighted }) {
               <span className="font-semibold text-sm text-navy truncate">{company.name}</span>
               {company.isPrivate && <Lock size={10} className="text-amber-500 flex-shrink-0" />}
             </div>
-            <span className="text-[10px] text-gray-500">{company.hq}</span>
+            <span className="text-xs text-gray-500">{company.hq}</span>
           </div>
         </div>
         <Badge variant={company.isPrivate ? 'orange' : 'blue'} size="sm">
@@ -142,7 +142,7 @@ function CompanyCardTier1({ company, onClick, isHighlighted }) {
         </span>
       </div>
 
-      <div className="flex items-center gap-3 text-[10px] text-gray-500">
+      <div className="flex items-center gap-3 text-xs text-gray-500">
         <span>{brandCount} brands</span>
         <span>\u00b7</span>
         <span>{categoryCount} categories</span>
@@ -209,24 +209,24 @@ function CompanyTier2({ company, onViewFull, onClose }) {
           {fin2025 && (
             <>
               <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                <div className="text-[10px] text-gray-500 uppercase tracking-wide">Op. Margin</div>
+                <div className="text-xs text-gray-500 uppercase tracking-wide">Op. Margin</div>
                 <div className="text-sm font-bold text-navy tabular-nums">{fin2025.operatingMargin}%</div>
               </div>
               <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                <div className="text-[10px] text-gray-500 uppercase tracking-wide">Net Income</div>
+                <div className="text-xs text-gray-500 uppercase tracking-wide">Net Income</div>
                 <div className="text-sm font-bold text-navy tabular-nums">${fin2025.netIncome}B</div>
               </div>
             </>
           )}
           {!company.isPrivate && company.marketCap && (
             <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-              <div className="text-[10px] text-gray-500 uppercase tracking-wide">Mkt Cap</div>
+              <div className="text-xs text-gray-500 uppercase tracking-wide">Mkt Cap</div>
               <div className="text-sm font-bold text-navy tabular-nums">{company.marketCap}</div>
             </div>
           )}
           {!company.isPrivate && company.stockYTD && (
             <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-              <div className="text-[10px] text-gray-500 uppercase tracking-wide">Stock YTD</div>
+              <div className="text-xs text-gray-500 uppercase tracking-wide">Stock YTD</div>
               <div className={`text-sm font-bold tabular-nums ${company.stockYTD.startsWith('+') ? 'text-emerald-600' : 'text-red-500'}`}>
                 {company.stockYTD}
               </div>
@@ -234,7 +234,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
           )}
           {company.isPrivate && (
             <div className="bg-gray-50 rounded-lg p-2.5 text-center col-span-2">
-              <div className="text-[10px] text-gray-500 uppercase tracking-wide">Founded</div>
+              <div className="text-xs text-gray-500 uppercase tracking-wide">Founded</div>
               <div className="text-sm font-bold text-navy">{company.founded}</div>
             </div>
           )}
@@ -341,8 +341,8 @@ function CompanyTier2({ company, onViewFull, onClose }) {
                         {brand.trend}
                       </Badge>
                     </div>
-                    <div className="text-[10px] text-gray-500 mb-1">{brand.position} \u00b7 {brand.marketShare}</div>
-                    <p className="text-[11px] text-gray-600 leading-relaxed">{brand.latest}</p>
+                    <div className="text-xs text-gray-500 mb-1">{brand.position} \u00b7 {brand.marketShare}</div>
+                    <p className="text-xs text-gray-600 leading-relaxed">{brand.latest}</p>
                   </div>
                 ))}
               </div>
@@ -365,7 +365,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
                         </div>
                         <div>
                           <div className="font-semibold text-navy text-xs mb-0.5">{s.strategy}</div>
-                          <p className="text-[11px] text-gray-600 leading-relaxed">{s.detail}</p>
+                          <p className="text-xs text-gray-600 leading-relaxed">{s.detail}</p>
                         </div>
                       </div>
                     </div>
@@ -384,7 +384,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
                     {company.strengthsForCompetitor.slice(0, 3).map((s, i) => (
                       <div key={i} className="flex gap-1.5 items-start">
                         <AlertTriangle size={10} className="text-red-400 mt-0.5 flex-shrink-0" />
-                        <p className="text-[10px] text-gray-600 leading-relaxed">{s}</p>
+                        <p className="text-xs text-gray-600 leading-relaxed">{s}</p>
                       </div>
                     ))}
                   </div>
@@ -399,7 +399,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
                     {company.weaknessesForCompetitor.slice(0, 3).map((s, i) => (
                       <div key={i} className="flex gap-1.5 items-start">
                         <ArrowRight size={10} className="text-emerald-500 mt-0.5 flex-shrink-0" />
-                        <p className="text-[10px] text-gray-600 leading-relaxed">{s}</p>
+                        <p className="text-xs text-gray-600 leading-relaxed">{s}</p>
                       </div>
                     ))}
                   </div>
@@ -418,8 +418,8 @@ function CompanyTier2({ company, onViewFull, onClose }) {
                 <div className="space-y-2 mt-2">
                   {company.recentMoves.map((m, i) => (
                     <div key={i} className={`flex gap-3 items-start p-2.5 rounded-lg border ${THREAT_COLORS[m.threat] || 'border-gray-200'}`}>
-                      <div className="text-[10px] font-medium whitespace-nowrap mt-0.5">{m.date}</div>
-                      <p className="text-[11px] leading-relaxed flex-1">{m.move || m.event}</p>
+                      <div className="text-xs font-medium whitespace-nowrap mt-0.5">{m.date}</div>
+                      <p className="text-xs leading-relaxed flex-1">{m.move || m.event}</p>
                       <Badge variant={m.threat === 'high' ? 'red' : m.threat === 'medium' ? 'orange' : 'green'} size="sm">
                         {m.threat}
                       </Badge>
@@ -435,8 +435,8 @@ function CompanyTier2({ company, onViewFull, onClose }) {
                 <div className="space-y-2 mt-2">
                   {company.industryIntel.recentDevelopments.slice(0, 4).map((dev, i) => (
                     <div key={i} className="flex gap-3 items-start">
-                      <div className="text-[10px] font-semibold text-navy/60 whitespace-nowrap min-w-[60px]">{dev.date}</div>
-                      <p className="text-[11px] text-gray-600 leading-relaxed">{dev.event}</p>
+                      <div className="text-xs font-semibold text-navy/60 whitespace-nowrap min-w-[60px]">{dev.date}</div>
+                      <p className="text-xs text-gray-600 leading-relaxed">{dev.event}</p>
                     </div>
                   ))}
                 </div>
@@ -448,7 +448,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
 
       {/* Footer CTA for Tier 3 */}
       <div className="px-5 py-3 border-t border-gray-100 flex items-center justify-between">
-        <div className="flex items-center gap-2 text-[10px] text-gray-500">
+        <div className="flex items-center gap-2 text-xs text-gray-500">
           {company.profileSources && (
             <span>{company.profileSources.length} sources</span>
           )}
@@ -612,7 +612,7 @@ function CompanyTier3({ company, onClose }) {
                       <div className="text-[10px] font-semibold text-navy uppercase tracking-wide mb-1">
                         {channel.replace(/([A-Z])/g, ' $1').trim()}
                       </div>
-                      <p className="text-[11px] text-gray-600 leading-relaxed">{desc}</p>
+                      <p className="text-xs text-gray-600 leading-relaxed">{desc}</p>
                     </div>
                   ))}
                 </div>
@@ -623,10 +623,10 @@ function CompanyTier3({ company, onClose }) {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
                     {Object.entries(company.typicalDealTerms).map(([term, val]) => (
                       <div key={term} className="flex gap-2 items-start bg-gray-50 rounded-lg p-2.5">
-                        <span className="text-[10px] font-medium text-gray-500 uppercase w-24 flex-shrink-0">
+                        <span className="text-xs font-medium text-gray-500 uppercase w-24 flex-shrink-0">
                           {term.replace(/([A-Z])/g, ' $1').trim()}
                         </span>
-                        <span className="text-[11px] text-gray-600">{val}</span>
+                        <span className="text-xs text-gray-600">{val}</span>
                       </div>
                     ))}
                   </div>
@@ -692,7 +692,7 @@ function CompanyTier3({ company, onClose }) {
                   </div>
                 </div>
               )}
-              <p className="text-[10px] text-gray-500 mt-4 border-t border-gray-100 pt-3">
+              <p className="text-xs text-gray-500 mt-4 border-t border-gray-100 pt-3">
                 Financial data sourced from annual reports, SEC/regulatory filings, and industry databases.
                 Market share estimates from IWSR and Euromonitor. Last updated: February 2026.
               </p>
@@ -723,10 +723,10 @@ function WhiteSpaceSection() {
               </div>
               <span className="text-xs font-semibold text-emerald-600 tabular-nums">{info.growthRate}</span>
             </div>
-            <div className="text-[10px] text-gray-500 mb-0.5">
+            <div className="text-xs text-gray-500 mb-0.5">
               <span className="font-medium">Major presence:</span> {info.majorPresence}
             </div>
-            <p className="text-[11px] text-gray-600 leading-relaxed">{info.notes}</p>
+            <p className="text-xs text-gray-600 leading-relaxed">{info.notes}</p>
           </div>
         ))}
       </div>
@@ -1021,11 +1021,11 @@ export default function Companies() {
 
             <div className="grid grid-cols-2 gap-2">
               <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                <div className="text-[10px] text-gray-500 uppercase">Revenue</div>
+                <div className="text-xs text-gray-500 uppercase">Revenue</div>
                 <div className="text-sm font-bold text-navy">{mobileSheet.revenue}</div>
               </div>
               <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                <div className="text-[10px] text-gray-500 uppercase">Growth</div>
+                <div className="text-xs text-gray-500 uppercase">Growth</div>
                 <div className={`text-sm font-bold ${mobileSheet.revenueGrowth && mobileSheet.revenueGrowth.startsWith('+') ? 'text-emerald-600' : 'text-red-500'}`}>
                   {mobileSheet.revenueGrowth}
                 </div>
@@ -1055,8 +1055,8 @@ export default function Companies() {
                 <div className="space-y-2 mt-2">
                   {mobileSheet.howToCompeteAgainst.slice(0, 3).map((s, i) => (
                     <div key={i} className="bg-gray-50 rounded-lg p-2.5">
-                      <div className="font-semibold text-navy text-[11px] mb-0.5">{s.strategy}</div>
-                      <p className="text-[10px] text-gray-600 leading-relaxed">{s.detail}</p>
+                      <div className="font-semibold text-navy text-xs mb-0.5">{s.strategy}</div>
+                      <p className="text-xs text-gray-600 leading-relaxed">{s.detail}</p>
                     </div>
                   ))}
                 </div>

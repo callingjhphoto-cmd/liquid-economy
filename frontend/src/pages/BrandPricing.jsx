@@ -211,7 +211,7 @@ function CategorySummaryCard({ stat, isExpanded, onToggle }) {
           count > 0 && (
             <span
               key={tier}
-              className={`text-[11px] px-1.5 py-0.5 rounded font-medium ${TIER_COLORS[tier].bg} ${TIER_COLORS[tier].text}`}
+              className={`text-xs px-1.5 py-0.5 rounded font-medium ${TIER_COLORS[tier].bg} ${TIER_COLORS[tier].text}`}
             >
               {tier}: {count}
             </span>
@@ -220,8 +220,8 @@ function CategorySummaryCard({ stat, isExpanded, onToggle }) {
       </div>
 
       <div className="flex items-center justify-between pt-2 border-t border-gray-50">
-        <span className="text-[10px] text-gray-500">Top: {stat.topBrand}</span>
-        <div className="flex items-center gap-1 text-[10px] text-navy font-medium">
+        <span className="text-xs text-gray-500">Top: {stat.topBrand}</span>
+        <div className="flex items-center gap-1 text-xs text-navy font-medium">
           {isExpanded ? (
             <>Collapse <ChevronUp size={10} /></>
           ) : (
@@ -307,7 +307,7 @@ function CategoryExpanded({ category, onClose }) {
                   <span className={`text-xs font-semibold px-2 py-0.5 rounded ${TIER_COLORS[tier].bg} ${TIER_COLORS[tier].text}`}>
                     {tier}
                   </span>
-                  <span className="text-[10px] text-gray-500">{brands.length} expressions</span>
+                  <span className="text-xs text-gray-500">{brands.length} expressions</span>
                 </div>
                 <div className="relative">
                 <div className="overflow-x-auto">
@@ -333,7 +333,7 @@ function CategoryExpanded({ category, onClose }) {
                             <td className="px-3 py-2 text-xs font-medium text-navy">{brand.brand}</td>
                             <td className="px-3 py-2 text-xs text-gray-600">{brand.expression}</td>
                             <td className="px-3 py-2">
-                              <span className={`text-[10px] px-1.5 py-0.5 rounded font-medium ${segInfo.color}`}>{brand.segment}</span>
+                              <span className={`text-xs px-1.5 py-0.5 rounded font-medium ${segInfo.color}`}>{brand.segment}</span>
                             </td>
                             <td className="px-3 py-2 text-xs text-gray-500">
                               <Link to="/companies" className="hover:text-navy hover:underline transition-colors">{brand.company}</Link>
@@ -388,7 +388,7 @@ function CategoryExpanded({ category, onClose }) {
         <div className="flex items-center gap-2 mb-3">
           <Store size={14} className="text-navy" />
           <span className="text-sm font-semibold text-navy">Tracked Retailers</span>
-          <span className="text-[10px] text-gray-500 ml-auto">
+          <span className="text-xs text-gray-500 ml-auto">
             Bottle size: <strong className="text-navy">{config.bottleSize}</strong> ({config.bottleMl}ml)
           </span>
         </div>
@@ -398,7 +398,7 @@ function CategoryExpanded({ category, onClose }) {
               <span className="text-lg">{r.logo}</span>
               <div className="min-w-0">
                 <p className="text-xs font-medium text-navy truncate">{r.name}</p>
-                <p className="text-[10px] text-gray-500">{r.type}</p>
+                <p className="text-xs text-gray-500">{r.type}</p>
               </div>
             </div>
           ))}
@@ -467,7 +467,7 @@ function FullPriceTable({ onClose }) {
     )},
     { key: 'segment', label: 'Segment', render: (v) => {
       const info = SEGMENT_INFO[v] || { color: 'bg-gray-50 text-gray-500' }
-      return <span className={`text-[10px] px-1.5 py-0.5 rounded font-medium ${info.color}`}>{v}</span>
+      return <span className={`text-xs px-1.5 py-0.5 rounded font-medium ${info.color}`}>{v}</span>
     }},
     { key: 'usa', label: 'USA ($)', align: 'right', render: (v) => v ? <span className="font-mono">${v}</span> : '\u2014' },
     { key: 'uk', label: 'UK (\u00a3)', align: 'right', render: (v) => v ? <span className="font-mono">\u00a3{v}</span> : '\u2014' },
@@ -543,7 +543,7 @@ function FullPriceTable({ onClose }) {
         <div className="mt-4 pt-4 border-t border-gray-100 space-y-3">
           <div className="flex items-start gap-2">
             <AlertCircle size={12} className="text-gray-400 mt-0.5 flex-shrink-0" />
-            <p className="text-[11px] text-gray-500 leading-relaxed">
+            <p className="text-xs text-gray-500 leading-relaxed">
               Prices represent recommended retail prices (RRP). Bottle sizes vary by market: UK and EU use 70cl (700ml); US and Middle East use 750ml.
               UK prices in GBP (\u00a3), EU in EUR (\u20ac), US and ME in USD ($). Market averages calculated from available retailer prices.
               EU average aggregates Spain, France, Germany, Italy, and Netherlands. Prices updated via automated scraping.
@@ -599,32 +599,32 @@ export default function BrandPricing() {
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-2">
                 <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                  <div className="text-[10px] text-gray-500 uppercase">Brands</div>
+                  <div className="text-xs text-gray-500 uppercase">Brands</div>
                   <div className="text-sm font-bold text-navy">{stat.count}</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                  <div className="text-[10px] text-gray-500 uppercase">Max Spread</div>
+                  <div className="text-xs text-gray-500 uppercase">Max Spread</div>
                   <div className="text-sm font-bold text-navy">${stat.maxDiff}</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                  <div className="text-[10px] text-gray-500 uppercase">Avg US</div>
+                  <div className="text-xs text-gray-500 uppercase">Avg US</div>
                   <div className="text-sm font-bold text-navy">{stat.avgUs !== null ? `$${stat.avgUs}` : '\u2014'}</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                  <div className="text-[10px] text-gray-500 uppercase">Avg UK</div>
+                  <div className="text-xs text-gray-500 uppercase">Avg UK</div>
                   <div className="text-sm font-bold text-navy">{stat.avgUk !== null ? `\u00a3${stat.avgUk}` : '\u2014'}</div>
                 </div>
               </div>
               <div className="flex flex-wrap gap-1.5">
                 {Object.entries(stat.tiers).map(([tier, count]) =>
                   count > 0 && (
-                    <span key={tier} className={`text-[11px] px-1.5 py-0.5 rounded font-medium ${TIER_COLORS[tier].bg} ${TIER_COLORS[tier].text}`}>
+                    <span key={tier} className={`text-xs px-1.5 py-0.5 rounded font-medium ${TIER_COLORS[tier].bg} ${TIER_COLORS[tier].text}`}>
                       {tier}: {count}
                     </span>
                   )
                 )}
               </div>
-              <p className="text-[10px] text-gray-500">Top brand: {stat.topBrand}</p>
+              <p className="text-xs text-gray-500">Top brand: {stat.topBrand}</p>
               <button
                 onClick={() => {
                   setMobileDetail(null)
@@ -723,7 +723,7 @@ export default function BrandPricing() {
               <p className="text-xs font-semibold text-navy">
                 Highest Premium Index: {stats.highestPremiumSegment[0]} segment ({stats.highestPremiumSegment[1]}% avg cross-market variance)
               </p>
-              <p className="text-[10px] text-gray-500 mt-0.5">
+              <p className="text-xs text-gray-500 mt-0.5">
                 This segment shows the largest price differences between markets, indicating arbitrage or regulatory-driven pricing.
               </p>
             </div>
@@ -764,7 +764,7 @@ export default function BrandPricing() {
             <span className="text-sm font-semibold text-navy">View Full Price Table</span>
             <ArrowRight size={14} className="text-navy" />
           </div>
-          <p className="text-[10px] text-gray-500">
+          <p className="text-xs text-gray-500">
             Complete {PRICING.length}-brand table with search, sort, filter, and CSV export
           </p>
         </Card>
@@ -784,12 +784,12 @@ export default function BrandPricing() {
             </div>
             <div>
               <p className="text-xs font-medium text-navy">Real-Time Pricing Monitor</p>
-              <p className="text-[10px] text-gray-500">
+              <p className="text-xs text-gray-500">
                 Prices sourced from {TOTAL_RETAILERS} retailers across {TOTAL_MARKETS} markets. Seed data \u2014 live scraping every 3 days.
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-3 text-[10px]">
+          <div className="flex items-center gap-3 text-xs">
             <span className="flex items-center gap-1 text-green-600"><span className="w-1.5 h-1.5 rounded-full bg-green-500" /> {PRICING.length} expressions</span>
             <span className="text-gray-300">|</span>
             <span className="flex items-center gap-1 text-blue-600"><Store size={10} /> {TOTAL_RETAILERS} retailers</span>
@@ -804,7 +804,7 @@ export default function BrandPricing() {
         <SectionHeader size="md">Markets Monitored</SectionHeader>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
           {Object.entries(MARKET_CONFIG).map(([key, cfg]) => (
-            <div key={key} className="flex items-center gap-2 text-[10px] bg-gray-50 text-gray-600 px-2.5 py-1.5 rounded-lg border border-gray-100">
+            <div key={key} className="flex items-center gap-2 text-xs bg-gray-50 text-gray-600 px-2.5 py-1.5 rounded-lg border border-gray-100">
               <span className="text-sm">{cfg.flag}</span>
               <div>
                 <p className="font-medium">{cfg.label}</p>

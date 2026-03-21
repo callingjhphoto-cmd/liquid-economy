@@ -108,7 +108,7 @@ function BottomTabBar() {
           return (
             <Link key={tab.label} to={tab.to} className={`flex flex-col items-center justify-center gap-0.5 min-h-[44px] min-w-[44px] px-3 py-1.5 transition-colors touch-manipulation ${active ? 'text-navy' : 'text-gray-400'}`}>
               <tab.icon size={20} strokeWidth={active ? 2 : 1.5} />
-              <span className="text-[11px] font-medium">{tab.label}</span>
+              <span className="text-xs font-medium">{tab.label}</span>
             </Link>
           )
         })}
@@ -203,7 +203,7 @@ function NavGroup({ title, children, defaultOpen = true }) {
   }
   return (
     <div className="mb-0.5">
-      <button onClick={toggle} className="flex items-center justify-between w-full px-3 py-1.5 min-h-[36px] text-[11px] font-semibold uppercase tracking-widest text-gray-500 hover:text-navy transition-colors touch-manipulation">
+      <button onClick={toggle} className="flex items-center justify-between w-full px-3 py-1.5 min-h-[36px] text-xs font-semibold uppercase tracking-widest text-gray-500 hover:text-navy transition-colors touch-manipulation">
         <span>{title}</span>
         <ChevronDown size={10} className={`transition-transform duration-200 ${open ? '' : '-rotate-90'}`} />
       </button>
@@ -229,11 +229,11 @@ function LivePulse() {
           ) : (
             <span className="h-2 w-2 rounded-full bg-gray-400" />
           )}
-          <span className="text-[11px] text-gray-500 font-medium">
+          <span className="text-xs text-gray-500 font-medium">
             {connected ? (mode === 'sse' ? 'LIVE' : 'POLLING') : 'OFFLINE'}
           </span>
         </div>
-        <div className="flex items-center gap-2 text-[11px]">
+        <div className="flex items-center gap-2 text-xs">
           {criticals > 0 && (
             <span className="text-red-500 font-bold">{criticals} critical</span>
           )}
@@ -325,10 +325,10 @@ function Layout({ onLogout }) {
             <button onClick={() => setSearchOpen(true)} className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-500 hover:text-navy hover:bg-gray-50 w-full text-left text-[13px] font-medium">
               <Search size={15} />
               <span>Search</span>
-              <kbd className="ml-auto text-[11px] text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded font-mono">{'\u2318'}K</kbd>
+              <kbd className="ml-auto text-xs text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded font-mono">{'\u2318'}K</kbd>
             </button>
             <NavGroup title="Coming Soon" defaultOpen={false}>
-              <div className="px-3 py-2 text-[11px] text-gray-500">
+              <div className="px-3 py-2 text-xs text-gray-500">
                 <p>Analyst Chat and Export Tracker are in development.</p>
                 <a href="mailto:james@huertas.co.uk" className="text-navy hover:underline">Join the waitlist {'\u2192'}</a>
               </div>

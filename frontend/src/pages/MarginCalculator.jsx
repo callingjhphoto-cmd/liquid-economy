@@ -1,23 +1,21 @@
-import React, { useState, useMemo, useCallback } from 'react'
+import React, { useState, useMemo, useRef } from 'react'
 import {
-  Calculator, TrendingUp, TrendingDown, ChevronDown, ChevronRight,
-  ToggleLeft, ToggleRight, Target, AlertTriangle, CheckCircle2,
-  Zap, Package, DollarSign, BarChart3, Gauge, Download, Eye,
-  Percent, ArrowRight, Info
+  Calculator, TrendingUp,
+  ToggleLeft, ToggleRight, Target, AlertTriangle,
+  Zap, Package, BarChart3, Gauge, Download, Eye
 } from 'lucide-react'
 import {
   BarChart, Bar, ResponsiveContainer, XAxis, YAxis, Tooltip,
   Cell, RadarChart, Radar, PolarGrid,
-  PolarAngleAxis, PolarRadiusAxis, CartesianGrid, Legend,
-  AreaChart, Area
+  PolarAngleAxis, PolarRadiusAxis, CartesianGrid
 } from 'recharts'
 import {
   CATEGORY_COGS, LAUNCH_READINESS, BOTTLE_SIZES, CHANNELS,
   CHANNEL_LABELS, INDUSTRY_BENCHMARKS, COST_ENTRIES
 } from '../data/marginCalcData'
 import {
-  Card, AccentCard, MetricCard, PageHeader, BentoGrid, DrillDown,
-  ChartCard, DataTable, TabGroup, EntityLink, SubPageNav, BottomSheet
+  Card, MetricCard, PageHeader, BentoGrid, DrillDown,
+  ChartCard, DataTable, SubPageNav, BottomSheet
 } from '../components/ui'
 
 // ── Helpers ──
@@ -32,7 +30,7 @@ function MarginGauge({ margin, label, size = 'md' }) {
   const textSize = size === 'lg' ? 'text-base' : 'text-sm'
   return (
     <div className="text-center">
-      {label && <div className="text-[10px] text-gray-500 mb-1">{label}</div>}
+      {label && <div className="text-xs text-gray-500 mb-1">{label}</div>}
       <div className={`relative ${dim} mx-auto`}>
         <svg viewBox="0 0 36 36" className="w-full h-full">
           <path d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e5e7eb" strokeWidth="3" />
@@ -42,7 +40,7 @@ function MarginGauge({ margin, label, size = 'md' }) {
           <span className={`${textSize} font-bold`} style={{ color }}>{margin.toFixed(1)}%</span>
         </div>
       </div>
-      <div className="text-[10px] font-medium mt-1" style={{ color }}>{descriptor}</div>
+      <div className="text-xs font-medium mt-1" style={{ color }}>{descriptor}</div>
     </div>
   )
 }
@@ -54,7 +52,7 @@ function ScenarioToggle({ label, active, onChange, impact }) {
       {active ? <ToggleRight size={16} className="text-gold flex-shrink-0" /> : <ToggleLeft size={16} className="text-gray-300 flex-shrink-0" />}
       <div className="flex-1 min-w-0">
         <div className="text-xs font-medium text-navy">{label}</div>
-        <div className={`text-[10px] ${impact > 0 ? 'text-green-600' : impact < 0 ? 'text-red-500' : 'text-gray-500'}`}>
+        <div className={`text-xs ${impact > 0 ? 'text-green-600' : impact < 0 ? 'text-red-500' : 'text-gray-500'}`}>
           {impact > 0 ? '+' : ''}{impact.toFixed(1)}% margin impact
         </div>
       </div>
@@ -67,7 +65,7 @@ function CostBar({ label, value, max, color, highlight }) {
   const w = Math.min((value / max) * 100, 100)
   return (
     <div className={`flex items-center gap-2 py-1 ${highlight ? 'bg-gold/5 -mx-2 px-2 rounded' : ''}`}>
-      <div className="w-28 text-[10px] text-gray-500 truncate">{label}</div>
+      <div className="w-28 text-xs text-gray-500 truncate">{label}</div>
       <div className="flex-1 bg-gray-100 rounded-full h-3 overflow-hidden">
         <div className="h-full rounded-full transition-all duration-500" style={{ width: w + '%', backgroundColor: color || '#1e3a5f' }} />
       </div>
@@ -88,6 +86,7 @@ export default function MarginCalculator() {
   const [scenarios, setScenarios] = useState({})
   const [showTier3, setShowTier3] = useState(false)
   const [mobileDetail, setMobileDetail] = useState(null)
+  const cogsRef = useRef(null)
 
   const cat = CATEGORY_COGS[category]
   const sizeFactor = BOTTLE_SIZES[bottleSize].factor
@@ -250,7 +249,7 @@ export default function MarginCalculator() {
     { key: 'highEndMargin', label: 'High-End', align: 'right', render: (v) => v + '%' },
     { key: 'midTierMargin', label: 'Mid-Tier', align: 'right', render: (v) => v + '%' },
     { key: 'valueMargin', label: 'Value', align: 'right', render: (v) => v + '%' },
-    { key: 'source', label: 'Source', render: (v) => <span className="text-[10px] text-gray-500">{v}</span> },
+    { key: 'source', label: 'Source', render: (v) => <span className="text-xs text-gray-500">{v}</span> },
   ]
   const crossCatData = Object.entries(INDUSTRY_BENCHMARKS).map(([key, bm]) => ({
     category: CATEGORY_COGS[key].label,
@@ -284,28 +283,28 @@ export default function MarginCalculator() {
             {/* Quick inputs */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
               <div>
-                <label className="text-[10px] font-medium text-gray-500 block mb-1">Category</label>
+                <label className="text-xs font-medium text-gray-500 block mb-1">Category</label>
                 <select value={category} onChange={e => handleCategoryChange(e.target.value)}
                   className="w-full text-xs border border-gray-200 rounded-lg px-3 py-2 bg-white text-navy font-medium focus:ring-2 focus:ring-gold focus:border-transparent">
                   {Object.entries(CATEGORY_COGS).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
                 </select>
               </div>
               <div>
-                <label className="text-[10px] font-medium text-gray-500 block mb-1">Bottle Size</label>
+                <label className="text-xs font-medium text-gray-500 block mb-1">Bottle Size</label>
                 <select value={bottleSize} onChange={e => setBottleSize(Number(e.target.value))}
                   className="w-full text-xs border border-gray-200 rounded-lg px-3 py-2 bg-white text-navy font-medium focus:ring-2 focus:ring-gold focus:border-transparent">
                   {BOTTLE_SIZES.map((s, i) => <option key={i} value={i}>{s.label}</option>)}
                 </select>
               </div>
               <div>
-                <label className="text-[10px] font-medium text-gray-500 block mb-1">Channel</label>
+                <label className="text-xs font-medium text-gray-500 block mb-1">Channel</label>
                 <select value={channel} onChange={e => { setChannel(e.target.value); setTargetRRP(cat.avgRRP[e.target.value] || targetRRP) }}
                   className="w-full text-xs border border-gray-200 rounded-lg px-3 py-2 bg-white text-navy font-medium focus:ring-2 focus:ring-gold focus:border-transparent">
                   {CHANNELS.map(c => <option key={c} value={c}>{CHANNEL_LABELS[c]}</option>)}
                 </select>
               </div>
               <div>
-                <label className="text-[10px] font-medium text-gray-500 block mb-1">Target RRP (\u00a3)</label>
+                <label className="text-xs font-medium text-gray-500 block mb-1">Target RRP (\u00a3)</label>
                 <input type="number" value={targetRRP} onChange={e => setTargetRRP(Number(e.target.value))}
                   className="w-full text-xs border border-gray-200 rounded-lg px-3 py-2 bg-white text-navy font-medium focus:ring-2 focus:ring-gold focus:border-transparent"
                   min={0} step={0.5} />
@@ -313,7 +312,7 @@ export default function MarginCalculator() {
             </div>
             {/* Quick result preview — tap for detail on mobile */}
             <div
-              className="flex items-center gap-6 p-3 bg-gray-50 rounded-lg cursor-pointer lg:cursor-default"
+              className="flex items-center gap-6 p-3 bg-gray-50 rounded-lg cursor-pointer"
               onClick={() => {
                 if (window.innerWidth < 1024) {
                   setMobileDetail({
@@ -322,41 +321,43 @@ export default function MarginCalculator() {
                       <div className="space-y-4">
                         <div className="flex justify-center"><MarginGauge margin={computed.margin} size="lg" /></div>
                         <div className="grid grid-cols-2 gap-3">
-                          <div className="bg-gray-50 rounded-lg p-3"><div className="text-[10px] text-gray-500">Total COGS</div><div className="text-lg font-bold text-navy">{fmt(computed.total)}</div></div>
-                          <div className="bg-gray-50 rounded-lg p-3"><div className="text-[10px] text-gray-500">Gross Profit</div><div className="text-lg font-bold text-green-600">{fmt(Math.max(0, targetRRP - computed.total))}</div></div>
-                          <div className="bg-gray-50 rounded-lg p-3"><div className="text-[10px] text-gray-500">RRP</div><div className="text-sm font-semibold text-navy">{fmt(targetRRP)}</div></div>
-                          <div className="bg-gray-50 rounded-lg p-3"><div className="text-[10px] text-gray-500">Margin</div><div className={'text-sm font-semibold ' + (computed.margin >= 35 ? 'text-green-600' : computed.margin >= 25 ? 'text-amber-500' : 'text-red-500')}>{computed.margin.toFixed(1)}%</div></div>
+                          <div className="bg-gray-50 rounded-lg p-3"><div className="text-xs text-gray-500">Total COGS</div><div className="text-lg font-bold text-navy">{fmt(computed.total)}</div></div>
+                          <div className="bg-gray-50 rounded-lg p-3"><div className="text-xs text-gray-500">Gross Profit</div><div className="text-lg font-bold text-green-600">{fmt(Math.max(0, targetRRP - computed.total))}</div></div>
+                          <div className="bg-gray-50 rounded-lg p-3"><div className="text-xs text-gray-500">RRP</div><div className="text-sm font-semibold text-navy">{fmt(targetRRP)}</div></div>
+                          <div className="bg-gray-50 rounded-lg p-3"><div className="text-xs text-gray-500">Margin</div><div className={'text-sm font-semibold ' + (computed.margin >= 35 ? 'text-green-600' : computed.margin >= 25 ? 'text-amber-500' : 'text-red-500')}>{computed.margin.toFixed(1)}%</div></div>
                         </div>
                         <div className="bg-gray-50 rounded-lg p-3">
-                          <div className="text-[10px] text-gray-500 mb-1">Base Margin vs Scenario</div>
+                          <div className="text-xs text-gray-500 mb-1">Base Margin vs Scenario</div>
                           <div className="flex items-center justify-around">
                             <div className="text-center"><div className="text-xs text-gray-500">Base</div><div className="text-sm font-bold text-navy">{computed.baseMargin.toFixed(1)}%</div></div>
                             <div className="text-center"><div className="text-xs text-gray-500">With Scenarios</div><div className={'text-sm font-bold ' + (computed.margin >= computed.baseMargin ? 'text-green-600' : 'text-red-500')}>{computed.margin.toFixed(1)}%</div></div>
                           </div>
                         </div>
-                        <div className="text-[10px] text-gray-500 text-center">Industry avg margin for {cat.label}: {benchmarks.avgMargin}%</div>
+                        <div className="text-xs text-gray-500 text-center">Industry avg margin for {cat.label}: {benchmarks.avgMargin}%</div>
                       </div>
                     )
                   })
+                } else {
+                  cogsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
                 }
               }}
             >
               <MarginGauge margin={computed.margin} size="lg" />
               <div className="flex-1 grid grid-cols-2 gap-3">
                 <div>
-                  <div className="text-[10px] text-gray-500">Total COGS</div>
+                  <div className="text-xs text-gray-500">Total COGS</div>
                   <div className="text-lg font-bold text-navy">{fmt(computed.total)}</div>
                 </div>
                 <div>
-                  <div className="text-[10px] text-gray-500">Gross Profit</div>
+                  <div className="text-xs text-gray-500">Gross Profit</div>
                   <div className="text-lg font-bold text-green-600">{fmt(Math.max(0, targetRRP - computed.total))}</div>
                 </div>
                 <div>
-                  <div className="text-[10px] text-gray-500">RRP</div>
+                  <div className="text-xs text-gray-500">RRP</div>
                   <div className="text-sm font-semibold text-navy">{fmt(targetRRP)}</div>
                 </div>
                 <div>
-                  <div className="text-[10px] text-gray-500">Margin</div>
+                  <div className="text-xs text-gray-500">Margin</div>
                   <div className={`text-sm font-semibold ${computed.margin >= 35 ? 'text-green-600' : computed.margin >= 25 ? 'text-amber-500' : 'text-red-500'}`}>{computed.margin.toFixed(1)}%</div>
                 </div>
               </div>
@@ -392,28 +393,16 @@ export default function MarginCalculator() {
           icon={TrendingUp}
           direction="up"
         />
-        <MetricCard
-          label="Best Scenario"
-          value={bestScenario.label ? '+' + bestScenario.impact.toFixed(1) + 'pp' : 'N/A'}
-          subtitle={bestScenario.label || 'No positive scenarios'}
-          icon={Zap}
-          direction={bestScenario.impact > 0 ? 'up' : 'down'}
-        />
-        <MetricCard
-          label="Launch Readiness"
-          value={readinessScore + '/100'}
-          subtitle={readinessScore >= 70 ? 'Strong launch conditions' : readinessScore >= 50 ? 'Viable with positioning' : 'Challenging timing'}
-          icon={Target}
-          direction={readinessScore >= 50 ? 'up' : 'down'}
-        />
       </BentoGrid>
 
       {/* ══════ TIER 2: EXPANDABLE DETAIL PANELS ══════ */}
 
       {/* Full Calculator with Scenarios */}
+      <div ref={cogsRef}>
       <DrillDown
         title="Full COGS Breakdown & Scenarios"
         summary={'Adjust costs with what-if scenarios \u2014 ' + Object.keys(cat.scenarios).length + ' available for ' + cat.label}
+        defaultOpen={true}
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
           {/* COGS waterfall */}
@@ -428,11 +417,11 @@ export default function MarginCalculator() {
             </div>
             <div className="pt-3 border-t border-gray-100 flex items-center justify-between">
               <div>
-                <div className="text-[10px] text-gray-500">Total COGS</div>
+                <div className="text-xs text-gray-500">Total COGS</div>
                 <div className="text-lg font-bold text-navy">{fmt(computed.total)}</div>
               </div>
               <div className="text-right">
-                <div className="text-[10px] text-gray-500">Gross Profit</div>
+                <div className="text-xs text-gray-500">Gross Profit</div>
                 <div className="text-lg font-bold text-green-600">{fmt(Math.max(0, targetRRP - computed.total))}</div>
               </div>
             </div>
@@ -448,7 +437,7 @@ export default function MarginCalculator() {
                   const pctVal = total > 0 ? ((entry.value / total) * 100).toFixed(1) : '0.0'
                   return (
                     <div key={i}>
-                      <div className="flex items-center justify-between text-[10px] mb-0.5">
+                      <div className="flex items-center justify-between text-xs mb-0.5">
                         <span className="text-gray-600">{entry.name}</span>
                         <span className="font-medium text-navy">{fmt(entry.value)} ({pctVal}%)</span>
                       </div>
@@ -490,16 +479,16 @@ export default function MarginCalculator() {
               ))}
             </div>
             <div className="pt-3 border-t border-gray-100">
-              <div className="text-[10px] text-gray-500 mb-2">Scenario range</div>
+              <div className="text-xs text-gray-500 mb-2">Scenario range</div>
               <div className="grid grid-cols-2 gap-2">
                 <div className="bg-green-50 rounded-lg p-2 text-center">
-                  <div className="text-[10px] text-green-600">Best case</div>
+                  <div className="text-xs text-green-600">Best case</div>
                   <div className="text-sm font-bold text-green-700">
                     {(computed.baseMargin + Object.values(computed.scenarioImpacts).filter(v => v > 0).reduce((a,b) => a+b, 0)).toFixed(1)}%
                   </div>
                 </div>
                 <div className="bg-red-50 rounded-lg p-2 text-center">
-                  <div className="text-[10px] text-red-500">Worst case</div>
+                  <div className="text-xs text-red-500">Worst case</div>
                   <div className="text-sm font-bold text-red-600">
                     {(computed.baseMargin + Object.values(computed.scenarioImpacts).filter(v => v < 0).reduce((a,b) => a+b, 0)).toFixed(1)}%
                   </div>
@@ -509,12 +498,22 @@ export default function MarginCalculator() {
           </div>
         </div>
       </DrillDown>
+      </div>
 
       {/* Margin Comparison: Your Product vs Category */}
       <DrillDown
         title="Margin vs Industry Benchmarks"
         summary={'Compare your ' + computed.margin.toFixed(1) + '% margin against ' + cat.label + ' industry averages'}
       >
+        <div className="mb-4">
+          <MetricCard
+            label="Best Scenario"
+            value={bestScenario.label ? '+' + bestScenario.impact.toFixed(1) + 'pp' : 'N/A'}
+            subtitle={bestScenario.label || 'No positive scenarios'}
+            icon={Zap}
+            direction={bestScenario.impact > 0 ? 'up' : 'down'}
+          />
+        </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <ChartCard title="Your Product vs Category Benchmarks" height={220}>
             <BarChart data={comparisonData} layout="vertical" accessibilityLayer>
@@ -552,7 +551,7 @@ export default function MarginCalculator() {
             const isActive = ch === channel
             return (
               <div key={ch} className={`rounded-lg p-3 border ${isActive ? 'border-gold bg-gold/5' : 'border-gray-100 bg-gray-50'}`}>
-                <div className="text-[10px] text-gray-500">{CHANNEL_LABELS[ch]}</div>
+                <div className="text-xs text-gray-500">{CHANNEL_LABELS[ch]}</div>
                 <div className="text-sm font-bold text-navy mt-1">{fmt(cm.rrp)} RRP</div>
                 <div className={`text-xs font-semibold mt-0.5 ${cm.margin >= 35 ? 'text-green-600' : cm.margin >= 25 ? 'text-amber-500' : 'text-red-500'}`}>
                   {cm.margin.toFixed(1)}% margin
@@ -588,6 +587,15 @@ export default function MarginCalculator() {
         title="Launch Readiness Scorecard"
         summary={cat.label + ' \u2014 Score: ' + readinessScore + '/100'}
       >
+        <div className="mb-4">
+          <MetricCard
+            label="Launch Readiness"
+            value={readinessScore + '/100'}
+            subtitle={readinessScore >= 70 ? 'Strong launch conditions' : readinessScore >= 50 ? 'Viable with positioning' : 'Challenging timing'}
+            icon={Target}
+            direction={readinessScore >= 50 ? 'up' : 'down'}
+          />
+        </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <div>
             <div className="flex items-center gap-3 mb-3">
@@ -596,7 +604,7 @@ export default function MarginCalculator() {
                 <div className="text-xs font-medium" style={{ color: readinessColor }}>
                   {readinessScore >= 70 ? 'Strong launch conditions' : readinessScore >= 50 ? 'Viable with careful positioning' : 'Challenging \u2014 consider timing'}
                 </div>
-                <div className="text-[10px] text-gray-500">{cat.label} category readiness</div>
+                <div className="text-xs text-gray-500">{cat.label} category readiness</div>
               </div>
             </div>
             <div className="h-52">
@@ -612,15 +620,15 @@ export default function MarginCalculator() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <div className="text-[10px] font-semibold text-red-500 mb-2 flex items-center gap-1"><AlertTriangle size={10} /> Key Risks</div>
+              <div className="text-xs font-semibold text-red-500 mb-2 flex items-center gap-1"><AlertTriangle size={10} /> Key Risks</div>
               {readiness.risks.map((r, i) => (
-                <div key={i} className="text-[11px] text-gray-600 py-1.5 border-l-2 border-red-200 pl-2 mb-1">{r}</div>
+                <div key={i} className="text-xs text-gray-600 py-1.5 border-l-2 border-red-200 pl-2 mb-1">{r}</div>
               ))}
             </div>
             <div>
-              <div className="text-[10px] font-semibold text-green-600 mb-2 flex items-center gap-1"><Zap size={10} /> Key Opportunities</div>
+              <div className="text-xs font-semibold text-green-600 mb-2 flex items-center gap-1"><Zap size={10} /> Key Opportunities</div>
               {readiness.opportunities.map((o, i) => (
-                <div key={i} className="text-[11px] text-gray-600 py-1.5 border-l-2 border-green-200 pl-2 mb-1">{o}</div>
+                <div key={i} className="text-xs text-gray-600 py-1.5 border-l-2 border-green-200 pl-2 mb-1">{o}</div>
               ))}
             </div>
           </div>
@@ -637,7 +645,7 @@ export default function MarginCalculator() {
             <Eye size={16} />
             View Full Data & Export
           </button>
-          <p className="text-[10px] text-gray-500 mt-2">Detailed cost tables, cross-category benchmarks, and export options</p>
+          <p className="text-xs text-gray-500 mt-2">Detailed cost tables, cross-category benchmarks, and export options</p>
         </div>
       )}
 

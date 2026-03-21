@@ -33,7 +33,7 @@ export function FilterBar({
 
       {filters.map(filter => (
         <div key={filter.key} className="flex items-center gap-1.5">
-          <label className="text-[10px] text-gray-500 font-medium whitespace-nowrap hidden sm:inline">
+          <label className="text-xs text-gray-500 font-medium whitespace-nowrap hidden sm:inline">
             {filter.label}
           </label>
           <select
@@ -57,7 +57,7 @@ export function FilterBar({
           <div className="h-4 w-px bg-gray-200" />
           <button
             onClick={onClear}
-            className="inline-flex items-center gap-1 text-[10px] font-medium text-gray-500 hover:text-red-500 transition-colors"
+            className="inline-flex items-center gap-1 text-xs font-medium text-gray-500 hover:text-red-500 transition-colors"
           >
             <X size={10} />
             Clear all

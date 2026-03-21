@@ -1,12 +1,12 @@
 import React, { useState, useMemo, useCallback } from 'react'
 import {
-  Package, Factory, Globe, ChevronDown, ChevronRight, ExternalLink,
+  Factory, Globe, ChevronDown, ChevronRight, ExternalLink,
   AlertTriangle, Target, Users, Lightbulb, DollarSign, Clock, Shield,
-  Zap, MapPin, Star, TrendingUp, Search, Layers, Award, BookOpen, Building2
+  Zap, MapPin, TrendingUp, Search, BookOpen, Building2
 } from 'lucide-react'
 import {
-  PageHeader, MetricCard, Card, Section, BentoGrid, DrillDown,
-  TabGroup, FilterPills, DataTable, EntityLink, BottomSheet
+  PageHeader, MetricCard, Card, Section, BentoGrid,
+  TabGroup, FilterPills, DataTable, BottomSheet
 } from '../components/ui'
 import {
   MATERIAL_CATEGORIES, POS_COMPANIES, TRADE_PLATFORMS,
@@ -94,10 +94,10 @@ function FactoryCard({ factory, onMobileTap }) {
 function MaterialSection({ category, onFactoryTap }) {
   const [expanded, setExpanded] = useState(false)
   return (
-    <Card hover={!expanded} onClick={() => !expanded && setExpanded(true)}>
-      <div
-        className="flex items-center justify-between cursor-pointer"
-        onClick={(e) => { e.stopPropagation(); setExpanded(prev => !prev) }}
+    <Card>
+      <button
+        className="w-full flex items-center justify-between text-left"
+        onClick={() => setExpanded(prev => !prev)}
       >
         <div className="flex items-center gap-4">
           <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center text-xl`}>
@@ -110,20 +110,20 @@ function MaterialSection({ category, onFactoryTap }) {
         </div>
         <div className="flex items-center gap-6">
           <div className="text-right hidden md:block">
-            <div className="text-[10px] text-gray-500 uppercase">Lead Time</div>
+            <div className="text-xs text-gray-500 uppercase">Lead Time</div>
             <div className="text-xs font-semibold text-navy">{category.avgLeadTime}</div>
           </div>
           <div className="text-right hidden md:block">
-            <div className="text-[10px] text-gray-500 uppercase">MOQ Range</div>
+            <div className="text-xs text-gray-500 uppercase">MOQ Range</div>
             <div className="text-xs font-semibold text-navy">{category.moqRange}</div>
           </div>
           <div className="text-right hidden md:block">
-            <div className="text-[10px] text-gray-500 uppercase">Price Range</div>
+            <div className="text-xs text-gray-500 uppercase">Price Range</div>
             <div className="text-xs font-semibold text-gold">{category.priceRange}</div>
           </div>
           <ChevronDown size={20} className={`text-gray-400 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`} />
         </div>
-      </div>
+      </button>
       {expanded && (
         <div className="mt-4 pt-4 border-t border-gray-100">
           <div className="flex items-center gap-2 mb-3">
@@ -145,10 +145,10 @@ function DisruptionCard({ strategy }) {
   const [expanded, setExpanded] = useState(false)
   const Icon = ICON_MAP[strategy.iconName] || Target
   return (
-    <Card hover={!expanded} onClick={() => !expanded && setExpanded(true)}>
-      <div
-        className="flex items-center justify-between cursor-pointer"
-        onClick={(e) => { e.stopPropagation(); setExpanded(prev => !prev) }}
+    <Card>
+      <button
+        className="w-full flex items-center justify-between text-left"
+        onClick={() => setExpanded(prev => !prev)}
       >
         <div className="flex items-center gap-4">
           <div className="w-10 h-10 rounded-lg bg-navy flex items-center justify-center">
@@ -160,7 +160,7 @@ function DisruptionCard({ strategy }) {
           </div>
         </div>
         <ChevronDown size={20} className={`text-gray-400 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`} />
-      </div>
+      </button>
       {expanded && (
         <div className="mt-4 pt-4 border-t border-gray-100 space-y-4">
           <div>
@@ -194,10 +194,10 @@ function ClientSegmentCard({ segment }) {
   const [expanded, setExpanded] = useState(false)
   const Icon = ICON_MAP[segment.iconName] || Users
   return (
-    <Card hover={!expanded} onClick={() => !expanded && setExpanded(true)}>
-      <div
-        className="flex items-center justify-between cursor-pointer"
-        onClick={(e) => { e.stopPropagation(); setExpanded(prev => !prev) }}
+    <Card>
+      <button
+        className="w-full flex items-center justify-between text-left"
+        onClick={() => setExpanded(prev => !prev)}
       >
         <div className="flex items-center gap-4">
           <div className={`w-10 h-10 rounded-lg ${segment.color} flex items-center justify-center`}>
@@ -209,7 +209,7 @@ function ClientSegmentCard({ segment }) {
           </div>
         </div>
         <ChevronDown size={20} className={`text-gray-400 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`} />
-      </div>
+      </button>
       {expanded && (
         <div className="mt-4 pt-4 border-t border-gray-100 space-y-4">
           <div>
@@ -261,7 +261,7 @@ const COST_TABLE_COLUMNS = [
   { key: 'retail', label: 'Retail / Agency', align: 'right', sortable: false,
     render: (v) => <span className="text-red-500">{v}</span> },
   { key: 'markup', label: 'Markup', align: 'right', sortable: false,
-    render: (v) => <span className="text-gray-500 text-[10px]">{v}</span> },
+    render: (v) => <span className="text-gray-500 text-xs">{v}</span> },
 ]
 
 // ─── FACTORY TABLE COLUMNS (Tier 3) ─────────────────────────────────────────
@@ -405,25 +405,12 @@ export default function POSIntelligence() {
 
       {/* ─── TIER 2: Tab Navigation + Expandable Content ─────────────────── */}
       <Section>
-        <div className="flex flex-wrap gap-2">
-          {POS_TABS.map(tab => {
-            const Icon = ICON_MAP[tab.iconName] || Package
-            return (
-              <button
-                key={tab.id}
-                onClick={() => { setActiveTab(tab.id); setSearchTerm(''); setMaterialFilter('all') }}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  activeTab === tab.id
-                    ? 'bg-navy text-white'
-                    : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
-                }`}
-              >
-                <Icon size={16} />
-                {tab.label}
-              </button>
-            )
-          })}
-        </div>
+        <TabGroup
+          tabs={POS_TABS.map(tab => ({ key: tab.id, label: tab.label }))}
+          active={activeTab}
+          onChange={(id) => { setActiveTab(id); setMaterialFilter('all') }}
+          size="sm"
+        />
       </Section>
 
       {/* Search + Filter (directory & companies tabs) */}
@@ -620,7 +607,7 @@ export default function POSIntelligence() {
       )}
 
       {/* Footer */}
-      <div className="text-center py-4 text-[10px] text-gray-500">
+      <div className="text-center py-4 text-xs text-gray-500">
         POS Manufacturing Intelligence \u2022 Liquid Economy Platform \u2022 Palmer Liquid Studios \u2022 Data compiled from trade directories, manufacturer listings, and industry research
       </div>
 

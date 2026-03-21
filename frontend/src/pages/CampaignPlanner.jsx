@@ -1,16 +1,14 @@
 import React, { useState, useCallback, useMemo, useEffect } from 'react'
 import {
-  Target, Calendar, Sliders, AlertTriangle, BarChart3,
+  Target, Calendar, Sliders, BarChart3,
   ChevronRight, ChevronLeft, ChevronDown, ChevronUp,
   DollarSign, TrendingUp, Globe, Package, Zap, Users,
   Megaphone, Wine, ShoppingCart, MapPin, Clock, CheckCircle,
-  Download, ExternalLink, Sparkles, Film, Camera, Image,
-  FileText, Music, Mic, Star, Heart, Sun, Snowflake
+  Download, Sparkles, Star, Sun
 } from 'lucide-react'
-import { ResponsiveContainer, Tooltip } from 'recharts'
 import {
   PageHeader, MetricCard, Card, Section, BentoGrid, DrillDown,
-  TabGroup, FilterPills, DataTable, EntityLink, BottomSheet, SubPageNav
+  BottomSheet, SubPageNav
 } from '../components/ui'
 import {
   BRANDS_BY_CATEGORY, CATEGORIES, SEGMENTS, BASE_SPIRITS,
@@ -29,7 +27,6 @@ const CampaignPlanner = () => {
   const [currentStep, setCurrentStep] = useState(0) // 0 = overview, 1-5 = wizard steps
   const [expandedOccasion, setExpandedOccasion] = useState(null)
   const [expandedEvent, setExpandedEvent] = useState(null)
-  const [showComparison, setShowComparison] = useState(false)
   const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' && window.innerWidth < 1024)
   const [mobileStep, setMobileStep] = useState(0) // 0 = overview, 1 = brief, 2 = budget & timing, 3 = review & export
   const [templateSheet, setTemplateSheet] = useState(null) // holds template data for BottomSheet
@@ -176,6 +173,30 @@ const CampaignPlanner = () => {
       { scenario: 'Optimistic', volume: projectedVolume * 1.2, revenue: projectedVolume * 1.2 * avgCasePrice, roas: baseROAS * 1.2 },
     ]
   }, [campaignData.budget, campaignData.objective])
+
+  // ─── STEP VALIDATION ─────────────────────────────────────────────────────
+  const canAdvance = (step) => {
+    if (step === 1) {
+      // Step 1 → 2: category, brand name, and market must be selected
+      const hasCategory = !!campaignData.category
+      const hasBrandName = campaignData.campaignType === 'existing'
+        ? !!campaignData.brand
+        : campaignData.campaignType === 'newProduct'
+        ? !!campaignData.customBrandName
+        : !!campaignData.cocktailName
+      const hasMarket = !!campaignData.market
+      return hasCategory && hasBrandName && hasMarket
+    }
+    if (step === 2) {
+      // Step 2 → 3: always allow (occasion mapping is optional)
+      return true
+    }
+    if (step === 3) {
+      // Step 3 → 4: budget must be > 0
+      return parseFloat(campaignData.budget) > 0
+    }
+    return true
+  }
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
@@ -646,9 +667,11 @@ const CampaignPlanner = () => {
                   <span className="text-xs font-bold text-gray-900 w-12 text-right">{value.toFixed(1)}%</span>
                 </div>
               </div>
-              <input type="range" min="0" max="100" step="0.1" value={value}
-                onChange={(e) => handleSliderChange(channel, parseFloat(e.target.value))}
-                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gold" />
+              <div className="py-2">
+                <input type="range" min="0" max="100" step="0.1" value={value}
+                  onChange={(e) => handleSliderChange(channel, parseFloat(e.target.value))}
+                  className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gold touch-action-none" />
+              </div>
             </div>
           )
         })}
@@ -659,7 +682,7 @@ const CampaignPlanner = () => {
         <div className="space-y-2">
           {allocationData.map((entry, index) => (
             <div key={index}>
-              <div className="flex items-center justify-between text-[11px] mb-0.5">
+              <div className="flex items-center justify-between text-xs mb-0.5">
                 <div className="flex items-center gap-1.5">
                   <div className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: entry.color }} />
                   <span className="text-gray-700">{entry.name}</span>
@@ -717,10 +740,12 @@ const CampaignPlanner = () => {
                 ].map(({ key, label }) => (
                   <div key={key} className="bg-blue-50 rounded-lg p-2 text-center">
                     <p className="text-xs font-bold text-blue-900">{campaignData[key].toFixed(0)}%</p>
-                    <p className="text-[10px] text-blue-700">{label}</p>
-                    <input type="range" min="0" max="100" step="1" value={campaignData[key]}
-                      onChange={(e) => handleSubSliderChange('digital', key, parseFloat(e.target.value))}
-                      className="w-full h-1.5 mt-1 bg-blue-200 rounded-lg appearance-none cursor-pointer accent-blue-600" />
+                    <p className="text-xs text-blue-700">{label}</p>
+                    <div className="py-2">
+                      <input type="range" min="0" max="100" step="1" value={campaignData[key]}
+                        onChange={(e) => handleSubSliderChange('digital', key, parseFloat(e.target.value))}
+                        className="w-full h-3 mt-1 bg-blue-200 rounded-lg appearance-none cursor-pointer accent-blue-600 touch-action-none" />
+                    </div>
                   </div>
                 ))}
               </div>
@@ -737,10 +762,12 @@ const CampaignPlanner = () => {
                 ].map(({ key, label }) => (
                   <div key={key} className="bg-gold/10 rounded-lg p-2 text-center">
                     <p className="text-xs font-bold text-navy">{campaignData[key].toFixed(0)}%</p>
-                    <p className="text-[10px] text-gray-600">{label}</p>
-                    <input type="range" min="0" max="100" step="1" value={campaignData[key]}
-                      onChange={(e) => handleSubSliderChange('onTrade', key, parseFloat(e.target.value))}
-                      className="w-full h-1.5 mt-1 bg-gold/30 rounded-lg appearance-none cursor-pointer accent-gold" />
+                    <p className="text-xs text-gray-600">{label}</p>
+                    <div className="py-2">
+                      <input type="range" min="0" max="100" step="1" value={campaignData[key]}
+                        onChange={(e) => handleSubSliderChange('onTrade', key, parseFloat(e.target.value))}
+                        className="w-full h-3 mt-1 bg-gold/30 rounded-lg appearance-none cursor-pointer accent-gold touch-action-none" />
+                    </div>
                   </div>
                 ))}
               </div>
@@ -757,10 +784,12 @@ const CampaignPlanner = () => {
                 ].map(({ key, label }) => (
                   <div key={key} className="bg-green-50 rounded-lg p-2 text-center">
                     <p className="text-xs font-bold text-green-900">{campaignData[key].toFixed(0)}%</p>
-                    <p className="text-[10px] text-green-700">{label}</p>
-                    <input type="range" min="0" max="100" step="1" value={campaignData[key]}
-                      onChange={(e) => handleSubSliderChange('offTrade', key, parseFloat(e.target.value))}
-                      className="w-full h-1.5 mt-1 bg-green-200 rounded-lg appearance-none cursor-pointer accent-green-600" />
+                    <p className="text-xs text-green-700">{label}</p>
+                    <div className="py-2">
+                      <input type="range" min="0" max="100" step="1" value={campaignData[key]}
+                        onChange={(e) => handleSubSliderChange('offTrade', key, parseFloat(e.target.value))}
+                        className="w-full h-3 mt-1 bg-green-200 rounded-lg appearance-none cursor-pointer accent-green-600 touch-action-none" />
+                    </div>
                   </div>
                 ))}
               </div>
@@ -1006,8 +1035,8 @@ const CampaignPlanner = () => {
                 ].map(ch => (
                   <div key={ch.label} className="bg-gray-50 rounded-lg p-2 text-center">
                     <p className="font-bold text-gray-900">{ch.pct.toFixed(0)}%</p>
-                    <p className="text-gray-600 text-[10px]">{ch.label}</p>
-                    <p className="text-gray-500 text-[10px]">{getCurrency()}{Math.round((parseFloat(campaignData.budget) || 0) * (ch.pct / 100)).toLocaleString()}</p>
+                    <p className="text-gray-600 text-xs">{ch.label}</p>
+                    <p className="text-gray-500 text-xs">{getCurrency()}{Math.round((parseFloat(campaignData.budget) || 0) * (ch.pct / 100)).toLocaleString()}</p>
                   </div>
                 ))}
               </div>
@@ -1024,7 +1053,7 @@ const CampaignPlanner = () => {
                 ].map(p => (
                   <div key={p.label} className="bg-blue-50 rounded-lg p-2 text-center">
                     <p className="font-bold text-blue-900">{p.pct.toFixed(0)}%</p>
-                    <p className="text-blue-700 text-[10px]">{p.label}</p>
+                    <p className="text-blue-700 text-xs">{p.label}</p>
                   </div>
                 ))}
               </div>
@@ -1315,7 +1344,7 @@ const CampaignPlanner = () => {
         {/* Recommended Allocation — read-only progress bars */}
         <Card>
           <h4 className="font-semibold text-xs text-navy mb-1">Recommended Channel Split</h4>
-          <p className="text-[10px] text-gray-500 mb-4">Based on your template selection. Adjust on desktop for fine-tuning.</p>
+          <p className="text-xs text-gray-500 mb-4">Based on your template selection. Adjust on desktop for fine-tuning.</p>
           <div className="space-y-3">
             {['digital', 'onTrade', 'offTrade', 'travelRetail'].map(ch => {
               const pct = campaignData[ch]
@@ -1325,7 +1354,7 @@ const CampaignPlanner = () => {
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-xs font-semibold text-gray-800">{channelLabels[ch]}</span>
                     <div className="flex items-center gap-2">
-                      {budget > 0 && <span className="text-[10px] text-gray-500">{getCurrency()}{spend.toLocaleString()}</span>}
+                      {budget > 0 && <span className="text-xs text-gray-500">{getCurrency()}{spend.toLocaleString()}</span>}
                       <span className="text-xs font-bold text-navy w-10 text-right">{pct.toFixed(0)}%</span>
                     </div>
                   </div>
@@ -1351,7 +1380,7 @@ const CampaignPlanner = () => {
               ].map(({ key, label }) => (
                 <div key={key} className="bg-blue-50 rounded-lg p-3 text-center">
                   <p className="text-sm font-bold text-blue-900">{campaignData[key].toFixed(0)}%</p>
-                  <p className="text-[10px] text-blue-700 mt-0.5">{label}</p>
+                  <p className="text-xs text-blue-700 mt-0.5">{label}</p>
                 </div>
               ))}
             </div>
@@ -1369,9 +1398,11 @@ const CampaignPlanner = () => {
                     <label className="text-xs font-semibold text-gray-900">{channelLabels[channel]}</label>
                     <span className="text-xs font-bold text-gray-900">{value.toFixed(0)}%</span>
                   </div>
-                  <input type="range" min="0" max="100" step="1" value={value}
-                    onChange={(e) => handleSliderChange(channel, parseFloat(e.target.value))}
-                    className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gold touch-manipulation" />
+                  <div className="py-2">
+                    <input type="range" min="0" max="100" step="1" value={value}
+                      onChange={(e) => handleSliderChange(channel, parseFloat(e.target.value))}
+                      className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gold touch-action-none" />
+                  </div>
                 </div>
               )
             })}
@@ -1440,8 +1471,8 @@ const CampaignPlanner = () => {
             ].map(ch => (
               <div key={ch.label} className="bg-gray-50 rounded-lg p-3 text-center">
                 <p className="font-bold text-navy text-sm">{ch.pct.toFixed(0)}%</p>
-                <p className="text-gray-600 text-[10px] mt-0.5">{ch.label}</p>
-                {budget > 0 && <p className="text-gray-500 text-[10px]">{getCurrency()}{Math.round(budget * (ch.pct / 100)).toLocaleString()}</p>}
+                <p className="text-gray-600 text-xs mt-0.5">{ch.label}</p>
+                {budget > 0 && <p className="text-gray-500 text-xs">{getCurrency()}{Math.round(budget * (ch.pct / 100)).toLocaleString()}</p>}
               </div>
             ))}
           </div>
@@ -1454,20 +1485,20 @@ const CampaignPlanner = () => {
             {isAwareness ? (<>
               <div className="bg-blue-50 rounded-lg p-3 text-center">
                 <p className="font-bold text-blue-900 text-sm">{(roiData[1].impressions / 1000000).toFixed(1)}M</p>
-                <p className="text-blue-700 text-[10px]">Impressions</p>
+                <p className="text-blue-700 text-xs">Impressions</p>
               </div>
               <div className="bg-blue-50 rounded-lg p-3 text-center">
                 <p className="font-bold text-blue-900 text-sm">{roiData[1].awarenessLift}</p>
-                <p className="text-blue-700 text-[10px]">Awareness Lift</p>
+                <p className="text-blue-700 text-xs">Awareness Lift</p>
               </div>
             </>) : (<>
               <div className="bg-green-50 rounded-lg p-3 text-center">
                 <p className="font-bold text-green-900 text-sm">{roiData[1].volume.toFixed(0)}</p>
-                <p className="text-green-700 text-[10px]">Cases</p>
+                <p className="text-green-700 text-xs">Cases</p>
               </div>
               <div className="bg-green-50 rounded-lg p-3 text-center">
                 <p className="font-bold text-green-900 text-sm">{roiData[1].roas.toFixed(2)}x</p>
-                <p className="text-green-700 text-[10px]">ROAS</p>
+                <p className="text-green-700 text-xs">ROAS</p>
               </div>
             </>)}
           </div>
@@ -1483,7 +1514,7 @@ const CampaignPlanner = () => {
                 }`}>
                   <div className="flex items-center justify-between mb-1">
                     <p className="font-semibold text-xs text-gray-900">{c.name}</p>
-                    <span className={`text-[10px] px-2 py-0.5 rounded-full font-semibold ${
+                    <span className={`text-xs px-2 py-0.5 rounded-full font-semibold ${
                       c.threat === 'high' ? 'bg-red-200 text-red-800' : c.threat === 'medium' ? 'bg-amber-200 text-amber-800' : 'bg-green-200 text-green-800'
                     }`}>{c.threat}</span>
                   </div>
@@ -1567,7 +1598,7 @@ const CampaignPlanner = () => {
                 </React.Fragment>
               ))}
             </div>
-            <div className="flex items-center justify-between text-[10px] text-gray-500 px-2">
+            <div className="flex items-center justify-between text-xs text-gray-500 px-2">
               <span>Brief</span>
               <span>Budget</span>
               <span>Review</span>
@@ -1588,12 +1619,22 @@ const CampaignPlanner = () => {
               <ChevronLeft className="w-4 h-4" /> {mobileStep === 1 ? 'Overview' : 'Back'}
             </button>
             <div className="text-xs text-gray-500">Step {mobileStep} of 3</div>
-            {mobileStep < 3 ? (
-              <button onClick={() => setMobileStep(mobileStep + 1)}
-                className="flex items-center gap-2 px-4 py-3 min-h-[44px] bg-navy hover:bg-navy/90 text-white font-semibold text-sm rounded-lg transition touch-manipulation">
-                Next <ChevronRight className="w-4 h-4" />
-              </button>
-            ) : (
+            {mobileStep < 3 ? (() => {
+              const mobileCanAdvance = mobileStep === 1 ? canAdvance(1) : mobileStep === 2 ? (parseFloat(campaignData.budget) > 0) : true
+              return (
+                <div className="text-right">
+                  <button onClick={() => mobileCanAdvance && setMobileStep(mobileStep + 1)} disabled={!mobileCanAdvance}
+                    className={`flex items-center gap-2 px-4 py-3 min-h-[44px] bg-navy text-white font-semibold text-sm rounded-lg transition touch-manipulation ${
+                      !mobileCanAdvance ? 'opacity-50 cursor-not-allowed' : 'hover:bg-navy/90'
+                    }`}>
+                    Next <ChevronRight className="w-4 h-4" />
+                  </button>
+                  {!mobileCanAdvance && (
+                    <p className="text-xs text-red-500 mt-1">Complete required fields to continue</p>
+                  )}
+                </div>
+              )
+            })() : (
               <button onClick={handleExport}
                 className="flex items-center gap-2 px-4 py-3 min-h-[44px] bg-navy hover:bg-navy/90 text-white font-semibold text-sm rounded-lg transition touch-manipulation">
                 <Download className="w-4 h-4" /> Export
@@ -1670,7 +1711,7 @@ const CampaignPlanner = () => {
         </BottomSheet>
 
         {/* Footer */}
-        <div className="text-center py-4 text-[10px] text-gray-500">
+        <div className="text-center py-4 text-xs text-gray-500">
           Campaign Planner \u2022 Liquid Economy Platform \u2022 Palmer Liquid Studios
         </div>
       </div>
@@ -1708,7 +1749,7 @@ const CampaignPlanner = () => {
               </React.Fragment>
             ))}
           </div>
-          <div className="flex items-center justify-between text-[10px] text-gray-500 px-1">
+          <div className="flex items-center justify-between text-xs text-gray-500 px-1">
             <span>Campaign DNA</span>
             <span>Occasion Map</span>
             <span>Budget Sandbox</span>
@@ -1731,15 +1772,22 @@ const CampaignPlanner = () => {
             <ChevronLeft className="w-4 h-4" /> {currentStep === 1 ? 'Overview' : 'Back'}
           </button>
           <div className="text-xs text-gray-500">Step {currentStep} of 5</div>
-          <button onClick={() => setCurrentStep(Math.min(5, currentStep + 1))} disabled={currentStep === 5}
-            className="flex items-center gap-2 px-4 py-3 min-h-[44px] bg-navy hover:bg-navy/90 text-white font-semibold text-sm rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition touch-manipulation">
-            Next <ChevronRight className="w-4 h-4" />
-          </button>
+          <div className="text-right">
+            <button onClick={() => setCurrentStep(Math.min(5, currentStep + 1))} disabled={currentStep === 5 || !canAdvance(currentStep)}
+              className={`flex items-center gap-2 px-4 py-3 min-h-[44px] bg-navy text-white font-semibold text-sm rounded-lg transition touch-manipulation ${
+                currentStep === 5 || !canAdvance(currentStep) ? 'opacity-50 cursor-not-allowed' : 'hover:bg-navy/90'
+              }`}>
+              Next <ChevronRight className="w-4 h-4" />
+            </button>
+            {!canAdvance(currentStep) && currentStep < 5 && (
+              <p className="text-xs text-red-500 mt-1">Complete required fields to continue</p>
+            )}
+          </div>
         </div>
       )}
 
       {/* Footer */}
-      <div className="text-center py-4 text-[10px] text-gray-500">
+      <div className="text-center py-4 text-xs text-gray-500">
         Campaign Planner \u2022 Liquid Economy Platform \u2022 Palmer Liquid Studios
       </div>
     </div>

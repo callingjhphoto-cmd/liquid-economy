@@ -21,7 +21,7 @@ export function YearSelector({
   className = '',
 }) {
   const sizes = {
-    sm: 'text-[10px] px-2 py-1 min-h-[32px]',
+    sm: 'text-xs px-2 py-1 min-h-[32px]',
     md: 'text-xs px-3 py-1.5 min-h-[36px]',
     lg: 'text-sm px-4 py-2 min-h-[44px]',
   }

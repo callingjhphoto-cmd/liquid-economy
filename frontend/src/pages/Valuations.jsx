@@ -132,14 +132,14 @@ export default function Valuations() {
             </div>
             <div className="grid grid-cols-2 gap-3 mt-auto">
               <div className="bg-gray-50 rounded-lg p-3">
-                <p className="text-[10px] text-gray-500 uppercase">Avg Multiple</p>
+                <p className="text-xs text-gray-500 uppercase">Avg Multiple</p>
                 <p className="text-lg font-bold text-navy">{avgMultiple}x</p>
-                <p className="text-[10px] text-gray-500">EV/Revenue</p>
+                <p className="text-xs text-gray-500">EV/Revenue</p>
               </div>
               <div className="bg-gray-50 rounded-lg p-3">
-                <p className="text-[10px] text-gray-500 uppercase">Avg M&A Premium</p>
+                <p className="text-xs text-gray-500 uppercase">Avg M&A Premium</p>
                 <p className="text-lg font-bold text-gold">{avgMaPremium}%</p>
-                <p className="text-[10px] text-gray-500">vs public comps</p>
+                <p className="text-xs text-gray-500">vs public comps</p>
               </div>
             </div>
           </Card>
@@ -213,7 +213,7 @@ export default function Valuations() {
               { key: 'peRange', label: 'P/E Range', align: 'right' },
               { key: 'dividendYield', label: 'Div Yield', align: 'right' },
               { key: 'peg', label: 'PEG', align: 'right' },
-              { key: 'notes', label: 'Notes', render: (v) => <span className="text-[10px] text-gray-500 line-clamp-2">{v}</span> },
+              { key: 'notes', label: 'Notes', render: (v) => <span className="text-xs text-gray-500 line-clamp-2">{v}</span> },
             ]}
             data={SECTOR_MULTIPLES}
             compact
@@ -234,21 +234,21 @@ export default function Valuations() {
                 <div className="flex items-start justify-between mb-2">
                   <div>
                     <p className="text-sm font-semibold text-navy">{b.brand}</p>
-                    <p className="text-[10px] text-gray-500">{b.parent} \u00b7 {b.category}</p>
+                    <p className="text-xs text-gray-500">{b.parent} \u00b7 {b.category}</p>
                   </div>
                   {b.trend === 'up' ? (
                     <TrendingUp size={14} className="text-emerald-500" />
                   ) : b.trend === 'down' ? (
                     <TrendingDown size={14} className="text-red-500" />
                   ) : (
-                    <span className="text-[10px] text-gray-500">\u2014</span>
+                    <span className="text-xs text-gray-500">\u2014</span>
                   )}
                 </div>
                 <div className="flex items-baseline gap-2">
                   <span className="text-xl font-bold text-gold">{b.estimatedValue}</span>
                   <span className={`text-xs font-semibold ${b.yoyNum > 0 ? 'text-emerald-600' : b.yoyNum < 0 ? 'text-red-500' : 'text-gray-500'}`}>{b.yoy}</span>
                 </div>
-                <div className="flex items-center gap-3 mt-2 text-[10px] text-gray-500">
+                <div className="flex items-center gap-3 mt-2 text-xs text-gray-500">
                   <span>{b.multiple} EV/Rev</span>
                   <span>\u00b7</span>
                   <span>{b.methodology}</span>
@@ -318,10 +318,10 @@ export default function Valuations() {
                 <Badge variant="default">{acq.deals} deals</Badge>
               </div>
               <p className="text-lg font-bold text-gold mb-1">{acq.totalSpent}</p>
-              <p className="text-[10px] text-gray-500 mb-2">{acq.focus}</p>
+              <p className="text-xs text-gray-500 mb-2">{acq.focus}</p>
               <div className="flex flex-wrap gap-1">
                 {acq.keyBrands.map((b) => (
-                  <span key={b} className="text-[11px] bg-gray-50 text-gray-600 px-1.5 py-0.5 rounded border border-gray-100">{b}</span>
+                  <span key={b} className="text-xs bg-gray-50 text-gray-600 px-1.5 py-0.5 rounded border border-gray-100">{b}</span>
                 ))}
               </div>
             </Card>
@@ -344,10 +344,10 @@ export default function Valuations() {
                     <div className="space-y-3">
                       <p className="text-xs text-gray-600 leading-relaxed">{insight.insight}</p>
                       <div className="bg-blue-50 border border-blue-100 rounded-lg p-3">
-                        <p className="text-[10px] font-medium text-blue-900 mb-1">Implication for new brands:</p>
-                        <p className="text-[10px] text-blue-800">{insight.implication}</p>
+                        <p className="text-xs font-medium text-blue-900 mb-1">Implication for new brands:</p>
+                        <p className="text-xs text-blue-800">{insight.implication}</p>
                       </div>
-                      <p className="text-[10px] text-gray-500 italic">Source: {insight.source.label}</p>
+                      <p className="text-xs text-gray-500 italic">Source: {insight.source.label}</p>
                     </div>
                   )
                 })
@@ -363,10 +363,10 @@ export default function Valuations() {
               {expandedInsight === i && (
                 <div className="animate-fadeIn">
                   <div className="bg-blue-50 border border-blue-100 rounded-lg p-3 mb-2">
-                    <p className="text-[10px] font-medium text-blue-900 mb-1">Implication for new brands:</p>
-                    <p className="text-[10px] text-blue-800">{insight.implication}</p>
+                    <p className="text-xs font-medium text-blue-900 mb-1">Implication for new brands:</p>
+                    <p className="text-xs text-blue-800">{insight.implication}</p>
                   </div>
-                  <p className="text-[10px] text-gray-500 italic">Source: {insight.source.label}</p>
+                  <p className="text-xs text-gray-500 italic">Source: {insight.source.label}</p>
                 </div>
               )}
             </Card>
@@ -412,7 +412,7 @@ function FullBrandTable() {
         { key: 'yoy', label: 'YoY', align: 'right', render: (v, row) => (
           <span className={`font-semibold ${row.yoyNum > 0 ? 'text-emerald-600' : row.yoyNum < 0 ? 'text-red-500' : ''}`}>{v}</span>
         )},
-        { key: 'notes', label: 'Notes', render: (v) => <span className="text-[10px] text-gray-500 line-clamp-1">{v}</span> },
+        { key: 'notes', label: 'Notes', render: (v) => <span className="text-xs text-gray-500 line-clamp-1">{v}</span> },
       ]}
       data={BRAND_VALUATIONS}
       searchable
@@ -454,20 +454,20 @@ function MethodologyGrid() {
                 </div>
                 <div className="pb-3 border-b border-gray-100">
                   <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1">Formula</p>
-                  <p className="text-[10px] text-gray-700 font-mono bg-gray-50 p-2 rounded">{method.formula}</p>
+                  <p className="text-xs text-gray-700 font-mono bg-gray-50 p-2 rounded">{method.formula}</p>
                 </div>
                 <div className="pb-3 border-b border-gray-100">
                   <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1">Example</p>
-                  <p className="text-[10px] text-gray-700">{method.example}</p>
+                  <p className="text-xs text-gray-700">{method.example}</p>
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <p className="text-[10px] font-semibold text-emerald-600 mb-1">Pros</p>
-                    <p className="text-[10px] text-gray-600">{method.pros}</p>
+                    <p className="text-xs font-semibold text-emerald-600 mb-1">Pros</p>
+                    <p className="text-xs text-gray-600">{method.pros}</p>
                   </div>
                   <div>
-                    <p className="text-[10px] font-semibold text-red-500 mb-1">Cons</p>
-                    <p className="text-[10px] text-gray-600">{method.cons}</p>
+                    <p className="text-xs font-semibold text-red-500 mb-1">Cons</p>
+                    <p className="text-xs text-gray-600">{method.cons}</p>
                   </div>
                 </div>
               </div>

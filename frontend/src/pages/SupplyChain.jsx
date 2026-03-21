@@ -84,7 +84,7 @@ export default function SupplyChain() {
           <div className={`w-3 h-3 rounded-full flex-shrink-0 ${ALERT_COLORS[alert].dot}`} />
           <div>
             <span className="font-medium text-navy">{val}</span>
-            <span className="text-[10px] text-gray-500 block">{row.source}</span>
+            <span className="text-xs text-gray-500 block">{row.source}</span>
           </div>
         </div>
       )
@@ -119,7 +119,7 @@ export default function SupplyChain() {
     { key: 'category', label: 'Category', sortable: true },
     { key: 'severity', label: 'Severity', sortable: true, render: (val) => {
       const badges = { high: 'bg-red-100 text-red-700', medium: 'bg-amber-100 text-amber-700', low: 'bg-blue-100 text-blue-700' }
-      return <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded-full ${badges[val]}`}>{val}</span>
+      return <span className={`text-xs font-medium px-1.5 py-0.5 rounded-full ${badges[val]}`}>{val}</span>
     }},
     { key: 'message', label: 'Alert Detail', sortable: false },
   ], [])
@@ -198,7 +198,7 @@ export default function SupplyChain() {
             <p className="text-label text-gray-500">Critical Alerts</p>
           </div>
           <p className="text-2xl font-bold text-red-600">{criticalCount}</p>
-          <p className="text-[10px] text-gray-500">{'\u2265'}15% YoY change</p>
+          <p className="text-xs text-gray-500">{'\u2265'}15% YoY change</p>
         </Card>
 
         <Card hover onClick={() => {}}>
@@ -207,7 +207,7 @@ export default function SupplyChain() {
             <p className="text-label text-gray-500">High Alert</p>
           </div>
           <p className="text-2xl font-bold text-orange-600">{highCount}</p>
-          <p className="text-[10px] text-gray-500">8-14% YoY change</p>
+          <p className="text-xs text-gray-500">8-14% YoY change</p>
         </Card>
 
         <Card hover onClick={() => {}}>
@@ -216,7 +216,7 @@ export default function SupplyChain() {
             <p className="text-label text-gray-500">Highest Risk</p>
           </div>
           <p className="text-lg font-bold text-red-600">{highestRisk.change}</p>
-          <p className="text-[10px] text-gray-500">{highestRisk.label}</p>
+          <p className="text-xs text-gray-500">{highestRisk.label}</p>
         </Card>
       </BentoGrid>
 
@@ -243,9 +243,9 @@ export default function SupplyChain() {
                 <Icon size={16} className="text-navy" />
                 <h4 className="text-xs font-semibold text-navy">{stage.label}</h4>
               </div>
-              <p className="text-[10px] text-gray-500 mb-1">{stage.summary}</p>
+              <p className="text-xs text-gray-500 mb-1">{stage.summary}</p>
               <p className="text-sm font-bold text-navy">{stage.kpi}</p>
-              <p className="text-[10px] text-gray-500 mt-1">Click to explore \u2192</p>
+              <p className="text-xs text-gray-500 mt-1">Click to explore \u2192</p>
             </Card>
           )
         })}
@@ -296,16 +296,16 @@ export default function SupplyChain() {
                         <div className="space-y-3">
                           <div className="grid grid-cols-2 gap-2">
                             <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                              <div className="text-[10px] text-gray-500 uppercase">Current</div>
-                              <div className="text-sm font-bold text-navy">{typeof data.value === 'number' ? data.value.toLocaleString() : data.value}{data.unit && <span className="text-[10px] text-gray-500 ml-0.5">{data.unit}</span>}</div>
+                              <div className="text-xs text-gray-500 uppercase">Current</div>
+                              <div className="text-sm font-bold text-navy">{typeof data.value === 'number' ? data.value.toLocaleString() : data.value}{data.unit && <span className="text-xs text-gray-500 ml-0.5">{data.unit}</span>}</div>
                             </div>
                             <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                              <div className="text-[10px] text-gray-500 uppercase">YoY Change</div>
+                              <div className="text-xs text-gray-500 uppercase">YoY Change</div>
                               <div className={`text-sm font-bold ${changeNum > 0 ? 'text-red-600' : changeNum < 0 ? 'text-green-600' : 'text-gray-600'}`}>{data.change}</div>
                             </div>
                           </div>
                           <p className="text-xs text-gray-600 leading-relaxed">{data.description}</p>
-                          <div className="flex items-center gap-2 text-[10px] text-gray-500">
+                          <div className="flex items-center gap-2 text-xs text-gray-500">
                             <span>Source: {data.source}</span>
                             <span>{'\u00b7'}</span>
                             <span>Updated: {data.updated}</span>
@@ -336,13 +336,13 @@ export default function SupplyChain() {
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
                         <span className="text-sm font-medium text-navy">{data.label}</span>
-                        <span className="text-[10px] text-gray-500">{data.source}</span>
+                        <span className="text-xs text-gray-500">{data.source}</span>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
                       <span className="text-sm font-bold text-navy tabular-nums">
                         {typeof data.value === 'number' ? data.value.toLocaleString() : data.value}
-                        {data.unit && <span className="text-[10px] text-gray-500 ml-0.5">{data.unit}</span>}
+                        {data.unit && <span className="text-xs text-gray-500 ml-0.5">{data.unit}</span>}
                       </span>
                       <span className={`inline-flex items-center gap-0.5 text-xs font-bold px-1.5 py-0.5 rounded-full ${
                         changeNum > 0 ? 'bg-red-50 text-red-700' : changeNum < 0 ? 'bg-green-50 text-green-700' : 'bg-gray-100 text-gray-600'
@@ -351,7 +351,7 @@ export default function SupplyChain() {
                         {data.change}
                       </span>
                       {data.historicalData && <Sparkline data={data.historicalData} positive={changeNum <= 0} />}
-                      <span className="text-[10px] text-gray-500 hidden sm:inline">{data.updated}</span>
+                      <span className="text-xs text-gray-500 hidden sm:inline">{data.updated}</span>
                       {isExpanded ? <ChevronUp className="w-4 h-4 text-gray-400" /> : <ChevronDown className="w-4 h-4 text-gray-400" />}
                     </div>
                   </div>
@@ -375,12 +375,12 @@ export default function SupplyChain() {
                               View source <ExternalLink className="w-3 h-3" />
                             </a>
                           )}
-                          {data.group && <div className="text-[10px] text-gray-500 uppercase tracking-wide">{GROUP_LABELS[data.group]}</div>}
+                          {data.group && <div className="text-xs text-gray-500 uppercase tracking-wide">{GROUP_LABELS[data.group]}</div>}
                           {data.relevantCategories && (
-                            <div className="text-[10px] text-gray-500">
+                            <div className="text-xs text-gray-500">
                               {data.relevantCategories[0] === 'all' ? 'All categories' :
                                 data.relevantCategories.map(c => (
-                                  <EntityLink key={c} type="category" id={c} label={c} className="text-[10px] mr-1" />
+                                  <EntityLink key={c} type="category" id={c} label={c} className="text-xs mr-1" />
                                 ))
                               }
                             </div>
@@ -441,10 +441,10 @@ export default function SupplyChain() {
                       <EntityLink type="category" id={cat.replace('_', '-')} label={cat.replace('_', ' ')} className="font-semibold text-xs" />
                     </h4>
                     <div className="flex items-center gap-1">
-                      <span className="text-[10px] text-gray-500">{data.keyInput}</span>
+                      <span className="text-xs text-gray-500">{data.keyInput}</span>
                       {data.inputTrend === 'rising' && <TrendingUp className="w-3 h-3 text-red-500" />}
                       {data.inputTrend === 'falling' && <TrendingDown className="w-3 h-3 text-green-500" />}
-                      {data.inputTrend === 'stable' && <span className="text-[10px] font-bold text-gray-500">\u2014</span>}
+                      {data.inputTrend === 'stable' && <span className="text-xs font-bold text-gray-500">\u2014</span>}
                     </div>
                   </div>
                   {/* Stacked bar */}
@@ -453,7 +453,7 @@ export default function SupplyChain() {
                       <div key={i} style={{ width: `${s.value}%`, backgroundColor: s.color }} title={`${s.label}: ${s.value}%`} />
                     ))}
                   </div>
-                  <div className="grid grid-cols-4 gap-1 text-[11px]">
+                  <div className="grid grid-cols-4 gap-1 text-xs">
                     {segments.map((seg, i) => (
                       <div key={i} className="flex items-center gap-0.5">
                         <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: seg.color }} />
@@ -462,7 +462,7 @@ export default function SupplyChain() {
                     ))}
                   </div>
                   {CATEGORY_ANALYSIS[cat] && (
-                    <p className="text-[10px] text-gray-500 mt-2 border-t border-gray-50 pt-1.5">{CATEGORY_ANALYSIS[cat]}</p>
+                    <p className="text-xs text-gray-500 mt-2 border-t border-gray-50 pt-1.5">{CATEGORY_ANALYSIS[cat]}</p>
                   )}
                 </Card>
               )
@@ -485,10 +485,10 @@ export default function SupplyChain() {
               {GLASS_SUPPLIERS.map(s => (
                 <Card key={s.name} padding="p-3">
                   <div className="flex items-start justify-between mb-1.5">
-                    <div><h5 className="font-semibold text-xs text-navy">{s.name}</h5><p className="text-[10px] text-gray-500">{s.hq}</p></div>
+                    <div><h5 className="font-semibold text-xs text-navy">{s.name}</h5><p className="text-xs text-gray-500">{s.hq}</p></div>
                     <span className="text-xs font-bold text-gold">{s.marketShare}%</span>
                   </div>
-                  <div className="space-y-0.5 text-[10px] text-gray-600">
+                  <div className="space-y-0.5 text-xs text-gray-600">
                     <div><strong>Lead time:</strong> {s.leadTime}</div>
                     <div><strong>Min order:</strong> {s.minimumOrder}</div>
                     <div><strong>Capacity:</strong> {s.capacity}</div>
@@ -506,8 +506,8 @@ export default function SupplyChain() {
               {CLOSURE_SUPPLIERS.map(s => (
                 <Card key={s.name} padding="p-3">
                   <h5 className="font-semibold text-xs text-navy">{s.name}</h5>
-                  <p className="text-[10px] text-gray-500 mb-1">{s.hq} \u00b7 {s.marketShare}% market share</p>
-                  <div className="space-y-0.5 text-[10px] text-gray-600">
+                  <p className="text-xs text-gray-500 mb-1">{s.hq} \u00b7 {s.marketShare}% market share</p>
+                  <div className="space-y-0.5 text-xs text-gray-600">
                     <div><strong>Product:</strong> {s.product}</div>
                     <div><strong>Lead time:</strong> {s.leadTime}</div>
                     <div><strong>Quality:</strong> {s.quality}</div>
@@ -524,8 +524,8 @@ export default function SupplyChain() {
               {LABEL_SUPPLIERS.map(s => (
                 <Card key={s.name} padding="p-3">
                   <h5 className="font-semibold text-xs text-navy">{s.name}</h5>
-                  <p className="text-[10px] text-gray-500 mb-1">{s.hq}</p>
-                  <div className="space-y-0.5 text-[10px] text-gray-600">
+                  <p className="text-xs text-gray-500 mb-1">{s.hq}</p>
+                  <div className="space-y-0.5 text-xs text-gray-600">
                     <div><strong>Tech:</strong> {s.technology}</div>
                     <div><strong>Lead time:</strong> {s.leadTime}</div>
                     <div><strong>Min run:</strong> {s.minimumRun}</div>
@@ -539,7 +539,7 @@ export default function SupplyChain() {
           {/* Startup notes */}
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
             <h4 className="text-xs font-semibold text-navy mb-1.5">Supplier Notes for Startups</h4>
-            <ul className="text-[10px] text-gray-600 space-y-0.5">
+            <ul className="text-xs text-gray-600 space-y-0.5">
               <li>{'\u2022'} <strong>Glass:</strong> Min orders 100k units typical. Premium (Saverglass) 50k at premium pricing. Lead times 12-20 weeks.</li>
               <li>{'\u2022'} <strong>Closures:</strong> Cork has ~3% defect rate. Synthetic/screw dominates modern wine. Multi-year contracts save 5-10%.</li>
               <li>{'\u2022'} <strong>Labels:</strong> Digital printing offers short runs (5k) at 3-4 week turnaround. Gravure more efficient at 10k+.</li>
@@ -581,11 +581,11 @@ export default function SupplyChain() {
                   <div className="flex items-center justify-between mb-0.5">
                     <div className="flex items-center gap-2">
                       <span className="font-semibold text-navy text-xs">{alert.brand}</span>
-                      <EntityLink type="company" id={alert.company.toLowerCase().replace(/\s+/g, '-')} label={alert.company} className="text-[10px]" />
+                      <EntityLink type="company" id={alert.company.toLowerCase().replace(/\s+/g, '-')} label={alert.company} className="text-xs" />
                     </div>
                     <div className="flex items-center gap-2">
                       <EntityLink type="category" id={alert.category.toLowerCase().replace(/\s+/g, '-')} label={alert.category} className="text-[10px] bg-gray-100 px-1.5 py-0.5 rounded no-underline" />
-                      <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded-full ${badges[alert.severity]}`}>{alert.severity}</span>
+                      <span className={`text-xs font-medium px-1.5 py-0.5 rounded-full ${badges[alert.severity]}`}>{alert.severity}</span>
                     </div>
                   </div>
                   <p className="text-xs text-gray-600">{alert.message}</p>
@@ -633,9 +633,9 @@ export default function SupplyChain() {
                   <Card key={i} padding="p-3">
                     <div className="flex items-start justify-between mb-1.5">
                       <h5 className="font-semibold text-xs text-navy pr-2">{s.scenario}</h5>
-                      <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded flex-shrink-0 ${probColor}`}>{s.probability}</span>
+                      <span className={`text-xs font-bold px-1.5 py-0.5 rounded flex-shrink-0 ${probColor}`}>{s.probability}</span>
                     </div>
-                    <div className="space-y-1 text-[10px] text-gray-600">
+                    <div className="space-y-1 text-xs text-gray-600">
                       <div><strong>Timeline:</strong> {s.impactWeeks} weeks</div>
                       <div><strong>Categories:</strong> {s.affectedCategories}</div>
                       <div><strong>COGS impact:</strong> <span className="text-red-600 font-bold">{s.cogsImpact}</span></div>
@@ -651,7 +651,7 @@ export default function SupplyChain() {
           {/* Stress testing */}
           <Card>
             <h4 className="text-xs font-semibold text-navy uppercase tracking-wider mb-2">Stress Testing Framework</h4>
-            <div className="text-[10px] text-gray-600 space-y-1.5">
+            <div className="text-xs text-gray-600 space-y-1.5">
               <p><strong className="text-red-600">Bear case (2026):</strong> US-EU tariffs (+15-25%), extended Red Sea closure (+8-12% freight), poor EU harvest. Combined: ~18-35% COGS rise; margin compression 5-8pp.</p>
               <p><strong className="text-amber-600">Base case (2026):</strong> Current trajectory; moderate tariff increases, normal disruptions, climate impacts regional. Margin pressure 3-4pp; tequila/rum benefit from commodity deflation.</p>
               <p><strong className="text-green-600">Bull case (2026):</strong> Tariff resolution, shipping normalises, agave oversupply sustains. Margin expansion 2-3pp; RTD and premium categories benefit.</p>
@@ -672,12 +672,12 @@ export default function SupplyChain() {
                         <span className="text-base font-bold">{pair.rate}</span>
                         <div className={`flex items-center gap-0.5 ${isUp ? 'text-green-600' : 'text-red-600'}`}>
                           {isUp ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
-                          <span className="text-[10px] font-bold">{Math.abs(pair.change12m)}%</span>
+                          <span className="text-xs font-bold">{Math.abs(pair.change12m)}%</span>
                         </div>
                       </div>
                     </div>
-                    <p className="text-[10px] text-gray-600 mb-1">{pair.impact}</p>
-                    <p className="text-[10px] text-gray-500"><strong>Categories:</strong> {pair.affectedCategories}</p>
+                    <p className="text-xs text-gray-600 mb-1">{pair.impact}</p>
+                    <p className="text-xs text-gray-500"><strong>Categories:</strong> {pair.affectedCategories}</p>
                   </Card>
                 )
               })}
@@ -696,12 +696,12 @@ export default function SupplyChain() {
                     <div className="flex items-center justify-between mb-0.5">
                       <div className="flex items-center gap-2">
                         <span className="font-semibold text-navy text-xs">{risk.region}</span>
-                        <span className="text-[10px] text-gray-500">{risk.commodity}</span>
+                        <span className="text-xs text-gray-500">{risk.commodity}</span>
                       </div>
-                      <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded-full ${badges[risk.severity]}`}>{risk.severity}</span>
+                      <span className={`text-xs font-medium px-1.5 py-0.5 rounded-full ${badges[risk.severity]}`}>{risk.severity}</span>
                     </div>
                     <p className="text-xs text-gray-600 mb-0.5">{risk.impact}</p>
-                    <p className="text-[10px] text-gray-500">{risk.detail}</p>
+                    <p className="text-xs text-gray-500">{risk.detail}</p>
                   </div>
                 )
               })}

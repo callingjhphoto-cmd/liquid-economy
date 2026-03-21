@@ -30,12 +30,12 @@ export function PageHeader({
               {crumb.to ? (
                 <Link
                   to={crumb.to}
-                  className="text-[11px] text-gray-500 hover:text-navy transition-colors no-underline"
+                  className="text-xs text-gray-500 hover:text-navy transition-colors no-underline"
                 >
                   {crumb.label}
                 </Link>
               ) : (
-                <span className="text-[11px] text-navy font-medium">{crumb.label}</span>
+                <span className="text-xs text-navy font-medium">{crumb.label}</span>
               )}
             </React.Fragment>
           ))}

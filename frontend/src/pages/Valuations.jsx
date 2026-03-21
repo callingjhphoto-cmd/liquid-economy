@@ -124,7 +124,7 @@ export default function Valuations() {
               <div>
                 <p className="text-label text-gray-500 uppercase tracking-wide mb-1">Total Tracked Brand Value</p>
                 <p className="text-3xl font-bold text-navy">${totalBrandValue.toFixed(1)}B</p>
-                <p className="text-xs text-gray-400 mt-1">{BRAND_VALUATIONS.length} brands across {[...new Set(BRAND_VALUATIONS.map(b => b.category))].length} categories</p>
+                <p className="text-xs text-gray-500 mt-1">{BRAND_VALUATIONS.length} brands across {[...new Set(BRAND_VALUATIONS.map(b => b.category))].length} categories</p>
               </div>
               <div className="p-3 rounded-xl bg-gold/10">
                 <DollarSign size={24} className="text-gold" />
@@ -132,14 +132,14 @@ export default function Valuations() {
             </div>
             <div className="grid grid-cols-2 gap-3 mt-auto">
               <div className="bg-gray-50 rounded-lg p-3">
-                <p className="text-[10px] text-gray-400 uppercase">Avg Multiple</p>
+                <p className="text-[10px] text-gray-500 uppercase">Avg Multiple</p>
                 <p className="text-lg font-bold text-navy">{avgMultiple}x</p>
-                <p className="text-[10px] text-gray-400">EV/Revenue</p>
+                <p className="text-[10px] text-gray-500">EV/Revenue</p>
               </div>
               <div className="bg-gray-50 rounded-lg p-3">
-                <p className="text-[10px] text-gray-400 uppercase">Avg M&A Premium</p>
+                <p className="text-[10px] text-gray-500 uppercase">Avg M&A Premium</p>
                 <p className="text-lg font-bold text-gold">{avgMaPremium}%</p>
-                <p className="text-[10px] text-gray-400">vs public comps</p>
+                <p className="text-[10px] text-gray-500">vs public comps</p>
               </div>
             </div>
           </Card>
@@ -234,19 +234,19 @@ export default function Valuations() {
                 <div className="flex items-start justify-between mb-2">
                   <div>
                     <p className="text-sm font-semibold text-navy">{b.brand}</p>
-                    <p className="text-[10px] text-gray-400">{b.parent} \u00b7 {b.category}</p>
+                    <p className="text-[10px] text-gray-500">{b.parent} \u00b7 {b.category}</p>
                   </div>
                   {b.trend === 'up' ? (
                     <TrendingUp size={14} className="text-emerald-500" />
                   ) : b.trend === 'down' ? (
                     <TrendingDown size={14} className="text-red-500" />
                   ) : (
-                    <span className="text-[10px] text-gray-400">\u2014</span>
+                    <span className="text-[10px] text-gray-500">\u2014</span>
                   )}
                 </div>
                 <div className="flex items-baseline gap-2">
                   <span className="text-xl font-bold text-gold">{b.estimatedValue}</span>
-                  <span className={`text-xs font-semibold ${b.yoyNum > 0 ? 'text-emerald-600' : b.yoyNum < 0 ? 'text-red-500' : 'text-gray-400'}`}>{b.yoy}</span>
+                  <span className={`text-xs font-semibold ${b.yoyNum > 0 ? 'text-emerald-600' : b.yoyNum < 0 ? 'text-red-500' : 'text-gray-500'}`}>{b.yoy}</span>
                 </div>
                 <div className="flex items-center gap-3 mt-2 text-[10px] text-gray-500">
                   <span>{b.multiple} EV/Rev</span>
@@ -347,7 +347,7 @@ export default function Valuations() {
                         <p className="text-[10px] font-medium text-blue-900 mb-1">Implication for new brands:</p>
                         <p className="text-[10px] text-blue-800">{insight.implication}</p>
                       </div>
-                      <p className="text-[10px] text-gray-400 italic">Source: {insight.source.label}</p>
+                      <p className="text-[10px] text-gray-500 italic">Source: {insight.source.label}</p>
                     </div>
                   )
                 })
@@ -366,7 +366,7 @@ export default function Valuations() {
                     <p className="text-[10px] font-medium text-blue-900 mb-1">Implication for new brands:</p>
                     <p className="text-[10px] text-blue-800">{insight.implication}</p>
                   </div>
-                  <p className="text-[10px] text-gray-400 italic">Source: {insight.source.label}</p>
+                  <p className="text-[10px] text-gray-500 italic">Source: {insight.source.label}</p>
                 </div>
               )}
             </Card>
@@ -449,15 +449,15 @@ function MethodologyGrid() {
             {expanded === i && (
               <div className="space-y-3 animate-fadeIn">
                 <div className="pb-3 border-b border-gray-100">
-                  <p className="text-[10px] font-semibold text-gray-400 uppercase mb-1">Best For</p>
+                  <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1">Best For</p>
                   <p className="text-xs text-gray-700">{method.bestFor}</p>
                 </div>
                 <div className="pb-3 border-b border-gray-100">
-                  <p className="text-[10px] font-semibold text-gray-400 uppercase mb-1">Formula</p>
+                  <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1">Formula</p>
                   <p className="text-[10px] text-gray-700 font-mono bg-gray-50 p-2 rounded">{method.formula}</p>
                 </div>
                 <div className="pb-3 border-b border-gray-100">
-                  <p className="text-[10px] font-semibold text-gray-400 uppercase mb-1">Example</p>
+                  <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1">Example</p>
                   <p className="text-[10px] text-gray-700">{method.example}</p>
                 </div>
                 <div className="grid grid-cols-2 gap-3">

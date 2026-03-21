@@ -113,6 +113,7 @@ function CompanyCardTier1({ company, onClick, isHighlighted }) {
     <Card
       hover
       onClick={onClick}
+      data-company-slug={slugify(company.name)}
       className={`transition-all ${isHighlighted ? 'ring-2 ring-navy/30 shadow-md' : ''}`}
     >
       <div className="flex items-start justify-between mb-3">
@@ -125,7 +126,7 @@ function CompanyCardTier1({ company, onClick, isHighlighted }) {
               <span className="font-semibold text-sm text-navy truncate">{company.name}</span>
               {company.isPrivate && <Lock size={10} className="text-amber-500 flex-shrink-0" />}
             </div>
-            <span className="text-[10px] text-gray-400">{company.hq}</span>
+            <span className="text-[10px] text-gray-500">{company.hq}</span>
           </div>
         </div>
         <Badge variant={company.isPrivate ? 'orange' : 'blue'} size="sm">
@@ -141,7 +142,7 @@ function CompanyCardTier1({ company, onClick, isHighlighted }) {
         </span>
       </div>
 
-      <div className="flex items-center gap-3 text-[10px] text-gray-400">
+      <div className="flex items-center gap-3 text-[10px] text-gray-500">
         <span>{brandCount} brands</span>
         <span>\u00b7</span>
         <span>{categoryCount} categories</span>
@@ -208,24 +209,24 @@ function CompanyTier2({ company, onViewFull, onClose }) {
           {fin2025 && (
             <>
               <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                <div className="text-[10px] text-gray-400 uppercase tracking-wide">Op. Margin</div>
+                <div className="text-[10px] text-gray-500 uppercase tracking-wide">Op. Margin</div>
                 <div className="text-sm font-bold text-navy tabular-nums">{fin2025.operatingMargin}%</div>
               </div>
               <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                <div className="text-[10px] text-gray-400 uppercase tracking-wide">Net Income</div>
+                <div className="text-[10px] text-gray-500 uppercase tracking-wide">Net Income</div>
                 <div className="text-sm font-bold text-navy tabular-nums">${fin2025.netIncome}B</div>
               </div>
             </>
           )}
           {!company.isPrivate && company.marketCap && (
             <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-              <div className="text-[10px] text-gray-400 uppercase tracking-wide">Mkt Cap</div>
+              <div className="text-[10px] text-gray-500 uppercase tracking-wide">Mkt Cap</div>
               <div className="text-sm font-bold text-navy tabular-nums">{company.marketCap}</div>
             </div>
           )}
           {!company.isPrivate && company.stockYTD && (
             <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-              <div className="text-[10px] text-gray-400 uppercase tracking-wide">Stock YTD</div>
+              <div className="text-[10px] text-gray-500 uppercase tracking-wide">Stock YTD</div>
               <div className={`text-sm font-bold tabular-nums ${company.stockYTD.startsWith('+') ? 'text-emerald-600' : 'text-red-500'}`}>
                 {company.stockYTD}
               </div>
@@ -233,7 +234,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
           )}
           {company.isPrivate && (
             <div className="bg-gray-50 rounded-lg p-2.5 text-center col-span-2">
-              <div className="text-[10px] text-gray-400 uppercase tracking-wide">Founded</div>
+              <div className="text-[10px] text-gray-500 uppercase tracking-wide">Founded</div>
               <div className="text-sm font-bold text-navy">{company.founded}</div>
             </div>
           )}
@@ -340,7 +341,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
                         {brand.trend}
                       </Badge>
                     </div>
-                    <div className="text-[10px] text-gray-400 mb-1">{brand.position} \u00b7 {brand.marketShare}</div>
+                    <div className="text-[10px] text-gray-500 mb-1">{brand.position} \u00b7 {brand.marketShare}</div>
                     <p className="text-[11px] text-gray-600 leading-relaxed">{brand.latest}</p>
                   </div>
                 ))}
@@ -447,7 +448,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
 
       {/* Footer CTA for Tier 3 */}
       <div className="px-5 py-3 border-t border-gray-100 flex items-center justify-between">
-        <div className="flex items-center gap-2 text-[10px] text-gray-400">
+        <div className="flex items-center gap-2 text-[10px] text-gray-500">
           {company.profileSources && (
             <span>{company.profileSources.length} sources</span>
           )}
@@ -596,7 +597,7 @@ function CompanyTier3({ company, onClose }) {
                   className="mt-3"
                 />
               ) : (
-                <p className="text-xs text-gray-400 mt-3">No M&A data available.</p>
+                <p className="text-xs text-gray-500 mt-3">No M&A data available.</p>
               )}
             </div>
           )}
@@ -622,7 +623,7 @@ function CompanyTier3({ company, onClose }) {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
                     {Object.entries(company.typicalDealTerms).map(([term, val]) => (
                       <div key={term} className="flex gap-2 items-start bg-gray-50 rounded-lg p-2.5">
-                        <span className="text-[10px] font-medium text-gray-400 uppercase w-24 flex-shrink-0">
+                        <span className="text-[10px] font-medium text-gray-500 uppercase w-24 flex-shrink-0">
                           {term.replace(/([A-Z])/g, ' $1').trim()}
                         </span>
                         <span className="text-[11px] text-gray-600">{val}</span>
@@ -691,7 +692,7 @@ function CompanyTier3({ company, onClose }) {
                   </div>
                 </div>
               )}
-              <p className="text-[10px] text-gray-400 mt-4 border-t border-gray-100 pt-3">
+              <p className="text-[10px] text-gray-500 mt-4 border-t border-gray-100 pt-3">
                 Financial data sourced from annual reports, SEC/regulatory filings, and industry databases.
                 Market share estimates from IWSR and Euromonitor. Last updated: February 2026.
               </p>
@@ -757,6 +758,20 @@ export default function Companies() {
 
   // URL param highlighting
   const highlightedCompany = searchParams.get('company')
+
+  // Auto-expand and scroll to deep-linked company
+  useEffect(() => {
+    if (!highlightedCompany || loading) return
+    setExpandedCompany(highlightedCompany)
+    // Wait for render then scroll
+    const timer = setTimeout(() => {
+      const el = document.querySelector(`[data-company-slug="${highlightedCompany}"]`)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      }
+    }, 100)
+    return () => clearTimeout(timer)
+  }, [highlightedCompany, loading])
 
   // Filter logic
   const filtered = useMemo(() => {
@@ -1006,11 +1021,11 @@ export default function Companies() {
 
             <div className="grid grid-cols-2 gap-2">
               <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                <div className="text-[10px] text-gray-400 uppercase">Revenue</div>
+                <div className="text-[10px] text-gray-500 uppercase">Revenue</div>
                 <div className="text-sm font-bold text-navy">{mobileSheet.revenue}</div>
               </div>
               <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                <div className="text-[10px] text-gray-400 uppercase">Growth</div>
+                <div className="text-[10px] text-gray-500 uppercase">Growth</div>
                 <div className={`text-sm font-bold ${mobileSheet.revenueGrowth && mobileSheet.revenueGrowth.startsWith('+') ? 'text-emerald-600' : 'text-red-500'}`}>
                   {mobileSheet.revenueGrowth}
                 </div>

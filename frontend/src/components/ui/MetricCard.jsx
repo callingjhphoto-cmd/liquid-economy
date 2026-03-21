@@ -67,7 +67,7 @@ export function MetricCard({
       </div>
 
       {subtitle && (
-        <p className="text-[11px] text-gray-400">{subtitle}</p>
+        <p className="text-[11px] text-gray-500">{subtitle}</p>
       )}
     </div>
   )

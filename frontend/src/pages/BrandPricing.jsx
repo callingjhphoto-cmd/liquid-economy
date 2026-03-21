@@ -220,7 +220,7 @@ function CategorySummaryCard({ stat, isExpanded, onToggle }) {
       </div>
 
       <div className="flex items-center justify-between pt-2 border-t border-gray-50">
-        <span className="text-[10px] text-gray-400">Top: {stat.topBrand}</span>
+        <span className="text-[10px] text-gray-500">Top: {stat.topBrand}</span>
         <div className="flex items-center gap-1 text-[10px] text-navy font-medium">
           {isExpanded ? (
             <>Collapse <ChevronUp size={10} /></>
@@ -269,7 +269,7 @@ function CategoryExpanded({ category, onClose }) {
   }, [items, selectedMarket])
 
   return (
-    <div className="col-span-full space-y-4 animate-in fade-in duration-300">
+    <div className="col-span-full space-y-4 animate-fadeIn">
       <Card padding="p-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
           <div>
@@ -307,7 +307,7 @@ function CategoryExpanded({ category, onClose }) {
                   <span className={`text-xs font-semibold px-2 py-0.5 rounded ${TIER_COLORS[tier].bg} ${TIER_COLORS[tier].text}`}>
                     {tier}
                   </span>
-                  <span className="text-[10px] text-gray-400">{brands.length} expressions</span>
+                  <span className="text-[10px] text-gray-500">{brands.length} expressions</span>
                 </div>
                 <div className="relative">
                 <div className="overflow-x-auto">
@@ -343,7 +343,7 @@ function CategoryExpanded({ category, onClose }) {
                             </td>
                             <td className="px-3 py-2 text-right">
                               <span className={`text-xs font-mono font-medium ${brand.differential > 30 ? 'text-red-500' : brand.differential > 15 ? 'text-amber-500' : 'text-green-500'}`}>
-                                ${brand.differential}
+                                {'\u00b1'}{brand.differential}
                               </span>
                             </td>
                           </tr>
@@ -388,7 +388,7 @@ function CategoryExpanded({ category, onClose }) {
         <div className="flex items-center gap-2 mb-3">
           <Store size={14} className="text-navy" />
           <span className="text-sm font-semibold text-navy">Tracked Retailers</span>
-          <span className="text-[10px] text-gray-400 ml-auto">
+          <span className="text-[10px] text-gray-500 ml-auto">
             Bottle size: <strong className="text-navy">{config.bottleSize}</strong> ({config.bottleMl}ml)
           </span>
         </div>
@@ -398,7 +398,7 @@ function CategoryExpanded({ category, onClose }) {
               <span className="text-lg">{r.logo}</span>
               <div className="min-w-0">
                 <p className="text-xs font-medium text-navy truncate">{r.name}</p>
-                <p className="text-[10px] text-gray-400">{r.type}</p>
+                <p className="text-[10px] text-gray-500">{r.type}</p>
               </div>
             </div>
           ))}
@@ -475,14 +475,14 @@ function FullPriceTable({ onClose }) {
     { key: 'me', label: 'ME ($)', align: 'right', render: (v) => v ? <span className="font-mono">${v}</span> : '\u2014' },
     { key: 'differential', label: 'Spread', align: 'right', render: (v) => (
       <span className={`font-mono font-medium ${v > 30 ? 'text-red-500' : v > 15 ? 'text-amber-500' : 'text-green-500'}`}>
-        ${v}
+        {'\u00b1'}{v}
       </span>
     )},
     { key: 'premiumPct', label: 'Premium %', align: 'right', render: (v) => <span className="font-mono font-medium text-navy">{v}%</span> },
   ]
 
   return (
-    <div className="space-y-4 animate-in fade-in duration-300">
+    <div className="space-y-4 animate-fadeIn">
       <Card padding="p-4">
         <div className="flex items-center justify-between mb-4">
           <div>
@@ -563,6 +563,7 @@ function FullPriceTable({ onClose }) {
 export default function BrandPricing() {
   const [searchParams] = useSearchParams()
   const initialCategory = searchParams.get('category') || null
+  const initialBrand = searchParams.get('brand') || null
 
   const [expandedCategory, setExpandedCategory] = useState(initialCategory)
   const [showFullTable, setShowFullTable] = useState(false)
@@ -576,13 +577,16 @@ export default function BrandPricing() {
     return () => clearTimeout(timer)
   }, [])
 
-  // URL param handling: auto-expand category from cross-page link
+  // URL param handling: auto-expand category from cross-page link, or open full table for brand search
   useEffect(() => {
-    if (initialCategory) {
+    if (initialBrand) {
+      // If a brand param is provided, open the full table so the user can find the brand
+      setShowFullTable(true)
+    } else if (initialCategory) {
       const match = ALL_CATEGORIES.find(c => c.toLowerCase().includes(initialCategory.toLowerCase()))
       if (match) setExpandedCategory(match)
     }
-  }, [initialCategory])
+  }, [initialCategory, initialBrand])
 
   const handleCategoryToggle = (category) => {
     // On mobile, show category detail in BottomSheet
@@ -595,19 +599,19 @@ export default function BrandPricing() {
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-2">
                 <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                  <div className="text-[10px] text-gray-400 uppercase">Brands</div>
+                  <div className="text-[10px] text-gray-500 uppercase">Brands</div>
                   <div className="text-sm font-bold text-navy">{stat.count}</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                  <div className="text-[10px] text-gray-400 uppercase">Max Spread</div>
+                  <div className="text-[10px] text-gray-500 uppercase">Max Spread</div>
                   <div className="text-sm font-bold text-navy">${stat.maxDiff}</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                  <div className="text-[10px] text-gray-400 uppercase">Avg US</div>
+                  <div className="text-[10px] text-gray-500 uppercase">Avg US</div>
                   <div className="text-sm font-bold text-navy">{stat.avgUs !== null ? `$${stat.avgUs}` : '\u2014'}</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                  <div className="text-[10px] text-gray-400 uppercase">Avg UK</div>
+                  <div className="text-[10px] text-gray-500 uppercase">Avg UK</div>
                   <div className="text-sm font-bold text-navy">{stat.avgUk !== null ? `\u00a3${stat.avgUk}` : '\u2014'}</div>
                 </div>
               </div>
@@ -760,7 +764,7 @@ export default function BrandPricing() {
             <span className="text-sm font-semibold text-navy">View Full Price Table</span>
             <ArrowRight size={14} className="text-navy" />
           </div>
-          <p className="text-[10px] text-gray-400">
+          <p className="text-[10px] text-gray-500">
             Complete {PRICING.length}-brand table with search, sort, filter, and CSV export
           </p>
         </Card>

@@ -1670,7 +1670,7 @@ const CampaignPlanner = () => {
         </BottomSheet>
 
         {/* Footer */}
-        <div className="text-center py-4 text-[10px] text-gray-400">
+        <div className="text-center py-4 text-[10px] text-gray-500">
           Campaign Planner \u2022 Liquid Economy Platform \u2022 Palmer Liquid Studios
         </div>
       </div>
@@ -1739,7 +1739,7 @@ const CampaignPlanner = () => {
       )}
 
       {/* Footer */}
-      <div className="text-center py-4 text-[10px] text-gray-400">
+      <div className="text-center py-4 text-[10px] text-gray-500">
         Campaign Planner \u2022 Liquid Economy Platform \u2022 Palmer Liquid Studios
       </div>
     </div>

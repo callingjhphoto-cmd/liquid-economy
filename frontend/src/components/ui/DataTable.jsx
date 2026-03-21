@@ -119,7 +119,7 @@ export function DataTable({
           <tbody>
             {filteredData.length === 0 ? (
               <tr>
-                <td colSpan={columns.length} className="px-3 py-8 text-center text-xs text-gray-400">
+                <td colSpan={columns.length} className="px-3 py-8 text-center text-xs text-gray-500">
                   {emptyMessage}
                 </td>
               </tr>
@@ -148,7 +148,7 @@ export function DataTable({
       {/* Footer */}
       {filteredData.length > 0 && (
         <div className="px-4 py-2 border-t border-gray-100 bg-gray-50/30">
-          <span className="text-[10px] text-gray-400">
+          <span className="text-[10px] text-gray-500">
             {filteredData.length} {filteredData.length === 1 ? 'row' : 'rows'}
             {search && ` (filtered from ${data.length})`}
           </span>

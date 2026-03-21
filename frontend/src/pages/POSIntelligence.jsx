@@ -110,15 +110,15 @@ function MaterialSection({ category, onFactoryTap }) {
         </div>
         <div className="flex items-center gap-6">
           <div className="text-right hidden md:block">
-            <div className="text-[10px] text-gray-400 uppercase">Lead Time</div>
+            <div className="text-[10px] text-gray-500 uppercase">Lead Time</div>
             <div className="text-xs font-semibold text-navy">{category.avgLeadTime}</div>
           </div>
           <div className="text-right hidden md:block">
-            <div className="text-[10px] text-gray-400 uppercase">MOQ Range</div>
+            <div className="text-[10px] text-gray-500 uppercase">MOQ Range</div>
             <div className="text-xs font-semibold text-navy">{category.moqRange}</div>
           </div>
           <div className="text-right hidden md:block">
-            <div className="text-[10px] text-gray-400 uppercase">Price Range</div>
+            <div className="text-[10px] text-gray-500 uppercase">Price Range</div>
             <div className="text-xs font-semibold text-gold">{category.priceRange}</div>
           </div>
           <ChevronDown size={20} className={`text-gray-400 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`} />
@@ -309,16 +309,16 @@ export default function POSIntelligence() {
             </div>
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <span className="text-xs font-medium text-gray-400">MOQ</span>
+                <span className="text-xs font-medium text-gray-500">MOQ</span>
                 <p className="text-sm font-semibold text-navy">{factory.moq} units</p>
               </div>
               <div>
-                <span className="text-xs font-medium text-gray-400">Export Markets</span>
+                <span className="text-xs font-medium text-gray-500">Export Markets</span>
                 <p className="text-sm text-gray-700">{factory.exportMarkets}</p>
               </div>
             </div>
             <div>
-              <span className="text-xs font-medium text-gray-400">Certifications</span>
+              <span className="text-xs font-medium text-gray-500">Certifications</span>
               <div className="flex flex-wrap gap-1 mt-1">
                 {factory.certifications.map((c, i) => (
                   <span key={i} className="px-2 py-0.5 bg-blue-50 text-blue-700 text-xs rounded-full">{c}</span>
@@ -327,7 +327,7 @@ export default function POSIntelligence() {
             </div>
             {factory.notableClients && (
               <div>
-                <span className="text-xs font-medium text-gray-400">Notable Clients / Sectors</span>
+                <span className="text-xs font-medium text-gray-500">Notable Clients / Sectors</span>
                 <p className="text-sm text-gray-700 mt-1">{factory.notableClients}</p>
               </div>
             )}
@@ -510,11 +510,11 @@ export default function POSIntelligence() {
                   </div>
                   <p className="text-gray-600">{company.speciality}</p>
                   <div>
-                    <span className="text-xs font-medium text-gray-400">Key Clients:</span>
+                    <span className="text-xs font-medium text-gray-500">Key Clients:</span>
                     <span className="text-xs text-gray-600 ml-1">{company.clients}</span>
                   </div>
                   <div>
-                    <span className="text-xs font-medium text-gray-400">Business Model:</span>
+                    <span className="text-xs font-medium text-gray-500">Business Model:</span>
                     <span className="text-xs text-gray-600 ml-1">{company.model}</span>
                   </div>
                 </div>
@@ -545,15 +545,15 @@ export default function POSIntelligence() {
                 </div>
                 <div className="space-y-2">
                   <div>
-                    <span className="text-xs font-medium text-gray-400">Best For</span>
+                    <span className="text-xs font-medium text-gray-500">Best For</span>
                     <p className="text-sm text-gray-700">{platform.bestFor}</p>
                   </div>
                   <div>
-                    <span className="text-xs font-medium text-gray-400">Pro Tips</span>
+                    <span className="text-xs font-medium text-gray-500">Pro Tips</span>
                     <p className="text-sm text-gray-700">{platform.tips}</p>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-medium text-gray-400">Risk Level:</span>
+                    <span className="text-xs font-medium text-gray-500">Risk Level:</span>
                     <span className={`text-xs px-2 py-0.5 rounded-full ${
                       platform.risk.startsWith('Low') ? 'bg-green-100 text-green-700' :
                       platform.risk.startsWith('Medium') ? 'bg-yellow-100 text-yellow-700' :
@@ -620,7 +620,7 @@ export default function POSIntelligence() {
       )}
 
       {/* Footer */}
-      <div className="text-center py-4 text-[10px] text-gray-400">
+      <div className="text-center py-4 text-[10px] text-gray-500">
         POS Manufacturing Intelligence \u2022 Liquid Economy Platform \u2022 Palmer Liquid Studios \u2022 Data compiled from trade directories, manufacturer listings, and industry research
       </div>
 

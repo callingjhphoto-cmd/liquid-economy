@@ -29,7 +29,7 @@ export function LoadingSpinner({
     return (
       <div className={`flex flex-col items-center justify-center min-h-[60vh] gap-3 ${className}`}>
         {spinner}
-        {message && <p className="text-xs text-gray-400">{message}</p>}
+        {message && <p className="text-xs text-gray-500">{message}</p>}
       </div>
     )
   }
@@ -38,7 +38,7 @@ export function LoadingSpinner({
     return (
       <div className={`absolute inset-0 bg-white/80 flex flex-col items-center justify-center gap-3 z-50 rounded-xl ${className}`}>
         {spinner}
-        {message && <p className="text-xs text-gray-400">{message}</p>}
+        {message && <p className="text-xs text-gray-500">{message}</p>}
       </div>
     )
   }
@@ -47,7 +47,7 @@ export function LoadingSpinner({
   return (
     <div className={`flex items-center gap-2 ${className}`}>
       {spinner}
-      {message && <span className="text-xs text-gray-400">{message}</span>}
+      {message && <span className="text-xs text-gray-500">{message}</span>}
     </div>
   )
 }

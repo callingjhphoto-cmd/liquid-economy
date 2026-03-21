@@ -7,7 +7,7 @@ export default function MetricCard({ label, value, sublabel, icon: Icon, color =
         <div>
           <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">{label}</p>
           <p className={`text-2xl font-bold mt-1 ${color}`}>{value ?? '—'}</p>
-          {sublabel && <p className="text-xs text-gray-400 mt-1">{sublabel}</p>}
+          {sublabel && <p className="text-xs text-gray-500 mt-1">{sublabel}</p>}
         </div>
         {Icon && (
           <div className={`${bgColor} p-2.5 rounded-lg`}>
@@ -35,7 +35,7 @@ export function AlertCard({ alert, onAcknowledge }) {
         </div>
         {onAcknowledge && (
           <button onClick={() => onAcknowledge(alert.id)}
-            className="text-xs text-gray-400 hover:text-gray-600 ml-4 whitespace-nowrap">
+            className="text-xs text-gray-500 hover:text-gray-600 ml-4 whitespace-nowrap">
             Dismiss
           </button>
         )}
@@ -58,7 +58,7 @@ export function SignalCard({ signal }) {
         <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${sevColors[signal.severity] || sevColors.medium}`}>
           {signal.severity}
         </span>
-        <span className="text-xs text-gray-400">{signal.type}</span>
+        <span className="text-xs text-gray-500">{signal.type}</span>
       </div>
       <p className="font-semibold text-sm text-navy">{signal.company}</p>
       <p className="text-xs text-gray-600 mt-1">{signal.description}</p>

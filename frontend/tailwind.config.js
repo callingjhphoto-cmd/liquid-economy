@@ -46,10 +46,15 @@ export default {
           '0%': { opacity: '0', transform: 'scaleY(0.95)' },
           '100%': { opacity: '1', transform: 'scaleY(1)' },
         },
+        slideDown: {
+          '0%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(100%)' },
+        },
       },
       animation: {
         fadeIn: 'fadeIn 0.3s ease-out',
         slideUp: 'slideUp 0.3s ease-out',
+        slideDown: 'slideDown 0.2s ease-out forwards',
         expandDown: 'expandDown 0.2s ease-out',
       },
       borderWidth: {

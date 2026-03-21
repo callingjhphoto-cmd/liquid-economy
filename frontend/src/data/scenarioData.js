@@ -19,11 +19,11 @@ export const PRODUCT_CATEGORIES = [
 ]
 
 export const TARGET_MARKETS = [
-  { id: 'uk', label: 'United Kingdom', flag: '\u{1F1EC}\u{1F1E7}', pop: '67M', spiritsMarket: '\u00a313.2B', channels: { onTrade: 38, offTrade: 45, eComm: 12, travelRetail: 5 } },
-  { id: 'eu', label: 'Europe (EU27)', flag: '\u{1F1EA}\u{1F1FA}', pop: '447M', spiritsMarket: '\u20ac98B', channels: { onTrade: 42, offTrade: 40, eComm: 10, travelRetail: 8 } },
-  { id: 'us', label: 'United States', flag: '\u{1F1FA}\u{1F1F8}', pop: '335M', spiritsMarket: '$98B', channels: { onTrade: 30, offTrade: 52, eComm: 14, travelRetail: 4 } },
-  { id: 'uae', label: 'UAE / Middle East', flag: '\u{1F1E6}\u{1F1EA}', pop: '10M', spiritsMarket: '$2.8B', channels: { onTrade: 55, offTrade: 15, eComm: 8, travelRetail: 22 } },
-  { id: 'asia', label: 'Asia-Pacific', flag: '\u{1F30F}', pop: '4.3B', spiritsMarket: '$210B', channels: { onTrade: 48, offTrade: 35, eComm: 12, travelRetail: 5 } },
+  { id: 'uk', label: 'United Kingdom', flag: '\u{1F1EC}\u{1F1E7}', pop: '67M', spiritsMarket: '\u00a313.2B', channels: { onTrade: 38, offTrade: 45, eCommerce: 12, travelRetail: 5 } },
+  { id: 'eu', label: 'Europe (EU27)', flag: '\u{1F1EA}\u{1F1FA}', pop: '447M', spiritsMarket: '\u20ac98B', channels: { onTrade: 42, offTrade: 40, eCommerce: 10, travelRetail: 8 } },
+  { id: 'us', label: 'United States', flag: '\u{1F1FA}\u{1F1F8}', pop: '335M', spiritsMarket: '$98B', channels: { onTrade: 30, offTrade: 52, eCommerce: 14, travelRetail: 4 } },
+  { id: 'uae', label: 'UAE / Middle East', flag: '\u{1F1E6}\u{1F1EA}', pop: '10M', spiritsMarket: '$2.8B', channels: { onTrade: 55, offTrade: 15, eCommerce: 8, travelRetail: 22 } },
+  { id: 'asia', label: 'Asia-Pacific', flag: '\u{1F30F}', pop: '4.3B', spiritsMarket: '$210B', channels: { onTrade: 48, offTrade: 35, eCommerce: 12, travelRetail: 5 } },
 ]
 
 export const MANUFACTURING_ORIGINS = [

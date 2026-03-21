@@ -88,7 +88,7 @@ export default function ReportBuilder() {
             AI-powered report generation is coming soon. Configure templates, select categories and markets,
             and receive professional intelligence briefs delivered to your inbox.
           </p>
-          <p className="text-xs text-gray-400 mb-6">
+          <p className="text-xs text-gray-500 mb-6">
             Currently in development. Join the waitlist to be notified when this feature launches.
           </p>
           <a
@@ -98,7 +98,7 @@ export default function ReportBuilder() {
             <Mail size={16} />
             Join Waitlist
           </a>
-          <p className="text-[10px] text-gray-400 mt-3">james@huertas.co.uk</p>
+          <p className="text-[10px] text-gray-500 mt-3">james@huertas.co.uk</p>
         </div>
       </AccentCard>
 
@@ -113,7 +113,7 @@ export default function ReportBuilder() {
               </div>
               <div className="flex-1">
                 <h2 className="font-display text-lg text-navy">Report Templates</h2>
-                <p className="text-xs text-gray-400 mt-1 max-w-lg">
+                <p className="text-xs text-gray-500 mt-1 max-w-lg">
                   Browse available report templates below. When automated generation launches,
                   you will be able to configure categories, markets, and metrics to produce
                   professional intelligence reports in seconds.
@@ -172,16 +172,16 @@ export default function ReportBuilder() {
                           <p className="text-sm text-gray-600">{template.description}</p>
                           <div className="grid grid-cols-2 gap-3">
                             <div className="bg-gray-50 rounded-lg p-2.5">
-                              <div className="text-[10px] text-gray-400">Sections</div>
+                              <div className="text-[10px] text-gray-500">Sections</div>
                               <div className="text-xs font-semibold text-navy">{template.sections.length}</div>
                             </div>
                             <div className="bg-gray-50 rounded-lg p-2.5">
-                              <div className="text-[10px] text-gray-400">Est. Pages</div>
+                              <div className="text-[10px] text-gray-500">Est. Pages</div>
                               <div className="text-xs font-semibold text-navy">~{template.estimatedPages}</div>
                             </div>
                           </div>
                           <div>
-                            <div className="text-[10px] text-gray-400 mb-2">Report structure:</div>
+                            <div className="text-[10px] text-gray-500 mb-2">Report structure:</div>
                             <div className="flex flex-wrap gap-1.5">
                               {template.sections.map((section, i) => (
                                 <span key={i} className="px-2 py-1 bg-white border border-gray-100 rounded text-[10px] text-navy font-medium">
@@ -213,11 +213,11 @@ export default function ReportBuilder() {
                   </div>
                   <h3 className="text-sm font-semibold text-navy">{template.label}</h3>
                 </div>
-                <p className="text-[11px] text-gray-400 leading-relaxed">{template.description}</p>
+                <p className="text-[11px] text-gray-500 leading-relaxed">{template.description}</p>
                 <div className="flex items-center gap-3 mt-3 pt-2 border-t border-gray-50">
-                  <span className="text-[10px] text-gray-400">{template.sections.length} sections</span>
-                  <span className="text-[10px] text-gray-400">{'\u2022'}</span>
-                  <span className="text-[10px] text-gray-400">~{template.estimatedPages} pages</span>
+                  <span className="text-[10px] text-gray-500">{template.sections.length} sections</span>
+                  <span className="text-[10px] text-gray-500">{'\u2022'}</span>
+                  <span className="text-[10px] text-gray-500">~{template.estimatedPages} pages</span>
                   {isActive && (
                     <span className="ml-auto text-[10px] font-semibold text-gold flex items-center gap-0.5">
                       Selected <Check size={10} />
@@ -248,25 +248,25 @@ export default function ReportBuilder() {
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
               <div className="bg-gray-50 rounded-lg p-2.5">
-                <div className="text-[10px] text-gray-400">Template</div>
+                <div className="text-[10px] text-gray-500">Template</div>
                 <div className="text-xs font-semibold text-navy">{activeTemplate?.label || '\u2014'}</div>
               </div>
               <div className="bg-gray-50 rounded-lg p-2.5">
-                <div className="text-[10px] text-gray-400">Sections</div>
+                <div className="text-[10px] text-gray-500">Sections</div>
                 <div className="text-xs font-semibold text-navy">{activeTemplate?.sections.length || 0}</div>
               </div>
               <div className="bg-gray-50 rounded-lg p-2.5">
-                <div className="text-[10px] text-gray-400">Categories Available</div>
+                <div className="text-[10px] text-gray-500">Categories Available</div>
                 <div className="text-xs font-semibold text-navy">{AVAILABLE_CATEGORIES.length}</div>
               </div>
               <div className="bg-gray-50 rounded-lg p-2.5">
-                <div className="text-[10px] text-gray-400">Est. Pages</div>
+                <div className="text-[10px] text-gray-500">Est. Pages</div>
                 <div className="text-xs font-semibold text-navy">~{activeTemplate?.estimatedPages || 0}</div>
               </div>
             </div>
 
             {/* Section list */}
-            <div className="text-[10px] text-gray-400 mb-2">Report structure:</div>
+            <div className="text-[10px] text-gray-500 mb-2">Report structure:</div>
             <div className="flex flex-wrap gap-1.5">
               {activeTemplate?.sections.map((section, i) => (
                 <span key={i} className="px-2 py-1 bg-white border border-gray-100 rounded text-[10px] text-navy font-medium">
@@ -300,7 +300,7 @@ export default function ReportBuilder() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="text-[11px] font-semibold text-navy">{widget.label}</div>
-                      <div className="text-[11px] text-gray-400 leading-tight mt-0.5">{widget.desc}</div>
+                      <div className="text-[11px] text-gray-500 leading-tight mt-0.5">{widget.desc}</div>
                     </div>
                   </div>
                 )

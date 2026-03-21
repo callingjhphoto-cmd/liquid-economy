@@ -1,9 +1,10 @@
-import React, { useEffect, useRef, useCallback } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 
 /**
  * BottomSheet — mobile-only overlay for Tier 2/3 progressive disclosure.
  * Hidden on desktop (lg:hidden). Slides up from bottom with snap points
  * at 50% and 85% viewport height. Supports drag-to-dismiss.
+ * Animates both open (slide-up) and close (slide-down + backdrop fade-out).
  *
  * Props:
  *   open     — controls visibility
@@ -14,26 +15,47 @@ import React, { useEffect, useRef, useCallback } from 'react'
 export function BottomSheet({ open, onClose, title, children }) {
   const sheetRef = useRef(null)
   const dragRef = useRef({ startY: 0, currentY: 0, dragging: false })
+  const [visible, setVisible] = useState(false)
+  const [closing, setClosing] = useState(false)
 
-  // Lock body scroll when open
+  // Sync visibility with open prop
   useEffect(() => {
     if (open) {
+      setVisible(true)
+      setClosing(false)
+    }
+  }, [open])
+
+  // Lock body scroll when visible
+  useEffect(() => {
+    if (visible) {
       document.body.style.overflow = 'hidden'
     }
     return () => {
       document.body.style.overflow = ''
     }
-  }, [open])
+  }, [visible])
+
+  // Animate out then unmount
+  const handleClose = useCallback(() => {
+    if (closing) return
+    setClosing(true)
+    setTimeout(() => {
+      setClosing(false)
+      setVisible(false)
+      onClose()
+    }, 200)
+  }, [closing, onClose])
 
   // Escape key to dismiss
   useEffect(() => {
-    if (!open) return
+    if (!visible) return
     const handleKey = (e) => {
-      if (e.key === 'Escape') onClose()
+      if (e.key === 'Escape') handleClose()
     }
     window.addEventListener('keydown', handleKey)
     return () => window.removeEventListener('keydown', handleKey)
-  }, [open, onClose])
+  }, [visible, handleClose])
 
   const handleTouchStart = useCallback((e) => {
     dragRef.current.startY = e.touches[0].clientY
@@ -59,7 +81,7 @@ export function BottomSheet({ open, onClose, title, children }) {
     if (deltaY > 120) {
       // Dismiss threshold reached
       sheetRef.current.style.transform = ''
-      onClose()
+      handleClose()
     } else {
       // Snap back
       sheetRef.current.style.transition = 'transform 0.2s ease-out'
@@ -70,16 +92,16 @@ export function BottomSheet({ open, onClose, title, children }) {
         }
       }, 200)
     }
-  }, [onClose])
+  }, [handleClose])
 
-  if (!open) return null
+  if (!visible) return null
 
   return (
     <div className="fixed inset-0 z-50 lg:hidden">
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-black/30 transition-opacity duration-200"
-        onClick={onClose}
+        className={`absolute inset-0 bg-black/30 transition-opacity duration-200 ${closing ? 'opacity-0' : 'opacity-100'}`}
+        onClick={handleClose}
         aria-hidden="true"
       />
 
@@ -89,7 +111,7 @@ export function BottomSheet({ open, onClose, title, children }) {
         role="dialog"
         aria-modal="true"
         aria-label={title}
-        className="absolute bottom-0 left-0 right-0 bg-white rounded-t-2xl max-h-[85vh] overflow-y-auto animate-slideUp"
+        className={`absolute bottom-0 left-0 right-0 bg-white rounded-t-2xl max-h-[85vh] overflow-y-auto ${closing ? 'animate-slideDown' : 'animate-slideUp'}`}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}

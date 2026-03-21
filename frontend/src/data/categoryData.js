@@ -23,10 +23,11 @@ export const CATEGORIES = [
             growth: '+8.2%',
             brands: ['José Cuervo', 'Sauza', 'El Jimador'],
             regions: [
-              { name: 'Jalisco', share: '42%', growth: '+6.5%' },
-              { name: 'Mexico City', share: '28%', growth: '+9.1%' },
-              { name: 'Guanajuato', share: '18%', growth: '+11.2%' },
-              { name: 'Nayarit', share: '12%', growth: '+7.8%' },
+              { name: 'Jalisco', share: '39.2%', growth: '+6.5%' },
+              { name: 'Mexico City', share: '26.2%', growth: '+9.1%' },
+              { name: 'Guanajuato', share: '16.8%', growth: '+11.2%' },
+              { name: 'Nayarit', share: '11.2%', growth: '+7.8%' },
+              { name: 'Monterrey', share: '6.6%', growth: '+0.9%' },
             ],
             sources: [
               { name: 'IWSR Global Spirits Report 2025, Tequila & Mezcal: Mexico Market', url: 'https://www.theiwsr.com/global-spirits-report' },
@@ -37,10 +38,12 @@ export const CATEGORIES = [
             growth: '+9.5%',
             brands: ['Patrón Silver', 'Don Julio Blanco', 'Espolon'],
             regions: [
-              { name: 'California', share: '35%', growth: '+10.2%' },
-              { name: 'Texas', share: '28%', growth: '+8.9%' },
-              { name: 'Florida', share: '18%', growth: '+9.8%' },
-              { name: 'Arizona', share: '19%', growth: '+8.1%' },
+              { name: 'California', share: '31.5%', growth: '+10.2%' },
+              { name: 'Texas', share: '25.1%', growth: '+8.9%' },
+              { name: 'Florida', share: '16.1%', growth: '+9.8%' },
+              { name: 'Arizona', share: '17.0%', growth: '+8.1%' },
+              { name: 'Illinois', share: '6.1%', growth: '+4.9%' },
+              { name: 'Pennsylvania', share: '4.2%', growth: '+2.6%' },
             ],
             sources: [
               { name: 'DISCUS Annual Economic Briefing 2025, US Spirits Category Performance', url: 'https://www.discus.org/economics/research' },
@@ -51,10 +54,10 @@ export const CATEGORIES = [
             growth: '+12.8%',
             brands: ['Patrón Anejo', 'Don Julio 1942', 'Clase Azul'],
             regions: [
-              { name: 'Madrid', share: '28%', growth: '+14.2%' },
-              { name: 'Barcelona', share: '22%', growth: '+11.5%' },
-              { name: 'Andalusia', share: '18%', growth: '+15.8%' },
-              { name: 'Valencia', share: '12%', growth: '+10.1%' },
+              { name: 'Madrid', share: '35.0%', growth: '+14.2%' },
+              { name: 'Barcelona', share: '27.5%', growth: '+11.5%' },
+              { name: 'Andalusia', share: '22.6%', growth: '+15.8%' },
+              { name: 'Valencia', share: '14.9%', growth: '+10.1%' },
             ],
             sources: [
               { name: 'Beverage Daily Spirits Market Report 2025, Spain & Iberian Markets', url: 'https://www.beveragedaily.com/Article/spirits-market-trends' },
@@ -65,10 +68,11 @@ export const CATEGORIES = [
             growth: '+6.2%',
             brands: ['Patrón XO Cafe', 'Herradura', 'Centinela'],
             regions: [
-              { name: 'London', share: '38%', growth: '+7.1%' },
-              { name: 'Manchester', share: '22%', growth: '+5.8%' },
-              { name: 'Birmingham', share: '18%', growth: '+4.9%' },
-              { name: 'Edinburgh', share: '22%', growth: '+6.5%' },
+              { name: 'London', share: '35.7%', growth: '+7.1%' },
+              { name: 'Manchester', share: '20.6%', growth: '+5.8%' },
+              { name: 'Birmingham', share: '16.9%', growth: '+4.9%' },
+              { name: 'Edinburgh', share: '20.6%', growth: '+6.5%' },
+              { name: 'Bristol', share: '6.2%', growth: '+5.3%' },
             ],
             sources: [
               { name: 'The Spirits Business Annual Review 2025, UK Market Section', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
@@ -79,10 +83,10 @@ export const CATEGORIES = [
             growth: '+11.5%',
             brands: ['Milagro Silver', 'Tequila Ocho', 'Tapatio'],
             regions: [
-              { name: 'Sydney', share: '36%', growth: '+12.8%' },
-              { name: 'Melbourne', share: '32%', growth: '+10.2%' },
-              { name: 'Brisbane', share: '18%', growth: '+11.5%' },
-              { name: 'Perth', share: '14%', growth: '+9.8%' },
+              { name: 'Sydney', share: '36.4%', growth: '+12.8%' },
+              { name: 'Melbourne', share: '31.8%', growth: '+10.2%' },
+              { name: 'Brisbane', share: '18.1%', growth: '+11.5%' },
+              { name: 'Perth', share: '13.7%', growth: '+9.8%' },
             ],
             sources: [
               { name: 'Euromonitor Passport 2025, Tequila in Australia', url: 'https://www.euromonitor.com/alcoholic-drinks' },
@@ -94,7 +98,7 @@ export const CATEGORIES = [
           midTier: ['Patrón Silver', 'Don Julio Blanco', 'Herradura', 'José Cuervo Reserva', 'Tapatio'],
           value: ['Sauza', 'El Jimador', 'Espolon', 'Milagro Silver', 'Centenario']
         },
-        channels: { onTrade: 38, offTrade: 42, eCommerce: 12, travelRetail: 8 },
+        channels: { onTrade: 38.0, offTrade: 42.1, eCommerce: 11.8, travelRetail: 8.1 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 32,   // % ACV distribution
           ceDepletions: 920000,  // case equivalent depletions
@@ -120,7 +124,7 @@ export const CATEGORIES = [
         }
       },
       2024: {
-        marketSize: '$4.5B',
+        marketSize: '$4.45B',
         growth: '+10.2%',
         growthDir: 'up',
         volumeCases: '171M',
@@ -130,10 +134,11 @@ export const CATEGORIES = [
             growth: '+7.8%',
             brands: ['José Cuervo', 'Sauza', 'El Jimador'],
             regions: [
-              { name: 'Jalisco', share: '42%', growth: '+6.1%' },
-              { name: 'Mexico City', share: '28%', growth: '+8.5%' },
-              { name: 'Guanajuato', share: '18%', growth: '+10.1%' },
-              { name: 'Nayarit', share: '12%', growth: '+6.2%' },
+              { name: 'Jalisco', share: '38.2%', growth: '+6.1%' },
+              { name: 'Mexico City', share: '25.2%', growth: '+8.5%' },
+              { name: 'Guanajuato', share: '17.3%', growth: '+10.1%' },
+              { name: 'Nayarit', share: '11.6%', growth: '+6.2%' },
+              { name: 'Monterrey', share: '7.7%', growth: '+4.9%' },
             ],
             sources: [
               { name: 'IWSR Global Spirits Report 2024, Tequila & Mezcal: Mexico Market', url: 'https://www.theiwsr.com/global-spirits-report' },
@@ -144,10 +149,12 @@ export const CATEGORIES = [
             growth: '+11.8%',
             brands: ['Patrón Silver', 'Don Julio Blanco', 'Espolon'],
             regions: [
-              { name: 'California', share: '34%', growth: '+13.1%' },
-              { name: 'Texas', share: '29%', growth: '+10.5%' },
-              { name: 'Florida', share: '18%', growth: '+8.9%' },
-              { name: 'Arizona', share: '19%', growth: '+12.2%' },
+              { name: 'California', share: '32.3%', growth: '+13.1%' },
+              { name: 'Texas', share: '24.8%', growth: '+10.5%' },
+              { name: 'Florida', share: '16.0%', growth: '+8.9%' },
+              { name: 'Arizona', share: '16.5%', growth: '+12.2%' },
+              { name: 'Illinois', share: '5.6%', growth: '+3.1%' },
+              { name: 'Pennsylvania', share: '4.8%', growth: '+5.0%' },
             ],
             sources: [
               { name: 'DISCUS Annual Economic Briefing 2024, US Spirits Category Performance', url: 'https://www.discus.org/economics/research' },
@@ -158,10 +165,10 @@ export const CATEGORIES = [
             growth: '+8.5%',
             brands: ['Patrón Anejo', 'Don Julio 1942', 'Herradura Anejo'],
             regions: [
-              { name: 'Berlin', share: '32%', growth: '+9.2%' },
-              { name: 'Munich', share: '25%', growth: '+7.8%' },
-              { name: 'Cologne', share: '22%', growth: '+8.1%' },
-              { name: 'Hamburg', share: '21%', growth: '+8.9%' },
+              { name: 'Berlin', share: '31.9%', growth: '+9.2%' },
+              { name: 'Munich', share: '25.2%', growth: '+7.8%' },
+              { name: 'Cologne', share: '22.0%', growth: '+8.1%' },
+              { name: 'Hamburg', share: '20.9%', growth: '+8.9%' },
             ],
             sources: [
               { name: 'Euromonitor Passport 2024, Spirits in Germany', url: 'https://www.euromonitor.com/alcoholic-drinks' },
@@ -172,10 +179,11 @@ export const CATEGORIES = [
             growth: '+9.1%',
             brands: ['Patrón XO Cafe', 'Milagro Select', 'Tapatio'],
             regions: [
-              { name: 'London', share: '39%', growth: '+9.8%' },
-              { name: 'Manchester', share: '22%', growth: '+8.2%' },
-              { name: 'Birmingham', share: '18%', growth: '+8.5%' },
-              { name: 'Edinburgh', share: '21%', growth: '+8.1%' },
+              { name: 'London', share: '36.6%', growth: '+9.8%' },
+              { name: 'Manchester', share: '18.9%', growth: '+8.2%' },
+              { name: 'Birmingham', share: '17.4%', growth: '+8.5%' },
+              { name: 'Edinburgh', share: '20.9%', growth: '+8.1%' },
+              { name: 'Bristol', share: '6.2%', growth: '+5.4%' },
             ],
             sources: [
               { name: 'The Spirits Business Annual Review 2024, UK & European Markets', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
@@ -186,10 +194,10 @@ export const CATEGORIES = [
             growth: '+13.5%',
             brands: ['Tequila Ocho', 'G4', 'Tapatio'],
             regions: [
-              { name: 'Toronto', share: '38%', growth: '+14.2%' },
-              { name: 'Vancouver', share: '28%', growth: '+12.8%' },
-              { name: 'Montreal', share: '22%', growth: '+13.1%' },
-              { name: 'Calgary', share: '12%', growth: '+12.5%' },
+              { name: 'Toronto', share: '34.8%', growth: '+14.2%' },
+              { name: 'Vancouver', share: '30.6%', growth: '+12.8%' },
+              { name: 'Montreal', share: '21.9%', growth: '+13.1%' },
+              { name: 'Calgary', share: '12.7%', growth: '+12.5%' },
             ],
             sources: [
               { name: 'Euromonitor Passport 2024, Spirits in Canada', url: 'https://www.euromonitor.com/alcoholic-drinks' },
@@ -201,7 +209,7 @@ export const CATEGORIES = [
           midTier: ['Patrón Silver', 'Don Julio Blanco', 'Herradura', 'Milagro Select', 'Tapatio'],
           value: ['Sauza', 'El Jimador', 'Espolon', 'Centenario', 'Montezuma']
         },
-        channels: { onTrade: 39, offTrade: 43, eCommerce: 10, travelRetail: 8 },
+        channels: { onTrade: 38.8, offTrade: 43.1, eCommerce: 10.3, travelRetail: 7.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 30,   // % ACV distribution
           ceDepletions: 860000,  // case equivalent depletions
@@ -227,7 +235,7 @@ export const CATEGORIES = [
         }
       },
       2023: {
-        marketSize: '$4.1B',
+        marketSize: '$4.04B',
         growth: '+12.5%',
         growthDir: 'up',
         volumeCases: '155M',
@@ -237,10 +245,12 @@ export const CATEGORIES = [
             growth: '+14.2%',
             brands: ['Patrón Silver', 'Don Julio Blanco', 'Espolon'],
             regions: [
-              { name: 'California', share: '33%', growth: '+16.1%' },
-              { name: 'Texas', share: '30%', growth: '+12.8%' },
-              { name: 'Florida', share: '19%', growth: '+13.5%' },
-              { name: 'New York', share: '18%', growth: '+14.9%' },
+              { name: 'California', share: '32.2%', growth: '+16.1%' },
+              { name: 'Texas', share: '24.6%', growth: '+12.8%' },
+              { name: 'Florida', share: '15.2%', growth: '+13.5%' },
+              { name: 'Arizona', share: '15.9%', growth: '+14.9%' },
+              { name: 'Illinois', share: '6.9%', growth: '+5.3%' },
+              { name: 'Pennsylvania', share: '5.2%', growth: '+1.5%' },
             ],
             sources: [
               { name: 'DISCUS Annual Economic Briefing 2023, US Spirits', url: 'https://www.discus.org/economics/research' },
@@ -251,10 +261,11 @@ export const CATEGORIES = [
             growth: '+6.2%',
             brands: ['José Cuervo', 'Sauza', 'El Jimador'],
             regions: [
-              { name: 'Jalisco', share: '43%', growth: '+5.1%' },
-              { name: 'Mexico City', share: '27%', growth: '+7.2%' },
-              { name: 'Guanajuato', share: '18%', growth: '+6.8%' },
-              { name: 'Monterrey', share: '12%', growth: '+6.1%' },
+              { name: 'Jalisco', share: '38.4%', growth: '+5.1%' },
+              { name: 'Mexico City', share: '25.9%', growth: '+7.2%' },
+              { name: 'Guanajuato', share: '16.5%', growth: '+6.8%' },
+              { name: 'Nayarit', share: '11.2%', growth: '+6.1%' },
+              { name: 'Monterrey', share: '8.0%', growth: '+4.4%' },
             ],
             sources: [
               { name: 'Euromonitor Mexico 2023', url: 'https://www.euromonitor.com/alcoholic-drinks' },
@@ -265,10 +276,11 @@ export const CATEGORIES = [
             growth: '+7.8%',
             brands: ['Patrón Anejo', 'Don Julio 1942', 'Herradura'],
             regions: [
-              { name: 'London', share: '40%', growth: '+8.5%' },
-              { name: 'Manchester', share: '21%', growth: '+7.2%' },
-              { name: 'Birmingham', share: '19%', growth: '+7.1%' },
-              { name: 'Glasgow', share: '20%', growth: '+7.6%' },
+              { name: 'London', share: '36.5%', growth: '+8.5%' },
+              { name: 'Manchester', share: '19.7%', growth: '+7.2%' },
+              { name: 'Birmingham', share: '16.5%', growth: '+7.1%' },
+              { name: 'Edinburgh', share: '21.1%', growth: '+7.6%' },
+              { name: 'Bristol', share: '6.2%', growth: '+6.7%' },
             ],
             sources: [
               { name: 'The Spirits Business Annual Review 2023', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
@@ -280,7 +292,7 @@ export const CATEGORIES = [
           midTier: ['Patrón Silver', 'Don Julio Blanco', 'Herradura', 'Milagro', 'Tapatio'],
           value: ['Sauza', 'El Jimador', 'Espolon', 'Centenario', 'Montezuma']
         },
-        channels: { onTrade: 40, offTrade: 44, eCommerce: 8, travelRetail: 8 },
+        channels: { onTrade: 40.1, offTrade: 44.5, eCommerce: 7.7, travelRetail: 7.7 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 28,   // % ACV distribution
           ceDepletions: 790000,  // case equivalent depletions
@@ -304,7 +316,7 @@ export const CATEGORIES = [
         }
       },
       2022: {
-        marketSize: '$3.6B',
+        marketSize: '$3.59B',
         growth: '+18.2%',
         growthDir: 'up',
         volumeCases: '138M',
@@ -314,10 +326,12 @@ export const CATEGORIES = [
             growth: '+22.1%',
             brands: ['Patrón Silver', 'Don Julio Blanco', 'Espolon'],
             regions: [
-              { name: 'California', share: '32%', growth: '+24.5%' },
-              { name: 'Texas', share: '31%', growth: '+19.8%' },
-              { name: 'Florida', share: '20%', growth: '+21.2%' },
-              { name: 'Colorado', share: '17%', growth: '+20.1%' },
+              { name: 'California', share: '32.4%', growth: '+24.5%' },
+              { name: 'Texas', share: '23.6%', growth: '+19.8%' },
+              { name: 'Florida', share: '15.9%', growth: '+21.2%' },
+              { name: 'Arizona', share: '14.9%', growth: '+20.1%' },
+              { name: 'Illinois', share: '6.5%', growth: '+2.7%' },
+              { name: 'Pennsylvania', share: '6.7%', growth: '+2.0%' },
             ],
             sources: [
               { name: 'DISCUS Annual Economic Briefing 2022, US Spirits', url: 'https://www.discus.org/economics/research' },
@@ -328,10 +342,11 @@ export const CATEGORIES = [
             growth: '+5.8%',
             brands: ['José Cuervo', 'Sauza', 'Tequila Sauza'],
             regions: [
-              { name: 'Jalisco', share: '44%', growth: '+4.9%' },
-              { name: 'Mexico City', share: '26%', growth: '+6.1%' },
-              { name: 'Guanajuato', share: '18%', growth: '+6.2%' },
-              { name: 'Monterrey', share: '12%', growth: '+5.8%' },
+              { name: 'Jalisco', share: '37.9%', growth: '+4.9%' },
+              { name: 'Mexico City', share: '25.7%', growth: '+6.1%' },
+              { name: 'Guanajuato', share: '17.4%', growth: '+6.2%' },
+              { name: 'Nayarit', share: '11.6%', growth: '+5.8%' },
+              { name: 'Monterrey', share: '7.4%', growth: '+2.0%' },
             ],
             sources: [
               { name: 'Euromonitor Mexico 2022', url: 'https://www.euromonitor.com/alcoholic-drinks' },
@@ -342,10 +357,10 @@ export const CATEGORIES = [
             growth: '+16.5%',
             brands: ['Patrón Silver', 'Don Julio', 'Sauza'],
             regions: [
-              { name: 'Toronto', share: '35%', growth: '+17.8%' },
-              { name: 'Vancouver', share: '31%', growth: '+16.2%' },
-              { name: 'Montreal', share: '22%', growth: '+15.8%' },
-              { name: 'Calgary', share: '12%', growth: '+14.5%' },
+              { name: 'Toronto', share: '37.3%', growth: '+17.8%' },
+              { name: 'Vancouver', share: '29.5%', growth: '+16.2%' },
+              { name: 'Montreal', share: '22.2%', growth: '+15.8%' },
+              { name: 'Calgary', share: '11.0%', growth: '+14.5%' },
             ],
             sources: [
               { name: 'Euromonitor Passport 2022, Spirits in Canada', url: 'https://www.euromonitor.com/alcoholic-drinks' },
@@ -357,7 +372,7 @@ export const CATEGORIES = [
           midTier: ['Patrón Silver', 'Don Julio Blanco', 'Herradura', 'Milagro', 'Sauza Conmemorativo'],
           value: ['Sauza', 'El Jimador', 'Espolon', 'Montezuma', 'Centenario']
         },
-        channels: { onTrade: 35, offTrade: 52, eCommerce: 8, travelRetail: 5 },
+        channels: { onTrade: 35.3, offTrade: 51.8, eCommerce: 8.1, travelRetail: 4.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 26,   // % ACV distribution
           ceDepletions: 710000,  // case equivalent depletions
@@ -381,7 +396,7 @@ export const CATEGORIES = [
         }
       },
       2021: {
-        marketSize: '$3.0B',
+        marketSize: '$3.04B',
         growth: '+15.8%',
         growthDir: 'up',
         volumeCases: '119M',
@@ -391,10 +406,12 @@ export const CATEGORIES = [
             growth: '+19.2%',
             brands: ['Patrón Silver', 'Don Julio', 'Sauza'],
             regions: [
-              { name: 'California', share: '31%', growth: '+21.1%' },
-              { name: 'Texas', share: '32%', growth: '+17.8%' },
-              { name: 'Florida', share: '21%', growth: '+18.5%' },
-              { name: 'New York', share: '16%', growth: '+19.2%' },
+              { name: 'California', share: '32.1%', growth: '+21.1%' },
+              { name: 'Texas', share: '23.3%', growth: '+17.8%' },
+              { name: 'Florida', share: '16.1%', growth: '+18.5%' },
+              { name: 'Arizona', share: '15.6%', growth: '+19.2%' },
+              { name: 'Illinois', share: '7.1%', growth: '+1.9%' },
+              { name: 'Pennsylvania', share: '5.8%', growth: '+2.8%' },
             ],
             sources: [
               { name: 'DISCUS Annual Economic Briefing 2021, US Spirits', url: 'https://www.discus.org/economics/research' },
@@ -405,10 +422,11 @@ export const CATEGORIES = [
             growth: '+3.2%',
             brands: ['José Cuervo', 'Sauza', 'El Jimador'],
             regions: [
-              { name: 'Jalisco', share: '45%', growth: '+2.8%' },
-              { name: 'Mexico City', share: '25%', growth: '+3.8%' },
-              { name: 'Monterrey', share: '18%', growth: '+3.1%' },
-              { name: 'Guadalajara', share: '12%', growth: '+3.5%' },
+              { name: 'Jalisco', share: '37.7%', growth: '+2.8%' },
+              { name: 'Mexico City', share: '26.3%', growth: '+3.8%' },
+              { name: 'Guanajuato', share: '15.7%', growth: '+3.1%' },
+              { name: 'Nayarit', share: '12.4%', growth: '+3.5%' },
+              { name: 'Monterrey', share: '7.9%', growth: '+3.4%' },
             ],
             sources: [
               { name: 'Euromonitor Mexico 2021', url: 'https://www.euromonitor.com/alcoholic-drinks' },
@@ -419,10 +437,10 @@ export const CATEGORIES = [
             growth: '+11.8%',
             brands: ['Patrón', 'Don Julio', 'Sauza'],
             regions: [
-              { name: 'Toronto', share: '36%', growth: '+12.1%' },
-              { name: 'Vancouver', share: '30%', growth: '+11.5%' },
-              { name: 'Montreal', share: '22%', growth: '+11.9%' },
-              { name: 'Calgary', share: '12%', growth: '+11.2%' },
+              { name: 'Toronto', share: '37.5%', growth: '+12.1%' },
+              { name: 'Vancouver', share: '29.8%', growth: '+11.5%' },
+              { name: 'Montreal', share: '22.6%', growth: '+11.9%' },
+              { name: 'Calgary', share: '10.1%', growth: '+11.2%' },
             ],
             sources: [
               { name: 'Euromonitor Passport 2021, Spirits in Canada', url: 'https://www.euromonitor.com/alcoholic-drinks' },
@@ -434,7 +452,7 @@ export const CATEGORIES = [
           midTier: ['Patrón Silver', 'Don Julio Blanco', 'Herradura Reposado', 'Milagro', 'Sauza Gold'],
           value: ['Sauza', 'El Jimador', 'Montezuma', 'Centenario', 'José Cuervo Especial']
         },
-        channels: { onTrade: 42, offTrade: 48, eCommerce: 5, travelRetail: 5 },
+        channels: { onTrade: 41.4, offTrade: 48.6, eCommerce: 4.8, travelRetail: 5.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 24,   // % ACV distribution
           ceDepletions: 640000,  // case equivalent depletions
@@ -478,10 +496,10 @@ export const CATEGORIES = [
             growth: '-8.5%',
             brands: ['Smirnoff', 'Stolichnaya', 'Belvedere'],
             regions: [
-              { name: 'Moscow', share: '35%', growth: '-9.2%' },
-              { name: 'St. Petersburg', share: '28%', growth: '-7.8%' },
-              { name: 'Yekaterinburg', share: '18%', growth: '-8.1%' },
-              { name: 'Sochi', share: '19%', growth: '-8.9%' },
+              { name: 'Moscow', share: '35.0%', growth: '-9.2%' },
+              { name: 'St. Petersburg', share: '28.0%', growth: '-7.8%' },
+              { name: 'Yekaterinburg', share: '18.0%', growth: '-8.1%' },
+              { name: 'Sochi', share: '19.0%', growth: '-8.9%' },
             ],
             sources: [
               { name: 'IWSR Global Spirits Report 2025, Vodka & White Spirits Section', url: 'https://www.theiwsr.com/global-spirits-report' },
@@ -492,10 +510,12 @@ export const CATEGORIES = [
             growth: '+2.1%',
             brands: ['Smirnoff', 'Absolut', 'Grey Goose'],
             regions: [
-              { name: 'New York', share: '32%', growth: '+2.8%' },
-              { name: 'California', share: '28%', growth: '+1.5%' },
-              { name: 'Florida', share: '22%', growth: '+2.2%' },
-              { name: 'Illinois', share: '18%', growth: '+1.8%' },
+              { name: 'New York', share: '28.3%', growth: '+2.8%' },
+              { name: 'California', share: '24.7%', growth: '+1.5%' },
+              { name: 'Florida', share: '19.4%', growth: '+2.2%' },
+              { name: 'Illinois', share: '15.9%', growth: '+1.8%' },
+              { name: 'Pennsylvania', share: '6.6%', growth: '+0.8%' },
+              { name: 'Georgia', share: '5.1%', growth: '+5.8%' },
             ],
             sources: [
               { name: 'DISCUS Annual Economic Briefing 2025, US Spirits', url: 'https://www.discus.org/economics/research' },
@@ -506,10 +526,9 @@ export const CATEGORIES = [
             growth: '-2.1%',
             brands: ['Zubrowka', 'Belveder', 'Wyborowa'],
             regions: [
-              { name: 'Warsaw', share: '38%', growth: '-1.8%' },
-              { name: 'Krakow', share: '25%', growth: '-2.5%' },
-              { name: 'Wroclaw', share: '20%', growth: '-1.9%' },
-              { name: 'Gdansk', share: '17%', growth: '-2.8%' },
+              { name: 'Warsaw', share: '45.8%', growth: '-1.8%' },
+              { name: 'Krakow', share: '30.1%', growth: '-2.5%' },
+              { name: 'Wroclaw', share: '24.1%', growth: '-1.9%' },
             ],
             sources: [
               { name: 'Euromonitor Poland 2025', url: 'https://www.euromonitor.com/alcoholic-drinks' },
@@ -520,10 +539,10 @@ export const CATEGORIES = [
             growth: '-15.2%',
             brands: ['Nemiroff', 'Khortytsa', 'Royalty'],
             regions: [
-              { name: 'Kyiv', share: '40%', growth: '-14.8%' },
-              { name: 'Kharkiv', share: '26%', growth: '-15.9%' },
-              { name: 'Lviv', share: '20%', growth: '-14.5%' },
-              { name: 'Dnipro', share: '14%', growth: '-15.8%' },
+              { name: 'Kyiv', share: '40.1%', growth: '-14.8%' },
+              { name: 'Kharkiv', share: '26.2%', growth: '-15.9%' },
+              { name: 'Lviv', share: '19.9%', growth: '-14.5%' },
+              { name: 'Dnipro', share: '13.8%', growth: '-15.8%' },
             ],
             sources: [
               { name: 'Euromonitor Ukraine 2025', url: 'https://www.euromonitor.com/alcoholic-drinks' },
@@ -534,10 +553,9 @@ export const CATEGORIES = [
             growth: '-0.8%',
             brands: ['Absolut', 'Norn', 'Level'],
             regions: [
-              { name: 'Stockholm', share: '38%', growth: '+0.2%' },
-              { name: 'Göteborg', share: '28%', growth: '-1.5%' },
-              { name: 'Malmö', share: '20%', growth: '-1.2%' },
-              { name: 'Uppsala', share: '14%', growth: '-1.1%' },
+              { name: 'Stockholm', share: '44.1%', growth: '+0.2%' },
+              { name: 'Göteborg', share: '32.6%', growth: '-1.5%' },
+              { name: 'Malmö', share: '23.3%', growth: '-1.2%' },
             ],
             sources: [
               { name: 'The Spirits Business Annual Review 2025', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
@@ -549,7 +567,7 @@ export const CATEGORIES = [
           midTier: ['Absolut', 'Svedka', 'Ketel One', 'Modelo Especial', 'Skyy'],
           value: ['Smirnoff', 'Burnetts', 'Fleischmanns', 'Taaka', 'Barton']
         },
-        channels: { onTrade: 35, offTrade: 52, eCommerce: 8, travelRetail: 5 },
+        channels: { onTrade: 34.7, offTrade: 51.9, eCommerce: 8.3, travelRetail: 5.1 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 78,   // % ACV distribution
           ceDepletions: 4200000,  // case equivalent depletions
@@ -585,10 +603,12 @@ export const CATEGORIES = [
             growth: '+3.2%',
             brands: ['Smirnoff', 'Absolut', 'Grey Goose'],
             regions: [
-              { name: 'New York', share: '32%', growth: '+3.8%' },
-              { name: 'California', share: '28%', growth: '+2.9%' },
-              { name: 'Florida', share: '22%', growth: '+3.1%' },
-              { name: 'Texas', share: '18%', growth: '+2.8%' },
+              { name: 'New York', share: '29.4%', growth: '+3.8%' },
+              { name: 'California', share: '25.0%', growth: '+2.9%' },
+              { name: 'Florida', share: '19.9%', growth: '+3.1%' },
+              { name: 'Illinois', share: '15.1%', growth: '+2.8%' },
+              { name: 'Pennsylvania', share: '5.9%', growth: '+2.4%' },
+              { name: 'Georgia', share: '4.7%', growth: '+4.5%' },
             ],
             sources: [
               { name: 'DISCUS Annual Economic Briefing 2024, US Spirits Category Performance', url: 'https://www.discus.org/economics/research' },
@@ -599,10 +619,10 @@ export const CATEGORIES = [
             growth: '-3.8%',
             brands: ['Smirnoff', 'Stolichnaya', 'Belvedere'],
             regions: [
-              { name: 'Moscow', share: '35%', growth: '-3.2%' },
-              { name: 'St. Petersburg', share: '28%', growth: '-4.1%' },
-              { name: 'Yekaterinburg', share: '19%', growth: '-3.9%' },
-              { name: 'Sochi', share: '18%', growth: '-4.2%' },
+              { name: 'Moscow', share: '33.8%', growth: '-3.2%' },
+              { name: 'St. Petersburg', share: '29.1%', growth: '-4.1%' },
+              { name: 'Yekaterinburg', share: '19.3%', growth: '-3.9%' },
+              { name: 'Sochi', share: '17.8%', growth: '-4.2%' },
             ],
             sources: [
               { name: 'IWSR Global Spirits Report 2024, Vodka & White Spirits Section', url: 'https://www.theiwsr.com/global-spirits-report' },
@@ -613,10 +633,9 @@ export const CATEGORIES = [
             growth: '+0.5%',
             brands: ['Zubrowka', 'Belveder', 'Wyborowa'],
             regions: [
-              { name: 'Warsaw', share: '39%', growth: '+0.8%' },
-              { name: 'Krakow', share: '24%', growth: '+0.2%' },
-              { name: 'Wroclaw', share: '21%', growth: '+0.4%' },
-              { name: 'Gdansk', share: '16%', growth: '+0.6%' },
+              { name: 'Warsaw', share: '45.7%', growth: '+0.8%' },
+              { name: 'Krakow', share: '30.7%', growth: '+0.2%' },
+              { name: 'Wroclaw', share: '23.6%', growth: '+0.4%' },
             ],
             sources: [
               { name: 'Euromonitor Poland 2024', url: 'https://www.euromonitor.com/alcoholic-drinks' },
@@ -627,10 +646,9 @@ export const CATEGORIES = [
             growth: '+1.2%',
             brands: ['Absolut', 'Norn', 'Level'],
             regions: [
-              { name: 'Stockholm', share: '38%', growth: '+1.5%' },
-              { name: 'Göteborg', share: '29%', growth: '+1.1%' },
-              { name: 'Malmö', share: '20%', growth: '+0.9%' },
-              { name: 'Uppsala', share: '13%', growth: '+1.3%' },
+              { name: 'Stockholm', share: '44.6%', growth: '+1.5%' },
+              { name: 'Göteborg', share: '32.0%', growth: '+1.1%' },
+              { name: 'Malmö', share: '23.4%', growth: '+0.9%' },
             ],
             sources: [
               { name: 'The Spirits Business Annual Review 2024, UK & European Markets', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
@@ -641,10 +659,10 @@ export const CATEGORIES = [
             growth: '-0.6%',
             brands: ['Absolut', 'Smirnoff', 'Korn'],
             regions: [
-              { name: 'Berlin', share: '28%', growth: '-0.4%' },
-              { name: 'Munich', share: '25%', growth: '-0.8%' },
-              { name: 'Frankfurt', share: '24%', growth: '-0.7%' },
-              { name: 'Hamburg', share: '23%', growth: '-0.5%' },
+              { name: 'Berlin', share: '27.8%', growth: '-0.4%' },
+              { name: 'Munich', share: '25.0%', growth: '-0.8%' },
+              { name: 'Frankfurt', share: '24.2%', growth: '-0.7%' },
+              { name: 'Hamburg', share: '23.0%', growth: '-0.5%' },
             ],
             sources: [
               { name: 'Euromonitor Passport 2024, Spirits in Germany', url: 'https://www.euromonitor.com/alcoholic-drinks' },
@@ -656,7 +674,7 @@ export const CATEGORIES = [
           midTier: ['Absolut', 'Svedka', 'Ketel One', 'Skyy', 'Tanqueray Sterling'],
           value: ['Smirnoff', 'Burnetts', 'Fleischmanns', 'Taaka', 'Barton']
         },
-        channels: { onTrade: 36, offTrade: 51, eCommerce: 8, travelRetail: 5 },
+        channels: { onTrade: 35.9, offTrade: 51.0, eCommerce: 8.1, travelRetail: 5.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 77,   // % ACV distribution
           ceDepletions: 4100000,  // case equivalent depletions
@@ -692,10 +710,12 @@ export const CATEGORIES = [
             growth: '+4.8%',
             brands: ['Smirnoff', 'Absolut', 'Grey Goose'],
             regions: [
-              { name: 'New York', share: '32%', growth: '+5.2%' },
-              { name: 'California', share: '28%', growth: '+4.5%' },
-              { name: 'Florida', share: '23%', growth: '+4.9%' },
-              { name: 'Texas', share: '17%', growth: '+4.2%' },
+              { name: 'New York', share: '30.7%', growth: '+5.2%' },
+              { name: 'California', share: '24.9%', growth: '+4.5%' },
+              { name: 'Florida', share: '19.7%', growth: '+4.9%' },
+              { name: 'Illinois', share: '14.2%', growth: '+4.2%' },
+              { name: 'Pennsylvania', share: '6.5%', growth: '+2.4%' },
+              { name: 'Georgia', share: '4.0%', growth: '+1.8%' },
             ],
             sources: [
               { name: 'DISCUS Annual Economic Briefing 2023, US Spirits', url: 'https://www.discus.org/economics/research' },
@@ -706,10 +726,10 @@ export const CATEGORIES = [
             growth: '-5.2%',
             brands: ['Smirnoff', 'Stolichnaya', 'Moskovskaya'],
             regions: [
-              { name: 'Moscow', share: '36%', growth: '-4.8%' },
-              { name: 'St. Petersburg', share: '27%', growth: '-5.6%' },
-              { name: 'Yekaterinburg', share: '19%', growth: '-5.1%' },
-              { name: 'Sochi', share: '18%', growth: '-5.5%' },
+              { name: 'Moscow', share: '33.8%', growth: '-4.8%' },
+              { name: 'St. Petersburg', share: '27.7%', growth: '-5.6%' },
+              { name: 'Yekaterinburg', share: '20.0%', growth: '-5.1%' },
+              { name: 'Sochi', share: '18.5%', growth: '-5.5%' },
             ],
             sources: [
               { name: 'IWSR Global Spirits Report 2023, Vodka & White Spirits Section', url: 'https://www.theiwsr.com/global-spirits-report' },
@@ -720,10 +740,9 @@ export const CATEGORIES = [
             growth: '+1.8%',
             brands: ['Zubrowka', 'Belveder', 'Wyborowa'],
             regions: [
-              { name: 'Warsaw', share: '39%', growth: '+2.1%' },
-              { name: 'Krakow', share: '24%', growth: '+1.6%' },
-              { name: 'Wroclaw', share: '21%', growth: '+1.9%' },
-              { name: 'Gdansk', share: '16%', growth: '+1.5%' },
+              { name: 'Warsaw', share: '46.3%', growth: '+2.1%' },
+              { name: 'Krakow', share: '30.0%', growth: '+1.6%' },
+              { name: 'Wroclaw', share: '23.7%', growth: '+1.9%' },
             ],
             sources: [
               { name: 'Euromonitor Poland 2023', url: 'https://www.euromonitor.com/alcoholic-drinks' },
@@ -734,10 +753,9 @@ export const CATEGORIES = [
             growth: '+2.5%',
             brands: ['Absolut', 'Norn', 'Kron'],
             regions: [
-              { name: 'Stockholm', share: '38%', growth: '+2.8%' },
-              { name: 'Göteborg', share: '29%', growth: '+2.4%' },
-              { name: 'Malmö', share: '20%', growth: '+2.2%' },
-              { name: 'Uppsala', share: '13%', growth: '+2.6%' },
+              { name: 'Stockholm', share: '43.7%', growth: '+2.8%' },
+              { name: 'Göteborg', share: '31.5%', growth: '+2.4%' },
+              { name: 'Malmö', share: '24.8%', growth: '+2.2%' },
             ],
             sources: [
               { name: 'The Spirits Business Annual Review 2023', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
@@ -748,10 +766,11 @@ export const CATEGORIES = [
             growth: '+8.5%',
             brands: ['Smirnoff', 'Absolut', 'Diageo Value Brands'],
             regions: [
-              { name: 'Mumbai', share: '35%', growth: '+9.2%' },
-              { name: 'Delhi', share: '32%', growth: '+8.1%' },
-              { name: 'Bangalore', share: '20%', growth: '+8.8%' },
-              { name: 'Hyderabad', share: '13%', growth: '+7.9%' },
+              { name: 'Mumbai', share: '32.0%', growth: '+9.2%' },
+              { name: 'Delhi', share: '29.3%', growth: '+8.1%' },
+              { name: 'Bangalore', share: '18.6%', growth: '+8.8%' },
+              { name: 'Hyderabad', share: '12.3%', growth: '+7.9%' },
+              { name: 'Kolkata', share: '7.8%', growth: '+2.1%' },
             ],
             sources: [
               { name: 'Euromonitor Passport 2023, Spirits in India', url: 'https://www.euromonitor.com/alcoholic-drinks' },
@@ -763,7 +782,7 @@ export const CATEGORIES = [
           midTier: ['Absolut', 'Svedka', 'Ketel One', 'Skyy', 'Gordon\u2019s'],
           value: ['Smirnoff', 'Burnetts', 'Fleischmanns', 'Taaka', 'Barton']
         },
-        channels: { onTrade: 37, offTrade: 50, eCommerce: 8, travelRetail: 5 },
+        channels: { onTrade: 37.1, offTrade: 50.0, eCommerce: 8.0, travelRetail: 4.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 76,   // % ACV distribution
           ceDepletions: 4050000,  // case equivalent depletions
@@ -798,10 +817,12 @@ export const CATEGORIES = [
             growth: '+5.2%',
             brands: ['Smirnoff', 'Absolut', 'Grey Goose'],
             regions: [
-              { name: 'New York', share: '31%', growth: '+5.8%' },
-              { name: 'California', share: '29%', growth: '+4.9%' },
-              { name: 'Florida', share: '23%', growth: '+5.1%' },
-              { name: 'Texas', share: '17%', growth: '+4.8%' },
+              { name: 'New York', share: '32.0%', growth: '+5.8%' },
+              { name: 'California', share: '26.1%', growth: '+4.9%' },
+              { name: 'Florida', share: '18.4%', growth: '+5.1%' },
+              { name: 'Illinois', share: '13.4%', growth: '+4.8%' },
+              { name: 'Pennsylvania', share: '7.0%', growth: '+2.7%' },
+              { name: 'Georgia', share: '3.1%', growth: '-0.4%' },
             ],
             sources: [
               { name: 'DISCUS Annual Economic Briefing 2022, US Spirits', url: 'https://www.discus.org/economics/research' },
@@ -812,10 +833,10 @@ export const CATEGORIES = [
             growth: '-2.8%',
             brands: ['Stolichnaya', 'Moskovskaya', 'Smirnoff'],
             regions: [
-              { name: 'Moscow', share: '36%', growth: '-2.1%' },
-              { name: 'St. Petersburg', share: '27%', growth: '-3.2%' },
-              { name: 'Yekaterinburg', share: '20%', growth: '-2.9%' },
-              { name: 'Sochi', share: '17%', growth: '-3.4%' },
+              { name: 'Moscow', share: '33.3%', growth: '-2.1%' },
+              { name: 'St. Petersburg', share: '28.1%', growth: '-3.2%' },
+              { name: 'Yekaterinburg', share: '20.5%', growth: '-2.9%' },
+              { name: 'Sochi', share: '18.1%', growth: '-3.4%' },
             ],
             sources: [
               { name: 'IWSR Global Spirits Report 2022, Vodka & White Spirits Section', url: 'https://www.theiwsr.com/global-spirits-report' },
@@ -826,10 +847,9 @@ export const CATEGORIES = [
             growth: '+3.5%',
             brands: ['Zubrowka', 'Belveder', 'Wyborowa'],
             regions: [
-              { name: 'Warsaw', share: '39%', growth: '+3.8%' },
-              { name: 'Krakow', share: '24%', growth: '+3.2%' },
-              { name: 'Wroclaw', share: '21%', growth: '+3.6%' },
-              { name: 'Gdansk', share: '16%', growth: '+3.3%' },
+              { name: 'Warsaw', share: '47.0%', growth: '+3.8%' },
+              { name: 'Krakow', share: '28.8%', growth: '+3.2%' },
+              { name: 'Wroclaw', share: '24.2%', growth: '+3.6%' },
             ],
             sources: [
               { name: 'Euromonitor Poland 2022', url: 'https://www.euromonitor.com/alcoholic-drinks' },
@@ -840,10 +860,9 @@ export const CATEGORIES = [
             growth: '+2.1%',
             brands: ['Absolut', 'Norn', 'Kron'],
             regions: [
-              { name: 'Stockholm', share: '38%', growth: '+2.4%' },
-              { name: 'Göteborg', share: '29%', growth: '+2.0%' },
-              { name: 'Malmö', share: '20%', growth: '+1.9%' },
-              { name: 'Uppsala', share: '13%', growth: '+2.2%' },
+              { name: 'Stockholm', share: '43.5%', growth: '+2.4%' },
+              { name: 'Göteborg', share: '31.3%', growth: '+2.0%' },
+              { name: 'Malmö', share: '25.2%', growth: '+1.9%' },
             ],
             sources: [
               { name: 'The Spirits Business Annual Review 2022', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
@@ -854,10 +873,11 @@ export const CATEGORIES = [
             growth: '+9.2%',
             brands: ['Smirnoff', 'Absolut', 'McDowell\u2019s'],
             regions: [
-              { name: 'Mumbai', share: '34%', growth: '+9.8%' },
-              { name: 'Delhi', share: '32%', growth: '+8.9%' },
-              { name: 'Bangalore', share: '21%', growth: '+9.1%' },
-              { name: 'Hyderabad', share: '13%', growth: '+8.8%' },
+              { name: 'Mumbai', share: '31.7%', growth: '+9.8%' },
+              { name: 'Delhi', share: '28.5%', growth: '+8.9%' },
+              { name: 'Bangalore', share: '20.0%', growth: '+9.1%' },
+              { name: 'Hyderabad', share: '11.6%', growth: '+8.8%' },
+              { name: 'Kolkata', share: '8.2%', growth: '+2.7%' },
             ],
             sources: [
               { name: 'Euromonitor Passport 2022, Spirits in India', url: 'https://www.euromonitor.com/alcoholic-drinks' },
@@ -869,7 +889,7 @@ export const CATEGORIES = [
           midTier: ['Absolut', 'Svedka', 'Ketel One', 'Skyy', 'Gordon\u2019s'],
           value: ['Smirnoff', 'Burnetts', 'Fleischmanns', 'Taaka', 'Barton']
         },
-        channels: { onTrade: 38, offTrade: 49, eCommerce: 8, travelRetail: 5 },
+        channels: { onTrade: 38.0, offTrade: 49.3, eCommerce: 7.8, travelRetail: 4.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 75,   // % ACV distribution
           ceDepletions: 3950000,  // case equivalent depletions
@@ -904,10 +924,12 @@ export const CATEGORIES = [
             growth: '+2.1%',
             brands: ['Smirnoff', 'Absolut', 'Grey Goose'],
             regions: [
-              { name: 'New York', share: '31%', growth: '+2.5%' },
-              { name: 'California', share: '29%', growth: '+1.9%' },
-              { name: 'Florida', share: '23%', growth: '+2.2%' },
-              { name: 'Texas', share: '17%', growth: '+1.8%' },
+              { name: 'New York', share: '30.4%', growth: '+2.5%' },
+              { name: 'California', share: '26.8%', growth: '+1.9%' },
+              { name: 'Florida', share: '18.2%', growth: '+2.2%' },
+              { name: 'Illinois', share: '13.0%', growth: '+1.8%' },
+              { name: 'Pennsylvania', share: '7.7%', growth: '+2.5%' },
+              { name: 'Georgia', share: '3.9%', growth: '+1.2%' },
             ],
             sources: [
               { name: 'DISCUS Annual Economic Briefing 2021, US Spirits', url: 'https://www.discus.org/economics/research' },
@@ -918,10 +940,10 @@ export const CATEGORIES = [
             growth: '-2.1%',
             brands: ['Stolichnaya', 'Moskovskaya', 'Krepkaya'],
             regions: [
-              { name: 'Moscow', share: '36%', growth: '-1.8%' },
-              { name: 'St. Petersburg', share: '27%', growth: '-2.5%' },
-              { name: 'Yekaterinburg', share: '20%', growth: '-2.2%' },
-              { name: 'Sochi', share: '17%', growth: '-2.1%' },
+              { name: 'Moscow', share: '34.3%', growth: '-1.8%' },
+              { name: 'St. Petersburg', share: '27.9%', growth: '-2.5%' },
+              { name: 'Yekaterinburg', share: '19.6%', growth: '-2.2%' },
+              { name: 'Sochi', share: '18.2%', growth: '-2.1%' },
             ],
             sources: [
               { name: 'IWSR Global Spirits Report 2021, Vodka & White Spirits Section', url: 'https://www.theiwsr.com/global-spirits-report' },
@@ -932,10 +954,9 @@ export const CATEGORIES = [
             growth: '+1.2%',
             brands: ['Zubrowka', 'Belveder', 'Wyborowa'],
             regions: [
-              { name: 'Warsaw', share: '40%', growth: '+1.1%' },
-              { name: 'Krakow', share: '23%', growth: '+1.4%' },
-              { name: 'Wroclaw', share: '21%', growth: '+1.1%' },
-              { name: 'Gdansk', share: '16%', growth: '+1.3%' },
+              { name: 'Warsaw', share: '46.4%', growth: '+1.1%' },
+              { name: 'Krakow', share: '28.3%', growth: '+1.4%' },
+              { name: 'Wroclaw', share: '25.3%', growth: '+1.1%' },
             ],
             sources: [
               { name: 'Euromonitor Poland 2021', url: 'https://www.euromonitor.com/alcoholic-drinks' },
@@ -946,10 +967,9 @@ export const CATEGORIES = [
             growth: '+0.8%',
             brands: ['Absolut', 'Norn', 'Kron'],
             regions: [
-              { name: 'Stockholm', share: '38%', growth: '+1.0%' },
-              { name: 'Göteborg', share: '29%', growth: '+0.7%' },
-              { name: 'Malmö', share: '20%', growth: '+0.6%' },
-              { name: 'Uppsala', share: '13%', growth: '+0.9%' },
+              { name: 'Stockholm', share: '42.6%', growth: '+1.0%' },
+              { name: 'Göteborg', share: '31.9%', growth: '+0.7%' },
+              { name: 'Malmö', share: '25.5%', growth: '+0.6%' },
             ],
             sources: [
               { name: 'The Spirits Business Annual Review 2021', url: 'https://www.thespiritsbusiness.com/category/market-data/' },
@@ -960,10 +980,11 @@ export const CATEGORIES = [
             growth: '+7.8%',
             brands: ['Smirnoff', 'Absolut', 'McDowell\u2019s'],
             regions: [
-              { name: 'Mumbai', share: '33%', growth: '+8.2%' },
-              { name: 'Delhi', share: '33%', growth: '+7.6%' },
-              { name: 'Bangalore', share: '21%', growth: '+7.9%' },
-              { name: 'Hyderabad', share: '13%', growth: '+7.5%' },
+              { name: 'Mumbai', share: '31.5%', growth: '+8.2%' },
+              { name: 'Delhi', share: '27.8%', growth: '+7.6%' },
+              { name: 'Bangalore', share: '19.9%', growth: '+7.9%' },
+              { name: 'Hyderabad', share: '11.5%', growth: '+7.5%' },
+              { name: 'Kolkata', share: '9.3%', growth: '-0.0%' },
             ],
             sources: [
               { name: 'Euromonitor Passport 2021, Spirits in India', url: 'https://www.euromonitor.com/alcoholic-drinks' },
@@ -975,7 +996,7 @@ export const CATEGORIES = [
           midTier: ['Absolut', 'Svedka', 'Premium Vodka', 'Skyy', 'Gordon\u2019s'],
           value: ['Smirnoff', 'Burnetts', 'Fleischmanns', 'Taaka', 'Barton']
         },
-        channels: { onTrade: 42, offTrade: 47, eCommerce: 6, travelRetail: 5 },
+        channels: { onTrade: 42.3, offTrade: 46.5, eCommerce: 6.2, travelRetail: 5.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 74,   // % ACV distribution
           ceDepletions: 3850000,  // case equivalent depletions
@@ -1020,10 +1041,10 @@ export const CATEGORIES = [
             growth: '+3.8%',
             brands: ['Hendrick\u2019s', 'Gin Mare', 'Seagram\u2019s'],
             regions: [
-              { name: 'Andalusia', share: '34%', growth: '+4.2%' },
-              { name: 'Catalonia', share: '28%', growth: '+2.1%' },
-              { name: 'Madrid', share: '22%', growth: '+3.5%' },
-              { name: 'Basque Country', share: '16%', growth: '+5.1%' },
+              { name: 'Andalusia', share: '34.0%', growth: '+4.2%' },
+              { name: 'Catalonia', share: '28.0%', growth: '+2.1%' },
+              { name: 'Madrid', share: '22.0%', growth: '+3.5%' },
+              { name: 'Basque Country', share: '16.0%', growth: '+5.1%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1035,10 +1056,11 @@ export const CATEGORIES = [
             growth: '+2.4%',
             brands: ['Monkey 47', 'Tanqueray', 'Beefeater'],
             regions: [
-              { name: 'Berlin', share: '26%', growth: '+3.2%' },
-              { name: 'Munich', share: '20%', growth: '+1.8%' },
-              { name: 'Hamburg', share: '27%', growth: '+2.1%' },
-              { name: 'Frankfurt', share: '27%', growth: '+2.6%' },
+              { name: 'Berlin', share: '24.4%', growth: '+3.2%' },
+              { name: 'Munich', share: '18.8%', growth: '+1.8%' },
+              { name: 'Hamburg', share: '25.3%', growth: '+2.1%' },
+              { name: 'Frankfurt', share: '25.3%', growth: '+2.6%' },
+              { name: 'Hesse', share: '6.2%', growth: '+2.9%' },
             ],
             sources: [
               { name: 'Euromonitor International', url: 'https://www.euromonitor.com' },
@@ -1050,10 +1072,9 @@ export const CATEGORIES = [
             growth: '+5.2%',
             brands: ['Tanqueray', 'Gordon\u2019s', 'Beefeater'],
             regions: [
-              { name: 'Metro Manila', share: '52%', growth: '+6.1%' },
-              { name: 'Cebu', share: '18%', growth: '+3.8%' },
-              { name: 'Davao', share: '15%', growth: '+4.5%' },
-              { name: 'Other', share: '15%', growth: '+4.2%' },
+              { name: 'Metro Manila', share: '61.2%', growth: '+6.1%' },
+              { name: 'Cebu', share: '21.2%', growth: '+3.8%' },
+              { name: 'Davao', share: '17.6%', growth: '+4.5%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1065,10 +1086,12 @@ export const CATEGORIES = [
             growth: '+1.1%',
             brands: ['Hendrick\u2019s', 'Tanqueray', 'Bombay Sapphire'],
             regions: [
-              { name: 'California', share: '28%', growth: '+0.8%' },
-              { name: 'New York', share: '18%', growth: '+1.5%' },
-              { name: 'Texas', share: '16%', growth: '+0.9%' },
-              { name: 'Other', share: '38%', growth: '+1.3%' },
+              { name: 'California', share: '24.1%', growth: '+0.8%' },
+              { name: 'New York', share: '15.4%', growth: '+1.5%' },
+              { name: 'Texas', share: '13.7%', growth: '+0.9%' },
+              { name: 'Other', share: '32.6%', growth: '+1.3%' },
+              { name: 'Illinois', share: '7.0%', growth: '+2.5%' },
+              { name: 'Pennsylvania', share: '7.2%', growth: '+3.9%' },
             ],
             sources: [
               { name: 'Distilled Spirits Council of USA', url: 'https://www.discus.org' },
@@ -1080,10 +1103,11 @@ export const CATEGORIES = [
             growth: '-1.8%',
             brands: ['Gordon\u2019s', 'Beefeater', 'Bombay Sapphire'],
             regions: [
-              { name: 'London', share: '32%', growth: '-0.5%' },
-              { name: 'Southeast', share: '26%', growth: '-2.1%' },
-              { name: 'Midlands', share: '20%', growth: '-2.8%' },
-              { name: 'North & Scotland', share: '22%', growth: '-1.2%' },
+              { name: 'London', share: '29.8%', growth: '-0.5%' },
+              { name: 'Southeast', share: '24.2%', growth: '-2.1%' },
+              { name: 'Midlands', share: '18.6%', growth: '-2.8%' },
+              { name: 'North & Scotland', share: '20.5%', growth: '-1.2%' },
+              { name: 'Bristol', share: '6.9%', growth: '+1.3%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1096,7 +1120,7 @@ export const CATEGORIES = [
           midTier: ['Tanqueray', 'Hendrick\u2019s', 'Bombay Sapphire', 'Beefeater 24', 'Sipsmith'],
           value: ['Gordon\u2019s', 'Beefeater', 'Greenall\u2019s', 'Larios', 'Seagram\u2019s']
         },
-        channels: { onTrade: 48, offTrade: 42, eCommerce: 7, travelRetail: 3 },
+        channels: { onTrade: 48.5, offTrade: 41.8, eCommerce: 6.8, travelRetail: 2.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 52,   // % ACV distribution
           ceDepletions: 1850000,  // case equivalent depletions
@@ -1132,10 +1156,10 @@ export const CATEGORIES = [
             growth: '+5.1%',
             brands: ['Gin Mare', 'Hendrick\u2019s', 'Tanqueray'],
             regions: [
-              { name: 'Andalusia', share: '35%', growth: '+5.8%' },
-              { name: 'Catalonia', share: '27%', growth: '+3.5%' },
-              { name: 'Madrid', share: '21%', growth: '+4.2%' },
-              { name: 'Basque Country', share: '17%', growth: '+5.9%' },
+              { name: 'Andalusia', share: '33.2%', growth: '+5.8%' },
+              { name: 'Catalonia', share: '29.0%', growth: '+3.5%' },
+              { name: 'Madrid', share: '22.7%', growth: '+4.2%' },
+              { name: 'Basque Country', share: '15.1%', growth: '+5.9%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1147,10 +1171,11 @@ export const CATEGORIES = [
             growth: '+1.8%',
             brands: ['Monkey 47', 'Bombay Sapphire', 'Hendrick\u2019s'],
             regions: [
-              { name: 'Berlin', share: '25%', growth: '+2.1%' },
-              { name: 'Munich', share: '21%', growth: '+1.2%' },
-              { name: 'Hamburg', share: '27%', growth: '+1.5%' },
-              { name: 'Frankfurt', share: '27%', growth: '+2.2%' },
+              { name: 'Berlin', share: '24.4%', growth: '+2.1%' },
+              { name: 'Munich', share: '20.0%', growth: '+1.2%' },
+              { name: 'Hamburg', share: '23.9%', growth: '+1.5%' },
+              { name: 'Frankfurt', share: '26.2%', growth: '+2.2%' },
+              { name: 'Hesse', share: '5.5%', growth: '+3.1%' },
             ],
             sources: [
               { name: 'Euromonitor International', url: 'https://www.euromonitor.com' },
@@ -1162,10 +1187,9 @@ export const CATEGORIES = [
             growth: '+6.8%',
             brands: ['Tanqueray', 'Gordon\u2019s', 'Beefeater'],
             regions: [
-              { name: 'Metro Manila', share: '51%', growth: '+7.5%' },
-              { name: 'Cebu', share: '18%', growth: '+5.2%' },
-              { name: 'Davao', share: '16%', growth: '+6.1%' },
-              { name: 'Other', share: '15%', growth: '+6.8%' },
+              { name: 'Metro Manila', share: '57.4%', growth: '+7.5%' },
+              { name: 'Cebu', share: '23.1%', growth: '+5.2%' },
+              { name: 'Davao', share: '19.5%', growth: '+6.1%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1177,10 +1201,12 @@ export const CATEGORIES = [
             growth: '+0.9%',
             brands: ['Hendrick\u2019s', 'Tanqueray', 'Bombay Sapphire'],
             regions: [
-              { name: 'California', share: '28%', growth: '+0.6%' },
-              { name: 'New York', share: '18%', growth: '+1.2%' },
-              { name: 'Texas', share: '17%', growth: '+0.8%' },
-              { name: 'Other', share: '37%', growth: '+1.0%' },
+              { name: 'California', share: '24.8%', growth: '+0.6%' },
+              { name: 'New York', share: '13.7%', growth: '+1.2%' },
+              { name: 'Texas', share: '14.1%', growth: '+0.8%' },
+              { name: 'Other', share: '31.4%', growth: '+1.0%' },
+              { name: 'Illinois', share: '8.1%', growth: '+3.0%' },
+              { name: 'Pennsylvania', share: '7.9%', growth: '+0.4%' },
             ],
             sources: [
               { name: 'Distilled Spirits Council of USA', url: 'https://www.discus.org' },
@@ -1192,10 +1218,11 @@ export const CATEGORIES = [
             growth: '-0.8%',
             brands: ['Gordon\u2019s', 'Beefeater', 'Bombay Sapphire'],
             regions: [
-              { name: 'London', share: '31%', growth: '-0.2%' },
-              { name: 'Southeast', share: '27%', growth: '-1.1%' },
-              { name: 'Midlands', share: '20%', growth: '-1.5%' },
-              { name: 'North & Scotland', share: '22%', growth: '-0.6%' },
+              { name: 'London', share: '30.1%', growth: '-0.2%' },
+              { name: 'Southeast', share: '24.6%', growth: '-1.1%' },
+              { name: 'Midlands', share: '18.8%', growth: '-1.5%' },
+              { name: 'North & Scotland', share: '20.5%', growth: '-0.6%' },
+              { name: 'Bristol', share: '6.0%', growth: '+3.9%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1208,7 +1235,7 @@ export const CATEGORIES = [
           midTier: ['Tanqueray', 'Hendrick\u2019s', 'Bombay Sapphire', 'Beefeater 24', 'Sipsmith'],
           value: ['Gordon\u2019s', 'Beefeater', 'Greenall\u2019s', 'Larios', 'Seagram\u2019s']
         },
-        channels: { onTrade: 47, offTrade: 43, eCommerce: 7, travelRetail: 3 },
+        channels: { onTrade: 46.4, offTrade: 43.7, eCommerce: 7.2, travelRetail: 2.7 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 50,   // % ACV distribution
           ceDepletions: 1780000,  // case equivalent depletions
@@ -1244,10 +1271,10 @@ export const CATEGORIES = [
             growth: '+8.2%',
             brands: ['Gin Mare', 'Hendrick\u2019s', 'Tanqueray'],
             regions: [
-              { name: 'Andalusia', share: '36%', growth: '+9.1%' },
-              { name: 'Catalonia', share: '26%', growth: '+6.8%' },
-              { name: 'Madrid', share: '20%', growth: '+7.5%' },
-              { name: 'Basque Country', share: '18%', growth: '+8.9%' },
+              { name: 'Andalusia', share: '33.9%', growth: '+9.1%' },
+              { name: 'Catalonia', share: '29.4%', growth: '+6.8%' },
+              { name: 'Madrid', share: '21.9%', growth: '+7.5%' },
+              { name: 'Basque Country', share: '14.8%', growth: '+8.9%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1259,10 +1286,11 @@ export const CATEGORIES = [
             growth: '+2.5%',
             brands: ['Monkey 47', 'Bombay Sapphire', 'Tanqueray'],
             regions: [
-              { name: 'Berlin', share: '24%', growth: '+3.2%' },
-              { name: 'Munich', share: '22%', growth: '+2.1%' },
-              { name: 'Hamburg', share: '27%', growth: '+2.8%' },
-              { name: 'Frankfurt', share: '27%', growth: '+2.0%' },
+              { name: 'Berlin', share: '25.8%', growth: '+3.2%' },
+              { name: 'Munich', share: '20.8%', growth: '+2.1%' },
+              { name: 'Hamburg', share: '23.1%', growth: '+2.8%' },
+              { name: 'Frankfurt', share: '25.7%', growth: '+2.0%' },
+              { name: 'Hesse', share: '4.6%', growth: '+3.1%' },
             ],
             sources: [
               { name: 'Euromonitor International', url: 'https://www.euromonitor.com' },
@@ -1274,10 +1302,9 @@ export const CATEGORIES = [
             growth: '+9.5%',
             brands: ['Tanqueray', 'Gordon\u2019s', 'Beefeater'],
             regions: [
-              { name: 'Metro Manila', share: '50%', growth: '+10.2%' },
-              { name: 'Cebu', share: '19%', growth: '+8.5%' },
-              { name: 'Davao', share: '17%', growth: '+9.1%' },
-              { name: 'Other', share: '14%', growth: '+8.8%' },
+              { name: 'Metro Manila', share: '57.4%', growth: '+10.2%' },
+              { name: 'Cebu', share: '23.1%', growth: '+8.5%' },
+              { name: 'Davao', share: '19.5%', growth: '+9.1%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1289,10 +1316,12 @@ export const CATEGORIES = [
             growth: '+1.8%',
             brands: ['Hendrick\u2019s', 'Tanqueray', 'Bombay Sapphire'],
             regions: [
-              { name: 'California', share: '29%', growth: '+1.5%' },
-              { name: 'New York', share: '17%', growth: '+2.1%' },
-              { name: 'Texas', share: '17%', growth: '+1.8%' },
-              { name: 'Other', share: '37%', growth: '+1.9%' },
+              { name: 'California', share: '25.4%', growth: '+1.5%' },
+              { name: 'New York', share: '14.3%', growth: '+2.1%' },
+              { name: 'Texas', share: '13.1%', growth: '+1.8%' },
+              { name: 'Other', share: '31.6%', growth: '+1.9%' },
+              { name: 'Illinois', share: '6.8%', growth: '+1.5%' },
+              { name: 'Pennsylvania', share: '8.8%', growth: '+3.9%' },
             ],
             sources: [
               { name: 'Distilled Spirits Council of USA', url: 'https://www.discus.org' },
@@ -1304,10 +1333,11 @@ export const CATEGORIES = [
             growth: '+0.2%',
             brands: ['Gordon\u2019s', 'Beefeater', 'Bombay Sapphire'],
             regions: [
-              { name: 'London', share: '30%', growth: '+0.8%' },
-              { name: 'Southeast', share: '28%', growth: '-0.1%' },
-              { name: 'Midlands', share: '20%', growth: '+0.1%' },
-              { name: 'North & Scotland', share: '22%', growth: '-0.2%' },
+              { name: 'London', share: '29.1%', growth: '+0.8%' },
+              { name: 'Southeast', share: '25.1%', growth: '-0.1%' },
+              { name: 'Midlands', share: '18.7%', growth: '+0.1%' },
+              { name: 'North & Scotland', share: '21.0%', growth: '-0.2%' },
+              { name: 'Bristol', share: '6.1%', growth: '+0.0%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1320,7 +1350,7 @@ export const CATEGORIES = [
           midTier: ['Tanqueray', 'Hendrick\u2019s', 'Bombay Sapphire', 'Beefeater 24', 'Sipsmith'],
           value: ['Gordon\u2019s', 'Beefeater', 'Greenall\u2019s', 'Larios', 'Seagram\u2019s']
         },
-        channels: { onTrade: 46, offTrade: 44, eCommerce: 7, travelRetail: 3 },
+        channels: { onTrade: 46.0, offTrade: 44.0, eCommerce: 7.2, travelRetail: 2.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 48,   // % ACV distribution
           ceDepletions: 1700000,  // case equivalent depletions
@@ -1356,10 +1386,11 @@ export const CATEGORIES = [
             growth: '+2.1%',
             brands: ['Gordon\u2019s', 'Beefeater', 'Bombay Sapphire'],
             regions: [
-              { name: 'London', share: '29%', growth: '+2.8%' },
-              { name: 'Southeast', share: '29%', growth: '+1.9%' },
-              { name: 'Midlands', share: '20%', growth: '+2.1%' },
-              { name: 'North & Scotland', share: '22%', growth: '+1.8%' },
+              { name: 'London', share: '29.3%', growth: '+2.8%' },
+              { name: 'Southeast', share: '25.9%', growth: '+1.9%' },
+              { name: 'Midlands', share: '17.7%', growth: '+2.1%' },
+              { name: 'North & Scotland', share: '21.0%', growth: '+1.8%' },
+              { name: 'Bristol', share: '6.1%', growth: '+5.0%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1371,10 +1402,10 @@ export const CATEGORIES = [
             growth: '+12.5%',
             brands: ['Gin Mare', 'Seagram\u2019s', 'Tanqueray'],
             regions: [
-              { name: 'Andalusia', share: '38%', growth: '+13.2%' },
-              { name: 'Catalonia', share: '25%', growth: '+11.8%' },
-              { name: 'Madrid', share: '19%', growth: '+12.1%' },
-              { name: 'Basque Country', share: '18%', growth: '+12.8%' },
+              { name: 'Andalusia', share: '33.6%', growth: '+13.2%' },
+              { name: 'Catalonia', share: '29.5%', growth: '+11.8%' },
+              { name: 'Madrid', share: '21.9%', growth: '+12.1%' },
+              { name: 'Basque Country', share: '15.0%', growth: '+12.8%' },
             ],
             sources: [
               { name: 'Euromonitor International', url: 'https://www.euromonitor.com' },
@@ -1386,10 +1417,11 @@ export const CATEGORIES = [
             growth: '+4.2%',
             brands: ['Monkey 47', 'Bombay Sapphire', 'Tanqueray'],
             regions: [
-              { name: 'Berlin', share: '23%', growth: '+5.1%' },
-              { name: 'Munich', share: '23%', growth: '+3.8%' },
-              { name: 'Hamburg', share: '27%', growth: '+4.2%' },
-              { name: 'Frankfurt', share: '27%', growth: '+3.5%' },
+              { name: 'Berlin', share: '25.1%', growth: '+5.1%' },
+              { name: 'Munich', share: '21.3%', growth: '+3.8%' },
+              { name: 'Hamburg', share: '24.1%', growth: '+4.2%' },
+              { name: 'Frankfurt', share: '25.6%', growth: '+3.5%' },
+              { name: 'Hesse', share: '3.9%', growth: '+2.4%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1401,10 +1433,12 @@ export const CATEGORIES = [
             growth: '+3.5%',
             brands: ['Hendrick\u2019s', 'Tanqueray', 'Bombay Sapphire'],
             regions: [
-              { name: 'California', share: '30%', growth: '+3.2%' },
-              { name: 'New York', share: '16%', growth: '+4.1%' },
-              { name: 'Texas', share: '17%', growth: '+3.2%' },
-              { name: 'Other', share: '37%', growth: '+3.6%' },
+              { name: 'California', share: '26.1%', growth: '+3.2%' },
+              { name: 'New York', share: '13.3%', growth: '+4.1%' },
+              { name: 'Texas', share: '13.8%', growth: '+3.2%' },
+              { name: 'Other', share: '31.1%', growth: '+3.6%' },
+              { name: 'Illinois', share: '6.1%', growth: '+6.4%' },
+              { name: 'Pennsylvania', share: '9.6%', growth: '+2.9%' },
             ],
             sources: [
               { name: 'Distilled Spirits Council of USA', url: 'https://www.discus.org' },
@@ -1416,10 +1450,9 @@ export const CATEGORIES = [
             growth: '+15.2%',
             brands: ['Tanqueray', 'Gordon\u2019s', 'Seagram\u2019s'],
             regions: [
-              { name: 'Metro Manila', share: '49%', growth: '+16.1%' },
-              { name: 'Cebu', share: '20%', growth: '+14.2%' },
-              { name: 'Davao', share: '18%', growth: '+15.1%' },
-              { name: 'Other', share: '13%', growth: '+14.8%' },
+              { name: 'Metro Manila', share: '55.2%', growth: '+16.1%' },
+              { name: 'Cebu', share: '24.0%', growth: '+14.2%' },
+              { name: 'Davao', share: '20.8%', growth: '+15.1%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1432,7 +1465,7 @@ export const CATEGORIES = [
           midTier: ['Tanqueray', 'Hendrick\u2019s', 'Beefeater 24', 'Sipsmith', 'East London'],
           value: ['Gordon\u2019s', 'Beefeater', 'Greenall\u2019s', 'Larios', 'Seagram\u2019s']
         },
-        channels: { onTrade: 45, offTrade: 45, eCommerce: 7, travelRetail: 3 },
+        channels: { onTrade: 44.9, offTrade: 45.1, eCommerce: 7.2, travelRetail: 2.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 46,   // % ACV distribution
           ceDepletions: 1610000,  // case equivalent depletions
@@ -1468,10 +1501,11 @@ export const CATEGORIES = [
             growth: '+3.2%',
             brands: ['Gordon\u2019s', 'Beefeater', 'Bombay Sapphire'],
             regions: [
-              { name: 'London', share: '28%', growth: '+4.1%' },
-              { name: 'Southeast', share: '30%', growth: '+3.0%' },
-              { name: 'Midlands', share: '20%', growth: '+3.1%' },
-              { name: 'North & Scotland', share: '22%', growth: '+2.8%' },
+              { name: 'London', share: '29.7%', growth: '+4.1%' },
+              { name: 'Southeast', share: '26.5%', growth: '+3.0%' },
+              { name: 'Midlands', share: '17.7%', growth: '+3.1%' },
+              { name: 'North & Scotland', share: '20.9%', growth: '+2.8%' },
+              { name: 'Bristol', share: '5.2%', growth: '+1.2%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1483,10 +1517,10 @@ export const CATEGORIES = [
             growth: '+18.5%',
             brands: ['Seagram\u2019s', 'Tanqueray', 'Gordon\u2019s'],
             regions: [
-              { name: 'Andalusia', share: '40%', growth: '+19.2%' },
-              { name: 'Catalonia', share: '24%', growth: '+17.8%' },
-              { name: 'Madrid', share: '18%', growth: '+18.5%' },
-              { name: 'Basque Country', share: '18%', growth: '+18.1%' },
+              { name: 'Andalusia', share: '33.0%', growth: '+19.2%' },
+              { name: 'Catalonia', share: '28.4%', growth: '+17.8%' },
+              { name: 'Madrid', share: '23.0%', growth: '+18.5%' },
+              { name: 'Basque Country', share: '15.6%', growth: '+18.1%' },
             ],
             sources: [
               { name: 'Euromonitor International', url: 'https://www.euromonitor.com' },
@@ -1498,10 +1532,11 @@ export const CATEGORIES = [
             growth: '+5.8%',
             brands: ['Monkey 47', 'Bombay Sapphire', 'Tanqueray'],
             regions: [
-              { name: 'Berlin', share: '22%', growth: '+7.2%' },
-              { name: 'Munich', share: '23%', growth: '+5.1%' },
-              { name: 'Hamburg', share: '28%', growth: '+6.1%' },
-              { name: 'Frankfurt', share: '27%', growth: '+5.2%' },
+              { name: 'Berlin', share: '26.4%', growth: '+7.2%' },
+              { name: 'Munich', share: '20.0%', growth: '+5.1%' },
+              { name: 'Hamburg', share: '24.5%', growth: '+6.1%' },
+              { name: 'Frankfurt', share: '26.6%', growth: '+5.2%' },
+              { name: 'Hesse', share: '2.5%', growth: '+3.3%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1513,10 +1548,12 @@ export const CATEGORIES = [
             growth: '+5.2%',
             brands: ['Hendrick\u2019s', 'Tanqueray', 'Bombay Sapphire'],
             regions: [
-              { name: 'California', share: '31%', growth: '+5.1%' },
-              { name: 'New York', share: '15%', growth: '+5.8%' },
-              { name: 'Texas', share: '17%', growth: '+4.9%' },
-              { name: 'Other', share: '37%', growth: '+5.2%' },
+              { name: 'California', share: '25.7%', growth: '+5.1%' },
+              { name: 'New York', share: '12.0%', growth: '+5.8%' },
+              { name: 'Texas', share: '13.0%', growth: '+4.9%' },
+              { name: 'Other', share: '30.9%', growth: '+5.2%' },
+              { name: 'Illinois', share: '7.3%', growth: '+3.6%' },
+              { name: 'Pennsylvania', share: '11.1%', growth: '+6.0%' },
             ],
             sources: [
               { name: 'Distilled Spirits Council of USA', url: 'https://www.discus.org' },
@@ -1528,10 +1565,9 @@ export const CATEGORIES = [
             growth: '+22.1%',
             brands: ['Tanqueray', 'Gordon\u2019s', 'Seagram\u2019s'],
             regions: [
-              { name: 'Metro Manila', share: '48%', growth: '+23.5%' },
-              { name: 'Cebu', share: '21%', growth: '+20.8%' },
-              { name: 'Davao', share: '19%', growth: '+21.5%' },
-              { name: 'Other', share: '12%', growth: '+21.2%' },
+              { name: 'Metro Manila', share: '55.4%', growth: '+23.5%' },
+              { name: 'Cebu', share: '24.6%', growth: '+20.8%' },
+              { name: 'Davao', share: '20.0%', growth: '+21.5%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1544,7 +1580,7 @@ export const CATEGORIES = [
           midTier: ['Tanqueray', 'Hendrick\u2019s', 'Beefeater', 'Sipsmith', 'East London'],
           value: ['Gordon\u2019s', 'Greenall\u2019s', 'Larios', 'Seagram\u2019s', 'Bols Genever']
         },
-        channels: { onTrade: 42, offTrade: 48, eCommerce: 7, travelRetail: 3 },
+        channels: { onTrade: 41.7, offTrade: 48.3, eCommerce: 6.8, travelRetail: 3.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 44,   // % ACV distribution
           ceDepletions: 1520000,  // case equivalent depletions
@@ -1590,10 +1626,11 @@ export const CATEGORIES = [
             growth: '+4.2%',
             brands: ['Johnnie Walker Red', 'McDowell\u2019s', 'Royal Challenge'],
             regions: [
-              { name: 'Delhi NCR', share: '28%', growth: '+4.8%' },
-              { name: 'Mumbai', share: '22%', growth: '+3.9%' },
-              { name: 'Bangalore', share: '18%', growth: '+4.5%' },
-              { name: 'Chennai', share: '32%', growth: '+3.8%' },
+              { name: 'Delhi NCR', share: '26.2%', growth: '+4.8%' },
+              { name: 'Mumbai', share: '20.6%', growth: '+3.9%' },
+              { name: 'Bangalore', share: '16.8%', growth: '+4.5%' },
+              { name: 'Chennai', share: '29.9%', growth: '+3.8%' },
+              { name: 'Kolkata', share: '6.5%', growth: '+4.6%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1605,10 +1642,12 @@ export const CATEGORIES = [
             growth: '+1.5%',
             brands: ['Maker\u2019s Mark', 'Jack Daniel\u2019s', 'Woodford Reserve'],
             regions: [
-              { name: 'Kentucky', share: '18%', growth: '+2.1%' },
-              { name: 'Texas', share: '16%', growth: '+1.2%' },
-              { name: 'California', share: '22%', growth: '+1.1%' },
-              { name: 'Other', share: '44%', growth: '+1.6%' },
+              { name: 'Kentucky', share: '15.7%', growth: '+2.1%' },
+              { name: 'Texas', share: '14.0%', growth: '+1.2%' },
+              { name: 'California', share: '19.2%', growth: '+1.1%' },
+              { name: 'Other', share: '38.4%', growth: '+1.6%' },
+              { name: 'Illinois', share: '6.6%', growth: '+1.5%' },
+              { name: 'Pennsylvania', share: '6.1%', growth: '+1.7%' },
             ],
             sources: [
               { name: 'Distilled Spirits Council of USA', url: 'https://www.discus.org' },
@@ -1620,10 +1659,12 @@ export const CATEGORIES = [
             growth: '+5.8%',
             brands: ['Johnnie Walker Blue', 'Macallan', 'Dalmore'],
             regions: [
-              { name: 'Shanghai', share: '32%', growth: '+6.2%' },
-              { name: 'Beijing', share: '28%', growth: '+5.9%' },
-              { name: 'Guangzhou', share: '22%', growth: '+5.1%' },
-              { name: 'Chengdu', share: '18%', growth: '+6.1%' },
+              { name: 'Shanghai', share: '28.7%', growth: '+6.2%' },
+              { name: 'Beijing', share: '25.0%', growth: '+5.9%' },
+              { name: 'Guangzhou', share: '19.7%', growth: '+5.1%' },
+              { name: 'Chengdu', share: '16.1%', growth: '+6.1%' },
+              { name: 'Shenzhen', share: '5.0%', growth: '+5.2%' },
+              { name: 'Hangzhou', share: '5.5%', growth: '+2.9%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1635,10 +1676,11 @@ export const CATEGORIES = [
             growth: '-3.2%',
             brands: ['Yamazaki 12', 'Hibiki 21', 'Hakushu'],
             regions: [
-              { name: 'Tokyo', share: '35%', growth: '-2.8%' },
-              { name: 'Osaka', share: '28%', growth: '-3.5%' },
-              { name: 'Kyoto', share: '18%', growth: '-3.1%' },
-              { name: 'Other', share: '19%', growth: '-3.4%' },
+              { name: 'Tokyo', share: '32.6%', growth: '-2.8%' },
+              { name: 'Osaka', share: '26.1%', growth: '-3.5%' },
+              { name: 'Kyoto', share: '16.8%', growth: '-3.1%' },
+              { name: 'Other', share: '17.7%', growth: '-3.4%' },
+              { name: 'Yokohama', share: '6.8%', growth: '+3.6%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1650,10 +1692,11 @@ export const CATEGORIES = [
             growth: '+0.8%',
             brands: ['Johnnie Walker Red', 'Famous Grouse', 'Glenmorangie'],
             regions: [
-              { name: 'London', share: '26%', growth: '+1.2%' },
-              { name: 'Southeast', share: '24%', growth: '+0.5%' },
-              { name: 'Scotland', share: '28%', growth: '+1.1%' },
-              { name: 'Other', share: '22%', growth: '+0.4%' },
+              { name: 'London', share: '24.4%', growth: '+1.2%' },
+              { name: 'Southeast', share: '22.4%', growth: '+0.5%' },
+              { name: 'Scotland', share: '26.1%', growth: '+1.1%' },
+              { name: 'Other', share: '20.5%', growth: '+0.4%' },
+              { name: 'Bristol', share: '6.6%', growth: '+5.9%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1666,7 +1709,7 @@ export const CATEGORIES = [
           midTier: ['Maker\u2019s Mark', 'Glenlivet 12', 'Monkey Shoulder', 'Bulleit', 'Woodford Reserve'],
           value: ['Jack Daniel\u2019s', 'Jim Beam', 'Jameson', 'Famous Grouse', 'Johnnie Walker Red']
         },
-        channels: { onTrade: 35, offTrade: 52, eCommerce: 4, travelRetail: 9 },
+        channels: { onTrade: 34.8, offTrade: 52.1, eCommerce: 4.2, travelRetail: 8.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 48,   // % ACV distribution
           ceDepletions: 2600000,  // case equivalent depletions
@@ -1702,10 +1745,11 @@ export const CATEGORIES = [
             growth: '+5.8%',
             brands: ['Johnnie Walker Red', 'McDowell\u2019s', 'Royal Challenge'],
             regions: [
-              { name: 'Delhi NCR', share: '27%', growth: '+6.5%' },
-              { name: 'Mumbai', share: '23%', growth: '+5.2%' },
-              { name: 'Bangalore', share: '17%', growth: '+6.1%' },
-              { name: 'Chennai', share: '33%', growth: '+5.4%' },
+              { name: 'Delhi NCR', share: '25.7%', growth: '+6.5%' },
+              { name: 'Mumbai', share: '21.4%', growth: '+5.2%' },
+              { name: 'Bangalore', share: '16.7%', growth: '+6.1%' },
+              { name: 'Chennai', share: '30.1%', growth: '+5.4%' },
+              { name: 'Kolkata', share: '6.1%', growth: '+4.9%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1717,10 +1761,12 @@ export const CATEGORIES = [
             growth: '+2.1%',
             brands: ['Maker\u2019s Mark', 'Jack Daniel\u2019s', 'Woodford Reserve'],
             regions: [
-              { name: 'Kentucky', share: '18%', growth: '+3.2%' },
-              { name: 'Texas', share: '16%', growth: '+1.8%' },
-              { name: 'California', share: '22%', growth: '+1.2%' },
-              { name: 'Other', share: '44%', growth: '+2.1%' },
+              { name: 'Kentucky', share: '15.0%', growth: '+3.2%' },
+              { name: 'Texas', share: '14.0%', growth: '+1.8%' },
+              { name: 'California', share: '19.3%', growth: '+1.2%' },
+              { name: 'Other', share: '39.5%', growth: '+2.1%' },
+              { name: 'Illinois', share: '7.0%', growth: '+3.4%' },
+              { name: 'Pennsylvania', share: '5.2%', growth: '+4.3%' },
             ],
             sources: [
               { name: 'Distilled Spirits Council of USA', url: 'https://www.discus.org' },
@@ -1732,10 +1778,12 @@ export const CATEGORIES = [
             growth: '+8.5%',
             brands: ['Johnnie Walker Blue', 'Macallan', 'Dalmore'],
             regions: [
-              { name: 'Shanghai', share: '31%', growth: '+9.2%' },
-              { name: 'Beijing', share: '29%', growth: '+8.8%' },
-              { name: 'Guangzhou', share: '22%', growth: '+7.8%' },
-              { name: 'Chengdu', share: '18%', growth: '+8.1%' },
+              { name: 'Shanghai', share: '28.9%', growth: '+9.2%' },
+              { name: 'Beijing', share: '26.1%', growth: '+8.8%' },
+              { name: 'Guangzhou', share: '18.7%', growth: '+7.8%' },
+              { name: 'Chengdu', share: '17.7%', growth: '+8.1%' },
+              { name: 'Shenzhen', share: '4.3%', growth: '+2.7%' },
+              { name: 'Hangzhou', share: '4.3%', growth: '+0.5%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1747,10 +1795,11 @@ export const CATEGORIES = [
             growth: '+1.2%',
             brands: ['Yamazaki 12', 'Hibiki 21', 'Hakushu'],
             regions: [
-              { name: 'Tokyo', share: '35%', growth: '+2.1%' },
-              { name: 'Osaka', share: '28%', growth: '+0.8%' },
-              { name: 'Kyoto', share: '19%', growth: '+1.5%' },
-              { name: 'Other', share: '18%', growth: '+0.5%' },
+              { name: 'Tokyo', share: '32.5%', growth: '+2.1%' },
+              { name: 'Osaka', share: '26.9%', growth: '+0.8%' },
+              { name: 'Kyoto', share: '15.7%', growth: '+1.5%' },
+              { name: 'Other', share: '18.2%', growth: '+0.5%' },
+              { name: 'Yokohama', share: '6.7%', growth: '+1.4%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1762,10 +1811,11 @@ export const CATEGORIES = [
             growth: '+1.1%',
             brands: ['Johnnie Walker Red', 'Famous Grouse', 'Glenmorangie'],
             regions: [
-              { name: 'London', share: '26%', growth: '+1.8%' },
-              { name: 'Southeast', share: '24%', growth: '+0.8%' },
-              { name: 'Scotland', share: '28%', growth: '+1.2%' },
-              { name: 'Other', share: '22%', growth: '+0.7%' },
+              { name: 'London', share: '25.6%', growth: '+1.8%' },
+              { name: 'Southeast', share: '21.4%', growth: '+0.8%' },
+              { name: 'Scotland', share: '25.6%', growth: '+1.2%' },
+              { name: 'Other', share: '21.3%', growth: '+0.7%' },
+              { name: 'Bristol', share: '6.1%', growth: '+4.2%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1778,7 +1828,7 @@ export const CATEGORIES = [
           midTier: ['Maker\u2019s Mark', 'Glenlivet 12', 'Monkey Shoulder', 'Bulleit', 'Woodford Reserve'],
           value: ['Jack Daniel\u2019s', 'Jim Beam', 'Jameson', 'Famous Grouse', 'Johnnie Walker Red']
         },
-        channels: { onTrade: 36, offTrade: 51, eCommerce: 4, travelRetail: 9 },
+        channels: { onTrade: 36.4, offTrade: 50.9, eCommerce: 3.7, travelRetail: 9.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 47,   // % ACV distribution
           ceDepletions: 2520000,  // case equivalent depletions
@@ -1814,10 +1864,11 @@ export const CATEGORIES = [
             growth: '+6.8%',
             brands: ['Johnnie Walker Red', 'McDowell\u2019s', 'Royal Challenge'],
             regions: [
-              { name: 'Delhi NCR', share: '26%', growth: '+7.5%' },
-              { name: 'Mumbai', share: '24%', growth: '+6.2%' },
-              { name: 'Bangalore', share: '16%', growth: '+7.1%' },
-              { name: 'Chennai', share: '34%', growth: '+6.5%' },
+              { name: 'Delhi NCR', share: '25.1%', growth: '+7.5%' },
+              { name: 'Mumbai', share: '20.0%', growth: '+6.2%' },
+              { name: 'Bangalore', share: '17.0%', growth: '+7.1%' },
+              { name: 'Chennai', share: '30.8%', growth: '+6.5%' },
+              { name: 'Kolkata', share: '7.1%', growth: '+4.3%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1829,10 +1880,12 @@ export const CATEGORIES = [
             growth: '+3.8%',
             brands: ['Maker\u2019s Mark', 'Jack Daniel\u2019s', 'Woodford Reserve'],
             regions: [
-              { name: 'Kentucky', share: '17%', growth: '+5.2%' },
-              { name: 'Texas', share: '16%', growth: '+3.5%' },
-              { name: 'California', share: '23%', growth: '+2.8%' },
-              { name: 'Other', share: '44%', growth: '+3.9%' },
+              { name: 'Kentucky', share: '14.3%', growth: '+5.2%' },
+              { name: 'Texas', share: '14.8%', growth: '+3.5%' },
+              { name: 'California', share: '20.1%', growth: '+2.8%' },
+              { name: 'Other', share: '38.6%', growth: '+3.9%' },
+              { name: 'Illinois', share: '6.8%', growth: '+3.6%' },
+              { name: 'Pennsylvania', share: '5.4%', growth: '+6.6%' },
             ],
             sources: [
               { name: 'Distilled Spirits Council of USA', url: 'https://www.discus.org' },
@@ -1844,10 +1897,12 @@ export const CATEGORIES = [
             growth: '+12.5%',
             brands: ['Johnnie Walker Blue', 'Macallan', 'Dalmore'],
             regions: [
-              { name: 'Shanghai', share: '30%', growth: '+13.2%' },
-              { name: 'Beijing', share: '30%', growth: '+12.8%' },
-              { name: 'Guangzhou', share: '22%', growth: '+11.5%' },
-              { name: 'Chengdu', share: '18%', growth: '+12.1%' },
+              { name: 'Shanghai', share: '30.7%', growth: '+13.2%' },
+              { name: 'Beijing', share: '24.9%', growth: '+12.8%' },
+              { name: 'Guangzhou', share: '17.4%', growth: '+11.5%' },
+              { name: 'Chengdu', share: '17.0%', growth: '+12.1%' },
+              { name: 'Shenzhen', share: '5.3%', growth: '+0.2%' },
+              { name: 'Hangzhou', share: '4.7%', growth: '+4.1%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1859,10 +1914,11 @@ export const CATEGORIES = [
             growth: '+6.5%',
             brands: ['Yamazaki 12', 'Hibiki 21', 'Hakushu'],
             regions: [
-              { name: 'Tokyo', share: '35%', growth: '+7.2%' },
-              { name: 'Osaka', share: '28%', growth: '+6.1%' },
-              { name: 'Kyoto', share: '19%', growth: '+6.8%' },
-              { name: 'Other', share: '18%', growth: '+6.0%' },
+              { name: 'Tokyo', share: '32.2%', growth: '+7.2%' },
+              { name: 'Osaka', share: '26.5%', growth: '+6.1%' },
+              { name: 'Kyoto', share: '16.3%', growth: '+6.8%' },
+              { name: 'Other', share: '17.3%', growth: '+6.0%' },
+              { name: 'Yokohama', share: '7.7%', growth: '+2.8%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1874,10 +1930,11 @@ export const CATEGORIES = [
             growth: '+1.5%',
             brands: ['Johnnie Walker Red', 'Famous Grouse', 'Glenmorangie'],
             regions: [
-              { name: 'London', share: '25%', growth: '+2.1%' },
-              { name: 'Southeast', share: '25%', growth: '+1.1%' },
-              { name: 'Scotland', share: '28%', growth: '+1.8%' },
-              { name: 'Other', share: '22%', growth: '+1.0%' },
+              { name: 'London', share: '25.5%', growth: '+2.1%' },
+              { name: 'Southeast', share: '21.2%', growth: '+1.1%' },
+              { name: 'Scotland', share: '25.5%', growth: '+1.8%' },
+              { name: 'Other', share: '21.0%', growth: '+1.0%' },
+              { name: 'Bristol', share: '6.8%', growth: '+1.2%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1890,7 +1947,7 @@ export const CATEGORIES = [
           midTier: ['Maker\u2019s Mark', 'Glenlivet 12', 'Monkey Shoulder', 'Bulleit', 'Woodford Reserve'],
           value: ['Jack Daniel\u2019s', 'Jim Beam', 'Jameson', 'Famous Grouse', 'Johnnie Walker Red']
         },
-        channels: { onTrade: 37, offTrade: 50, eCommerce: 4, travelRetail: 9 },
+        channels: { onTrade: 36.2, offTrade: 50.2, eCommerce: 4.4, travelRetail: 9.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 46,   // % ACV distribution
           ceDepletions: 2440000,  // case equivalent depletions
@@ -1926,10 +1983,11 @@ export const CATEGORIES = [
             growth: '+8.5%',
             brands: ['Johnnie Walker Red', 'McDowell\u2019s', 'Royal Challenge'],
             regions: [
-              { name: 'Delhi NCR', share: '25%', growth: '+9.2%' },
-              { name: 'Mumbai', share: '25%', growth: '+8.1%' },
-              { name: 'Bangalore', share: '15%', growth: '+8.8%' },
-              { name: 'Chennai', share: '35%', growth: '+8.2%' },
+              { name: 'Delhi NCR', share: '25.5%', growth: '+9.2%' },
+              { name: 'Mumbai', share: '20.3%', growth: '+8.1%' },
+              { name: 'Bangalore', share: '15.8%', growth: '+8.8%' },
+              { name: 'Chennai', share: '30.9%', growth: '+8.2%' },
+              { name: 'Kolkata', share: '7.5%', growth: '+7.1%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1941,10 +1999,12 @@ export const CATEGORIES = [
             growth: '+7.2%',
             brands: ['Maker\u2019s Mark', 'Jack Daniel\u2019s', 'Woodford Reserve'],
             regions: [
-              { name: 'Kentucky', share: '16%', growth: '+8.5%' },
-              { name: 'Texas', share: '17%', growth: '+7.1%' },
-              { name: 'California', share: '23%', growth: '+6.2%' },
-              { name: 'Other', share: '44%', growth: '+7.2%' },
+              { name: 'Kentucky', share: '13.8%', growth: '+8.5%' },
+              { name: 'Texas', share: '13.8%', growth: '+7.1%' },
+              { name: 'California', share: '19.8%', growth: '+6.2%' },
+              { name: 'Other', share: '39.5%', growth: '+7.2%' },
+              { name: 'Illinois', share: '7.1%', growth: '+4.0%' },
+              { name: 'Pennsylvania', share: '6.0%', growth: '+1.6%' },
             ],
             sources: [
               { name: 'Distilled Spirits Council of USA', url: 'https://www.discus.org' },
@@ -1956,10 +2016,12 @@ export const CATEGORIES = [
             growth: '+18.5%',
             brands: ['Johnnie Walker Blue', 'Macallan', 'Chivas Regal'],
             regions: [
-              { name: 'Shanghai', share: '28%', growth: '+19.2%' },
-              { name: 'Beijing', share: '32%', growth: '+18.8%' },
-              { name: 'Guangzhou', share: '22%', growth: '+17.5%' },
-              { name: 'Chengdu', share: '18%', growth: '+18.2%' },
+              { name: 'Shanghai', share: '30.3%', growth: '+19.2%' },
+              { name: 'Beijing', share: '25.2%', growth: '+18.8%' },
+              { name: 'Guangzhou', share: '16.5%', growth: '+17.5%' },
+              { name: 'Chengdu', share: '18.6%', growth: '+18.2%' },
+              { name: 'Shenzhen', share: '5.3%', growth: '+1.4%' },
+              { name: 'Hangzhou', share: '4.1%', growth: '+2.4%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1971,10 +2033,11 @@ export const CATEGORIES = [
             growth: '+5.8%',
             brands: ['Yamazaki 12', 'Hibiki 21', 'Hakushu'],
             regions: [
-              { name: 'Tokyo', share: '34%', growth: '+6.5%' },
-              { name: 'Osaka', share: '29%', growth: '+5.5%' },
-              { name: 'Kyoto', share: '19%', growth: '+6.1%' },
-              { name: 'Other', share: '18%', growth: '+5.2%' },
+              { name: 'Tokyo', share: '33.2%', growth: '+6.5%' },
+              { name: 'Osaka', share: '25.3%', growth: '+5.5%' },
+              { name: 'Kyoto', share: '17.4%', growth: '+6.1%' },
+              { name: 'Other', share: '16.5%', growth: '+5.2%' },
+              { name: 'Yokohama', share: '7.6%', growth: '+3.2%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -1986,10 +2049,11 @@ export const CATEGORIES = [
             growth: '+2.1%',
             brands: ['Johnnie Walker Red', 'Famous Grouse', 'Glenmorangie'],
             regions: [
-              { name: 'London', share: '24%', growth: '+2.8%' },
-              { name: 'Southeast', share: '26%', growth: '+1.8%' },
-              { name: 'Scotland', share: '28%', growth: '+2.2%' },
-              { name: 'Other', share: '22%', growth: '+1.5%' },
+              { name: 'London', share: '25.7%', growth: '+2.8%' },
+              { name: 'Southeast', share: '22.3%', growth: '+1.8%' },
+              { name: 'Scotland', share: '25.4%', growth: '+2.2%' },
+              { name: 'Other', share: '20.8%', growth: '+1.5%' },
+              { name: 'Bristol', share: '5.8%', growth: '+7.2%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -2002,7 +2066,7 @@ export const CATEGORIES = [
           midTier: ['Maker\u2019s Mark', 'Glenlivet 12', 'Monkey Shoulder', 'Bulleit', 'Woodford Reserve'],
           value: ['Jack Daniel\u2019s', 'Jim Beam', 'Jameson', 'Famous Grouse', 'Johnnie Walker Red']
         },
-        channels: { onTrade: 38, offTrade: 49, eCommerce: 4, travelRetail: 9 },
+        channels: { onTrade: 37.8, offTrade: 49.3, eCommerce: 3.7, travelRetail: 9.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 45,   // % ACV distribution
           ceDepletions: 2350000,  // case equivalent depletions
@@ -2038,10 +2102,11 @@ export const CATEGORIES = [
             growth: '+7.2%',
             brands: ['Johnnie Walker Red', 'McDowell\u2019s', 'Royal Challenge'],
             regions: [
-              { name: 'Delhi NCR', share: '23%', growth: '+8.1%' },
-              { name: 'Mumbai', share: '26%', growth: '+7.5%' },
-              { name: 'Bangalore', share: '14%', growth: '+6.8%' },
-              { name: 'Chennai', share: '37%', growth: '+7.1%' },
+              { name: 'Delhi NCR', share: '25.6%', growth: '+8.1%' },
+              { name: 'Mumbai', share: '20.7%', growth: '+7.5%' },
+              { name: 'Bangalore', share: '17.2%', growth: '+6.8%' },
+              { name: 'Chennai', share: '30.0%', growth: '+7.1%' },
+              { name: 'Kolkata', share: '6.5%', growth: '+4.5%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -2053,10 +2118,12 @@ export const CATEGORIES = [
             growth: '+8.5%',
             brands: ['Maker\u2019s Mark', 'Jack Daniel\u2019s', 'Woodford Reserve'],
             regions: [
-              { name: 'Kentucky', share: '15%', growth: '+10.2%' },
-              { name: 'Texas', share: '18%', growth: '+8.8%' },
-              { name: 'California', share: '23%', growth: '+7.5%' },
-              { name: 'Other', share: '44%', growth: '+8.1%' },
+              { name: 'Kentucky', share: '14.9%', growth: '+10.2%' },
+              { name: 'Texas', share: '14.5%', growth: '+8.8%' },
+              { name: 'California', share: '19.3%', growth: '+7.5%' },
+              { name: 'Other', share: '37.8%', growth: '+8.1%' },
+              { name: 'Illinois', share: '6.7%', growth: '+7.1%' },
+              { name: 'Pennsylvania', share: '6.8%', growth: '+1.8%' },
             ],
             sources: [
               { name: 'Distilled Spirits Council of USA', url: 'https://www.discus.org' },
@@ -2068,10 +2135,12 @@ export const CATEGORIES = [
             growth: '+15.2%',
             brands: ['Johnnie Walker Blue', 'Macallan', 'Chivas Regal'],
             regions: [
-              { name: 'Shanghai', share: '26%', growth: '+16.1%' },
-              { name: 'Beijing', share: '34%', growth: '+15.8%' },
-              { name: 'Guangzhou', share: '22%', growth: '+14.5%' },
-              { name: 'Chengdu', share: '18%', growth: '+15.1%' },
+              { name: 'Shanghai', share: '29.4%', growth: '+16.1%' },
+              { name: 'Beijing', share: '25.0%', growth: '+15.8%' },
+              { name: 'Guangzhou', share: '17.6%', growth: '+14.5%' },
+              { name: 'Chengdu', share: '19.0%', growth: '+15.1%' },
+              { name: 'Shenzhen', share: '6.0%', growth: '+3.7%' },
+              { name: 'Hangzhou', share: '3.0%', growth: '+5.6%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -2083,10 +2152,11 @@ export const CATEGORIES = [
             growth: '+4.5%',
             brands: ['Yamazaki 12', 'Hibiki 21', 'Hakushu'],
             regions: [
-              { name: 'Tokyo', share: '33%', growth: '+5.2%' },
-              { name: 'Osaka', share: '30%', growth: '+4.1%' },
-              { name: 'Kyoto', share: '19%', growth: '+4.8%' },
-              { name: 'Other', share: '18%', growth: '+4.0%' },
+              { name: 'Tokyo', share: '34.0%', growth: '+5.2%' },
+              { name: 'Osaka', share: '25.3%', growth: '+4.1%' },
+              { name: 'Kyoto', share: '16.2%', growth: '+4.8%' },
+              { name: 'Other', share: '17.8%', growth: '+4.0%' },
+              { name: 'Yokohama', share: '6.7%', growth: '+3.4%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -2098,10 +2168,11 @@ export const CATEGORIES = [
             growth: '+1.2%',
             brands: ['Johnnie Walker Red', 'Famous Grouse', 'Glenmorangie'],
             regions: [
-              { name: 'London', share: '23%', growth: '+1.8%' },
-              { name: 'Southeast', share: '27%', growth: '+1.0%' },
-              { name: 'Scotland', share: '28%', growth: '+1.3%' },
-              { name: 'Other', share: '22%', growth: '+0.8%' },
+              { name: 'London', share: '25.4%', growth: '+1.8%' },
+              { name: 'Southeast', share: '21.6%', growth: '+1.0%' },
+              { name: 'Scotland', share: '26.0%', growth: '+1.3%' },
+              { name: 'Other', share: '22.0%', growth: '+0.8%' },
+              { name: 'Bristol', share: '5.0%', growth: '+3.1%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -2114,7 +2185,7 @@ export const CATEGORIES = [
           midTier: ['Maker\u2019s Mark', 'Glenlivet 12', 'Monkey Shoulder', 'Bulleit', 'Woodford Reserve'],
           value: ['Jack Daniel\u2019s', 'Jim Beam', 'Jameson', 'Famous Grouse', 'Johnnie Walker Red']
         },
-        channels: { onTrade: 40, offTrade: 47, eCommerce: 4, travelRetail: 9 },
+        channels: { onTrade: 40.0, offTrade: 47.0, eCommerce: 3.8, travelRetail: 9.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 44,   // % ACV distribution
           ceDepletions: 2270000,  // case equivalent depletions
@@ -2160,10 +2231,11 @@ export const CATEGORIES = [
             growth: '+5.8%',
             brands: ['Bacardi Superior', 'McDowell\u2019s', 'Old Monk'],
             regions: [
-              { name: 'Delhi NCR', share: '32%', growth: '+6.2%' },
-              { name: 'Mumbai', share: '26%', growth: '+5.1%' },
-              { name: 'Bangalore', share: '20%', growth: '+6.1%' },
-              { name: 'Chennai', share: '22%', growth: '+5.8%' },
+              { name: 'Delhi NCR', share: '29.8%', growth: '+6.2%' },
+              { name: 'Mumbai', share: '24.3%', growth: '+5.1%' },
+              { name: 'Bangalore', share: '18.7%', growth: '+6.1%' },
+              { name: 'Chennai', share: '20.6%', growth: '+5.8%' },
+              { name: 'Kolkata', share: '6.6%', growth: '+2.0%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -2175,10 +2247,12 @@ export const CATEGORIES = [
             growth: '+6.2%',
             brands: ['Bacardi 8', 'Plantation', 'Mount Gay XO'],
             regions: [
-              { name: 'Florida', share: '22%', growth: '+7.1%' },
-              { name: 'New York', share: '18%', growth: '+6.8%' },
-              { name: 'California', share: '19%', growth: '+5.2%' },
-              { name: 'Other', share: '41%', growth: '+6.1%' },
+              { name: 'Florida', share: '20.1%', growth: '+7.1%' },
+              { name: 'New York', share: '16.4%', growth: '+6.8%' },
+              { name: 'California', share: '17.3%', growth: '+5.2%' },
+              { name: 'Other', share: '37.4%', growth: '+6.1%' },
+              { name: 'Illinois', share: '4.7%', growth: '+1.5%' },
+              { name: 'Pennsylvania', share: '4.1%', growth: '+5.8%' },
             ],
             sources: [
               { name: 'Distilled Spirits Council of USA', url: 'https://www.discus.org' },
@@ -2190,10 +2264,11 @@ export const CATEGORIES = [
             growth: '+3.8%',
             brands: ['Captain Morgan', 'Bacardi Superior', 'Havana Club'],
             regions: [
-              { name: 'London', share: '24%', growth: '+4.5%' },
-              { name: 'Southeast', share: '22%', growth: '+3.2%' },
-              { name: 'Midlands', share: '26%', growth: '+3.8%' },
-              { name: 'North & Scotland', share: '28%', growth: '+3.9%' },
+              { name: 'London', share: '22.6%', growth: '+4.5%' },
+              { name: 'Southeast', share: '20.8%', growth: '+3.2%' },
+              { name: 'Midlands', share: '24.6%', growth: '+3.8%' },
+              { name: 'North & Scotland', share: '26.5%', growth: '+3.9%' },
+              { name: 'Bristol', share: '5.5%', growth: '+4.4%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -2205,10 +2280,11 @@ export const CATEGORIES = [
             growth: '+4.1%',
             brands: ['Captain Morgan', 'Bacardi Superior', 'Plantation'],
             regions: [
-              { name: 'Berlin', share: '26%', growth: '+4.8%' },
-              { name: 'Munich', share: '20%', growth: '+3.5%' },
-              { name: 'Hamburg', share: '26%', growth: '+4.2%' },
-              { name: 'Frankfurt', share: '28%', growth: '+3.8%' },
+              { name: 'Berlin', share: '24.4%', growth: '+4.8%' },
+              { name: 'Munich', share: '18.7%', growth: '+3.5%' },
+              { name: 'Hamburg', share: '24.4%', growth: '+4.2%' },
+              { name: 'Frankfurt', share: '26.2%', growth: '+3.8%' },
+              { name: 'Hesse', share: '6.3%', growth: '+2.4%' },
             ],
             sources: [
               { name: 'Euromonitor International', url: 'https://www.euromonitor.com' },
@@ -2220,10 +2296,10 @@ export const CATEGORIES = [
             growth: '+5.2%',
             brands: ['Mount Gay', 'Appleton Estate', 'Zacapa'],
             regions: [
-              { name: 'Jamaica', share: '28%', growth: '+5.5%' },
-              { name: 'Barbados', share: '22%', growth: '+4.8%' },
-              { name: 'Trinidad & Tobago', share: '25%', growth: '+5.1%' },
-              { name: 'Other Islands', share: '25%', growth: '+5.2%' },
+              { name: 'Jamaica', share: '28.0%', growth: '+5.5%' },
+              { name: 'Barbados', share: '22.0%', growth: '+4.8%' },
+              { name: 'Trinidad & Tobago', share: '25.0%', growth: '+5.1%' },
+              { name: 'Other Islands', share: '25.0%', growth: '+5.2%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -2236,7 +2312,7 @@ export const CATEGORIES = [
           midTier: ['Bacardi 8', 'Havana Club 7', 'Plantation', 'Flor de Caña', 'Kraken'],
           value: ['Bacardi Superior', 'Captain Morgan', 'Malibu', 'Havana Club 3', 'Admiral Nelson']
         },
-        channels: { onTrade: 42, offTrade: 48, eCommerce: 5, travelRetail: 5 },
+        channels: { onTrade: 41.9, offTrade: 48.1, eCommerce: 4.9, travelRetail: 5.1 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 42,   // % ACV distribution
           ceDepletions: 1500000,  // case equivalent depletions
@@ -2272,10 +2348,11 @@ export const CATEGORIES = [
             growth: '+6.5%',
             brands: ['Bacardi Superior', 'McDowell\u2019s', 'Old Monk'],
             regions: [
-              { name: 'Delhi NCR', share: '31%', growth: '+7.1%' },
-              { name: 'Mumbai', share: '27%', growth: '+6.2%' },
-              { name: 'Bangalore', share: '20%', growth: '+6.5%' },
-              { name: 'Chennai', share: '22%', growth: '+6.1%' },
+              { name: 'Delhi NCR', share: '29.9%', growth: '+7.1%' },
+              { name: 'Mumbai', share: '23.7%', growth: '+6.2%' },
+              { name: 'Bangalore', share: '18.8%', growth: '+6.5%' },
+              { name: 'Chennai', share: '21.3%', growth: '+6.1%' },
+              { name: 'Kolkata', share: '6.3%', growth: '+5.4%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -2287,10 +2364,12 @@ export const CATEGORIES = [
             growth: '+7.8%',
             brands: ['Bacardi 8', 'Plantation', 'Mount Gay XO'],
             regions: [
-              { name: 'Florida', share: '21%', growth: '+8.5%' },
-              { name: 'New York', share: '19%', growth: '+8.2%' },
-              { name: 'California', share: '18%', growth: '+7.1%' },
-              { name: 'Other', share: '42%', growth: '+7.5%' },
+              { name: 'Florida', share: '20.4%', growth: '+8.5%' },
+              { name: 'New York', share: '15.8%', growth: '+8.2%' },
+              { name: 'California', share: '16.5%', growth: '+7.1%' },
+              { name: 'Other', share: '38.0%', growth: '+7.5%' },
+              { name: 'Illinois', share: '5.3%', growth: '+3.2%' },
+              { name: 'Pennsylvania', share: '4.0%', growth: '+3.5%' },
             ],
             sources: [
               { name: 'Distilled Spirits Council of USA', url: 'https://www.discus.org' },
@@ -2302,10 +2381,11 @@ export const CATEGORIES = [
             growth: '+4.2%',
             brands: ['Captain Morgan', 'Bacardi Superior', 'Havana Club'],
             regions: [
-              { name: 'London', share: '23%', growth: '+4.8%' },
-              { name: 'Southeast', share: '23%', growth: '+3.8%' },
-              { name: 'Midlands', share: '26%', growth: '+4.1%' },
-              { name: 'North & Scotland', share: '28%', growth: '+4.2%' },
+              { name: 'London', share: '23.3%', growth: '+4.8%' },
+              { name: 'Southeast', share: '19.9%', growth: '+3.8%' },
+              { name: 'Midlands', share: '24.7%', growth: '+4.1%' },
+              { name: 'North & Scotland', share: '25.4%', growth: '+4.2%' },
+              { name: 'Bristol', share: '6.7%', growth: '+0.3%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -2317,10 +2397,11 @@ export const CATEGORIES = [
             growth: '+3.5%',
             brands: ['Captain Morgan', 'Bacardi Superior', 'Plantation'],
             regions: [
-              { name: 'Berlin', share: '25%', growth: '+4.2%' },
-              { name: 'Munich', share: '21%', growth: '+3.1%' },
-              { name: 'Hamburg', share: '27%', growth: '+3.5%' },
-              { name: 'Frankfurt', share: '27%', growth: '+3.2%' },
+              { name: 'Berlin', share: '25.3%', growth: '+4.2%' },
+              { name: 'Munich', share: '19.4%', growth: '+3.1%' },
+              { name: 'Hamburg', share: '23.7%', growth: '+3.5%' },
+              { name: 'Frankfurt', share: '24.5%', growth: '+3.2%' },
+              { name: 'Hesse', share: '7.1%', growth: '+5.6%' },
             ],
             sources: [
               { name: 'Euromonitor International', url: 'https://www.euromonitor.com' },
@@ -2332,10 +2413,10 @@ export const CATEGORIES = [
             growth: '+6.1%',
             brands: ['Mount Gay', 'Appleton Estate', 'Zacapa'],
             regions: [
-              { name: 'Jamaica', share: '27%', growth: '+6.5%' },
-              { name: 'Barbados', share: '23%', growth: '+5.8%' },
-              { name: 'Trinidad & Tobago', share: '25%', growth: '+6.1%' },
-              { name: 'Other Islands', share: '25%', growth: '+6.0%' },
+              { name: 'Jamaica', share: '28.2%', growth: '+6.5%' },
+              { name: 'Barbados', share: '21.7%', growth: '+5.8%' },
+              { name: 'Trinidad & Tobago', share: '24.3%', growth: '+6.1%' },
+              { name: 'Other Islands', share: '25.8%', growth: '+6.0%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -2348,7 +2429,7 @@ export const CATEGORIES = [
           midTier: ['Bacardi 8', 'Havana Club 7', 'Plantation', 'Flor de Caña', 'Kraken'],
           value: ['Bacardi Superior', 'Captain Morgan', 'Malibu', 'Havana Club 3', 'Admiral Nelson']
         },
-        channels: { onTrade: 41, offTrade: 49, eCommerce: 5, travelRetail: 5 },
+        channels: { onTrade: 40.3, offTrade: 49.2, eCommerce: 5.3, travelRetail: 5.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 40,   // % ACV distribution
           ceDepletions: 1420000,  // case equivalent depletions
@@ -2384,10 +2465,11 @@ export const CATEGORIES = [
             growth: '+7.2%',
             brands: ['Bacardi Superior', 'McDowell\u2019s', 'Old Monk'],
             regions: [
-              { name: 'Delhi NCR', share: '30%', growth: '+8.1%' },
-              { name: 'Mumbai', share: '28%', growth: '+7.1%' },
-              { name: 'Bangalore', share: '20%', growth: '+7.2%' },
-              { name: 'Chennai', share: '22%', growth: '+6.8%' },
+              { name: 'Delhi NCR', share: '31.6%', growth: '+8.1%' },
+              { name: 'Mumbai', share: '23.2%', growth: '+7.1%' },
+              { name: 'Bangalore', share: '20.0%', growth: '+7.2%' },
+              { name: 'Chennai', share: '20.2%', growth: '+6.8%' },
+              { name: 'Kolkata', share: '5.0%', growth: '+1.4%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -2399,10 +2481,12 @@ export const CATEGORIES = [
             growth: '+8.5%',
             brands: ['Bacardi 8', 'Plantation', 'Mount Gay'],
             regions: [
-              { name: 'Florida', share: '20%', growth: '+9.2%' },
-              { name: 'New York', share: '20%', growth: '+8.8%' },
-              { name: 'California', share: '18%', growth: '+7.5%' },
-              { name: 'Other', share: '42%', growth: '+8.2%' },
+              { name: 'Florida', share: '20.0%', growth: '+9.2%' },
+              { name: 'New York', share: '16.3%', growth: '+8.8%' },
+              { name: 'California', share: '16.6%', growth: '+7.5%' },
+              { name: 'Other', share: '36.6%', growth: '+8.2%' },
+              { name: 'Illinois', share: '5.5%', growth: '+4.9%' },
+              { name: 'Pennsylvania', share: '5.0%', growth: '+6.8%' },
             ],
             sources: [
               { name: 'Distilled Spirits Council of USA', url: 'https://www.discus.org' },
@@ -2414,10 +2498,11 @@ export const CATEGORIES = [
             growth: '+5.1%',
             brands: ['Captain Morgan', 'Bacardi Superior', 'Havana Club'],
             regions: [
-              { name: 'London', share: '22%', growth: '+5.8%' },
-              { name: 'Southeast', share: '24%', growth: '+4.8%' },
-              { name: 'Midlands', share: '26%', growth: '+5.1%' },
-              { name: 'North & Scotland', share: '28%', growth: '+5.0%' },
+              { name: 'London', share: '24.3%', growth: '+5.8%' },
+              { name: 'Southeast', share: '20.1%', growth: '+4.8%' },
+              { name: 'Midlands', share: '24.6%', growth: '+5.1%' },
+              { name: 'North & Scotland', share: '24.8%', growth: '+5.0%' },
+              { name: 'Bristol', share: '6.2%', growth: '+2.1%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -2429,10 +2514,11 @@ export const CATEGORIES = [
             growth: '+4.8%',
             brands: ['Captain Morgan', 'Bacardi Superior', 'Plantation'],
             regions: [
-              { name: 'Berlin', share: '24%', growth: '+5.5%' },
-              { name: 'Munich', share: '22%', growth: '+4.2%' },
-              { name: 'Hamburg', share: '27%', growth: '+4.8%' },
-              { name: 'Frankfurt', share: '27%', growth: '+4.5%' },
+              { name: 'Berlin', share: '25.1%', growth: '+5.5%' },
+              { name: 'Munich', share: '19.8%', growth: '+4.2%' },
+              { name: 'Hamburg', share: '23.5%', growth: '+4.8%' },
+              { name: 'Frankfurt', share: '23.6%', growth: '+4.5%' },
+              { name: 'Hesse', share: '8.0%', growth: '+5.9%' },
             ],
             sources: [
               { name: 'Euromonitor International', url: 'https://www.euromonitor.com' },
@@ -2444,10 +2530,10 @@ export const CATEGORIES = [
             growth: '+7.5%',
             brands: ['Mount Gay', 'Appleton Estate', 'Zacapa'],
             regions: [
-              { name: 'Jamaica', share: '26%', growth: '+8.1%' },
-              { name: 'Barbados', share: '24%', growth: '+7.2%' },
-              { name: 'Trinidad & Tobago', share: '25%', growth: '+7.5%' },
-              { name: 'Other Islands', share: '25%', growth: '+7.1%' },
+              { name: 'Jamaica', share: '28.7%', growth: '+8.1%' },
+              { name: 'Barbados', share: '21.2%', growth: '+7.2%' },
+              { name: 'Trinidad & Tobago', share: '25.4%', growth: '+7.5%' },
+              { name: 'Other Islands', share: '24.7%', growth: '+7.1%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -2460,7 +2546,7 @@ export const CATEGORIES = [
           midTier: ['Bacardi 8', 'Havana Club 7', 'Plantation', 'Flor de Caña', 'Kraken'],
           value: ['Bacardi Superior', 'Captain Morgan', 'Malibu', 'Havana Club 3', 'Admiral Nelson']
         },
-        channels: { onTrade: 40, offTrade: 50, eCommerce: 5, travelRetail: 5 },
+        channels: { onTrade: 40.5, offTrade: 49.5, eCommerce: 5.0, travelRetail: 5.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 38,   // % ACV distribution
           ceDepletions: 1340000,  // case equivalent depletions
@@ -2496,10 +2582,11 @@ export const CATEGORIES = [
             growth: '+6.8%',
             brands: ['Bacardi Superior', 'McDowell\u2019s', 'Old Monk'],
             regions: [
-              { name: 'Delhi NCR', share: '29%', growth: '+7.5%' },
-              { name: 'Mumbai', share: '29%', growth: '+6.5%' },
-              { name: 'Bangalore', share: '20%', growth: '+6.8%' },
-              { name: 'Chennai', share: '22%', growth: '+6.5%' },
+              { name: 'Delhi NCR', share: '31.3%', growth: '+7.5%' },
+              { name: 'Mumbai', share: '23.2%', growth: '+6.5%' },
+              { name: 'Bangalore', share: '20.5%', growth: '+6.8%' },
+              { name: 'Chennai', share: '19.1%', growth: '+6.5%' },
+              { name: 'Kolkata', share: '5.9%', growth: '+4.0%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -2511,10 +2598,12 @@ export const CATEGORIES = [
             growth: '+6.2%',
             brands: ['Bacardi Superior', 'Captain Morgan', 'Bacardi 8'],
             regions: [
-              { name: 'Florida', share: '19%', growth: '+7.1%' },
-              { name: 'New York', share: '21%', growth: '+6.5%' },
-              { name: 'California', share: '18%', growth: '+5.2%' },
-              { name: 'Other', share: '42%', growth: '+6.1%' },
+              { name: 'Florida', share: '19.5%', growth: '+7.1%' },
+              { name: 'New York', share: '16.2%', growth: '+6.5%' },
+              { name: 'California', share: '16.8%', growth: '+5.2%' },
+              { name: 'Other', share: '37.4%', growth: '+6.1%' },
+              { name: 'Illinois', share: '6.4%', growth: '+5.2%' },
+              { name: 'Pennsylvania', share: '3.7%', growth: '+3.2%' },
             ],
             sources: [
               { name: 'Distilled Spirits Council of USA', url: 'https://www.discus.org' },
@@ -2526,10 +2615,11 @@ export const CATEGORIES = [
             growth: '+3.5%',
             brands: ['Captain Morgan', 'Bacardi Superior', 'Havana Club'],
             regions: [
-              { name: 'London', share: '21%', growth: '+4.1%' },
-              { name: 'Southeast', share: '25%', growth: '+3.2%' },
-              { name: 'Midlands', share: '26%', growth: '+3.5%' },
-              { name: 'North & Scotland', share: '28%', growth: '+3.2%' },
+              { name: 'London', share: '24.9%', growth: '+4.1%' },
+              { name: 'Southeast', share: '19.2%', growth: '+3.2%' },
+              { name: 'Midlands', share: '23.9%', growth: '+3.5%' },
+              { name: 'North & Scotland', share: '25.5%', growth: '+3.2%' },
+              { name: 'Bristol', share: '6.5%', growth: '+2.7%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -2541,10 +2631,11 @@ export const CATEGORIES = [
             growth: '+4.2%',
             brands: ['Captain Morgan', 'Bacardi Superior', 'Malibu'],
             regions: [
-              { name: 'Berlin', share: '23%', growth: '+4.8%' },
-              { name: 'Munich', share: '23%', growth: '+3.8%' },
-              { name: 'Hamburg', share: '27%', growth: '+4.2%' },
-              { name: 'Frankfurt', share: '27%', growth: '+3.9%' },
+              { name: 'Berlin', share: '26.0%', growth: '+4.8%' },
+              { name: 'Munich', share: '18.7%', growth: '+3.8%' },
+              { name: 'Hamburg', share: '23.3%', growth: '+4.2%' },
+              { name: 'Frankfurt', share: '22.9%', growth: '+3.9%' },
+              { name: 'Hesse', share: '9.1%', growth: '+5.9%' },
             ],
             sources: [
               { name: 'Euromonitor International', url: 'https://www.euromonitor.com' },
@@ -2556,10 +2647,10 @@ export const CATEGORIES = [
             growth: '+5.8%',
             brands: ['Mount Gay', 'Appleton Estate', 'Zacapa'],
             regions: [
-              { name: 'Jamaica', share: '25%', growth: '+6.2%' },
-              { name: 'Barbados', share: '25%', growth: '+5.5%' },
-              { name: 'Trinidad & Tobago', share: '25%', growth: '+5.8%' },
-              { name: 'Other Islands', share: '25%', growth: '+5.5%' },
+              { name: 'Jamaica', share: '28.9%', growth: '+6.2%' },
+              { name: 'Barbados', share: '21.4%', growth: '+5.5%' },
+              { name: 'Trinidad & Tobago', share: '25.8%', growth: '+5.8%' },
+              { name: 'Other Islands', share: '23.9%', growth: '+5.5%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -2572,7 +2663,7 @@ export const CATEGORIES = [
           midTier: ['Bacardi 8', 'Havana Club 7', 'Plantation', 'Flor de Caña', 'Kraken'],
           value: ['Bacardi Superior', 'Captain Morgan', 'Malibu', 'Havana Club 3', 'Admiral Nelson']
         },
-        channels: { onTrade: 39, offTrade: 51, eCommerce: 5, travelRetail: 5 },
+        channels: { onTrade: 38.4, offTrade: 51.7, eCommerce: 5.0, travelRetail: 4.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 36,   // % ACV distribution
           ceDepletions: 1260000,  // case equivalent depletions
@@ -2608,10 +2699,11 @@ export const CATEGORIES = [
             growth: '+4.5%',
             brands: ['Bacardi Superior', 'McDowell\u2019s', 'Old Monk'],
             regions: [
-              { name: 'Delhi NCR', share: '28%', growth: '+5.1%' },
-              { name: 'Mumbai', share: '30%', growth: '+4.2%' },
-              { name: 'Bangalore', share: '20%', growth: '+4.5%' },
-              { name: 'Chennai', share: '22%', growth: '+4.2%' },
+              { name: 'Delhi NCR', share: '32.8%', growth: '+5.1%' },
+              { name: 'Mumbai', share: '22.2%', growth: '+4.2%' },
+              { name: 'Bangalore', share: '19.9%', growth: '+4.5%' },
+              { name: 'Chennai', share: '19.5%', growth: '+4.2%' },
+              { name: 'Kolkata', share: '5.6%', growth: '+5.3%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -2623,10 +2715,12 @@ export const CATEGORIES = [
             growth: '+2.8%',
             brands: ['Bacardi Superior', 'Captain Morgan', 'Bacardi 8'],
             regions: [
-              { name: 'Florida', share: '18%', growth: '+3.5%' },
-              { name: 'New York', share: '22%', growth: '+3.1%' },
-              { name: 'California', share: '18%', growth: '+2.2%' },
-              { name: 'Other', share: '42%', growth: '+2.7%' },
+              { name: 'Florida', share: '19.0%', growth: '+3.5%' },
+              { name: 'New York', share: '16.0%', growth: '+3.1%' },
+              { name: 'California', share: '17.9%', growth: '+2.2%' },
+              { name: 'Other', share: '38.5%', growth: '+2.7%' },
+              { name: 'Illinois', share: '5.9%', growth: '+5.9%' },
+              { name: 'Pennsylvania', share: '2.7%', growth: '+1.9%' },
             ],
             sources: [
               { name: 'Distilled Spirits Council of USA', url: 'https://www.discus.org' },
@@ -2638,10 +2732,11 @@ export const CATEGORIES = [
             growth: '+1.8%',
             brands: ['Captain Morgan', 'Bacardi Superior', 'Havana Club'],
             regions: [
-              { name: 'London', share: '20%', growth: '+2.5%' },
-              { name: 'Southeast', share: '26%', growth: '+1.5%' },
-              { name: 'Midlands', share: '26%', growth: '+1.8%' },
-              { name: 'North & Scotland', share: '28%', growth: '+1.5%' },
+              { name: 'London', share: '25.1%', growth: '+2.5%' },
+              { name: 'Southeast', share: '19.0%', growth: '+1.5%' },
+              { name: 'Midlands', share: '23.2%', growth: '+1.8%' },
+              { name: 'North & Scotland', share: '25.3%', growth: '+1.5%' },
+              { name: 'Bristol', share: '7.4%', growth: '+2.2%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -2653,10 +2748,11 @@ export const CATEGORIES = [
             growth: '+2.1%',
             brands: ['Captain Morgan', 'Bacardi Superior', 'Malibu'],
             regions: [
-              { name: 'Berlin', share: '22%', growth: '+2.8%' },
-              { name: 'Munich', share: '24%', growth: '+1.8%' },
-              { name: 'Hamburg', share: '27%', growth: '+2.1%' },
-              { name: 'Frankfurt', share: '27%', growth: '+1.8%' },
+              { name: 'Berlin', share: '25.4%', growth: '+2.8%' },
+              { name: 'Munich', share: '19.3%', growth: '+1.8%' },
+              { name: 'Hamburg', share: '23.8%', growth: '+2.1%' },
+              { name: 'Frankfurt', share: '21.7%', growth: '+1.8%' },
+              { name: 'Hesse', share: '9.8%', growth: '+4.7%' },
             ],
             sources: [
               { name: 'Euromonitor International', url: 'https://www.euromonitor.com' },
@@ -2668,10 +2764,10 @@ export const CATEGORIES = [
             growth: '+2.1%',
             brands: ['Mount Gay', 'Appleton Estate', 'Zacapa'],
             regions: [
-              { name: 'Jamaica', share: '24%', growth: '+2.5%' },
-              { name: 'Barbados', share: '26%', growth: '+1.8%' },
-              { name: 'Trinidad & Tobago', share: '25%', growth: '+2.1%' },
-              { name: 'Other Islands', share: '25%', growth: '+1.9%' },
+              { name: 'Jamaica', share: '28.6%', growth: '+2.5%' },
+              { name: 'Barbados', share: '21.8%', growth: '+1.8%' },
+              { name: 'Trinidad & Tobago', share: '26.4%', growth: '+2.1%' },
+              { name: 'Other Islands', share: '23.2%', growth: '+1.9%' },
             ],
             sources: [
               { name: 'IWSR Spirits Intelligence', url: 'https://www.theiwsr.com' },
@@ -2684,7 +2780,7 @@ export const CATEGORIES = [
           midTier: ['Bacardi 8', 'Havana Club 7', 'Plantation', 'Flor de Caña', 'Kraken'],
           value: ['Bacardi Superior', 'Captain Morgan', 'Malibu', 'Havana Club 3', 'Admiral Nelson']
         },
-        channels: { onTrade: 36, offTrade: 53, eCommerce: 5, travelRetail: 6 },
+        channels: { onTrade: 35.8, offTrade: 53.0, eCommerce: 4.9, travelRetail: 6.3 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 34,   // % ACV distribution
           ceDepletions: 1180000,  // case equivalent depletions
@@ -2730,10 +2826,12 @@ export const CATEGORIES = [
             growth: '+4.2%',
             brands: ['Hennessy', 'Rémy Martin', 'Courvoisier'],
             regions: [
-              { name: 'New York', share: '18%', growth: '+5.1%' },
-              { name: 'California', share: '16%', growth: '+3.8%' },
-              { name: 'Texas', share: '12%', growth: '+2.9%' },
-              { name: 'Florida', share: '10%', growth: '+4.5%' },
+              { name: 'New York', share: '26.6%', growth: '+5.1%' },
+              { name: 'California', share: '23.7%', growth: '+3.8%' },
+              { name: 'Texas', share: '17.8%', growth: '+2.9%' },
+              { name: 'Florida', share: '14.8%', growth: '+4.5%' },
+              { name: 'Illinois', share: '6.9%', growth: '+1.8%' },
+              { name: 'Pennsylvania', share: '10.2%', growth: '+1.9%' },
             ],
             sources: [
               { name: 'The IWSR', url: 'https://theiwsr.com' },
@@ -2745,10 +2843,12 @@ export const CATEGORIES = [
             growth: '+2.5%',
             brands: ['Rémy Martin', 'Hennessy', 'Martell'],
             regions: [
-              { name: 'Beijing', share: '22%', growth: '+1.8%' },
-              { name: 'Shanghai', share: '19%', growth: '+2.1%' },
-              { name: 'Guangzhou', share: '15%', growth: '+3.2%' },
-              { name: 'Chongqing', share: '10%', growth: '+2.9%' },
+              { name: 'Beijing', share: '27.8%', growth: '+1.8%' },
+              { name: 'Shanghai', share: '24.0%', growth: '+2.1%' },
+              { name: 'Guangzhou', share: '18.9%', growth: '+3.2%' },
+              { name: 'Chongqing', share: '12.6%', growth: '+2.9%' },
+              { name: 'Shenzhen', share: '10.2%', growth: '+3.4%' },
+              { name: 'Hangzhou', share: '6.5%', growth: '+1.9%' },
             ],
             sources: [
               { name: 'Beverage Daily', url: 'https://beveragedaily.com' },
@@ -2760,10 +2860,11 @@ export const CATEGORIES = [
             growth: '+12.3%',
             brands: ['Hennessy', 'Courvoisier', 'Rémy Martin'],
             regions: [
-              { name: 'Lagos', share: '35%', growth: '+14.2%' },
-              { name: 'Abuja', share: '18%', growth: '+11.5%' },
-              { name: 'Port Harcourt', share: '12%', growth: '+10.8%' },
-              { name: 'Ibadan', share: '8%', growth: '+9.3%' },
+              { name: 'Lagos', share: '43.1%', growth: '+14.2%' },
+              { name: 'Abuja', share: '22.1%', growth: '+11.5%' },
+              { name: 'Port Harcourt', share: '14.7%', growth: '+10.8%' },
+              { name: 'Ibadan', share: '9.8%', growth: '+9.3%' },
+              { name: 'Kano', share: '10.3%', growth: '+2.5%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
@@ -2775,10 +2876,11 @@ export const CATEGORIES = [
             growth: '+1.9%',
             brands: ['Hennessy', 'Hine', 'Courvoisier'],
             regions: [
-              { name: 'London', share: '28%', growth: '+2.4%' },
-              { name: 'Manchester', share: '12%', growth: '+1.2%' },
-              { name: 'Birmingham', share: '10%', growth: '+1.5%' },
-              { name: 'Edinburgh', share: '8%', growth: '+0.8%' },
+              { name: 'London', share: '43.3%', growth: '+2.4%' },
+              { name: 'Manchester', share: '18.5%', growth: '+1.2%' },
+              { name: 'Birmingham', share: '15.4%', growth: '+1.5%' },
+              { name: 'Edinburgh', share: '12.3%', growth: '+0.8%' },
+              { name: 'Bristol', share: '10.5%', growth: '+1.7%' },
             ],
             sources: [
               { name: 'Decanter', url: 'https://decanter.com' },
@@ -2790,10 +2892,11 @@ export const CATEGORIES = [
             growth: '-0.3%',
             brands: ['Hennessy', 'Rémy Martin', 'Hine'],
             regions: [
-              { name: 'Paris', share: '32%', growth: '+0.5%' },
-              { name: 'Lyon', share: '14%', growth: '-1.2%' },
-              { name: 'Marseille', share: '11%', growth: '-0.8%' },
-              { name: 'Bordeaux', share: '9%', growth: '-0.6%' },
+              { name: 'Paris', share: '43.3%', growth: '+0.5%' },
+              { name: 'Lyon', share: '18.9%', growth: '-1.2%' },
+              { name: 'Marseille', share: '14.9%', growth: '-0.8%' },
+              { name: 'Bordeaux', share: '12.2%', growth: '-0.6%' },
+              { name: 'Toulouse', share: '10.7%', growth: '+4.1%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
@@ -2806,7 +2909,7 @@ export const CATEGORIES = [
           midTier: ['Hennessy VSOP', 'Rémy Martin VSOP', 'Courvoisier VSOP', 'Martell Cordon Bleu', 'Camus VSOP'],
           value: ['Hennessy VS', 'Rémy Martin VS', 'Courvoisier VS', 'Martell VS', 'E&J VS Brandy']
         },
-        channels: { onTrade: 35, offTrade: 42, eCommerce: 11, travelRetail: 12 },
+        channels: { onTrade: 34.5, offTrade: 42.7, eCommerce: 11.0, travelRetail: 11.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 28,   // % ACV distribution
           ceDepletions: 680000,  // case equivalent depletions
@@ -2842,10 +2945,12 @@ export const CATEGORIES = [
             growth: '-1.8%',
             brands: ['Hennessy', 'Rémy Martin', 'Courvoisier'],
             regions: [
-              { name: 'New York', share: '19%', growth: '-2.1%' },
-              { name: 'California', share: '16%', growth: '-1.5%' },
-              { name: 'Texas', share: '12%', growth: '-0.9%' },
-              { name: 'Florida', share: '10%', growth: '-1.2%' },
+              { name: 'New York', share: '27.3%', growth: '-2.1%' },
+              { name: 'California', share: '23.2%', growth: '-1.5%' },
+              { name: 'Texas', share: '17.7%', growth: '-0.9%' },
+              { name: 'Florida', share: '14.5%', growth: '-1.2%' },
+              { name: 'Illinois', share: '7.5%', growth: '+1.7%' },
+              { name: 'Pennsylvania', share: '9.8%', growth: '+3.6%' },
             ],
             sources: [
               { name: 'The IWSR', url: 'https://theiwsr.com' },
@@ -2857,10 +2962,12 @@ export const CATEGORIES = [
             growth: '-5.2%',
             brands: ['Rémy Martin', 'Hennessy', 'Martell'],
             regions: [
-              { name: 'Shanghai', share: '21%', growth: '-6.1%' },
-              { name: 'Beijing', share: '20%', growth: '-5.8%' },
-              { name: 'Guangzhou', share: '14%', growth: '-4.2%' },
-              { name: 'Shenzhen', share: '11%', growth: '-3.9%' },
+              { name: 'Beijing', share: '27.2%', growth: '-6.1%' },
+              { name: 'Shanghai', share: '24.2%', growth: '-5.8%' },
+              { name: 'Guangzhou', share: '19.2%', growth: '-4.2%' },
+              { name: 'Chongqing', share: '12.4%', growth: '-3.9%' },
+              { name: 'Shenzhen', share: '9.5%', growth: '+2.0%' },
+              { name: 'Hangzhou', share: '7.5%', growth: '+1.6%' },
             ],
             sources: [
               { name: 'Beverage Daily', url: 'https://beveragedaily.com' },
@@ -2872,10 +2979,11 @@ export const CATEGORIES = [
             growth: '+8.5%',
             brands: ['Hennessy', 'Courvoisier', 'Rémy Martin'],
             regions: [
-              { name: 'Lagos', share: '36%', growth: '+9.2%' },
-              { name: 'Abuja', share: '17%', growth: '+8.1%' },
-              { name: 'Port Harcourt', share: '12%', growth: '+7.3%' },
-              { name: 'Ibadan', share: '8%', growth: '+6.8%' },
+              { name: 'Lagos', share: '43.6%', growth: '+9.2%' },
+              { name: 'Abuja', share: '22.7%', growth: '+8.1%' },
+              { name: 'Port Harcourt', share: '14.4%', growth: '+7.3%' },
+              { name: 'Ibadan', share: '8.4%', growth: '+6.8%' },
+              { name: 'Kano', share: '10.9%', growth: '+0.9%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
@@ -2887,10 +2995,11 @@ export const CATEGORIES = [
             growth: '-0.4%',
             brands: ['Hennessy', 'Hine', 'Courvoisier'],
             regions: [
-              { name: 'London', share: '29%', growth: '-0.2%' },
-              { name: 'Manchester', share: '12%', growth: '-0.8%' },
-              { name: 'Birmingham', share: '10%', growth: '-0.3%' },
-              { name: 'Edinburgh', share: '8%', growth: '-0.9%' },
+              { name: 'London', share: '45.0%', growth: '-0.2%' },
+              { name: 'Manchester', share: '17.5%', growth: '-0.8%' },
+              { name: 'Birmingham', share: '14.7%', growth: '-0.3%' },
+              { name: 'Edinburgh', share: '11.0%', growth: '-0.9%' },
+              { name: 'Bristol', share: '11.8%', growth: '+5.9%' },
             ],
             sources: [
               { name: 'Decanter', url: 'https://decanter.com' },
@@ -2902,10 +3011,11 @@ export const CATEGORIES = [
             growth: '-0.8%',
             brands: ['Hennessy', 'Rémy Martin', 'Hine'],
             regions: [
-              { name: 'Paris', share: '33%', growth: '-0.5%' },
-              { name: 'Lyon', share: '14%', growth: '-1.1%' },
-              { name: 'Marseille', share: '11%', growth: '-1.2%' },
-              { name: 'Bordeaux', share: '9%', growth: '-0.9%' },
+              { name: 'Paris', share: '43.3%', growth: '-0.5%' },
+              { name: 'Lyon', share: '18.7%', growth: '-1.1%' },
+              { name: 'Marseille', share: '16.1%', growth: '-1.2%' },
+              { name: 'Bordeaux', share: '11.6%', growth: '-0.9%' },
+              { name: 'Toulouse', share: '10.3%', growth: '+3.0%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
@@ -2918,7 +3028,7 @@ export const CATEGORIES = [
           midTier: ['Hennessy VSOP', 'Rémy Martin VSOP', 'Courvoisier VSOP', 'Martell Cordon Bleu', 'Camus VSOP'],
           value: ['Hennessy VS', 'Rémy Martin VS', 'Courvoisier VS', 'Martell VS', 'E&J VS Brandy']
         },
-        channels: { onTrade: 36, offTrade: 43, eCommerce: 10, travelRetail: 11 },
+        channels: { onTrade: 36.2, offTrade: 42.6, eCommerce: 9.9, travelRetail: 11.3 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 27,   // % ACV distribution
           ceDepletions: 650000,  // case equivalent depletions
@@ -2954,10 +3064,12 @@ export const CATEGORIES = [
             growth: '-3.2%',
             brands: ['Hennessy', 'Rémy Martin', 'Courvoisier'],
             regions: [
-              { name: 'New York', share: '19%', growth: '-2.8%' },
-              { name: 'California', share: '16%', growth: '-3.1%' },
-              { name: 'Texas', share: '12%', growth: '-2.9%' },
-              { name: 'Florida', share: '10%', growth: '-4.2%' },
+              { name: 'New York', share: '27.6%', growth: '-2.8%' },
+              { name: 'California', share: '22.0%', growth: '-3.1%' },
+              { name: 'Texas', share: '17.4%', growth: '-2.9%' },
+              { name: 'Florida', share: '15.8%', growth: '-4.2%' },
+              { name: 'Illinois', share: '6.9%', growth: '+1.8%' },
+              { name: 'Pennsylvania', share: '10.3%', growth: '+2.7%' },
             ],
             sources: [
               { name: 'The IWSR', url: 'https://theiwsr.com' },
@@ -2969,10 +3081,12 @@ export const CATEGORIES = [
             growth: '-9.8%',
             brands: ['Rémy Martin', 'Hennessy', 'Martell'],
             regions: [
-              { name: 'Shanghai', share: '22%', growth: '-10.5%' },
-              { name: 'Beijing', share: '20%', growth: '-9.8%' },
-              { name: 'Guangzhou', share: '14%', growth: '-8.2%' },
-              { name: 'Shenzhen', share: '11%', growth: '-9.1%' },
+              { name: 'Beijing', share: '26.8%', growth: '-10.5%' },
+              { name: 'Shanghai', share: '24.3%', growth: '-9.8%' },
+              { name: 'Guangzhou', share: '19.4%', growth: '-8.2%' },
+              { name: 'Chongqing', share: '11.8%', growth: '-9.1%' },
+              { name: 'Shenzhen', share: '9.9%', growth: '+2.9%' },
+              { name: 'Hangzhou', share: '7.8%', growth: '+5.0%' },
             ],
             sources: [
               { name: 'Beverage Daily', url: 'https://beveragedaily.com' },
@@ -2984,10 +3098,11 @@ export const CATEGORIES = [
             growth: '+5.2%',
             brands: ['Hennessy', 'Courvoisier', 'Rémy Martin'],
             regions: [
-              { name: 'Lagos', share: '35%', growth: '+6.1%' },
-              { name: 'Abuja', share: '17%', growth: '+5.2%' },
-              { name: 'Port Harcourt', share: '12%', growth: '+4.8%' },
-              { name: 'Ibadan', share: '8%', growth: '+3.9%' },
+              { name: 'Lagos', share: '42.4%', growth: '+6.1%' },
+              { name: 'Abuja', share: '23.0%', growth: '+5.2%' },
+              { name: 'Port Harcourt', share: '14.8%', growth: '+4.8%' },
+              { name: 'Ibadan', share: '8.0%', growth: '+3.9%' },
+              { name: 'Kano', share: '11.8%', growth: '+4.0%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
@@ -2999,10 +3114,11 @@ export const CATEGORIES = [
             growth: '-2.1%',
             brands: ['Hennessy', 'Hine', 'Courvoisier'],
             regions: [
-              { name: 'London', share: '29%', growth: '-1.8%' },
-              { name: 'Manchester', share: '12%', growth: '-2.5%' },
-              { name: 'Birmingham', share: '10%', growth: '-2.1%' },
-              { name: 'Edinburgh', share: '8%', growth: '-2.8%' },
+              { name: 'London', share: '45.0%', growth: '-1.8%' },
+              { name: 'Manchester', share: '18.6%', growth: '-2.5%' },
+              { name: 'Birmingham', share: '13.9%', growth: '-2.1%' },
+              { name: 'Edinburgh', share: '9.7%', growth: '-2.8%' },
+              { name: 'Bristol', share: '12.8%', growth: '+5.0%' },
             ],
             sources: [
               { name: 'Decanter', url: 'https://decanter.com' },
@@ -3014,10 +3130,11 @@ export const CATEGORIES = [
             growth: '-1.5%',
             brands: ['Hennessy', 'Rémy Martin', 'Hine'],
             regions: [
-              { name: 'Paris', share: '33%', growth: '-1.2%' },
-              { name: 'Lyon', share: '14%', growth: '-1.8%' },
-              { name: 'Marseille', share: '11%', growth: '-1.9%' },
-              { name: 'Bordeaux', share: '9%', growth: '-1.4%' },
+              { name: 'Paris', share: '42.6%', growth: '-1.2%' },
+              { name: 'Lyon', share: '17.7%', growth: '-1.8%' },
+              { name: 'Marseille', share: '17.2%', growth: '-1.9%' },
+              { name: 'Bordeaux', share: '11.6%', growth: '-1.4%' },
+              { name: 'Toulouse', share: '10.9%', growth: '+1.0%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
@@ -3030,7 +3147,7 @@ export const CATEGORIES = [
           midTier: ['Hennessy VSOP', 'Rémy Martin VSOP', 'Courvoisier VSOP', 'Martell Cordon Bleu', 'Camus VSOP'],
           value: ['Hennessy VS', 'Rémy Martin VS', 'Courvoisier VS', 'Martell VS', 'E&J VS Brandy']
         },
-        channels: { onTrade: 37, offTrade: 44, eCommerce: 9, travelRetail: 10 },
+        channels: { onTrade: 36.4, offTrade: 44.8, eCommerce: 9.0, travelRetail: 9.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 26,   // % ACV distribution
           ceDepletions: 620000,  // case equivalent depletions
@@ -3066,10 +3183,12 @@ export const CATEGORIES = [
             growth: '+12.1%',
             brands: ['Hennessy', 'Rémy Martin', 'Courvoisier'],
             regions: [
-              { name: 'New York', share: '19%', growth: '+13.2%' },
-              { name: 'California', share: '15%', growth: '+11.8%' },
-              { name: 'Texas', share: '12%', growth: '+10.5%' },
-              { name: 'Florida', share: '10%', growth: '+12.9%' },
+              { name: 'New York', share: '27.3%', growth: '+13.2%' },
+              { name: 'California', share: '22.5%', growth: '+11.8%' },
+              { name: 'Texas', share: '18.0%', growth: '+10.5%' },
+              { name: 'Florida', share: '16.5%', growth: '+12.9%' },
+              { name: 'Illinois', share: '6.3%', growth: '+1.7%' },
+              { name: 'Pennsylvania', share: '9.4%', growth: '+2.1%' },
             ],
             sources: [
               { name: 'The IWSR', url: 'https://theiwsr.com' },
@@ -3081,10 +3200,12 @@ export const CATEGORIES = [
             growth: '+3.1%',
             brands: ['Rémy Martin', 'Hennessy', 'Martell'],
             regions: [
-              { name: 'Shanghai', share: '22%', growth: '+2.8%' },
-              { name: 'Beijing', share: '20%', growth: '+3.2%' },
-              { name: 'Guangzhou', share: '14%', growth: '+3.5%' },
-              { name: 'Shenzhen', share: '11%', growth: '+2.9%' },
+              { name: 'Beijing', share: '27.7%', growth: '+2.8%' },
+              { name: 'Shanghai', share: '23.2%', growth: '+3.2%' },
+              { name: 'Guangzhou', share: '20.3%', growth: '+3.5%' },
+              { name: 'Chongqing', share: '12.0%', growth: '+2.9%' },
+              { name: 'Shenzhen', share: '9.0%', growth: '+3.0%' },
+              { name: 'Hangzhou', share: '7.8%', growth: '+2.5%' },
             ],
             sources: [
               { name: 'Beverage Daily', url: 'https://beveragedaily.com' },
@@ -3096,10 +3217,11 @@ export const CATEGORIES = [
             growth: '+4.2%',
             brands: ['Hennessy', 'Rémy Martin', 'Hine'],
             regions: [
-              { name: 'Paris', share: '33%', growth: '+4.8%' },
-              { name: 'Lyon', share: '14%', growth: '+3.9%' },
-              { name: 'Marseille', share: '11%', growth: '+3.8%' },
-              { name: 'Bordeaux', share: '9%', growth: '+3.2%' },
+              { name: 'Paris', share: '43.2%', growth: '+4.8%' },
+              { name: 'Lyon', share: '18.1%', growth: '+3.9%' },
+              { name: 'Marseille', share: '15.9%', growth: '+3.8%' },
+              { name: 'Bordeaux', share: '12.6%', growth: '+3.2%' },
+              { name: 'Toulouse', share: '10.2%', growth: '+3.4%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
@@ -3111,10 +3233,11 @@ export const CATEGORIES = [
             growth: '+6.8%',
             brands: ['Hennessy', 'Hine', 'Courvoisier'],
             regions: [
-              { name: 'London', share: '29%', growth: '+7.5%' },
-              { name: 'Manchester', share: '12%', growth: '+6.2%' },
-              { name: 'Birmingham', share: '10%', growth: '+6.5%' },
-              { name: 'Edinburgh', share: '8%', growth: '+5.8%' },
+              { name: 'London', share: '46.0%', growth: '+7.5%' },
+              { name: 'Manchester', share: '17.9%', growth: '+6.2%' },
+              { name: 'Birmingham', share: '13.5%', growth: '+6.5%' },
+              { name: 'Edinburgh', share: '8.6%', growth: '+5.8%' },
+              { name: 'Bristol', share: '14.0%', growth: '+5.0%' },
             ],
             sources: [
               { name: 'Decanter', url: 'https://decanter.com' },
@@ -3126,10 +3249,10 @@ export const CATEGORIES = [
             growth: '+7.5%',
             brands: ['Hennessy', 'Martell', 'Courvoisier'],
             regions: [
-              { name: 'Germany', share: '18%', growth: '+6.9%' },
-              { name: 'Spain', share: '16%', growth: '+8.1%' },
-              { name: 'Belgium', share: '12%', growth: '+7.2%' },
-              { name: 'Netherlands', share: '10%', growth: '+7.8%' },
+              { name: 'Germany', share: '31.9%', growth: '+6.9%' },
+              { name: 'Spain', share: '29.7%', growth: '+8.1%' },
+              { name: 'Belgium', share: '21.9%', growth: '+7.2%' },
+              { name: 'Netherlands', share: '16.5%', growth: '+7.8%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
@@ -3142,7 +3265,7 @@ export const CATEGORIES = [
           midTier: ['Hennessy VSOP', 'Rémy Martin VSOP', 'Courvoisier VSOP', 'Martell Cordon Bleu', 'Camus VSOP'],
           value: ['Hennessy VS', 'Rémy Martin VS', 'Courvoisier VS', 'Martell VS', 'E&J VS Brandy']
         },
-        channels: { onTrade: 38, offTrade: 43, eCommerce: 11, travelRetail: 8 },
+        channels: { onTrade: 38.3, offTrade: 42.7, eCommerce: 11.3, travelRetail: 7.7 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 25,   // % ACV distribution
           ceDepletions: 590000,  // case equivalent depletions
@@ -3178,10 +3301,12 @@ export const CATEGORIES = [
             growth: '+22.3%',
             brands: ['Hennessy', 'Rémy Martin', 'Courvoisier'],
             regions: [
-              { name: 'New York', share: '18%', growth: '+23.5%' },
-              { name: 'California', share: '15%', growth: '+21.2%' },
-              { name: 'Texas', share: '12%', growth: '+20.1%' },
-              { name: 'Florida', share: '10%', growth: '+24.8%' },
+              { name: 'New York', share: '27.9%', growth: '+23.5%' },
+              { name: 'California', share: '23.2%', growth: '+21.2%' },
+              { name: 'Texas', share: '19.0%', growth: '+20.1%' },
+              { name: 'Florida', share: '15.1%', growth: '+24.8%' },
+              { name: 'Illinois', share: '5.0%', growth: '+3.6%' },
+              { name: 'Pennsylvania', share: '9.8%', growth: '+2.0%' },
             ],
             sources: [
               { name: 'The IWSR', url: 'https://theiwsr.com' },
@@ -3193,10 +3318,12 @@ export const CATEGORIES = [
             growth: '+18.2%',
             brands: ['Rémy Martin', 'Hennessy', 'Martell'],
             regions: [
-              { name: 'Shanghai', share: '22%', growth: '+17.8%' },
-              { name: 'Beijing', share: '20%', growth: '+18.5%' },
-              { name: 'Guangzhou', share: '14%', growth: '+18.9%' },
-              { name: 'Shenzhen', share: '11%', growth: '+18.1%' },
+              { name: 'Beijing', share: '27.9%', growth: '+17.8%' },
+              { name: 'Shanghai', share: '23.6%', growth: '+18.5%' },
+              { name: 'Guangzhou', share: '18.6%', growth: '+18.9%' },
+              { name: 'Chongqing', share: '12.1%', growth: '+18.1%' },
+              { name: 'Shenzhen', share: '8.9%', growth: '+3.8%' },
+              { name: 'Hangzhou', share: '8.9%', growth: '+2.7%' },
             ],
             sources: [
               { name: 'Beverage Daily', url: 'https://beveragedaily.com' },
@@ -3208,10 +3335,11 @@ export const CATEGORIES = [
             growth: '+12.1%',
             brands: ['Hennessy', 'Rémy Martin', 'Hine'],
             regions: [
-              { name: 'Paris', share: '33%', growth: '+12.8%' },
-              { name: 'Lyon', share: '14%', growth: '+11.5%' },
-              { name: 'Marseille', share: '11%', growth: '+11.8%' },
-              { name: 'Bordeaux', share: '9%', growth: '+11.2%' },
+              { name: 'Paris', share: '43.2%', growth: '+12.8%' },
+              { name: 'Lyon', share: '18.7%', growth: '+11.5%' },
+              { name: 'Marseille', share: '14.9%', growth: '+11.8%' },
+              { name: 'Bordeaux', share: '13.7%', growth: '+11.2%' },
+              { name: 'Toulouse', share: '9.5%', growth: '+3.5%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
@@ -3223,10 +3351,11 @@ export const CATEGORIES = [
             growth: '+15.2%',
             brands: ['Hennessy', 'Hine', 'Courvoisier'],
             regions: [
-              { name: 'London', share: '29%', growth: '+15.9%' },
-              { name: 'Manchester', share: '12%', growth: '+14.8%' },
-              { name: 'Birmingham', share: '10%', growth: '+15.1%' },
-              { name: 'Edinburgh', share: '8%', growth: '+14.5%' },
+              { name: 'London', share: '46.2%', growth: '+15.9%' },
+              { name: 'Manchester', share: '18.2%', growth: '+14.8%' },
+              { name: 'Birmingham', share: '12.5%', growth: '+15.1%' },
+              { name: 'Edinburgh', share: '10.0%', growth: '+14.5%' },
+              { name: 'Bristol', share: '13.1%', growth: '+4.6%' },
             ],
             sources: [
               { name: 'Decanter', url: 'https://decanter.com' },
@@ -3238,10 +3367,10 @@ export const CATEGORIES = [
             growth: '+16.8%',
             brands: ['Hennessy', 'Martell', 'Courvoisier'],
             regions: [
-              { name: 'Germany', share: '18%', growth: '+15.9%' },
-              { name: 'Spain', share: '16%', growth: '+17.2%' },
-              { name: 'Belgium', share: '12%', growth: '+16.5%' },
-              { name: 'Netherlands', share: '10%', growth: '+17.1%' },
+              { name: 'Germany', share: '32.3%', growth: '+15.9%' },
+              { name: 'Spain', share: '29.5%', growth: '+17.2%' },
+              { name: 'Belgium', share: '22.4%', growth: '+16.5%' },
+              { name: 'Netherlands', share: '15.8%', growth: '+17.1%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
@@ -3254,7 +3383,7 @@ export const CATEGORIES = [
           midTier: ['Hennessy VSOP', 'Rémy Martin VSOP', 'Courvoisier VSOP', 'Martell Cordon Bleu', 'Camus VSOP'],
           value: ['Hennessy VS', 'Rémy Martin VS', 'Courvoisier VS', 'Martell VS', 'E&J VS Brandy']
         },
-        channels: { onTrade: 32, offTrade: 48, eCommerce: 14, travelRetail: 6 },
+        channels: { onTrade: 32.6, offTrade: 48.0, eCommerce: 13.5, travelRetail: 5.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 24,   // % ACV distribution
           ceDepletions: 560000,  // case equivalent depletions
@@ -3300,10 +3429,11 @@ export const CATEGORIES = [
             growth: '+1.5%',
             brands: ['Moët & Chandon', 'Veuve Clicquot', 'Laurent-Perrier'],
             regions: [
-              { name: 'Paris', share: '24%', growth: '+1.8%' },
-              { name: 'Lyon', share: '12%', growth: '+1.2%' },
-              { name: 'Marseille', share: '10%', growth: '+1.0%' },
-              { name: 'Bordeaux', share: '9%', growth: '+1.5%' },
+              { name: 'Paris', share: '40.1%', growth: '+1.8%' },
+              { name: 'Lyon', share: '20.1%', growth: '+1.2%' },
+              { name: 'Marseille', share: '16.7%', growth: '+1.0%' },
+              { name: 'Bordeaux', share: '15.1%', growth: '+1.5%' },
+              { name: 'Toulouse', share: '8.0%', growth: '+2.9%' },
             ],
             sources: [
               { name: 'The IWSR', url: 'https://theiwsr.com' },
@@ -3315,10 +3445,11 @@ export const CATEGORIES = [
             growth: '+3.2%',
             brands: ['Veuve Clicquot', 'Pol Roger', 'Bollinger'],
             regions: [
-              { name: 'London', share: '28%', growth: '+3.8%' },
-              { name: 'Manchester', share: '14%', growth: '+2.9%' },
-              { name: 'Birmingham', share: '10%', growth: '+2.8%' },
-              { name: 'Edinburgh', share: '9%', growth: '+3.1%' },
+              { name: 'London', share: '41.8%', growth: '+3.8%' },
+              { name: 'Manchester', share: '20.9%', growth: '+2.9%' },
+              { name: 'Birmingham', share: '15.0%', growth: '+2.8%' },
+              { name: 'Edinburgh', share: '13.5%', growth: '+3.1%' },
+              { name: 'Bristol', share: '8.8%', growth: '+2.4%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
@@ -3330,10 +3461,12 @@ export const CATEGORIES = [
             growth: '+2.8%',
             brands: ['Moët & Chandon', 'Veuve Clicquot', 'Taittinger'],
             regions: [
-              { name: 'New York', share: '22%', growth: '+3.5%' },
-              { name: 'California', share: '20%', growth: '+2.8%' },
-              { name: 'Florida', share: '12%', growth: '+2.2%' },
-              { name: 'Texas', share: '10%', growth: '+2.1%' },
+              { name: 'New York', share: '27.9%', growth: '+3.5%' },
+              { name: 'California', share: '25.2%', growth: '+2.8%' },
+              { name: 'Florida', share: '15.1%', growth: '+2.2%' },
+              { name: 'Texas', share: '12.6%', growth: '+2.1%' },
+              { name: 'Illinois', share: '9.5%', growth: '+1.6%' },
+              { name: 'Pennsylvania', share: '9.7%', growth: '+4.7%' },
             ],
             sources: [
               { name: 'The IWSR', url: 'https://theiwsr.com' },
@@ -3345,10 +3478,11 @@ export const CATEGORIES = [
             growth: '+4.2%',
             brands: ['Moët & Chandon', 'Veuve Clicquot', 'Laurent-Perrier'],
             regions: [
-              { name: 'Tokyo', share: '35%', growth: '+4.8%' },
-              { name: 'Osaka', share: '18%', growth: '+3.9%' },
-              { name: 'Kyoto', share: '12%', growth: '+3.8%' },
-              { name: 'Fukuoka', share: '8%', growth: '+3.5%' },
+              { name: 'Tokyo', share: '45.2%', growth: '+4.8%' },
+              { name: 'Osaka', share: '23.2%', growth: '+3.9%' },
+              { name: 'Kyoto', share: '15.5%', growth: '+3.8%' },
+              { name: 'Fukuoka', share: '10.3%', growth: '+3.5%' },
+              { name: 'Yokohama', share: '5.8%', growth: '+1.7%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
@@ -3360,10 +3494,11 @@ export const CATEGORIES = [
             growth: '+1.9%',
             brands: ['Moët & Chandon', 'Taittinger', 'Veuve Clicquot'],
             regions: [
-              { name: 'Berlin', share: '18%', growth: '+2.3%' },
-              { name: 'Munich', share: '14%', growth: '+1.8%' },
-              { name: 'Hamburg', share: '11%', growth: '+1.6%' },
-              { name: 'Frankfurt', share: '10%', growth: '+1.9%' },
+              { name: 'Berlin', share: '30.2%', growth: '+2.3%' },
+              { name: 'Munich', share: '23.5%', growth: '+1.8%' },
+              { name: 'Hamburg', share: '18.5%', growth: '+1.6%' },
+              { name: 'Frankfurt', share: '16.8%', growth: '+1.9%' },
+              { name: 'Hesse', share: '11.0%', growth: '+3.0%' },
             ],
             sources: [
               { name: 'Decanter', url: 'https://decanter.com' },
@@ -3376,7 +3511,7 @@ export const CATEGORIES = [
           midTier: ['Moët & Chandon', 'Veuve Clicquot', 'Laurent-Perrier', 'Taittinger', 'Billecart-Salmon'],
           value: ['Nicolas Feuillatte', 'Piper-Heidsieck', 'Lanson', 'Mercier', 'Mumm']
         },
-        channels: { onTrade: 45, offTrade: 40, eCommerce: 5, travelRetail: 10 },
+        channels: { onTrade: 44.8, offTrade: 40.0, eCommerce: 5.1, travelRetail: 10.1 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 38,   // % ACV distribution
           ceDepletions: 980000,  // case equivalent depletions
@@ -3412,10 +3547,11 @@ export const CATEGORIES = [
             growth: '-0.8%',
             brands: ['Moët & Chandon', 'Veuve Clicquot', 'Laurent-Perrier'],
             regions: [
-              { name: 'Paris', share: '24%', growth: '-0.5%' },
-              { name: 'Lyon', share: '12%', growth: '-1.1%' },
-              { name: 'Marseille', share: '10%', growth: '-1.2%' },
-              { name: 'Bordeaux', share: '9%', growth: '-0.9%' },
+              { name: 'Paris', share: '40.0%', growth: '-0.5%' },
+              { name: 'Lyon', share: '20.5%', growth: '-1.1%' },
+              { name: 'Marseille', share: '16.7%', growth: '-1.2%' },
+              { name: 'Bordeaux', share: '14.4%', growth: '-0.9%' },
+              { name: 'Toulouse', share: '8.4%', growth: '+4.6%' },
             ],
             sources: [
               { name: 'The IWSR', url: 'https://theiwsr.com' },
@@ -3427,10 +3563,11 @@ export const CATEGORIES = [
             growth: '+0.2%',
             brands: ['Veuve Clicquot', 'Pol Roger', 'Bollinger'],
             regions: [
-              { name: 'London', share: '28%', growth: '+0.5%' },
-              { name: 'Manchester', share: '14%', growth: '-0.2%' },
-              { name: 'Birmingham', share: '10%', growth: '-0.1%' },
-              { name: 'Edinburgh', share: '9%', growth: '+0.3%' },
+              { name: 'London', share: '42.3%', growth: '+0.5%' },
+              { name: 'Manchester', share: '20.0%', growth: '-0.2%' },
+              { name: 'Birmingham', share: '15.0%', growth: '-0.1%' },
+              { name: 'Edinburgh', share: '14.2%', growth: '+0.3%' },
+              { name: 'Bristol', share: '8.5%', growth: '+3.8%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
@@ -3442,10 +3579,12 @@ export const CATEGORIES = [
             growth: '-1.2%',
             brands: ['Moët & Chandon', 'Veuve Clicquot', 'Taittinger'],
             regions: [
-              { name: 'New York', share: '22%', growth: '-1.5%' },
-              { name: 'California', share: '20%', growth: '-1.0%' },
-              { name: 'Florida', share: '12%', growth: '-0.8%' },
-              { name: 'Texas', share: '10%', growth: '-1.3%' },
+              { name: 'New York', share: '28.4%', growth: '-1.5%' },
+              { name: 'California', share: '25.4%', growth: '-1.0%' },
+              { name: 'Florida', share: '15.0%', growth: '-0.8%' },
+              { name: 'Texas', share: '12.6%', growth: '-1.3%' },
+              { name: 'Illinois', share: '7.9%', growth: '+3.1%' },
+              { name: 'Pennsylvania', share: '10.7%', growth: '+2.3%' },
             ],
             sources: [
               { name: 'The IWSR', url: 'https://theiwsr.com' },
@@ -3457,10 +3596,11 @@ export const CATEGORIES = [
             growth: '+2.1%',
             brands: ['Moët & Chandon', 'Veuve Clicquot', 'Laurent-Perrier'],
             regions: [
-              { name: 'Tokyo', share: '35%', growth: '+2.5%' },
-              { name: 'Osaka', share: '18%', growth: '+1.9%' },
-              { name: 'Kyoto', share: '12%', growth: '+1.8%' },
-              { name: 'Fukuoka', share: '8%', growth: '+1.6%' },
+              { name: 'Tokyo', share: '44.0%', growth: '+2.5%' },
+              { name: 'Osaka', share: '22.8%', growth: '+1.9%' },
+              { name: 'Kyoto', share: '16.1%', growth: '+1.8%' },
+              { name: 'Fukuoka', share: '10.3%', growth: '+1.6%' },
+              { name: 'Yokohama', share: '6.8%', growth: '+3.0%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
@@ -3472,10 +3612,11 @@ export const CATEGORIES = [
             growth: '-0.4%',
             brands: ['Moët & Chandon', 'Taittinger', 'Veuve Clicquot'],
             regions: [
-              { name: 'Berlin', share: '18%', growth: '-0.2%' },
-              { name: 'Munich', share: '14%', growth: '-0.5%' },
-              { name: 'Hamburg', share: '11%', growth: '-0.6%' },
-              { name: 'Frankfurt', share: '10%', growth: '-0.3%' },
+              { name: 'Berlin', share: '29.5%', growth: '-0.2%' },
+              { name: 'Munich', share: '24.1%', growth: '-0.5%' },
+              { name: 'Hamburg', share: '17.6%', growth: '-0.6%' },
+              { name: 'Frankfurt', share: '17.1%', growth: '-0.3%' },
+              { name: 'Hesse', share: '11.7%', growth: '+2.7%' },
             ],
             sources: [
               { name: 'Decanter', url: 'https://decanter.com' },
@@ -3488,7 +3629,7 @@ export const CATEGORIES = [
           midTier: ['Moët & Chandon', 'Veuve Clicquot', 'Laurent-Perrier', 'Taittinger', 'Billecart-Salmon'],
           value: ['Nicolas Feuillatte', 'Piper-Heidsieck', 'Lanson', 'Mercier', 'Mumm']
         },
-        channels: { onTrade: 46, offTrade: 39, eCommerce: 5, travelRetail: 10 },
+        channels: { onTrade: 45.3, offTrade: 39.6, eCommerce: 5.1, travelRetail: 10.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 37,   // % ACV distribution
           ceDepletions: 940000,  // case equivalent depletions
@@ -3524,10 +3665,11 @@ export const CATEGORIES = [
             growth: '-2.5%',
             brands: ['Moët & Chandon', 'Veuve Clicquot', 'Laurent-Perrier'],
             regions: [
-              { name: 'Paris', share: '24%', growth: '-2.2%' },
-              { name: 'Lyon', share: '12%', growth: '-2.8%' },
-              { name: 'Marseille', share: '10%', growth: '-3.1%' },
-              { name: 'Bordeaux', share: '9%', growth: '-2.6%' },
+              { name: 'Paris', share: '39.9%', growth: '-2.2%' },
+              { name: 'Lyon', share: '21.2%', growth: '-2.8%' },
+              { name: 'Marseille', share: '16.8%', growth: '-3.1%' },
+              { name: 'Bordeaux', share: '13.5%', growth: '-2.6%' },
+              { name: 'Toulouse', share: '8.6%', growth: '+2.2%' },
             ],
             sources: [
               { name: 'The IWSR', url: 'https://theiwsr.com' },
@@ -3539,10 +3681,11 @@ export const CATEGORIES = [
             growth: '-3.2%',
             brands: ['Veuve Clicquot', 'Pol Roger', 'Bollinger'],
             regions: [
-              { name: 'London', share: '28%', growth: '-2.9%' },
-              { name: 'Manchester', share: '14%', growth: '-3.5%' },
-              { name: 'Birmingham', share: '10%', growth: '-3.3%' },
-              { name: 'Edinburgh', share: '9%', growth: '-3.8%' },
+              { name: 'London', share: '41.7%', growth: '-2.9%' },
+              { name: 'Manchester', share: '21.6%', growth: '-3.5%' },
+              { name: 'Birmingham', share: '13.9%', growth: '-3.3%' },
+              { name: 'Edinburgh', share: '15.4%', growth: '-3.8%' },
+              { name: 'Bristol', share: '7.4%', growth: '+0.4%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
@@ -3554,10 +3697,12 @@ export const CATEGORIES = [
             growth: '-4.8%',
             brands: ['Moët & Chandon', 'Veuve Clicquot', 'Taittinger'],
             regions: [
-              { name: 'New York', share: '22%', growth: '-5.2%' },
-              { name: 'California', share: '20%', growth: '-4.5%' },
-              { name: 'Florida', share: '12%', growth: '-4.2%' },
-              { name: 'Texas', share: '10%', growth: '-5.1%' },
+              { name: 'New York', share: '29.7%', growth: '-5.2%' },
+              { name: 'California', share: '25.0%', growth: '-4.5%' },
+              { name: 'Florida', share: '14.2%', growth: '-4.2%' },
+              { name: 'Texas', share: '13.4%', growth: '-5.1%' },
+              { name: 'Illinois', share: '7.4%', growth: '+2.4%' },
+              { name: 'Pennsylvania', share: '10.3%', growth: '+3.4%' },
             ],
             sources: [
               { name: 'The IWSR', url: 'https://theiwsr.com' },
@@ -3569,10 +3714,11 @@ export const CATEGORIES = [
             growth: '+1.2%',
             brands: ['Moët & Chandon', 'Veuve Clicquot', 'Laurent-Perrier'],
             regions: [
-              { name: 'Tokyo', share: '35%', growth: '+1.5%' },
-              { name: 'Osaka', share: '18%', growth: '+1.0%' },
-              { name: 'Kyoto', share: '12%', growth: '+0.9%' },
-              { name: 'Fukuoka', share: '8%', growth: '+0.8%' },
+              { name: 'Tokyo', share: '45.8%', growth: '+1.5%' },
+              { name: 'Osaka', share: '22.0%', growth: '+1.0%' },
+              { name: 'Kyoto', share: '17.6%', growth: '+0.9%' },
+              { name: 'Fukuoka', share: '9.1%', growth: '+0.8%' },
+              { name: 'Yokohama', share: '5.5%', growth: '+2.3%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
@@ -3584,10 +3730,11 @@ export const CATEGORIES = [
             growth: '-2.8%',
             brands: ['Moët & Chandon', 'Taittinger', 'Veuve Clicquot'],
             regions: [
-              { name: 'Berlin', share: '18%', growth: '-2.5%' },
-              { name: 'Munich', share: '14%', growth: '-3.1%' },
-              { name: 'Hamburg', share: '11%', growth: '-3.2%' },
-              { name: 'Frankfurt', share: '10%', growth: '-2.9%' },
+              { name: 'Berlin', share: '30.8%', growth: '-2.5%' },
+              { name: 'Munich', share: '23.7%', growth: '-3.1%' },
+              { name: 'Hamburg', share: '16.8%', growth: '-3.2%' },
+              { name: 'Frankfurt', share: '16.5%', growth: '-2.9%' },
+              { name: 'Hesse', share: '12.2%', growth: '+3.1%' },
             ],
             sources: [
               { name: 'Decanter', url: 'https://decanter.com' },
@@ -3600,7 +3747,7 @@ export const CATEGORIES = [
           midTier: ['Moët & Chandon', 'Veuve Clicquot', 'Laurent-Perrier', 'Taittinger', 'Billecart-Salmon'],
           value: ['Nicolas Feuillatte', 'Piper-Heidsieck', 'Lanson', 'Mercier', 'Mumm']
         },
-        channels: { onTrade: 44, offTrade: 41, eCommerce: 5, travelRetail: 10 },
+        channels: { onTrade: 43.8, offTrade: 40.9, eCommerce: 5.2, travelRetail: 10.1 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 36,   // % ACV distribution
           ceDepletions: 900000,  // case equivalent depletions
@@ -3636,10 +3783,11 @@ export const CATEGORIES = [
             growth: '+2.8%',
             brands: ['Moët & Chandon', 'Veuve Clicquot', 'Laurent-Perrier'],
             regions: [
-              { name: 'Paris', share: '24%', growth: '+3.2%' },
-              { name: 'Lyon', share: '12%', growth: '+2.5%' },
-              { name: 'Marseille', share: '10%', growth: '+2.6%' },
-              { name: 'Bordeaux', share: '9%', growth: '+2.9%' },
+              { name: 'Paris', share: '38.6%', growth: '+3.2%' },
+              { name: 'Lyon', share: '22.8%', growth: '+2.5%' },
+              { name: 'Marseille', share: '17.9%', growth: '+2.6%' },
+              { name: 'Bordeaux', share: '13.3%', growth: '+2.9%' },
+              { name: 'Toulouse', share: '7.4%', growth: '+3.7%' },
             ],
             sources: [
               { name: 'The IWSR', url: 'https://theiwsr.com' },
@@ -3651,10 +3799,11 @@ export const CATEGORIES = [
             growth: '+8.2%',
             brands: ['Veuve Clicquot', 'Pol Roger', 'Bollinger'],
             regions: [
-              { name: 'London', share: '28%', growth: '+8.8%' },
-              { name: 'Manchester', share: '14%', growth: '+7.9%' },
-              { name: 'Birmingham', share: '10%', growth: '+8.1%' },
-              { name: 'Edinburgh', share: '9%', growth: '+7.8%' },
+              { name: 'London', share: '40.1%', growth: '+8.8%' },
+              { name: 'Manchester', share: '22.1%', growth: '+7.9%' },
+              { name: 'Birmingham', share: '14.7%', growth: '+8.1%' },
+              { name: 'Edinburgh', share: '15.5%', growth: '+7.8%' },
+              { name: 'Bristol', share: '7.6%', growth: '+7.0%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
@@ -3666,10 +3815,12 @@ export const CATEGORIES = [
             growth: '+7.5%',
             brands: ['Moët & Chandon', 'Veuve Clicquot', 'Taittinger'],
             regions: [
-              { name: 'New York', share: '22%', growth: '+8.2%' },
-              { name: 'California', share: '20%', growth: '+7.1%' },
-              { name: 'Florida', share: '12%', growth: '+7.8%' },
-              { name: 'Texas', share: '10%', growth: '+6.9%' },
+              { name: 'New York', share: '28.5%', growth: '+8.2%' },
+              { name: 'California', share: '26.4%', growth: '+7.1%' },
+              { name: 'Florida', share: '14.6%', growth: '+7.8%' },
+              { name: 'Texas', share: '13.3%', growth: '+6.9%' },
+              { name: 'Illinois', share: '6.4%', growth: '+5.1%' },
+              { name: 'Pennsylvania', share: '10.8%', growth: '+4.2%' },
             ],
             sources: [
               { name: 'The IWSR', url: 'https://theiwsr.com' },
@@ -3681,10 +3832,11 @@ export const CATEGORIES = [
             growth: '+3.5%',
             brands: ['Moët & Chandon', 'Veuve Clicquot', 'Laurent-Perrier'],
             regions: [
-              { name: 'Tokyo', share: '35%', growth: '+3.9%' },
-              { name: 'Osaka', share: '18%', growth: '+3.2%' },
-              { name: 'Kyoto', share: '12%', growth: '+3.1%' },
-              { name: 'Fukuoka', share: '8%', growth: '+3.3%' },
+              { name: 'Tokyo', share: '45.6%', growth: '+3.9%' },
+              { name: 'Osaka', share: '22.3%', growth: '+3.2%' },
+              { name: 'Kyoto', share: '17.2%', growth: '+3.1%' },
+              { name: 'Fukuoka', share: '9.0%', growth: '+3.3%' },
+              { name: 'Yokohama', share: '5.9%', growth: '-0.4%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
@@ -3696,10 +3848,11 @@ export const CATEGORIES = [
             growth: '+4.2%',
             brands: ['Moët & Chandon', 'Taittinger', 'Veuve Clicquot'],
             regions: [
-              { name: 'Berlin', share: '18%', growth: '+4.5%' },
-              { name: 'Munich', share: '14%', growth: '+3.9%' },
-              { name: 'Hamburg', share: '11%', growth: '+4.1%' },
-              { name: 'Frankfurt', share: '10%', growth: '+4.3%' },
+              { name: 'Berlin', share: '31.3%', growth: '+4.5%' },
+              { name: 'Munich', share: '23.9%', growth: '+3.9%' },
+              { name: 'Hamburg', share: '15.6%', growth: '+4.1%' },
+              { name: 'Frankfurt', share: '17.1%', growth: '+4.3%' },
+              { name: 'Hesse', share: '12.1%', growth: '+2.0%' },
             ],
             sources: [
               { name: 'Decanter', url: 'https://decanter.com' },
@@ -3712,7 +3865,7 @@ export const CATEGORIES = [
           midTier: ['Moët & Chandon', 'Veuve Clicquot', 'Laurent-Perrier', 'Taittinger', 'Billecart-Salmon'],
           value: ['Nicolas Feuillatte', 'Piper-Heidsieck', 'Lanson', 'Mercier', 'Mumm']
         },
-        channels: { onTrade: 43, offTrade: 42, eCommerce: 8, travelRetail: 7 },
+        channels: { onTrade: 42.4, offTrade: 42.4, eCommerce: 8.2, travelRetail: 7.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 35,   // % ACV distribution
           ceDepletions: 860000,  // case equivalent depletions
@@ -3748,10 +3901,11 @@ export const CATEGORIES = [
             growth: '+28.5%',
             brands: ['Moët & Chandon', 'Veuve Clicquot', 'Laurent-Perrier'],
             regions: [
-              { name: 'Paris', share: '24%', growth: '+30.2%' },
-              { name: 'Lyon', share: '12%', growth: '+27.8%' },
-              { name: 'Marseille', share: '10%', growth: '+28.1%' },
-              { name: 'Bordeaux', share: '9%', growth: '+26.5%' },
+              { name: 'Paris', share: '39.2%', growth: '+30.2%' },
+              { name: 'Lyon', share: '22.6%', growth: '+27.8%' },
+              { name: 'Marseille', share: '19.1%', growth: '+28.1%' },
+              { name: 'Bordeaux', share: '12.8%', growth: '+26.5%' },
+              { name: 'Toulouse', share: '6.3%', growth: '+2.7%' },
             ],
             sources: [
               { name: 'The IWSR', url: 'https://theiwsr.com' },
@@ -3763,10 +3917,12 @@ export const CATEGORIES = [
             growth: '+38.2%',
             brands: ['Moët & Chandon', 'Veuve Clicquot', 'Taittinger'],
             regions: [
-              { name: 'New York', share: '22%', growth: '+40.1%' },
-              { name: 'California', share: '20%', growth: '+36.5%' },
-              { name: 'Florida', share: '12%', growth: '+39.2%' },
-              { name: 'Texas', share: '10%', growth: '+35.8%' },
+              { name: 'New York', share: '27.7%', growth: '+40.1%' },
+              { name: 'California', share: '27.9%', growth: '+36.5%' },
+              { name: 'Florida', share: '14.1%', growth: '+39.2%' },
+              { name: 'Texas', share: '13.5%', growth: '+35.8%' },
+              { name: 'Illinois', share: '6.1%', growth: '+2.7%' },
+              { name: 'Pennsylvania', share: '10.7%', growth: '+4.4%' },
             ],
             sources: [
               { name: 'The IWSR', url: 'https://theiwsr.com' },
@@ -3778,10 +3934,11 @@ export const CATEGORIES = [
             growth: '+35.1%',
             brands: ['Veuve Clicquot', 'Pol Roger', 'Bollinger'],
             regions: [
-              { name: 'London', share: '28%', growth: '+37.2%' },
-              { name: 'Manchester', share: '14%', growth: '+33.9%' },
-              { name: 'Birmingham', share: '10%', growth: '+34.5%' },
-              { name: 'Edinburgh', share: '9%', growth: '+34.1%' },
+              { name: 'London', share: '40.8%', growth: '+37.2%' },
+              { name: 'Manchester', share: '21.9%', growth: '+33.9%' },
+              { name: 'Birmingham', share: '13.8%', growth: '+34.5%' },
+              { name: 'Edinburgh', share: '15.3%', growth: '+34.1%' },
+              { name: 'Bristol', share: '8.2%', growth: '+2.8%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
@@ -3793,10 +3950,11 @@ export const CATEGORIES = [
             growth: '+22.5%',
             brands: ['Moët & Chandon', 'Veuve Clicquot', 'Laurent-Perrier'],
             regions: [
-              { name: 'Tokyo', share: '35%', growth: '+23.8%' },
-              { name: 'Osaka', share: '18%', growth: '+21.5%' },
-              { name: 'Kyoto', share: '12%', growth: '+21.8%' },
-              { name: 'Fukuoka', share: '8%', growth: '+21.2%' },
+              { name: 'Tokyo', share: '46.5%', growth: '+23.8%' },
+              { name: 'Osaka', share: '21.6%', growth: '+21.5%' },
+              { name: 'Kyoto', share: '16.2%', growth: '+21.8%' },
+              { name: 'Fukuoka', share: '8.7%', growth: '+21.2%' },
+              { name: 'Yokohama', share: '7.0%', growth: '+5.7%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
@@ -3808,10 +3966,11 @@ export const CATEGORIES = [
             growth: '+29.8%',
             brands: ['Moët & Chandon', 'Taittinger', 'Veuve Clicquot'],
             regions: [
-              { name: 'Berlin', share: '18%', growth: '+31.2%' },
-              { name: 'Munich', share: '14%', growth: '+28.9%' },
-              { name: 'Hamburg', share: '11%', growth: '+29.5%' },
-              { name: 'Frankfurt', share: '10%', growth: '+30.1%' },
+              { name: 'Berlin', share: '31.1%', growth: '+31.2%' },
+              { name: 'Munich', share: '24.0%', growth: '+28.9%' },
+              { name: 'Hamburg', share: '15.0%', growth: '+29.5%' },
+              { name: 'Frankfurt', share: '17.9%', growth: '+30.1%' },
+              { name: 'Hesse', share: '12.0%', growth: '+5.5%' },
             ],
             sources: [
               { name: 'Decanter', url: 'https://decanter.com' },
@@ -3824,7 +3983,7 @@ export const CATEGORIES = [
           midTier: ['Moët & Chandon', 'Veuve Clicquot', 'Laurent-Perrier', 'Taittinger', 'Billecart-Salmon'],
           value: ['Nicolas Feuillatte', 'Piper-Heidsieck', 'Lanson', 'Mercier', 'Mumm']
         },
-        channels: { onTrade: 38, offTrade: 48, eCommerce: 10, travelRetail: 4 },
+        channels: { onTrade: 37.5, offTrade: 48.6, eCommerce: 10.1, travelRetail: 3.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 34,   // % ACV distribution
           ceDepletions: 820000,  // case equivalent depletions
@@ -3870,10 +4029,12 @@ export const CATEGORIES = [
             growth: '-0.5%',
             brands: ['Robert Mondavi', 'Oyster Bay', 'Kim Crawford'],
             regions: [
-              { name: 'California', share: '32%', growth: '+0.8%' },
-              { name: 'New York', share: '16%', growth: '-1.2%' },
-              { name: 'Texas', share: '12%', growth: '-0.3%' },
-              { name: 'Florida', share: '10%', growth: '-1.5%' },
+              { name: 'California', share: '38.7%', growth: '+0.8%' },
+              { name: 'New York', share: '19.3%', growth: '-1.2%' },
+              { name: 'Texas', share: '14.5%', growth: '-0.3%' },
+              { name: 'Florida', share: '12.1%', growth: '-1.5%' },
+              { name: 'Illinois', share: '5.8%', growth: '+5.0%' },
+              { name: 'Pennsylvania', share: '9.6%', growth: '+4.1%' },
             ],
             sources: [
               { name: 'The IWSR', url: 'https://theiwsr.com' },
@@ -3885,10 +4046,11 @@ export const CATEGORIES = [
             growth: '-2.1%',
             brands: ['Château Margaux', 'Château Lafite', 'Cloudy Bay'],
             regions: [
-              { name: 'Bordeaux', share: '28%', growth: '-1.8%' },
-              { name: 'Paris', share: '18%', growth: '-2.5%' },
-              { name: 'Lyon', share: '12%', growth: '-2.0%' },
-              { name: 'Provence', share: '10%', growth: '-2.3%' },
+              { name: 'Bordeaux', share: '38.6%', growth: '-1.8%' },
+              { name: 'Paris', share: '24.8%', growth: '-2.5%' },
+              { name: 'Lyon', share: '16.5%', growth: '-2.0%' },
+              { name: 'Provence', share: '13.8%', growth: '-2.3%' },
+              { name: 'Toulouse', share: '6.3%', growth: '+5.5%' },
             ],
             sources: [
               { name: 'Decanter', url: 'https://decanter.com' },
@@ -3900,10 +4062,10 @@ export const CATEGORIES = [
             growth: '-1.5%',
             brands: ['Sassicaia', 'Gavi', 'Pinot Grigio'],
             regions: [
-              { name: 'Milan', share: '22%', growth: '-1.2%' },
-              { name: 'Rome', share: '18%', growth: '-1.6%' },
-              { name: 'Florence', share: '14%', growth: '-1.7%' },
-              { name: 'Venice', share: '10%', growth: '-1.8%' },
+              { name: 'Milan', share: '34.4%', growth: '-1.2%' },
+              { name: 'Rome', share: '28.1%', growth: '-1.6%' },
+              { name: 'Florence', share: '21.9%', growth: '-1.7%' },
+              { name: 'Venice', share: '15.6%', growth: '-1.8%' },
             ],
             sources: [
               { name: 'Wine Searcher', url: 'https://wine-searcher.com' },
@@ -3915,10 +4077,11 @@ export const CATEGORIES = [
             growth: '-1.8%',
             brands: ['Barefoot', 'Yellow Tail', 'CloudyBay'],
             regions: [
-              { name: 'London', share: '26%', growth: '-1.5%' },
-              { name: 'Manchester', share: '14%', growth: '-2.1%' },
-              { name: 'Edinburgh', share: '12%', growth: '-2.0%' },
-              { name: 'Birmingham', share: '10%', growth: '-2.2%' },
+              { name: 'London', share: '37.3%', growth: '-1.5%' },
+              { name: 'Manchester', share: '20.1%', growth: '-2.1%' },
+              { name: 'Edinburgh', share: '17.3%', growth: '-2.0%' },
+              { name: 'Birmingham', share: '14.4%', growth: '-2.2%' },
+              { name: 'Bristol', share: '10.9%', growth: '+1.1%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
@@ -3930,10 +4093,10 @@ export const CATEGORIES = [
             growth: '-0.2%',
             brands: ['Penfolds Grange', 'Yellow Tail', 'Lindemans'],
             regions: [
-              { name: 'Sydney', share: '24%', growth: '+0.5%' },
-              { name: 'Melbourne', share: '20%', growth: '-0.3%' },
-              { name: 'Brisbane', share: '16%', growth: '-0.4%' },
-              { name: 'Perth', share: '12%', growth: '-0.1%' },
+              { name: 'Sydney', share: '33.5%', growth: '+0.5%' },
+              { name: 'Melbourne', share: '27.4%', growth: '-0.3%' },
+              { name: 'Brisbane', share: '22.4%', growth: '-0.4%' },
+              { name: 'Perth', share: '16.7%', growth: '-0.1%' },
             ],
             sources: [
               { name: 'Wine Searcher', url: 'https://wine-searcher.com' },
@@ -3946,7 +4109,7 @@ export const CATEGORIES = [
           midTier: ['Robert Mondavi', 'Oyster Bay', 'Kim Crawford', 'Meiomi', 'Josh Cellars'],
           value: ['Barefoot', 'Yellow Tail', 'Blossom Hill', 'Hardy\u2019s', 'Echo Falls', 'Jacob\u2019s Creek']
         },
-        channels: { onTrade: 30, offTrade: 55, eCommerce: 8, travelRetail: 7 },
+        channels: { onTrade: 30.0, offTrade: 55.1, eCommerce: 7.7, travelRetail: 7.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 58,   // % ACV distribution
           ceDepletions: 3400000,  // case equivalent depletions
@@ -3982,10 +4145,12 @@ export const CATEGORIES = [
             growth: '-1.2%',
             brands: ['Robert Mondavi', 'Oyster Bay', 'Kim Crawford'],
             regions: [
-              { name: 'California', share: '32%', growth: '+1.5%' },
-              { name: 'New York', share: '16%', growth: '-2.1%' },
-              { name: 'Texas', share: '12%', growth: '-1.5%' },
-              { name: 'Florida', share: '10%', growth: '-1.8%' },
+              { name: 'California', share: '38.0%', growth: '+1.5%' },
+              { name: 'New York', share: '18.8%', growth: '-2.1%' },
+              { name: 'Texas', share: '14.4%', growth: '-1.5%' },
+              { name: 'Florida', share: '12.7%', growth: '-1.8%' },
+              { name: 'Illinois', share: '6.9%', growth: '+0.8%' },
+              { name: 'Pennsylvania', share: '9.2%', growth: '+2.5%' },
             ],
             sources: [
               { name: 'The IWSR', url: 'https://theiwsr.com' },
@@ -3997,10 +4162,11 @@ export const CATEGORIES = [
             growth: '-3.2%',
             brands: ['Château Margaux', 'Château Lafite', 'Cloudy Bay'],
             regions: [
-              { name: 'Bordeaux', share: '28%', growth: '-2.9%' },
-              { name: 'Paris', share: '18%', growth: '-3.5%' },
-              { name: 'Lyon', share: '12%', growth: '-3.1%' },
-              { name: 'Provence', share: '10%', growth: '-3.3%' },
+              { name: 'Bordeaux', share: '39.1%', growth: '-2.9%' },
+              { name: 'Paris', share: '23.8%', growth: '-3.5%' },
+              { name: 'Lyon', share: '16.9%', growth: '-3.1%' },
+              { name: 'Provence', share: '12.6%', growth: '-3.3%' },
+              { name: 'Toulouse', share: '7.6%', growth: '+2.1%' },
             ],
             sources: [
               { name: 'Decanter', url: 'https://decanter.com' },
@@ -4012,10 +4178,10 @@ export const CATEGORIES = [
             growth: '-2.8%',
             brands: ['Sassicaia', 'Gavi', 'Pinot Grigio'],
             regions: [
-              { name: 'Milan', share: '22%', growth: '-2.5%' },
-              { name: 'Rome', share: '18%', growth: '-2.9%' },
-              { name: 'Florence', share: '14%', growth: '-3.0%' },
-              { name: 'Venice', share: '10%', growth: '-3.2%' },
+              { name: 'Milan', share: '34.7%', growth: '-2.5%' },
+              { name: 'Rome', share: '27.7%', growth: '-2.9%' },
+              { name: 'Florence', share: '21.7%', growth: '-3.0%' },
+              { name: 'Venice', share: '15.9%', growth: '-3.2%' },
             ],
             sources: [
               { name: 'Wine Searcher', url: 'https://wine-searcher.com' },
@@ -4027,10 +4193,11 @@ export const CATEGORIES = [
             growth: '-2.5%',
             brands: ['Barefoot', 'Yellow Tail', 'Cloudy Bay'],
             regions: [
-              { name: 'London', share: '26%', growth: '-2.2%' },
-              { name: 'Manchester', share: '14%', growth: '-2.8%' },
-              { name: 'Edinburgh', share: '12%', growth: '-2.5%' },
-              { name: 'Birmingham', share: '10%', growth: '-2.9%' },
+              { name: 'London', share: '38.4%', growth: '-2.2%' },
+              { name: 'Manchester', share: '18.9%', growth: '-2.8%' },
+              { name: 'Edinburgh', share: '17.0%', growth: '-2.5%' },
+              { name: 'Birmingham', share: '15.6%', growth: '-2.9%' },
+              { name: 'Bristol', share: '10.1%', growth: '+5.5%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
@@ -4042,10 +4209,12 @@ export const CATEGORIES = [
             growth: '-22.1%',
             brands: ['Opus One', 'Penfolds Grange', 'Cloudy Bay'],
             regions: [
-              { name: 'Shanghai', share: '28%', growth: '-21.8%' },
-              { name: 'Beijing', share: '22%', growth: '-22.5%' },
-              { name: 'Guangzhou', share: '18%', growth: '-21.9%' },
-              { name: 'Shenzhen', share: '12%', growth: '-22.3%' },
+              { name: 'Shanghai', share: '29.0%', growth: '-21.8%' },
+              { name: 'Beijing', share: '24.8%', growth: '-22.5%' },
+              { name: 'Guangzhou', share: '19.5%', growth: '-21.9%' },
+              { name: 'Shenzhen', share: '13.0%', growth: '-22.3%' },
+              { name: 'Hangzhou', share: '5.8%', growth: '+5.2%' },
+              { name: 'Chengdu', share: '7.9%', growth: '+0.4%' },
             ],
             sources: [
               { name: 'Wine Searcher', url: 'https://wine-searcher.com' },
@@ -4058,7 +4227,7 @@ export const CATEGORIES = [
           midTier: ['Robert Mondavi', 'Oyster Bay', 'Kim Crawford', 'Meiomi', 'Josh Cellars'],
           value: ['Barefoot', 'Yellow Tail', 'Blossom Hill', 'Hardy\u2019s', 'Echo Falls', 'Jacob\u2019s Creek']
         },
-        channels: { onTrade: 30, offTrade: 56, eCommerce: 7, travelRetail: 7 },
+        channels: { onTrade: 29.6, offTrade: 56.3, eCommerce: 6.8, travelRetail: 7.3 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 56,   // % ACV distribution
           ceDepletions: 3300000,  // case equivalent depletions
@@ -4094,10 +4263,12 @@ export const CATEGORIES = [
             growth: '-0.8%',
             brands: ['Robert Mondavi', 'Oyster Bay', 'Kim Crawford'],
             regions: [
-              { name: 'California', share: '32%', growth: '+2.1%' },
-              { name: 'New York', share: '16%', growth: '-1.8%' },
-              { name: 'Texas', share: '12%', growth: '-1.2%' },
-              { name: 'Florida', share: '10%', growth: '-0.9%' },
+              { name: 'California', share: '39.5%', growth: '+2.1%' },
+              { name: 'New York', share: '19.6%', growth: '-1.8%' },
+              { name: 'Texas', share: '14.1%', growth: '-1.2%' },
+              { name: 'Florida', share: '12.8%', growth: '-0.9%' },
+              { name: 'Illinois', share: '6.0%', growth: '+1.6%' },
+              { name: 'Pennsylvania', share: '8.0%', growth: '+6.1%' },
             ],
             sources: [
               { name: 'The IWSR', url: 'https://theiwsr.com' },
@@ -4109,10 +4280,11 @@ export const CATEGORIES = [
             growth: '-1.8%',
             brands: ['Château Margaux', 'Château Lafite', 'Cloudy Bay'],
             regions: [
-              { name: 'Bordeaux', share: '28%', growth: '-1.5%' },
-              { name: 'Paris', share: '18%', growth: '-2.1%' },
-              { name: 'Lyon', share: '12%', growth: '-1.9%' },
-              { name: 'Provence', share: '10%', growth: '-1.7%' },
+              { name: 'Bordeaux', share: '38.4%', growth: '-1.5%' },
+              { name: 'Paris', share: '23.3%', growth: '-2.1%' },
+              { name: 'Lyon', share: '17.9%', growth: '-1.9%' },
+              { name: 'Provence', share: '12.7%', growth: '-1.7%' },
+              { name: 'Toulouse', share: '7.7%', growth: '+6.6%' },
             ],
             sources: [
               { name: 'Decanter', url: 'https://decanter.com' },
@@ -4124,10 +4296,10 @@ export const CATEGORIES = [
             growth: '-1.5%',
             brands: ['Sassicaia', 'Gavi', 'Pinot Grigio'],
             regions: [
-              { name: 'Milan', share: '22%', growth: '-1.2%' },
-              { name: 'Rome', share: '18%', growth: '-1.6%' },
-              { name: 'Florence', share: '14%', growth: '-1.7%' },
-              { name: 'Venice', share: '10%', growth: '-1.9%' },
+              { name: 'Milan', share: '35.3%', growth: '-1.2%' },
+              { name: 'Rome', share: '28.1%', growth: '-1.6%' },
+              { name: 'Florence', share: '22.1%', growth: '-1.7%' },
+              { name: 'Venice', share: '14.5%', growth: '-1.9%' },
             ],
             sources: [
               { name: 'Wine Searcher', url: 'https://wine-searcher.com' },
@@ -4139,10 +4311,11 @@ export const CATEGORIES = [
             growth: '-1.9%',
             brands: ['Barefoot', 'Yellow Tail', 'Cloudy Bay'],
             regions: [
-              { name: 'London', share: '26%', growth: '-1.6%' },
-              { name: 'Manchester', share: '14%', growth: '-2.2%' },
-              { name: 'Edinburgh', share: '12%', growth: '-2.0%' },
-              { name: 'Birmingham', share: '10%', growth: '-2.1%' },
+              { name: 'London', share: '39.7%', growth: '-1.6%' },
+              { name: 'Manchester', share: '19.0%', growth: '-2.2%' },
+              { name: 'Edinburgh', share: '16.1%', growth: '-2.0%' },
+              { name: 'Birmingham', share: '14.8%', growth: '-2.1%' },
+              { name: 'Bristol', share: '10.4%', growth: '+5.1%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
@@ -4154,10 +4327,12 @@ export const CATEGORIES = [
             growth: '-18.5%',
             brands: ['Opus One', 'Penfolds Grange', 'Cloudy Bay'],
             regions: [
-              { name: 'Shanghai', share: '28%', growth: '-18.2%' },
-              { name: 'Beijing', share: '22%', growth: '-18.8%' },
-              { name: 'Guangzhou', share: '18%', growth: '-18.4%' },
-              { name: 'Shenzhen', share: '12%', growth: '-18.9%' },
+              { name: 'Shanghai', share: '30.4%', growth: '-18.2%' },
+              { name: 'Beijing', share: '24.8%', growth: '-18.8%' },
+              { name: 'Guangzhou', share: '18.5%', growth: '-18.4%' },
+              { name: 'Shenzhen', share: '12.9%', growth: '-18.9%' },
+              { name: 'Hangzhou', share: '6.2%', growth: '+5.5%' },
+              { name: 'Chengdu', share: '7.2%', growth: '+5.2%' },
             ],
             sources: [
               { name: 'Wine Searcher', url: 'https://wine-searcher.com' },
@@ -4170,7 +4345,7 @@ export const CATEGORIES = [
           midTier: ['Robert Mondavi', 'Oyster Bay', 'Kim Crawford', 'Meiomi', 'Josh Cellars'],
           value: ['Barefoot', 'Yellow Tail', 'Blossom Hill', 'Hardy\u2019s', 'Echo Falls', 'Jacob\u2019s Creek']
         },
-        channels: { onTrade: 31, offTrade: 55, eCommerce: 7, travelRetail: 7 },
+        channels: { onTrade: 31.2, offTrade: 55.1, eCommerce: 6.7, travelRetail: 7.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 54,   // % ACV distribution
           ceDepletions: 3200000,  // case equivalent depletions
@@ -4206,10 +4381,12 @@ export const CATEGORIES = [
             growth: '+2.8%',
             brands: ['Robert Mondavi', 'Oyster Bay', 'Kim Crawford'],
             regions: [
-              { name: 'California', share: '32%', growth: '+4.2%' },
-              { name: 'New York', share: '16%', growth: '+1.5%' },
-              { name: 'Texas', share: '12%', growth: '+2.1%' },
-              { name: 'Florida', share: '10%', growth: '+2.5%' },
+              { name: 'California', share: '38.6%', growth: '+4.2%' },
+              { name: 'New York', share: '21.0%', growth: '+1.5%' },
+              { name: 'Texas', share: '13.7%', growth: '+2.1%' },
+              { name: 'Florida', share: '13.5%', growth: '+2.5%' },
+              { name: 'Illinois', share: '6.1%', growth: '+1.5%' },
+              { name: 'Pennsylvania', share: '7.1%', growth: '+0.8%' },
             ],
             sources: [
               { name: 'The IWSR', url: 'https://theiwsr.com' },
@@ -4221,10 +4398,11 @@ export const CATEGORIES = [
             growth: '+0.8%',
             brands: ['Château Margaux', 'Château Lafite', 'Cloudy Bay'],
             regions: [
-              { name: 'Bordeaux', share: '28%', growth: '+1.1%' },
-              { name: 'Paris', share: '18%', growth: '+0.5%' },
-              { name: 'Lyon', share: '12%', growth: '+0.9%' },
-              { name: 'Provence', share: '10%', growth: '+0.7%' },
+              { name: 'Bordeaux', share: '38.0%', growth: '+1.1%' },
+              { name: 'Paris', share: '22.8%', growth: '+0.5%' },
+              { name: 'Lyon', share: '17.9%', growth: '+0.9%' },
+              { name: 'Provence', share: '13.4%', growth: '+0.7%' },
+              { name: 'Toulouse', share: '7.9%', growth: '+1.6%' },
             ],
             sources: [
               { name: 'Decanter', url: 'https://decanter.com' },
@@ -4236,10 +4414,10 @@ export const CATEGORIES = [
             growth: '+1.2%',
             brands: ['Sassicaia', 'Gavi', 'Pinot Grigio'],
             regions: [
-              { name: 'Milan', share: '22%', growth: '+1.5%' },
-              { name: 'Rome', share: '18%', growth: '+1.0%' },
-              { name: 'Florence', share: '14%', growth: '+1.1%' },
-              { name: 'Venice', share: '10%', growth: '+1.3%' },
+              { name: 'Milan', share: '34.2%', growth: '+1.5%' },
+              { name: 'Rome', share: '28.2%', growth: '+1.0%' },
+              { name: 'Florence', share: '23.0%', growth: '+1.1%' },
+              { name: 'Venice', share: '14.6%', growth: '+1.3%' },
             ],
             sources: [
               { name: 'Wine Searcher', url: 'https://wine-searcher.com' },
@@ -4251,10 +4429,11 @@ export const CATEGORIES = [
             growth: '+2.1%',
             brands: ['Barefoot', 'Yellow Tail', 'Cloudy Bay'],
             regions: [
-              { name: 'London', share: '26%', growth: '+2.5%' },
-              { name: 'Manchester', share: '14%', growth: '+1.8%' },
-              { name: 'Edinburgh', share: '12%', growth: '+2.0%' },
-              { name: 'Birmingham', share: '10%', growth: '+1.9%' },
+              { name: 'London', share: '38.7%', growth: '+2.5%' },
+              { name: 'Manchester', share: '20.5%', growth: '+1.8%' },
+              { name: 'Edinburgh', share: '15.7%', growth: '+2.0%' },
+              { name: 'Birmingham', share: '13.4%', growth: '+1.9%' },
+              { name: 'Bristol', share: '11.7%', growth: '+3.7%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
@@ -4266,10 +4445,12 @@ export const CATEGORIES = [
             growth: '+5.2%',
             brands: ['Opus One', 'Penfolds Grange', 'Cloudy Bay'],
             regions: [
-              { name: 'Shanghai', share: '28%', growth: '+5.8%' },
-              { name: 'Beijing', share: '22%', growth: '+4.9%' },
-              { name: 'Guangzhou', share: '18%', growth: '+5.1%' },
-              { name: 'Shenzhen', share: '12%', growth: '+5.3%' },
+              { name: 'Shanghai', share: '30.2%', growth: '+5.8%' },
+              { name: 'Beijing', share: '24.3%', growth: '+4.9%' },
+              { name: 'Guangzhou', share: '17.6%', growth: '+5.1%' },
+              { name: 'Shenzhen', share: '13.9%', growth: '+5.3%' },
+              { name: 'Hangzhou', share: '6.1%', growth: '+6.0%' },
+              { name: 'Chengdu', share: '7.9%', growth: '+2.2%' },
             ],
             sources: [
               { name: 'Wine Searcher', url: 'https://wine-searcher.com' },
@@ -4282,7 +4463,7 @@ export const CATEGORIES = [
           midTier: ['Robert Mondavi', 'Oyster Bay', 'Kim Crawford', 'Meiomi', 'Josh Cellars'],
           value: ['Barefoot', 'Yellow Tail', 'Blossom Hill', 'Hardy\u2019s', 'Echo Falls', 'Jacob\u2019s Creek']
         },
-        channels: { onTrade: 32, offTrade: 54, eCommerce: 8, travelRetail: 6 },
+        channels: { onTrade: 31.8, offTrade: 54.2, eCommerce: 8.0, travelRetail: 6.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 52,   // % ACV distribution
           ceDepletions: 3100000,  // case equivalent depletions
@@ -4318,10 +4499,12 @@ export const CATEGORIES = [
             growth: '+4.2%',
             brands: ['Robert Mondavi', 'Oyster Bay', 'Kim Crawford'],
             regions: [
-              { name: 'California', share: '32%', growth: '+5.8%' },
-              { name: 'New York', share: '16%', growth: '+2.9%' },
-              { name: 'Texas', share: '12%', growth: '+3.5%' },
-              { name: 'Florida', share: '10%', growth: '+4.1%' },
+              { name: 'California', share: '38.9%', growth: '+5.8%' },
+              { name: 'New York', share: '21.3%', growth: '+2.9%' },
+              { name: 'Texas', share: '13.8%', growth: '+3.5%' },
+              { name: 'Florida', share: '13.9%', growth: '+4.1%' },
+              { name: 'Illinois', share: '5.2%', growth: '+3.3%' },
+              { name: 'Pennsylvania', share: '6.9%', growth: '+5.1%' },
             ],
             sources: [
               { name: 'The IWSR', url: 'https://theiwsr.com' },
@@ -4333,10 +4516,11 @@ export const CATEGORIES = [
             growth: '+1.5%',
             brands: ['Château Margaux', 'Château Lafite', 'Cloudy Bay'],
             regions: [
-              { name: 'Bordeaux', share: '28%', growth: '+1.8%' },
-              { name: 'Paris', share: '18%', growth: '+1.2%' },
-              { name: 'Lyon', share: '12%', growth: '+1.5%' },
-              { name: 'Provence', share: '10%', growth: '+1.4%' },
+              { name: 'Bordeaux', share: '38.5%', growth: '+1.8%' },
+              { name: 'Paris', share: '22.0%', growth: '+1.2%' },
+              { name: 'Lyon', share: '17.0%', growth: '+1.5%' },
+              { name: 'Provence', share: '14.1%', growth: '+1.4%' },
+              { name: 'Toulouse', share: '8.4%', growth: '+3.8%' },
             ],
             sources: [
               { name: 'Decanter', url: 'https://decanter.com' },
@@ -4348,10 +4532,10 @@ export const CATEGORIES = [
             growth: '+2.1%',
             brands: ['Sassicaia', 'Gavi', 'Pinot Grigio'],
             regions: [
-              { name: 'Milan', share: '22%', growth: '+2.4%' },
-              { name: 'Rome', share: '18%', growth: '+1.9%' },
-              { name: 'Florence', share: '14%', growth: '+2.0%' },
-              { name: 'Venice', share: '10%', growth: '+2.2%' },
+              { name: 'Milan', share: '32.9%', growth: '+2.4%' },
+              { name: 'Rome', share: '29.1%', growth: '+1.9%' },
+              { name: 'Florence', share: '24.0%', growth: '+2.0%' },
+              { name: 'Venice', share: '14.0%', growth: '+2.2%' },
             ],
             sources: [
               { name: 'Wine Searcher', url: 'https://wine-searcher.com' },
@@ -4363,10 +4547,11 @@ export const CATEGORIES = [
             growth: '+3.2%',
             brands: ['Barefoot', 'Yellow Tail', 'Cloudy Bay'],
             regions: [
-              { name: 'London', share: '26%', growth: '+3.8%' },
-              { name: 'Manchester', share: '14%', growth: '+2.9%' },
-              { name: 'Edinburgh', share: '12%', growth: '+3.1%' },
-              { name: 'Birmingham', share: '10%', growth: '+3.0%' },
+              { name: 'London', share: '39.5%', growth: '+3.8%' },
+              { name: 'Manchester', share: '20.8%', growth: '+2.9%' },
+              { name: 'Edinburgh', share: '16.5%', growth: '+3.1%' },
+              { name: 'Birmingham', share: '12.2%', growth: '+3.0%' },
+              { name: 'Bristol', share: '11.0%', growth: '+3.4%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://thespiritsbusiness.com' },
@@ -4378,10 +4563,12 @@ export const CATEGORIES = [
             growth: '+8.5%',
             brands: ['Opus One', 'Penfolds Grange', 'Cloudy Bay'],
             regions: [
-              { name: 'Shanghai', share: '28%', growth: '+9.2%' },
-              { name: 'Beijing', share: '22%', growth: '+8.1%' },
-              { name: 'Guangzhou', share: '18%', growth: '+8.4%' },
-              { name: 'Shenzhen', share: '12%', growth: '+8.9%' },
+              { name: 'Shanghai', share: '30.9%', growth: '+9.2%' },
+              { name: 'Beijing', share: '23.5%', growth: '+8.1%' },
+              { name: 'Guangzhou', share: '19.2%', growth: '+8.4%' },
+              { name: 'Shenzhen', share: '12.8%', growth: '+8.9%' },
+              { name: 'Hangzhou', share: '5.9%', growth: '+3.4%' },
+              { name: 'Chengdu', share: '7.7%', growth: '+0.7%' },
             ],
             sources: [
               { name: 'Wine Searcher', url: 'https://wine-searcher.com' },
@@ -4394,7 +4581,7 @@ export const CATEGORIES = [
           midTier: ['Robert Mondavi', 'Oyster Bay', 'Kim Crawford', 'Meiomi', 'Josh Cellars'],
           value: ['Barefoot', 'Yellow Tail', 'Blossom Hill', 'Hardy\u2019s', 'Echo Falls', 'Jacob\u2019s Creek']
         },
-        channels: { onTrade: 28, offTrade: 60, eCommerce: 6, travelRetail: 6 },
+        channels: { onTrade: 27.7, offTrade: 60.1, eCommerce: 6.2, travelRetail: 6.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 50,   // % ACV distribution
           ceDepletions: 3000000,  // case equivalent depletions
@@ -4440,10 +4627,12 @@ export const CATEGORIES = [
             growth: '+1.2%',
             brands: ['Tsingtao', 'Snow', 'Yanjing'],
             regions: [
-              { name: 'Shanghai', share: '18%', growth: '+2.1%' },
-              { name: 'Beijing', share: '15%', growth: '+0.8%' },
-              { name: 'Guangzhou', share: '12%', growth: '+1.5%' },
-              { name: 'Chongqing', share: '10%', growth: '-0.3%' },
+              { name: 'Shanghai', share: '26.3%', growth: '+2.1%' },
+              { name: 'Beijing', share: '21.8%', growth: '+0.8%' },
+              { name: 'Guangzhou', share: '17.4%', growth: '+1.5%' },
+              { name: 'Chongqing', share: '14.5%', growth: '-0.3%' },
+              { name: 'Shenzhen', share: '11.7%', growth: '+5.7%' },
+              { name: 'Hangzhou', share: '8.3%', growth: '+0.7%' },
             ],
             sources: [
               { name: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -4455,10 +4644,12 @@ export const CATEGORIES = [
             growth: '+0.1%',
             brands: ['Bud Light', 'Michelob Ultra', 'Corona Extra'],
             regions: [
-              { name: 'California', share: '16%', growth: '-0.5%' },
-              { name: 'Texas', share: '14%', growth: '+0.2%' },
-              { name: 'Florida', share: '10%', growth: '+0.4%' },
-              { name: 'New York', share: '8%', growth: '-0.1%' },
+              { name: 'California', share: '27.2%', growth: '-0.5%' },
+              { name: 'Texas', share: '23.9%', growth: '+0.2%' },
+              { name: 'Florida', share: '17.1%', growth: '+0.4%' },
+              { name: 'New York', share: '13.7%', growth: '-0.1%' },
+              { name: 'Illinois', share: '10.2%', growth: '+2.7%' },
+              { name: 'Pennsylvania', share: '7.9%', growth: '+3.4%' },
             ],
             sources: [
               { name: 'Brewers Association', url: 'https://www.brewersassociation.org' },
@@ -4470,10 +4661,11 @@ export const CATEGORIES = [
             growth: '+0.8%',
             brands: ['Skol', 'Brahma', 'Antarctica'],
             regions: [
-              { name: 'São Paulo', share: '22%', growth: '+1.1%' },
-              { name: 'Rio de Janeiro', share: '14%', growth: '+0.5%' },
-              { name: 'Minas Gerais', share: '11%', growth: '+0.9%' },
-              { name: 'Bahia', share: '9%', growth: '+0.6%' },
+              { name: 'São Paulo', share: '36.0%', growth: '+1.1%' },
+              { name: 'Rio de Janeiro', share: '23.0%', growth: '+0.5%' },
+              { name: 'Minas Gerais', share: '18.0%', growth: '+0.9%' },
+              { name: 'Bahia', share: '14.8%', growth: '+0.6%' },
+              { name: 'Paraná', share: '8.2%', growth: '+5.1%' },
             ],
             sources: [
               { name: 'Euromonitor', url: 'https://www.euromonitor.com' },
@@ -4485,10 +4677,11 @@ export const CATEGORIES = [
             growth: '-0.3%',
             brands: ['Krombacher', 'Heineken', 'Warsteiner'],
             regions: [
-              { name: 'North Rhine-Westphalia', share: '19%', growth: '-0.2%' },
-              { name: 'Bavaria', share: '17%', growth: '-0.4%' },
-              { name: 'Baden-Württemberg', share: '12%', growth: '-0.3%' },
-              { name: 'Berlin', share: '8%', growth: '+0.1%' },
+              { name: 'North Rhine-Westphalia', share: '31.3%', growth: '-0.2%' },
+              { name: 'Bavaria', share: '27.9%', growth: '-0.4%' },
+              { name: 'Baden-Württemberg', share: '19.7%', growth: '-0.3%' },
+              { name: 'Berlin', share: '13.2%', growth: '+0.1%' },
+              { name: 'Hesse', share: '7.9%', growth: '+1.3%' },
             ],
             sources: [
               { name: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
@@ -4500,10 +4693,11 @@ export const CATEGORIES = [
             growth: '+1.5%',
             brands: ['Corona Extra', 'Modelo Especial', 'Tecate'],
             regions: [
-              { name: 'Mexico City', share: '16%', growth: '+1.8%' },
-              { name: 'Jalisco', share: '13%', growth: '+1.6%' },
-              { name: 'Guanajuato', share: '11%', growth: '+1.4%' },
-              { name: 'Veracruz', share: '10%', growth: '+1.2%' },
+              { name: 'Mexico City', share: '27.6%', growth: '+1.8%' },
+              { name: 'Jalisco', share: '22.4%', growth: '+1.6%' },
+              { name: 'Guanajuato', share: '19.0%', growth: '+1.4%' },
+              { name: 'Veracruz', share: '17.3%', growth: '+1.2%' },
+              { name: 'Monterrey', share: '13.7%', growth: '+2.5%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -4516,7 +4710,7 @@ export const CATEGORIES = [
           midTier: ['Sierra Nevada', 'Lagunitas', 'BrewDog', 'Brooklyn Brewery', 'Goose Island', 'Stone'],
           value: ['Budweiser', 'Bud Light', 'Corona Extra', 'Heineken', 'Stella Artois', 'Modelo Especial']
         },
-        channels: { onTrade: 35, offTrade: 58, eCommerce: 2, travelRetail: 5 },
+        channels: { onTrade: 34.8, offTrade: 57.4, eCommerce: 2.8, travelRetail: 5.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 72,   // % ACV distribution
           ceDepletions: 5800000,  // case equivalent depletions
@@ -4552,10 +4746,12 @@ export const CATEGORIES = [
             growth: '+2.1%',
             brands: ['Tsingtao', 'Snow', 'Yanjing'],
             regions: [
-              { name: 'Shanghai', share: '18%', growth: '+2.8%' },
-              { name: 'Beijing', share: '15%', growth: '+1.5%' },
-              { name: 'Guangzhou', share: '12%', growth: '+2.2%' },
-              { name: 'Chongqing', share: '10%', growth: '+0.5%' },
+              { name: 'Shanghai', share: '27.0%', growth: '+2.8%' },
+              { name: 'Beijing', share: '21.6%', growth: '+1.5%' },
+              { name: 'Guangzhou', share: '16.0%', growth: '+2.2%' },
+              { name: 'Chongqing', share: '14.9%', growth: '+0.5%' },
+              { name: 'Shenzhen', share: '11.1%', growth: '+1.3%' },
+              { name: 'Hangzhou', share: '9.4%', growth: '+2.9%' },
             ],
             sources: [
               { name: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -4567,10 +4763,12 @@ export const CATEGORIES = [
             growth: '+0.3%',
             brands: ['Bud Light', 'Michelob Ultra', 'Corona Extra'],
             regions: [
-              { name: 'California', share: '16%', growth: '-0.8%' },
-              { name: 'Texas', share: '14%', growth: '+0.5%' },
-              { name: 'Florida', share: '10%', growth: '+0.8%' },
-              { name: 'New York', share: '8%', growth: '+0.2%' },
+              { name: 'California', share: '28.0%', growth: '-0.8%' },
+              { name: 'Texas', share: '24.4%', growth: '+0.5%' },
+              { name: 'Florida', share: '17.5%', growth: '+0.8%' },
+              { name: 'New York', share: '12.9%', growth: '+0.2%' },
+              { name: 'Illinois', share: '9.4%', growth: '+2.6%' },
+              { name: 'Pennsylvania', share: '7.8%', growth: '+4.1%' },
             ],
             sources: [
               { name: 'Brewers Association', url: 'https://www.brewersassociation.org' },
@@ -4582,10 +4780,11 @@ export const CATEGORIES = [
             growth: '+1.5%',
             brands: ['Skol', 'Brahma', 'Antarctica'],
             regions: [
-              { name: 'São Paulo', share: '22%', growth: '+1.8%' },
-              { name: 'Rio de Janeiro', share: '14%', growth: '+1.2%' },
-              { name: 'Minas Gerais', share: '11%', growth: '+1.6%' },
-              { name: 'Bahia', share: '9%', growth: '+1.1%' },
+              { name: 'São Paulo', share: '35.2%', growth: '+1.8%' },
+              { name: 'Rio de Janeiro', share: '23.2%', growth: '+1.2%' },
+              { name: 'Minas Gerais', share: '18.4%', growth: '+1.6%' },
+              { name: 'Bahia', share: '13.9%', growth: '+1.1%' },
+              { name: 'Paraná', share: '9.3%', growth: '+1.8%' },
             ],
             sources: [
               { name: 'Euromonitor', url: 'https://www.euromonitor.com' },
@@ -4597,10 +4796,11 @@ export const CATEGORIES = [
             growth: '-0.1%',
             brands: ['Krombacher', 'Heineken', 'Warsteiner'],
             regions: [
-              { name: 'North Rhine-Westphalia', share: '19%', growth: '+0.1%' },
-              { name: 'Bavaria', share: '17%', growth: '-0.2%' },
-              { name: 'Baden-Württemberg', share: '12%', growth: '0%' },
-              { name: 'Berlin', share: '8%', growth: '+0.3%' },
+              { name: 'North Rhine-Westphalia', share: '32.2%', growth: '+0.1%' },
+              { name: 'Bavaria', share: '27.3%', growth: '-0.2%' },
+              { name: 'Baden-Württemberg', share: '18.8%', growth: '0%' },
+              { name: 'Berlin', share: '13.4%', growth: '+0.3%' },
+              { name: 'Hesse', share: '8.3%', growth: '+2.8%' },
             ],
             sources: [
               { name: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
@@ -4612,10 +4812,11 @@ export const CATEGORIES = [
             growth: '+2.1%',
             brands: ['Corona Extra', 'Modelo Especial', 'Tecate'],
             regions: [
-              { name: 'Mexico City', share: '16%', growth: '+2.4%' },
-              { name: 'Jalisco', share: '13%', growth: '+2.2%' },
-              { name: 'Guanajuato', share: '11%', growth: '+2%' },
-              { name: 'Veracruz', share: '10%', growth: '+1.9%' },
+              { name: 'Mexico City', share: '27.5%', growth: '+2.4%' },
+              { name: 'Jalisco', share: '22.4%', growth: '+2.2%' },
+              { name: 'Guanajuato', share: '18.9%', growth: '+2%' },
+              { name: 'Veracruz', share: '17.6%', growth: '+1.9%' },
+              { name: 'Monterrey', share: '13.6%', growth: '+0.5%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -4628,7 +4829,7 @@ export const CATEGORIES = [
           midTier: ['Sierra Nevada', 'Lagunitas', 'BrewDog', 'Brooklyn Brewery', 'Goose Island', 'Stone'],
           value: ['Budweiser', 'Bud Light', 'Corona Extra', 'Heineken', 'Stella Artois', 'Modelo Especial']
         },
-        channels: { onTrade: 35, offTrade: 58, eCommerce: 2, travelRetail: 5 },
+        channels: { onTrade: 34.2, offTrade: 58.1, eCommerce: 2.3, travelRetail: 5.4 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 71,   // % ACV distribution
           ceDepletions: 5700000,  // case equivalent depletions
@@ -4664,10 +4865,12 @@ export const CATEGORIES = [
             growth: '+2.8%',
             brands: ['Tsingtao', 'Snow', 'Yanjing'],
             regions: [
-              { name: 'Shanghai', share: '18%', growth: '+3.2%' },
-              { name: 'Beijing', share: '15%', growth: '+2.4%' },
-              { name: 'Guangzhou', share: '12%', growth: '+3.1%' },
-              { name: 'Chongqing', share: '10%', growth: '+2.2%' },
+              { name: 'Shanghai', share: '25.9%', growth: '+3.2%' },
+              { name: 'Beijing', share: '22.4%', growth: '+2.4%' },
+              { name: 'Guangzhou', share: '15.5%', growth: '+3.1%' },
+              { name: 'Chongqing', share: '16.0%', growth: '+2.2%' },
+              { name: 'Shenzhen', share: '11.0%', growth: '+5.4%' },
+              { name: 'Hangzhou', share: '9.2%', growth: '+1.0%' },
             ],
             sources: [
               { name: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -4679,10 +4882,12 @@ export const CATEGORIES = [
             growth: '-1.2%',
             brands: ['Bud Light', 'Corona Extra', 'Michelob Ultra'],
             regions: [
-              { name: 'California', share: '16%', growth: '-2.1%' },
-              { name: 'Texas', share: '14%', growth: '-0.8%' },
-              { name: 'Florida', share: '10%', growth: '-0.5%' },
-              { name: 'New York', share: '8%', growth: '-1.4%' },
+              { name: 'California', share: '28.0%', growth: '-2.1%' },
+              { name: 'Texas', share: '24.2%', growth: '-0.8%' },
+              { name: 'Florida', share: '19.3%', growth: '-0.5%' },
+              { name: 'New York', share: '11.7%', growth: '-1.4%' },
+              { name: 'Illinois', share: '8.7%', growth: '+5.0%' },
+              { name: 'Pennsylvania', share: '8.1%', growth: '+5.3%' },
             ],
             sources: [
               { name: 'Brewers Association', url: 'https://www.brewersassociation.org' },
@@ -4694,10 +4899,11 @@ export const CATEGORIES = [
             growth: '+2.2%',
             brands: ['Skol', 'Brahma', 'Antarctica'],
             regions: [
-              { name: 'São Paulo', share: '22%', growth: '+2.5%' },
-              { name: 'Rio de Janeiro', share: '14%', growth: '+1.8%' },
-              { name: 'Minas Gerais', share: '11%', growth: '+2.3%' },
-              { name: 'Bahia', share: '9%', growth: '+2%' },
+              { name: 'São Paulo', share: '35.2%', growth: '+2.5%' },
+              { name: 'Rio de Janeiro', share: '23.5%', growth: '+1.8%' },
+              { name: 'Minas Gerais', share: '19.2%', growth: '+2.3%' },
+              { name: 'Bahia', share: '12.8%', growth: '+2%' },
+              { name: 'Paraná', share: '9.3%', growth: '+2.8%' },
             ],
             sources: [
               { name: 'Euromonitor', url: 'https://www.euromonitor.com' },
@@ -4709,10 +4915,11 @@ export const CATEGORIES = [
             growth: '0%',
             brands: ['Krombacher', 'Heineken', 'Warsteiner'],
             regions: [
-              { name: 'North Rhine-Westphalia', share: '19%', growth: '+0.1%' },
-              { name: 'Bavaria', share: '17%', growth: '-0.1%' },
-              { name: 'Baden-Württemberg', share: '12%', growth: '0%' },
-              { name: 'Berlin', share: '8%', growth: '+0.2%' },
+              { name: 'North Rhine-Westphalia', share: '30.9%', growth: '+0.1%' },
+              { name: 'Bavaria', share: '28.6%', growth: '-0.1%' },
+              { name: 'Baden-Württemberg', share: '19.0%', growth: '0%' },
+              { name: 'Berlin', share: '13.8%', growth: '+0.2%' },
+              { name: 'Hesse', share: '7.7%', growth: '+2.9%' },
             ],
             sources: [
               { name: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
@@ -4724,10 +4931,11 @@ export const CATEGORIES = [
             growth: '+3.2%',
             brands: ['Corona Extra', 'Modelo Especial', 'Tecate'],
             regions: [
-              { name: 'Mexico City', share: '16%', growth: '+3.8%' },
-              { name: 'Jalisco', share: '13%', growth: '+3.4%' },
-              { name: 'Guanajuato', share: '11%', growth: '+3.1%' },
-              { name: 'Veracruz', share: '10%', growth: '+2.9%' },
+              { name: 'Mexico City', share: '26.4%', growth: '+3.8%' },
+              { name: 'Jalisco', share: '21.3%', growth: '+3.4%' },
+              { name: 'Guanajuato', share: '20.3%', growth: '+3.1%' },
+              { name: 'Veracruz', share: '17.4%', growth: '+2.9%' },
+              { name: 'Monterrey', share: '14.6%', growth: '+5.4%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -4740,7 +4948,7 @@ export const CATEGORIES = [
           midTier: ['Sierra Nevada', 'Lagunitas', 'BrewDog', 'Brooklyn Brewery', 'Goose Island', 'Stone'],
           value: ['Budweiser', 'Bud Light', 'Corona Extra', 'Heineken', 'Stella Artois', 'Modelo Especial']
         },
-        channels: { onTrade: 35, offTrade: 58, eCommerce: 2, travelRetail: 5 },
+        channels: { onTrade: 33.5, offTrade: 59.1, eCommerce: 1.9, travelRetail: 5.5 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 70,   // % ACV distribution
           ceDepletions: 5600000,  // case equivalent depletions
@@ -4776,10 +4984,12 @@ export const CATEGORIES = [
             growth: '+3.1%',
             brands: ['Tsingtao', 'Snow', 'Yanjing'],
             regions: [
-              { name: 'Shanghai', share: '18%', growth: '+3.5%' },
-              { name: 'Beijing', share: '15%', growth: '+2.8%' },
-              { name: 'Guangzhou', share: '12%', growth: '+3.2%' },
-              { name: 'Chongqing', share: '10%', growth: '+2.9%' },
+              { name: 'Shanghai', share: '25.7%', growth: '+3.5%' },
+              { name: 'Beijing', share: '23.8%', growth: '+2.8%' },
+              { name: 'Guangzhou', share: '15.0%', growth: '+3.2%' },
+              { name: 'Chongqing', share: '15.1%', growth: '+2.9%' },
+              { name: 'Shenzhen', share: '11.6%', growth: '+1.7%' },
+              { name: 'Hangzhou', share: '8.8%', growth: '+3.4%' },
             ],
             sources: [
               { name: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -4791,10 +5001,12 @@ export const CATEGORIES = [
             growth: '+2.8%',
             brands: ['Bud Light', 'Corona Extra', 'Heineken'],
             regions: [
-              { name: 'California', share: '16%', growth: '+2.5%' },
-              { name: 'Texas', share: '14%', growth: '+3.1%' },
-              { name: 'Florida', share: '10%', growth: '+3.3%' },
-              { name: 'New York', share: '8%', growth: '+2.6%' },
+              { name: 'California', share: '29.0%', growth: '+2.5%' },
+              { name: 'Texas', share: '22.9%', growth: '+3.1%' },
+              { name: 'Florida', share: '19.9%', growth: '+3.3%' },
+              { name: 'New York', share: '12.2%', growth: '+2.6%' },
+              { name: 'Illinois', share: '7.7%', growth: '+4.0%' },
+              { name: 'Pennsylvania', share: '8.3%', growth: '+3.8%' },
             ],
             sources: [
               { name: 'Brewers Association', url: 'https://www.brewersassociation.org' },
@@ -4806,10 +5018,11 @@ export const CATEGORIES = [
             growth: '+3.5%',
             brands: ['Skol', 'Brahma', 'Antarctica'],
             regions: [
-              { name: 'São Paulo', share: '22%', growth: '+3.8%' },
-              { name: 'Rio de Janeiro', share: '14%', growth: '+3.2%' },
-              { name: 'Minas Gerais', share: '11%', growth: '+3.6%' },
-              { name: 'Bahia', share: '9%', growth: '+3.3%' },
+              { name: 'São Paulo', share: '36.0%', growth: '+3.8%' },
+              { name: 'Rio de Janeiro', share: '24.4%', growth: '+3.2%' },
+              { name: 'Minas Gerais', share: '19.2%', growth: '+3.6%' },
+              { name: 'Bahia', share: '12.1%', growth: '+3.3%' },
+              { name: 'Paraná', share: '8.3%', growth: '+0.3%' },
             ],
             sources: [
               { name: 'Euromonitor', url: 'https://www.euromonitor.com' },
@@ -4821,10 +5034,11 @@ export const CATEGORIES = [
             growth: '+0.5%',
             brands: ['Krombacher', 'Heineken', 'Warsteiner'],
             regions: [
-              { name: 'North Rhine-Westphalia', share: '19%', growth: '+0.6%' },
-              { name: 'Bavaria', share: '17%', growth: '+0.4%' },
-              { name: 'Baden-Württemberg', share: '12%', growth: '+0.5%' },
-              { name: 'Berlin', share: '8%', growth: '+0.7%' },
+              { name: 'North Rhine-Westphalia', share: '30.0%', growth: '+0.6%' },
+              { name: 'Bavaria', share: '29.4%', growth: '+0.4%' },
+              { name: 'Baden-Württemberg', share: '18.6%', growth: '+0.5%' },
+              { name: 'Berlin', share: '13.7%', growth: '+0.7%' },
+              { name: 'Hesse', share: '8.3%', growth: '+6.6%' },
             ],
             sources: [
               { name: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
@@ -4836,10 +5050,11 @@ export const CATEGORIES = [
             growth: '+4.1%',
             brands: ['Corona Extra', 'Modelo Especial', 'Tecate'],
             regions: [
-              { name: 'Mexico City', share: '16%', growth: '+4.5%' },
-              { name: 'Jalisco', share: '13%', growth: '+4.2%' },
-              { name: 'Guanajuato', share: '11%', growth: '+4%' },
-              { name: 'Veracruz', share: '10%', growth: '+3.9%' },
+              { name: 'Mexico City', share: '27.1%', growth: '+4.5%' },
+              { name: 'Jalisco', share: '20.6%', growth: '+4.2%' },
+              { name: 'Guanajuato', share: '20.5%', growth: '+4%' },
+              { name: 'Veracruz', share: '17.7%', growth: '+3.9%' },
+              { name: 'Monterrey', share: '14.1%', growth: '+6.1%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -4852,7 +5067,7 @@ export const CATEGORIES = [
           midTier: ['Sierra Nevada', 'Lagunitas', 'BrewDog', 'Brooklyn Brewery', 'Goose Island', 'Stone'],
           value: ['Budweiser', 'Bud Light', 'Corona Extra', 'Heineken', 'Stella Artois', 'Modelo Especial']
         },
-        channels: { onTrade: 35, offTrade: 58, eCommerce: 2, travelRetail: 5 },
+        channels: { onTrade: 32.8, offTrade: 60.3, eCommerce: 1.5, travelRetail: 5.4 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 69,   // % ACV distribution
           ceDepletions: 5500000,  // case equivalent depletions
@@ -4888,10 +5103,12 @@ export const CATEGORIES = [
             growth: '+3.8%',
             brands: ['Tsingtao', 'Snow', 'Yanjing'],
             regions: [
-              { name: 'Shanghai', share: '18%', growth: '+4.2%' },
-              { name: 'Beijing', share: '15%', growth: '+3.5%' },
-              { name: 'Guangzhou', share: '12%', growth: '+3.9%' },
-              { name: 'Chongqing', share: '10%', growth: '+3.6%' },
+              { name: 'Shanghai', share: '26.6%', growth: '+4.2%' },
+              { name: 'Beijing', share: '23.1%', growth: '+3.5%' },
+              { name: 'Guangzhou', share: '13.7%', growth: '+3.9%' },
+              { name: 'Chongqing', share: '14.9%', growth: '+3.6%' },
+              { name: 'Shenzhen', share: '11.4%', growth: '+0.3%' },
+              { name: 'Hangzhou', share: '10.3%', growth: '+2.5%' },
             ],
             sources: [
               { name: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -4903,10 +5120,12 @@ export const CATEGORIES = [
             growth: '+4.2%',
             brands: ['Bud Light', 'Corona Extra', 'Heineken'],
             regions: [
-              { name: 'California', share: '16%', growth: '+3.8%' },
-              { name: 'Texas', share: '14%', growth: '+4.5%' },
-              { name: 'Florida', share: '10%', growth: '+4.6%' },
-              { name: 'New York', share: '8%', growth: '+4%' },
+              { name: 'California', share: '30.4%', growth: '+3.8%' },
+              { name: 'Texas', share: '24.9%', growth: '+4.5%' },
+              { name: 'Florida', share: '19.4%', growth: '+4.6%' },
+              { name: 'New York', share: '11.3%', growth: '+4%' },
+              { name: 'Illinois', share: '6.5%', growth: '+6.4%' },
+              { name: 'Pennsylvania', share: '7.5%', growth: '+5.8%' },
             ],
             sources: [
               { name: 'Brewers Association', url: 'https://www.brewersassociation.org' },
@@ -4918,10 +5137,11 @@ export const CATEGORIES = [
             growth: '+5.1%',
             brands: ['Skol', 'Brahma', 'Antarctica'],
             regions: [
-              { name: 'São Paulo', share: '22%', growth: '+5.4%' },
-              { name: 'Rio de Janeiro', share: '14%', growth: '+4.8%' },
-              { name: 'Minas Gerais', share: '11%', growth: '+5.2%' },
-              { name: 'Bahia', share: '9%', growth: '+4.9%' },
+              { name: 'São Paulo', share: '36.9%', growth: '+5.4%' },
+              { name: 'Rio de Janeiro', share: '23.3%', growth: '+4.8%' },
+              { name: 'Minas Gerais', share: '20.2%', growth: '+5.2%' },
+              { name: 'Bahia', share: '12.0%', growth: '+4.9%' },
+              { name: 'Paraná', share: '7.6%', growth: '+2.0%' },
             ],
             sources: [
               { name: 'Euromonitor', url: 'https://www.euromonitor.com' },
@@ -4933,10 +5153,11 @@ export const CATEGORIES = [
             growth: '+1.2%',
             brands: ['Krombacher', 'Heineken', 'Warsteiner'],
             regions: [
-              { name: 'North Rhine-Westphalia', share: '19%', growth: '+1.3%' },
-              { name: 'Bavaria', share: '17%', growth: '+1.1%' },
-              { name: 'Baden-Württemberg', share: '12%', growth: '+1.2%' },
-              { name: 'Berlin', share: '8%', growth: '+1.4%' },
+              { name: 'North Rhine-Westphalia', share: '29.9%', growth: '+1.3%' },
+              { name: 'Bavaria', share: '30.0%', growth: '+1.1%' },
+              { name: 'Baden-Württemberg', share: '19.1%', growth: '+1.2%' },
+              { name: 'Berlin', share: '13.6%', growth: '+1.4%' },
+              { name: 'Hesse', share: '7.4%', growth: '+6.4%' },
             ],
             sources: [
               { name: 'Beverage Daily', url: 'https://www.beveragedaily.com' },
@@ -4948,10 +5169,11 @@ export const CATEGORIES = [
             growth: '+5.8%',
             brands: ['Corona Extra', 'Modelo Especial', 'Tecate'],
             regions: [
-              { name: 'Mexico City', share: '16%', growth: '+6.2%' },
-              { name: 'Jalisco', share: '13%', growth: '+5.9%' },
-              { name: 'Guanajuato', share: '11%', growth: '+5.7%' },
-              { name: 'Veracruz', share: '10%', growth: '+5.6%' },
+              { name: 'Mexico City', share: '27.5%', growth: '+6.2%' },
+              { name: 'Jalisco', share: '19.3%', growth: '+5.9%' },
+              { name: 'Guanajuato', share: '19.9%', growth: '+5.7%' },
+              { name: 'Veracruz', share: '18.1%', growth: '+5.6%' },
+              { name: 'Monterrey', share: '15.2%', growth: '+3.1%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -4964,7 +5186,7 @@ export const CATEGORIES = [
           midTier: ['Sierra Nevada', 'Lagunitas', 'BrewDog', 'Brooklyn Brewery', 'Goose Island', 'Stone'],
           value: ['Budweiser', 'Bud Light', 'Corona Extra', 'Heineken', 'Stella Artois', 'Modelo Especial']
         },
-        channels: { onTrade: 35, offTrade: 58, eCommerce: 2, travelRetail: 5 },
+        channels: { onTrade: 31.2, offTrade: 62.1, eCommerce: 1.2, travelRetail: 5.5 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 68,   // % ACV distribution
           ceDepletions: 5400000,  // case equivalent depletions
@@ -5010,10 +5232,11 @@ export const CATEGORIES = [
             growth: '+8.2%',
             brands: ['Seedlip', 'CleanCo', 'Monday', 'Lyre\u2019s', 'Three Spirit'],
             regions: [
-              { name: 'Berlin', share: '18%', growth: '+9.1%' },
-              { name: 'Munich', share: '16%', growth: '+7.8%' },
-              { name: 'Hamburg', share: '12%', growth: '+8.5%' },
-              { name: 'Frankfurt', share: '10%', growth: '+7.9%' },
+              { name: 'Berlin', share: '28.8%', growth: '+9.1%' },
+              { name: 'Munich', share: '25.6%', growth: '+7.8%' },
+              { name: 'Hamburg', share: '19.2%', growth: '+8.5%' },
+              { name: 'Frankfurt', share: '16.0%', growth: '+7.9%' },
+              { name: 'Hesse', share: '10.4%', growth: '+2.5%' },
             ],
             sources: [
               { name: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -5025,10 +5248,11 @@ export const CATEGORIES = [
             growth: '+8.8%',
             brands: ['Seedlip', 'Lyre\u2019s', 'Athletic Brewing', 'Monday', 'Ritual'],
             regions: [
-              { name: 'London', share: '22%', growth: '+9.2%' },
-              { name: 'Manchester', share: '14%', growth: '+8.6%' },
-              { name: 'Edinburgh', share: '10%', growth: '+8.9%' },
-              { name: 'Birmingham', share: '9%', growth: '+8.3%' },
+              { name: 'London', share: '35.5%', growth: '+9.2%' },
+              { name: 'Manchester', share: '22.6%', growth: '+8.6%' },
+              { name: 'Edinburgh', share: '16.2%', growth: '+8.9%' },
+              { name: 'Birmingham', share: '14.6%', growth: '+8.3%' },
+              { name: 'Bristol', share: '11.1%', growth: '+6.0%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -5040,10 +5264,12 @@ export const CATEGORIES = [
             growth: '+9.1%',
             brands: ['Athletic Brewing', 'Lyre\u2019s', 'Ritual Zero Proof', 'CleanCo', 'Seedlip'],
             regions: [
-              { name: 'California', share: '18%', growth: '+9.8%' },
-              { name: 'New York', share: '15%', growth: '+8.9%' },
-              { name: 'Texas', share: '12%', growth: '+8.7%' },
-              { name: 'Florida', share: '10%', growth: '+8.5%' },
+              { name: 'California', share: '26.1%', growth: '+9.8%' },
+              { name: 'New York', share: '21.8%', growth: '+8.9%' },
+              { name: 'Texas', share: '17.4%', growth: '+8.7%' },
+              { name: 'Florida', share: '14.5%', growth: '+8.5%' },
+              { name: 'Illinois', share: '8.4%', growth: '+2.3%' },
+              { name: 'Pennsylvania', share: '11.8%', growth: '+0.5%' },
             ],
             sources: [
               { name: 'Euromonitor', url: 'https://www.euromonitor.com' },
@@ -5055,10 +5281,10 @@ export const CATEGORIES = [
             growth: '+10.2%',
             brands: ['Seedlip', 'Lyre\u2019s', 'CleanCo', 'Monday', 'Athletic Brewing'],
             regions: [
-              { name: 'Madrid', share: '24%', growth: '+10.8%' },
-              { name: 'Barcelona', share: '18%', growth: '+10.1%' },
-              { name: 'Valencia', share: '11%', growth: '+9.9%' },
-              { name: 'Seville', share: '8%', growth: '+9.6%' },
+              { name: 'Madrid', share: '39.4%', growth: '+10.8%' },
+              { name: 'Barcelona', share: '29.5%', growth: '+10.1%' },
+              { name: 'Valencia', share: '18.0%', growth: '+9.9%' },
+              { name: 'Seville', share: '13.1%', growth: '+9.6%' },
             ],
             sources: [
               { name: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -5070,10 +5296,10 @@ export const CATEGORIES = [
             growth: '+9.6%',
             brands: ['Athletic Brewing', 'Lyre\u2019s', 'CleanCo', 'Seedlip', 'Monday'],
             regions: [
-              { name: 'Sydney', share: '26%', growth: '+10.2%' },
-              { name: 'Melbourne', share: '20%', growth: '+9.4%' },
-              { name: 'Brisbane', share: '13%', growth: '+9.2%' },
-              { name: 'Perth', share: '9%', growth: '+8.8%' },
+              { name: 'Sydney', share: '38.3%', growth: '+10.2%' },
+              { name: 'Melbourne', share: '29.4%', growth: '+9.4%' },
+              { name: 'Brisbane', share: '19.1%', growth: '+9.2%' },
+              { name: 'Perth', share: '13.2%', growth: '+8.8%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -5086,7 +5312,7 @@ export const CATEGORIES = [
           midTier: ['Athletic Brewing', 'Heineken 0.0', 'Gordon\u2019s 0.0%', 'Tanqueray 0.0%', 'Guinness 0.0', 'San Pellegrino'],
           value: ['Beck\u2019s Blue', 'Clausthaler', 'Bavaria 0.0', 'Peroni Libera', 'San Miguel 0.0', 'Budweiser Prohibition']
         },
-        channels: { onTrade: 32, offTrade: 53, eCommerce: 12, travelRetail: 3 },
+        channels: { onTrade: 32.5, offTrade: 52.9, eCommerce: 11.8, travelRetail: 2.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 26,   // % ACV distribution
           ceDepletions: 380000,  // case equivalent depletions
@@ -5122,10 +5348,11 @@ export const CATEGORIES = [
             growth: '+11.5%',
             brands: ['Seedlip', 'CleanCo', 'Monday', 'Lyre\u2019s', 'Three Spirit'],
             regions: [
-              { name: 'Berlin', share: '18%', growth: '+12.4%' },
-              { name: 'Munich', share: '16%', growth: '+11.1%' },
-              { name: 'Hamburg', share: '12%', growth: '+11.8%' },
-              { name: 'Frankfurt', share: '10%', growth: '+11.2%' },
+              { name: 'Berlin', share: '27.6%', growth: '+12.4%' },
+              { name: 'Munich', share: '26.7%', growth: '+11.1%' },
+              { name: 'Hamburg', share: '19.4%', growth: '+11.8%' },
+              { name: 'Frankfurt', share: '14.7%', growth: '+11.2%' },
+              { name: 'Hesse', share: '11.6%', growth: '+4.1%' },
             ],
             sources: [
               { name: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -5137,10 +5364,11 @@ export const CATEGORIES = [
             growth: '+12.3%',
             brands: ['Seedlip', 'Lyre\u2019s', 'Athletic Brewing', 'Monday', 'Ritual'],
             regions: [
-              { name: 'London', share: '22%', growth: '+12.8%' },
-              { name: 'Manchester', share: '14%', growth: '+12.1%' },
-              { name: 'Edinburgh', share: '10%', growth: '+12.5%' },
-              { name: 'Birmingham', share: '9%', growth: '+11.9%' },
+              { name: 'London', share: '35.8%', growth: '+12.8%' },
+              { name: 'Manchester', share: '22.9%', growth: '+12.1%' },
+              { name: 'Edinburgh', share: '14.6%', growth: '+12.5%' },
+              { name: 'Birmingham', share: '14.3%', growth: '+11.9%' },
+              { name: 'Bristol', share: '12.4%', growth: '+4.7%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -5152,10 +5380,12 @@ export const CATEGORIES = [
             growth: '+12.8%',
             brands: ['Athletic Brewing', 'Lyre\u2019s', 'Ritual Zero Proof', 'CleanCo', 'Seedlip'],
             regions: [
-              { name: 'California', share: '18%', growth: '+13.5%' },
-              { name: 'New York', share: '15%', growth: '+12.6%' },
-              { name: 'Texas', share: '12%', growth: '+12.3%' },
-              { name: 'Florida', share: '10%', growth: '+12%' },
+              { name: 'California', share: '25.0%', growth: '+13.5%' },
+              { name: 'New York', share: '22.1%', growth: '+12.6%' },
+              { name: 'Texas', share: '17.7%', growth: '+12.3%' },
+              { name: 'Florida', share: '14.6%', growth: '+12%' },
+              { name: 'Illinois', share: '8.8%', growth: '+1.4%' },
+              { name: 'Pennsylvania', share: '11.8%', growth: '+4.2%' },
             ],
             sources: [
               { name: 'Euromonitor', url: 'https://www.euromonitor.com' },
@@ -5167,10 +5397,10 @@ export const CATEGORIES = [
             growth: '+13.1%',
             brands: ['Seedlip', 'Lyre\u2019s', 'CleanCo', 'Monday', 'Athletic Brewing'],
             regions: [
-              { name: 'Madrid', share: '24%', growth: '+13.8%' },
-              { name: 'Barcelona', share: '18%', growth: '+13%' },
-              { name: 'Valencia', share: '11%', growth: '+12.8%' },
-              { name: 'Seville', share: '8%', growth: '+12.5%' },
+              { name: 'Madrid', share: '38.4%', growth: '+13.8%' },
+              { name: 'Barcelona', share: '30.2%', growth: '+13%' },
+              { name: 'Valencia', share: '18.7%', growth: '+12.8%' },
+              { name: 'Seville', share: '12.7%', growth: '+12.5%' },
             ],
             sources: [
               { name: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -5182,10 +5412,10 @@ export const CATEGORIES = [
             growth: '+12.6%',
             brands: ['Athletic Brewing', 'Lyre\u2019s', 'CleanCo', 'Seedlip', 'Monday'],
             regions: [
-              { name: 'Sydney', share: '26%', growth: '+13.2%' },
-              { name: 'Melbourne', share: '20%', growth: '+12.5%' },
-              { name: 'Brisbane', share: '13%', growth: '+12.2%' },
-              { name: 'Perth', share: '9%', growth: '+11.9%' },
+              { name: 'Sydney', share: '38.3%', growth: '+13.2%' },
+              { name: 'Melbourne', share: '27.6%', growth: '+12.5%' },
+              { name: 'Brisbane', share: '19.8%', growth: '+12.2%' },
+              { name: 'Perth', share: '14.3%', growth: '+11.9%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -5198,7 +5428,7 @@ export const CATEGORIES = [
           midTier: ['Athletic Brewing', 'Heineken 0.0', 'Gordon\u2019s 0.0%', 'Tanqueray 0.0%', 'Guinness 0.0', 'San Pellegrino'],
           value: ['Beck\u2019s Blue', 'Clausthaler', 'Bavaria 0.0', 'Peroni Libera', 'San Miguel 0.0', 'Budweiser Prohibition']
         },
-        channels: { onTrade: 30, offTrade: 54, eCommerce: 13, travelRetail: 3 },
+        channels: { onTrade: 29.8, offTrade: 54.1, eCommerce: 13.3, travelRetail: 2.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 22,   // % ACV distribution
           ceDepletions: 310000,  // case equivalent depletions
@@ -5234,10 +5464,11 @@ export const CATEGORIES = [
             growth: '+14.2%',
             brands: ['Seedlip', 'CleanCo', 'Monday', 'Lyre\u2019s'],
             regions: [
-              { name: 'Berlin', share: '18%', growth: '+15.3%' },
-              { name: 'Munich', share: '16%', growth: '+13.8%' },
-              { name: 'Hamburg', share: '12%', growth: '+14.6%' },
-              { name: 'Frankfurt', share: '10%', growth: '+14%' },
+              { name: 'Berlin', share: '26.7%', growth: '+15.3%' },
+              { name: 'Munich', share: '27.0%', growth: '+13.8%' },
+              { name: 'Hamburg', share: '18.5%', growth: '+14.6%' },
+              { name: 'Frankfurt', share: '15.7%', growth: '+14%' },
+              { name: 'Hesse', share: '12.1%', growth: '+4.5%' },
             ],
             sources: [
               { name: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -5249,10 +5480,11 @@ export const CATEGORIES = [
             growth: '+15.5%',
             brands: ['Seedlip', 'Lyre\u2019s', 'Athletic Brewing', 'Monday'],
             regions: [
-              { name: 'London', share: '22%', growth: '+16.1%' },
-              { name: 'Manchester', share: '14%', growth: '+15.3%' },
-              { name: 'Edinburgh', share: '10%', growth: '+15.8%' },
-              { name: 'Birmingham', share: '9%', growth: '+15.1%' },
+              { name: 'London', share: '35.5%', growth: '+16.1%' },
+              { name: 'Manchester', share: '23.1%', growth: '+15.3%' },
+              { name: 'Edinburgh', share: '14.4%', growth: '+15.8%' },
+              { name: 'Birmingham', share: '14.6%', growth: '+15.1%' },
+              { name: 'Bristol', share: '12.4%', growth: '+4.5%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -5264,10 +5496,12 @@ export const CATEGORIES = [
             growth: '+15.3%',
             brands: ['Athletic Brewing', 'Lyre\u2019s', 'Ritual Zero Proof', 'CleanCo'],
             regions: [
-              { name: 'California', share: '18%', growth: '+16.1%' },
-              { name: 'New York', share: '15%', growth: '+15.2%' },
-              { name: 'Texas', share: '12%', growth: '+15%' },
-              { name: 'Florida', share: '10%', growth: '+14.8%' },
+              { name: 'California', share: '24.4%', growth: '+16.1%' },
+              { name: 'New York', share: '21.6%', growth: '+15.2%' },
+              { name: 'Texas', share: '18.2%', growth: '+15%' },
+              { name: 'Florida', share: '14.0%', growth: '+14.8%' },
+              { name: 'Illinois', share: '10.4%', growth: '+4.8%' },
+              { name: 'Pennsylvania', share: '11.4%', growth: '+0.3%' },
             ],
             sources: [
               { name: 'Euromonitor', url: 'https://www.euromonitor.com' },
@@ -5279,10 +5513,10 @@ export const CATEGORIES = [
             growth: '+15.8%',
             brands: ['Seedlip', 'Lyre\u2019s', 'CleanCo', 'Monday'],
             regions: [
-              { name: 'Madrid', share: '24%', growth: '+16.4%' },
-              { name: 'Barcelona', share: '18%', growth: '+15.7%' },
-              { name: 'Valencia', share: '11%', growth: '+15.5%' },
-              { name: 'Seville', share: '8%', growth: '+15.2%' },
+              { name: 'Madrid', share: '37.4%', growth: '+16.4%' },
+              { name: 'Barcelona', share: '31.5%', growth: '+15.7%' },
+              { name: 'Valencia', share: '18.1%', growth: '+15.5%' },
+              { name: 'Seville', share: '13.0%', growth: '+15.2%' },
             ],
             sources: [
               { name: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -5294,10 +5528,10 @@ export const CATEGORIES = [
             growth: '+15.1%',
             brands: ['Athletic Brewing', 'Lyre\u2019s', 'CleanCo', 'Seedlip'],
             regions: [
-              { name: 'Sydney', share: '26%', growth: '+15.8%' },
-              { name: 'Melbourne', share: '20%', growth: '+15%' },
-              { name: 'Brisbane', share: '13%', growth: '+14.8%' },
-              { name: 'Perth', share: '9%', growth: '+14.5%' },
+              { name: 'Sydney', share: '37.1%', growth: '+15.8%' },
+              { name: 'Melbourne', share: '27.0%', growth: '+15%' },
+              { name: 'Brisbane', share: '20.6%', growth: '+14.8%' },
+              { name: 'Perth', share: '15.3%', growth: '+14.5%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -5310,7 +5544,7 @@ export const CATEGORIES = [
           midTier: ['Athletic Brewing', 'Heineken 0.0', 'Gordon\u2019s 0.0%', 'Tanqueray 0.0%', 'Guinness 0.0', 'San Pellegrino'],
           value: ['Beck\u2019s Blue', 'Clausthaler', 'Bavaria 0.0', 'Peroni Libera', 'San Miguel 0.0', 'Budweiser Prohibition']
         },
-        channels: { onTrade: 28, offTrade: 55, eCommerce: 12, travelRetail: 5 },
+        channels: { onTrade: 27.9, offTrade: 55.0, eCommerce: 11.7, travelRetail: 5.4 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 18,   // % ACV distribution
           ceDepletions: 240000,  // case equivalent depletions
@@ -5346,10 +5580,11 @@ export const CATEGORIES = [
             growth: '+20.5%',
             brands: ['Seedlip', 'CleanCo', 'Monday'],
             regions: [
-              { name: 'Berlin', share: '18%', growth: '+21.8%' },
-              { name: 'Munich', share: '16%', growth: '+19.9%' },
-              { name: 'Hamburg', share: '12%', growth: '+20.6%' },
-              { name: 'Frankfurt', share: '10%', growth: '+20.2%' },
+              { name: 'Berlin', share: '26.6%', growth: '+21.8%' },
+              { name: 'Munich', share: '28.0%', growth: '+19.9%' },
+              { name: 'Hamburg', share: '19.2%', growth: '+20.6%' },
+              { name: 'Frankfurt', share: '14.8%', growth: '+20.2%' },
+              { name: 'Hesse', share: '11.4%', growth: '+3.8%' },
             ],
             sources: [
               { name: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -5361,10 +5596,11 @@ export const CATEGORIES = [
             growth: '+22.8%',
             brands: ['Seedlip', 'Lyre\u2019s', 'Athletic Brewing'],
             regions: [
-              { name: 'London', share: '22%', growth: '+23.5%' },
-              { name: 'Manchester', share: '14%', growth: '+22.6%' },
-              { name: 'Edinburgh', share: '10%', growth: '+23.1%' },
-              { name: 'Birmingham', share: '9%', growth: '+22.3%' },
+              { name: 'London', share: '34.7%', growth: '+23.5%' },
+              { name: 'Manchester', share: '23.6%', growth: '+22.6%' },
+              { name: 'Edinburgh', share: '14.8%', growth: '+23.1%' },
+              { name: 'Birmingham', share: '15.6%', growth: '+22.3%' },
+              { name: 'Bristol', share: '11.3%', growth: '+4.1%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -5376,10 +5612,12 @@ export const CATEGORIES = [
             growth: '+23.1%',
             brands: ['Athletic Brewing', 'Lyre\u2019s', 'Ritual Zero Proof'],
             regions: [
-              { name: 'California', share: '18%', growth: '+24.1%' },
-              { name: 'New York', share: '15%', growth: '+23.1%' },
-              { name: 'Texas', share: '12%', growth: '+22.8%' },
-              { name: 'Florida', share: '10%', growth: '+22.5%' },
+              { name: 'California', share: '23.9%', growth: '+24.1%' },
+              { name: 'New York', share: '20.8%', growth: '+23.1%' },
+              { name: 'Texas', share: '18.9%', growth: '+22.8%' },
+              { name: 'Florida', share: '13.6%', growth: '+22.5%' },
+              { name: 'Illinois', share: '10.0%', growth: '+3.4%' },
+              { name: 'Pennsylvania', share: '12.8%', growth: '+5.4%' },
             ],
             sources: [
               { name: 'Euromonitor', url: 'https://www.euromonitor.com' },
@@ -5391,10 +5629,10 @@ export const CATEGORIES = [
             growth: '+23.5%',
             brands: ['Seedlip', 'Lyre\u2019s', 'CleanCo'],
             regions: [
-              { name: 'Madrid', share: '24%', growth: '+24.3%' },
-              { name: 'Barcelona', share: '18%', growth: '+23.6%' },
-              { name: 'Valencia', share: '11%', growth: '+23.2%' },
-              { name: 'Seville', share: '8%', growth: '+22.9%' },
+              { name: 'Madrid', share: '38.5%', growth: '+24.3%' },
+              { name: 'Barcelona', share: '30.2%', growth: '+23.6%' },
+              { name: 'Valencia', share: '18.2%', growth: '+23.2%' },
+              { name: 'Seville', share: '13.1%', growth: '+22.9%' },
             ],
             sources: [
               { name: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -5406,10 +5644,10 @@ export const CATEGORIES = [
             growth: '+22.6%',
             brands: ['Athletic Brewing', 'Lyre\u2019s', 'CleanCo'],
             regions: [
-              { name: 'Sydney', share: '26%', growth: '+23.4%' },
-              { name: 'Melbourne', share: '20%', growth: '+22.6%' },
-              { name: 'Brisbane', share: '13%', growth: '+22.2%' },
-              { name: 'Perth', share: '9%', growth: '+21.9%' },
+              { name: 'Sydney', share: '38.0%', growth: '+23.4%' },
+              { name: 'Melbourne', share: '27.8%', growth: '+22.6%' },
+              { name: 'Brisbane', share: '18.9%', growth: '+22.2%' },
+              { name: 'Perth', share: '15.3%', growth: '+21.9%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -5422,7 +5660,7 @@ export const CATEGORIES = [
           midTier: ['Athletic Brewing', 'Heineken 0.0', 'Gordon\u2019s 0.0%', 'Tanqueray 0.0%', 'Guinness 0.0', 'San Pellegrino'],
           value: ['Beck\u2019s Blue', 'Clausthaler', 'Bavaria 0.0', 'Peroni Libera', 'San Miguel 0.0', 'Budweiser Prohibition']
         },
-        channels: { onTrade: 25, offTrade: 56, eCommerce: 11, travelRetail: 8 },
+        channels: { onTrade: 24.9, offTrade: 56.5, eCommerce: 10.7, travelRetail: 7.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 15,   // % ACV distribution
           ceDepletions: 180000,  // case equivalent depletions
@@ -5458,10 +5696,11 @@ export const CATEGORIES = [
             growth: '+17.2%',
             brands: ['Seedlip', 'CleanCo'],
             regions: [
-              { name: 'Berlin', share: '18%', growth: '+18.5%' },
-              { name: 'Munich', share: '16%', growth: '+16.8%' },
-              { name: 'Hamburg', share: '12%', growth: '+17.3%' },
-              { name: 'Frankfurt', share: '10%', growth: '+16.9%' },
+              { name: 'Berlin', share: '26.2%', growth: '+18.5%' },
+              { name: 'Munich', share: '28.0%', growth: '+16.8%' },
+              { name: 'Hamburg', share: '19.2%', growth: '+17.3%' },
+              { name: 'Frankfurt', share: '15.2%', growth: '+16.9%' },
+              { name: 'Hesse', share: '11.4%', growth: '+0.8%' },
             ],
             sources: [
               { name: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -5473,10 +5712,11 @@ export const CATEGORIES = [
             growth: '+18.9%',
             brands: ['Seedlip', 'Lyre\u2019s'],
             regions: [
-              { name: 'London', share: '22%', growth: '+19.6%' },
-              { name: 'Manchester', share: '14%', growth: '+18.7%' },
-              { name: 'Edinburgh', share: '10%', growth: '+19.2%' },
-              { name: 'Birmingham', share: '9%', growth: '+18.4%' },
+              { name: 'London', share: '36.0%', growth: '+19.6%' },
+              { name: 'Manchester', share: '22.7%', growth: '+18.7%' },
+              { name: 'Edinburgh', share: '16.5%', growth: '+19.2%' },
+              { name: 'Birmingham', share: '14.7%', growth: '+18.4%' },
+              { name: 'Bristol', share: '10.1%', growth: '+1.2%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -5488,10 +5728,12 @@ export const CATEGORIES = [
             growth: '+18.6%',
             brands: ['Lyre\u2019s', 'Ritual Zero Proof'],
             regions: [
-              { name: 'California', share: '18%', growth: '+19.5%' },
-              { name: 'New York', share: '15%', growth: '+18.7%' },
-              { name: 'Texas', share: '12%', growth: '+18.3%' },
-              { name: 'Florida', share: '10%', growth: '+18%' },
+              { name: 'California', share: '24.7%', growth: '+19.5%' },
+              { name: 'New York', share: '20.0%', growth: '+18.7%' },
+              { name: 'Texas', share: '17.7%', growth: '+18.3%' },
+              { name: 'Florida', share: '14.0%', growth: '+18%' },
+              { name: 'Illinois', share: '9.5%', growth: '+3.1%' },
+              { name: 'Pennsylvania', share: '14.1%', growth: '+1.0%' },
             ],
             sources: [
               { name: 'Euromonitor', url: 'https://www.euromonitor.com' },
@@ -5503,10 +5745,10 @@ export const CATEGORIES = [
             growth: '+19.2%',
             brands: ['Seedlip', 'Lyre\u2019s'],
             regions: [
-              { name: 'Madrid', share: '24%', growth: '+20.1%' },
-              { name: 'Barcelona', share: '18%', growth: '+19.4%' },
-              { name: 'Valencia', share: '11%', growth: '+19%' },
-              { name: 'Seville', share: '8%', growth: '+18.6%' },
+              { name: 'Madrid', share: '38.4%', growth: '+20.1%' },
+              { name: 'Barcelona', share: '30.8%', growth: '+19.4%' },
+              { name: 'Valencia', share: '19.0%', growth: '+19%' },
+              { name: 'Seville', share: '11.8%', growth: '+18.6%' },
             ],
             sources: [
               { name: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -5518,10 +5760,10 @@ export const CATEGORIES = [
             growth: '+18.3%',
             brands: ['Lyre\u2019s', 'Seedlip'],
             regions: [
-              { name: 'Sydney', share: '26%', growth: '+19.1%' },
-              { name: 'Melbourne', share: '20%', growth: '+18.3%' },
-              { name: 'Brisbane', share: '13%', growth: '+17.9%' },
-              { name: 'Perth', share: '9%', growth: '+17.6%' },
+              { name: 'Sydney', share: '36.4%', growth: '+19.1%' },
+              { name: 'Melbourne', share: '28.9%', growth: '+18.3%' },
+              { name: 'Brisbane', share: '18.1%', growth: '+17.9%' },
+              { name: 'Perth', share: '16.6%', growth: '+17.6%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -5534,7 +5776,7 @@ export const CATEGORIES = [
           midTier: ['Athletic Brewing', 'Heineken 0.0', 'Gordon\u2019s 0.0%', 'Tanqueray 0.0%', 'Guinness 0.0', 'San Pellegrino'],
           value: ['Beck\u2019s Blue', 'Clausthaler', 'Bavaria 0.0', 'Peroni Libera', 'San Miguel 0.0', 'Budweiser Prohibition']
         },
-        channels: { onTrade: 22, offTrade: 57, eCommerce: 10, travelRetail: 11 },
+        channels: { onTrade: 21.9, offTrade: 57.2, eCommerce: 10.0, travelRetail: 10.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 12,   // % ACV distribution
           ceDepletions: 130000,  // case equivalent depletions
@@ -5580,10 +5822,12 @@ export const CATEGORIES = [
             growth: '+8.2%',
             brands: ['White Claw', 'Truly', 'High Noon', 'Smirnoff Ice'],
             regions: [
-              { name: 'California', share: '16%', growth: '+8.8%' },
-              { name: 'Texas', share: '14%', growth: '+7.9%' },
-              { name: 'New York', share: '12%', growth: '+8.1%' },
-              { name: 'Florida', share: '10%', growth: '+7.8%' },
+              { name: 'California', share: '24.0%', growth: '+8.8%' },
+              { name: 'Texas', share: '20.9%', growth: '+7.9%' },
+              { name: 'New York', share: '17.9%', growth: '+8.1%' },
+              { name: 'Florida', share: '14.9%', growth: '+7.8%' },
+              { name: 'Illinois', share: '10.0%', growth: '+2.8%' },
+              { name: 'Pennsylvania', share: '12.3%', growth: '+4.7%' },
             ],
             sources: [
               { name: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -5595,10 +5839,10 @@ export const CATEGORIES = [
             growth: '+9.1%',
             brands: ['Cutwater', 'On The Rocks', 'Volley', 'Tip Top'],
             regions: [
-              { name: 'Sydney', share: '26%', growth: '+9.8%' },
-              { name: 'Melbourne', share: '20%', growth: '+8.9%' },
-              { name: 'Brisbane', share: '13%', growth: '+8.7%' },
-              { name: 'Perth', share: '9%', growth: '+8.4%' },
+              { name: 'Sydney', share: '38.3%', growth: '+9.8%' },
+              { name: 'Melbourne', share: '29.4%', growth: '+8.9%' },
+              { name: 'Brisbane', share: '19.1%', growth: '+8.7%' },
+              { name: 'Perth', share: '13.2%', growth: '+8.4%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -5610,10 +5854,11 @@ export const CATEGORIES = [
             growth: '+7.8%',
             brands: ['Kirin Chu-Hi', 'Asahi Chuhai', 'Suntory -196'],
             regions: [
-              { name: 'Tokyo', share: '24%', growth: '+8.5%' },
-              { name: 'Osaka', share: '18%', growth: '+7.6%' },
-              { name: 'Yokohama', share: '12%', growth: '+7.9%' },
-              { name: 'Nagoya', share: '10%', growth: '+7.4%' },
+              { name: 'Tokyo', share: '33.8%', growth: '+8.5%' },
+              { name: 'Osaka', share: '25.3%', growth: '+7.6%' },
+              { name: 'Yokohama', share: '16.8%', growth: '+7.9%' },
+              { name: 'Nagoya', share: '14.0%', growth: '+7.4%' },
+              { name: 'Sapporo', share: '10.1%', growth: '+0.9%' },
             ],
             sources: [
               { name: 'Euromonitor', url: 'https://www.euromonitor.com' },
@@ -5625,10 +5870,11 @@ export const CATEGORIES = [
             growth: '+8.6%',
             brands: ['Cutwater', 'Tip Top', 'On The Rocks', 'Gordon\u2019s RTD'],
             regions: [
-              { name: 'London', share: '22%', growth: '+9.1%' },
-              { name: 'Manchester', share: '14%', growth: '+8.4%' },
-              { name: 'Edinburgh', share: '10%', growth: '+8.7%' },
-              { name: 'Birmingham', share: '9%', growth: '+8.2%' },
+              { name: 'London', share: '35.4%', growth: '+9.1%' },
+              { name: 'Manchester', share: '22.5%', growth: '+8.4%' },
+              { name: 'Edinburgh', share: '16.1%', growth: '+8.7%' },
+              { name: 'Birmingham', share: '14.5%', growth: '+8.2%' },
+              { name: 'Bristol', share: '11.5%', growth: '+1.8%' },
             ],
             sources: [
               { name: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -5640,10 +5886,10 @@ export const CATEGORIES = [
             growth: '+8.3%',
             brands: ['Crown Royal Cocktails', 'Cutwater', 'Smirnoff Ice', 'Mike\u2019s Hard'],
             regions: [
-              { name: 'Toronto', share: '24%', growth: '+8.9%' },
-              { name: 'Vancouver', share: '18%', growth: '+8.1%' },
-              { name: 'Montreal', share: '15%', growth: '+8.2%' },
-              { name: 'Calgary', share: '10%', growth: '+7.9%' },
+              { name: 'Toronto', share: '35.8%', growth: '+8.9%' },
+              { name: 'Vancouver', share: '26.9%', growth: '+8.1%' },
+              { name: 'Montreal', share: '22.4%', growth: '+8.2%' },
+              { name: 'Calgary', share: '14.9%', growth: '+7.9%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -5656,7 +5902,7 @@ export const CATEGORIES = [
           midTier: ['High Noon', 'NÜTRL', 'Crown Royal Cocktails', 'Jack Daniel\u2019s & Cola', 'Tanqueray RTD', 'Gordon\u2019s RTD'],
           value: ['White Claw', 'Truly', 'Twisted Tea', 'Four Loko', 'Smirnoff Ice', 'Mike\u2019s Hard']
         },
-        channels: { onTrade: 25, offTrade: 68, eCommerce: 4, travelRetail: 3 },
+        channels: { onTrade: 24.4, offTrade: 68.3, eCommerce: 4.1, travelRetail: 3.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 30,   // % ACV distribution
           ceDepletions: 1200000,  // case equivalent depletions
@@ -5692,10 +5938,12 @@ export const CATEGORIES = [
             growth: '+11.8%',
             brands: ['White Claw', 'Truly', 'High Noon', 'Smirnoff Ice'],
             regions: [
-              { name: 'California', share: '16%', growth: '+12.5%' },
-              { name: 'Texas', share: '14%', growth: '+11.6%' },
-              { name: 'New York', share: '12%', growth: '+11.9%' },
-              { name: 'Florida', share: '10%', growth: '+11.4%' },
+              { name: 'California', share: '24.9%', growth: '+12.5%' },
+              { name: 'Texas', share: '20.8%', growth: '+11.6%' },
+              { name: 'New York', share: '17.4%', growth: '+11.9%' },
+              { name: 'Florida', share: '14.5%', growth: '+11.4%' },
+              { name: 'Illinois', share: '10.3%', growth: '+2.3%' },
+              { name: 'Pennsylvania', share: '12.1%', growth: '+3.5%' },
             ],
             sources: [
               { name: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -5707,10 +5955,10 @@ export const CATEGORIES = [
             growth: '+12.8%',
             brands: ['Cutwater', 'On The Rocks', 'Volley', 'Tip Top'],
             regions: [
-              { name: 'Sydney', share: '26%', growth: '+13.5%' },
-              { name: 'Melbourne', share: '20%', growth: '+12.6%' },
-              { name: 'Brisbane', share: '13%', growth: '+12.4%' },
-              { name: 'Perth', share: '9%', growth: '+12.1%' },
+              { name: 'Sydney', share: '38.1%', growth: '+13.5%' },
+              { name: 'Melbourne', share: '29.2%', growth: '+12.6%' },
+              { name: 'Brisbane', share: '18.9%', growth: '+12.4%' },
+              { name: 'Perth', share: '13.8%', growth: '+12.1%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -5722,10 +5970,11 @@ export const CATEGORIES = [
             growth: '+11.6%',
             brands: ['Kirin Chu-Hi', 'Asahi Chuhai', 'Suntory -196'],
             regions: [
-              { name: 'Tokyo', share: '24%', growth: '+12.3%' },
-              { name: 'Osaka', share: '18%', growth: '+11.4%' },
-              { name: 'Yokohama', share: '12%', growth: '+11.7%' },
-              { name: 'Nagoya', share: '10%', growth: '+11.1%' },
+              { name: 'Tokyo', share: '34.3%', growth: '+12.3%' },
+              { name: 'Osaka', share: '26.9%', growth: '+11.4%' },
+              { name: 'Yokohama', share: '16.8%', growth: '+11.7%' },
+              { name: 'Nagoya', share: '12.9%', growth: '+11.1%' },
+              { name: 'Sapporo', share: '9.1%', growth: '+5.8%' },
             ],
             sources: [
               { name: 'Euromonitor', url: 'https://www.euromonitor.com' },
@@ -5737,10 +5986,11 @@ export const CATEGORIES = [
             growth: '+12.3%',
             brands: ['Cutwater', 'Tip Top', 'On The Rocks', 'Gordon\u2019s RTD'],
             regions: [
-              { name: 'London', share: '22%', growth: '+12.8%' },
-              { name: 'Manchester', share: '14%', growth: '+12.1%' },
-              { name: 'Edinburgh', share: '10%', growth: '+12.4%' },
-              { name: 'Birmingham', share: '9%', growth: '+11.9%' },
+              { name: 'London', share: '34.8%', growth: '+12.8%' },
+              { name: 'Manchester', share: '22.8%', growth: '+12.1%' },
+              { name: 'Edinburgh', share: '16.3%', growth: '+12.4%' },
+              { name: 'Birmingham', share: '15.3%', growth: '+11.9%' },
+              { name: 'Bristol', share: '10.8%', growth: '+2.1%' },
             ],
             sources: [
               { name: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -5752,10 +6002,10 @@ export const CATEGORIES = [
             growth: '+12%',
             brands: ['Crown Royal Cocktails', 'Cutwater', 'Smirnoff Ice', 'Mike\u2019s Hard'],
             regions: [
-              { name: 'Toronto', share: '24%', growth: '+12.6%' },
-              { name: 'Vancouver', share: '18%', growth: '+11.8%' },
-              { name: 'Montreal', share: '15%', growth: '+11.9%' },
-              { name: 'Calgary', share: '10%', growth: '+11.6%' },
+              { name: 'Toronto', share: '34.4%', growth: '+12.6%' },
+              { name: 'Vancouver', share: '28.2%', growth: '+11.8%' },
+              { name: 'Montreal', share: '21.4%', growth: '+11.9%' },
+              { name: 'Calgary', share: '16.0%', growth: '+11.6%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -5768,7 +6018,7 @@ export const CATEGORIES = [
           midTier: ['High Noon', 'NÜTRL', 'Crown Royal Cocktails', 'Jack Daniel\u2019s & Cola', 'Tanqueray RTD', 'Gordon\u2019s RTD'],
           value: ['White Claw', 'Truly', 'Twisted Tea', 'Four Loko', 'Smirnoff Ice', 'Mike\u2019s Hard']
         },
-        channels: { onTrade: 23, offTrade: 70, eCommerce: 3, travelRetail: 4 },
+        channels: { onTrade: 23.6, offTrade: 69.3, eCommerce: 2.9, travelRetail: 4.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 27,   // % ACV distribution
           ceDepletions: 1050000,  // case equivalent depletions
@@ -5804,10 +6054,12 @@ export const CATEGORIES = [
             growth: '+17.6%',
             brands: ['White Claw', 'Truly', 'High Noon', 'Twisted Tea'],
             regions: [
-              { name: 'California', share: '16%', growth: '+18.4%' },
-              { name: 'Texas', share: '14%', growth: '+17.2%' },
-              { name: 'New York', share: '12%', growth: '+17.8%' },
-              { name: 'Florida', share: '10%', growth: '+17%' },
+              { name: 'California', share: '23.8%', growth: '+18.4%' },
+              { name: 'Texas', share: '21.4%', growth: '+17.2%' },
+              { name: 'New York', share: '18.2%', growth: '+17.8%' },
+              { name: 'Florida', share: '14.6%', growth: '+17%' },
+              { name: 'Illinois', share: '11.0%', growth: '+3.4%' },
+              { name: 'Pennsylvania', share: '11.0%', growth: '+5.1%' },
             ],
             sources: [
               { name: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -5819,10 +6071,10 @@ export const CATEGORIES = [
             growth: '+18.9%',
             brands: ['On The Rocks', 'Cutwater', 'Volley', 'Tip Top'],
             regions: [
-              { name: 'Sydney', share: '26%', growth: '+19.6%' },
-              { name: 'Melbourne', share: '20%', growth: '+18.7%' },
-              { name: 'Brisbane', share: '13%', growth: '+18.5%' },
-              { name: 'Perth', share: '9%', growth: '+18.2%' },
+              { name: 'Sydney', share: '37.8%', growth: '+19.6%' },
+              { name: 'Melbourne', share: '29.0%', growth: '+18.7%' },
+              { name: 'Brisbane', share: '18.3%', growth: '+18.5%' },
+              { name: 'Perth', share: '14.9%', growth: '+18.2%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -5834,10 +6086,11 @@ export const CATEGORIES = [
             growth: '+16.8%',
             brands: ['Kirin Chu-Hi', 'Asahi Chuhai', 'Suntory -196'],
             regions: [
-              { name: 'Tokyo', share: '24%', growth: '+17.5%' },
-              { name: 'Osaka', share: '18%', growth: '+16.6%' },
-              { name: 'Yokohama', share: '12%', growth: '+16.9%' },
-              { name: 'Nagoya', share: '10%', growth: '+16.3%' },
+              { name: 'Tokyo', share: '34.0%', growth: '+17.5%' },
+              { name: 'Osaka', share: '27.1%', growth: '+16.6%' },
+              { name: 'Yokohama', share: '17.0%', growth: '+16.9%' },
+              { name: 'Nagoya', share: '13.4%', growth: '+16.3%' },
+              { name: 'Sapporo', share: '8.5%', growth: '+3.5%' },
             ],
             sources: [
               { name: 'Euromonitor', url: 'https://www.euromonitor.com' },
@@ -5849,10 +6102,11 @@ export const CATEGORIES = [
             growth: '+18.1%',
             brands: ['On The Rocks', 'Tip Top', 'Cutwater', 'Smirnoff Ice'],
             regions: [
-              { name: 'London', share: '22%', growth: '+18.6%' },
-              { name: 'Manchester', share: '14%', growth: '+17.9%' },
-              { name: 'Edinburgh', share: '10%', growth: '+18.2%' },
-              { name: 'Birmingham', share: '9%', growth: '+17.7%' },
+              { name: 'London', share: '34.3%', growth: '+18.6%' },
+              { name: 'Manchester', share: '22.0%', growth: '+17.9%' },
+              { name: 'Edinburgh', share: '16.2%', growth: '+18.2%' },
+              { name: 'Birmingham', share: '16.3%', growth: '+17.7%' },
+              { name: 'Bristol', share: '11.2%', growth: '+2.2%' },
             ],
             sources: [
               { name: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -5864,10 +6118,10 @@ export const CATEGORIES = [
             growth: '+17.9%',
             brands: ['Crown Royal Cocktails', 'Smirnoff Ice', 'Mike\u2019s Hard', 'Twisted Tea'],
             regions: [
-              { name: 'Toronto', share: '24%', growth: '+18.5%' },
-              { name: 'Vancouver', share: '18%', growth: '+17.7%' },
-              { name: 'Montreal', share: '15%', growth: '+17.8%' },
-              { name: 'Calgary', share: '10%', growth: '+17.4%' },
+              { name: 'Toronto', share: '33.9%', growth: '+18.5%' },
+              { name: 'Vancouver', share: '27.8%', growth: '+17.7%' },
+              { name: 'Montreal', share: '21.7%', growth: '+17.8%' },
+              { name: 'Calgary', share: '16.6%', growth: '+17.4%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -5880,7 +6134,7 @@ export const CATEGORIES = [
           midTier: ['High Noon', 'NÜTRL', 'Crown Royal Cocktails', 'Jack Daniel\u2019s & Cola', 'Tanqueray RTD', 'Gordon\u2019s RTD'],
           value: ['White Claw', 'Truly', 'Twisted Tea', 'Four Loko', 'Smirnoff Ice', 'Mike\u2019s Hard']
         },
-        channels: { onTrade: 20, offTrade: 72, eCommerce: 3, travelRetail: 5 },
+        channels: { onTrade: 20.3, offTrade: 71.6, eCommerce: 3.4, travelRetail: 4.7 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 24,   // % ACV distribution
           ceDepletions: 900000,  // case equivalent depletions
@@ -5916,10 +6170,12 @@ export const CATEGORIES = [
             growth: '+27.5%',
             brands: ['White Claw', 'Truly', 'High Noon'],
             regions: [
-              { name: 'California', share: '16%', growth: '+28.5%' },
-              { name: 'Texas', share: '14%', growth: '+27.1%' },
-              { name: 'New York', share: '12%', growth: '+27.6%' },
-              { name: 'Florida', share: '10%', growth: '+27%' },
+              { name: 'California', share: '24.3%', growth: '+28.5%' },
+              { name: 'Texas', share: '22.0%', growth: '+27.1%' },
+              { name: 'New York', share: '18.7%', growth: '+27.6%' },
+              { name: 'Florida', share: '14.2%', growth: '+27%' },
+              { name: 'Illinois', share: '9.6%', growth: '+2.9%' },
+              { name: 'Pennsylvania', share: '11.2%', growth: '+3.2%' },
             ],
             sources: [
               { name: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -5931,10 +6187,10 @@ export const CATEGORIES = [
             growth: '+29.3%',
             brands: ['Cutwater', 'On The Rocks', 'Volley'],
             regions: [
-              { name: 'Sydney', share: '26%', growth: '+30.1%' },
-              { name: 'Melbourne', share: '20%', growth: '+29.2%' },
-              { name: 'Brisbane', share: '13%', growth: '+28.9%' },
-              { name: 'Perth', share: '9%', growth: '+28.6%' },
+              { name: 'Sydney', share: '36.5%', growth: '+30.1%' },
+              { name: 'Melbourne', share: '30.0%', growth: '+29.2%' },
+              { name: 'Brisbane', share: '19.5%', growth: '+28.9%' },
+              { name: 'Perth', share: '14.0%', growth: '+28.6%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -5946,10 +6202,11 @@ export const CATEGORIES = [
             growth: '+26.4%',
             brands: ['Kirin Chu-Hi', 'Asahi Chuhai', 'Suntory -196'],
             regions: [
-              { name: 'Tokyo', share: '24%', growth: '+27.2%' },
-              { name: 'Osaka', share: '18%', growth: '+26.1%' },
-              { name: 'Yokohama', share: '12%', growth: '+26.5%' },
-              { name: 'Nagoya', share: '10%', growth: '+25.9%' },
+              { name: 'Tokyo', share: '34.6%', growth: '+27.2%' },
+              { name: 'Osaka', share: '28.0%', growth: '+26.1%' },
+              { name: 'Yokohama', share: '16.4%', growth: '+26.5%' },
+              { name: 'Nagoya', share: '13.4%', growth: '+25.9%' },
+              { name: 'Sapporo', share: '7.6%', growth: '+4.0%' },
             ],
             sources: [
               { name: 'Euromonitor', url: 'https://www.euromonitor.com' },
@@ -5961,10 +6218,11 @@ export const CATEGORIES = [
             growth: '+28.2%',
             brands: ['On The Rocks', 'Cutwater', 'Smirnoff Ice'],
             regions: [
-              { name: 'London', share: '22%', growth: '+28.9%' },
-              { name: 'Manchester', share: '14%', growth: '+27.9%' },
-              { name: 'Edinburgh', share: '10%', growth: '+28.4%' },
-              { name: 'Birmingham', share: '9%', growth: '+27.9%' },
+              { name: 'London', share: '34.8%', growth: '+28.9%' },
+              { name: 'Manchester', share: '23.2%', growth: '+27.9%' },
+              { name: 'Edinburgh', share: '15.5%', growth: '+28.4%' },
+              { name: 'Birmingham', share: '15.9%', growth: '+27.9%' },
+              { name: 'Bristol', share: '10.6%', growth: '+1.2%' },
             ],
             sources: [
               { name: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -5976,10 +6234,10 @@ export const CATEGORIES = [
             growth: '+27.8%',
             brands: ['Crown Royal Cocktails', 'Smirnoff Ice', 'Mike\u2019s Hard'],
             regions: [
-              { name: 'Toronto', share: '24%', growth: '+28.4%' },
-              { name: 'Vancouver', share: '18%', growth: '+27.6%' },
-              { name: 'Montreal', share: '15%', growth: '+27.7%' },
-              { name: 'Calgary', share: '10%', growth: '+27.3%' },
+              { name: 'Toronto', share: '32.4%', growth: '+28.4%' },
+              { name: 'Vancouver', share: '28.4%', growth: '+27.6%' },
+              { name: 'Montreal', share: '22.8%', growth: '+27.7%' },
+              { name: 'Calgary', share: '16.4%', growth: '+27.3%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -5992,7 +6250,7 @@ export const CATEGORIES = [
           midTier: ['High Noon', 'NÜTRL', 'Crown Royal Cocktails', 'Jack Daniel\u2019s & Cola', 'Tanqueray RTD', 'Gordon\u2019s RTD'],
           value: ['White Claw', 'Truly', 'Twisted Tea', 'Four Loko', 'Smirnoff Ice', 'Mike\u2019s Hard']
         },
-        channels: { onTrade: 18, offTrade: 74, eCommerce: 2, travelRetail: 6 },
+        channels: { onTrade: 18.0, offTrade: 74.4, eCommerce: 1.7, travelRetail: 5.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 20,   // % ACV distribution
           ceDepletions: 750000,  // case equivalent depletions
@@ -6028,10 +6286,12 @@ export const CATEGORIES = [
             growth: '+41.2%',
             brands: ['White Claw', 'Truly', 'High Noon'],
             regions: [
-              { name: 'California', share: '16%', growth: '+42.8%' },
-              { name: 'Texas', share: '14%', growth: '+40.6%' },
-              { name: 'New York', share: '12%', growth: '+41.4%' },
-              { name: 'Florida', share: '10%', growth: '+41%' },
+              { name: 'California', share: '24.6%', growth: '+42.8%' },
+              { name: 'Texas', share: '22.0%', growth: '+40.6%' },
+              { name: 'New York', share: '19.1%', growth: '+41.4%' },
+              { name: 'Florida', share: '14.1%', growth: '+41%' },
+              { name: 'Illinois', share: '9.3%', growth: '+6.6%' },
+              { name: 'Pennsylvania', share: '10.9%', growth: '+5.2%' },
             ],
             sources: [
               { name: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -6043,10 +6303,10 @@ export const CATEGORIES = [
             growth: '+43.6%',
             brands: ['On The Rocks', 'Cutwater', 'Volley'],
             regions: [
-              { name: 'Sydney', share: '26%', growth: '+44.5%' },
-              { name: 'Melbourne', share: '20%', growth: '+43.5%' },
-              { name: 'Brisbane', share: '13%', growth: '+43.2%' },
-              { name: 'Perth', share: '9%', growth: '+42.9%' },
+              { name: 'Sydney', share: '36.6%', growth: '+44.5%' },
+              { name: 'Melbourne', share: '29.0%', growth: '+43.5%' },
+              { name: 'Brisbane', share: '20.6%', growth: '+43.2%' },
+              { name: 'Perth', share: '13.8%', growth: '+42.9%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -6058,10 +6318,11 @@ export const CATEGORIES = [
             growth: '+39.8%',
             brands: ['Kirin Chu-Hi', 'Asahi Chuhai', 'Suntory -196'],
             regions: [
-              { name: 'Tokyo', share: '24%', growth: '+40.6%' },
-              { name: 'Osaka', share: '18%', growth: '+39.5%' },
-              { name: 'Yokohama', share: '12%', growth: '+39.9%' },
-              { name: 'Nagoya', share: '10%', growth: '+39.3%' },
+              { name: 'Tokyo', share: '34.2%', growth: '+40.6%' },
+              { name: 'Osaka', share: '28.5%', growth: '+39.5%' },
+              { name: 'Yokohama', share: '16.4%', growth: '+39.9%' },
+              { name: 'Nagoya', share: '12.1%', growth: '+39.3%' },
+              { name: 'Sapporo', share: '8.8%', growth: '+7.3%' },
             ],
             sources: [
               { name: 'Euromonitor', url: 'https://www.euromonitor.com' },
@@ -6073,10 +6334,11 @@ export const CATEGORIES = [
             growth: '+42.1%',
             brands: ['On The Rocks', 'Smirnoff Ice', 'Cutwater'],
             regions: [
-              { name: 'London', share: '22%', growth: '+42.8%' },
-              { name: 'Manchester', share: '14%', growth: '+41.8%' },
-              { name: 'Edinburgh', share: '10%', growth: '+42.3%' },
-              { name: 'Birmingham', share: '9%', growth: '+41.7%' },
+              { name: 'London', share: '35.6%', growth: '+42.8%' },
+              { name: 'Manchester', share: '23.5%', growth: '+41.8%' },
+              { name: 'Edinburgh', share: '14.1%', growth: '+42.3%' },
+              { name: 'Birmingham', share: '16.6%', growth: '+41.7%' },
+              { name: 'Bristol', share: '10.2%', growth: '+2.9%' },
             ],
             sources: [
               { name: 'IWSR', url: 'https://www.theiwsr.com' },
@@ -6088,10 +6350,10 @@ export const CATEGORIES = [
             growth: '+41.5%',
             brands: ['Crown Royal Cocktails', 'Smirnoff Ice', 'Mike\u2019s Hard'],
             regions: [
-              { name: 'Toronto', share: '24%', growth: '+42.2%' },
-              { name: 'Vancouver', share: '18%', growth: '+41.3%' },
-              { name: 'Montreal', share: '15%', growth: '+41.4%' },
-              { name: 'Calgary', share: '10%', growth: '+41%' },
+              { name: 'Toronto', share: '32.3%', growth: '+42.2%' },
+              { name: 'Vancouver', share: '27.8%', growth: '+41.3%' },
+              { name: 'Montreal', share: '23.1%', growth: '+41.4%' },
+              { name: 'Calgary', share: '16.8%', growth: '+41%' },
             ],
             sources: [
               { name: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com' },
@@ -6104,7 +6366,7 @@ export const CATEGORIES = [
           midTier: ['High Noon', 'NÜTRL', 'Crown Royal Cocktails', 'Jack Daniel\u2019s & Cola', 'Tanqueray RTD', 'Gordon\u2019s RTD'],
           value: ['White Claw', 'Truly', 'Twisted Tea', 'Four Loko', 'Smirnoff Ice', 'Mike\u2019s Hard']
         },
-        channels: { onTrade: 15, offTrade: 76, eCommerce: 1, travelRetail: 8 },
+        channels: { onTrade: 14.8, offTrade: 76.5, eCommerce: 0.7, travelRetail: 8.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 17,   // % ACV distribution
           ceDepletions: 620000,  // case equivalent depletions

@@ -286,7 +286,7 @@ export default function GlobalSearch({ isOpen, onClose }) {
               <div key={type}>
                 {/* Section header */}
                 <div className="px-5 pt-3 pb-1.5">
-                  <span className="text-[10px] font-semibold uppercase tracking-widest text-gray-400">{cfg.label}</span>
+                  <span className="text-[10px] font-semibold uppercase tracking-widest text-gray-500">{cfg.label}</span>
                 </div>
                 {items.map((item) => {
                   const idx = flatIndex++
@@ -306,10 +306,10 @@ export default function GlobalSearch({ isOpen, onClose }) {
                       <div className="flex-1 min-w-0">
                         <div className={`text-sm font-medium truncate ${isActive ? 'text-navy' : 'text-gray-900'}`}>{item.label}</div>
                         {item.sub && (
-                          <div className="text-[11px] text-gray-400 truncate">{item.sub}</div>
+                          <div className="text-[11px] text-gray-500 truncate">{item.sub}</div>
                         )}
                         {!item.sub && (
-                          <div className="text-[11px] text-gray-400 capitalize">{type}</div>
+                          <div className="text-[11px] text-gray-500 capitalize">{type}</div>
                         )}
                       </div>
                       <ArrowRight size={13} className={`shrink-0 transition-colors ${isActive ? 'text-navy/40' : 'text-gray-200'}`} />
@@ -324,17 +324,17 @@ export default function GlobalSearch({ isOpen, onClose }) {
         {/* Footer */}
         <div className="px-5 py-2.5 border-t border-gray-100 flex items-center justify-between bg-gray-50/40">
           <div className="flex items-center gap-3">
-            <span className="text-[11px] text-gray-400">
+            <span className="text-[11px] text-gray-500">
               <kbd className="px-1 py-0.5 bg-white border border-gray-200 rounded text-[10px] font-mono shadow-sm">{'\u2191'}</kbd>
               <kbd className="px-1 py-0.5 bg-white border border-gray-200 rounded text-[10px] font-mono shadow-sm ml-0.5">{'\u2193'}</kbd>
               <span className="ml-1">navigate</span>
             </span>
-            <span className="text-[11px] text-gray-400">
+            <span className="text-[11px] text-gray-500">
               <kbd className="px-1.5 py-0.5 bg-white border border-gray-200 rounded text-[10px] font-mono shadow-sm">{'\u21B5'}</kbd>
               <span className="ml-1">select</span>
             </span>
           </div>
-          <span className="text-[11px] text-gray-400">
+          <span className="text-[11px] text-gray-500">
             <kbd className="px-1.5 py-0.5 bg-white border border-gray-200 rounded text-[10px] font-mono shadow-sm">ESC</kbd>
             <span className="ml-1">close</span>
           </span>

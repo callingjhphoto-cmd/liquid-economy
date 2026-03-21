@@ -13,7 +13,7 @@ import { ExternalLink } from 'lucide-react'
 export function SourceLink({ label, url, className = '' }) {
   if (!url) {
     return (
-      <span className={`text-[10px] text-gray-400 ${className}`}>{label}</span>
+      <span className={`text-[10px] text-gray-500 ${className}`}>{label}</span>
     )
   }
 
@@ -41,7 +41,7 @@ export function SourceList({ sources, className = '' }) {
 
   return (
     <div className={`flex flex-wrap items-center gap-x-3 gap-y-1 pt-2 border-t border-gray-50 ${className}`}>
-      <span className="text-[10px] text-gray-400 font-medium">Sources:</span>
+      <span className="text-[10px] text-gray-500 font-medium">Sources:</span>
       {sources.map((src, i) => (
         <SourceLink key={i} label={src.label} url={src.url} />
       ))}

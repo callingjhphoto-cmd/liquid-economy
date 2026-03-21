@@ -30,7 +30,7 @@ export function PageHeader({
               {crumb.to ? (
                 <Link
                   to={crumb.to}
-                  className="text-[11px] text-gray-400 hover:text-navy transition-colors no-underline"
+                  className="text-[11px] text-gray-500 hover:text-navy transition-colors no-underline"
                 >
                   {crumb.label}
                 </Link>

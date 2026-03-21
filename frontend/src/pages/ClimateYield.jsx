@@ -116,7 +116,7 @@ function RegionCard({ region, onClick }) {
           <span className="text-xl">{region.icon}</span>
           <div>
             <h3 className="text-sm font-semibold text-navy group-hover:text-gold transition-colors">{region.name}</h3>
-            <p className="text-[10px] text-gray-400">{region.spirit}</p>
+            <p className="text-[10px] text-gray-500">{region.spirit}</p>
           </div>
         </div>
         {latest && <OutlookBadge outlook={latest[1].outlook} />}
@@ -134,10 +134,10 @@ function RegionCard({ region, onClick }) {
 
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-[10px] text-gray-400">Latest Yield ({latest?.[0]})</p>
+          <p className="text-[10px] text-gray-500">Latest Yield ({latest?.[0]})</p>
           <p className="text-sm font-bold text-navy">
             {typeof latest?.[1]?.yield === 'number' && latest[1].yield > 100 ? latest[1].yield.toLocaleString() : latest?.[1]?.yield}
-            <span className="text-[10px] font-normal text-gray-400 ml-1">{region.yieldUnit}</span>
+            <span className="text-[10px] font-normal text-gray-500 ml-1">{region.yieldUnit}</span>
           </p>
         </div>
         {yieldChange && (
@@ -146,7 +146,7 @@ function RegionCard({ region, onClick }) {
           </span>
         )}
       </div>
-      <div className="flex items-center gap-1 mt-2 text-[10px] text-gray-400">
+      <div className="flex items-center gap-1 mt-2 text-[10px] text-gray-500">
         <ChevronRight size={10} /> Click to explore
       </div>
     </Card>
@@ -243,7 +243,7 @@ function LiveWeatherPanel({ region }) {
                 <p className="text-xs font-bold text-navy">{yr}</p>
                 <p className="text-[10px] text-gray-600">{d.avgTemp}\u00b0C avg</p>
                 <p className="text-[10px] text-blue-600">{d.totalPrecip}mm rain</p>
-                <p className="text-[10px] text-gray-400">{d.daysTracked} days</p>
+                <p className="text-[10px] text-gray-500">{d.daysTracked} days</p>
               </div>
             ))}
           </div>
@@ -261,7 +261,7 @@ function YieldChart({ region }) {
   return (
     <Card>
       <h3 className="font-display text-sm font-semibold text-navy mb-1">10-Year Yield History</h3>
-      <p className="text-[10px] text-gray-400 mb-3">{region.yieldUnit}</p>
+      <p className="text-[10px] text-gray-500 mb-3">{region.yieldUnit}</p>
       <div className="h-52">
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart data={data} margin={{ top: 5, right: 5, bottom: 5, left: 0 }}>
@@ -352,7 +352,7 @@ function SeasonDetail({ region, year }) {
         <p className="text-sm text-gray-700 leading-relaxed">{d.season}</p>
       </div>
       <div className="mt-3">
-        <p className="text-[10px] text-gray-400"><strong>Price Link:</strong> {region.priceLink}</p>
+        <p className="text-[10px] text-gray-500"><strong>Price Link:</strong> {region.priceLink}</p>
       </div>
     </Card>
   )
@@ -456,7 +456,7 @@ function ForwardSignals() {
                 <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${s.risk === 'high' ? 'bg-red-100 text-red-700' : s.risk === 'medium' ? 'bg-amber-100 text-amber-700' : 'bg-green-100 text-green-700'}`}>
                   {s.risk.toUpperCase()} RISK
                 </span>
-                <span className="text-[10px] text-gray-400">{s.timeframe}</span>
+                <span className="text-[10px] text-gray-500">{s.timeframe}</span>
               </div>
             </div>
             <p className="text-xs text-gray-700 mb-2">{s.signal}</p>
@@ -494,19 +494,19 @@ export default function ClimateYield() {
                 <span className="text-2xl">{r.icon}</span>
                 <div>
                   <p className="text-xs text-gray-500">{r.crop} \u2014 {r.spirit}</p>
-                  <p className="text-[10px] text-gray-400">{r.country}</p>
+                  <p className="text-[10px] text-gray-500">{r.country}</p>
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-2">
                 <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                  <div className="text-[10px] text-gray-400 uppercase">Latest Yield</div>
+                  <div className="text-[10px] text-gray-500 uppercase">Latest Yield</div>
                   <div className="text-sm font-bold text-navy">
                     {typeof latest?.[1]?.yield === 'number' && latest[1].yield > 100 ? latest[1].yield.toLocaleString() : latest?.[1]?.yield}
-                    <span className="text-[10px] font-normal text-gray-400 ml-0.5">{r.yieldUnit}</span>
+                    <span className="text-[10px] font-normal text-gray-500 ml-0.5">{r.yieldUnit}</span>
                   </div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                  <div className="text-[10px] text-gray-400 uppercase">YoY Change</div>
+                  <div className="text-[10px] text-gray-500 uppercase">YoY Change</div>
                   <div className={`text-sm font-bold ${yieldChange && parseFloat(yieldChange) >= 0 ? 'text-emerald-600' : 'text-red-500'}`}>
                     {yieldChange ? `${parseFloat(yieldChange) >= 0 ? '+' : ''}${yieldChange}%` : '\u2014'}
                   </div>
@@ -641,7 +641,7 @@ export default function ClimateYield() {
             summary={`${CLIMATE_SOURCES.length} primary sources including Open-Meteo, CIVC, CRT, AHDB, USDA`}
           >
             <SourceList sources={CLIMATE_SOURCES} />
-            <p className="text-[10px] text-gray-400 mt-3 pt-2 border-t border-gray-100">
+            <p className="text-[10px] text-gray-500 mt-3 pt-2 border-t border-gray-100">
               Yield figures are regional estimates based on published data. Live weather data refreshes on page load.
               Historical comparison uses year-to-date figures. Last updated: February 2026.
             </p>

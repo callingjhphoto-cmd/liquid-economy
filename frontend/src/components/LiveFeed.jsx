@@ -63,8 +63,16 @@ function ConnectionBadge({ connected, mode, clientCount }) {
       </div>
     )
   }
+  if (mode === 'offline') {
+    return (
+      <div className="flex items-center gap-1.5 text-[10px] text-gray-500">
+        <WifiOff size={10} />
+        <span>Offline {'\u2014'} backend not connected</span>
+      </div>
+    )
+  }
   return (
-    <div className="flex items-center gap-1.5 text-[10px] text-gray-400">
+    <div className="flex items-center gap-1.5 text-[10px] text-gray-500">
       <WifiOff size={10} />
       <span>Connecting{'\u2026'}</span>
     </div>
@@ -84,7 +92,7 @@ function FeedItem({ item, expanded, onToggle }) {
       {/* Compressed row */}
       <div className="flex items-center gap-1.5 px-2.5 py-1.5">
         <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${sev.dot}`} />
-        <span className="text-[11px] text-gray-400 w-5 flex-shrink-0 text-right tabular-nums">{timeAgo(item.timestamp)}</span>
+        <span className="text-[11px] text-gray-500 w-5 flex-shrink-0 text-right tabular-nums">{timeAgo(item.timestamp)}</span>
         <span className={`text-[11px] font-medium px-1.5 py-0 rounded ${catColor} flex-shrink-0`}>{item.category}</span>
         <span className="text-[11px] text-navy font-medium truncate flex-1 leading-tight">{item.title}</span>
         <div className="flex items-center gap-1 flex-shrink-0">
@@ -103,7 +111,7 @@ function FeedItem({ item, expanded, onToggle }) {
           {item.body && <p className="text-[10px] text-gray-600 leading-relaxed">{item.body}</p>}
           <div className="flex items-center gap-3 mt-1.5">
             {item.source && (
-              <span className="text-[11px] text-gray-400 italic">{item.source}</span>
+              <span className="text-[11px] text-gray-500 italic">{item.source}</span>
             )}
             {item.url && (
               <a href={item.url} target="_blank" rel="noopener noreferrer" className="text-[11px] text-gold hover:text-navy font-medium flex items-center gap-0.5 transition-colors" onClick={e => e.stopPropagation()}>
@@ -220,8 +228,8 @@ export default function LiveFeed({ maxItems = 30, compact = false }) {
         {filtered.length === 0 ? (
           <div className="py-10 text-center">
             <Radio size={20} className="text-gray-300 mx-auto mb-2" />
-            <p className="text-xs text-gray-400">
-              {connected ? 'No intelligence items match filters' : 'Connecting to live feed\u2026'}
+            <p className="text-xs text-gray-500">
+              {connected ? 'No intelligence items match filters' : mode === 'offline' ? 'Live feed requires backend deployment' : 'Connecting to live feed\u2026'}
             </p>
           </div>
         ) : (
@@ -238,10 +246,10 @@ export default function LiveFeed({ maxItems = 30, compact = false }) {
 
       {/* Footer */}
       <div className="px-3 py-1.5 border-t border-gray-100 bg-gray-50/50 flex items-center justify-between">
-        <span className="text-[11px] text-gray-400">
+        <span className="text-[11px] text-gray-500">
           {lastUpdate ? `Updated ${lastUpdate.toLocaleTimeString()}` : 'Waiting for data'}
         </span>
-        <span className="text-[11px] text-gray-400">
+        <span className="text-[11px] text-gray-500">
           {filtered.length} of {feedItems.length}
         </span>
       </div>

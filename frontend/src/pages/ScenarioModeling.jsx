@@ -131,7 +131,7 @@ export default function ScenarioModeling() {
                   <div>
                     <p className="text-label text-gray-500 uppercase tracking-wide mb-1">Scenario Builder</p>
                     <p className="text-2xl font-bold text-navy">Plan Your Market Entry</p>
-                    <p className="text-xs text-gray-400 mt-2 max-w-md">
+                    <p className="text-xs text-gray-500 mt-2 max-w-md">
                       Model unit economics, assess go-to-market risks, compare manufacturing origins,
                       and plan regional activation campaigns \u2014 all from the perspective of a new-to-market brand.
                     </p>
@@ -142,11 +142,11 @@ export default function ScenarioModeling() {
                 </div>
                 <div className="grid grid-cols-2 gap-3 mt-auto">
                   <div className="bg-gray-50 rounded-lg p-3">
-                    <p className="text-[10px] text-gray-400 uppercase">Categories</p>
+                    <p className="text-[10px] text-gray-500 uppercase">Categories</p>
                     <p className="text-lg font-bold text-navy">{PRODUCT_CATEGORIES.length}</p>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-3">
-                    <p className="text-[10px] text-gray-400 uppercase">Markets</p>
+                    <p className="text-[10px] text-gray-500 uppercase">Markets</p>
                     <p className="text-lg font-bold text-navy">{TARGET_MARKETS.length}</p>
                   </div>
                 </div>
@@ -228,11 +228,11 @@ export default function ScenarioModeling() {
                 {sheetTemplate.defaults.category && (
                   <div className="grid grid-cols-2 gap-3">
                     <div className="bg-gray-50 rounded-lg p-3">
-                      <p className="text-[10px] text-gray-400 uppercase">Category</p>
+                      <p className="text-[10px] text-gray-500 uppercase">Category</p>
                       <p className="text-sm font-bold text-navy">{sheetTemplate.defaults.category}</p>
                     </div>
                     <div className="bg-gray-50 rounded-lg p-3">
-                      <p className="text-[10px] text-gray-400 uppercase">Markets</p>
+                      <p className="text-[10px] text-gray-500 uppercase">Markets</p>
                       <p className="text-sm font-bold text-navy">{sheetTemplate.defaults.markets?.join(', ').toUpperCase()}</p>
                     </div>
                   </div>
@@ -255,15 +255,15 @@ export default function ScenarioModeling() {
             <div className="space-y-3">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 <Card padding="p-3">
-                  <p className="text-[10px] font-semibold text-gray-400 uppercase mb-1">Duty Basis</p>
+                  <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1">Duty Basis</p>
                   <p className="text-xs text-gray-700">UK spirits duty: \u00a328.74/litre of pure alcohol (2025 rates). RTD duty calculated at 5% ABV unless specified.</p>
                 </Card>
                 <Card padding="p-3">
-                  <p className="text-[10px] font-semibold text-gray-400 uppercase mb-1">Cost Models</p>
+                  <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1">Cost Models</p>
                   <p className="text-xs text-gray-700">Unit economics based on 70cl bottles (spirits) or 250ml cans (RTD). COGS exclude warehousing and insurance.</p>
                 </Card>
                 <Card padding="p-3">
-                  <p className="text-[10px] font-semibold text-gray-400 uppercase mb-1">Market Data</p>
+                  <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1">Market Data</p>
                   <p className="text-xs text-gray-700">Market sizes from IWSR 2025. Channel splits from CGA Nielsen. Social media CPMs from Meta/TikTok Business Manager.</p>
                 </Card>
               </div>
@@ -294,7 +294,7 @@ export default function ScenarioModeling() {
               <Card padding="p-4">
                 <div className="space-y-4">
                   <div>
-                    <p className="text-[10px] font-semibold text-gray-400 uppercase mb-2">Product Category</p>
+                    <p className="text-[10px] font-semibold text-gray-500 uppercase mb-2">Product Category</p>
                     <div className="flex flex-wrap gap-1.5">
                       {PRODUCT_CATEGORIES.map(cat => (
                         <button
@@ -312,7 +312,7 @@ export default function ScenarioModeling() {
                     </div>
                   </div>
                   <div>
-                    <p className="text-[10px] font-semibold text-gray-400 uppercase mb-2">Target Markets</p>
+                    <p className="text-[10px] font-semibold text-gray-500 uppercase mb-2">Target Markets</p>
                     <div className="flex flex-wrap gap-1.5">
                       {TARGET_MARKETS.map(m => {
                         const active = selectedMarkets.includes(m.id)
@@ -331,7 +331,7 @@ export default function ScenarioModeling() {
                     </div>
                   </div>
                   <div>
-                    <p className="text-[10px] font-semibold text-gray-400 uppercase mb-2">Brand Archetype</p>
+                    <p className="text-[10px] font-semibold text-gray-500 uppercase mb-2">Brand Archetype</p>
                     <div className="flex flex-wrap gap-1.5">
                       {BRAND_ARCHETYPES.map(a => (
                         <button
@@ -362,7 +362,7 @@ export default function ScenarioModeling() {
                 {BRAND_ARCHETYPES.map(a => (
                   <Card key={a.id} hover onClick={() => setSelectedArchetype(a.id)} padding="p-3" className={selectedArchetype === a.id ? 'ring-2 ring-gold' : ''}>
                     <p className="text-xs font-semibold text-navy">{a.label}</p>
-                    <p className="text-[10px] text-gray-400 mt-0.5">{a.examples}</p>
+                    <p className="text-[10px] text-gray-500 mt-0.5">{a.examples}</p>
                     <div className="grid grid-cols-2 gap-x-3 mt-2 text-[10px]">
                       <div><span className="text-gray-400">Premium:</span> <span className="font-medium text-navy">{a.premiumMultiple}</span></div>
                       <div><span className="text-gray-400">Risk:</span> <span className="font-medium text-navy">{a.riskLevel}</span></div>
@@ -390,13 +390,13 @@ export default function ScenarioModeling() {
                       const channelData = [
                         { name: 'On-Trade', value: m.channels.onTrade, fill: NAVY },
                         { name: 'Off-Trade', value: m.channels.offTrade, fill: GOLD },
-                        { name: 'E-Comm', value: m.channels.eComm, fill: '#2563EB' },
+                        { name: 'E-Commerce', value: m.channels.eCommerce, fill: '#2563EB' },
                         { name: 'Travel Retail', value: m.channels.travelRetail, fill: '#059669' },
                       ]
                       return (
                         <Card key={mId} padding="p-3">
                           <p className="text-xs font-semibold text-navy mb-0.5">{m.flag} {m.label}</p>
-                          <p className="text-[10px] text-gray-400 mb-2">Pop: {m.pop} \u00b7 Market: {m.spiritsMarket}</p>
+                          <p className="text-[10px] text-gray-500 mb-2">Pop: {m.pop} \u00b7 Market: {m.spiritsMarket}</p>
                           <div className="space-y-1.5">
                             {channelData.map((c, j) => (
                               <div key={j}>
@@ -474,7 +474,7 @@ export default function ScenarioModeling() {
                 <PitfallsPanel />
                 <Card padding="p-4">
                   <p className="text-xs font-semibold text-navy mb-1">Risk Summary</p>
-                  <p className="text-[10px] text-gray-400 mb-3">{totalRisks} risks across {GO_TO_MARKET_PITFALLS.length} categories</p>
+                  <p className="text-[10px] text-gray-500 mb-3">{totalRisks} risks across {GO_TO_MARKET_PITFALLS.length} categories</p>
                   <div className="space-y-2">
                     <div className="bg-red-50 rounded-lg p-3 border border-red-100">
                       <p className="text-xs font-semibold text-red-800">{criticalRisks} Critical Risks</p>
@@ -703,7 +703,7 @@ function StepNav({ current, total, onPrev, onNext, onReset }) {
       >
         <ChevronRight size={14} className="rotate-180" /> Previous
       </button>
-      <span className="text-[10px] text-gray-400 flex-shrink-0">Step {current + 1} of {total}</span>
+      <span className="text-[10px] text-gray-500 flex-shrink-0">Step {current + 1} of {total}</span>
       {current === total - 1 ? (
         onReset ? (
           <button
@@ -752,15 +752,15 @@ function CostWaterfall({ costs }) {
       </ChartCard>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         <Card padding="p-3" className="text-center">
-          <p className="text-[11px] text-gray-400">Total COGS</p>
+          <p className="text-[11px] text-gray-500">Total COGS</p>
           <p className="text-lg font-bold text-navy">\u00a3{costs.total_cogs.toFixed(2)}</p>
         </Card>
         <Card padding="p-3" className="text-center">
-          <p className="text-[11px] text-gray-400">RRP Range</p>
+          <p className="text-[11px] text-gray-500">RRP Range</p>
           <p className="text-lg font-bold text-gold">\u00a3{costs.rrp_low}\u2013\u00a3{costs.rrp_high}</p>
         </Card>
         <Card padding="p-3" className="text-center">
-          <p className="text-[11px] text-gray-400">Gross Margin</p>
+          <p className="text-[11px] text-gray-500">Gross Margin</p>
           <p className="text-lg font-bold text-emerald-600">{((1 - costs.total_cogs / costs.rrp_mid) * 100).toFixed(0)}%</p>
         </Card>
       </div>
@@ -777,7 +777,7 @@ function PitfallsPanel() {
           <ShieldAlert size={14} className="text-red-500" />
           Pitfalls & Risk Register
         </p>
-        <p className="text-[10px] text-gray-400">Common failure points when bringing a product to market</p>
+        <p className="text-[10px] text-gray-500">Common failure points when bringing a product to market</p>
       </div>
       {GO_TO_MARKET_PITFALLS.map((cat, ci) => (
         <div key={ci}>
@@ -862,11 +862,11 @@ function RegionAnalysis({ regions, expanded, setExpanded }) {
           >
             <div>
               <p className="text-[11px] font-semibold text-navy text-left">{region.name}</p>
-              <p className="text-[11px] text-gray-400">Pop: {region.pop} \u00b7 Avg spend: {region.avgSpend}/head</p>
+              <p className="text-[11px] text-gray-500">Pop: {region.pop} \u00b7 Avg spend: {region.avgSpend}/head</p>
             </div>
             <div className="flex items-center gap-3">
               <div className="text-right">
-                <p className="text-[11px] text-gray-400">Cocktail Index</p>
+                <p className="text-[11px] text-gray-500">Cocktail Index</p>
                 <p className={`text-[11px] font-bold ${region.cocktailIndex > 120 ? 'text-emerald-600' : region.cocktailIndex > 100 ? 'text-gold' : 'text-gray-500'}`}>
                   {region.cocktailIndex}
                 </p>
@@ -893,8 +893,8 @@ function RegionAnalysis({ regions, expanded, setExpanded }) {
                       }`}>{zone.engagement}</span>
                     </div>
                   </div>
-                  <p className="text-[11px] text-gray-500"><span className="text-gray-400">Demographic:</span> {zone.demographic}</p>
-                  <p className="text-[11px] text-gray-500 mt-0.5"><span className="text-gray-400">Best for:</span> <span className="text-gold font-medium">{zone.bestFor}</span></p>
+                  <p className="text-[11px] text-gray-500"><span className="text-gray-500">Demographic:</span> {zone.demographic}</p>
+                  <p className="text-[11px] text-gray-500 mt-0.5"><span className="text-gray-500">Best for:</span> <span className="text-gold font-medium">{zone.bestFor}</span></p>
                 </div>
               ))}
             </div>
@@ -922,7 +922,7 @@ function VenueTypeGrid() {
               <div className="h-1.5 rounded-full bg-gold" style={{ width: `${v.spritzFit}%` }} />
             </div>
             <span className="text-[10px] font-bold text-gold">{v.spritzFit}%</span>
-            <span className="text-[11px] text-gray-400">fit</span>
+            <span className="text-[11px] text-gray-500">fit</span>
           </div>
           <p className="text-[10px] text-gray-600 leading-relaxed">{v.notes}</p>
           <div className="mt-2 flex justify-between text-[11px]">
@@ -954,7 +954,7 @@ function SocialTargetingPanel({ platform, setPlatform }) {
       </div>
 
       <div>
-        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-2">Best Formats</p>
+        <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wide mb-2">Best Formats</p>
         <div className="flex flex-wrap gap-1">
           {data.bestFormats.map((f, i) => (
             <span key={i} className="text-[11px] bg-blue-50 text-blue-600 px-2 py-0.5 rounded">{f}</span>
@@ -963,7 +963,7 @@ function SocialTargetingPanel({ platform, setPlatform }) {
       </div>
 
       <div>
-        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-2">Geo-Targets by ROI Potential</p>
+        <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wide mb-2">Geo-Targets by ROI Potential</p>
         <div className="space-y-1.5">
           {data.geoTargets.map((g, i) => (
             <div key={i} className="flex items-center justify-between py-1.5 border-b border-gray-50 last:border-0">
@@ -987,18 +987,18 @@ function SocialTargetingPanel({ platform, setPlatform }) {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div>
-          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-1">Peak Posting Times</p>
+          <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wide mb-1">Peak Posting Times</p>
           <p className="text-[10px] text-gray-600">Weekday: <span className="font-medium text-navy">{data.peakTimes.weekday}</span></p>
           <p className="text-[10px] text-gray-600">Weekend: <span className="font-medium text-navy">{data.peakTimes.weekend}</span></p>
         </div>
         <div>
-          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-1">Avg CPM Range</p>
+          <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wide mb-1">Avg CPM Range</p>
           <p className="text-sm font-bold text-gold">{data.avgCPM}</p>
         </div>
       </div>
 
       <div>
-        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-1">Recommended Hashtags</p>
+        <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wide mb-1">Recommended Hashtags</p>
         <div className="flex flex-wrap gap-1">
           {data.hashtags.map((h, i) => (
             <span key={i} className="text-[10px] text-gold font-medium">{h}</span>
@@ -1021,7 +1021,7 @@ function BudgetTierCards() {
               <div>
                 <Badge variant="default">{tier.tier}</Badge>
                 <p className="text-lg font-bold text-navy mt-1">{tier.budget}</p>
-                <p className="text-[11px] text-gray-400">{tier.duration} campaign</p>
+                <p className="text-[11px] text-gray-500">{tier.duration} campaign</p>
               </div>
               <div className="w-[70px] space-y-1">
                 {pieData.map((entry, j) => (
@@ -1034,10 +1034,10 @@ function BudgetTierCards() {
               </div>
             </div>
             <p className="text-[10px] text-gray-500 mb-2">{tier.bestFor}</p>
-            <div className="text-[11px] text-gray-400 mb-1">Reach: <span className="font-medium text-navy">{tier.reach}</span></div>
-            <div className="text-[11px] text-gray-400 mb-2">Expected ROI: <span className="font-bold text-emerald-600">{tier.expectedROI}</span></div>
+            <div className="text-[11px] text-gray-500 mb-1">Reach: <span className="font-medium text-navy">{tier.reach}</span></div>
+            <div className="text-[11px] text-gray-500 mb-2">Expected ROI: <span className="font-bold text-emerald-600">{tier.expectedROI}</span></div>
             <div className="border-t border-gray-100 pt-2">
-              <p className="text-[11px] font-bold text-gray-400 uppercase mb-1">Key Activities</p>
+              <p className="text-[11px] font-bold text-gray-500 uppercase mb-1">Key Activities</p>
               <ul className="space-y-0.5">
                 {tier.activities.map((a, ai) => (
                   <li key={ai} className="text-[11px] text-gray-600 flex items-start gap-1">

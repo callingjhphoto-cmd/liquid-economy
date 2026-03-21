@@ -102,7 +102,7 @@ export default function KeyMetricsWatchlist() {
         {pillar.metrics.map((m, i) => (
           <div key={i} className="bg-white rounded-lg border border-gray-100 p-3 hover:shadow-sm transition-shadow">
             <div className="flex items-center justify-between mb-1">
-              <span className="text-xs text-gray-400 font-medium">{m.name}</span>
+              <span className="text-xs text-gray-500 font-medium">{m.name}</span>
               {m.trend === 'up' ? (
                 <TrendingUp className="w-3 h-3 text-green-500" />
               ) : (
@@ -111,9 +111,9 @@ export default function KeyMetricsWatchlist() {
             </div>
             <div className="flex items-baseline gap-2">
               <span className="text-xl font-bold text-navy">{m.value}</span>
-              <span className="text-xs text-gray-400">{m.period}</span>
+              <span className="text-xs text-gray-500">{m.period}</span>
             </div>
-            <p className="text-xs text-gray-400 mt-1">{m.note}</p>
+            <p className="text-xs text-gray-500 mt-1">{m.note}</p>
           </div>
         ))}
       </div>

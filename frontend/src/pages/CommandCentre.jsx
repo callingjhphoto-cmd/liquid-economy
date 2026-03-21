@@ -11,7 +11,7 @@ import {
 } from 'recharts'
 import LiveFeed from '../components/LiveFeed'
 import {
-  PageHeader, Card, SectionHeader, MetricCard, BentoGrid, DrillDown, EntityLink, YearSelector,
+  PageHeader, Card, SectionHeader, MetricCard, BentoGrid, DrillDown, EntityLink,
   SkeletonCard, SkeletonChart, BottomSheet
 } from '../components/ui'
 import {
@@ -191,7 +191,7 @@ function KpiSummaryCards() {
             </div>
             <div className="text-lg font-bold text-navy leading-tight">{kpi.value}</div>
             <div className="text-label text-gray-400 uppercase tracking-wider mt-1">{kpi.label}</div>
-            <p className="text-[10px] text-gray-400 mt-1">{kpi.sub}</p>
+            <p className="text-[10px] text-gray-500 mt-1">{kpi.sub}</p>
           </div>
         </div>
       ))}
@@ -225,12 +225,12 @@ function MarketPulseBanner() {
 
 // ── Channel Mini-Bar ──
 function ChannelMiniBar({ channels }) {
-  const colors = { onTrade: '#1e3a5f', offTrade: '#C9A96E', eComm: '#3b82f6', travelRetail: '#8b5cf6' }
+  const colors = { onTrade: '#1e3a5f', offTrade: '#C9A96E', eCommerce: '#3b82f6', travelRetail: '#8b5cf6' }
   return (
-    <div className="flex h-1.5 rounded-full overflow-hidden w-full" title={`On: ${channels.onTrade}% | Off: ${channels.offTrade}% | E-Com: ${channels.eComm}% | TR: ${channels.travelRetail}%`}>
+    <div className="flex h-1.5 rounded-full overflow-hidden w-full" title={`On: ${channels.onTrade}% | Off: ${channels.offTrade}% | E-Commerce: ${channels.eCommerce}% | TR: ${channels.travelRetail}%`}>
       <div style={{ width: `${channels.onTrade}%`, backgroundColor: colors.onTrade }} />
       <div style={{ width: `${channels.offTrade}%`, backgroundColor: colors.offTrade }} />
-      <div style={{ width: `${channels.eComm}%`, backgroundColor: colors.eComm }} />
+      <div style={{ width: `${channels.eCommerce}%`, backgroundColor: colors.eCommerce }} />
       <div style={{ width: `${channels.travelRetail}%`, backgroundColor: colors.travelRetail }} />
     </div>
   )
@@ -287,7 +287,7 @@ function CategoryPerformance() {
                 </ResponsiveContainer>
               </div>
               <ChannelMiniBar channels={cat.channels} />
-              <p className="text-[11px] text-gray-400 mt-1.5 truncate">{cat.signal}</p>
+              <p className="text-[11px] text-gray-500 mt-1.5 truncate">{cat.signal}</p>
             </Link>
           )
         })}
@@ -361,7 +361,7 @@ function PriceAlertsSummary() {
                   <div className="flex-1 min-w-0">
                     <span className={`text-[8px] font-bold uppercase px-1.5 py-0.5 rounded-full ${sev.bg} ${sev.text}`}>{sev.label}</span>
                     <div className="text-xs font-semibold text-navy mt-1 group-hover:text-gold transition-colors">{alert.product}</div>
-                    <div className="text-[10px] text-gray-400">{alert.category} \u00b7 {alert.channel}</div>
+                    <div className="text-[10px] text-gray-500">{alert.category} \u00b7 {alert.channel}</div>
                   </div>
                   <div className="text-right flex-shrink-0 ml-2">
                     <div className="text-sm font-bold text-navy">{alert.pricePoint}</div>
@@ -412,7 +412,7 @@ function GeographicHighlights() {
                     </AreaChart>
                   </ResponsiveContainer>
                 </div>
-                <p className="text-[11px] text-gray-400 mt-1">{r.note}</p>
+                <p className="text-[11px] text-gray-500 mt-1">{r.note}</p>
               </div>
             </Link>
           )
@@ -443,11 +443,11 @@ function MarketSignalsFeed() {
             <div className="flex items-center gap-2 mb-1.5">
               <span className={`text-[11px] font-bold uppercase px-1.5 py-0.5 rounded-full ${urgencyColors[signal.urgency]}`}>{signal.urgency}</span>
               <span className={`text-[11px] font-semibold px-1.5 py-0.5 rounded-full ${typeColors[signal.type] || 'bg-gray-50 text-gray-600'}`}>{signal.type}</span>
-              <span className="text-[11px] text-gray-400 ml-auto">{signal.date}</span>
+              <span className="text-[11px] text-gray-500 ml-auto">{signal.date}</span>
             </div>
             <h4 className="text-xs font-semibold text-navy leading-snug">{signal.headline}</h4>
             <p className="text-[11px] text-gray-500 mt-1 leading-relaxed">{signal.impact}</p>
-            <div className="text-[11px] text-gray-400 mt-1">Source: {signal.source}</div>
+            <div className="text-[11px] text-gray-500 mt-1">Source: {signal.source}</div>
           </div>
         ))}
       </div>
@@ -471,7 +471,7 @@ function MarketPulseExpanded() {
     <div>
       <div className="flex items-center justify-between mb-3">
         <SectionHeader size="md" className="mb-0">Intelligence Feed</SectionHeader>
-        <span className="text-[11px] text-gray-400">{MARKET_PULSE.length} movements tracked</span>
+        <span className="text-[11px] text-gray-500">{MARKET_PULSE.length} movements tracked</span>
       </div>
       <div className="space-y-2">
         {visible.map((item, i) => {
@@ -486,7 +486,7 @@ function MarketPulseExpanded() {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-0.5">
                     <span className="text-[11px] font-bold bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">{item.category}</span>
-                    <span className="text-[11px] text-gray-400">{item.date}</span>
+                    <span className="text-[11px] text-gray-500">{item.date}</span>
                   </div>
                   <div className="text-xs font-semibold text-navy">{item.event}</div>
                   <p className="text-[10px] text-gray-500 mt-0.5">{item.impact}</p>
@@ -573,7 +573,7 @@ function RecentlyUpdatedFeed() {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-0.5">
                     <span className="text-[11px] font-bold bg-gray-100 text-gray-500 px-1.5 py-0.5 rounded">{item.section}</span>
-                    <span className="text-[11px] text-gray-400">{item.timestamp}</span>
+                    <span className="text-[11px] text-gray-500">{item.timestamp}</span>
                   </div>
                   <div className="text-xs font-medium text-navy group-hover:text-gold transition-colors">{item.item}</div>
                   <p className="text-[10px] text-gray-500 mt-0.5 leading-relaxed">{item.description}</p>
@@ -614,7 +614,7 @@ function DeepDiveCTAs() {
                 <cta.icon size={18} className="text-navy group-hover:text-gold transition-colors" />
               </div>
               <div className="text-xs font-semibold text-navy group-hover:text-gold transition-colors">{cta.label}</div>
-              <p className="text-[11px] text-gray-400 mt-1">{cta.sub}</p>
+              <p className="text-[11px] text-gray-500 mt-1">{cta.sub}</p>
             </div>
           </Link>
         ))}
@@ -641,7 +641,7 @@ function InsightBriefing({ briefing, onClose }) {
             </div>
             <div>
               <h3 className="text-sm font-bold text-navy">Intelligence Brief</h3>
-              <p className="text-[10px] text-gray-400">Auto-generated executive summary</p>
+              <p className="text-[10px] text-gray-500">Auto-generated executive summary</p>
             </div>
           </div>
           <div className="flex items-center gap-1">
@@ -680,7 +680,7 @@ function InsightBriefing({ briefing, onClose }) {
             <p className="text-xs text-navy leading-relaxed">{briefing.actionable}</p>
           </div>
           <div>
-            <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-1.5">Sources</h4>
+            <h4 className="text-[10px] font-bold text-gray-500 uppercase tracking-wide mb-1.5">Sources</h4>
             <div className="flex flex-wrap gap-1.5">
               {briefing.sources.map((src, i) => (
                 <span key={i} className="text-[10px] bg-gray-100 text-gray-600 px-2 py-1 rounded-full">{src}</span>
@@ -700,7 +700,6 @@ function InsightBriefing({ briefing, onClose }) {
 
 export default function CommandCentre() {
   const [activeBriefing, setActiveBriefing] = useState(null)
-  const [selectedYear, setSelectedYear] = useState(2025)
   const [loading, setLoading] = useState(true)
   const [mobileDetail, setMobileDetail] = useState(null)
 
@@ -775,12 +774,9 @@ export default function CommandCentre() {
         title="Command Centre"
         subtitle={`Global beverage alcohol intelligence ${'\u2014'} Data as of March 2026`}
         action={
-          <div className="flex items-center gap-4">
-            <YearSelector activeYear={selectedYear} onChange={setSelectedYear} size="sm" />
-            <div className="text-right">
-              <div className="text-[10px] text-gray-400">Last updated</div>
-              <div className="text-xs font-medium text-navy">Feb 26, 2026 14:30 GMT</div>
-            </div>
+          <div className="text-right">
+            <div className="text-[10px] text-gray-500">Last updated</div>
+            <div className="text-xs font-medium text-navy">Feb 26, 2026 14:30 GMT</div>
           </div>
         }
       />

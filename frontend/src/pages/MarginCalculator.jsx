@@ -32,7 +32,7 @@ function MarginGauge({ margin, label, size = 'md' }) {
   const textSize = size === 'lg' ? 'text-base' : 'text-sm'
   return (
     <div className="text-center">
-      {label && <div className="text-[10px] text-gray-400 mb-1">{label}</div>}
+      {label && <div className="text-[10px] text-gray-500 mb-1">{label}</div>}
       <div className={`relative ${dim} mx-auto`}>
         <svg viewBox="0 0 36 36" className="w-full h-full">
           <path d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e5e7eb" strokeWidth="3" />
@@ -54,7 +54,7 @@ function ScenarioToggle({ label, active, onChange, impact }) {
       {active ? <ToggleRight size={16} className="text-gold flex-shrink-0" /> : <ToggleLeft size={16} className="text-gray-300 flex-shrink-0" />}
       <div className="flex-1 min-w-0">
         <div className="text-xs font-medium text-navy">{label}</div>
-        <div className={`text-[10px] ${impact > 0 ? 'text-green-600' : impact < 0 ? 'text-red-500' : 'text-gray-400'}`}>
+        <div className={`text-[10px] ${impact > 0 ? 'text-green-600' : impact < 0 ? 'text-red-500' : 'text-gray-500'}`}>
           {impact > 0 ? '+' : ''}{impact.toFixed(1)}% margin impact
         </div>
       </div>
@@ -250,7 +250,7 @@ export default function MarginCalculator() {
     { key: 'highEndMargin', label: 'High-End', align: 'right', render: (v) => v + '%' },
     { key: 'midTierMargin', label: 'Mid-Tier', align: 'right', render: (v) => v + '%' },
     { key: 'valueMargin', label: 'Value', align: 'right', render: (v) => v + '%' },
-    { key: 'source', label: 'Source', render: (v) => <span className="text-[10px] text-gray-400">{v}</span> },
+    { key: 'source', label: 'Source', render: (v) => <span className="text-[10px] text-gray-500">{v}</span> },
   ]
   const crossCatData = Object.entries(INDUSTRY_BENCHMARKS).map(([key, bm]) => ({
     category: CATEGORY_COGS[key].label,
@@ -278,34 +278,34 @@ export default function MarginCalculator() {
               </div>
               <div className="flex-1">
                 <h2 className="font-display text-lg text-navy">Quick Margin Calculator</h2>
-                <p className="text-xs text-gray-400 mt-1">Select category, set your target RRP, and see instant margin results</p>
+                <p className="text-xs text-gray-500 mt-1">Select category, set your target RRP, and see instant margin results</p>
               </div>
             </div>
             {/* Quick inputs */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
               <div>
-                <label className="text-[10px] font-medium text-gray-400 block mb-1">Category</label>
+                <label className="text-[10px] font-medium text-gray-500 block mb-1">Category</label>
                 <select value={category} onChange={e => handleCategoryChange(e.target.value)}
                   className="w-full text-xs border border-gray-200 rounded-lg px-3 py-2 bg-white text-navy font-medium focus:ring-2 focus:ring-gold focus:border-transparent">
                   {Object.entries(CATEGORY_COGS).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
                 </select>
               </div>
               <div>
-                <label className="text-[10px] font-medium text-gray-400 block mb-1">Bottle Size</label>
+                <label className="text-[10px] font-medium text-gray-500 block mb-1">Bottle Size</label>
                 <select value={bottleSize} onChange={e => setBottleSize(Number(e.target.value))}
                   className="w-full text-xs border border-gray-200 rounded-lg px-3 py-2 bg-white text-navy font-medium focus:ring-2 focus:ring-gold focus:border-transparent">
                   {BOTTLE_SIZES.map((s, i) => <option key={i} value={i}>{s.label}</option>)}
                 </select>
               </div>
               <div>
-                <label className="text-[10px] font-medium text-gray-400 block mb-1">Channel</label>
+                <label className="text-[10px] font-medium text-gray-500 block mb-1">Channel</label>
                 <select value={channel} onChange={e => { setChannel(e.target.value); setTargetRRP(cat.avgRRP[e.target.value] || targetRRP) }}
                   className="w-full text-xs border border-gray-200 rounded-lg px-3 py-2 bg-white text-navy font-medium focus:ring-2 focus:ring-gold focus:border-transparent">
                   {CHANNELS.map(c => <option key={c} value={c}>{CHANNEL_LABELS[c]}</option>)}
                 </select>
               </div>
               <div>
-                <label className="text-[10px] font-medium text-gray-400 block mb-1">Target RRP (\u00a3)</label>
+                <label className="text-[10px] font-medium text-gray-500 block mb-1">Target RRP (\u00a3)</label>
                 <input type="number" value={targetRRP} onChange={e => setTargetRRP(Number(e.target.value))}
                   className="w-full text-xs border border-gray-200 rounded-lg px-3 py-2 bg-white text-navy font-medium focus:ring-2 focus:ring-gold focus:border-transparent"
                   min={0} step={0.5} />
@@ -322,19 +322,19 @@ export default function MarginCalculator() {
                       <div className="space-y-4">
                         <div className="flex justify-center"><MarginGauge margin={computed.margin} size="lg" /></div>
                         <div className="grid grid-cols-2 gap-3">
-                          <div className="bg-gray-50 rounded-lg p-3"><div className="text-[10px] text-gray-400">Total COGS</div><div className="text-lg font-bold text-navy">{fmt(computed.total)}</div></div>
-                          <div className="bg-gray-50 rounded-lg p-3"><div className="text-[10px] text-gray-400">Gross Profit</div><div className="text-lg font-bold text-green-600">{fmt(Math.max(0, targetRRP - computed.total))}</div></div>
-                          <div className="bg-gray-50 rounded-lg p-3"><div className="text-[10px] text-gray-400">RRP</div><div className="text-sm font-semibold text-navy">{fmt(targetRRP)}</div></div>
-                          <div className="bg-gray-50 rounded-lg p-3"><div className="text-[10px] text-gray-400">Margin</div><div className={'text-sm font-semibold ' + (computed.margin >= 35 ? 'text-green-600' : computed.margin >= 25 ? 'text-amber-500' : 'text-red-500')}>{computed.margin.toFixed(1)}%</div></div>
+                          <div className="bg-gray-50 rounded-lg p-3"><div className="text-[10px] text-gray-500">Total COGS</div><div className="text-lg font-bold text-navy">{fmt(computed.total)}</div></div>
+                          <div className="bg-gray-50 rounded-lg p-3"><div className="text-[10px] text-gray-500">Gross Profit</div><div className="text-lg font-bold text-green-600">{fmt(Math.max(0, targetRRP - computed.total))}</div></div>
+                          <div className="bg-gray-50 rounded-lg p-3"><div className="text-[10px] text-gray-500">RRP</div><div className="text-sm font-semibold text-navy">{fmt(targetRRP)}</div></div>
+                          <div className="bg-gray-50 rounded-lg p-3"><div className="text-[10px] text-gray-500">Margin</div><div className={'text-sm font-semibold ' + (computed.margin >= 35 ? 'text-green-600' : computed.margin >= 25 ? 'text-amber-500' : 'text-red-500')}>{computed.margin.toFixed(1)}%</div></div>
                         </div>
                         <div className="bg-gray-50 rounded-lg p-3">
-                          <div className="text-[10px] text-gray-400 mb-1">Base Margin vs Scenario</div>
+                          <div className="text-[10px] text-gray-500 mb-1">Base Margin vs Scenario</div>
                           <div className="flex items-center justify-around">
-                            <div className="text-center"><div className="text-xs text-gray-400">Base</div><div className="text-sm font-bold text-navy">{computed.baseMargin.toFixed(1)}%</div></div>
-                            <div className="text-center"><div className="text-xs text-gray-400">With Scenarios</div><div className={'text-sm font-bold ' + (computed.margin >= computed.baseMargin ? 'text-green-600' : 'text-red-500')}>{computed.margin.toFixed(1)}%</div></div>
+                            <div className="text-center"><div className="text-xs text-gray-500">Base</div><div className="text-sm font-bold text-navy">{computed.baseMargin.toFixed(1)}%</div></div>
+                            <div className="text-center"><div className="text-xs text-gray-500">With Scenarios</div><div className={'text-sm font-bold ' + (computed.margin >= computed.baseMargin ? 'text-green-600' : 'text-red-500')}>{computed.margin.toFixed(1)}%</div></div>
                           </div>
                         </div>
-                        <div className="text-[10px] text-gray-400 text-center">Industry avg margin for {cat.label}: {benchmarks.avgMargin}%</div>
+                        <div className="text-[10px] text-gray-500 text-center">Industry avg margin for {cat.label}: {benchmarks.avgMargin}%</div>
                       </div>
                     )
                   })
@@ -344,19 +344,19 @@ export default function MarginCalculator() {
               <MarginGauge margin={computed.margin} size="lg" />
               <div className="flex-1 grid grid-cols-2 gap-3">
                 <div>
-                  <div className="text-[10px] text-gray-400">Total COGS</div>
+                  <div className="text-[10px] text-gray-500">Total COGS</div>
                   <div className="text-lg font-bold text-navy">{fmt(computed.total)}</div>
                 </div>
                 <div>
-                  <div className="text-[10px] text-gray-400">Gross Profit</div>
+                  <div className="text-[10px] text-gray-500">Gross Profit</div>
                   <div className="text-lg font-bold text-green-600">{fmt(Math.max(0, targetRRP - computed.total))}</div>
                 </div>
                 <div>
-                  <div className="text-[10px] text-gray-400">RRP</div>
+                  <div className="text-[10px] text-gray-500">RRP</div>
                   <div className="text-sm font-semibold text-navy">{fmt(targetRRP)}</div>
                 </div>
                 <div>
-                  <div className="text-[10px] text-gray-400">Margin</div>
+                  <div className="text-[10px] text-gray-500">Margin</div>
                   <div className={`text-sm font-semibold ${computed.margin >= 35 ? 'text-green-600' : computed.margin >= 25 ? 'text-amber-500' : 'text-red-500'}`}>{computed.margin.toFixed(1)}%</div>
                 </div>
               </div>
@@ -428,11 +428,11 @@ export default function MarginCalculator() {
             </div>
             <div className="pt-3 border-t border-gray-100 flex items-center justify-between">
               <div>
-                <div className="text-[10px] text-gray-400">Total COGS</div>
+                <div className="text-[10px] text-gray-500">Total COGS</div>
                 <div className="text-lg font-bold text-navy">{fmt(computed.total)}</div>
               </div>
               <div className="text-right">
-                <div className="text-[10px] text-gray-400">Gross Profit</div>
+                <div className="text-[10px] text-gray-500">Gross Profit</div>
                 <div className="text-lg font-bold text-green-600">{fmt(Math.max(0, targetRRP - computed.total))}</div>
               </div>
             </div>
@@ -490,7 +490,7 @@ export default function MarginCalculator() {
               ))}
             </div>
             <div className="pt-3 border-t border-gray-100">
-              <div className="text-[10px] text-gray-400 mb-2">Scenario range</div>
+              <div className="text-[10px] text-gray-500 mb-2">Scenario range</div>
               <div className="grid grid-cols-2 gap-2">
                 <div className="bg-green-50 rounded-lg p-2 text-center">
                   <div className="text-[10px] text-green-600">Best case</div>
@@ -552,7 +552,7 @@ export default function MarginCalculator() {
             const isActive = ch === channel
             return (
               <div key={ch} className={`rounded-lg p-3 border ${isActive ? 'border-gold bg-gold/5' : 'border-gray-100 bg-gray-50'}`}>
-                <div className="text-[10px] text-gray-400">{CHANNEL_LABELS[ch]}</div>
+                <div className="text-[10px] text-gray-500">{CHANNEL_LABELS[ch]}</div>
                 <div className="text-sm font-bold text-navy mt-1">{fmt(cm.rrp)} RRP</div>
                 <div className={`text-xs font-semibold mt-0.5 ${cm.margin >= 35 ? 'text-green-600' : cm.margin >= 25 ? 'text-amber-500' : 'text-red-500'}`}>
                   {cm.margin.toFixed(1)}% margin
@@ -596,7 +596,7 @@ export default function MarginCalculator() {
                 <div className="text-xs font-medium" style={{ color: readinessColor }}>
                   {readinessScore >= 70 ? 'Strong launch conditions' : readinessScore >= 50 ? 'Viable with careful positioning' : 'Challenging \u2014 consider timing'}
                 </div>
-                <div className="text-[10px] text-gray-400">{cat.label} category readiness</div>
+                <div className="text-[10px] text-gray-500">{cat.label} category readiness</div>
               </div>
             </div>
             <div className="h-52">
@@ -637,7 +637,7 @@ export default function MarginCalculator() {
             <Eye size={16} />
             View Full Data & Export
           </button>
-          <p className="text-[10px] text-gray-400 mt-2">Detailed cost tables, cross-category benchmarks, and export options</p>
+          <p className="text-[10px] text-gray-500 mt-2">Detailed cost tables, cross-category benchmarks, and export options</p>
         </div>
       )}
 
@@ -647,7 +647,7 @@ export default function MarginCalculator() {
             <h2 className="font-display text-section text-navy">Full Analysis</h2>
             <button
               onClick={() => setShowTier3(false)}
-              className="text-xs text-gray-400 hover:text-navy transition-colors"
+              className="text-xs text-gray-500 hover:text-navy transition-colors"
             >
               Collapse
             </button>

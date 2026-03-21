@@ -441,7 +441,7 @@ function CategoryCard({ cat, year, isHero, onClick }) {
         </div>
       </div>
       <div className="px-4 sm:px-5 py-2.5 flex items-center justify-between">
-        <div className="flex items-center gap-2 text-[10px] text-gray-400">
+        <div className="flex items-center gap-2 text-[10px] text-gray-500">
           <span>{yd.topMarkets.length} markets</span>
           <span>\u00b7</span>
           <span>{brandCount} brands</span>
@@ -607,32 +607,32 @@ function CategoryDetail({ cat, year, onBack }) {
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
                 <div className="bg-gray-50 rounded-lg p-2.5">
-                  <div className="text-[10px] text-gray-400">ACV Distribution</div>
+                  <div className="text-[10px] text-gray-500">ACV Distribution</div>
                   <div className="text-sm font-bold text-navy">{yd.tradeKPIs.acvDistribution}%</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-2.5">
-                  <div className="text-[10px] text-gray-400">CE Depletions</div>
+                  <div className="text-[10px] text-gray-500">CE Depletions</div>
                   <div className="text-sm font-bold text-navy">{(yd.tradeKPIs.ceDepletions / 1000000).toFixed(1)}M</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-2.5">
-                  <div className="text-[10px] text-gray-400">Avg Billback</div>
+                  <div className="text-[10px] text-gray-500">Avg Billback</div>
                   <div className="text-sm font-bold text-navy">{yd.tradeKPIs.billback}%</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-2.5">
-                  <div className="text-[10px] text-gray-400">Gross Margin</div>
+                  <div className="text-[10px] text-gray-500">Gross Margin</div>
                   <div className="text-sm font-bold text-navy">{yd.tradeKPIs.grossMarginPct}%</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-2.5">
-                  <div className="text-[10px] text-gray-400">CAC</div>
+                  <div className="text-[10px] text-gray-500">CAC</div>
                   <div className="text-sm font-bold text-navy">${yd.tradeKPIs.cac}</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-2.5">
-                  <div className="text-[10px] text-gray-400">Inventory Turnover</div>
+                  <div className="text-[10px] text-gray-500">Inventory Turnover</div>
                   <div className="text-sm font-bold text-navy">{yd.tradeKPIs.itr}x</div>
                 </div>
               </div>
               {yd.tradeKPIs.isEstimated && (
-                <p className="text-[10px] text-gray-400 mt-2 italic">{yd.tradeKPIs.methodology}</p>
+                <p className="text-[10px] text-gray-500 mt-2 italic">{yd.tradeKPIs.methodology}</p>
               )}
             </Card>
           )}
@@ -648,7 +648,7 @@ function CategoryDetail({ cat, year, onBack }) {
 
           {/* Tier 3: Full Report (hidden until CTA clicked) */}
           {showFullReport && (
-            <div className="space-y-5 animate-in fade-in duration-300">
+            <div className="space-y-5 animate-fadeIn">
               <Card padding="p-6">
                 <SectionHeader size="md" subtitle={`In-depth market analysis for ${cat.label}`}>
                   {year} Annual Report
@@ -741,11 +741,11 @@ export default function CategoryIntelligence() {
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-2">
                 <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                  <div className="text-[10px] text-gray-400 uppercase">Market Size</div>
+                  <div className="text-[10px] text-gray-500 uppercase">Market Size</div>
                   <div className="text-sm font-bold text-navy">{yd.marketSize}</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                  <div className="text-[10px] text-gray-400 uppercase">Growth</div>
+                  <div className="text-[10px] text-gray-500 uppercase">Growth</div>
                   <div className="text-sm font-bold"><GrowthBadge value={yd.growth} /></div>
                 </div>
               </div>
@@ -934,7 +934,7 @@ export default function CategoryIntelligence() {
 
       {/* Footer source note */}
       <div className="mt-8 text-center">
-        <p className="text-[10px] text-gray-400">Data sourced from IWSR, Euromonitor, DISCUS, OIV, and trade publications \u00b7 Updated quarterly</p>
+        <p className="text-[10px] text-gray-500">Data sourced from IWSR, Euromonitor, DISCUS, OIV, and trade publications \u00b7 Updated quarterly</p>
       </div>
 
       {/* Mobile BottomSheet for category detail */}

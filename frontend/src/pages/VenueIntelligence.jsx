@@ -4,7 +4,7 @@ import { MapPin, TrendingUp, Wine, Search, ChevronDown, ChevronUp, ExternalLink,
 import {
   PageHeader, Card, MetricCard, BentoGrid, DrillDown, DataTable,
   ChartCard, SourceList, YearSelector,
-  EntityLink, BottomSheet, SkeletonCard, SkeletonChart, SubPageNav
+  EntityLink, BottomSheet, SkeletonCard, SkeletonChart, SubPageNav, ErrorBoundary
 } from '../components/ui'
 
 import {
@@ -493,6 +493,7 @@ export default function VenueIntelligence() {
           {/* ═══════ TIER 2: DRILL-DOWN SECTIONS ═══════ */}
 
           {/* --- 50 Best Bars Analysis --- */}
+          <ErrorBoundary message="50 Best Bars section failed to load.">
           <DrillDown
             title="50 Best Bars Rankings"
             summary={`London: ${londonCount} bars \u00b7 ${citiesCount} cities \u00b7 ${perennialBars.length} perennial bars`}
@@ -574,8 +575,10 @@ export default function VenueIntelligence() {
               ]} />
             </div>
           </DrillDown>
+          </ErrorBoundary>
 
           {/* --- London Venue Profiles --- */}
+          <ErrorBoundary message="London venues section failed to load.">
           <DrillDown
             title="London Key Accounts"
             summary={`${LONDON_VENUES.length} venues profiled \u00b7 Search by name, area, or brand`}
@@ -634,8 +637,10 @@ export default function VenueIntelligence() {
               ]} />
             </div>
           </DrillDown>
+          </ErrorBoundary>
 
           {/* --- Corporate Penetration --- */}
+          <ErrorBoundary message="Corporate penetration section failed to load.">
           <DrillDown
             title="Corporate Penetration"
             summary={`${Object.keys(COMPANY_PROFILES).length} companies profiled \u00b7 Corporate vs independent trends`}
@@ -719,8 +724,10 @@ export default function VenueIntelligence() {
               </Card>
             </div>
           </DrillDown>
+          </ErrorBoundary>
 
           {/* --- Brand & Venue Mapping --- */}
+          <ErrorBoundary message="Brand venue mapping failed to load.">
           <DrillDown
             title="Brand & Venue Mapping"
             summary={`${Object.keys(BRAND_VENUE_MAP).length}+ brands mapped \u00b7 Category density across London venues`}
@@ -792,8 +799,10 @@ export default function VenueIntelligence() {
               </Card>
             </div>
           </DrillDown>
+          </ErrorBoundary>
 
           {/* --- Competitive Heat Map --- */}
+          <ErrorBoundary message="Competitive heat map failed to load.">
           <DrillDown
             title="Competitive Heat Map"
             summary="Which company dominates which category in each venue tier"
@@ -821,8 +830,10 @@ export default function VenueIntelligence() {
               ))}
             </div>
           </DrillDown>
+          </ErrorBoundary>
 
           {/* --- Longitudinal Trends --- */}
+          <ErrorBoundary message="Longitudinal trends failed to load.">
           <DrillDown
             title="Longitudinal Trends (2021\u20132025)"
             summary="Regional shifts, city dominance heatmap, geographic trends"
@@ -880,8 +891,10 @@ export default function VenueIntelligence() {
               </Card>
             </div>
           </DrillDown>
+          </ErrorBoundary>
 
           {/* --- Market Entry Playbooks & Budget Benchmarks --- */}
+          <ErrorBoundary message="Market entry playbooks failed to load.">
           <DrillDown
             title="Market Entry Playbooks & Budget Benchmarks"
             summary={`${Object.keys(ENTRY_PLAYBOOKS).length} category playbooks \u00b7 ${Object.keys(DISTRIBUTORS).length} distributors \u00b7 On-trade spend benchmarks`}
@@ -1085,6 +1098,7 @@ export default function VenueIntelligence() {
               </div>
             </div>
           </DrillDown>
+          </ErrorBoundary>
         </>
       )}
 

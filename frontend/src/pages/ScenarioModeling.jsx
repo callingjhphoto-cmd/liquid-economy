@@ -11,7 +11,7 @@ import {
 import {
   Card, MetricCard, PageHeader, BentoGrid, DataTable, ChartCard,
   DrillDown, Badge, SectionHeader, SourceList,
-  BottomSheet, SubPageNav
+  BottomSheet, SubPageNav, ErrorBoundary
 } from '../components/ui'
 import {
   PRODUCT_CATEGORIES, TARGET_MARKETS, MANUFACTURING_ORIGINS,
@@ -325,6 +325,7 @@ export default function ScenarioModeling() {
 
       {/* \u2550\u2550\u2550\u2550\u2550 TIER 2: BRAND-TO-MARKET SCENARIO (stepped flow) \u2550\u2550\u2550\u2550\u2550 */}
       {mode === 'brand' && (
+        <ErrorBoundary message="Brand scenario planner failed to load.">
         <div className="space-y-6">
           {/* Step progress indicator */}
           <StepProgress
@@ -600,6 +601,7 @@ export default function ScenarioModeling() {
             onReset={() => { setMode('overview') }}
           />
         </div>
+        </ErrorBoundary>
       )}
 
       {/* \u2550\u2550\u2550\u2550\u2550 TIER 2: CAMPAIGN PLANNER \u2550\u2550\u2550\u2550\u2550 */}

@@ -8,7 +8,7 @@ import {
 } from 'lucide-react'
 import {
   PageHeader, MetricCard, Card, Section, BentoGrid, DrillDown,
-  BottomSheet, SubPageNav
+  BottomSheet, SubPageNav, ErrorBoundary
 } from '../components/ui'
 import {
   BRANDS_BY_CATEGORY, CATEGORIES, SEGMENTS, BASE_SPIRITS,
@@ -1797,7 +1797,9 @@ const CampaignPlanner = () => {
 
       {/* Content */}
       <div className="min-h-[400px]">
-        {steps[currentStep].render()}
+        <ErrorBoundary message="Campaign planner step failed to load.">
+          {steps[currentStep].render()}
+        </ErrorBoundary>
       </div>
 
       {/* Navigation (only show when in wizard) */}

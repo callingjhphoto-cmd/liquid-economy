@@ -9,7 +9,7 @@ import {
 import {
   Card, MetricCard, PageHeader, BentoGrid, FilterBar, Badge, DataTable,
   DrillDown, EntityLink, SourceList, BottomSheet, SectionHeader,
-  SkeletonCard, SubPageNav
+  SkeletonCard, SubPageNav, ErrorBoundary
 } from '../components/ui'
 import { COMPANIES, WHITE_SPACE } from '../data/companyData'
 
@@ -972,14 +972,16 @@ export default function Companies() {
               {/* Tier 2 — expanded inline (desktop only) */}
               {isExpanded && (
                 <BentoGrid.Full>
-                  <CompanyTier2
-                    company={company}
-                    onClose={() => setExpandedCompany(null)}
-                    onViewFull={() => {
-                      setTier3Company(company)
-                      setExpandedCompany(null)
-                    }}
-                  />
+                  <ErrorBoundary message="Company detail failed to load.">
+                    <CompanyTier2
+                      company={company}
+                      onClose={() => setExpandedCompany(null)}
+                      onViewFull={() => {
+                        setTier3Company(company)
+                        setExpandedCompany(null)
+                      }}
+                    />
+                  </ErrorBoundary>
                 </BentoGrid.Full>
               )}
             </React.Fragment>
@@ -1005,10 +1007,12 @@ export default function Companies() {
 
       {/* ── TIER 3: Full Deep Dive Modal ── */}
       {tier3Company && (
-        <CompanyTier3
-          company={tier3Company}
-          onClose={() => setTier3Company(null)}
-        />
+        <ErrorBoundary message="Company deep dive failed to load.">
+          <CompanyTier3
+            company={tier3Company}
+            onClose={() => setTier3Company(null)}
+          />
+        </ErrorBoundary>
       )}
 
       {/* ── Mobile Bottom Sheet (Tier 2) ── */}

@@ -11,7 +11,7 @@ import {
 } from '../data/reportBuilderData'
 import {
   Card, AccentCard, MetricCard, PageHeader, BentoGrid, DrillDown,
-  DataTable, TabGroup, Badge, EntityLink, SubPageNav, BottomSheet
+  DataTable, TabGroup, Badge, EntityLink, SubPageNav, BottomSheet, StatusNotice
 } from '../components/ui'
 
 // Icon resolver for data-driven widget rendering
@@ -101,6 +101,12 @@ export default function ReportBuilder() {
           <p className="text-xs text-gray-500 mt-3">james@huertas.co.uk</p>
         </div>
       </AccentCard>
+
+      <StatusNotice
+        type="info"
+        title="Backend Required"
+        message="Report generation requires a backend connection. Join the waitlist to be notified when this feature launches."
+      />
 
       {/* ══════ TIER 1: HERO + TEMPLATE CARDS ══════ */}
       <BentoGrid>

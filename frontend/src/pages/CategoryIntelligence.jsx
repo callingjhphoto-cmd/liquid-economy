@@ -14,7 +14,7 @@ import {
   Card, MetricCard, PageHeader, YearSelector,
   BentoGrid, SectionHeader, SectionLabel, TabGroup,
   ChartCard, DataTable, SourceLink, SourceList, EntityLink, BottomSheet,
-  SkeletonCard, SkeletonChart, SubPageNav
+  SkeletonCard, SkeletonChart, SubPageNav, ErrorBoundary
 } from '../components/ui'
 
 // ============================================
@@ -835,7 +835,9 @@ export default function CategoryIntelligence() {
         </div>
 
         {/* Category Detail */}
-        <CategoryDetail cat={active} year={selectedYear} onBack={handleBack} />
+        <ErrorBoundary message="Category detail failed to load.">
+          <CategoryDetail cat={active} year={selectedYear} onBack={handleBack} />
+        </ErrorBoundary>
       </div>
     )
   }

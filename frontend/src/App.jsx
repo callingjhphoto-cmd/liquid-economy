@@ -7,6 +7,7 @@ import { api, getToken, setToken, clearToken } from './lib/api'
 // import ChatPanel from './components/ChatPanel'
 import GlobalSearch from './components/GlobalSearch'
 import { LiveDataProvider } from './context/LiveDataContext'
+import { StatusNotice } from './components/ui'
 
 const CommandCentre = lazy(() => import('./pages/CommandCentre'))
 const Valuations = lazy(() => import('./pages/Valuations'))
@@ -222,16 +223,20 @@ function LivePulse() {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-1.5">
           {connected ? (
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
-            </span>
+            <>
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+              </span>
+              <span className="text-xs text-gray-500 font-medium">
+                {mode === 'sse' ? 'LIVE' : 'POLLING'}
+              </span>
+            </>
           ) : (
-            <span className="h-2 w-2 rounded-full bg-gray-400" />
+            <span className="w-full">
+              <StatusNotice type="offline" message="Data feed offline. Showing cached data." />
+            </span>
           )}
-          <span className="text-xs text-gray-500 font-medium">
-            {connected ? (mode === 'sse' ? 'LIVE' : 'POLLING') : 'OFFLINE'}
-          </span>
         </div>
         <div className="flex items-center gap-2 text-xs">
           {criticals > 0 && (

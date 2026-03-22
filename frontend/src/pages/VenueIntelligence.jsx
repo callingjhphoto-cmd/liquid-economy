@@ -400,7 +400,7 @@ export default function VenueIntelligence() {
           className="w-full pl-12 pr-4 py-3.5 bg-white border border-gray-200 rounded-xl text-sm shadow-sm focus:ring-2 focus:ring-navy/20 focus:border-navy transition-all"
         />
         {venueSearch && (
-          <button onClick={() => setVenueSearch('')} className="absolute right-2 top-1/2 -translate-y-1/2 p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-gray-400 hover:text-gray-600 touch-manipulation">
+          <button onClick={() => setVenueSearch('')} className="absolute right-2 top-1/2 -translate-y-1/2 p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-gray-600 hover:text-gray-700 touch-manipulation">
             <X size={16} />
           </button>
         )}
@@ -502,7 +502,7 @@ export default function VenueIntelligence() {
               {/* Region + City charts */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <ChartCard title={`Regional Distribution \u2014 ${selectedYear}`} height={240}>
-                  <BarChart data={regionAnalysis} layout="vertical" accessibilityLayer>
+                  <BarChart data={regionAnalysis} layout="vertical" accessibilityLayer={true}>
                     <XAxis type="number" />
                     <YAxis dataKey="name" type="category" width={120} tick={{ fontSize: 11 }} />
                     <Tooltip formatter={(val) => [`${val} bars (${Math.round(val / 50 * 100)}%)`]} />
@@ -513,7 +513,7 @@ export default function VenueIntelligence() {
                 </ChartCard>
 
                 <ChartCard title={`Top Cities by Entries \u2014 ${selectedYear}`} height={240}>
-                  <BarChart data={cityData} layout="vertical" accessibilityLayer>
+                  <BarChart data={cityData} layout="vertical" accessibilityLayer={true}>
                     <XAxis type="number" />
                     <YAxis dataKey="city" type="category" width={100} tick={{ fontSize: 11 }} />
                     <Tooltip />
@@ -669,7 +669,7 @@ export default function VenueIntelligence() {
 
               {/* Penetration chart */}
               <ChartCard title={`Parent Company Penetration: % of Top 50 Bars (${selectedYear})`} subtitle="Click a company bar for their full profile" height={280}>
-                <BarChart data={parentPenetration[selectedYear] || []} layout="vertical" accessibilityLayer>
+                <BarChart data={parentPenetration[selectedYear] || []} layout="vertical" accessibilityLayer={true}>
                   <XAxis type="number" domain={[0, 70]} tickFormatter={v => `${v}%`} />
                   <YAxis dataKey="name" type="category" width={140} tick={{ fontSize: 11 }} />
                   <Tooltip formatter={(val) => [`${val}%`, 'Penetration']} />
@@ -829,7 +829,7 @@ export default function VenueIntelligence() {
           >
             <div className="space-y-6">
               <ChartCard title="Regional Representation in 50 Best Bars" height={300}>
-                <LineChart data={regionalTrend} accessibilityLayer>
+                <LineChart data={regionalTrend} accessibilityLayer={true}>
                   <XAxis dataKey="year" />
                   <YAxis />
                   <Tooltip />
@@ -909,7 +909,7 @@ export default function VenueIntelligence() {
               {/* Corporate vs Independent + Penetration charts */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <ChartCard title="Corporate vs Independent (2021\u20132025)" height={250}>
-                  <BarChart data={independentVsCorporate} accessibilityLayer>
+                  <BarChart data={independentVsCorporate} accessibilityLayer={true}>
                     <XAxis dataKey="year" />
                     <YAxis domain={[0, 50]} />
                     <Tooltip />
@@ -920,7 +920,7 @@ export default function VenueIntelligence() {
                 </ChartCard>
 
                 <ChartCard title="Top 5 Penetration Trend (%)" height={250}>
-                  <LineChart data={penetrationTrend} accessibilityLayer>
+                  <LineChart data={penetrationTrend} accessibilityLayer={true}>
                     <XAxis dataKey="year" />
                     <YAxis tickFormatter={v => `${v}%`} />
                     <Tooltip formatter={(val) => [`${val}%`]} />
@@ -966,7 +966,7 @@ export default function VenueIntelligence() {
                             {dist.parent && <span className="text-xs text-gray-500">({dist.parent})</span>}
                           </div>
                         </div>
-                        {expandedDistributor === name ? <ChevronUp size={14} className="text-gray-400" /> : <ChevronDown size={14} className="text-gray-400" />}
+                        {expandedDistributor === name ? <ChevronUp size={14} className="text-gray-500" /> : <ChevronDown size={14} className="text-gray-500" />}
                       </div>
                       {expandedDistributor === name && (
                         <div className="border-t border-gray-100 p-2.5 bg-gray-50 space-y-1 text-xs">
@@ -1000,7 +1000,7 @@ export default function VenueIntelligence() {
                             <span>Timeline: {pb.timeline}</span>
                           </div>
                         </div>
-                        {entryCategory === key ? <ChevronUp size={14} className="text-gray-400" /> : <ChevronDown size={14} className="text-gray-400" />}
+                        {entryCategory === key ? <ChevronUp size={14} className="text-gray-500" /> : <ChevronDown size={14} className="text-gray-500" />}
                       </div>
                       {entryCategory === key && (
                         <div className="border-t border-gray-100 p-3 bg-gray-50 space-y-3">
@@ -1134,7 +1134,7 @@ function VenueCard({ venue, index, expanded, onToggle }) {
             )}
           </div>
         </div>
-        {expanded ? <ChevronUp size={16} className="text-gray-400 flex-shrink-0" /> : <ChevronDown size={16} className="text-gray-400 flex-shrink-0" />}
+        {expanded ? <ChevronUp size={16} className="text-gray-500 flex-shrink-0" /> : <ChevronDown size={16} className="text-gray-500 flex-shrink-0" />}
       </div>
 
       {expanded && (
@@ -1190,7 +1190,7 @@ function CompanyCard({ name, profile, expanded, onToggle }) {
         <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: PARENT_COMPANIES[name]?.color || '#666' }} />
         <h4 className="text-xs font-bold text-navy">{name}</h4>
         <span className="text-xs text-gray-500 ml-auto">{profile.revenue}</span>
-        {expanded ? <ChevronUp size={14} className="text-gray-400" /> : <ChevronDown size={14} className="text-gray-400" />}
+        {expanded ? <ChevronUp size={14} className="text-gray-500" /> : <ChevronDown size={14} className="text-gray-500" />}
       </div>
       <p className="text-xs text-gray-500">{profile.headquarters} {'\u00b7'} CEO: {profile.ceo}</p>
       <p className="text-xs text-gray-500 mt-0.5">On-trade share: {profile.onTradeShare}</p>
@@ -1208,7 +1208,7 @@ function CompanyCard({ name, profile, expanded, onToggle }) {
               {(profile.keyBrandsOnTrade || []).map((brand, bi) => (
                 <div key={bi} className="flex items-center gap-2 text-xs bg-white rounded px-2 py-1 border border-gray-100">
                   <EntityLink type="brand" id={brand.name?.toLowerCase().replace(/\s+/g, '-')} label={brand.name} className="font-semibold w-28 truncate text-xs" />
-                  <span className="text-gray-400">{brand.category}</span>
+                  <span className="text-gray-500">{brand.category}</span>
                   <span className="ml-auto text-gray-500">{brand.pricePoint}</span>
                 </div>
               ))}

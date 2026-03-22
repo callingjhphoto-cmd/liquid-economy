@@ -24,7 +24,7 @@ export function FilterBar({
 
   return (
     <div className={`flex flex-wrap items-center gap-3 bg-white rounded-xl shadow-sm border border-gray-100 px-4 py-3 ${className}`}>
-      <div className="flex items-center gap-1.5 text-gray-400">
+      <div className="flex items-center gap-1.5 text-gray-500">
         <Filter size={14} />
         <span className="text-[10px] font-medium uppercase tracking-wider hidden sm:inline">Filters</span>
       </div>

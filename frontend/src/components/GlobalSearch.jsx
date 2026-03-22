@@ -263,7 +263,7 @@ export default function GlobalSearch({ isOpen, onClose }) {
               <X size={14} />
             </button>
           )}
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-600 ml-1">
+          <button onClick={onClose} className="text-gray-600 hover:text-gray-700 ml-1">
             <X size={16} />
           </button>
         </div>
@@ -272,7 +272,7 @@ export default function GlobalSearch({ isOpen, onClose }) {
         <div ref={listRef} className="max-h-[60vh] overflow-y-auto py-1">
           {grouped.flatList.length === 0 && (
             <div className="px-5 py-10 text-center">
-              <p className="text-sm text-gray-400">No results for &ldquo;{query}&rdquo;</p>
+              <p className="text-sm text-gray-500">No results for &ldquo;{query}&rdquo;</p>
               <p className="text-xs text-gray-300 mt-1">Try searching for a brand, category, venue, or company</p>
             </div>
           )}

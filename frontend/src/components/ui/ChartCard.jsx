@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { ResponsiveContainer } from 'recharts'
 import { ExternalLink, Copy, Check } from 'lucide-react'
+import { DataTable } from './DataTable'
 
 /**
  * ChartCard — Consistent wrapper for Recharts visualizations.
  * Provides title, subtitle, optional source attribution, and loading state.
+ * Optionally renders a DataTable fallback for screen readers / keyboard users.
  *
  * @param {string} title - Chart title
  * @param {string} [subtitle] - Optional subtitle / description
@@ -14,6 +16,8 @@ import { ExternalLink, Copy, Check } from 'lucide-react'
  * @param {boolean} [loading=false] - Show skeleton loader
  * @param {React.ReactNode} [action] - Optional top-right action slot
  * @param {React.ReactNode} children - Recharts chart component(s)
+ * @param {Array<object>} [tableData] - Data rows for accessible data table fallback
+ * @param {Array<{key: string, label: string}>} [tableColumns] - Column definitions for data table
  */
 export function ChartCard({
   title,
@@ -27,8 +31,11 @@ export function ChartCard({
   className = '',
   'aria-label': ariaLabel,
   copyData,
+  tableData,
+  tableColumns,
 }) {
   const [copied, setCopied] = useState(false)
+  const [showDataTable, setShowDataTable] = useState(false)
 
   const handleCopy = () => {
     const text = copyData || `${title}${subtitle ? ' \u2014 ' + subtitle : ''}${source ? '\nSource: ' + source : ''}`
@@ -49,7 +56,7 @@ export function ChartCard({
         <div className="flex items-center gap-1">
           <button
             onClick={handleCopy}
-            className="p-1.5 rounded-md opacity-0 group-hover/chart:opacity-100 hover:bg-gray-100 text-gray-400 hover:text-navy transition-all"
+            className="p-1.5 rounded-md opacity-0 group-hover/chart:opacity-100 hover:bg-gray-100 text-gray-600 hover:text-navy transition-all"
             title={copied ? 'Copied!' : 'Copy chart info'}
             aria-label="Copy chart info to clipboard"
           >
@@ -73,6 +80,24 @@ export function ChartCard({
             {children}
           </ResponsiveContainer>
         </div>
+      )}
+
+      {/* Data Table Toggle + Fallback */}
+      {tableData && tableColumns && (
+        <>
+          <button
+            onClick={() => setShowDataTable(!showDataTable)}
+            className="text-xs text-gray-500 hover:text-navy underline mt-2 min-h-[44px] flex items-center"
+            aria-label={showDataTable ? 'Hide data table' : 'Show data as table'}
+          >
+            {showDataTable ? 'Hide Data Table' : 'Show Data Table'}
+          </button>
+          {showDataTable && (
+            <div className="mt-2">
+              <DataTable data={tableData} columns={tableColumns} compact />
+            </div>
+          )}
+        </>
       )}
 
       {/* Source Attribution */}

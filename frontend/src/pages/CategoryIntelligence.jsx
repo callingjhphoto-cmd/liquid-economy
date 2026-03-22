@@ -161,13 +161,13 @@ function MarketDrillDown({ market }) {
       <button onClick={() => setExpanded(!expanded)}
         className="w-full flex items-center justify-between p-3 min-h-[44px] hover:bg-gray-50 transition-colors touch-manipulation">
         <div className="flex items-center gap-3">
-          <Globe size={16} className="text-gray-400" />
+          <Globe size={16} className="text-gray-500" />
           <span className="font-semibold text-sm text-gray-900">{market.name}</span>
           <GrowthBadge value={market.growth} />
         </div>
         {expanded
-          ? <ChevronDown size={16} className="text-gray-400" />
-          : <ChevronRight size={16} className="text-gray-400" />
+          ? <ChevronDown size={16} className="text-gray-500" />
+          : <ChevronRight size={16} className="text-gray-500" />
         }
       </button>
       {expanded && (
@@ -288,7 +288,7 @@ function TrendsList({ trends }) {
 // ============================================
 function YearlyReport({ report, year }) {
   if (!report) return (
-    <div className="p-8 text-center text-gray-400 text-sm">No analysis available for {year}</div>
+    <div className="p-8 text-center text-gray-500 text-sm">No analysis available for {year}</div>
   )
   return (
     <div className="space-y-5">
@@ -330,8 +330,18 @@ function MarketTrendChart({ catKey }) {
   const data = useTrendChartData(catKey)
   if (!data.length) return null
   return (
-    <ChartCard title="5-Year Market Trend" subtitle="Market size ($B) \u00b7 2021\u20132025" source="IWSR / Euromonitor">
-      <AreaChart data={data} accessibilityLayer>
+    <ChartCard
+      title="5-Year Market Trend"
+      subtitle="Market size ($B) \u00b7 2021\u20132025"
+      source="IWSR / Euromonitor"
+      tableData={data}
+      tableColumns={[
+        { key: 'year', label: 'Year' },
+        { key: 'size', label: 'Market Size ($B)', render: v => `$${Number(v).toFixed(1)}B` },
+        { key: 'growth', label: 'Growth (%)', render: v => `${v}%` },
+      ]}
+    >
+      <AreaChart data={data} accessibilityLayer={true}>
         <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
         <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#9CA3AF' }} />
         <YAxis tick={{ fontSize: 11, fill: '#9CA3AF' }} tickFormatter={v => `$${v}B`} width={55} />
@@ -361,8 +371,20 @@ function ChannelChart({ catKey }) {
   }, [catKey])
 
   return (
-    <ChartCard title="Channel Distribution" subtitle="% share by channel \u00b7 2021\u20132025" source="IWSR">
-      <BarChart data={data} accessibilityLayer>
+    <ChartCard
+      title="Channel Distribution"
+      subtitle="% share by channel \u00b7 2021\u20132025"
+      source="IWSR"
+      tableData={data}
+      tableColumns={[
+        { key: 'year', label: 'Year' },
+        { key: 'onTrade', label: 'On-Trade (%)', render: v => `${v}%` },
+        { key: 'offTrade', label: 'Off-Trade (%)', render: v => `${v}%` },
+        { key: 'eCommerce', label: 'E-Commerce (%)', render: v => `${v}%` },
+        { key: 'travelRetail', label: 'Travel Retail (%)', render: v => `${v}%` },
+      ]}
+    >
+      <BarChart data={data} accessibilityLayer={true}>
         <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
         <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#9CA3AF' }} />
         <YAxis tick={{ fontSize: 11, fill: '#9CA3AF' }} tickFormatter={v => `${v}%`} width={45} />
@@ -407,7 +429,7 @@ function CategoryCard({ cat, year, isHero, onClick }) {
           <div className={`${isHero ? 'w-14 h-14' : 'w-10 h-10'} rounded-2xl flex items-center justify-center text-lg font-bold ${cat.iconBg} ${cat.iconColor} shadow-sm`}>
             {cat.icon}
           </div>
-          <ChevronRight size={18} className="text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all" />
+          <ChevronRight size={18} className="text-gray-500 group-hover:text-gray-600 group-hover:translate-x-1 transition-all" />
         </div>
         <h3 className={`font-display ${isHero ? 'text-xl sm:text-2xl' : 'text-base sm:text-lg'} font-bold text-navy mb-1.5`}>{cat.label}</h3>
         {isHero && <p className="text-sm text-gray-600 line-clamp-2 leading-relaxed mb-4">{cat.trajectory}</p>}
@@ -434,7 +456,7 @@ function CategoryCard({ cat, year, isHero, onClick }) {
           {/* Sparkline */}
           <div className="w-16 h-8 opacity-60">
             <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={sparkData} accessibilityLayer>
+              <AreaChart data={sparkData} accessibilityLayer={true}>
                 <Area type="monotone" dataKey="v" stroke="#1A1F36" fill="#1A1F36" fillOpacity={0.08} strokeWidth={1.5} dot={false} />
               </AreaChart>
             </ResponsiveContainer>
@@ -459,7 +481,7 @@ function CategoryDetail({ cat, year, onBack }) {
 
   if (!yd) return (
     <Card padding="p-8">
-      <div className="text-center text-gray-400">
+      <div className="text-center text-gray-500">
         <FileText size={32} className="mx-auto mb-3 opacity-50" />
         <p className="text-sm">No data available for {cat.label} in {year}</p>
         <p className="text-xs mt-1">Try selecting a different year</p>

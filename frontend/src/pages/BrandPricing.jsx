@@ -289,7 +289,7 @@ function CategoryExpanded({ category, onClose }) {
             />
             <button
               onClick={onClose}
-              className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors text-gray-400 hover:text-gray-600 touch-manipulation"
+              className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors text-gray-600 hover:text-gray-700 touch-manipulation"
             >
               <X size={16} />
             </button>
@@ -367,7 +367,7 @@ function CategoryExpanded({ category, onClose }) {
         height={280}
         source="Aggregated retailer pricing"
       >
-        <BarChart data={chartData} layout="vertical" margin={{ left: 10, right: 30, top: 5, bottom: 5 }} accessibilityLayer>
+        <BarChart data={chartData} layout="vertical" margin={{ left: 10, right: 30, top: 5, bottom: 5 }} accessibilityLayer={true}>
           <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
           <XAxis type="number" tick={{ fontSize: 10 }} tickFormatter={v => `${config.currency}${v}`} />
           <YAxis type="category" dataKey="name" tick={{ fontSize: 10 }} width={140} />
@@ -499,7 +499,7 @@ function FullPriceTable({ onClose }) {
             </button>
             <button
               onClick={onClose}
-              className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors text-gray-400 hover:text-gray-600 touch-manipulation"
+              className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors text-gray-600 hover:text-gray-700 touch-manipulation"
             >
               <X size={16} />
             </button>
@@ -543,7 +543,7 @@ function FullPriceTable({ onClose }) {
         {/* Methodology & Sources */}
         <div className="mt-4 pt-4 border-t border-gray-100 space-y-3">
           <div className="flex items-start gap-2">
-            <AlertCircle size={12} className="text-gray-400 mt-0.5 flex-shrink-0" />
+            <AlertCircle size={12} className="text-gray-500 mt-0.5 flex-shrink-0" />
             <p className="text-xs text-gray-500 leading-relaxed">
               Prices represent recommended retail prices (RRP). Bottle sizes vary by market: UK and EU use 70cl (700ml); US and Middle East use 750ml.
               UK prices in GBP (\u00a3), EU in EUR (\u20ac), US and ME in USD ($). Market averages calculated from available retailer prices.
@@ -817,7 +817,7 @@ export default function BrandPricing() {
               <span className="text-sm">{cfg.flag}</span>
               <div>
                 <p className="font-medium">{cfg.label}</p>
-                <p className="text-gray-400">{(RETAILERS[key] || []).length} retailers \u00b7 {cfg.bottleSize} \u00b7 {cfg.currency}</p>
+                <p className="text-gray-500">{(RETAILERS[key] || []).length} retailers \u00b7 {cfg.bottleSize} \u00b7 {cfg.currency}</p>
               </div>
             </div>
           ))}

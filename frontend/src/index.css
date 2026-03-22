@@ -54,7 +54,7 @@
 
   /* Small uppercase label — for card sub-sections, group headers */
   .section-label {
-    @apply text-label text-gray-400 uppercase tracking-wider;
+    @apply text-label text-gray-500 uppercase tracking-wider;
   }
 
   /* Body text variants */
@@ -63,7 +63,7 @@
   }
 
   .text-muted {
-    @apply text-caption text-gray-400;
+    @apply text-caption text-gray-500;
   }
 
   /* Bento card — standard white card */

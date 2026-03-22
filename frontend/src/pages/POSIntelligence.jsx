@@ -53,7 +53,7 @@ function FactoryCard({ factory, onMobileTap }) {
               <span>{factory.employees} staff</span>
             </div>
           </div>
-          {expanded ? <ChevronDown size={16} className="text-gray-400" /> : <ChevronRight size={16} className="text-gray-400" />}
+          {expanded ? <ChevronDown size={16} className="text-gray-500" /> : <ChevronRight size={16} className="text-gray-500" />}
         </div>
       </button>
       {expanded && (
@@ -122,7 +122,7 @@ function MaterialSection({ category, onFactoryTap }) {
             <div className="text-xs text-gray-500 uppercase">Price Range</div>
             <div className="text-xs font-semibold text-gold">{category.priceRange}</div>
           </div>
-          <ChevronDown size={20} className={`text-gray-400 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`} />
+          <ChevronDown size={20} className={`text-gray-500 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`} />
         </div>
       </button>
       {expanded && (
@@ -160,7 +160,7 @@ function DisruptionCard({ strategy }) {
             <p className="text-xs text-gold font-medium mt-0.5">{strategy.impact}</p>
           </div>
         </div>
-        <ChevronDown size={20} className={`text-gray-400 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`} />
+        <ChevronDown size={20} className={`text-gray-500 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`} />
       </button>
       {expanded && (
         <div className="mt-4 pt-4 border-t border-gray-100 space-y-4">
@@ -209,7 +209,7 @@ function ClientSegmentCard({ segment }) {
             <p className="text-xs text-gray-500">Budget: <span className="text-gold font-semibold">{segment.budget}</span></p>
           </div>
         </div>
-        <ChevronDown size={20} className={`text-gray-400 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`} />
+        <ChevronDown size={20} className={`text-gray-500 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`} />
       </button>
       {expanded && (
         <div className="mt-4 pt-4 border-t border-gray-100 space-y-4">

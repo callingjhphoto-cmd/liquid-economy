@@ -40,7 +40,7 @@ export function MetricCard({
     >
       <button
         onClick={handleCopy}
-        className="absolute top-2 right-2 p-1.5 rounded-md opacity-0 group-hover:opacity-100 hover:bg-gray-100 text-gray-400 hover:text-navy transition-all z-10"
+        className="absolute top-2 right-2 p-1.5 rounded-md opacity-0 group-hover:opacity-100 hover:bg-gray-100 text-gray-600 hover:text-navy transition-all z-10"
         title={copied ? 'Copied!' : 'Copy metric'}
         aria-label="Copy metric to clipboard"
       >
@@ -59,7 +59,7 @@ export function MetricCard({
         {sparkData && sparkData.length > 0 && (
           <div className="w-16 h-8">
             <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={sparkData} accessibilityLayer>
+              <AreaChart data={sparkData} accessibilityLayer={true}>
                 <Area
                   type="monotone"
                   dataKey="v"

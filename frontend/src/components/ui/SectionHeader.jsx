@@ -24,14 +24,14 @@ export function SectionHeader({ children, subtitle, action, size = 'md', classNa
   const sizes = {
     lg: 'font-display text-section text-navy',
     md: 'font-display text-subsection text-navy',
-    sm: 'text-label text-gray-400 uppercase tracking-wider',
+    sm: 'text-label text-gray-500 uppercase tracking-wider',
   }
 
   return (
     <div className={`flex items-center justify-between mb-4 ${className}`}>
       <div>
         <h2 className={sizes[size]}>{children}</h2>
-        {subtitle && <p className="text-micro text-gray-400 mt-0.5">{subtitle}</p>}
+        {subtitle && <p className="text-micro text-gray-500 mt-0.5">{subtitle}</p>}
       </div>
       {action && <div>{action}</div>}
     </div>
@@ -43,6 +43,6 @@ export function SectionHeader({ children, subtitle, action, size = 'md', classNa
  */
 export function SectionLabel({ children, className = '' }) {
   return (
-    <h3 className={`text-label text-gray-400 uppercase tracking-wider mb-2 ${className}`}>{children}</h3>
+    <h3 className={`text-label text-gray-500 uppercase tracking-wider mb-2 ${className}`}>{children}</h3>
   )
 }

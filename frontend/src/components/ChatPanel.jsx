@@ -73,7 +73,7 @@ export default function ChatPanel({ isOpen, onClose }) {
           <h2 className="font-display text-lg text-navy">Intelligence Analyst</h2>
           <button
             onClick={onClose}
-            className="p-1 hover:bg-gray-100 rounded-lg transition-colors text-gray-400 hover:text-gray-600"
+            className="p-1 hover:bg-gray-100 rounded-lg transition-colors text-gray-600 hover:text-gray-700"
           >
             <X size={20} />
           </button>
@@ -82,7 +82,7 @@ export default function ChatPanel({ isOpen, onClose }) {
         {/* Messages Container */}
         <div className="flex-1 overflow-y-auto p-4 space-y-4">
           {messages.length === 0 && (
-            <div className="h-full flex items-center justify-center text-center text-gray-400">
+            <div className="h-full flex items-center justify-center text-center text-gray-500">
               <div>
                 <p className="text-sm font-medium mb-2">Palmer Liquid Studios Intelligence Analyst</p>
                 <p className="text-xs">Ask questions about market data, valuations, arbitrage signals, or brand pricing</p>

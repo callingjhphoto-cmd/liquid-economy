@@ -579,7 +579,7 @@ const CampaignPlanner = () => {
                       <p className="font-semibold text-xs text-gray-900">{event.name}</p>
                       <span className="text-xs text-gray-500">{event.date}</span>
                     </div>
-                    {expandedEvent === idx ? <ChevronUp className="w-3 h-3 text-gray-400" /> : <ChevronDown className="w-3 h-3 text-gray-400" />}
+                    {expandedEvent === idx ? <ChevronUp className="w-3 h-3 text-gray-500" /> : <ChevronDown className="w-3 h-3 text-gray-500" />}
                   </div>
                   <div className="flex flex-wrap gap-1 mt-1">
                     {event.serves.map((s, i) => <span key={i} className="inline-block bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-micro">{s}</span>)}
@@ -616,7 +616,7 @@ const CampaignPlanner = () => {
                         <p className="text-xs text-gray-600">{occ.serve} | {occ.channels.join(', ')}</p>
                       </div>
                     </div>
-                    {isExpanded ? <ChevronUp className="w-3 h-3 text-gray-400" /> : <ChevronDown className="w-3 h-3 text-gray-400" />}
+                    {isExpanded ? <ChevronUp className="w-3 h-3 text-gray-500" /> : <ChevronDown className="w-3 h-3 text-gray-500" />}
                   </div>
                   {isExpanded && (
                     <div className="px-3 pb-3 border-t border-gray-100 bg-blue-50">
@@ -883,7 +883,7 @@ const CampaignPlanner = () => {
                 <div key={idx} className="bg-gray-50 rounded-lg p-2.5 text-center">
                   <p className="text-xs font-bold text-navy">{d.quantity.split(' ')[0]}</p>
                   <p className="text-xs text-gray-600 truncate">{d.type}</p>
-                  <p className="text-micro text-gray-400">{d.timeline}</p>
+                  <p className="text-micro text-gray-500">{d.timeline}</p>
                 </div>
               ))}
             </div>
@@ -1192,7 +1192,7 @@ const CampaignPlanner = () => {
                     <h4 className="text-sm font-semibold text-navy">{template.label}</h4>
                     <p className="text-xs text-gray-500 mt-0.5 truncate">{template.desc}</p>
                   </div>
-                  <ChevronRight size={16} className="text-gray-400 flex-shrink-0" />
+                  <ChevronRight size={16} className="text-gray-500 flex-shrink-0" />
                 </div>
               </Card>
             )

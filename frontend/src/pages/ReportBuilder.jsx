@@ -296,7 +296,7 @@ export default function ReportBuilder() {
                     className="flex items-start gap-2 p-3 rounded-lg border bg-white border-gray-100"
                   >
                     <div className="p-1 rounded bg-gray-50">
-                      <Icon size={12} className="text-gray-400" />
+                      <Icon size={12} className="text-gray-500" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="text-xs font-semibold text-navy">{widget.label}</div>

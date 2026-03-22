@@ -160,7 +160,7 @@ function RegionTier2({ region, data, onClose, onViewFull }) {
               <p className="text-xs text-gray-500 mt-0.5">{region.trajectory}</p>
             </div>
           </div>
-          <button onClick={onClose} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-400 hover:text-gray-600 transition-colors touch-manipulation">
+          <button onClick={onClose} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-600 hover:text-gray-700 transition-colors touch-manipulation">
             <X size={16} />
           </button>
         </div>
@@ -191,7 +191,7 @@ function RegionTier2({ region, data, onClose, onViewFull }) {
             className={`px-3 py-2 min-h-[44px] rounded-t-lg text-xs font-medium whitespace-nowrap transition-colors touch-manipulation ${
               section === s.id
                 ? 'bg-gray-50 text-navy border-b-2 border-navy'
-                : 'text-gray-400 hover:text-gray-600'
+                : 'text-gray-600 hover:text-gray-700'
             }`}
           >
             {s.label}
@@ -394,7 +394,7 @@ function RegionTier3({ region, data, onClose }) {
               <div className="text-xs text-gray-500">{region.source}</div>
             </div>
           </div>
-          <button onClick={onClose} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-400 hover:text-gray-600 transition-colors touch-manipulation">
+          <button onClick={onClose} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-600 hover:text-gray-700 transition-colors touch-manipulation">
             <X size={18} />
           </button>
         </div>
@@ -696,7 +696,7 @@ export default function GeographicIntelligence() {
         {searchTerm && (
           <button
             onClick={() => setSearchTerm('')}
-            className="absolute right-2 top-1/2 -translate-y-1/2 p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-full hover:bg-gray-100 text-gray-400 touch-manipulation"
+            className="absolute right-2 top-1/2 -translate-y-1/2 p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-full hover:bg-gray-100 text-gray-600 touch-manipulation"
           >
             <X size={14} />
           </button>
@@ -743,7 +743,7 @@ export default function GeographicIntelligence() {
       {filtered.length === 0 && (
         <div className="text-center py-12">
           <Globe size={32} className="mx-auto text-gray-300 mb-3" />
-          <p className="text-sm text-gray-400">No markets match your search.</p>
+          <p className="text-sm text-gray-500">No markets match your search.</p>
           <button onClick={() => setSearchTerm('')} className="mt-2 text-xs text-navy hover:text-navy/70 font-medium">
             Clear search
           </button>

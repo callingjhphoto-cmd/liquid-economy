@@ -59,7 +59,7 @@ function ConnectionBadge({ connected, mode, clientCount }) {
         <span className="text-green-700 font-medium">
           LIVE{mode === 'sse' ? '' : ' (polling)'}
         </span>
-        {clientCount > 1 && <span className="text-gray-400">{'\u00b7'} {clientCount} viewers</span>}
+        {clientCount > 1 && <span className="text-gray-500">{'\u00b7'} {clientCount} viewers</span>}
       </div>
     )
   }
@@ -173,7 +173,7 @@ export default function LiveFeed({ maxItems = 30, compact = false }) {
             )}
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className={`p-1 rounded transition-colors ${showFilters ? 'bg-navy/10 text-navy' : 'text-gray-400 hover:text-gray-600'}`}
+              className={`p-1 rounded transition-colors ${showFilters ? 'bg-navy/10 text-navy' : 'text-gray-600 hover:text-gray-700'}`}
             >
               <Filter size={11} />
             </button>

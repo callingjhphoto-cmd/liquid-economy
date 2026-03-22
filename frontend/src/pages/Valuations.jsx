@@ -189,7 +189,7 @@ export default function Valuations() {
             subtitle="Current valuation multiples across beverage alcohol categories"
             height={280}
           >
-            <BarChart data={sectorChartData} margin={{ top: 5, right: 20, bottom: 5, left: 5 }} accessibilityLayer>
+            <BarChart data={sectorChartData} margin={{ top: 5, right: 20, bottom: 5, left: 5 }} accessibilityLayer={true}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis dataKey="name" tick={{ fontSize: 9 }} interval={0} angle={-15} textAnchor="end" height={50} />
               <YAxis tick={{ fontSize: 10 }} tickFormatter={v => `${v}x`} />
@@ -274,7 +274,7 @@ export default function Valuations() {
             subtitle="Total transaction value ($M) by year"
             height={220}
           >
-            <BarChart data={filteredMaYearChart} margin={{ top: 5, right: 20, bottom: 5, left: 5 }} accessibilityLayer>
+            <BarChart data={filteredMaYearChart} margin={{ top: 5, right: 20, bottom: 5, left: 5 }} accessibilityLayer={true}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis dataKey="year" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 10 }} tickFormatter={v => `$${v}M`} />

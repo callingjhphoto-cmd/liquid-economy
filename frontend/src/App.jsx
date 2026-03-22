@@ -73,7 +73,7 @@ function Breadcrumb() {
   }
 
   return (
-    <nav className="hidden lg:flex items-center gap-1.5 text-[12px] text-gray-400 mb-4">
+    <nav className="hidden lg:flex items-center gap-1.5 text-[12px] text-gray-500 mb-4">
       {crumbs.map((crumb, i) => (
         <React.Fragment key={i}>
           {i > 0 && <ChevronRight size={10} className="text-gray-300" />}
@@ -106,7 +106,7 @@ function BottomTabBar() {
         {tabs.map(tab => {
           const active = tab.match.includes(path)
           return (
-            <Link key={tab.label} to={tab.to} className={`flex flex-col items-center justify-center gap-0.5 min-h-[44px] min-w-[44px] px-3 py-1.5 transition-colors touch-manipulation ${active ? 'text-navy' : 'text-gray-400'}`}>
+            <Link key={tab.label} to={tab.to} className={`flex flex-col items-center justify-center gap-0.5 min-h-[44px] min-w-[44px] px-3 py-1.5 transition-colors touch-manipulation ${active ? 'text-navy' : 'text-gray-600'}`}>
               <tab.icon size={20} strokeWidth={active ? 2 : 1.5} />
               <span className="text-xs font-medium">{tab.label}</span>
             </Link>
@@ -147,7 +147,7 @@ function Login({ onLogin }) {
             <Wine size={24} className="text-white" />
           </div>
           <h1 className="font-display text-page text-navy mb-1">Liquid Economy</h1>
-          <p className="text-caption text-gray-400">Glass-to-Glass Intelligence Platform</p>
+          <p className="text-caption text-gray-500">Glass-to-Glass Intelligence Platform</p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-3">
           <input
@@ -237,7 +237,7 @@ function LivePulse() {
           {criticals > 0 && (
             <span className="text-red-500 font-bold">{criticals} critical</span>
           )}
-          <span className="text-gray-400">{feedItems.length} items</span>
+          <span className="text-gray-500">{feedItems.length} items</span>
         </div>
       </div>
     </div>
@@ -281,7 +281,7 @@ function Layout({ onLogout }) {
               </div>
               <div>
                 <h1 className="font-display text-body text-navy font-bold leading-tight">Liquid Economy</h1>
-                <p className="text-micro text-gray-400 tracking-wide">Glass-to-Glass Intelligence</p>
+                <p className="text-micro text-gray-500 tracking-wide">Glass-to-Glass Intelligence</p>
               </div>
             </div>
           </div>

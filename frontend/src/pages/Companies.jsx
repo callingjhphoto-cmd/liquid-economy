@@ -198,7 +198,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
               </div>
             </div>
           </div>
-          <button onClick={onClose} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-400 hover:text-gray-600 transition-colors touch-manipulation">
+          <button onClick={onClose} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-600 hover:text-gray-700 transition-colors touch-manipulation">
             <X size={16} />
           </button>
         </div>
@@ -251,7 +251,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
             className={`px-3 py-2 min-h-[44px] rounded-t-lg text-xs font-medium whitespace-nowrap transition-colors touch-manipulation ${
               activeSection === s.id
                 ? 'bg-gray-50 text-navy border-b-2 border-navy'
-                : 'text-gray-400 hover:text-gray-600'
+                : 'text-gray-600 hover:text-gray-700'
             }`}
           >
             {s.label}
@@ -529,7 +529,7 @@ function CompanyTier3({ company, onClose }) {
               <div className="text-xs text-gray-500">{company.hq} \u00b7 {company.revenue} \u00b7 Est. {company.founded}</div>
             </div>
           </div>
-          <button onClick={onClose} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-400 hover:text-gray-600 transition-colors touch-manipulation">
+          <button onClick={onClose} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-600 hover:text-gray-700 transition-colors touch-manipulation">
             <X size={18} />
           </button>
         </div>
@@ -561,7 +561,7 @@ function CompanyTier3({ company, onClose }) {
                   <SectionHeader size="md">5-Year Financial Trend</SectionHeader>
                   <div className="h-56 mt-3" role="figure" aria-label="Chart: 5-Year Financial Trend">
                     <ResponsiveContainer width="100%" height="100%">
-                      <LineChart data={chartData} accessibilityLayer>
+                      <LineChart data={chartData} accessibilityLayer={true}>
                         <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                         <XAxis dataKey="year" tick={{ fontSize: 11 }} />
                         <YAxis tick={{ fontSize: 11 }} />
@@ -939,7 +939,7 @@ export default function Companies() {
         {searchTerm && (
           <button
             onClick={() => setSearchTerm('')}
-            className="absolute right-2 top-1/2 -translate-y-1/2 p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-full hover:bg-gray-100 text-gray-400 touch-manipulation"
+            className="absolute right-2 top-1/2 -translate-y-1/2 p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-full hover:bg-gray-100 text-gray-600 touch-manipulation"
           >
             <X size={14} />
           </button>
@@ -990,7 +990,7 @@ export default function Companies() {
       {filtered.length === 0 && (
         <div className="text-center py-12">
           <Building2 size={32} className="mx-auto text-gray-300 mb-3" />
-          <p className="text-sm text-gray-400">No companies match your search.</p>
+          <p className="text-sm text-gray-500">No companies match your search.</p>
           <button
             onClick={handleClearFilters}
             className="mt-2 text-xs text-navy hover:text-navy/70 font-medium"

@@ -28,7 +28,7 @@ export function YearSelector({
 
   return (
     <div className={`inline-flex items-center gap-2 overflow-x-auto ${className}`}>
-      {showIcon && <Calendar size={14} className="text-gray-400 flex-shrink-0" />}
+      {showIcon && <Calendar size={14} className="text-gray-500 flex-shrink-0" />}
       <div className="inline-flex items-center gap-1 bg-gray-100 rounded-lg p-1 whitespace-nowrap">
         {years.map(year => (
           <button

@@ -21,7 +21,7 @@ function Sparkline({ data, positive }) {
   const color = positive ? '#16a34a' : '#dc2626'
   return (
     <ResponsiveContainer width={100} height={28}>
-      <AreaChart data={chartData} margin={{ top: 2, right: 2, bottom: 2, left: 2 }} accessibilityLayer>
+      <AreaChart data={chartData} margin={{ top: 2, right: 2, bottom: 2, left: 2 }} accessibilityLayer={true}>
         <defs>
           <linearGradient id={`sg_${positive ? 'g' : 'r'}`} x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor={color} stopOpacity={0.3} />
@@ -176,7 +176,7 @@ export default function SupplyChain() {
               </div>
               <div className="flex justify-between text-xs">
                 <span className="text-gray-500">Weighting</span>
-                <span className="text-gray-400">60% raw, 30% freight, 10% energy</span>
+                <span className="text-gray-500">60% raw, 30% freight, 10% energy</span>
               </div>
             </div>
           </Card>
@@ -352,7 +352,7 @@ export default function SupplyChain() {
                       </span>
                       {data.historicalData && <Sparkline data={data.historicalData} positive={changeNum <= 0} />}
                       <span className="text-xs text-gray-500 hidden sm:inline">{data.updated}</span>
-                      {isExpanded ? <ChevronUp className="w-4 h-4 text-gray-400" /> : <ChevronDown className="w-4 h-4 text-gray-400" />}
+                      {isExpanded ? <ChevronUp className="w-4 h-4 text-gray-500" /> : <ChevronDown className="w-4 h-4 text-gray-500" />}
                     </div>
                   </div>
 
@@ -360,8 +360,17 @@ export default function SupplyChain() {
                     <div className="mt-3 pt-3 border-t border-gray-100">
                       <p className="text-xs text-gray-600 leading-relaxed mb-3">{data.description}</p>
                       <div className="flex items-end gap-6">
-                        <ChartCard title="12-Month Trend" height={120} className="flex-1 shadow-none border-0 p-0">
-                          <AreaChart data={Object.entries(data.historicalData).sort(([a], [b]) => a.localeCompare(b)).map(([d, v]) => ({ date: d.slice(5), value: v }))} accessibilityLayer>
+                        <ChartCard
+                          title="12-Month Trend"
+                          height={120}
+                          className="flex-1 shadow-none border-0 p-0"
+                          tableData={Object.entries(data.historicalData).sort(([a], [b]) => a.localeCompare(b)).map(([d, v]) => ({ date: d.slice(5), value: v }))}
+                          tableColumns={[
+                            { key: 'date', label: 'Date' },
+                            { key: 'value', label: 'Price' },
+                          ]}
+                        >
+                          <AreaChart data={Object.entries(data.historicalData).sort(([a], [b]) => a.localeCompare(b)).map(([d, v]) => ({ date: d.slice(5), value: v }))} accessibilityLayer={true}>
                             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                             <XAxis dataKey="date" tick={{ fontSize: 10, fill: '#9ca3af' }} tickLine={false} axisLine={false} />
                             <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} tickLine={false} axisLine={false} width={50} domain={['auto', 'auto']} />

@@ -60,8 +60,8 @@ function HeroMarketCard() {
             <Globe size={20} className="text-navy" />
           </div>
           <div>
-            <span className="text-label text-gray-400 uppercase tracking-wider">Global Spirits Market</span>
-            <p className="text-micro text-gray-400">Distilled spirits excl. beer, wine & cider \u00b7 IWSR 2025</p>
+            <span className="text-label text-gray-500 uppercase tracking-wider">Global Spirits Market</span>
+            <p className="text-micro text-gray-500">Distilled spirits excl. beer, wine & cider \u00b7 IWSR 2025</p>
           </div>
         </div>
 
@@ -190,7 +190,7 @@ function KpiSummaryCards() {
               </span>
             </div>
             <div className="text-lg font-bold text-navy leading-tight">{kpi.value}</div>
-            <div className="text-label text-gray-400 uppercase tracking-wider mt-1">{kpi.label}</div>
+            <div className="text-label text-gray-500 uppercase tracking-wider mt-1">{kpi.label}</div>
             <p className="text-xs text-gray-500 mt-1">{kpi.sub}</p>
           </div>
         </div>
@@ -494,7 +494,7 @@ function MarketPulseExpanded() {
                 <span className={`text-xs font-bold flex-shrink-0 ${isUp ? 'text-emerald-600' : 'text-red-500'}`}>
                   {item.change}
                 </span>
-                {isExpanded ? <ChevronUp size={14} className="text-gray-400 flex-shrink-0" /> : <ChevronDown size={14} className="text-gray-400 flex-shrink-0" />}
+                {isExpanded ? <ChevronUp size={14} className="text-gray-500 flex-shrink-0" /> : <ChevronDown size={14} className="text-gray-500 flex-shrink-0" />}
               </button>
               {isExpanded && (
                 <div className="px-4 pb-4 border-t border-gray-50">
@@ -722,10 +722,10 @@ function InsightBriefing({ briefing, onClose, triggerRef }) {
             </div>
           </div>
           <div className="flex items-center gap-1">
-            <button onClick={() => { navigator.clipboard.writeText(`${briefing.title}\n\n${briefing.summary}\n\n${briefing.keyPoints.join('\n')}\n\n${briefing.actionable}`) }} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-400 hover:text-navy transition-colors touch-manipulation" title="Copy to clipboard" aria-label="Copy briefing to clipboard">
+            <button onClick={() => { navigator.clipboard.writeText(`${briefing.title}\n\n${briefing.summary}\n\n${briefing.keyPoints.join('\n')}\n\n${briefing.actionable}`) }} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-600 hover:text-navy transition-colors touch-manipulation" title="Copy to clipboard" aria-label="Copy briefing to clipboard">
               <Copy size={14} />
             </button>
-            <button ref={closeRef} onClick={handleClose} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-400 hover:text-navy transition-colors touch-manipulation" aria-label="Close briefing panel">
+            <button ref={closeRef} onClick={handleClose} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-600 hover:text-navy transition-colors touch-manipulation" aria-label="Close briefing panel">
               <X size={16} />
             </button>
           </div>

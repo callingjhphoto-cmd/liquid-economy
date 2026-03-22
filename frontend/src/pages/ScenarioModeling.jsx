@@ -437,10 +437,10 @@ export default function ScenarioModeling() {
                     <p className="text-xs font-semibold text-navy">{a.label}</p>
                     <p className="text-xs text-gray-500 mt-0.5">{a.examples}</p>
                     <div className="grid grid-cols-2 gap-x-3 mt-2 text-xs">
-                      <div><span className="text-gray-400">Premium:</span> <span className="font-medium text-navy">{a.premiumMultiple}</span></div>
-                      <div><span className="text-gray-400">Risk:</span> <span className="font-medium text-navy">{a.riskLevel}</span></div>
-                      <div><span className="text-gray-400">Success:</span> <span className="font-medium text-emerald-600">{a.successRate}</span></div>
-                      <div><span className="text-gray-400">Marketing:</span> <span className="font-medium text-navy">{a.marketingWeight}</span></div>
+                      <div><span className="text-gray-500">Premium:</span> <span className="font-medium text-navy">{a.premiumMultiple}</span></div>
+                      <div><span className="text-gray-500">Risk:</span> <span className="font-medium text-navy">{a.riskLevel}</span></div>
+                      <div><span className="text-gray-500">Success:</span> <span className="font-medium text-emerald-600">{a.successRate}</span></div>
+                      <div><span className="text-gray-500">Marketing:</span> <span className="font-medium text-navy">{a.marketingWeight}</span></div>
                     </div>
                   </Card>
                 ))}
@@ -858,7 +858,7 @@ function CostWaterfall({ costs }) {
   return (
     <div className="space-y-4">
       <ChartCard title="Unit Economics Breakdown" subtitle="Cost waterfall from production to shelf (per unit, GBP)" height={220}>
-        <BarChart data={items} margin={{ top: 5, right: 5, bottom: 5, left: 5 }} accessibilityLayer>
+        <BarChart data={items} margin={{ top: 5, right: 5, bottom: 5, left: 5 }} accessibilityLayer={true}>
           <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
           <XAxis dataKey="name" tick={{ fontSize: 9 }} />
           <YAxis tick={{ fontSize: 9 }} tickFormatter={v => `\u00a3${v.toFixed(2)}`} />
@@ -907,7 +907,7 @@ function PitfallsPanel() {
               <span className="text-micro font-bold bg-red-50 text-red-600 px-2 py-0.5 rounded">{cat.category}</span>
               <span className="text-xs text-gray-500">{cat.items.length} risks</span>
             </div>
-            {expanded === ci ? <ChevronUp size={14} className="text-gray-400" /> : <ChevronDown size={14} className="text-gray-400" />}
+            {expanded === ci ? <ChevronUp size={14} className="text-gray-500" /> : <ChevronDown size={14} className="text-gray-500" />}
           </button>
           {expanded === ci && (
             <div className="divide-y divide-gray-50">
@@ -1013,7 +1013,7 @@ function RegionAnalysis({ regions, expanded, setExpanded }) {
                   : region.spritzAffinity === 'High' ? 'bg-green-50 text-green-600'
                   : 'bg-amber-50 text-amber-600'
               }`}>{region.spritzAffinity}</span>
-              {expanded === ri ? <ChevronUp size={14} className="text-gray-400" /> : <ChevronDown size={14} className="text-gray-400" />}
+              {expanded === ri ? <ChevronUp size={14} className="text-gray-500" /> : <ChevronDown size={14} className="text-gray-500" />}
             </div>
           </button>
           {expanded === ri && (
@@ -1063,8 +1063,8 @@ function VenueTypeGrid() {
           </div>
           <p className="text-xs text-gray-600 leading-relaxed">{v.notes}</p>
           <div className="mt-2 flex justify-between text-xs">
-            <span className="text-gray-400">Cost: <span className="text-navy font-medium">{v.costPer}</span></span>
-            <span className="text-gray-400">Reach: <span className="text-navy font-medium">{v.reachPer}</span></span>
+            <span className="text-gray-500">Cost: <span className="text-navy font-medium">{v.costPer}</span></span>
+            <span className="text-gray-500">Reach: <span className="text-navy font-medium">{v.reachPer}</span></span>
           </div>
         </Card>
       ))}
@@ -1109,8 +1109,8 @@ function SocialTargetingPanel({ platform, setPlatform }) {
                 <span className="text-xs text-navy font-medium">{g.area}</span>
               </div>
               <div className="flex items-center gap-3 text-xs">
-                <span className="text-gray-400">Reach: <span className="font-medium text-navy">{g.reach}</span></span>
-                <span className="text-gray-400">CPM: <span className="font-medium text-navy">{g.cpm}</span></span>
+                <span className="text-gray-500">Reach: <span className="font-medium text-navy">{g.reach}</span></span>
+                <span className="text-gray-500">CPM: <span className="font-medium text-navy">{g.cpm}</span></span>
                 <span className={`font-bold px-1.5 py-0.5 rounded ${
                   g.affinity === 'Very High' ? 'bg-green-100 text-green-700'
                     : g.affinity === 'High' ? 'bg-green-50 text-green-600'

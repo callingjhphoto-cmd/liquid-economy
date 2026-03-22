@@ -17,6 +17,7 @@ import {
   Card, MetricCard, PageHeader, BentoGrid, DrillDown,
   ChartCard, DataTable, SubPageNav, BottomSheet
 } from '../components/ui'
+import { CHART_COLORS } from '../data/chartColors'
 
 // ── Helpers ──
 const fmt = (v) => '\u00a3' + v.toFixed(2)
@@ -622,7 +623,7 @@ export default function MarginCalculator() {
                   <PolarGrid stroke="#e5e7eb" />
                   <PolarAngleAxis dataKey="metric" tick={{ fontSize: 10, fill: '#6b7280' }} />
                   <PolarRadiusAxis angle={90} domain={[0, 100]} tick={false} axisLine={false} />
-                  <Radar dataKey="value" stroke="#1e3a5f" fill="#1e3a5f" fillOpacity={0.15} strokeWidth={2} />
+                  <Radar dataKey="value" stroke={CHART_COLORS.primary} fill={CHART_COLORS.primary} fillOpacity={0.15} strokeWidth={2} />
                 </RadarChart>
               </ResponsiveContainer>
             </div>

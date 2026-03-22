@@ -11,8 +11,9 @@ import {
   FIFTY_BEST_BARS, LONDON_VENUES, AWARD_SPONSORS, SPONSOR_TO_PARENT,
   BAR_AFFILIATIONS, BUDGET_BENCHMARKS, PARENT_COMPANIES, COMPANY_PROFILES,
   DISTRIBUTORS, BRAND_VENUE_MAP, CATEGORY_DENSITY, ENTRY_PLAYBOOKS,
-  COMPETITIVE_HEAT, COLORS, YEARS
+  COMPETITIVE_HEAT, YEARS
 } from '../data/venueData'
+import { CATEGORICAL, CHART_COLORS } from '../data/chartColors'
 
 // ===== COMPUTED DATA HOOKS =====
 
@@ -507,8 +508,8 @@ export default function VenueIntelligence() {
                     <XAxis type="number" />
                     <YAxis dataKey="name" type="category" width={120} tick={{ fontSize: 11 }} />
                     <Tooltip formatter={(val) => [`${val} bars (${Math.round(val / 50 * 100)}%)`]} />
-                    <Bar dataKey="value" fill="#1e293b" radius={[0, 4, 4, 0]}>
-                      {regionAnalysis.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
+                    <Bar dataKey="value" fill={CHART_COLORS.primary} radius={[0, 4, 4, 0]}>
+                      {regionAnalysis.map((_, i) => <Cell key={i} fill={CATEGORICAL[i % CATEGORICAL.length]} />)}
                     </Bar>
                   </BarChart>
                 </ChartCard>
@@ -518,7 +519,7 @@ export default function VenueIntelligence() {
                     <XAxis type="number" />
                     <YAxis dataKey="city" type="category" width={100} tick={{ fontSize: 11 }} />
                     <Tooltip />
-                    <Bar dataKey="count" fill="#1e293b" radius={[0, 4, 4, 0]} />
+                    <Bar dataKey="count" fill={CHART_COLORS.primary} radius={[0, 4, 4, 0]} />
                   </BarChart>
                 </ChartCard>
               </div>
@@ -845,12 +846,12 @@ export default function VenueIntelligence() {
                   <YAxis />
                   <Tooltip />
                   <Legend />
-                  <Line type="monotone" dataKey="Europe" stroke="#1a237e" strokeWidth={2} dot={{ r: 4 }} />
-                  <Line type="monotone" dataKey="Asia" stroke="#c41e3a" strokeWidth={2} dot={{ r: 4 }} />
-                  <Line type="monotone" dataKey="North America" stroke="#e65100" strokeWidth={2} dot={{ r: 4 }} />
-                  <Line type="monotone" dataKey="South America" stroke="#1b5e20" strokeWidth={2} dot={{ r: 4 }} />
-                  <Line type="monotone" dataKey="Australasia" stroke="#4a148c" strokeWidth={2} dot={{ r: 4 }} />
-                  <Line type="monotone" dataKey="Middle East & Africa" stroke="#bf360c" strokeWidth={2} dot={{ r: 4 }} />
+                  <Line type="monotone" dataKey="Europe" stroke={CATEGORICAL[0]} strokeWidth={2} dot={{ r: 4 }} />
+                  <Line type="monotone" dataKey="Asia" stroke={CATEGORICAL[1]} strokeWidth={2} dot={{ r: 4 }} />
+                  <Line type="monotone" dataKey="North America" stroke={CATEGORICAL[2]} strokeWidth={2} dot={{ r: 4 }} />
+                  <Line type="monotone" dataKey="South America" stroke={CATEGORICAL[3]} strokeWidth={2} dot={{ r: 4 }} />
+                  <Line type="monotone" dataKey="Australasia" stroke={CATEGORICAL[4]} strokeWidth={2} dot={{ r: 4 }} />
+                  <Line type="monotone" dataKey="Middle East & Africa" stroke={CATEGORICAL[5]} strokeWidth={2} dot={{ r: 4 }} />
                 </LineChart>
               </ChartCard>
 
@@ -927,8 +928,8 @@ export default function VenueIntelligence() {
                     <YAxis domain={[0, 50]} />
                     <Tooltip />
                     <Legend />
-                    <Bar dataKey="Corporate-Backed" stackId="a" fill="#1a237e" radius={[4, 4, 0, 0]} />
-                    <Bar dataKey="Independent" stackId="a" fill="#4caf50" radius={[4, 4, 0, 0]} />
+                    <Bar dataKey="Corporate-Backed" stackId="a" fill={CHART_COLORS.primary} radius={[4, 4, 0, 0]} />
+                    <Bar dataKey="Independent" stackId="a" fill={CHART_COLORS.emerald} radius={[4, 4, 0, 0]} />
                   </BarChart>
                 </ChartCard>
 

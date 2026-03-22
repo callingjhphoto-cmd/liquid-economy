@@ -4,7 +4,7 @@ import { Package, Factory, Truck, AlertTriangle, TrendingUp, TrendingDown, Exter
 import {
   PageHeader, Card, MetricCard, BentoGrid, DrillDown, DataTable,
   ChartCard, SourceList, FilterPills, EntityLink, BottomSheet,
-  SkeletonCard, SubPageNav
+  SkeletonCard, SubPageNav, MethodologyTooltip
 } from '../components/ui'
 
 import {
@@ -12,6 +12,7 @@ import {
   DISRUPTION_SCENARIOS, CURRENCY_PAIRS, MARGIN_ALERTS, CLIMATE_RISKS, PIPELINE_STAGES,
   GROUP_LABELS, CATEGORY_ANALYSIS, parseChange, getAlertLevel, ALERT_COLORS
 } from '../data/supplyChainData'
+import { CHART_COLORS } from '../data/chartColors'
 
 // ===== SPARKLINE =====
 
@@ -159,7 +160,7 @@ export default function SupplyChain() {
           <Card className="h-full">
             <div className="flex items-start justify-between mb-3">
               <div>
-                <p className="text-label text-gray-500">Composite Pressure Index (2025)</p>
+                <p className="text-label text-gray-500">Composite Pressure Index (2025)<MethodologyTooltip text="Weighted average of 8 commodity input costs: 60% raw materials, 30% freight indices, 10% energy. Updated quarterly from IWSR, S&P GSCI, and Drewry WCI." /></p>
                 <p className="text-3xl font-bold text-red-600 mt-1">7.2%</p>
                 <p className="text-sm text-gray-500 mt-0.5">Weighted input cost rise</p>
               </div>
@@ -375,7 +376,7 @@ export default function SupplyChain() {
                             <XAxis dataKey="date" tick={{ fontSize: 10, fill: '#9ca3af' }} tickLine={false} axisLine={false} />
                             <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} tickLine={false} axisLine={false} width={50} domain={['auto', 'auto']} />
                             <Tooltip contentStyle={{ fontSize: 12, border: '1px solid #e5e7eb', borderRadius: 8 }} />
-                            <Area type="monotone" dataKey="value" stroke="#1e3a5f" strokeWidth={2} fill="url(#expandGrad)" dot={{ fill: '#1e3a5f', r: 3, strokeWidth: 1, stroke: '#fff' }} />
+                            <Area type="monotone" dataKey="value" stroke={CHART_COLORS.primary} strokeWidth={2} fill="url(#expandGrad)" dot={{ fill: CHART_COLORS.primary, r: 3, strokeWidth: 1, stroke: '#fff' }} />
                           </AreaChart>
                         </ChartCard>
                         <div className="text-right space-y-1.5 min-w-[140px]">

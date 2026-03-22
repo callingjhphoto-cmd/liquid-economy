@@ -12,10 +12,11 @@ import {
   PageHeader, Card, AccentCard, MetricCard, BentoGrid, DataTable,
   ChartCard, Badge, FilterBar, TabGroup, FilterPills, SectionHeader,
   SectionLabel, SourceList, EntityLink, BottomSheet,
-  SkeletonCard, SubPageNav
+  SkeletonCard, SubPageNav, MethodologyTooltip
 } from '../components/ui'
 
 import { SEGMENT_INFO, MARKET_CONFIG, RETAILERS, BRAND_DATABASE } from '../data/brandData'
+import { CHART_COLORS } from '../data/chartColors'
 
 // ── Constants ──
 const SEGMENT_TIERS = {
@@ -721,7 +722,7 @@ export default function BrandPricing() {
   return (
     <div className="space-y-6">
       <PageHeader
-        title="Brand Pricing Monitor"
+        title={<span className="inline-flex items-center">Brand Pricing Monitor<MethodologyTooltip text="Prices collected from retailer websites. Last verified March 2026." /></span>}
         subtitle={`Cross-market RRP comparison \u2014 ${PRICING.length} expressions across ${TOTAL_RETAILERS} retailers in ${TOTAL_MARKETS} markets \u00b7 Data as of March 2026`}
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },

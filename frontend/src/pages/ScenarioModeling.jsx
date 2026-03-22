@@ -20,10 +20,11 @@ import {
   CAMPAIGN_BUDGET_TIERS, SCENARIO_SOURCES
 } from '../data/scenarioData'
 
+import { CHART_COLORS, CATEGORICAL } from '../data/chartColors'
 /* \u2500\u2500 Design tokens \u2500\u2500 */
-const GOLD = '#C9A96E'
-const NAVY = '#1A1F36'
-const PIE_COLORS = [NAVY, GOLD, '#2563EB', '#059669', '#F59E0B']
+const GOLD = CHART_COLORS.accent
+const NAVY = CHART_COLORS.primary
+const PIE_COLORS = [CHART_COLORS.primary, CHART_COLORS.accent, CHART_COLORS.blue, CHART_COLORS.emerald, CHART_COLORS.amber]
 
 /* \u2500\u2500 Helpers \u2500\u2500 */
 const gbp = (v) => `\u00a3${v.toFixed(2)}`

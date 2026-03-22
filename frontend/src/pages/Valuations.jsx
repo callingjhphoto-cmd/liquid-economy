@@ -18,8 +18,9 @@ import {
   VALUATION_SOURCES
 } from '../data/valuationsData'
 
+import { CATEGORICAL, CHART_COLORS } from '../data/chartColors'
 /* \u2500\u2500 Design tokens \u2500\u2500 */
-const COLORS = ['#1A1F36', '#C9A96E', '#2563EB', '#059669', '#DC2626', '#7C3AED', '#F59E0B', '#0EA5E9']
+const COLORS = CATEGORICAL
 
 /* \u2500\u2500 Derived metrics \u2500\u2500 */
 const totalBrandValue = BRAND_VALUATIONS.reduce((s, b) => s + b.valueNum, 0)
@@ -282,7 +283,7 @@ export default function Valuations() {
                 formatter={(v) => [`$${v}M`, 'Total Value']}
                 contentStyle={{ fontSize: 11, borderRadius: 8 }}
               />
-              <Bar dataKey="value" fill="#C9A96E" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="value" fill={CHART_COLORS.accent} radius={[4, 4, 0, 0]} />
             </BarChart>
           </ChartCard>
 

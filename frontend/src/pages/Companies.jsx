@@ -12,6 +12,7 @@ import {
   SkeletonCard, SubPageNav, ErrorBoundary
 } from '../components/ui'
 import { COMPANIES, WHITE_SPACE } from '../data/companyData'
+import { CHART_COLORS } from '../data/chartColors'
 
 /* ── Helpers ── */
 const fmt = (n) => {
@@ -566,8 +567,8 @@ function CompanyTier3({ company, onClose }) {
                         <XAxis dataKey="year" tick={{ fontSize: 11 }} />
                         <YAxis tick={{ fontSize: 11 }} />
                         <Tooltip contentStyle={{ fontSize: 12 }} />
-                        <Line type="monotone" dataKey="revenue" stroke="#1e3a5f" strokeWidth={2} name="Revenue ($B)" dot={{ fill: '#1e3a5f' }} />
-                        <Line type="monotone" dataKey="margin" stroke="#c5a572" strokeWidth={2} name="Op. Margin (%)" dot={{ fill: '#c5a572' }} />
+                        <Line type="monotone" dataKey="revenue" stroke={CHART_COLORS.primary} strokeWidth={2} name="Revenue ($B)" dot={{ fill: CHART_COLORS.primary }} />
+                        <Line type="monotone" dataKey="margin" stroke={CHART_COLORS.accent} strokeWidth={2} name="Op. Margin (%)" dot={{ fill: CHART_COLORS.accent }} />
                       </LineChart>
                     </ResponsiveContainer>
                   </div>

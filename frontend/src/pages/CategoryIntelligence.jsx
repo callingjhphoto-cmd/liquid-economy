@@ -10,11 +10,12 @@ import {
   CartesianGrid, Tooltip, ResponsiveContainer
 } from 'recharts'
 import { CATEGORIES } from '../data/categoryData'
+import { CHART_COLORS, CHANNEL_COLORS, CATEGORICAL } from '../data/chartColors'
 import {
   Card, MetricCard, PageHeader, YearSelector,
   BentoGrid, SectionHeader, SectionLabel, TabGroup,
   ChartCard, DataTable, SourceLink, SourceList, EntityLink, BottomSheet,
-  SkeletonCard, SkeletonChart, SubPageNav, ErrorBoundary
+  SkeletonCard, SkeletonChart, SubPageNav, ErrorBoundary, MethodologyTooltip
 } from '../components/ui'
 
 // ============================================
@@ -37,10 +38,10 @@ const HERO_GRADIENTS = {
 }
 
 const CHANNEL_CONFIG = [
-  { key: 'onTrade', label: 'On-Trade', color: '#3B82F6' },
-  { key: 'offTrade', label: 'Off-Trade', color: '#10B981' },
-  { key: 'eCommerce', label: 'E-Commerce', color: '#8B5CF6' },
-  { key: 'travelRetail', label: 'Travel Retail', color: '#F59E0B' }
+  { key: 'onTrade', label: 'On-Trade', color: CHANNEL_COLORS.onTrade },
+  { key: 'offTrade', label: 'Off-Trade', color: CHANNEL_COLORS.offTrade },
+  { key: 'eCommerce', label: 'E-Commerce', color: CHANNEL_COLORS.eCommerce },
+  { key: 'travelRetail', label: 'Travel Retail', color: CHANNEL_COLORS.travelRetail }
 ]
 
 const BRAND_TIERS = [
@@ -350,7 +351,7 @@ function MarketTrendChart({ catKey }) {
           labelStyle={{ fontWeight: 600 }}
           contentStyle={{ fontSize: 12, borderRadius: 8, border: '1px solid #E5E7EB' }}
         />
-        <Area type="monotone" dataKey="size" stroke="#1A1F36" fill="#1A1F36" fillOpacity={0.08} strokeWidth={2} />
+        <Area type="monotone" dataKey="size" stroke={CHART_COLORS.primary} fill={CHART_COLORS.primary} fillOpacity={0.08} strokeWidth={2} />
       </AreaChart>
     </ChartCard>
   )
@@ -457,7 +458,7 @@ function CategoryCard({ cat, year, isHero, onClick }) {
           <div className="w-16 h-8 opacity-60">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={sparkData} accessibilityLayer={true}>
-                <Area type="monotone" dataKey="v" stroke="#1A1F36" fill="#1A1F36" fillOpacity={0.08} strokeWidth={1.5} dot={false} />
+                <Area type="monotone" dataKey="v" stroke={CHART_COLORS.primary} fill={CHART_COLORS.primary} fillOpacity={0.08} strokeWidth={1.5} dot={false} />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -536,6 +537,7 @@ function CategoryDetail({ cat, year, onBack }) {
           <h2 className="font-display text-section text-navy">{cat.label}</h2>
           <div className="flex flex-wrap items-center gap-3 mt-1">
             <span className="text-lg font-semibold text-gray-700 tabular-nums">{yd.marketSize}</span>
+            <MethodologyTooltip text="Market size in USD at retail selling price. CAGR calculated on constant currency basis." />
             <GrowthBadge value={yd.growth} showYoY />
             <span className="text-sm text-gray-500 tabular-nums">{yd.volumeCases} 9L cases</span>
           </div>

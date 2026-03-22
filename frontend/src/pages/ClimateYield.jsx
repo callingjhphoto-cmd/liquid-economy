@@ -24,6 +24,7 @@ import {
   EntityLink,
   BottomSheet,
 } from '../components/ui'
+import { CHART_COLORS } from '../data/chartColors'
 
 /* ================================================================
    OPEN-METEO API INTEGRATION
@@ -227,9 +228,9 @@ function LiveWeatherPanel({ region }) {
             <YAxis yAxisId="temp" tick={{ fontSize: 9 }} domain={['auto', 'auto']} />
             <YAxis yAxisId="precip" orientation="right" tick={{ fontSize: 9 }} />
             <Tooltip contentStyle={{ fontSize: 11 }} />
-            <Bar yAxisId="precip" dataKey="precip" fill="#93c5fd" opacity={0.6} name="Rainfall (mm)" />
-            <Line yAxisId="temp" dataKey="maxTemp" stroke="#ef4444" dot={false} strokeWidth={1.5} name="Max Temp (\u00b0C)" />
-            <Line yAxisId="temp" dataKey="minTemp" stroke="#3b82f6" dot={false} strokeWidth={1.5} name="Min Temp (\u00b0C)" />
+            <Bar yAxisId="precip" dataKey="precip" fill={CHART_COLORS.blue} opacity={0.4} name="Rainfall (mm)" />
+            <Line yAxisId="temp" dataKey="maxTemp" stroke={CHART_COLORS.rose} dot={false} strokeWidth={1.5} name="Max Temp (\u00b0C)" />
+            <Line yAxisId="temp" dataKey="minTemp" stroke={CHART_COLORS.blue} dot={false} strokeWidth={1.5} name="Min Temp (\u00b0C)" />
           </ComposedChart>
         </ResponsiveContainer>
       </div>

@@ -12,8 +12,9 @@ import {
 import LiveFeed from '../components/LiveFeed'
 import {
   PageHeader, Card, SectionHeader, MetricCard, BentoGrid, DrillDown, EntityLink,
-  SkeletonCard, SkeletonChart, BottomSheet
+  SkeletonCard, SkeletonChart, BottomSheet, MethodologyTooltip
 } from '../components/ui'
+import { CHART_COLORS } from '../data/chartColors'
 import {
   KPI_TRENDS, CATEGORY_SNAPSHOT, REGIONAL_PULSE, MARKET_SIGNALS,
   MARKET_PULSE, PRICE_ALERTS, INSIGHT_BRIEFINGS, UPCOMING_EVENTS,
@@ -45,11 +46,11 @@ function HeroMarketCard() {
           <AreaChart data={sparkData} margin={{ top: 0, right: 0, bottom: 0, left: 0 }} accessibilityLayer={true}>
             <defs>
               <linearGradient id="hero-grad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#059669" stopOpacity={0.2} />
-                <stop offset="100%" stopColor="#059669" stopOpacity={0.02} />
+                <stop offset="0%" stopColor={CHART_COLORS.emerald} stopOpacity={0.2} />
+                <stop offset="100%" stopColor={CHART_COLORS.emerald} stopOpacity={0.02} />
               </linearGradient>
             </defs>
-            <Area type="monotone" dataKey="v" stroke="#059669" strokeWidth={1.5} fill="url(#hero-grad)" dot={false} isAnimationActive={false} />
+            <Area type="monotone" dataKey="v" stroke={CHART_COLORS.emerald} strokeWidth={1.5} fill="url(#hero-grad)" dot={false} isAnimationActive={false} />
           </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -60,7 +61,9 @@ function HeroMarketCard() {
             <Globe size={20} className="text-navy" />
           </div>
           <div>
-            <span className="text-label text-gray-500 uppercase tracking-wider">Global Spirits Market</span>
+            <span className="text-label text-gray-500 uppercase tracking-wider">Global Spirits Market
+              <MethodologyTooltip text="Distilled spirits market size, excluding beer, wine & cider. Source: IWSR 2025." />
+            </span>
             <p className="text-micro text-gray-500">Distilled spirits excl. beer, wine & cider \u00b7 IWSR 2025</p>
           </div>
         </div>

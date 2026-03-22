@@ -42,6 +42,17 @@ const routeMeta = {
   '/pos': { label: 'POS Manufacturing', group: 'Tools' },
 }
 
+function FocusManager() {
+  const location = useLocation()
+  useEffect(() => {
+    const main = document.getElementById('main-content')
+    if (main) {
+      main.focus({ preventScroll: true })
+    }
+  }, [location.pathname])
+  return null
+}
+
 /** Redirect legacy /category/:id routes to /categories?category=:id */
 function CategoryRedirect() {
   const { categoryId } = useParams()
@@ -352,7 +363,7 @@ function Layout({ onLogout }) {
       )}
 
       {/* Main content */}
-      <main id="main-content" className="flex-1 overflow-auto">
+      <main id="main-content" tabIndex={-1} className="flex-1 overflow-auto outline-none">
         <header className="bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between lg:hidden">
           <button onClick={() => setSidebarOpen(true)} className="min-h-[44px] min-w-[44px] flex items-center justify-center touch-manipulation">
             <Menu size={24} className="text-navy" />
@@ -413,6 +424,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      <FocusManager />
       <LiveDataProvider>
         <Layout onLogout={handleLogout} />
       </LiveDataProvider>

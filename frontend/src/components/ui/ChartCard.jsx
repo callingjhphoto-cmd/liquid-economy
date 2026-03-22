@@ -82,7 +82,21 @@ export function ChartCard({
         </div>
       )}
 
-      {/* Data Table Toggle + Fallback */}
+      {/* sr-only data table for screen readers (always rendered) */}
+      {tableData && tableColumns && (
+        <table className="sr-only" aria-label={`Data table for ${title}`}>
+          <thead>
+            <tr>{tableColumns.map(c => <th key={c.key}>{c.label}</th>)}</tr>
+          </thead>
+          <tbody>
+            {tableData.map((row, i) => (
+              <tr key={i}>{tableColumns.map(c => <td key={c.key}>{row[c.key]}</td>)}</tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+
+      {/* Data Table Toggle + Visual Fallback */}
       {tableData && tableColumns && (
         <>
           <button

@@ -219,7 +219,7 @@ function LiveWeatherPanel({ region }) {
         <MetricCard label="Frost Days (30d)" value={String(frostDays30)} icon={Snowflake} />
       </BentoGrid>
 
-      <div className="h-48 mt-4">
+      <div className="h-48 mt-4" role="figure" aria-label="Chart: 30-day weather data \u2014 temperature and rainfall">
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart data={chartData} margin={{ top: 5, right: 5, bottom: 5, left: 0 }} accessibilityLayer>
             <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -262,7 +262,7 @@ function YieldChart({ region }) {
     <Card>
       <h3 className="font-display text-sm font-semibold text-navy mb-1">10-Year Yield History</h3>
       <p className="text-xs text-gray-500 mb-3">{region.yieldUnit}</p>
-      <div className="h-52">
+      <div className="h-52" role="figure" aria-label={`Chart: 10-Year Yield History \u2014 ${region.crop}`}>
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart data={data} margin={{ top: 5, right: 5, bottom: 5, left: 0 }} accessibilityLayer>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
@@ -305,7 +305,7 @@ function ClimateChart({ region }) {
         ].map(m => (
           <div key={m.key}>
             <SectionLabel>{m.label}</SectionLabel>
-            <div className="h-36">
+            <div className="h-36" role="figure" aria-label={`Chart: ${m.label} \u2014 10-year trend`}>
               <ResponsiveContainer width="100%" height="100%">
                 {m.isLine ? (
                   <LineChart data={data} accessibilityLayer>

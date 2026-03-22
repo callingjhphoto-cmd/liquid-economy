@@ -559,7 +559,7 @@ function CompanyTier3({ company, onClose }) {
               {chartData.length > 0 && (
                 <div>
                   <SectionHeader size="md">5-Year Financial Trend</SectionHeader>
-                  <div className="h-56 mt-3">
+                  <div className="h-56 mt-3" role="figure" aria-label="Chart: 5-Year Financial Trend">
                     <ResponsiveContainer width="100%" height="100%">
                       <LineChart data={chartData} accessibilityLayer>
                         <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />

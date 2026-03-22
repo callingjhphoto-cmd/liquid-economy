@@ -496,7 +496,7 @@ export default function VenueIntelligence() {
           <DrillDown
             title="50 Best Bars Rankings"
             summary={`London: ${londonCount} bars \u00b7 ${citiesCount} cities \u00b7 ${perennialBars.length} perennial bars`}
-            defaultOpen={true}
+            defaultOpen={false}
           >
             <div className="space-y-6">
               {/* Region + City charts */}
@@ -822,73 +822,6 @@ export default function VenueIntelligence() {
             </div>
           </DrillDown>
 
-          {/* --- Budget Benchmarks & Trends --- */}
-          <DrillDown
-            title="Budget Benchmarks & Trends"
-            summary="On-trade spend benchmarks, corporate vs independent trends, 5-year penetration"
-          >
-            <div className="space-y-6">
-              {/* Budget Benchmarks */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {Object.entries(BUDGET_BENCHMARKS).map(([key, data]) => (
-                  <div key={key} className="p-4 rounded-lg border" style={{ borderColor: data.color + '40', backgroundColor: data.color + '08' }}>
-                    <h4 className="text-sm font-semibold mb-2" style={{ color: data.color }}>{data.label}</h4>
-                    <div className="space-y-1.5 text-xs">
-                      <div className="flex justify-between"><span className="text-gray-500">Retro Range:</span><span className="font-semibold text-gray-700">{data.retro}</span></div>
-                      <div className="flex justify-between"><span className="text-gray-500">Marketing Spend/Yr:</span><span className="font-semibold text-gray-700">{data.marketingSpend}</span></div>
-                      <div><span className="text-gray-500">Features:</span><p className="text-gray-700 mt-0.5">{data.features}</p></div>
-                      <div><span className="text-gray-500">Examples:</span><p className="font-medium text-gray-700 mt-0.5">{data.examples}</p></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Charts */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <ChartCard title="Corporate vs Independent (2021\u20132025)" height={250}>
-                  <BarChart data={independentVsCorporate} accessibilityLayer>
-                    <XAxis dataKey="year" />
-                    <YAxis domain={[0, 50]} />
-                    <Tooltip />
-                    <Legend />
-                    <Bar dataKey="Corporate-Backed" stackId="a" fill="#1a237e" radius={[4, 4, 0, 0]} />
-                    <Bar dataKey="Independent" stackId="a" fill="#4caf50" radius={[4, 4, 0, 0]} />
-                  </BarChart>
-                </ChartCard>
-
-                <ChartCard title="Top 5 Penetration Trend (%)" height={250}>
-                  <LineChart data={penetrationTrend} accessibilityLayer>
-                    <XAxis dataKey="year" />
-                    <YAxis tickFormatter={v => `${v}%`} />
-                    <Tooltip formatter={(val) => [`${val}%`]} />
-                    <Legend />
-                    {overallDominance.slice(0, 5).map(d => (
-                      <Line key={d.name} type="monotone" dataKey={d.name} stroke={d.color} strokeWidth={2} dot={{ r: 3 }} />
-                    ))}
-                  </LineChart>
-                </ChartCard>
-              </div>
-
-              {/* 5-Year Dominance bars */}
-              <Card>
-                <h4 className="text-sm font-semibold text-navy mb-3">5-Year Cumulative Dominance</h4>
-                <div className="space-y-2">
-                  {overallDominance.map(d => (
-                    <div key={d.name} className="flex items-center gap-3">
-                      <div className="w-28 text-xs font-medium text-navy truncate">{d.name}</div>
-                      <div className="flex-1 bg-gray-100 rounded-full h-5 relative overflow-hidden">
-                        <div className="h-full rounded-full flex items-center" style={{ width: `${d.pct}%`, backgroundColor: d.color }}>
-                          <span className="text-white text-micro font-bold pl-2">{d.pct}%</span>
-                        </div>
-                      </div>
-                      <div className="text-xs text-gray-500 w-20 text-right">{d.bars}/{d.total} bars</div>
-                    </div>
-                  ))}
-                </div>
-              </Card>
-            </div>
-          </DrillDown>
-
           {/* --- Longitudinal Trends --- */}
           <DrillDown
             title="Longitudinal Trends (2021\u20132025)"
@@ -948,12 +881,75 @@ export default function VenueIntelligence() {
             </div>
           </DrillDown>
 
-          {/* --- Market Entry Playbooks --- */}
+          {/* --- Market Entry Playbooks & Budget Benchmarks --- */}
           <DrillDown
-            title="Market Entry Playbooks"
-            summary={`${Object.keys(ENTRY_PLAYBOOKS).length} category playbooks \u00b7 ${Object.keys(DISTRIBUTORS).length} distributors \u00b7 Budget benchmarks`}
+            title="Market Entry Playbooks & Budget Benchmarks"
+            summary={`${Object.keys(ENTRY_PLAYBOOKS).length} category playbooks \u00b7 ${Object.keys(DISTRIBUTORS).length} distributors \u00b7 On-trade spend benchmarks`}
           >
             <div className="space-y-6">
+              {/* Budget Benchmarks */}
+              <Card>
+                <h4 className="text-sm font-semibold text-navy mb-1 flex items-center gap-2"><DollarSign size={14} /> Budget Benchmarks</h4>
+                <p className="text-xs text-gray-500 mb-3">On-trade spend benchmarks by account tier</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {Object.entries(BUDGET_BENCHMARKS).map(([key, data]) => (
+                    <div key={key} className="p-4 rounded-lg border" style={{ borderColor: data.color + '40', backgroundColor: data.color + '08' }}>
+                      <h4 className="text-sm font-semibold mb-2" style={{ color: data.color }}>{data.label}</h4>
+                      <div className="space-y-1.5 text-xs">
+                        <div className="flex justify-between"><span className="text-gray-500">Retro Range:</span><span className="font-semibold text-gray-700">{data.retro}</span></div>
+                        <div className="flex justify-between"><span className="text-gray-500">Marketing Spend/Yr:</span><span className="font-semibold text-gray-700">{data.marketingSpend}</span></div>
+                        <div><span className="text-gray-500">Features:</span><p className="text-gray-700 mt-0.5">{data.features}</p></div>
+                        <div><span className="text-gray-500">Examples:</span><p className="font-medium text-gray-700 mt-0.5">{data.examples}</p></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+
+              {/* Corporate vs Independent + Penetration charts */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <ChartCard title="Corporate vs Independent (2021\u20132025)" height={250}>
+                  <BarChart data={independentVsCorporate} accessibilityLayer>
+                    <XAxis dataKey="year" />
+                    <YAxis domain={[0, 50]} />
+                    <Tooltip />
+                    <Legend />
+                    <Bar dataKey="Corporate-Backed" stackId="a" fill="#1a237e" radius={[4, 4, 0, 0]} />
+                    <Bar dataKey="Independent" stackId="a" fill="#4caf50" radius={[4, 4, 0, 0]} />
+                  </BarChart>
+                </ChartCard>
+
+                <ChartCard title="Top 5 Penetration Trend (%)" height={250}>
+                  <LineChart data={penetrationTrend} accessibilityLayer>
+                    <XAxis dataKey="year" />
+                    <YAxis tickFormatter={v => `${v}%`} />
+                    <Tooltip formatter={(val) => [`${val}%`]} />
+                    <Legend />
+                    {overallDominance.slice(0, 5).map(d => (
+                      <Line key={d.name} type="monotone" dataKey={d.name} stroke={d.color} strokeWidth={2} dot={{ r: 3 }} />
+                    ))}
+                  </LineChart>
+                </ChartCard>
+              </div>
+
+              {/* 5-Year Dominance bars */}
+              <Card>
+                <h4 className="text-sm font-semibold text-navy mb-3">5-Year Cumulative Dominance</h4>
+                <div className="space-y-2">
+                  {overallDominance.map(d => (
+                    <div key={d.name} className="flex items-center gap-3">
+                      <div className="w-28 text-xs font-medium text-navy truncate">{d.name}</div>
+                      <div className="flex-1 bg-gray-100 rounded-full h-5 relative overflow-hidden">
+                        <div className="h-full rounded-full flex items-center" style={{ width: `${d.pct}%`, backgroundColor: d.color }}>
+                          <span className="text-white text-micro font-bold pl-2">{d.pct}%</span>
+                        </div>
+                      </div>
+                      <div className="text-xs text-gray-500 w-20 text-right">{d.bars}/{d.total} bars</div>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+
               {/* Distribution Landscape */}
               <Card>
                 <h4 className="text-sm font-semibold text-navy mb-1 flex items-center gap-2"><Briefcase size={14} /> UK Distribution Landscape</h4>

@@ -268,7 +268,7 @@ function Layout({ onLogout }) {
   return (
     <div className="flex h-screen bg-gray-50">
       {/* Skip to main content — accessibility */}
-      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:text-navy focus:font-semibold">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-navy focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm">
         Skip to main content
       </a>
       {/* Sidebar — Clean Apple-style */}

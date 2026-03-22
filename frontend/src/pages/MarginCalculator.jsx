@@ -86,6 +86,7 @@ export default function MarginCalculator() {
   const [scenarios, setScenarios] = useState({})
   const [showTier3, setShowTier3] = useState(false)
   const [mobileDetail, setMobileDetail] = useState(null)
+  const [advancedMode, setAdvancedMode] = useState(false)
   const cogsRef = useRef(null)
 
   const cat = CATEGORY_COGS[category]
@@ -279,6 +280,13 @@ export default function MarginCalculator() {
                 <h2 className="font-display text-lg text-navy">Quick Margin Calculator</h2>
                 <p className="text-xs text-gray-500 mt-1">Select category, set your target RRP, and see instant margin results</p>
               </div>
+              <button
+                onClick={() => setAdvancedMode(prev => !prev)}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium border transition-all whitespace-nowrap ${advancedMode ? 'bg-gold/10 border-gold text-gold' : 'bg-gray-50 border-gray-200 text-gray-500 hover:border-gray-400'}`}
+              >
+                {advancedMode ? <ToggleRight size={14} /> : <ToggleLeft size={14} />}
+                Advanced
+              </button>
             </div>
             {/* Quick inputs */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
@@ -395,7 +403,8 @@ export default function MarginCalculator() {
         />
       </BentoGrid>
 
-      {/* ══════ TIER 2: EXPANDABLE DETAIL PANELS ══════ */}
+      {/* ══════ TIER 2: EXPANDABLE DETAIL PANELS (Advanced Mode) ══════ */}
+      {advancedMode && (<>
 
       {/* Full Calculator with Scenarios */}
       <div ref={cogsRef}>
@@ -607,7 +616,7 @@ export default function MarginCalculator() {
                 <div className="text-xs text-gray-500">{cat.label} category readiness</div>
               </div>
             </div>
-            <div className="h-52">
+            <div className="h-52" role="figure" aria-label={`Chart: Launch Readiness Radar \u2014 ${cat.label}`}>
               <ResponsiveContainer width="100%" height="100%">
                 <RadarChart data={radarData} accessibilityLayer>
                   <PolarGrid stroke="#e5e7eb" />
@@ -635,6 +644,7 @@ export default function MarginCalculator() {
         </div>
       </DrillDown>
 
+      </>)}
       {/* ══════ TIER 3: DEEP DIVE CTA ══════ */}
       {!showTier3 && (
         <div className="text-center">

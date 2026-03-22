@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from 'react'
+import React, { useState, useMemo, useCallback, useEffect } from 'react'
 import {
   Factory, Globe, ChevronDown, ChevronRight, ExternalLink,
   AlertTriangle, Target, Users, Lightbulb, DollarSign, Clock, Shield,
@@ -6,7 +6,8 @@ import {
 } from 'lucide-react'
 import {
   PageHeader, MetricCard, Card, Section, BentoGrid,
-  TabGroup, FilterPills, DataTable, BottomSheet
+  TabGroup, FilterPills, DataTable, BottomSheet,
+  SkeletonCard, SkeletonChart
 } from '../components/ui'
 import {
   MATERIAL_CATEGORIES, POS_COMPANIES, TRADE_PLATFORMS,
@@ -293,6 +294,12 @@ export default function POSIntelligence() {
   const [materialFilter, setMaterialFilter] = useState('all')
   const [showFullTable, setShowFullTable] = useState(false)
   const [mobileDetail, setMobileDetail] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 300)
+    return () => clearTimeout(timer)
+  }, [])
 
   const handleFactoryTap = useCallback((factory) => {
     if (window.innerWidth < 1024) {
@@ -359,6 +366,22 @@ export default function POSIntelligence() {
     { key: 'all', label: 'All Materials' },
     ...MATERIAL_CATEGORIES.map(c => ({ key: c.id, label: c.name }))
   ]
+
+  if (loading) {
+    return (
+      <div className="space-y-6">
+        <PageHeader title="POS Manufacturing Intelligence" subtitle="Loading data\u2026" />
+        <BentoGrid>
+          <SkeletonCard />
+          <SkeletonCard />
+          <SkeletonCard />
+          <SkeletonCard />
+        </BentoGrid>
+        <SkeletonChart />
+        <SkeletonCard className="h-24" />
+      </div>
+    )
+  }
 
   return (
     <div className="space-y-6">

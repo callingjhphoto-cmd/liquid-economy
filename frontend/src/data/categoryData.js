@@ -101,11 +101,11 @@ export const CATEGORIES = [
         channels: { onTrade: 38.0, offTrade: 42.1, eCommerce: 11.8, travelRetail: 8.1 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 32,   // % ACV distribution
-          ceDepletions: 920000,  // case equivalent depletions
+          ceDepletions: 92000000,  // case equivalent depletions
           billback: 8.5,          // % average billback/discount
           grossMarginPct: 62,       // % gross margin
           cac: 45,               // $ customer acquisition cost
-          itr: 11,               // inventory turnover ratio
+          itr: 6,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -212,11 +212,11 @@ export const CATEGORIES = [
         channels: { onTrade: 38.8, offTrade: 43.1, eCommerce: 10.3, travelRetail: 7.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 30,   // % ACV distribution
-          ceDepletions: 860000,  // case equivalent depletions
+          ceDepletions: 86000000,  // case equivalent depletions
           billback: 8.2,          // % average billback/discount
           grossMarginPct: 61,       // % gross margin
           cac: 47,               // $ customer acquisition cost
-          itr: 10,               // inventory turnover ratio
+          itr: 6,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -295,11 +295,11 @@ export const CATEGORIES = [
         channels: { onTrade: 40.1, offTrade: 44.5, eCommerce: 7.7, travelRetail: 7.7 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 28,   // % ACV distribution
-          ceDepletions: 790000,  // case equivalent depletions
+          ceDepletions: 79000000,  // case equivalent depletions
           billback: 7.8,          // % average billback/discount
           grossMarginPct: 60,       // % gross margin
           cac: 50,               // $ customer acquisition cost
-          itr: 9,               // inventory turnover ratio
+          itr: 5,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -375,11 +375,11 @@ export const CATEGORIES = [
         channels: { onTrade: 35.3, offTrade: 51.8, eCommerce: 8.1, travelRetail: 4.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 26,   // % ACV distribution
-          ceDepletions: 710000,  // case equivalent depletions
+          ceDepletions: 71000000,  // case equivalent depletions
           billback: 7.5,          // % average billback/discount
           grossMarginPct: 58,       // % gross margin
           cac: 53,               // $ customer acquisition cost
-          itr: 8,               // inventory turnover ratio
+          itr: 5,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -455,11 +455,11 @@ export const CATEGORIES = [
         channels: { onTrade: 41.4, offTrade: 48.6, eCommerce: 4.8, travelRetail: 5.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 24,   // % ACV distribution
-          ceDepletions: 640000,  // case equivalent depletions
+          ceDepletions: 64000000,  // case equivalent depletions
           billback: 7.2,          // % average billback/discount
           grossMarginPct: 57,       // % gross margin
           cac: 56,               // $ customer acquisition cost
-          itr: 7,               // inventory turnover ratio
+          itr: 5,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -570,11 +570,11 @@ export const CATEGORIES = [
         channels: { onTrade: 34.7, offTrade: 51.9, eCommerce: 8.3, travelRetail: 5.1 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 78,   // % ACV distribution
-          ceDepletions: 4200000,  // case equivalent depletions
+          ceDepletions: 335000000,  // case equivalent depletions
           billback: 12.5,          // % average billback/discount
           grossMarginPct: 44,       // % gross margin
           cac: 28,               // $ customer acquisition cost
-          itr: 18,               // inventory turnover ratio
+          itr: 7,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -677,11 +677,11 @@ export const CATEGORIES = [
         channels: { onTrade: 35.9, offTrade: 51.0, eCommerce: 8.1, travelRetail: 5.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 77,   // % ACV distribution
-          ceDepletions: 4100000,  // case equivalent depletions
+          ceDepletions: 338000000,  // case equivalent depletions
           billback: 12.2,          // % average billback/discount
           grossMarginPct: 43,       // % gross margin
           cac: 29,               // $ customer acquisition cost
-          itr: 17,               // inventory turnover ratio
+          itr: 7,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -785,11 +785,11 @@ export const CATEGORIES = [
         channels: { onTrade: 37.1, offTrade: 50.0, eCommerce: 8.0, travelRetail: 4.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 76,   // % ACV distribution
-          ceDepletions: 4050000,  // case equivalent depletions
+          ceDepletions: 340000000,  // case equivalent depletions
           billback: 11.8,          // % average billback/discount
           grossMarginPct: 43,       // % gross margin
           cac: 30,               // $ customer acquisition cost
-          itr: 17,               // inventory turnover ratio
+          itr: 6,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -892,11 +892,11 @@ export const CATEGORIES = [
         channels: { onTrade: 38.0, offTrade: 49.3, eCommerce: 7.8, travelRetail: 4.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 75,   // % ACV distribution
-          ceDepletions: 3950000,  // case equivalent depletions
+          ceDepletions: 332000000,  // case equivalent depletions
           billback: 11.5,          // % average billback/discount
           grossMarginPct: 42,       // % gross margin
           cac: 31,               // $ customer acquisition cost
-          itr: 16,               // inventory turnover ratio
+          itr: 6,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -999,11 +999,11 @@ export const CATEGORIES = [
         channels: { onTrade: 42.3, offTrade: 46.5, eCommerce: 6.2, travelRetail: 5.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 74,   // % ACV distribution
-          ceDepletions: 3850000,  // case equivalent depletions
+          ceDepletions: 325000000,  // case equivalent depletions
           billback: 11.2,          // % average billback/discount
           grossMarginPct: 41,       // % gross margin
           cac: 32,               // $ customer acquisition cost
-          itr: 16,               // inventory turnover ratio
+          itr: 6,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -1123,11 +1123,11 @@ export const CATEGORIES = [
         channels: { onTrade: 48.5, offTrade: 41.8, eCommerce: 6.8, travelRetail: 2.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 52,   // % ACV distribution
-          ceDepletions: 1850000,  // case equivalent depletions
+          ceDepletions: 125000000,  // case equivalent depletions
           billback: 9.0,          // % average billback/discount
           grossMarginPct: 56,       // % gross margin
           cac: 38,               // $ customer acquisition cost
-          itr: 13,               // inventory turnover ratio
+          itr: 6,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -1238,11 +1238,11 @@ export const CATEGORIES = [
         channels: { onTrade: 46.4, offTrade: 43.7, eCommerce: 7.2, travelRetail: 2.7 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 50,   // % ACV distribution
-          ceDepletions: 1780000,  // case equivalent depletions
+          ceDepletions: 122000000,  // case equivalent depletions
           billback: 8.8,          // % average billback/discount
           grossMarginPct: 55,       // % gross margin
           cac: 40,               // $ customer acquisition cost
-          itr: 12,               // inventory turnover ratio
+          itr: 6,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -1353,11 +1353,11 @@ export const CATEGORIES = [
         channels: { onTrade: 46.0, offTrade: 44.0, eCommerce: 7.2, travelRetail: 2.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 48,   // % ACV distribution
-          ceDepletions: 1700000,  // case equivalent depletions
+          ceDepletions: 118000000,  // case equivalent depletions
           billback: 8.5,          // % average billback/discount
           grossMarginPct: 55,       // % gross margin
           cac: 42,               // $ customer acquisition cost
-          itr: 12,               // inventory turnover ratio
+          itr: 6,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -1468,11 +1468,11 @@ export const CATEGORIES = [
         channels: { onTrade: 44.9, offTrade: 45.1, eCommerce: 7.2, travelRetail: 2.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 46,   // % ACV distribution
-          ceDepletions: 1610000,  // case equivalent depletions
+          ceDepletions: 112000000,  // case equivalent depletions
           billback: 8.2,          // % average billback/discount
           grossMarginPct: 54,       // % gross margin
           cac: 44,               // $ customer acquisition cost
-          itr: 11,               // inventory turnover ratio
+          itr: 5,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -1583,11 +1583,11 @@ export const CATEGORIES = [
         channels: { onTrade: 41.7, offTrade: 48.3, eCommerce: 6.8, travelRetail: 3.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 44,   // % ACV distribution
-          ceDepletions: 1520000,  // case equivalent depletions
+          ceDepletions: 105000000,  // case equivalent depletions
           billback: 7.8,          // % average billback/discount
           grossMarginPct: 53,       // % gross margin
           cac: 46,               // $ customer acquisition cost
-          itr: 10,               // inventory turnover ratio
+          itr: 5,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -1712,11 +1712,11 @@ export const CATEGORIES = [
         channels: { onTrade: 34.8, offTrade: 52.1, eCommerce: 4.2, travelRetail: 8.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 48,   // % ACV distribution
-          ceDepletions: 2600000,  // case equivalent depletions
+          ceDepletions: 78000000,  // case equivalent depletions
           billback: 9.5,          // % average billback/discount
           grossMarginPct: 58,       // % gross margin
           cac: 40,               // $ customer acquisition cost
-          itr: 10,               // inventory turnover ratio
+          itr: 5,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -1831,11 +1831,11 @@ export const CATEGORIES = [
         channels: { onTrade: 36.4, offTrade: 50.9, eCommerce: 3.7, travelRetail: 9.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 47,   // % ACV distribution
-          ceDepletions: 2520000,  // case equivalent depletions
+          ceDepletions: 75000000,  // case equivalent depletions
           billback: 9.2,          // % average billback/discount
           grossMarginPct: 57,       // % gross margin
           cac: 42,               // $ customer acquisition cost
-          itr: 10,               // inventory turnover ratio
+          itr: 5,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -1950,11 +1950,11 @@ export const CATEGORIES = [
         channels: { onTrade: 36.2, offTrade: 50.2, eCommerce: 4.4, travelRetail: 9.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 46,   // % ACV distribution
-          ceDepletions: 2440000,  // case equivalent depletions
+          ceDepletions: 72000000,  // case equivalent depletions
           billback: 8.8,          // % average billback/discount
           grossMarginPct: 56,       // % gross margin
           cac: 44,               // $ customer acquisition cost
-          itr: 9,               // inventory turnover ratio
+          itr: 5,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -2069,11 +2069,11 @@ export const CATEGORIES = [
         channels: { onTrade: 37.8, offTrade: 49.3, eCommerce: 3.7, travelRetail: 9.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 45,   // % ACV distribution
-          ceDepletions: 2350000,  // case equivalent depletions
+          ceDepletions: 69000000,  // case equivalent depletions
           billback: 8.5,          // % average billback/discount
           grossMarginPct: 55,       // % gross margin
           cac: 46,               // $ customer acquisition cost
-          itr: 9,               // inventory turnover ratio
+          itr: 4,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -2188,11 +2188,11 @@ export const CATEGORIES = [
         channels: { onTrade: 40.0, offTrade: 47.0, eCommerce: 3.8, travelRetail: 9.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 44,   // % ACV distribution
-          ceDepletions: 2270000,  // case equivalent depletions
+          ceDepletions: 66000000,  // case equivalent depletions
           billback: 8.2,          // % average billback/discount
           grossMarginPct: 54,       // % gross margin
           cac: 48,               // $ customer acquisition cost
-          itr: 8,               // inventory turnover ratio
+          itr: 4,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -2315,11 +2315,11 @@ export const CATEGORIES = [
         channels: { onTrade: 41.9, offTrade: 48.1, eCommerce: 4.9, travelRetail: 5.1 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 42,   // % ACV distribution
-          ceDepletions: 1500000,  // case equivalent depletions
+          ceDepletions: 175000000,  // case equivalent depletions
           billback: 8.8,          // % average billback/discount
           grossMarginPct: 54,       // % gross margin
           cac: 36,               // $ customer acquisition cost
-          itr: 12,               // inventory turnover ratio
+          itr: 6,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -2432,11 +2432,11 @@ export const CATEGORIES = [
         channels: { onTrade: 40.3, offTrade: 49.2, eCommerce: 5.3, travelRetail: 5.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 40,   // % ACV distribution
-          ceDepletions: 1420000,  // case equivalent depletions
+          ceDepletions: 170000000,  // case equivalent depletions
           billback: 8.5,          // % average billback/discount
           grossMarginPct: 53,       // % gross margin
           cac: 38,               // $ customer acquisition cost
-          itr: 11,               // inventory turnover ratio
+          itr: 6,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -2549,11 +2549,11 @@ export const CATEGORIES = [
         channels: { onTrade: 40.5, offTrade: 49.5, eCommerce: 5.0, travelRetail: 5.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 38,   // % ACV distribution
-          ceDepletions: 1340000,  // case equivalent depletions
+          ceDepletions: 165000000,  // case equivalent depletions
           billback: 8.2,          // % average billback/discount
           grossMarginPct: 52,       // % gross margin
           cac: 40,               // $ customer acquisition cost
-          itr: 11,               // inventory turnover ratio
+          itr: 6,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -2666,11 +2666,11 @@ export const CATEGORIES = [
         channels: { onTrade: 38.4, offTrade: 51.7, eCommerce: 5.0, travelRetail: 4.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 36,   // % ACV distribution
-          ceDepletions: 1260000,  // case equivalent depletions
+          ceDepletions: 158000000,  // case equivalent depletions
           billback: 7.8,          // % average billback/discount
           grossMarginPct: 51,       // % gross margin
           cac: 42,               // $ customer acquisition cost
-          itr: 10,               // inventory turnover ratio
+          itr: 5,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -2783,11 +2783,11 @@ export const CATEGORIES = [
         channels: { onTrade: 35.8, offTrade: 53.0, eCommerce: 4.9, travelRetail: 6.3 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 34,   // % ACV distribution
-          ceDepletions: 1180000,  // case equivalent depletions
+          ceDepletions: 152000000,  // case equivalent depletions
           billback: 7.5,          // % average billback/discount
           grossMarginPct: 50,       // % gross margin
           cac: 44,               // $ customer acquisition cost
-          itr: 10,               // inventory turnover ratio
+          itr: 5,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -2912,11 +2912,11 @@ export const CATEGORIES = [
         channels: { onTrade: 34.5, offTrade: 42.7, eCommerce: 11.0, travelRetail: 11.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 28,   // % ACV distribution
-          ceDepletions: 680000,  // case equivalent depletions
+          ceDepletions: 22000000,  // case equivalent depletions
           billback: 7.2,          // % average billback/discount
           grossMarginPct: 64,       // % gross margin
           cac: 52,               // $ customer acquisition cost
-          itr: 8,               // inventory turnover ratio
+          itr: 4,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -3031,11 +3031,11 @@ export const CATEGORIES = [
         channels: { onTrade: 36.2, offTrade: 42.6, eCommerce: 9.9, travelRetail: 11.3 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 27,   // % ACV distribution
-          ceDepletions: 650000,  // case equivalent depletions
+          ceDepletions: 23000000,  // case equivalent depletions
           billback: 7.0,          // % average billback/discount
           grossMarginPct: 63,       // % gross margin
           cac: 54,               // $ customer acquisition cost
-          itr: 7,               // inventory turnover ratio
+          itr: 4,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -3150,11 +3150,11 @@ export const CATEGORIES = [
         channels: { onTrade: 36.4, offTrade: 44.8, eCommerce: 9.0, travelRetail: 9.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 26,   // % ACV distribution
-          ceDepletions: 620000,  // case equivalent depletions
+          ceDepletions: 24000000,  // case equivalent depletions
           billback: 6.8,          // % average billback/discount
           grossMarginPct: 62,       // % gross margin
           cac: 56,               // $ customer acquisition cost
-          itr: 7,               // inventory turnover ratio
+          itr: 4,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -3268,11 +3268,11 @@ export const CATEGORIES = [
         channels: { onTrade: 38.3, offTrade: 42.7, eCommerce: 11.3, travelRetail: 7.7 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 25,   // % ACV distribution
-          ceDepletions: 590000,  // case equivalent depletions
+          ceDepletions: 25000000,  // case equivalent depletions
           billback: 6.5,          // % average billback/discount
           grossMarginPct: 61,       // % gross margin
           cac: 58,               // $ customer acquisition cost
-          itr: 6,               // inventory turnover ratio
+          itr: 4,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -3386,11 +3386,11 @@ export const CATEGORIES = [
         channels: { onTrade: 32.6, offTrade: 48.0, eCommerce: 13.5, travelRetail: 5.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 24,   // % ACV distribution
-          ceDepletions: 560000,  // case equivalent depletions
+          ceDepletions: 26000000,  // case equivalent depletions
           billback: 6.2,          // % average billback/discount
           grossMarginPct: 60,       // % gross margin
           cac: 60,               // $ customer acquisition cost
-          itr: 6,               // inventory turnover ratio
+          itr: 4,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -3514,11 +3514,11 @@ export const CATEGORIES = [
         channels: { onTrade: 44.8, offTrade: 40.0, eCommerce: 5.1, travelRetail: 10.1 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 38,   // % ACV distribution
-          ceDepletions: 980000,  // case equivalent depletions
+          ceDepletions: 34000000,  // case equivalent depletions
           billback: 8.0,          // % average billback/discount
           grossMarginPct: 58,       // % gross margin
           cac: 48,               // $ customer acquisition cost
-          itr: 9,               // inventory turnover ratio
+          itr: 4,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -3632,11 +3632,11 @@ export const CATEGORIES = [
         channels: { onTrade: 45.3, offTrade: 39.6, eCommerce: 5.1, travelRetail: 10.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 37,   // % ACV distribution
-          ceDepletions: 940000,  // case equivalent depletions
+          ceDepletions: 33000000,  // case equivalent depletions
           billback: 7.8,          // % average billback/discount
           grossMarginPct: 57,       // % gross margin
           cac: 50,               // $ customer acquisition cost
-          itr: 8,               // inventory turnover ratio
+          itr: 4,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -3750,11 +3750,11 @@ export const CATEGORIES = [
         channels: { onTrade: 43.8, offTrade: 40.9, eCommerce: 5.2, travelRetail: 10.1 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 36,   // % ACV distribution
-          ceDepletions: 900000,  // case equivalent depletions
+          ceDepletions: 32000000,  // case equivalent depletions
           billback: 7.5,          // % average billback/discount
           grossMarginPct: 56,       // % gross margin
           cac: 52,               // $ customer acquisition cost
-          itr: 8,               // inventory turnover ratio
+          itr: 4,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -3868,11 +3868,11 @@ export const CATEGORIES = [
         channels: { onTrade: 42.4, offTrade: 42.4, eCommerce: 8.2, travelRetail: 7.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 35,   // % ACV distribution
-          ceDepletions: 860000,  // case equivalent depletions
+          ceDepletions: 30000000,  // case equivalent depletions
           billback: 7.2,          // % average billback/discount
           grossMarginPct: 55,       // % gross margin
           cac: 54,               // $ customer acquisition cost
-          itr: 7,               // inventory turnover ratio
+          itr: 3,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -3986,11 +3986,11 @@ export const CATEGORIES = [
         channels: { onTrade: 37.5, offTrade: 48.6, eCommerce: 10.1, travelRetail: 3.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 34,   // % ACV distribution
-          ceDepletions: 820000,  // case equivalent depletions
+          ceDepletions: 29000000,  // case equivalent depletions
           billback: 7.0,          // % average billback/discount
           grossMarginPct: 54,       // % gross margin
           cac: 56,               // $ customer acquisition cost
-          itr: 7,               // inventory turnover ratio
+          itr: 3,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -4112,11 +4112,11 @@ export const CATEGORIES = [
         channels: { onTrade: 30.0, offTrade: 55.1, eCommerce: 7.7, travelRetail: 7.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 58,   // % ACV distribution
-          ceDepletions: 3400000,  // case equivalent depletions
+          ceDepletions: 2600000000,  // case equivalent depletions
           billback: 10.5,          // % average billback/discount
           grossMarginPct: 50,       // % gross margin
           cac: 32,               // $ customer acquisition cost
-          itr: 14,               // inventory turnover ratio
+          itr: 5,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -4230,11 +4230,11 @@ export const CATEGORIES = [
         channels: { onTrade: 29.6, offTrade: 56.3, eCommerce: 6.8, travelRetail: 7.3 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 56,   // % ACV distribution
-          ceDepletions: 3300000,  // case equivalent depletions
+          ceDepletions: 2650000000,  // case equivalent depletions
           billback: 10.2,          // % average billback/discount
           grossMarginPct: 49,       // % gross margin
           cac: 33,               // $ customer acquisition cost
-          itr: 14,               // inventory turnover ratio
+          itr: 5,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -4348,11 +4348,11 @@ export const CATEGORIES = [
         channels: { onTrade: 31.2, offTrade: 55.1, eCommerce: 6.7, travelRetail: 7.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 54,   // % ACV distribution
-          ceDepletions: 3200000,  // case equivalent depletions
+          ceDepletions: 2700000000,  // case equivalent depletions
           billback: 9.8,          // % average billback/discount
           grossMarginPct: 48,       // % gross margin
           cac: 34,               // $ customer acquisition cost
-          itr: 13,               // inventory turnover ratio
+          itr: 5,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -4466,11 +4466,11 @@ export const CATEGORIES = [
         channels: { onTrade: 31.8, offTrade: 54.2, eCommerce: 8.0, travelRetail: 6.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 52,   // % ACV distribution
-          ceDepletions: 3100000,  // case equivalent depletions
+          ceDepletions: 2750000000,  // case equivalent depletions
           billback: 9.5,          // % average billback/discount
           grossMarginPct: 47,       // % gross margin
           cac: 35,               // $ customer acquisition cost
-          itr: 13,               // inventory turnover ratio
+          itr: 5,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -4584,11 +4584,11 @@ export const CATEGORIES = [
         channels: { onTrade: 27.7, offTrade: 60.1, eCommerce: 6.2, travelRetail: 6.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 50,   // % ACV distribution
-          ceDepletions: 3000000,  // case equivalent depletions
+          ceDepletions: 2800000000,  // case equivalent depletions
           billback: 9.2,          // % average billback/discount
           grossMarginPct: 46,       // % gross margin
           cac: 36,               // $ customer acquisition cost
-          itr: 12,               // inventory turnover ratio
+          itr: 4,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -4713,11 +4713,11 @@ export const CATEGORIES = [
         channels: { onTrade: 34.8, offTrade: 57.4, eCommerce: 2.8, travelRetail: 5.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 72,   // % ACV distribution
-          ceDepletions: 5800000,  // case equivalent depletions
+          ceDepletions: 1900000000,  // case equivalent depletions
           billback: 14.0,          // % average billback/discount
           grossMarginPct: 46,       // % gross margin
           cac: 22,               // $ customer acquisition cost
-          itr: 20,               // inventory turnover ratio
+          itr: 18,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -4832,11 +4832,11 @@ export const CATEGORIES = [
         channels: { onTrade: 34.2, offTrade: 58.1, eCommerce: 2.3, travelRetail: 5.4 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 71,   // % ACV distribution
-          ceDepletions: 5700000,  // case equivalent depletions
+          ceDepletions: 1880000000,  // case equivalent depletions
           billback: 13.5,          // % average billback/discount
           grossMarginPct: 45,       // % gross margin
           cac: 23,               // $ customer acquisition cost
-          itr: 19,               // inventory turnover ratio
+          itr: 18,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -4951,11 +4951,11 @@ export const CATEGORIES = [
         channels: { onTrade: 33.5, offTrade: 59.1, eCommerce: 1.9, travelRetail: 5.5 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 70,   // % ACV distribution
-          ceDepletions: 5600000,  // case equivalent depletions
+          ceDepletions: 1860000000,  // case equivalent depletions
           billback: 13.0,          // % average billback/discount
           grossMarginPct: 45,       // % gross margin
           cac: 24,               // $ customer acquisition cost
-          itr: 19,               // inventory turnover ratio
+          itr: 17,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -5070,11 +5070,11 @@ export const CATEGORIES = [
         channels: { onTrade: 32.8, offTrade: 60.3, eCommerce: 1.5, travelRetail: 5.4 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 69,   // % ACV distribution
-          ceDepletions: 5500000,  // case equivalent depletions
+          ceDepletions: 1840000000,  // case equivalent depletions
           billback: 12.5,          // % average billback/discount
           grossMarginPct: 44,       // % gross margin
           cac: 25,               // $ customer acquisition cost
-          itr: 18,               // inventory turnover ratio
+          itr: 17,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -5189,11 +5189,11 @@ export const CATEGORIES = [
         channels: { onTrade: 31.2, offTrade: 62.1, eCommerce: 1.2, travelRetail: 5.5 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 68,   // % ACV distribution
-          ceDepletions: 5400000,  // case equivalent depletions
+          ceDepletions: 1820000000,  // case equivalent depletions
           billback: 12.0,          // % average billback/discount
           grossMarginPct: 43,       // % gross margin
           cac: 26,               // $ customer acquisition cost
-          itr: 18,               // inventory turnover ratio
+          itr: 16,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -5315,11 +5315,11 @@ export const CATEGORIES = [
         channels: { onTrade: 32.5, offTrade: 52.9, eCommerce: 11.8, travelRetail: 2.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 26,   // % ACV distribution
-          ceDepletions: 380000,  // case equivalent depletions
+          ceDepletions: 85000000,  // case equivalent depletions
           billback: 6.5,          // % average billback/discount
           grossMarginPct: 42,       // % gross margin
           cac: 58,               // $ customer acquisition cost
-          itr: 14,               // inventory turnover ratio
+          itr: 15,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -5431,11 +5431,11 @@ export const CATEGORIES = [
         channels: { onTrade: 29.8, offTrade: 54.1, eCommerce: 13.3, travelRetail: 2.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 22,   // % ACV distribution
-          ceDepletions: 310000,  // case equivalent depletions
+          ceDepletions: 72000000,  // case equivalent depletions
           billback: 6.0,          // % average billback/discount
           grossMarginPct: 40,       // % gross margin
           cac: 62,               // $ customer acquisition cost
-          itr: 12,               // inventory turnover ratio
+          itr: 14,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -5547,11 +5547,11 @@ export const CATEGORIES = [
         channels: { onTrade: 27.9, offTrade: 55.0, eCommerce: 11.7, travelRetail: 5.4 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 18,   // % ACV distribution
-          ceDepletions: 240000,  // case equivalent depletions
+          ceDepletions: 58000000,  // case equivalent depletions
           billback: 5.5,          // % average billback/discount
           grossMarginPct: 38,       // % gross margin
           cac: 68,               // $ customer acquisition cost
-          itr: 10,               // inventory turnover ratio
+          itr: 12,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -5663,11 +5663,11 @@ export const CATEGORIES = [
         channels: { onTrade: 24.9, offTrade: 56.5, eCommerce: 10.7, travelRetail: 7.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 15,   // % ACV distribution
-          ceDepletions: 180000,  // case equivalent depletions
+          ceDepletions: 45000000,  // case equivalent depletions
           billback: 5.0,          // % average billback/discount
           grossMarginPct: 36,       // % gross margin
           cac: 74,               // $ customer acquisition cost
-          itr: 8,               // inventory turnover ratio
+          itr: 10,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -5779,11 +5779,11 @@ export const CATEGORIES = [
         channels: { onTrade: 21.9, offTrade: 57.2, eCommerce: 10.0, travelRetail: 10.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 12,   // % ACV distribution
-          ceDepletions: 130000,  // case equivalent depletions
+          ceDepletions: 35000000,  // case equivalent depletions
           billback: 4.5,          // % average billback/discount
           grossMarginPct: 35,       // % gross margin
           cac: 80,               // $ customer acquisition cost
-          itr: 7,               // inventory turnover ratio
+          itr: 9,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -5905,11 +5905,11 @@ export const CATEGORIES = [
         channels: { onTrade: 24.4, offTrade: 68.3, eCommerce: 4.1, travelRetail: 3.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 30,   // % ACV distribution
-          ceDepletions: 1200000,  // case equivalent depletions
+          ceDepletions: 550000000,  // case equivalent depletions
           billback: 7.5,          // % average billback/discount
           grossMarginPct: 40,       // % gross margin
           cac: 48,               // $ customer acquisition cost
-          itr: 16,               // inventory turnover ratio
+          itr: 20,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -6021,11 +6021,11 @@ export const CATEGORIES = [
         channels: { onTrade: 23.6, offTrade: 69.3, eCommerce: 2.9, travelRetail: 4.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 27,   // % ACV distribution
-          ceDepletions: 1050000,  // case equivalent depletions
+          ceDepletions: 480000000,  // case equivalent depletions
           billback: 7.0,          // % average billback/discount
           grossMarginPct: 39,       // % gross margin
           cac: 52,               // $ customer acquisition cost
-          itr: 14,               // inventory turnover ratio
+          itr: 19,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -6137,11 +6137,11 @@ export const CATEGORIES = [
         channels: { onTrade: 20.3, offTrade: 71.6, eCommerce: 3.4, travelRetail: 4.7 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 24,   // % ACV distribution
-          ceDepletions: 900000,  // case equivalent depletions
+          ceDepletions: 410000000,  // case equivalent depletions
           billback: 6.5,          // % average billback/discount
           grossMarginPct: 38,       // % gross margin
           cac: 56,               // $ customer acquisition cost
-          itr: 12,               // inventory turnover ratio
+          itr: 18,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -6253,11 +6253,11 @@ export const CATEGORIES = [
         channels: { onTrade: 18.0, offTrade: 74.4, eCommerce: 1.7, travelRetail: 5.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 20,   // % ACV distribution
-          ceDepletions: 750000,  // case equivalent depletions
+          ceDepletions: 340000000,  // case equivalent depletions
           billback: 6.0,          // % average billback/discount
           grossMarginPct: 37,       // % gross margin
           cac: 60,               // $ customer acquisition cost
-          itr: 11,               // inventory turnover ratio
+          itr: 17,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },
@@ -6369,11 +6369,11 @@ export const CATEGORIES = [
         channels: { onTrade: 14.8, offTrade: 76.5, eCommerce: 0.7, travelRetail: 8.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 17,   // % ACV distribution
-          ceDepletions: 620000,  // case equivalent depletions
+          ceDepletions: 280000000,  // case equivalent depletions
           billback: 5.5,          // % average billback/discount
           grossMarginPct: 36,       // % gross margin
           cac: 65,               // $ customer acquisition cost
-          itr: 10,               // inventory turnover ratio
+          itr: 16,               // inventory turnover ratio
           isEstimated: true,
           methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
         },

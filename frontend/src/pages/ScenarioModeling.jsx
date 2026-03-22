@@ -28,6 +28,56 @@ const PIE_COLORS = [NAVY, GOLD, '#2563EB', '#059669', '#F59E0B']
 /* \u2500\u2500 Helpers \u2500\u2500 */
 const gbp = (v) => `\u00a3${v.toFixed(2)}`
 
+/* \u2500\u2500 Category insight data (shown when user selects a category in Step 1) \u2500\u2500 */
+const CATEGORY_INSIGHTS = {
+  rtd: { headline: 'RTD is the fastest-growing spirits category globally', insight: 'UK RTD market grew 14% YoY (2025). Packaging costs dominate unit economics \u2014 canning lines vs glass significantly affects margin. The category is shifting from vodka-soda to premium cocktail formats.', keyMetric: '+14% YoY growth', tip: 'Canned format reduces logistics cost by ~30% vs glass bottles.' },
+  tequila: { headline: 'Tequila overtook vodka in US revenue (2025)', insight: 'Agave sourcing is the single biggest cost variable. Prices fluctuate 40\u201360% depending on harvest cycles (4\u20137 year maturation). NOM certification is mandatory. EU market growing at 18% CAGR.', keyMetric: '18% EU CAGR', tip: 'Secure agave supply contracts 12+ months ahead to lock pricing.' },
+  gin: { headline: 'UK gin market is mature but premiumisation continues', insight: 'Over 900 gin brands in the UK. Differentiation is critical. Liquid cost is relatively low but marketing spend must be high to cut through. Flavoured gin declining; London Dry and contemporary styles growing.', keyMetric: '900+ UK brands', tip: 'Focus on provenance storytelling \u2014 generic \u201cbotanical\u201d messaging no longer differentiates.' },
+  vodka: { headline: 'Vodka remains the global volume leader', insight: 'Lowest liquid cost of all spirits categories. Competition is fierce at every price point. Premiumisation is the only viable strategy for new entrants. Flavoured vodka seeing resurgence via RTD crossover.', keyMetric: '\u00a30.60 liquid cost', tip: 'Packaging and brand design carry outsized weight when liquid differentiation is minimal.' },
+  whisky: { headline: 'Scotch whisky exports hit \u00a36.1B in 2025', insight: 'Aged stock requirements mean high capital lock-up (3\u201312+ years). New-make spirit or grain whisky can launch faster. Japanese and Irish whisky categories growing fastest. US bourbon faces 25% EU tariff.', keyMetric: '\u00a36.1B Scotch exports', tip: 'Consider sourcing aged stock from independent bottlers to reduce time-to-market.' },
+  rum: { headline: 'Premium rum is the category\u2019s growth engine', insight: 'Caribbean production benefits from duty-free access to UK/EU. Spiced rum dominates volume but premium aged rum drives value growth. Sugar content labeling becoming a regulatory flashpoint.', keyMetric: '0% UK duty (Caribbean)', tip: 'Caribbean origin gives duty advantages \u2014 leverage GSP/EPA trade agreements.' },
+  wine: { headline: 'UK is the world\u2019s 2nd largest wine importer', insight: 'Duty increase in Aug 2023 hit wine harder than spirits (proportionally). English sparkling wine growing at 30% CAGR. Bag-in-box and canned wine gaining share in off-trade.', keyMetric: '30% CAGR (English sparkling)', tip: 'Post-Brexit, EU wine faces same duty as rest-of-world \u2014 consider non-EU sourcing.' },
+  beer: { headline: 'Craft beer consolidation accelerating', insight: 'Packaging cost is the dominant variable: bottles vs cans vs keg. Cold chain logistics add 15\u201325% to distribution costs. Draught recovery post-COVID now at 95% of 2019 levels. Low/no beer fastest growing sub-segment.', keyMetric: '95% draught recovery', tip: 'Canned format is now preferred by 62% of craft beer consumers over bottles.' },
+  nolo: { headline: 'No/Lo category grew 31% in 2025', insight: 'Zero duty liability is a significant margin advantage. However, consumer trial remains the biggest barrier \u2014 75% of purchases are first-time. Shelf placement often poor in off-trade. DTC and health/wellness channels outperform.', keyMetric: '31% YoY growth', tip: 'Invest heavily in sampling \u2014 first-taste conversion rate is 3x higher than spirits.' },
+  cognac: { headline: 'Cognac exports to Asia rebounding post-2024 dip', insight: 'Highest liquid cost of any spirits category due to double distillation and ageing requirements. VS/VSOP accessible; XO requires 10+ year aged stock. US and China account for 75% of global demand.', keyMetric: '\u00a38.00 liquid cost/unit', tip: 'VS cognac offers fastest route-to-market; partner with established houses for aged stock.' },
+  champagne: { headline: 'Champagne shipments stable despite economic headwinds', insight: 'Appellation rules mean you must source from Champagne region. Grower-producer (RM) route offers differentiation vs n\u00e9gociant brands. Gift-giving occasions drive 40% of sales. Travel retail is a key channel.', keyMetric: '40% gift-driven sales', tip: 'Consider grower Champagne positioning \u2014 higher margins than big house distribution.' },
+}
+
+/* \u2500\u2500 Market-specific timeline adjustments \u2500\u2500 */
+const MARKET_TIMELINE_EXTRAS = {
+  eu: [
+    { month: -8, label: 'EU Regulatory Compliance', tasks: ['CE marking assessment', 'EU ingredient/calorie labeling (June 2026 deadline)', 'REACH registration check', 'Import license application'] },
+    { month: -5, label: 'EU Market Entry', tasks: ['Customs broker appointment', 'VAT registration in target countries', 'Local distributor agreements', 'Translation of all consumer-facing materials'] },
+  ],
+  us: [
+    { month: -10, label: 'TTB Federal Approval', tasks: ['TTB COLA (Certificate of Label Approval) submission', 'Federal Basic Permit application', 'State-by-state distribution licensing', 'FDA facility registration'] },
+    { month: -6, label: 'US Market Setup', tasks: ['Three-tier system compliance', 'State distributor agreements', 'Importer of Record appointment', 'US-format labeling (TTB requirements)'] },
+  ],
+  uae: [
+    { month: -8, label: 'UAE Import Licensing', tasks: ['Dubai Municipality import permit', 'Liquor license application', 'Halal-adjacent packaging review', 'Free zone vs mainland decision'] },
+    { month: -5, label: 'UAE Distribution', tasks: ['MMI or African+Eastern listing application', 'Hotel group presentations', 'Duty-free operator negotiations', 'Arabic labeling requirements'] },
+  ],
+  asia: [
+    { month: -10, label: 'Asia Regulatory Mapping', tasks: ['Country-specific import duties assessment', 'China CFDA registration (if applicable)', 'Japan: Liquor Tax Law compliance', 'India: state-by-state excise registration'] },
+    { month: -6, label: 'Asia Market Entry', tasks: ['Local partner/JV identification', 'Bonded warehouse setup', 'E-commerce platform onboarding (Tmall, etc.)', 'Local market pricing strategy'] },
+  ],
+}
+
+/* \u2500\u2500 Category-specific cost highlights \u2500\u2500 */
+const CATEGORY_COST_HIGHLIGHTS = {
+  beer: { primary: 'packaging', label: 'Packaging Format', detail: 'Bottles (\u00a30.35/unit) vs cans (\u00a30.22/unit) vs kegs (\u00a30.18/serve). Format choice drives 25% of total COGS difference. Cans preferred for off-trade; kegs essential for on-trade.', items: ['Canning line access', 'Label/shrink sleeve', 'Multipacks vs singles', 'Cold chain logistics'] },
+  tequila: { primary: 'liquid', label: 'Agave Sourcing', detail: 'Agave prices range \u20b115\u201345/kg depending on harvest cycle. A single jimador can harvest 50\u2013100 pi\u00f1as/day. 100% agave tequila requires ~7kg per litre. Mixto allows 49% other sugars but limits premium positioning.', items: ['Agave price contracts', 'NOM distillery partnership', 'Additive-free certification', 'Organic agave premium (+40%)'] },
+  gin: { primary: 'marketing', label: 'Marketing & Differentiation', detail: 'In a 900+ brand market, marketing per unit (\u00a31.20) often exceeds liquid cost (\u00a31.80). Trade listing fees, sampling programs, and influencer partnerships are essential launch costs.', items: ['Trade sampling budget', 'Bar staff training program', 'Influencer partnerships', 'POS / menu presence'] },
+  vodka: { primary: 'packaging', label: 'Packaging & Design', detail: 'With liquid cost at just \u00a30.60/unit, the bottle is the brand. Premium vodka packaging can cost 3\u20135x the liquid. Crystal/frosted glass, custom closures, and embossing drive shelf standout.', items: ['Bottle mould investment', 'Premium closure options', 'Foiling / embossing', 'Outer case design'] },
+  whisky: { primary: 'liquid', label: 'Aged Stock Sourcing', detail: 'New-make spirit is \u00a32\u20133/unit; aged 12-year stock is \u00a38\u201315/unit. Independent bottlers can supply aged stock without owning a distillery. Minimum 3-year ageing required for Scotch.', items: ['Age statement strategy', 'Cask sourcing (ex-bourbon/sherry)', 'Independent bottler partnerships', 'Warehouse / insurance costs'] },
+  rum: { primary: 'logistics', label: 'Shipping & Origin', detail: 'Caribbean production offers duty-free UK/EU access but 10\u201314 week shipping. Cold chain not required for spirits. Container costs have normalised post-COVID but MOQs remain high (1,200+ cases).', items: ['Shipping lead times', 'Container booking', 'Port handling / customs', 'Insurance in transit'] },
+  wine: { primary: 'duty', label: 'Duty & Regulation', detail: 'UK wine duty rose significantly in Aug 2023 (\u00a32.67/bottle for still wine). ABV-based duty means higher-alcohol wines pay more. This reshapes which wines are commercially viable at entry-level.', items: ['ABV optimisation', 'Bulk vs bottled import', 'Duty drawback schemes', 'Organic / biodynamic premiums'] },
+  nolo: { primary: 'marketing', label: 'Sampling & Trial', detail: 'Zero duty is a huge margin advantage, but 75% of consumers need to taste before buying. Sampling costs (\u00a31.50\u20133.00/trial) are the biggest launch investment. DTC channels offer best ROI.', items: ['Sampling programme', 'Health/wellness channel partnerships', 'DTC website & fulfilment', 'Subscription model setup'] },
+  cognac: { primary: 'liquid', label: 'Distillation & Ageing', detail: 'Double distillation in copper pot stills. VS minimum 2 years, VSOP minimum 4, XO minimum 10. Liquid cost (\u00a38.00) is highest of any category. Eaux-de-vie sourcing from established houses is the fastest route.', items: ['Eaux-de-vie sourcing contracts', 'Ageing warehouse costs', 'Blending expertise', '\u201cFine Champagne\u201d cru premium'] },
+  champagne: { primary: 'liquid', label: 'Appellation & Production', detail: 'Grapes must come from Champagne AOC (\u20ac6\u20138/kg). M\u00e9thode champenoise requires 15+ months on lees (36 for vintage). Grower-producer (RM) route offers differentiation at lower volumes.', items: ['Grape sourcing contracts', 'Contract winemaker partnership', 'Lees ageing timeline', 'Disgorgement scheduling'] },
+  rtd: { primary: 'packaging', label: 'Canning & Co-Packing', detail: 'Canning line access is the critical bottleneck. Co-packers charge \u00a30.15\u20130.30/can for filling. Sleeve vs direct-print affects minimum runs. 250ml vs 330ml format impacts duty calculation.', items: ['Co-packer selection', 'Can format (slim vs standard)', 'Sleeve printing MOQs', 'Pasteurisation requirements'] },
+}
+
 /* \u2500\u2500 Pre-built scenario templates \u2500\u2500 */
 const SCENARIO_TEMPLATES = [
   {
@@ -351,6 +401,29 @@ export default function ScenarioModeling() {
                 </div>
               </Card>
 
+              {/* Category Insight Card — instant feedback on selection */}
+              {CATEGORY_INSIGHTS[selectedCategory] && (
+                <Card padding="p-4" className="border-l-3 border-l-gold bg-gold/5">
+                  <div className="flex items-start gap-3">
+                    <div className="p-2 rounded-lg bg-gold/10 flex-shrink-0">
+                      <TrendingUp size={16} className="text-gold" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-xs font-bold text-navy mb-1">{CATEGORY_INSIGHTS[selectedCategory].headline}</p>
+                      <p className="text-xs text-gray-600 leading-relaxed mb-2">{CATEGORY_INSIGHTS[selectedCategory].insight}</p>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="inline-flex items-center gap-1 text-xs font-semibold bg-navy text-white px-2 py-0.5 rounded">
+                          {CATEGORY_INSIGHTS[selectedCategory].keyMetric}
+                        </span>
+                        <span className="inline-flex items-center gap-1 text-xs text-gold bg-gold/10 px-2 py-0.5 rounded">
+                          <Star size={10} /> {CATEGORY_INSIGHTS[selectedCategory].tip}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              )}
+
               <BentoGrid>
                 <MetricCard label="COGS per Unit" value={gbp(costs.total_cogs)} subtitle={`${PRODUCT_CATEGORIES.find(c => c.id === selectedCategory)?.label || selectedCategory}`} icon={DollarSign} />
                 <MetricCard label="RRP Range" value={`${gbp(costs.rrp_low)}\u2013${gbp(costs.rrp_high)}`} subtitle={`Mid: ${gbp(costs.rrp_mid)}`} icon={Package} />
@@ -379,6 +452,33 @@ export default function ScenarioModeling() {
           {brandStep === 1 && (
             <>
               <CostWaterfall costs={costs} />
+
+              {/* Category-specific cost focus */}
+              {CATEGORY_COST_HIGHLIGHTS[selectedCategory] && (() => {
+                const highlight = CATEGORY_COST_HIGHLIGHTS[selectedCategory]
+                return (
+                  <Card padding="p-4" className="border-l-3 border-l-gold">
+                    <div className="flex items-start gap-3 mb-3">
+                      <div className="p-2 rounded-lg bg-gold/10 flex-shrink-0">
+                        <Package size={16} className="text-gold" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold text-navy">Key Cost Driver: {highlight.label}</p>
+                        <p className="text-micro text-gray-500 uppercase">For {PRODUCT_CATEGORIES.find(c => c.id === selectedCategory)?.label || selectedCategory}</p>
+                      </div>
+                    </div>
+                    <p className="text-xs text-gray-600 leading-relaxed mb-3">{highlight.detail}</p>
+                    <div className="grid grid-cols-2 gap-2">
+                      {highlight.items.map((item, idx) => (
+                        <div key={idx} className="flex items-center gap-1.5 text-xs text-gray-700 bg-gray-50 rounded-lg px-2.5 py-1.5">
+                          <ArrowRight size={10} className="text-gold flex-shrink-0" />
+                          {item}
+                        </div>
+                      ))}
+                    </div>
+                  </Card>
+                )
+              })()}
 
               {selectedMarkets.length > 0 && (
                 <div className="space-y-4">
@@ -452,7 +552,7 @@ export default function ScenarioModeling() {
           {/* STEP 2: Timeline + Go-to-Market */}
           {brandStep === 2 && (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-              <LaunchTimeline />
+              <LaunchTimeline markets={selectedMarkets} />
               <Card padding="p-4">
                 <p className="text-xs font-semibold text-navy mb-3">Scenario Summary</p>
                 <div className="space-y-2 text-xs">
@@ -713,20 +813,20 @@ function StepProgress({ steps, current, onChange }) {
 
 function StepNav({ current, total, onPrev, onNext, onReset }) {
   return (
-    <div className="flex items-center justify-between gap-4">
+    <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4">
       <button
         onClick={onPrev}
         disabled={current === 0}
-        className="flex items-center gap-1.5 px-4 py-2.5 min-h-[44px] w-full sm:w-auto bg-gray-100 text-gray-700 font-medium text-xs rounded-lg hover:bg-gray-200 disabled:opacity-40 disabled:cursor-not-allowed transition touch-manipulation"
+        className="flex items-center justify-center gap-1.5 px-4 h-[44px] w-full sm:w-auto bg-gray-100 text-gray-700 font-semibold text-sm rounded-lg hover:bg-gray-200 disabled:opacity-40 disabled:cursor-not-allowed transition touch-manipulation"
       >
         <ChevronRight size={14} className="rotate-180" /> Previous
       </button>
-      <span className="text-xs text-gray-500 flex-shrink-0">Step {current + 1} of {total}</span>
+      <span className="text-xs text-gray-500 flex-shrink-0 text-center">Step {current + 1} of {total}</span>
       {current === total - 1 ? (
         onReset ? (
           <button
             onClick={onReset}
-            className="flex items-center gap-1.5 px-4 py-2.5 min-h-[44px] w-full sm:w-auto bg-gold text-white font-medium text-xs rounded-lg hover:bg-gold/90 transition touch-manipulation"
+            className="flex items-center justify-center gap-1.5 px-4 h-[44px] w-full sm:w-auto bg-gold text-white font-semibold text-sm rounded-lg hover:bg-gold/90 transition touch-manipulation"
           >
             Start Over
           </button>
@@ -734,7 +834,7 @@ function StepNav({ current, total, onPrev, onNext, onReset }) {
       ) : (
         <button
           onClick={onNext}
-          className="flex items-center gap-1.5 px-4 py-2.5 min-h-[44px] w-full sm:w-auto bg-navy text-white font-medium text-xs rounded-lg hover:bg-navy/90 transition touch-manipulation"
+          className="flex items-center justify-center gap-1.5 px-4 h-[44px] w-full sm:w-auto bg-navy text-white font-semibold text-sm rounded-lg hover:bg-navy/90 transition touch-manipulation"
         >
           Next <ChevronRight size={14} />
         </button>
@@ -832,38 +932,57 @@ function PitfallsPanel() {
   )
 }
 
-function LaunchTimeline() {
+function LaunchTimeline({ markets = [] }) {
+  // Merge base milestones with market-specific ones
+  const extras = markets.flatMap(mId => MARKET_TIMELINE_EXTRAS[mId] || [])
+  const allMilestones = [...TIMELINE_MILESTONES, ...extras].sort((a, b) => a.month - b.month)
+
   return (
     <Card padding="p-4">
-      <p className="text-xs font-semibold text-navy flex items-center gap-1.5 mb-3">
+      <p className="text-xs font-semibold text-navy flex items-center gap-1.5 mb-1">
         <Clock size={14} className="text-gold" />
         Go-to-Market Timeline
       </p>
+      {extras.length > 0 && (
+        <p className="text-xs text-gray-500 mb-3">
+          Includes {markets.filter(m => MARKET_TIMELINE_EXTRAS[m]).map(m => {
+            const labels = { eu: 'EU regulatory', us: 'TTB/US federal', uae: 'UAE import', asia: 'Asia regulatory' }
+            return labels[m]
+          }).filter(Boolean).join(', ')} milestones
+        </p>
+      )}
+      {!extras.length && <p className="text-xs text-gray-500 mb-3">Standard UK timeline</p>}
       <div className="relative">
         <div className="absolute left-3 top-0 bottom-0 w-0.5 bg-gray-200" />
-        {TIMELINE_MILESTONES.map((m, i) => (
-          <div key={i} className="relative pl-8 pb-4 last:pb-0">
-            <div
-              className={`absolute left-1.5 w-3 h-3 rounded-full border-2 ${
-                m.month === 0 ? 'bg-gold border-gold' : m.month < 0 ? 'bg-white border-navy' : 'bg-white border-gray-300'
-              }`}
-              style={{ top: '2px' }}
-            />
-            <div className="flex items-center gap-2 mb-1">
-              <span className={`text-xs font-bold px-1.5 py-0.5 rounded ${
-                m.month === 0 ? 'bg-gold text-white' : 'bg-gray-100 text-gray-600'
-              }`}>
-                {m.month === 0 ? 'LAUNCH' : m.month > 0 ? `+${m.month}mo` : `${m.month}mo`}
-              </span>
-              <span className="text-xs font-semibold text-navy">{m.label}</span>
+        {allMilestones.map((m, i) => {
+          const isMarketSpecific = extras.includes(m)
+          return (
+            <div key={i} className="relative pl-8 pb-4 last:pb-0">
+              <div
+                className={`absolute left-1.5 w-3 h-3 rounded-full border-2 ${
+                  m.month === 0 ? 'bg-gold border-gold' : isMarketSpecific ? 'bg-blue-500 border-blue-500' : m.month < 0 ? 'bg-white border-navy' : 'bg-white border-gray-300'
+                }`}
+                style={{ top: '2px' }}
+              />
+              <div className="flex items-center gap-2 mb-1">
+                <span className={`text-xs font-bold px-1.5 py-0.5 rounded ${
+                  m.month === 0 ? 'bg-gold text-white' : isMarketSpecific ? 'bg-blue-100 text-blue-700' : 'bg-gray-100 text-gray-600'
+                }`}>
+                  {m.month === 0 ? 'LAUNCH' : m.month > 0 ? `+${m.month}mo` : `${m.month}mo`}
+                </span>
+                <span className="text-xs font-semibold text-navy">{m.label}</span>
+                {isMarketSpecific && <span className="text-micro bg-blue-50 text-blue-600 px-1.5 py-0.5 rounded font-medium">Market-specific</span>}
+              </div>
+              <div className="flex flex-wrap gap-1">
+                {m.tasks.map((t, ti) => (
+                  <span key={ti} className={`text-xs px-1.5 py-0.5 rounded border ${
+                    isMarketSpecific ? 'bg-blue-50 text-blue-700 border-blue-100' : 'bg-gray-50 text-gray-600 border-gray-100'
+                  }`}>{t}</span>
+                ))}
+              </div>
             </div>
-            <div className="flex flex-wrap gap-1">
-              {m.tasks.map((t, ti) => (
-                <span key={ti} className="text-xs bg-gray-50 text-gray-600 px-1.5 py-0.5 rounded border border-gray-100">{t}</span>
-              ))}
-            </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
     </Card>
   )

@@ -545,8 +545,8 @@ const CampaignPlanner = () => {
           </div>
         </Card>
 
-        {/* Competitive Landscape (advanced - collapsed by default) */}
-        <DrillDown title="Advanced: Competitive Landscape" summary={`${competitors.length} competitors identified in ${CATEGORIES.find(c => c.id === campaignData.category)?.label || 'category'}`}>
+        {/* Competitive Landscape (collapsed by default to reduce step complexity) */}
+        <DrillDown title="Show Competitive Analysis" summary={`${competitors.length} competitors identified in ${CATEGORIES.find(c => c.id === campaignData.category)?.label || 'category'}`}>
           {competitors.length > 0 ? (
             <div className="space-y-2">
               {competitors.map((comp, idx) => (
@@ -652,50 +652,61 @@ const CampaignPlanner = () => {
         </div>
       </Card>
 
+      {/* Recommended Allocation — read-only progress bars (default view, fits one viewport) */}
       <Card>
-        <h4 className="font-semibold text-xs text-gray-900 mb-4">Primary Channel Allocation</h4>
-        {['digital', 'onTrade', 'offTrade', 'travelRetail'].map(channel => {
-          const labels = { digital: 'Digital/Social', onTrade: 'On-Trade', offTrade: 'Off-Trade', travelRetail: 'Travel Retail' }
-          const value = campaignData[channel]
-          const budget = parseFloat(campaignData.budget) || 0
-          return (
-            <div key={channel} className="space-y-2 mb-4 last:mb-0">
-              <div className="flex items-center justify-between">
-                <label className="text-xs font-semibold text-gray-900">{labels[channel]}</label>
-                <div className="flex items-center gap-2">
-                  <span className="text-xs text-gray-500">{getCurrency()}{Math.round(budget * (value / 100)).toLocaleString()}</span>
-                  <span className="text-xs font-bold text-gray-900 w-12 text-right">{value.toFixed(1)}%</span>
+        <h4 className="font-semibold text-xs text-gray-900 mb-1">Recommended Channel Split</h4>
+        <p className="text-xs text-gray-500 mb-4">Based on your selections. Use the controls below to fine-tune.</p>
+        <div className="space-y-3">
+          {allocationData.map((entry, index) => {
+            const budget = parseFloat(campaignData.budget) || 0
+            const spend = Math.round(budget * (entry.value / 100))
+            return (
+              <div key={index}>
+                <div className="flex items-center justify-between text-xs mb-1">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: entry.color }} />
+                    <span className="font-semibold text-gray-800">{entry.name}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    {budget > 0 && <span className="text-gray-500">{getCurrency()}{spend.toLocaleString()}</span>}
+                    <span className="font-bold text-navy w-12 text-right">{entry.value.toFixed(0)}%</span>
+                  </div>
+                </div>
+                <div className="h-3 bg-gray-100 rounded-full overflow-hidden">
+                  <div className="h-full rounded-full transition-all duration-300" style={{ width: `${entry.value}%`, backgroundColor: entry.color }} />
                 </div>
               </div>
-              <div className="py-2">
-                <input type="range" min="0" max="100" step="0.1" value={value}
-                  onChange={(e) => handleSliderChange(channel, parseFloat(e.target.value))}
-                  className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gold touch-action-none" />
-              </div>
-            </div>
-          )
-        })}
-      </Card>
-
-      <Card>
-        <h4 className="font-semibold text-xs text-gray-900 mb-4">Budget Allocation Breakdown</h4>
-        <div className="space-y-2">
-          {allocationData.map((entry, index) => (
-            <div key={index}>
-              <div className="flex items-center justify-between text-xs mb-0.5">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: entry.color }} />
-                  <span className="text-gray-700">{entry.name}</span>
-                </div>
-                <span className="font-semibold text-navy">{entry.value.toFixed(1)}%</span>
-              </div>
-              <div className="h-3 bg-gray-100 rounded-full overflow-hidden">
-                <div className="h-full rounded-full transition-all" style={{ width: `${entry.value}%`, backgroundColor: entry.color }} />
-              </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </Card>
+
+      {/* Adjust allocation sliders — collapsed DrillDown */}
+      <DrillDown title="Adjust Channel Allocation" summary="Drag sliders to customise the split (auto-balances to 100%)">
+        <div className="space-y-4">
+          {['digital', 'onTrade', 'offTrade', 'travelRetail'].map(channel => {
+            const labels = { digital: 'Digital/Social', onTrade: 'On-Trade', offTrade: 'Off-Trade', travelRetail: 'Travel Retail' }
+            const value = campaignData[channel]
+            const budget = parseFloat(campaignData.budget) || 0
+            return (
+              <div key={channel} className="space-y-1">
+                <div className="flex items-center justify-between">
+                  <label className="text-xs font-semibold text-gray-900">{labels[channel]}</label>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs text-gray-500">{getCurrency()}{Math.round(budget * (value / 100)).toLocaleString()}</span>
+                    <span className="text-xs font-bold text-gray-900 w-12 text-right">{value.toFixed(1)}%</span>
+                  </div>
+                </div>
+                <div className="py-1">
+                  <input type="range" min="0" max="100" step="0.1" value={value}
+                    onChange={(e) => handleSliderChange(channel, parseFloat(e.target.value))}
+                    className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gold touch-action-none" />
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </DrillDown>
 
       <DrillDown title="Channel Metrics & Impact" summary="Estimated reach and volume by channel">
         <div className="relative">
@@ -725,8 +736,8 @@ const CampaignPlanner = () => {
         </div>
       </DrillDown>
 
-      {/* Advanced: Sub-allocation sliders (collapsed by default to reduce complexity) */}
-      <DrillDown title="Advanced: Channel Sub-Allocation" summary="Fine-tune digital platform splits, on-trade/off-trade breakdowns">
+      {/* Fine-tune Digital Split — collapsed DrillDown */}
+      <DrillDown title="Fine-tune Digital Split" summary="Adjust Meta/TikTok/YouTube/Influencer allocation">
         <div className="space-y-6">
           {campaignData.digital > 0 && (
             <div>
@@ -855,8 +866,33 @@ const CampaignPlanner = () => {
           </div>
         </DrillDown>
 
-        {/* Content Deliverables */}
-        <DrillDown title="Content Deliverables Required" summary={`${deliverables.length} items based on budget and channels`} defaultOpen>
+        {/* Content Deliverables — summary card by default, full list in DrillDown */}
+        {deliverables.length > 0 && (
+          <Card padding="p-4">
+            <div className="flex items-start gap-3 mb-3">
+              <div className="p-2 rounded-lg bg-purple-50 flex-shrink-0">
+                <Package className="w-4 h-4 text-purple-600" />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-navy">Content Production Summary</p>
+                <p className="text-xs text-gray-500">{deliverables.length} deliverables required based on your budget and channel allocation</p>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              {deliverables.slice(0, 3).map((d, idx) => (
+                <div key={idx} className="bg-gray-50 rounded-lg p-2.5 text-center">
+                  <p className="text-xs font-bold text-navy">{d.quantity.split(' ')[0]}</p>
+                  <p className="text-xs text-gray-600 truncate">{d.type}</p>
+                  <p className="text-micro text-gray-400">{d.timeline}</p>
+                </div>
+              ))}
+            </div>
+            {deliverables.length > 3 && (
+              <p className="text-xs text-gray-500 mt-2 text-center">+{deliverables.length - 3} more deliverables</p>
+            )}
+          </Card>
+        )}
+        <DrillDown title="Full Content Deliverables List" summary={`${deliverables.length} items \u2014 expand for formats, quantities, and timelines`}>
           {deliverables.length > 0 ? (
             <div className="space-y-2">
               {deliverables.map((d, idx) => (

@@ -4,7 +4,7 @@ import {
   TrendingUp, TrendingDown, Globe, BarChart3, Zap, ArrowUpRight,
   ArrowDownRight, ChevronRight, ChevronDown, ChevronUp, DollarSign,
   Calendar, AlertTriangle, Clock, Target, X, BookOpen, Copy, Lightbulb,
-  Activity, FileText
+  Activity, FileText, Building2
 } from 'lucide-react'
 import {
   AreaChart, Area, ResponsiveContainer
@@ -779,6 +779,7 @@ export default function CommandCentre() {
   const [activeBriefing, setActiveBriefing] = useState(null)
   const [loading, setLoading] = useState(true)
   const [mobileDetail, setMobileDetail] = useState(null)
+  const [fabOpen, setFabOpen] = useState(false)
   const briefingTriggerRef = useRef(null)
 
   useEffect(() => {
@@ -965,6 +966,30 @@ export default function CommandCentre() {
       >
         {mobileDetail?.content}
       </BottomSheet>
+
+      {/* Quick Action FAB */}
+      <div className="fixed bottom-20 right-4 lg:bottom-6 lg:right-6 z-40">
+        {fabOpen && (
+          <div className="mb-3 flex flex-col gap-2 animate-fadeIn">
+            <Link to="/pricing" className="flex items-center gap-2 bg-white shadow-lg rounded-full px-4 py-2 text-small font-medium text-navy hover:bg-gray-50 min-h-[44px]">
+              <DollarSign size={16} /> Check Pricing
+            </Link>
+            <Link to="/categories" className="flex items-center gap-2 bg-white shadow-lg rounded-full px-4 py-2 text-small font-medium text-navy hover:bg-gray-50 min-h-[44px]">
+              <BarChart3 size={16} /> Category Deep Dive
+            </Link>
+            <Link to="/companies" className="flex items-center gap-2 bg-white shadow-lg rounded-full px-4 py-2 text-small font-medium text-navy hover:bg-gray-50 min-h-[44px]">
+              <Building2 size={16} /> Company Intel
+            </Link>
+          </div>
+        )}
+        <button
+          onClick={() => setFabOpen(!fabOpen)}
+          className="w-14 h-14 bg-navy text-white rounded-full shadow-lg flex items-center justify-center hover:bg-navy/90 transition-all"
+          aria-label="Quick actions"
+        >
+          {fabOpen ? <X size={24} /> : <Zap size={24} />}
+        </button>
+      </div>
     </div>
   )
 }

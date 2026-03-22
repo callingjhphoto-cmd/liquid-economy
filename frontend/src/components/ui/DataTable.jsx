@@ -127,10 +127,10 @@ export function DataTable({
       )}
 
       {/* Table */}
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto max-h-[70vh] overflow-y-auto">
         <table className="w-full text-left">
           <thead>
-            <tr className="border-b border-gray-100 bg-gray-50/50">
+            <tr className="border-b border-gray-100 bg-gray-50/50 sticky top-0 bg-white z-10">
               {columns.map(col => (
                 <th
                   key={col.key}

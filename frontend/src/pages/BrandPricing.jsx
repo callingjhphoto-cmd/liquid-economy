@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect, useCallback } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, ScatterChart, Scatter, Legend } from 'recharts'
 import {
   Search, TrendingUp, TrendingDown, Minus,
   ChevronDown, ChevronUp, DollarSign, Globe,
@@ -268,6 +268,23 @@ function CategoryExpanded({ category, onClose }) {
       .slice(0, 10)
   }, [items, selectedMarket])
 
+  // Scatter plot data: volume proxy (index) vs price, grouped by tier
+  const scatterData = useMemo(() => {
+    const byTier = { 'High-End': [], 'Mid-Tier': [], 'Value': [] }
+    items.forEach((p, idx) => {
+      const price = p.marketAvgs[selectedMarket]
+      if (!price) return
+      const tier = getSegmentTier(p.segment)
+      // Use differential as a proxy for volume spread; index+1 as volume proxy
+      byTier[tier].push({
+        name: `${p.brand} ${p.expression}`,
+        volume: idx + 1,
+        price: Math.round(price),
+      })
+    })
+    return byTier
+  }, [items, selectedMarket])
+
   return (
     <div className="col-span-full space-y-4 animate-fadeIn">
       <Card padding="p-6">
@@ -381,6 +398,32 @@ function CategoryExpanded({ category, onClose }) {
             ))}
           </Bar>
         </BarChart>
+      </ChartCard>
+
+      {/* Price Positioning Map — Scatter Plot */}
+      <ChartCard
+        title="Price Positioning Map"
+        subtitle={`Volume vs Retail Price \u00b7 ${config.flag} ${config.label} market`}
+        height={300}
+        source="Liquid Economy Analysis"
+      >
+        <ScatterChart margin={{ top: 10, right: 30, bottom: 10, left: 10 }} accessibilityLayer={true}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+          <XAxis dataKey="volume" name="Volume (index)" type="number" tick={{ fontSize: 10 }} label={{ value: 'Brand Index', position: 'insideBottom', offset: -5, fontSize: 10 }} />
+          <YAxis dataKey="price" name="Avg Price" unit={config.currency} type="number" tick={{ fontSize: 10 }} />
+          <Tooltip
+            cursor={{ strokeDasharray: '3 3' }}
+            formatter={(value, name) => {
+              if (name === 'Avg Price') return [`${config.currency}${value}`, name]
+              return [value, name]
+            }}
+            contentStyle={{ fontSize: 11, borderRadius: 8, border: '1px solid #e5e7eb' }}
+          />
+          <Legend wrapperStyle={{ fontSize: 11 }} />
+          <Scatter name="High-End" data={scatterData['High-End']} fill="#7C3AED" />
+          <Scatter name="Mid-Tier" data={scatterData['Mid-Tier']} fill="#2563EB" />
+          <Scatter name="Value" data={scatterData['Value']} fill="#6B7280" />
+        </ScatterChart>
       </ChartCard>
 
       {/* Retailer Directory for this market */}

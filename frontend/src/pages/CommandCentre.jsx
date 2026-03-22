@@ -312,7 +312,7 @@ function RecentMovers() {
                 <div className="flex items-start justify-between mb-1">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-1.5">
-                      <span className={`text-[10px] font-bold uppercase px-1.5 py-0.5 rounded-full ${
+                      <span className={`text-micro font-bold uppercase px-1.5 py-0.5 rounded-full ${
                         mover.type === 'category' ? 'bg-blue-50 text-blue-600' : 'bg-purple-50 text-purple-600'
                       }`}>{mover.type}</span>
                     </div>
@@ -359,7 +359,7 @@ function PriceAlertsSummary() {
               <div className="bg-white rounded-xl border border-gray-100 p-3 hover:shadow-md transition-all group">
                 <div className="flex items-start justify-between mb-1">
                   <div className="flex-1 min-w-0">
-                    <span className={`text-[10px] font-bold uppercase px-1.5 py-0.5 rounded-full ${sev.bg} ${sev.text}`}>{sev.label}</span>
+                    <span className={`text-micro font-bold uppercase px-1.5 py-0.5 rounded-full ${sev.bg} ${sev.text}`}>{sev.label}</span>
                     <div className="text-xs font-semibold text-navy mt-1 group-hover:text-gold transition-colors">{alert.product}</div>
                     <div className="text-xs text-gray-500">{alert.category} \u00b7 {alert.channel}</div>
                   </div>
@@ -727,10 +727,10 @@ function InsightBriefing({ briefing, onClose, triggerRef }) {
             <p className="text-xs text-navy leading-relaxed">{briefing.actionable}</p>
           </div>
           <div>
-            <h4 className="text-[10px] font-bold text-gray-500 uppercase tracking-wide mb-1.5">Sources</h4>
+            <h4 className="text-micro font-bold text-gray-500 uppercase tracking-wide mb-1.5">Sources</h4>
             <div className="flex flex-wrap gap-1.5">
               {briefing.sources.map((src, i) => (
-                <span key={i} className="text-[10px] bg-gray-100 text-gray-600 px-2 py-1 rounded-full">{src}</span>
+                <span key={i} className="text-micro bg-gray-100 text-gray-600 px-2 py-1 rounded-full">{src}</span>
               ))}
             </div>
           </div>
@@ -783,7 +783,7 @@ export default function CommandCentre() {
             </div>
             <div className="flex flex-wrap gap-1">
               {briefing.sources.map((src, i) => (
-                <span key={i} className="text-[10px] bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{src}</span>
+                <span key={i} className="text-micro bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{src}</span>
               ))}
             </div>
           </div>

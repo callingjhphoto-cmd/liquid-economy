@@ -582,8 +582,8 @@ const CampaignPlanner = () => {
                     {expandedEvent === idx ? <ChevronUp className="w-3 h-3 text-gray-400" /> : <ChevronDown className="w-3 h-3 text-gray-400" />}
                   </div>
                   <div className="flex flex-wrap gap-1 mt-1">
-                    {event.serves.map((s, i) => <span key={i} className="inline-block bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-[10px]">{s}</span>)}
-                    {event.channels.map((c, i) => <span key={i} className="inline-block bg-green-100 text-green-700 px-2 py-0.5 rounded text-[10px]">{c}</span>)}
+                    {event.serves.map((s, i) => <span key={i} className="inline-block bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-micro">{s}</span>)}
+                    {event.channels.map((c, i) => <span key={i} className="inline-block bg-green-100 text-green-700 px-2 py-0.5 rounded text-micro">{c}</span>)}
                   </div>
                 </div>
                 {expandedEvent === idx && (
@@ -1007,25 +1007,25 @@ const CampaignPlanner = () => {
           <div className="bg-white rounded-lg p-4 space-y-3 text-xs">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <p className="font-semibold text-gray-500 uppercase text-[10px]">Brand</p>
+                <p className="font-semibold text-gray-500 uppercase text-micro">Brand</p>
                 <p className="font-bold text-gray-900">{getBrandDisplay() || '\u2014'}</p>
               </div>
               <div>
-                <p className="font-semibold text-gray-500 uppercase text-[10px]">Objective</p>
+                <p className="font-semibold text-gray-500 uppercase text-micro">Objective</p>
                 <p className="font-bold text-gray-900">{objective?.label || '\u2014'}</p>
               </div>
               <div>
-                <p className="font-semibold text-gray-500 uppercase text-[10px]">Market & Timeline</p>
+                <p className="font-semibold text-gray-500 uppercase text-micro">Market & Timeline</p>
                 <p className="font-bold text-gray-900">{campaignData.market || '\u2014'} | {campaignData.startMonth} \u2013 {campaignData.endMonth}</p>
               </div>
               <div>
-                <p className="font-semibold text-gray-500 uppercase text-[10px]">Total Budget</p>
+                <p className="font-semibold text-gray-500 uppercase text-micro">Total Budget</p>
                 <p className="font-bold text-gray-900">{getCurrency()}{Number(campaignData.budget || 0).toLocaleString()}</p>
               </div>
             </div>
 
             <div className="border-t border-gray-200 pt-3">
-              <p className="font-semibold text-gray-500 uppercase text-[10px] mb-2">Channel Budget Allocation</p>
+              <p className="font-semibold text-gray-500 uppercase text-micro mb-2">Channel Budget Allocation</p>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
                 {[
                   { label: 'Digital', pct: campaignData.digital },
@@ -1043,7 +1043,7 @@ const CampaignPlanner = () => {
             </div>
 
             <div className="border-t border-gray-200 pt-3">
-              <p className="font-semibold text-gray-500 uppercase text-[10px] mb-2">Digital Platform Split</p>
+              <p className="font-semibold text-gray-500 uppercase text-micro mb-2">Digital Platform Split</p>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {[
                   { label: 'Meta/IG', pct: campaignData.metaInstagram },
@@ -1061,7 +1061,7 @@ const CampaignPlanner = () => {
 
             {deliverables.length > 0 && (
               <div className="border-t border-gray-200 pt-3">
-                <p className="font-semibold text-gray-500 uppercase text-[10px] mb-2">Content Deliverables</p>
+                <p className="font-semibold text-gray-500 uppercase text-micro mb-2">Content Deliverables</p>
                 <div className="space-y-1">
                   {deliverables.map((d, idx) => (
                     <div key={idx} className="flex items-center justify-between py-1 border-b border-gray-100 last:border-0">
@@ -1075,13 +1075,13 @@ const CampaignPlanner = () => {
 
             {competitors.length > 0 && (
               <div className="border-t border-gray-200 pt-3">
-                <p className="font-semibold text-gray-500 uppercase text-[10px] mb-2">Key Competitors to Monitor</p>
+                <p className="font-semibold text-gray-500 uppercase text-micro mb-2">Key Competitors to Monitor</p>
                 <p className="text-gray-700">{competitors.map(c => c.name).join(', ')}</p>
               </div>
             )}
 
             <div className="border-t border-gray-200 pt-3">
-              <p className="font-semibold text-gray-500 uppercase text-[10px] mb-2">Key Insight for Creative</p>
+              <p className="font-semibold text-gray-500 uppercase text-micro mb-2">Key Insight for Creative</p>
               <p className="text-gray-700 italic">
                 {campaignData.objective === 'awareness'
                   ? `This is a brand-building campaign. Creative should prioritise memorability and brand association over direct response. Aim for high-impact visual storytelling that positions ${getBrandDisplay()} distinctively within ${CATEGORIES.find(c => c.id === campaignData.category)?.label || 'the category'}.`

@@ -255,15 +255,15 @@ export default function ScenarioModeling() {
             <div className="space-y-3">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 <Card padding="p-3">
-                  <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1">Duty Basis</p>
+                  <p className="text-micro font-semibold text-gray-500 uppercase mb-1">Duty Basis</p>
                   <p className="text-xs text-gray-700">UK spirits duty: \u00a328.74/litre of pure alcohol (2025 rates). RTD duty calculated at 5% ABV unless specified.</p>
                 </Card>
                 <Card padding="p-3">
-                  <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1">Cost Models</p>
+                  <p className="text-micro font-semibold text-gray-500 uppercase mb-1">Cost Models</p>
                   <p className="text-xs text-gray-700">Unit economics based on 70cl bottles (spirits) or 250ml cans (RTD). COGS exclude warehousing and insurance.</p>
                 </Card>
                 <Card padding="p-3">
-                  <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1">Market Data</p>
+                  <p className="text-micro font-semibold text-gray-500 uppercase mb-1">Market Data</p>
                   <p className="text-xs text-gray-700">Market sizes from IWSR 2025. Channel splits from CGA Nielsen. Social media CPMs from Meta/TikTok Business Manager.</p>
                 </Card>
               </div>
@@ -294,7 +294,7 @@ export default function ScenarioModeling() {
               <Card padding="p-4">
                 <div className="space-y-4">
                   <div>
-                    <p className="text-[10px] font-semibold text-gray-500 uppercase mb-2">Product Category</p>
+                    <p className="text-micro font-semibold text-gray-500 uppercase mb-2">Product Category</p>
                     <div className="flex flex-wrap gap-1.5">
                       {PRODUCT_CATEGORIES.map(cat => (
                         <button
@@ -312,7 +312,7 @@ export default function ScenarioModeling() {
                     </div>
                   </div>
                   <div>
-                    <p className="text-[10px] font-semibold text-gray-500 uppercase mb-2">Target Markets</p>
+                    <p className="text-micro font-semibold text-gray-500 uppercase mb-2">Target Markets</p>
                     <div className="flex flex-wrap gap-1.5">
                       {TARGET_MARKETS.map(m => {
                         const active = selectedMarkets.includes(m.id)
@@ -331,7 +331,7 @@ export default function ScenarioModeling() {
                     </div>
                   </div>
                   <div>
-                    <p className="text-[10px] font-semibold text-gray-500 uppercase mb-2">Brand Archetype</p>
+                    <p className="text-micro font-semibold text-gray-500 uppercase mb-2">Brand Archetype</p>
                     <div className="flex flex-wrap gap-1.5">
                       {BRAND_ARCHETYPES.map(a => (
                         <button
@@ -695,7 +695,7 @@ function StepProgress({ steps, current, onChange }) {
                     : 'bg-gray-50 text-gray-500 hover:bg-gray-100'
                 }`}
               >
-                <div className={`flex items-center justify-center w-5 h-5 rounded-full text-[10px] font-bold flex-shrink-0 ${
+                <div className={`flex items-center justify-center w-5 h-5 rounded-full text-micro font-bold flex-shrink-0 ${
                   isActive ? 'bg-white/20 text-white' : isComplete ? 'bg-gold text-white' : 'bg-gray-200 text-gray-500'
                 }`}>
                   {isComplete ? <Check size={10} /> : idx + 1}
@@ -804,7 +804,7 @@ function PitfallsPanel() {
             className="w-full flex items-center justify-between px-4 py-2.5 border-b border-gray-50 hover:bg-gray-50/50 transition-colors"
           >
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-bold bg-red-50 text-red-600 px-2 py-0.5 rounded">{cat.category}</span>
+              <span className="text-micro font-bold bg-red-50 text-red-600 px-2 py-0.5 rounded">{cat.category}</span>
               <span className="text-xs text-gray-500">{cat.items.length} risks</span>
             </div>
             {expanded === ci ? <ChevronUp size={14} className="text-gray-400" /> : <ChevronDown size={14} className="text-gray-400" />}
@@ -972,7 +972,7 @@ function SocialTargetingPanel({ platform, setPlatform }) {
       </div>
 
       <div>
-        <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wide mb-2">Best Formats</p>
+        <p className="text-micro font-bold text-gray-500 uppercase tracking-wide mb-2">Best Formats</p>
         <div className="flex flex-wrap gap-1">
           {data.bestFormats.map((f, i) => (
             <span key={i} className="text-xs bg-blue-50 text-blue-600 px-2 py-0.5 rounded">{f}</span>
@@ -981,7 +981,7 @@ function SocialTargetingPanel({ platform, setPlatform }) {
       </div>
 
       <div>
-        <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wide mb-2">Geo-Targets by ROI Potential</p>
+        <p className="text-micro font-bold text-gray-500 uppercase tracking-wide mb-2">Geo-Targets by ROI Potential</p>
         <div className="space-y-1.5">
           {data.geoTargets.map((g, i) => (
             <div key={i} className="flex items-center justify-between py-1.5 border-b border-gray-50 last:border-0">
@@ -1005,18 +1005,18 @@ function SocialTargetingPanel({ platform, setPlatform }) {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div>
-          <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wide mb-1">Peak Posting Times</p>
+          <p className="text-micro font-bold text-gray-500 uppercase tracking-wide mb-1">Peak Posting Times</p>
           <p className="text-xs text-gray-600">Weekday: <span className="font-medium text-navy">{data.peakTimes.weekday}</span></p>
           <p className="text-xs text-gray-600">Weekend: <span className="font-medium text-navy">{data.peakTimes.weekend}</span></p>
         </div>
         <div>
-          <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wide mb-1">Avg CPM Range</p>
+          <p className="text-micro font-bold text-gray-500 uppercase tracking-wide mb-1">Avg CPM Range</p>
           <p className="text-sm font-bold text-gold">{data.avgCPM}</p>
         </div>
       </div>
 
       <div>
-        <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wide mb-1">Recommended Hashtags</p>
+        <p className="text-micro font-bold text-gray-500 uppercase tracking-wide mb-1">Recommended Hashtags</p>
         <div className="flex flex-wrap gap-1">
           {data.hashtags.map((h, i) => (
             <span key={i} className="text-xs text-gold font-medium">{h}</span>

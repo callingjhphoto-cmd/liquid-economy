@@ -312,12 +312,12 @@ export default function SupplyChain() {
                           </div>
                           {data.relevantCategories && (
                             <div>
-                              <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1">Relevant Categories</p>
+                              <p className="text-micro font-semibold text-gray-500 uppercase mb-1">Relevant Categories</p>
                               <div className="flex flex-wrap gap-1">
                                 {data.relevantCategories[0] === 'all'
-                                  ? <span className="text-[10px] bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">All categories</span>
+                                  ? <span className="text-micro bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">All categories</span>
                                   : data.relevantCategories.map(c => (
-                                    <span key={c} className="text-[10px] bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{c}</span>
+                                    <span key={c} className="text-micro bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{c}</span>
                                   ))
                                 }
                               </div>
@@ -585,7 +585,7 @@ export default function SupplyChain() {
                       <EntityLink type="company" id={alert.company.toLowerCase().replace(/\s+/g, '-')} label={alert.company} className="text-xs" />
                     </div>
                     <div className="flex items-center gap-2">
-                      <EntityLink type="category" id={alert.category.toLowerCase().replace(/\s+/g, '-')} label={alert.category} className="text-[10px] bg-gray-100 px-1.5 py-0.5 rounded no-underline" />
+                      <EntityLink type="category" id={alert.category.toLowerCase().replace(/\s+/g, '-')} label={alert.category} className="text-micro bg-gray-100 px-1.5 py-0.5 rounded no-underline" />
                       <span className={`text-xs font-medium px-1.5 py-0.5 rounded-full ${badges[alert.severity]}`}>{alert.severity}</span>
                     </div>
                   </div>

@@ -415,18 +415,18 @@ function CategoryCard({ cat, year, isHero, onClick }) {
         <div className={`flex items-end justify-between ${isHero ? 'gap-6' : 'gap-3'}`}>
           <div className="flex items-center gap-4 sm:gap-6">
             <div>
-              <div className="text-[10px] text-gray-500 uppercase tracking-wider font-medium">Size</div>
+              <div className="text-micro text-gray-500 uppercase tracking-wider font-medium">Size</div>
               <div className={`${isHero ? 'text-xl' : 'text-lg'} font-bold text-navy tabular-nums`}>{yd.marketSize}</div>
             </div>
             <div>
-              <div className="text-[10px] text-gray-500 uppercase tracking-wider font-medium">Growth</div>
+              <div className="text-micro text-gray-500 uppercase tracking-wider font-medium">Growth</div>
               <div className={`${isHero ? 'text-xl' : 'text-lg'} font-bold`}>
                 <GrowthBadge value={yd.growth} showYoY />
               </div>
             </div>
             {isHero && (
               <div>
-                <div className="text-[10px] text-gray-500 uppercase tracking-wider font-medium">Volume</div>
+                <div className="text-micro text-gray-500 uppercase tracking-wider font-medium">Volume</div>
                 <div className="text-xl font-bold text-navy tabular-nums">{yd.volumeCases}</div>
               </div>
             )}
@@ -597,7 +597,7 @@ function CategoryDetail({ cat, year, onBack }) {
               <div className="flex items-center gap-2 mb-3">
                 <SectionLabel>Trade KPIs ({year})</SectionLabel>
                 {yd.tradeKPIs.isEstimated && (
-                  <span className="px-1.5 py-0.5 bg-orange-100 text-orange-700 text-[10px] font-bold rounded uppercase tracking-wider">Est.</span>
+                  <span className="px-1.5 py-0.5 bg-orange-100 text-orange-700 text-micro font-bold rounded uppercase tracking-wider">Est.</span>
                 )}
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
@@ -804,7 +804,7 @@ export default function CategoryIntelligence() {
                   : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50'
               }`}
             >
-              <span className={`w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold ${cat.iconBg} ${cat.iconColor}`}>{cat.icon}</span>
+              <span className={`w-5 h-5 rounded flex items-center justify-center text-micro font-bold ${cat.iconBg} ${cat.iconColor}`}>{cat.icon}</span>
               {cat.label}
             </button>
           ))}

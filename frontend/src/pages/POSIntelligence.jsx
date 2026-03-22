@@ -164,15 +164,15 @@ function DisruptionCard({ strategy }) {
       {expanded && (
         <div className="mt-4 pt-4 border-t border-gray-100 space-y-4">
           <div>
-            <h4 className="text-[10px] font-bold text-red-500 uppercase tracking-wider mb-1">The Problem</h4>
+            <h4 className="text-micro font-bold text-red-500 uppercase tracking-wider mb-1">The Problem</h4>
             <p className="text-sm text-gray-700">{strategy.problem}</p>
           </div>
           <div>
-            <h4 className="text-[10px] font-bold text-emerald-600 uppercase tracking-wider mb-1">Our Strategy</h4>
+            <h4 className="text-micro font-bold text-emerald-600 uppercase tracking-wider mb-1">Our Strategy</h4>
             <p className="text-sm text-gray-700">{strategy.strategy}</p>
           </div>
           <div>
-            <h4 className="text-[10px] font-bold text-navy uppercase tracking-wider mb-2">Tactical Execution</h4>
+            <h4 className="text-micro font-bold text-navy uppercase tracking-wider mb-2">Tactical Execution</h4>
             <div className="space-y-1.5">
               {strategy.tactics.map((t, i) => (
                 <div key={i} className="flex items-start gap-2">
@@ -213,11 +213,11 @@ function ClientSegmentCard({ segment }) {
       {expanded && (
         <div className="mt-4 pt-4 border-t border-gray-100 space-y-4">
           <div>
-            <h4 className="text-[10px] font-bold text-navy uppercase tracking-wider mb-1">Key Needs</h4>
+            <h4 className="text-micro font-bold text-navy uppercase tracking-wider mb-1">Key Needs</h4>
             <p className="text-sm text-gray-700">{segment.needs}</p>
           </div>
           <div>
-            <h4 className="text-[10px] font-bold text-red-500 uppercase tracking-wider mb-2">Pain Points</h4>
+            <h4 className="text-micro font-bold text-red-500 uppercase tracking-wider mb-2">Pain Points</h4>
             <div className="space-y-1">
               {segment.painPoints.map((p, i) => (
                 <div key={i} className="flex items-start gap-2">
@@ -228,11 +228,11 @@ function ClientSegmentCard({ segment }) {
             </div>
           </div>
           <div>
-            <h4 className="text-[10px] font-bold text-emerald-600 uppercase tracking-wider mb-1">Our Solution</h4>
+            <h4 className="text-micro font-bold text-emerald-600 uppercase tracking-wider mb-1">Our Solution</h4>
             <p className="text-sm text-gray-700">{segment.solution}</p>
           </div>
           <div>
-            <h4 className="text-[10px] font-bold text-gold uppercase tracking-wider mb-2">Packages</h4>
+            <h4 className="text-micro font-bold text-gold uppercase tracking-wider mb-2">Packages</h4>
             <div className="space-y-2">
               {segment.packages.map((pkg, i) => (
                 <div key={i} className="bg-gray-50 rounded-lg p-3">

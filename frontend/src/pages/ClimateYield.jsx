@@ -385,7 +385,7 @@ function RegionDetailPanel({ region, onClose }) {
         <p className="text-xs font-semibold text-amber-800 mb-1">Critical Yield Factors</p>
         <div className="flex flex-wrap gap-2">
           {region.criticalFactors.map((f, i) => (
-            <span key={i} className="text-[10px] bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">{f}</span>
+            <span key={i} className="text-micro bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">{f}</span>
           ))}
         </div>
       </AccentCard>
@@ -453,7 +453,7 @@ function ForwardSignals() {
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs font-bold text-navy">{s.region}</span>
               <div className="flex items-center gap-2">
-                <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${s.risk === 'high' ? 'bg-red-100 text-red-700' : s.risk === 'medium' ? 'bg-amber-100 text-amber-700' : 'bg-green-100 text-green-700'}`}>
+                <span className={`text-micro font-semibold px-2 py-0.5 rounded-full ${s.risk === 'high' ? 'bg-red-100 text-red-700' : s.risk === 'medium' ? 'bg-amber-100 text-amber-700' : 'bg-green-100 text-green-700'}`}>
                   {s.risk.toUpperCase()} RISK
                 </span>
                 <span className="text-xs text-gray-500">{s.timeframe}</span>
@@ -514,10 +514,10 @@ export default function ClimateYield() {
               </div>
               {latest && <OutlookBadge outlook={latest[1].outlook} />}
               <div>
-                <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1">Critical Yield Factors</p>
+                <p className="text-micro font-semibold text-gray-500 uppercase mb-1">Critical Yield Factors</p>
                 <div className="flex flex-wrap gap-1.5">
                   {r.criticalFactors.map((f, i) => (
-                    <span key={i} className="text-[10px] bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">{f}</span>
+                    <span key={i} className="text-micro bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">{f}</span>
                   ))}
                 </div>
               </div>

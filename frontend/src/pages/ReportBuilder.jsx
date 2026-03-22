@@ -184,7 +184,7 @@ export default function ReportBuilder() {
                             <div className="text-xs text-gray-500 mb-2">Report structure:</div>
                             <div className="flex flex-wrap gap-1.5">
                               {template.sections.map((section, i) => (
-                                <span key={i} className="px-2 py-1 bg-white border border-gray-100 rounded text-[10px] text-navy font-medium">
+                                <span key={i} className="px-2 py-1 bg-white border border-gray-100 rounded text-micro text-navy font-medium">
                                   {i + 1}. {section}
                                 </span>
                               ))}
@@ -235,7 +235,7 @@ export default function ReportBuilder() {
         <div className="space-y-4">
           <div className="flex items-center gap-2">
             <h2 className="font-display text-section text-navy">Template Preview</h2>
-            <span className="text-[10px] bg-gold/10 text-gold px-2 py-0.5 rounded-full font-medium">
+            <span className="text-micro bg-gold/10 text-gold px-2 py-0.5 rounded-full font-medium">
               {activeTemplate?.label}
             </span>
           </div>
@@ -269,7 +269,7 @@ export default function ReportBuilder() {
             <div className="text-xs text-gray-500 mb-2">Report structure:</div>
             <div className="flex flex-wrap gap-1.5">
               {activeTemplate?.sections.map((section, i) => (
-                <span key={i} className="px-2 py-1 bg-white border border-gray-100 rounded text-[10px] text-navy font-medium">
+                <span key={i} className="px-2 py-1 bg-white border border-gray-100 rounded text-micro text-navy font-medium">
                   {i + 1}. {section}
                 </span>
               ))}

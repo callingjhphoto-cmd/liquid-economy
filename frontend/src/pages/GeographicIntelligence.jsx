@@ -308,7 +308,7 @@ function RegionTier2({ region, data, onClose, onViewFull }) {
                 </div>
 
                 <div className="bg-blue-50 border border-blue-100 rounded-lg p-3">
-                  <div className="text-[10px] text-blue-600 font-semibold uppercase mb-0.5">Outlook</div>
+                  <div className="text-micro text-blue-600 font-semibold uppercase mb-0.5">Outlook</div>
                   <p className="text-xs text-blue-900">{currentReport.outlook}</p>
                 </div>
 
@@ -484,7 +484,7 @@ function RegionTier3({ region, data, onClose }) {
               </div>
 
               <div className="bg-blue-50 border border-blue-100 rounded-lg p-4">
-                <div className="text-[10px] text-blue-600 font-semibold uppercase mb-1">Strategic Advice</div>
+                <div className="text-micro text-blue-600 font-semibold uppercase mb-1">Strategic Advice</div>
                 <p className="text-xs text-blue-900 leading-relaxed">{data.marketEntry.advice}</p>
               </div>
             </div>
@@ -548,7 +548,7 @@ function RegionTier3({ region, data, onClose }) {
               </div>
 
               <div className="bg-amber-50 border border-amber-100 rounded-lg p-4">
-                <div className="text-[10px] text-amber-700 font-semibold uppercase mb-1">Strategic Recommendation</div>
+                <div className="text-micro text-amber-700 font-semibold uppercase mb-1">Strategic Recommendation</div>
                 <p className="text-xs text-amber-900 leading-relaxed">{data.competitiveEntry.recommendation}</p>
               </div>
             </div>
@@ -577,6 +577,20 @@ export default function GeographicIntelligence() {
   }, [])
 
   const highlightedCountry = searchParams.get('market')
+
+  // Auto-expand and scroll to deep-linked market
+  useEffect(() => {
+    if (!highlightedCountry || loading) return
+    const match = REGIONS.find(r => r.key === highlightedCountry)
+    if (match) {
+      setExpandedRegion(highlightedCountry)
+      const timer = setTimeout(() => {
+        const el = document.getElementById(`card-${highlightedCountry}`)
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      }, 400)
+      return () => clearTimeout(timer)
+    }
+  }, [highlightedCountry, loading])
 
   const filtered = useMemo(() => {
     if (!searchTerm) return REGIONS
@@ -698,12 +712,14 @@ export default function GeographicIntelligence() {
 
           return (
             <React.Fragment key={region.key}>
-              <RegionCardTier1
-                region={region}
-                data={data}
-                onClick={() => handleCardClick(region)}
-                isHighlighted={isHighlighted}
-              />
+              <div id={`card-${region.key}`}>
+                <RegionCardTier1
+                  region={region}
+                  data={data}
+                  onClick={() => handleCardClick(region)}
+                  isHighlighted={isHighlighted}
+                />
+              </div>
 
               {/* Tier 2 — expanded inline */}
               {isExpanded && data && (
@@ -769,7 +785,7 @@ export default function GeographicIntelligence() {
                 <SectionHeader size="sm">Top Brands</SectionHeader>
                 <div className="flex flex-wrap gap-1.5 mt-1">
                   {REGION_DATA[mobileSheet.key].topBrands.map((b, i) => (
-                    <span key={i} className="px-2 py-0.5 bg-gray-100 rounded-full text-[10px] font-medium text-gray-600">{b}</span>
+                    <span key={i} className="px-2 py-0.5 bg-gray-100 rounded-full text-micro font-medium text-gray-600">{b}</span>
                   ))}
                 </div>
               </div>

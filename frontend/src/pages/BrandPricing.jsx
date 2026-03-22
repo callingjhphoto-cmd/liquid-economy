@@ -314,14 +314,14 @@ function CategoryExpanded({ category, onClose }) {
                   <table className="w-full text-sm">
                     <thead>
                       <tr className="border-b border-gray-100 bg-gray-50/50">
-                        <th className="text-left px-3 py-2 text-[10px] font-semibold text-gray-500 uppercase tracking-wider">Brand</th>
-                        <th className="text-left px-3 py-2 text-[10px] font-semibold text-gray-500 uppercase tracking-wider">Expression</th>
-                        <th className="text-left px-3 py-2 text-[10px] font-semibold text-gray-500 uppercase tracking-wider">Segment</th>
-                        <th className="text-left px-3 py-2 text-[10px] font-semibold text-gray-500 uppercase tracking-wider">Company</th>
-                        <th className="text-right px-3 py-2 text-[10px] font-semibold text-gray-500 uppercase tracking-wider">
+                        <th className="text-left px-3 py-2 text-micro font-semibold text-gray-500 uppercase tracking-wider">Brand</th>
+                        <th className="text-left px-3 py-2 text-micro font-semibold text-gray-500 uppercase tracking-wider">Expression</th>
+                        <th className="text-left px-3 py-2 text-micro font-semibold text-gray-500 uppercase tracking-wider">Segment</th>
+                        <th className="text-left px-3 py-2 text-micro font-semibold text-gray-500 uppercase tracking-wider">Company</th>
+                        <th className="text-right px-3 py-2 text-micro font-semibold text-gray-500 uppercase tracking-wider">
                           {config.flag} Price ({config.bottleSize})
                         </th>
-                        <th className="text-right px-3 py-2 text-[10px] font-semibold text-gray-500 uppercase tracking-wider">Spread</th>
+                        <th className="text-right px-3 py-2 text-micro font-semibold text-gray-500 uppercase tracking-wider">Spread</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -463,7 +463,7 @@ function FullPriceTable({ onClose }) {
     { key: 'brand', label: 'Brand', render: (v) => <span className="font-medium text-navy">{v}</span> },
     { key: 'expression', label: 'Expression' },
     { key: 'category', label: 'Category', render: (v) => (
-      <Link to="/categories" className="text-[10px] bg-gray-100 text-gray-600 px-2 py-0.5 rounded hover:bg-blue-50 hover:text-navy transition-colors">{v}</Link>
+      <Link to="/categories" className="text-micro bg-gray-100 text-gray-600 px-2 py-0.5 rounded hover:bg-blue-50 hover:text-navy transition-colors">{v}</Link>
     )},
     { key: 'segment', label: 'Segment', render: (v) => {
       const info = SEGMENT_INFO[v] || { color: 'bg-gray-50 text-gray-500' }
@@ -585,7 +585,15 @@ export default function BrandPricing() {
       setShowFullTable(true)
     } else if (initialCategory) {
       const match = ALL_CATEGORIES.find(c => c.toLowerCase().includes(initialCategory.toLowerCase()))
-      if (match) setExpandedCategory(match)
+      if (match) {
+        setExpandedCategory(match)
+        // Scroll to expanded card after render
+        const timer = setTimeout(() => {
+          const el = document.getElementById(`card-${match.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`)
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        }, 400)
+        return () => clearTimeout(timer)
+      }
     }
   }, [initialCategory, initialBrand])
 
@@ -739,13 +747,13 @@ export default function BrandPricing() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {stats.categoryStats.map(stat => (
-          <React.Fragment key={stat.category}>
+          <div key={stat.category} id={`card-${stat.category.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>
             <CategorySummaryCard
               stat={stat}
               isExpanded={expandedCategory === stat.category}
               onToggle={() => handleCategoryToggle(stat.category)}
             />
-          </React.Fragment>
+          </div>
         ))}
       </div>
 

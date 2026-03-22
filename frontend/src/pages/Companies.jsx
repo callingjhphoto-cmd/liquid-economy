@@ -360,7 +360,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
                   {company.howToCompeteAgainst.map((s, i) => (
                     <div key={i} className="bg-white rounded-lg p-3 border border-gray-100">
                       <div className="flex items-start gap-2.5">
-                        <div className="bg-navy text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">
+                        <div className="bg-navy text-white rounded-full w-5 h-5 flex items-center justify-center text-micro font-bold flex-shrink-0 mt-0.5">
                           {i + 1}
                         </div>
                         <div>
@@ -377,7 +377,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {company.strengthsForCompetitor && (
                 <div className="bg-white rounded-lg border border-gray-100 p-3">
-                  <h4 className="text-[10px] font-semibold text-navy uppercase tracking-wide mb-2 flex items-center gap-1">
+                  <h4 className="text-micro font-semibold text-navy uppercase tracking-wide mb-2 flex items-center gap-1">
                     <Shield size={12} /> Their Strengths
                   </h4>
                   <div className="space-y-1.5">
@@ -392,7 +392,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
               )}
               {company.weaknessesForCompetitor && (
                 <div className="bg-white rounded-lg border border-gray-100 p-3">
-                  <h4 className="text-[10px] font-semibold text-navy uppercase tracking-wide mb-2 flex items-center gap-1">
+                  <h4 className="text-micro font-semibold text-navy uppercase tracking-wide mb-2 flex items-center gap-1">
                     <Zap size={12} /> Their Weaknesses
                   </h4>
                   <div className="space-y-1.5">
@@ -611,7 +611,7 @@ function CompanyTier3({ company, onClose }) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
                   {Object.entries(company.distributionUK).map(([channel, desc]) => (
                     <div key={channel} className="bg-gray-50 rounded-lg p-3">
-                      <div className="text-[10px] font-semibold text-navy uppercase tracking-wide mb-1">
+                      <div className="text-micro font-semibold text-navy uppercase tracking-wide mb-1">
                         {channel.replace(/([A-Z])/g, ' $1').trim()}
                       </div>
                       <p className="text-xs text-gray-600 leading-relaxed">{desc}</p>
@@ -1044,7 +1044,7 @@ export default function Companies() {
                       type="brand"
                       id={slugify(b)}
                       label={b}
-                      className="px-2 py-0.5 bg-gray-100 rounded-full text-[10px] font-medium no-underline"
+                      className="px-2 py-0.5 bg-gray-100 rounded-full text-micro font-medium no-underline"
                     />
                   ))}
                 </div>

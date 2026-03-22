@@ -452,15 +452,15 @@ function MethodologyGrid() {
             {expanded === i && (
               <div className="space-y-3 animate-fadeIn">
                 <div className="pb-3 border-b border-gray-100">
-                  <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1">Best For</p>
+                  <p className="text-micro font-semibold text-gray-500 uppercase mb-1">Best For</p>
                   <p className="text-xs text-gray-700">{method.bestFor}</p>
                 </div>
                 <div className="pb-3 border-b border-gray-100">
-                  <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1">Formula</p>
+                  <p className="text-micro font-semibold text-gray-500 uppercase mb-1">Formula</p>
                   <p className="text-xs text-gray-700 font-mono bg-gray-50 p-2 rounded">{method.formula}</p>
                 </div>
                 <div className="pb-3 border-b border-gray-100">
-                  <p className="text-[10px] font-semibold text-gray-500 uppercase mb-1">Example</p>
+                  <p className="text-micro font-semibold text-gray-500 uppercase mb-1">Example</p>
                   <p className="text-xs text-gray-700">{method.example}</p>
                 </div>
                 <div className="grid grid-cols-2 gap-3">

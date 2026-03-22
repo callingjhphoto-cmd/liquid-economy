@@ -42,7 +42,7 @@ function HeroMarketCard() {
       {/* Background sparkline */}
       <div className="absolute bottom-0 left-0 right-0 h-20 opacity-30">
         <ResponsiveContainer width="100%" height="100%">
-          <AreaChart data={sparkData} margin={{ top: 0, right: 0, bottom: 0, left: 0 }} accessibilityLayer>
+          <AreaChart data={sparkData} margin={{ top: 0, right: 0, bottom: 0, left: 0 }} accessibilityLayer={true}>
             <defs>
               <linearGradient id="hero-grad" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor="#059669" stopOpacity={0.2} />
@@ -91,7 +91,7 @@ function MicroSparkline({ data, positive = true }) {
   const color = positive ? '#22c55e' : '#ef4444'
   return (
     <ResponsiveContainer width="100%" height={28}>
-      <AreaChart data={data} margin={{ top: 2, right: 0, bottom: 0, left: 0 }} accessibilityLayer>
+      <AreaChart data={data} margin={{ top: 2, right: 0, bottom: 0, left: 0 }} accessibilityLayer={true}>
         <defs>
           <linearGradient id={`micro-${positive ? 'pos' : 'neg'}`} x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor={color} stopOpacity={0.15} />
@@ -281,7 +281,7 @@ function CategoryPerformance() {
               <div className="text-lg font-bold text-navy mb-1">{cat.size}</div>
               <div className="w-full h-6 mb-2">
                 <ResponsiveContainer width="100%" height="100%">
-                  <AreaChart data={cat.trend} margin={{ top: 0, right: 0, bottom: 0, left: 0 }} accessibilityLayer>
+                  <AreaChart data={cat.trend} margin={{ top: 0, right: 0, bottom: 0, left: 0 }} accessibilityLayer={true}>
                     <Area type="monotone" dataKey="v" stroke={isUp ? '#22c55e' : '#ef4444'} strokeWidth={1.2} fill={isUp ? '#22c55e10' : '#ef444410'} dot={false} isAnimationActive={false} />
                   </AreaChart>
                 </ResponsiveContainer>
@@ -407,7 +407,7 @@ function GeographicHighlights() {
                 </div>
                 <div className="w-full h-5 mt-1">
                   <ResponsiveContainer width="100%" height="100%">
-                    <AreaChart data={r.trend} margin={{ top: 0, right: 0, bottom: 0, left: 0 }} accessibilityLayer>
+                    <AreaChart data={r.trend} margin={{ top: 0, right: 0, bottom: 0, left: 0 }} accessibilityLayer={true}>
                       <Area type="monotone" dataKey="v" stroke={isUp ? '#22c55e' : '#ef4444'} strokeWidth={1} fill={isUp ? '#22c55e10' : '#ef444410'} dot={false} isAnimationActive={false} />
                     </AreaChart>
                   </ResponsiveContainer>
@@ -631,10 +631,36 @@ function DeepDiveCTAs() {
 function InsightBriefing({ briefing, onClose, triggerRef }) {
   const panelRef = useRef(null)
   const closeRef = useRef(null)
+  const [visible, setVisible] = useState(false)
+  const [animating, setAnimating] = useState(false)
+
+  // Two-phase mount/unmount for exit animation
+  useEffect(() => {
+    if (briefing) {
+      setVisible(true)
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => setAnimating(true))
+      })
+    } else if (visible) {
+      setAnimating(false)
+      const timer = setTimeout(() => setVisible(false), 300)
+      return () => clearTimeout(timer)
+    }
+  }, [briefing])
+
+  // Animated close handler
+  const handleClose = useCallback(() => {
+    if (!animating) return
+    setAnimating(false)
+    setTimeout(() => {
+      setVisible(false)
+      onClose()
+    }, 300)
+  }, [animating, onClose])
 
   // Focus trap + Escape key
   useEffect(() => {
-    if (!briefing) return
+    if (!visible || !animating) return
     // Focus the panel on open
     const timer = setTimeout(() => {
       if (panelRef.current) panelRef.current.focus()
@@ -642,7 +668,7 @@ function InsightBriefing({ briefing, onClose, triggerRef }) {
 
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
-        onClose()
+        handleClose()
         return
       }
       // Focus trap: cycle Tab within the panel
@@ -667,19 +693,23 @@ function InsightBriefing({ briefing, onClose, triggerRef }) {
       // Return focus to trigger on close
       if (triggerRef && triggerRef.current) triggerRef.current.focus()
     }
-  }, [briefing, onClose, triggerRef])
+  }, [visible, animating, handleClose, triggerRef])
 
-  if (!briefing) return null
+  if (!visible) return null
   return (
     <>
-      <div className="fixed inset-0 bg-black/30 z-50" onClick={onClose} aria-hidden="true" />
+      <div
+        className={`fixed inset-0 bg-black z-50 transition-opacity duration-300 ${animating ? 'opacity-30' : 'opacity-0'}`}
+        onClick={handleClose}
+        aria-hidden="true"
+      />
       <div
         ref={panelRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby="briefing-title"
         tabIndex={-1}
-        className="fixed right-0 top-0 bottom-0 w-full max-w-lg bg-white z-50 shadow-2xl overflow-y-auto animate-fadeIn outline-none"
+        className={`fixed right-0 top-0 bottom-0 w-full max-w-lg bg-white z-50 shadow-2xl overflow-y-auto outline-none transition-transform duration-300 ease-out ${animating ? 'translate-x-0' : 'translate-x-full'}`}
       >
         <div className="sticky top-0 bg-white border-b border-gray-200 px-5 py-4 flex items-center justify-between z-10">
           <div className="flex items-center gap-2">
@@ -695,7 +725,7 @@ function InsightBriefing({ briefing, onClose, triggerRef }) {
             <button onClick={() => { navigator.clipboard.writeText(`${briefing.title}\n\n${briefing.summary}\n\n${briefing.keyPoints.join('\n')}\n\n${briefing.actionable}`) }} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-400 hover:text-navy transition-colors touch-manipulation" title="Copy to clipboard" aria-label="Copy briefing to clipboard">
               <Copy size={14} />
             </button>
-            <button ref={closeRef} onClick={onClose} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-400 hover:text-navy transition-colors touch-manipulation" aria-label="Close briefing panel">
+            <button ref={closeRef} onClick={handleClose} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-400 hover:text-navy transition-colors touch-manipulation" aria-label="Close briefing panel">
               <X size={16} />
             </button>
           </div>

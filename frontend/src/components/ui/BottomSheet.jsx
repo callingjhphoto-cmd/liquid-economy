@@ -17,23 +17,32 @@ export function BottomSheet({ open, onClose, title, children }) {
   const dragRef = useRef({ startY: 0, currentY: 0, dragging: false })
   const triggerRef = useRef(null)
   const [visible, setVisible] = useState(false)
-  const [closing, setClosing] = useState(false)
+  const [animating, setAnimating] = useState(false)
 
   const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
 
-  // Sync visibility with open prop
+  // Two-phase mount/unmount: visible controls DOM presence, animating controls CSS transitions
   useEffect(() => {
     if (open) {
       // Remember the element that triggered the sheet so we can restore focus later
       triggerRef.current = document.activeElement
       setVisible(true)
-      setClosing(false)
+      // Small delay to ensure DOM is rendered before animation starts
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => setAnimating(true))
+      })
+    } else if (visible) {
+      // Phase 1: trigger exit animation
+      setAnimating(false)
+      // Phase 2: unmount after animation completes
+      const timer = setTimeout(() => setVisible(false), 300)
+      return () => clearTimeout(timer)
     }
   }, [open])
 
   // Focus trap: move focus into the sheet and cycle Tab within it
   useEffect(() => {
-    if (!visible || closing || !sheetRef.current) return
+    if (!visible || !animating || !sheetRef.current) return
 
     // Small delay so the sheet DOM is fully rendered
     const raf = requestAnimationFrame(() => {
@@ -75,7 +84,7 @@ export function BottomSheet({ open, onClose, title, children }) {
       cancelAnimationFrame(raf)
       window.removeEventListener('keydown', handleKeyDown)
     }
-  }, [visible, closing])
+  }, [visible, animating])
 
   // Lock body scroll when visible
   useEffect(() => {
@@ -89,18 +98,17 @@ export function BottomSheet({ open, onClose, title, children }) {
 
   // Animate out then unmount, restoring focus to the trigger element
   const handleClose = useCallback(() => {
-    if (closing) return
-    setClosing(true)
+    if (!animating) return
+    setAnimating(false)
     setTimeout(() => {
-      setClosing(false)
       setVisible(false)
       onClose()
       // Return focus to the element that opened the sheet
       if (triggerRef.current && typeof triggerRef.current.focus === 'function') {
         triggerRef.current.focus()
       }
-    }, 200)
-  }, [closing, onClose])
+    }, 300)
+  }, [animating, onClose])
 
   // Escape key to dismiss
   useEffect(() => {
@@ -155,7 +163,7 @@ export function BottomSheet({ open, onClose, title, children }) {
     <div className="fixed inset-0 z-50 lg:hidden">
       {/* Backdrop */}
       <div
-        className={`absolute inset-0 bg-black/30 transition-opacity duration-200 ${closing ? 'opacity-0' : 'opacity-100'}`}
+        className={`absolute inset-0 bg-black transition-opacity duration-300 ${animating ? 'opacity-30' : 'opacity-0'}`}
         onClick={handleClose}
         aria-hidden="true"
       />
@@ -166,7 +174,7 @@ export function BottomSheet({ open, onClose, title, children }) {
         role="dialog"
         aria-modal="true"
         aria-label={title}
-        className={`absolute bottom-0 left-0 right-0 bg-white rounded-t-2xl max-h-[85vh] overflow-y-auto ${closing ? 'animate-slideDown' : 'animate-slideUp'}`}
+        className={`absolute bottom-0 left-0 right-0 bg-white rounded-t-2xl max-h-[85vh] overflow-y-auto transition-transform duration-300 ease-out ${animating ? 'translate-y-0' : 'translate-y-full'}`}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}

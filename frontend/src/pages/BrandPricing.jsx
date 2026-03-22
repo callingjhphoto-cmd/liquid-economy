@@ -537,6 +537,7 @@ function FullPriceTable({ onClose }) {
           searchKey="brand"
           emptyMessage="No brands match your filters."
           compact
+          exportable
         />
 
         {/* Methodology & Sources */}

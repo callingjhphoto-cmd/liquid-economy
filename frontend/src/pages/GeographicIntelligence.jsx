@@ -446,11 +446,11 @@ function RegionTier3({ region, data, onClose }) {
             <div className="space-y-6">
               <div>
                 <SectionHeader size="md">Top Imports</SectionHeader>
-                <DataTable columns={tradeColumns} data={data.importExport.topImports} compact className="mt-2" />
+                <DataTable columns={tradeColumns} data={data.importExport.topImports} compact exportable className="mt-2" />
               </div>
               <div>
                 <SectionHeader size="md">Top Exports</SectionHeader>
-                <DataTable columns={tradeColumns} data={data.importExport.topExports} compact className="mt-2" />
+                <DataTable columns={tradeColumns} data={data.importExport.topExports} compact exportable className="mt-2" />
               </div>
             </div>
           )}
@@ -494,7 +494,7 @@ function RegionTier3({ region, data, onClose }) {
           {deepTab === 'duty' && data.dutyTariff && (
             <div>
               <SectionHeader size="md">Duty & Tariff Structure</SectionHeader>
-              <DataTable columns={dutyColumns} data={data.dutyTariff} compact className="mt-2" />
+              <DataTable columns={dutyColumns} data={data.dutyTariff} compact exportable className="mt-2" />
             </div>
           )}
 
@@ -502,7 +502,7 @@ function RegionTier3({ region, data, onClose }) {
           {deepTab === 'distributors' && data.distributorLandscape && (
             <div>
               <SectionHeader size="md">Distributor Landscape</SectionHeader>
-              <DataTable columns={distColumns} data={data.distributorLandscape} compact className="mt-2" />
+              <DataTable columns={distColumns} data={data.distributorLandscape} compact exportable className="mt-2" />
             </div>
           )}
 

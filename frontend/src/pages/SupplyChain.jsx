@@ -411,6 +411,7 @@ export default function SupplyChain() {
               searchable
               searchPlaceholder="Search commodities\u2026"
               searchKey="label"
+              exportable
             />
           )}
         </div>
@@ -611,6 +612,7 @@ export default function SupplyChain() {
               searchable
               searchPlaceholder="Search brands\u2026"
               searchKey="brand"
+              exportable
             />
           )}
         </div>

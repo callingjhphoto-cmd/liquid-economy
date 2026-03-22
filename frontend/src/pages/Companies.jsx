@@ -578,6 +578,7 @@ function CompanyTier3({ company, onClose }) {
                 columns={finColumns}
                 data={finData}
                 compact
+                exportable
                 emptyMessage="No financial data available"
               />
             </div>
@@ -594,6 +595,7 @@ function CompanyTier3({ company, onClose }) {
                   searchPlaceholder="Search M&A history\u2026"
                   searchKey="deal"
                   compact
+                  exportable
                   className="mt-3"
                 />
               ) : (

@@ -657,6 +657,7 @@ function CategoryDetail({ cat, year, onBack }) {
                 columns={fullDataTableColumns}
                 data={fullDataTableRows}
                 compact
+                exportable
               />
 
               {/* All sources */}

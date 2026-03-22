@@ -466,6 +466,7 @@ export default function POSIntelligence() {
               searchPlaceholder="Search all factories..."
               searchKey="name"
               compact
+              exportable
             />
           )}
         </div>
@@ -567,6 +568,7 @@ export default function POSIntelligence() {
             searchable
             searchPlaceholder="Search POS items..."
             searchKey="item"
+            exportable
           />
           <Card className="bg-amber-50 border-amber-200">
             <div className="flex items-start gap-3">

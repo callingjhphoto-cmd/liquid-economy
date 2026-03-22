@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react'
+import React, { useState, useCallback, useEffect, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import {
   TrendingUp, TrendingDown, Globe, BarChart3, Zap, ArrowUpRight,
@@ -628,27 +628,74 @@ function DeepDiveCTAs() {
 // INSIGHT BRIEFING SLIDE-OUT
 // ══════════════════════════════════════════════════════════
 
-function InsightBriefing({ briefing, onClose }) {
+function InsightBriefing({ briefing, onClose, triggerRef }) {
+  const panelRef = useRef(null)
+  const closeRef = useRef(null)
+
+  // Focus trap + Escape key
+  useEffect(() => {
+    if (!briefing) return
+    // Focus the panel on open
+    const timer = setTimeout(() => {
+      if (panelRef.current) panelRef.current.focus()
+    }, 50)
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        onClose()
+        return
+      }
+      // Focus trap: cycle Tab within the panel
+      if (e.key === 'Tab' && panelRef.current) {
+        const focusable = panelRef.current.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        )
+        if (focusable.length === 0) return
+        const first = focusable[0]
+        const last = focusable[focusable.length - 1]
+        if (e.shiftKey) {
+          if (document.activeElement === first) { e.preventDefault(); last.focus() }
+        } else {
+          if (document.activeElement === last) { e.preventDefault(); first.focus() }
+        }
+      }
+    }
+    document.addEventListener('keydown', handleKeyDown)
+    return () => {
+      clearTimeout(timer)
+      document.removeEventListener('keydown', handleKeyDown)
+      // Return focus to trigger on close
+      if (triggerRef && triggerRef.current) triggerRef.current.focus()
+    }
+  }, [briefing, onClose, triggerRef])
+
   if (!briefing) return null
   return (
     <>
-      <div className="fixed inset-0 bg-black/30 z-50" onClick={onClose} />
-      <div className="fixed right-0 top-0 bottom-0 w-full max-w-lg bg-white z-50 shadow-2xl overflow-y-auto animate-fadeIn">
+      <div className="fixed inset-0 bg-black/30 z-50" onClick={onClose} aria-hidden="true" />
+      <div
+        ref={panelRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="briefing-title"
+        tabIndex={-1}
+        className="fixed right-0 top-0 bottom-0 w-full max-w-lg bg-white z-50 shadow-2xl overflow-y-auto animate-fadeIn outline-none"
+      >
         <div className="sticky top-0 bg-white border-b border-gray-200 px-5 py-4 flex items-center justify-between z-10">
           <div className="flex items-center gap-2">
             <div className="p-1.5 bg-navy/10 rounded-lg">
               <BookOpen size={16} className="text-navy" />
             </div>
             <div>
-              <h3 className="text-sm font-bold text-navy">Intelligence Brief</h3>
+              <h3 id="briefing-title" className="text-sm font-bold text-navy">Intelligence Brief</h3>
               <p className="text-xs text-gray-500">Auto-generated executive summary</p>
             </div>
           </div>
           <div className="flex items-center gap-1">
-            <button onClick={() => { navigator.clipboard.writeText(`${briefing.title}\n\n${briefing.summary}\n\n${briefing.keyPoints.join('\n')}\n\n${briefing.actionable}`) }} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-400 hover:text-navy transition-colors touch-manipulation" title="Copy to clipboard">
+            <button onClick={() => { navigator.clipboard.writeText(`${briefing.title}\n\n${briefing.summary}\n\n${briefing.keyPoints.join('\n')}\n\n${briefing.actionable}`) }} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-400 hover:text-navy transition-colors touch-manipulation" title="Copy to clipboard" aria-label="Copy briefing to clipboard">
               <Copy size={14} />
             </button>
-            <button onClick={onClose} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-400 hover:text-navy transition-colors touch-manipulation">
+            <button ref={closeRef} onClick={onClose} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-400 hover:text-navy transition-colors touch-manipulation" aria-label="Close briefing panel">
               <X size={16} />
             </button>
           </div>
@@ -702,6 +749,7 @@ export default function CommandCentre() {
   const [activeBriefing, setActiveBriefing] = useState(null)
   const [loading, setLoading] = useState(true)
   const [mobileDetail, setMobileDetail] = useState(null)
+  const briefingTriggerRef = useRef(null)
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 300)
@@ -877,7 +925,7 @@ export default function CommandCentre() {
       </div>
 
       {/* Insight Briefing Slide-Out (desktop) */}
-      <InsightBriefing briefing={activeBriefing} onClose={() => setActiveBriefing(null)} />
+      <InsightBriefing briefing={activeBriefing} onClose={() => setActiveBriefing(null)} triggerRef={briefingTriggerRef} />
 
       {/* Mobile BottomSheet for briefing detail */}
       <BottomSheet

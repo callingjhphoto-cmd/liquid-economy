@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react'
-import { ArrowUpDown, ChevronUp, ChevronDown, Search } from 'lucide-react'
+import { ArrowUpDown, ChevronUp, ChevronDown, Search, Download } from 'lucide-react'
 
 /**
  * DataTable — Sortable, filterable table component.
@@ -13,6 +13,8 @@ import { ArrowUpDown, ChevronUp, ChevronDown, Search } from 'lucide-react'
  * @param {string} [emptyMessage] - Message when no data
  * @param {boolean} [compact=false] - Compact row height
  * @param {function} [onRowClick] - Row click handler, receives row data
+ * @param {boolean} [exportable=false] - Show CSV export button
+ * @param {string} [exportFilename] - Custom filename for CSV export
  * @param {string} [className] - Additional wrapper classes
  */
 export function DataTable({
@@ -24,6 +26,8 @@ export function DataTable({
   emptyMessage = 'No data available',
   compact = false,
   onRowClick,
+  exportable = false,
+  exportFilename,
   className = '',
 }) {
   const [sortKey, setSortKey] = useState(null)
@@ -71,23 +75,54 @@ export function DataTable({
     }
   }
 
+  const exportCSV = () => {
+    const headers = columns.map(c => c.label).join(',')
+    const rows = filteredData.map(row =>
+      columns.map(c => {
+        const val = row[c.key]
+        const str = String(val ?? '')
+        return str.includes(',') || str.includes('"') ? `"${str.replace(/"/g, '""')}"` : str
+      }).join(',')
+    )
+    const csv = [headers, ...rows].join('\n')
+    const blob = new Blob([csv], { type: 'text/csv' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = exportFilename || `liquid_economy_export_${new Date().toISOString().split('T')[0]}.csv`
+    a.click()
+    URL.revokeObjectURL(url)
+  }
+
   const cellPadding = compact ? 'px-3 py-1.5' : 'px-3 py-2.5'
 
   return (
     <div className={`bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden ${className}`}>
-      {/* Search Bar */}
-      {searchable && (
-        <div className="px-4 py-3 border-b border-gray-100">
-          <div className="relative">
-            <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-            <input
-              type="text"
-              value={search}
-              onChange={e => setSearch(e.target.value)}
-              placeholder={searchPlaceholder}
-              className="w-full pl-9 pr-3 py-1.5 text-xs bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-navy/30 focus:bg-white transition-colors"
-            />
-          </div>
+      {/* Toolbar: Search + Export */}
+      {(searchable || exportable) && (
+        <div className="px-4 py-3 border-b border-gray-100 flex items-center gap-3">
+          {searchable && (
+            <div className="relative flex-1">
+              <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+              <input
+                type="text"
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                placeholder={searchPlaceholder}
+                className="w-full pl-9 pr-3 py-1.5 text-xs bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-navy/30 focus:bg-white transition-colors"
+              />
+            </div>
+          )}
+          {exportable && (
+            <button
+              onClick={exportCSV}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-navy bg-navy/5 hover:bg-navy/10 border border-navy/10 rounded-lg transition-colors whitespace-nowrap"
+              title="Download CSV"
+            >
+              <Download size={12} />
+              <span className="hidden sm:inline">Download CSV</span>
+            </button>
+          )}
         </div>
       )}
 

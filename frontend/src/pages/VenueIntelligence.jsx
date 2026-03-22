@@ -565,6 +565,7 @@ export default function VenueIntelligence() {
                   searchPlaceholder="Search bars\u2026"
                   searchKey="name"
                   compact
+                  exportable
                 />
               )}
 
@@ -623,6 +624,7 @@ export default function VenueIntelligence() {
                   searchPlaceholder="Search venues\u2026"
                   searchKey="name"
                   compact
+                  exportable
                 />
               )}
 

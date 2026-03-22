@@ -217,6 +217,7 @@ export default function Valuations() {
             ]}
             data={SECTOR_MULTIPLES}
             compact
+            exportable
           />
         </div>
       </DrillDown>
@@ -301,6 +302,7 @@ export default function Valuations() {
             searchPlaceholder="Search deals\u2026"
             searchKey="target"
             compact
+            exportable
           />
         </div>
       </DrillDown>
@@ -418,6 +420,7 @@ function FullBrandTable() {
       searchable
       searchPlaceholder="Search brands\u2026"
       searchKey="brand"
+      exportable
     />
   )
 }

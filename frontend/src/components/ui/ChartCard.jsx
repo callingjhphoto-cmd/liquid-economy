@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ResponsiveContainer } from 'recharts'
-import { ExternalLink } from 'lucide-react'
+import { ExternalLink, Copy, Check } from 'lucide-react'
 
 /**
  * ChartCard — Consistent wrapper for Recharts visualizations.
@@ -26,16 +26,37 @@ export function ChartCard({
   children,
   className = '',
   'aria-label': ariaLabel,
+  copyData,
 }) {
+  const [copied, setCopied] = useState(false)
+
+  const handleCopy = () => {
+    const text = copyData || `${title}${subtitle ? ' \u2014 ' + subtitle : ''}${source ? '\nSource: ' + source : ''}`
+    navigator.clipboard.writeText(text).then(() => {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 1500)
+    })
+  }
+
   return (
-    <div role="figure" aria-label={ariaLabel || title} className={`bg-white rounded-xl shadow-sm border border-gray-100 p-5 ${className}`}>
+    <div role="figure" aria-label={ariaLabel || title} className={`bg-white rounded-xl shadow-sm border border-gray-100 p-5 group/chart ${className}`}>
       {/* Header */}
       <div className="flex items-start justify-between mb-4">
         <div>
           <h3 className="font-display text-sm font-semibold text-navy">{title}</h3>
           {subtitle && <p className="text-xs text-gray-500 mt-0.5">{subtitle}</p>}
         </div>
-        {action && <div>{action}</div>}
+        <div className="flex items-center gap-1">
+          <button
+            onClick={handleCopy}
+            className="p-1.5 rounded-md opacity-0 group-hover/chart:opacity-100 hover:bg-gray-100 text-gray-400 hover:text-navy transition-all"
+            title={copied ? 'Copied!' : 'Copy chart info'}
+            aria-label="Copy chart info to clipboard"
+          >
+            {copied ? <Check size={12} className="text-emerald-500" /> : <Copy size={12} />}
+          </button>
+          {action && <div>{action}</div>}
+        </div>
       </div>
 
       {/* Chart Area */}

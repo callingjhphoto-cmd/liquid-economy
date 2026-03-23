@@ -94,20 +94,20 @@ export const CATEGORIES = [
           },
         ],
         brands: {
-          highEnd: ['Clase Azul', 'Don Julio 1942', 'Patrón XO Cafe', 'Tequila Ocho', 'G4'],
+          highEnd: ['Clase Azul', 'Don Julio 1942', 'Patrón Añejo', 'Tequila Ocho', 'G4'],
           midTier: ['Patrón Silver', 'Don Julio Blanco', 'Herradura', 'José Cuervo Reserva', 'Tapatio'],
           value: ['Sauza', 'El Jimador', 'Espolon', 'Milagro Silver', 'Centenario']
         },
         channels: { onTrade: 38.0, offTrade: 42.1, eCommerce: 11.8, travelRetail: 8.1 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 32,   // % ACV distribution
-          ceDepletions: 92000000,  // case equivalent depletions
+          ceDepletions: 133000000,  // case equivalent depletions
           billback: 8.5,          // % average billback/discount
           grossMarginPct: 62,       // % gross margin
           cac: 45,               // $ customer acquisition cost
           itr: 6,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Aged and ultra-premium tequila (añejo/extra añejo) growing faster than blanco, driven by cocktail culture maturation', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
@@ -205,20 +205,20 @@ export const CATEGORIES = [
           },
         ],
         brands: {
-          highEnd: ['Clase Azul', 'Don Julio 1942', 'Patrón XO Cafe', 'Tequila Ocho', 'G4'],
+          highEnd: ['Clase Azul', 'Don Julio 1942', 'Patrón Añejo', 'Tequila Ocho', 'G4'],
           midTier: ['Patrón Silver', 'Don Julio Blanco', 'Herradura', 'Milagro Select', 'Tapatio'],
           value: ['Sauza', 'El Jimador', 'Espolon', 'Centenario', 'Montezuma']
         },
         channels: { onTrade: 38.8, offTrade: 43.1, eCommerce: 10.3, travelRetail: 7.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 30,   // % ACV distribution
-          ceDepletions: 86000000,  // case equivalent depletions
+          ceDepletions: 123000000,  // case equivalent depletions
           billback: 8.2,          // % average billback/discount
           grossMarginPct: 61,       // % gross margin
           cac: 47,               // $ customer acquisition cost
           itr: 6,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Añejo tequila (aged 1–3 years) surged 19% as craft cocktail programs emphasize sipping-quality spirits', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
@@ -288,20 +288,20 @@ export const CATEGORIES = [
           },
         ],
         brands: {
-          highEnd: ['Clase Azul', 'Don Julio 1942', 'Patrón XO Cafe', 'Tequila Ocho', 'Fortaleza'],
+          highEnd: ['Clase Azul', 'Don Julio 1942', 'Patrón Añejo', 'Tequila Ocho', 'Fortaleza'],
           midTier: ['Patrón Silver', 'Don Julio Blanco', 'Herradura', 'Milagro', 'Tapatio'],
           value: ['Sauza', 'El Jimador', 'Espolon', 'Centenario', 'Montezuma']
         },
         channels: { onTrade: 40.1, offTrade: 44.5, eCommerce: 7.7, travelRetail: 7.7 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 28,   // % ACV distribution
-          ceDepletions: 79000000,  // case equivalent depletions
+          ceDepletions: 112000000,  // case equivalent depletions
           billback: 7.8,          // % average billback/discount
           grossMarginPct: 60,       // % gross margin
           cac: 50,               // $ customer acquisition cost
           itr: 5,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Blanco tequila facing slight headwinds as premium aged variants claim younger drinker preference', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
@@ -375,13 +375,13 @@ export const CATEGORIES = [
         channels: { onTrade: 35.3, offTrade: 51.8, eCommerce: 8.1, travelRetail: 4.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 26,   // % ACV distribution
-          ceDepletions: 71000000,  // case equivalent depletions
+          ceDepletions: 101000000,  // case equivalent depletions
           billback: 7.5,          // % average billback/discount
           grossMarginPct: 58,       // % gross margin
           cac: 53,               // $ customer acquisition cost
           itr: 5,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Pandemic at-home consumption driving tequila premiumization; aged variants surged 25% YoY', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
@@ -455,13 +455,13 @@ export const CATEGORIES = [
         channels: { onTrade: 41.4, offTrade: 48.6, eCommerce: 4.8, travelRetail: 5.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 24,   // % ACV distribution
-          ceDepletions: 64000000,  // case equivalent depletions
+          ceDepletions: 92000000,  // case equivalent depletions
           billback: 7.2,          // % average billback/discount
           grossMarginPct: 57,       // % gross margin
           cac: 56,               // $ customer acquisition cost
           itr: 5,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Spirits category entered pandemic boom; tequila became trendy with younger demographics', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
@@ -570,13 +570,13 @@ export const CATEGORIES = [
         channels: { onTrade: 34.7, offTrade: 51.9, eCommerce: 8.3, travelRetail: 5.1 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 78,   // % ACV distribution
-          ceDepletions: 335000000,  // case equivalent depletions
+          ceDepletions: 1435000000,  // case equivalent depletions
           billback: 12.5,          // % average billback/discount
           grossMarginPct: 44,       // % gross margin
           cac: 28,               // $ customer acquisition cost
           itr: 7,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'RTD vodka-based cocktails gaining +18% CAGR; consumers prefer convenience over premiumization', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
@@ -677,13 +677,13 @@ export const CATEGORIES = [
         channels: { onTrade: 35.9, offTrade: 51.0, eCommerce: 8.1, travelRetail: 5.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 77,   // % ACV distribution
-          ceDepletions: 338000000,  // case equivalent depletions
+          ceDepletions: 1451000000,  // case equivalent depletions
           billback: 12.2,          // % average billback/discount
           grossMarginPct: 43,       // % gross margin
           cac: 29,               // $ customer acquisition cost
           itr: 7,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Vodka losing mindshare to craft spirits among younger demographics; gin and whisky perceived as more sophisticated', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
@@ -785,13 +785,13 @@ export const CATEGORIES = [
         channels: { onTrade: 37.1, offTrade: 50.0, eCommerce: 8.0, travelRetail: 4.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 76,   // % ACV distribution
-          ceDepletions: 340000000,  // case equivalent depletions
+          ceDepletions: 1466000000,  // case equivalent depletions
           billback: 11.8,          // % average billback/discount
           grossMarginPct: 43,       // % gross margin
           cac: 30,               // $ customer acquisition cost
           itr: 6,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Vodka category stabilizing post-COVID; growth rates normalizing from pandemic inflation', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
@@ -892,13 +892,13 @@ export const CATEGORIES = [
         channels: { onTrade: 38.0, offTrade: 49.3, eCommerce: 7.8, travelRetail: 4.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 75,   // % ACV distribution
-          ceDepletions: 332000000,  // case equivalent depletions
+          ceDepletions: 1482000000,  // case equivalent depletions
           billback: 11.5,          // % average billback/discount
           grossMarginPct: 42,       // % gross margin
           cac: 31,               // $ customer acquisition cost
           itr: 6,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Vodka sales remained relatively stable during broader spirits growth; category losing momentum vs peers', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
@@ -999,13 +999,13 @@ export const CATEGORIES = [
         channels: { onTrade: 42.3, offTrade: 46.5, eCommerce: 6.2, travelRetail: 5.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 74,   // % ACV distribution
-          ceDepletions: 325000000,  // case equivalent depletions
+          ceDepletions: 1498000000,  // case equivalent depletions
           billback: 11.2,          // % average billback/discount
           grossMarginPct: 41,       // % gross margin
           cac: 32,               // $ customer acquisition cost
           itr: 6,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Vodka category contracted during pandemic spirits boom; consumers preferring flavored spirits and tequila', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com/global-spirits-report' },
@@ -1123,13 +1123,13 @@ export const CATEGORIES = [
         channels: { onTrade: 48.5, offTrade: 41.8, eCommerce: 6.8, travelRetail: 2.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 52,   // % ACV distribution
-          ceDepletions: 125000000,  // case equivalent depletions
+          ceDepletions: 62000000,  // case equivalent depletions
           billback: 9.0,          // % average billback/discount
           grossMarginPct: 56,       // % gross margin
           cac: 38,               // $ customer acquisition cost
           itr: 6,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Japanese gin category growing at +22% YoY, driven by Roku and Ki No Bi premiumization', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
@@ -1238,13 +1238,13 @@ export const CATEGORIES = [
         channels: { onTrade: 46.4, offTrade: 43.7, eCommerce: 7.2, travelRetail: 2.7 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 50,   // % ACV distribution
-          ceDepletions: 122000000,  // case equivalent depletions
+          ceDepletions: 60000000,  // case equivalent depletions
           billback: 8.8,          // % average billback/discount
           grossMarginPct: 55,       // % gross margin
           cac: 40,               // $ customer acquisition cost
           itr: 6,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Roku gin achieves 20% YoY growth becoming fastest-growing premium gin globally', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
@@ -1353,13 +1353,13 @@ export const CATEGORIES = [
         channels: { onTrade: 46.0, offTrade: 44.0, eCommerce: 7.2, travelRetail: 2.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 48,   // % ACV distribution
-          ceDepletions: 118000000,  // case equivalent depletions
+          ceDepletions: 59000000,  // case equivalent depletions
           billback: 8.5,          // % average billback/discount
           grossMarginPct: 55,       // % gross margin
           cac: 42,               // $ customer acquisition cost
           itr: 6,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Pink gin trend approaching saturation with growth decelerating', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
@@ -1468,13 +1468,13 @@ export const CATEGORIES = [
         channels: { onTrade: 44.9, offTrade: 45.1, eCommerce: 7.2, travelRetail: 2.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 46,   // % ACV distribution
-          ceDepletions: 112000000,  // case equivalent depletions
+          ceDepletions: 56000000,  // case equivalent depletions
           billback: 8.2,          // % average billback/discount
           grossMarginPct: 54,       // % gross margin
           cac: 44,               // $ customer acquisition cost
           itr: 5,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Pink gin trend continues strong growth, driving novelty purchases and trial', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
@@ -1583,13 +1583,13 @@ export const CATEGORIES = [
         channels: { onTrade: 41.7, offTrade: 48.3, eCommerce: 6.8, travelRetail: 3.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 44,   // % ACV distribution
-          ceDepletions: 105000000,  // case equivalent depletions
+          ceDepletions: 54000000,  // case equivalent depletions
           billback: 7.8,          // % average billback/discount
           grossMarginPct: 53,       // % gross margin
           cac: 46,               // $ customer acquisition cost
           itr: 5,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Pink gin phenomenon accelerates with mass-market brands entering category', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
@@ -1712,13 +1712,13 @@ export const CATEGORIES = [
         channels: { onTrade: 34.8, offTrade: 52.1, eCommerce: 4.2, travelRetail: 8.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 48,   // % ACV distribution
-          ceDepletions: 78000000,  // case equivalent depletions
+          ceDepletions: 289000000,  // case equivalent depletions
           billback: 9.5,          // % average billback/discount
           grossMarginPct: 58,       // % gross margin
           cac: 40,               // $ customer acquisition cost
           itr: 5,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Japanese whisky supply crisis intensifies, premium prices surge 35%+ YoY', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
@@ -1831,13 +1831,13 @@ export const CATEGORIES = [
         channels: { onTrade: 36.4, offTrade: 50.9, eCommerce: 3.7, travelRetail: 9.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 47,   // % ACV distribution
-          ceDepletions: 75000000,  // case equivalent depletions
+          ceDepletions: 279000000,  // case equivalent depletions
           billback: 9.2,          // % average billback/discount
           grossMarginPct: 57,       // % gross margin
           cac: 42,               // $ customer acquisition cost
           itr: 5,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Japanese whisky scarcity driving 25%+ price premiums in secondary markets', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
@@ -1950,13 +1950,13 @@ export const CATEGORIES = [
         channels: { onTrade: 36.2, offTrade: 50.2, eCommerce: 4.4, travelRetail: 9.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 46,   // % ACV distribution
-          ceDepletions: 72000000,  // case equivalent depletions
+          ceDepletions: 269000000,  // case equivalent depletions
           billback: 8.8,          // % average billback/discount
           grossMarginPct: 56,       // % gross margin
           cac: 44,               // $ customer acquisition cost
           itr: 5,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Chinese whisky market surges 12%+ driven by luxury consumption recovery', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
@@ -2069,13 +2069,13 @@ export const CATEGORIES = [
         channels: { onTrade: 37.8, offTrade: 49.3, eCommerce: 3.7, travelRetail: 9.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 45,   // % ACV distribution
-          ceDepletions: 69000000,  // case equivalent depletions
+          ceDepletions: 258000000,  // case equivalent depletions
           billback: 8.5,          // % average billback/discount
           grossMarginPct: 55,       // % gross margin
           cac: 46,               // $ customer acquisition cost
           itr: 4,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Chinese whisky market experiences explosive growth as ultra-wealthy consumers adopt premium spirits', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
@@ -2188,13 +2188,13 @@ export const CATEGORIES = [
         channels: { onTrade: 40.0, offTrade: 47.0, eCommerce: 3.8, travelRetail: 9.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 44,   // % ACV distribution
-          ceDepletions: 66000000,  // case equivalent depletions
+          ceDepletions: 248000000,  // case equivalent depletions
           billback: 8.2,          // % average billback/discount
           grossMarginPct: 54,       // % gross margin
           cac: 48,               // $ customer acquisition cost
           itr: 4,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Bourbon boom accelerates with craft distillery expansion and allocation systems emerging', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
@@ -2315,13 +2315,13 @@ export const CATEGORIES = [
         channels: { onTrade: 41.9, offTrade: 48.1, eCommerce: 4.9, travelRetail: 5.1 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 42,   // % ACV distribution
-          ceDepletions: 175000000,  // case equivalent depletions
+          ceDepletions: 67000000,  // case equivalent depletions
           billback: 8.8,          // % average billback/discount
           grossMarginPct: 54,       // % gross margin
           cac: 36,               // $ customer acquisition cost
           itr: 6,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Aged rum segment growing +8% YoY as premium positioning strengthens', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
@@ -2432,13 +2432,13 @@ export const CATEGORIES = [
         channels: { onTrade: 40.3, offTrade: 49.2, eCommerce: 5.3, travelRetail: 5.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 40,   // % ACV distribution
-          ceDepletions: 170000000,  // case equivalent depletions
+          ceDepletions: 65000000,  // case equivalent depletions
           billback: 8.5,          // % average billback/discount
           grossMarginPct: 53,       // % gross margin
           cac: 38,               // $ customer acquisition cost
           itr: 6,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Premium aged rum achieves +10% growth as consumer trading up accelerates', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
@@ -2549,13 +2549,13 @@ export const CATEGORIES = [
         channels: { onTrade: 40.5, offTrade: 49.5, eCommerce: 5.0, travelRetail: 5.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 38,   // % ACV distribution
-          ceDepletions: 165000000,  // case equivalent depletions
+          ceDepletions: 63000000,  // case equivalent depletions
           billback: 8.2,          // % average billback/discount
           grossMarginPct: 52,       // % gross margin
           cac: 40,               // $ customer acquisition cost
           itr: 6,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Aged rum category growing +9% YoY exceeding overall category growth', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
@@ -2666,13 +2666,13 @@ export const CATEGORIES = [
         channels: { onTrade: 38.4, offTrade: 51.7, eCommerce: 5.0, travelRetail: 4.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 36,   // % ACV distribution
-          ceDepletions: 158000000,  // case equivalent depletions
+          ceDepletions: 61000000,  // case equivalent depletions
           billback: 7.8,          // % average billback/discount
           grossMarginPct: 51,       // % gross margin
           cac: 42,               // $ customer acquisition cost
           itr: 5,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Post-pandemic on-trade recovery driving rum cocktail culture growth', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
@@ -2783,13 +2783,13 @@ export const CATEGORIES = [
         channels: { onTrade: 35.8, offTrade: 53.0, eCommerce: 4.9, travelRetail: 6.3 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 34,   // % ACV distribution
-          ceDepletions: 152000000,  // case equivalent depletions
+          ceDepletions: 59000000,  // case equivalent depletions
           billback: 7.5,          // % average billback/discount
           grossMarginPct: 50,       // % gross margin
           cac: 44,               // $ customer acquisition cost
           itr: 5,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Spiced rum trend accelerates with mass-market brand entries', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
@@ -2912,13 +2912,13 @@ export const CATEGORIES = [
         channels: { onTrade: 34.5, offTrade: 42.7, eCommerce: 11.0, travelRetail: 11.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 28,   // % ACV distribution
-          ceDepletions: 22000000,  // case equivalent depletions
+          ceDepletions: 8300000,  // case equivalent depletions
           billback: 7.2,          // % average billback/discount
           grossMarginPct: 64,       // % gross margin
           cac: 52,               // $ customer acquisition cost
           itr: 4,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Nigerian market emergence driving 12%+ growth, younger demographics shifting from traditional to contemporary brands', source: 'The Spirits Business Annual Review', url: 'https://thespiritsbusiness.com' },
@@ -3031,13 +3031,13 @@ export const CATEGORIES = [
         channels: { onTrade: 36.2, offTrade: 42.6, eCommerce: 9.9, travelRetail: 11.3 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 27,   // % ACV distribution
-          ceDepletions: 23000000,  // case equivalent depletions
+          ceDepletions: 8100000,  // case equivalent depletions
           billback: 7.0,          // % average billback/discount
           grossMarginPct: 63,       // % gross margin
           cac: 54,               // $ customer acquisition cost
           itr: 4,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'China gifting market contraction accelerating as anti-corruption enforcement deepens', source: 'The Spirits Business Annual Review', url: 'https://thespiritsbusiness.com' },
@@ -3150,13 +3150,13 @@ export const CATEGORIES = [
         channels: { onTrade: 36.4, offTrade: 44.8, eCommerce: 9.0, travelRetail: 9.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 26,   // % ACV distribution
-          ceDepletions: 24000000,  // case equivalent depletions
+          ceDepletions: 7900000,  // case equivalent depletions
           billback: 6.8,          // % average billback/discount
           grossMarginPct: 62,       // % gross margin
           cac: 56,               // $ customer acquisition cost
           itr: 4,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'China anti-corruption regulations implemented, gifting market structurally diminished', source: 'The Spirits Business Annual Review', url: 'https://thespiritsbusiness.com' },
@@ -3268,13 +3268,13 @@ export const CATEGORIES = [
         channels: { onTrade: 38.3, offTrade: 42.7, eCommerce: 11.3, travelRetail: 7.7 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 25,   // % ACV distribution
-          ceDepletions: 25000000,  // case equivalent depletions
+          ceDepletions: 7700000,  // case equivalent depletions
           billback: 6.5,          // % average billback/discount
           grossMarginPct: 61,       // % gross margin
           cac: 58,               // $ customer acquisition cost
           itr: 4,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'US market acceleration driven by hip-hop cultural moment and luxury positioning', source: 'The Spirits Business Annual Review', url: 'https://thespiritsbusiness.com' },
@@ -3386,13 +3386,13 @@ export const CATEGORIES = [
         channels: { onTrade: 32.6, offTrade: 48.0, eCommerce: 13.5, travelRetail: 5.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 24,   // % ACV distribution
-          ceDepletions: 26000000,  // case equivalent depletions
+          ceDepletions: 7500000,  // case equivalent depletions
           billback: 6.2,          // % average billback/discount
           grossMarginPct: 60,       // % gross margin
           cac: 60,               // $ customer acquisition cost
           itr: 4,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Post-pandemic celebration surge driving 22%+ growth in US on-premise hospitality recovery', source: 'The Spirits Business Annual Review', url: 'https://thespiritsbusiness.com' },
@@ -3514,13 +3514,13 @@ export const CATEGORIES = [
         channels: { onTrade: 44.8, offTrade: 40.0, eCommerce: 5.1, travelRetail: 10.1 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 38,   // % ACV distribution
-          ceDepletions: 34000000,  // case equivalent depletions
+          ceDepletions: 215000000,  // case equivalent depletions
           billback: 8.0,          // % average billback/discount
           grossMarginPct: 58,       // % gross margin
           cac: 48,               // $ customer acquisition cost
           itr: 4,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Rosé champagne category growing 8%+ YoY, driven by younger demographic appeal and restaurant promotion', source: 'The Spirits Business Annual Review', url: 'https://thespiritsbusiness.com' },
@@ -3632,13 +3632,13 @@ export const CATEGORIES = [
         channels: { onTrade: 45.3, offTrade: 39.6, eCommerce: 5.1, travelRetail: 10.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 37,   // % ACV distribution
-          ceDepletions: 33000000,  // case equivalent depletions
+          ceDepletions: 210000000,  // case equivalent depletions
           billback: 7.8,          // % average billback/discount
           grossMarginPct: 57,       // % gross margin
           cac: 50,               // $ customer acquisition cost
           itr: 4,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Prosecco cannibalizing entry-level champagne share in off-trade channel, particularly Europe', source: 'The Spirits Business Annual Review', url: 'https://thespiritsbusiness.com' },
@@ -3750,13 +3750,13 @@ export const CATEGORIES = [
         channels: { onTrade: 43.8, offTrade: 40.9, eCommerce: 5.2, travelRetail: 10.1 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 36,   // % ACV distribution
-          ceDepletions: 32000000,  // case equivalent depletions
+          ceDepletions: 203000000,  // case equivalent depletions
           billback: 7.5,          // % average billback/discount
           grossMarginPct: 56,       // % gross margin
           cac: 52,               // $ customer acquisition cost
           itr: 4,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Prosecco market share gains accelerating at expense of entry-level champagne across Europe', source: 'The Spirits Business Annual Review', url: 'https://thespiritsbusiness.com' },
@@ -3868,13 +3868,13 @@ export const CATEGORIES = [
         channels: { onTrade: 42.4, offTrade: 42.4, eCommerce: 8.2, travelRetail: 7.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 35,   // % ACV distribution
-          ceDepletions: 30000000,  // case equivalent depletions
+          ceDepletions: 196000000,  // case equivalent depletions
           billback: 7.2,          // % average billback/discount
           grossMarginPct: 55,       // % gross margin
           cac: 54,               // $ customer acquisition cost
           itr: 3,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Post-pandemic celebration surge driving on-premise champagne consumption recovery', source: 'The Spirits Business Annual Review', url: 'https://thespiritsbusiness.com' },
@@ -3986,13 +3986,13 @@ export const CATEGORIES = [
         channels: { onTrade: 37.5, offTrade: 48.6, eCommerce: 10.1, travelRetail: 3.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 34,   // % ACV distribution
-          ceDepletions: 29000000,  // case equivalent depletions
+          ceDepletions: 193000000,  // case equivalent depletions
           billback: 7.0,          // % average billback/discount
           grossMarginPct: 54,       // % gross margin
           cac: 56,               // $ customer acquisition cost
           itr: 3,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Record celebration demand surge as lockdowns ended and pent-up occasion consumption released', source: 'The Spirits Business Annual Review', url: 'https://thespiritsbusiness.com' },
@@ -4112,13 +4112,13 @@ export const CATEGORIES = [
         channels: { onTrade: 30.0, offTrade: 55.1, eCommerce: 7.7, travelRetail: 7.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 58,   // % ACV distribution
-          ceDepletions: 2600000000,  // case equivalent depletions
+          ceDepletions: 2370000000,  // case equivalent depletions
           billback: 10.5,          // % average billback/discount
           grossMarginPct: 50,       // % gross margin
           cac: 32,               // $ customer acquisition cost
           itr: 5,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Younger demographic consumption volume declining 5%+ YoY as generational shift accelerates', source: 'The IWSR', url: 'https://theiwsr.com' },
@@ -4230,13 +4230,13 @@ export const CATEGORIES = [
         channels: { onTrade: 29.6, offTrade: 56.3, eCommerce: 6.8, travelRetail: 7.3 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 56,   // % ACV distribution
-          ceDepletions: 2650000000,  // case equivalent depletions
+          ceDepletions: 2394000000,  // case equivalent depletions
           billback: 10.2,          // % average billback/discount
           grossMarginPct: 49,       // % gross margin
           cac: 33,               // $ customer acquisition cost
           itr: 5,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'China wine market collapse accelerating to -22.1% YoY as trade tensions persist', source: 'The IWSR', url: 'https://theiwsr.com' },
@@ -4348,13 +4348,13 @@ export const CATEGORIES = [
         channels: { onTrade: 31.2, offTrade: 55.1, eCommerce: 6.7, travelRetail: 7.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 54,   // % ACV distribution
-          ceDepletions: 2700000000,  // case equivalent depletions
+          ceDepletions: 2419000000,  // case equivalent depletions
           billback: 9.8,          // % average billback/discount
           grossMarginPct: 48,       // % gross margin
           cac: 34,               // $ customer acquisition cost
           itr: 5,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'China wine market collapsed -18.5% YoY from 2020 peak as trade restrictions tightened', source: 'The IWSR', url: 'https://theiwsr.com' },
@@ -4466,13 +4466,13 @@ export const CATEGORIES = [
         channels: { onTrade: 31.8, offTrade: 54.2, eCommerce: 8.0, travelRetail: 6.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 52,   // % ACV distribution
-          ceDepletions: 2750000000,  // case equivalent depletions
+          ceDepletions: 2444000000,  // case equivalent depletions
           billback: 9.5,          // % average billback/discount
           grossMarginPct: 47,       // % gross margin
           cac: 35,               // $ customer acquisition cost
           itr: 5,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Post-pandemic at-home consumption sustaining off-trade growth at 54%', source: 'The IWSR', url: 'https://theiwsr.com' },
@@ -4584,13 +4584,13 @@ export const CATEGORIES = [
         channels: { onTrade: 27.7, offTrade: 60.1, eCommerce: 6.2, travelRetail: 6.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 50,   // % ACV distribution
-          ceDepletions: 2800000000,  // case equivalent depletions
+          ceDepletions: 2460000000,  // case equivalent depletions
           billback: 9.2,          // % average billback/discount
           grossMarginPct: 46,       // % gross margin
           cac: 36,               // $ customer acquisition cost
           itr: 4,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Pandemic-driven at-home consumption surge boosting off-trade to 60% channel dominance', source: 'The IWSR', url: 'https://theiwsr.com' },
@@ -4713,13 +4713,13 @@ export const CATEGORIES = [
         channels: { onTrade: 34.8, offTrade: 57.4, eCommerce: 2.8, travelRetail: 5.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 72,   // % ACV distribution
-          ceDepletions: 1900000000,  // case equivalent depletions
+          ceDepletions: 1716000000,  // case equivalent depletions
           billback: 14.0,          // % average billback/discount
           grossMarginPct: 46,       // % gross margin
           cac: 22,               // $ customer acquisition cost
-          itr: 18,               // inventory turnover ratio
+          itr: 10,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Mexican lager category surging with Corona and Modelo gaining share in North America', source: 'Brewers Association', url: 'https://www.brewersassociation.org' },
@@ -4832,13 +4832,13 @@ export const CATEGORIES = [
         channels: { onTrade: 34.2, offTrade: 58.1, eCommerce: 2.3, travelRetail: 5.4 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 71,   // % ACV distribution
-          ceDepletions: 1880000000,  // case equivalent depletions
+          ceDepletions: 1742000000,  // case equivalent depletions
           billback: 13.5,          // % average billback/discount
           grossMarginPct: 45,       // % gross margin
           cac: 23,               // $ customer acquisition cost
-          itr: 18,               // inventory turnover ratio
+          itr: 10,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Bud Light continues recovery trajectory as market stabilizes post-boycott', source: 'Brewers Association', url: 'https://www.brewersassociation.org' },
@@ -4951,13 +4951,13 @@ export const CATEGORIES = [
         channels: { onTrade: 33.5, offTrade: 59.1, eCommerce: 1.9, travelRetail: 5.5 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 70,   // % ACV distribution
-          ceDepletions: 1860000000,  // case equivalent depletions
+          ceDepletions: 1769000000,  // case equivalent depletions
           billback: 13.0,          // % average billback/discount
           grossMarginPct: 45,       // % gross margin
           cac: 24,               // $ customer acquisition cost
-          itr: 17,               // inventory turnover ratio
+          itr: 9,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Bud Light boycott in US created unprecedented market share disruption', source: 'Brewers Association', url: 'https://www.brewersassociation.org' },
@@ -5070,13 +5070,13 @@ export const CATEGORIES = [
         channels: { onTrade: 32.8, offTrade: 60.3, eCommerce: 1.5, travelRetail: 5.4 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 69,   // % ACV distribution
-          ceDepletions: 1840000000,  // case equivalent depletions
+          ceDepletions: 1786000000,  // case equivalent depletions
           billback: 12.5,          // % average billback/discount
           grossMarginPct: 44,       // % gross margin
           cac: 25,               // $ customer acquisition cost
-          itr: 17,               // inventory turnover ratio
+          itr: 9,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Post-COVID rebound driving on-trade recovery and premiumization acceleration', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
@@ -5189,13 +5189,13 @@ export const CATEGORIES = [
         channels: { onTrade: 31.2, offTrade: 62.1, eCommerce: 1.2, travelRetail: 5.5 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 68,   // % ACV distribution
-          ceDepletions: 1820000000,  // case equivalent depletions
+          ceDepletions: 1804000000,  // case equivalent depletions
           billback: 12.0,          // % average billback/discount
           grossMarginPct: 43,       // % gross margin
           cac: 26,               // $ customer acquisition cost
-          itr: 16,               // inventory turnover ratio
+          itr: 8,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Home consumption surge during COVID-19 lockdowns driving off-trade channel growth', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
@@ -5315,13 +5315,13 @@ export const CATEGORIES = [
         channels: { onTrade: 32.5, offTrade: 52.9, eCommerce: 11.8, travelRetail: 2.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 26,   // % ACV distribution
-          ceDepletions: 85000000,  // case equivalent depletions
+          ceDepletions: 74000000,  // case equivalent depletions
           billback: 6.5,          // % average billback/discount
           grossMarginPct: 42,       // % gross margin
           cac: 58,               // $ customer acquisition cost
-          itr: 15,               // inventory turnover ratio
+          itr: 9,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Major spirits companies launching 0.0% line extensions across portfolio', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
@@ -5431,13 +5431,13 @@ export const CATEGORIES = [
         channels: { onTrade: 29.8, offTrade: 54.1, eCommerce: 13.3, travelRetail: 2.8 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 22,   // % ACV distribution
-          ceDepletions: 72000000,  // case equivalent depletions
+          ceDepletions: 62000000,  // case equivalent depletions
           billback: 6.0,          // % average billback/discount
           grossMarginPct: 40,       // % gross margin
           cac: 62,               // $ customer acquisition cost
-          itr: 14,               // inventory turnover ratio
+          itr: 8,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Athletic Brewing expansion into UK and European markets accelerating', source: 'The Spirits Business Annual Review', url: 'https://www.thespiritsbusiness.com' },
@@ -5547,13 +5547,13 @@ export const CATEGORIES = [
         channels: { onTrade: 27.9, offTrade: 55.0, eCommerce: 11.7, travelRetail: 5.4 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 18,   // % ACV distribution
-          ceDepletions: 58000000,  // case equivalent depletions
+          ceDepletions: 52000000,  // case equivalent depletions
           billback: 5.5,          // % average billback/discount
           grossMarginPct: 38,       // % gross margin
           cac: 68,               // $ customer acquisition cost
-          itr: 12,               // inventory turnover ratio
+          itr: 8,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Athletic Brewing achieving breakout success with premium DTC positioning', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
@@ -5663,13 +5663,13 @@ export const CATEGORIES = [
         channels: { onTrade: 24.9, offTrade: 56.5, eCommerce: 10.7, travelRetail: 7.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 15,   // % ACV distribution
-          ceDepletions: 45000000,  // case equivalent depletions
+          ceDepletions: 42000000,  // case equivalent depletions
           billback: 5.0,          // % average billback/discount
           grossMarginPct: 36,       // % gross margin
           cac: 74,               // $ customer acquisition cost
-          itr: 10,               // inventory turnover ratio
+          itr: 7,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Wellness-focused consumers driving rapid adoption of no/low alcohol beverages', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
@@ -5779,13 +5779,13 @@ export const CATEGORIES = [
         channels: { onTrade: 21.9, offTrade: 57.2, eCommerce: 10.0, travelRetail: 10.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 12,   // % ACV distribution
-          ceDepletions: 35000000,  // case equivalent depletions
+          ceDepletions: 34000000,  // case equivalent depletions
           billback: 4.5,          // % average billback/discount
           grossMarginPct: 35,       // % gross margin
           cac: 80,               // $ customer acquisition cost
-          itr: 9,               // inventory turnover ratio
+          itr: 7,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Wellness movement accelerating with sober-curious consumer trend', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
@@ -5905,13 +5905,13 @@ export const CATEGORIES = [
         channels: { onTrade: 24.4, offTrade: 68.3, eCommerce: 4.1, travelRetail: 3.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 30,   // % ACV distribution
-          ceDepletions: 550000000,  // case equivalent depletions
+          ceDepletions: 262000000,  // case equivalent depletions
           billback: 7.5,          // % average billback/discount
           grossMarginPct: 40,       // % gross margin
           cac: 48,               // $ customer acquisition cost
-          itr: 20,               // inventory turnover ratio
+          itr: 12,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Spirits-based RTDs overtaking hard seltzer as growth leader', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
@@ -6021,13 +6021,13 @@ export const CATEGORIES = [
         channels: { onTrade: 23.6, offTrade: 69.3, eCommerce: 2.9, travelRetail: 4.2 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 27,   // % ACV distribution
-          ceDepletions: 480000000,  // case equivalent depletions
+          ceDepletions: 230000000,  // case equivalent depletions
           billback: 7.0,          // % average billback/discount
           grossMarginPct: 39,       // % gross margin
           cac: 52,               // $ customer acquisition cost
-          itr: 19,               // inventory turnover ratio
+          itr: 11,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Premium spirits-based RTDs achieving mainstream on-trade adoption', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
@@ -6137,13 +6137,13 @@ export const CATEGORIES = [
         channels: { onTrade: 20.3, offTrade: 71.6, eCommerce: 3.4, travelRetail: 4.7 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 24,   // % ACV distribution
-          ceDepletions: 410000000,  // case equivalent depletions
+          ceDepletions: 197000000,  // case equivalent depletions
           billback: 6.5,          // % average billback/discount
           grossMarginPct: 38,       // % gross margin
           cac: 56,               // $ customer acquisition cost
-          itr: 18,               // inventory turnover ratio
+          itr: 10,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Hard seltzer boom peaking with market saturation evident', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
@@ -6253,13 +6253,13 @@ export const CATEGORIES = [
         channels: { onTrade: 18.0, offTrade: 74.4, eCommerce: 1.7, travelRetail: 5.9 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 20,   // % ACV distribution
-          ceDepletions: 340000000,  // case equivalent depletions
+          ceDepletions: 164000000,  // case equivalent depletions
           billback: 6.0,          // % average billback/discount
           grossMarginPct: 37,       // % gross margin
           cac: 60,               // $ customer acquisition cost
-          itr: 17,               // inventory turnover ratio
+          itr: 9,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Hard seltzer category achieving mainstream acceptance and convenience store ubiquity', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },
@@ -6369,13 +6369,13 @@ export const CATEGORIES = [
         channels: { onTrade: 14.8, offTrade: 76.5, eCommerce: 0.7, travelRetail: 8.0 },
         tradeKPIs: { // SOURCE: Estimated from IWSR category averages and public filings
           acvDistribution: 17,   // % ACV distribution
-          ceDepletions: 280000000,  // case equivalent depletions
+          ceDepletions: 135000000,  // case equivalent depletions
           billback: 5.5,          // % average billback/discount
           grossMarginPct: 36,       // % gross margin
           cac: 65,               // $ customer acquisition cost
-          itr: 16,               // inventory turnover ratio
+          itr: 8,               // inventory turnover ratio
           isEstimated: true,
-          methodology: 'Estimated from IWSR category averages and public filings. Not verified at SKU level.'
+          methodology: 'Estimated from IWSR category averages and public filings. CE depletions calibrated to global volume data. Not verified at SKU level.'
         },
         trends: [
           { text: 'Hard seltzer boom driven by home consumption during pandemic lockdowns', source: 'IWSR Global Spirits Report', url: 'https://www.theiwsr.com' },

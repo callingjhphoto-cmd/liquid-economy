@@ -11,10 +11,14 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
-          'vendor-charts': ['recharts'],
-          'vendor-icons': ['lucide-react'],
+        manualChunks(id) {
+          if (id.includes('node_modules/react-dom') || id.includes('node_modules/react/') || id.includes('node_modules/react-router')) return 'vendor-react'
+          if (id.includes('node_modules/recharts') || id.includes('node_modules/d3-')) return 'vendor-charts'
+          if (id.includes('node_modules/lucide-react')) return 'vendor-icons'
+          if (id.includes('/data/categoryData')) return 'data-categories'
+          if (id.includes('/data/brandData')) return 'data-brands'
+          if (id.includes('/data/campaignData')) return 'data-campaigns'
+          if (id.includes('/data/venueData')) return 'data-venues'
         }
       }
     }

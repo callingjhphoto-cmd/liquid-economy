@@ -631,7 +631,7 @@ function CategoryDetail({ cat, year, onBack }) {
                 </div>
                 <div className="bg-gray-50 rounded-lg p-2.5">
                   <div className="text-xs text-gray-500">CE Depletions</div>
-                  <div className="text-sm font-bold text-navy">{(yd.tradeKPIs.ceDepletions / 1000000).toFixed(1)}M</div>
+                  <div className="text-sm font-bold text-navy">{yd.tradeKPIs.ceDepletions >= 1e9 ? (yd.tradeKPIs.ceDepletions / 1e9).toFixed(2) + 'B' : (yd.tradeKPIs.ceDepletions / 1e6).toFixed(1) + 'M'}</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-2.5">
                   <div className="text-xs text-gray-500">Avg Billback</div>

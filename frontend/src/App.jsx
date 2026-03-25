@@ -23,6 +23,7 @@ const POSIntelligence = lazy(() => import('./pages/POSIntelligence'))
 const ScenarioModeling = lazy(() => import('./pages/ScenarioModeling'))
 const CampaignPlanner = lazy(() => import('./pages/CampaignPlanner'))
 const MarginCalculator = lazy(() => import('./pages/MarginCalculator'))
+const Financials = lazy(() => import('./pages/Financials'))
 
 /* Route metadata for breadcrumbs */
 const routeMeta = {
@@ -38,6 +39,7 @@ const routeMeta = {
   '/campaigns': { label: 'Campaign Planner', group: 'Planning' },
   '/reports': { label: 'Report Builder', group: 'Reports' },
   '/valuations': { label: 'Valuations', group: 'Reports' },
+  '/financials': { label: 'Financials', group: 'Reports' },
   '/climate': { label: 'Climate & Yield', group: 'Tools' },
   '/pos': { label: 'POS Manufacturing', group: 'Tools' },
 }
@@ -108,7 +110,7 @@ function BottomTabBar() {
     { to: '/', icon: LayoutDashboard, label: 'Dashboard', match: ['/'] },
     { to: '/categories', icon: BarChart3, label: 'Intelligence', match: ['/categories', '/companies', '/pricing', '/venues', '/geographic'] },
     { to: '/supply-chain', icon: Rocket, label: 'Planning', match: ['/supply-chain', '/scenario', '/margin', '/campaigns'] },
-    { to: '/reports', icon: FileText, label: 'Reports', match: ['/reports', '/valuations'] },
+    { to: '/reports', icon: FileText, label: 'Reports', match: ['/reports', '/valuations', '/financials'] },
     { to: '/climate', icon: MoreHorizontal, label: 'Tools', match: ['/climate', '/pos'] },
   ]
 
@@ -328,6 +330,7 @@ function Layout({ onLogout }) {
             <NavGroup title="Reports">
               <NavItem to="/reports" icon={FileText} label="Report Builder" />
               <NavItem to="/valuations" icon={TrendingUp} label="Valuations" />
+              <NavItem to="/financials" icon={DollarSign} label="Financials" />
             </NavGroup>
 
             {/* Tools — specialist utilities */}
@@ -391,6 +394,7 @@ function Layout({ onLogout }) {
               <Route path="/scenario" element={<ScenarioModeling />} />
               <Route path="/campaigns" element={<CampaignPlanner />} />
               <Route path="/margin" element={<MarginCalculator />} />
+              <Route path="/financials" element={<Financials />} />
               <Route path="/reports" element={<ReportBuilder />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>

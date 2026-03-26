@@ -128,7 +128,7 @@ function KpiSummaryCards() {
     {
       label: 'Top Growing Category',
       value: fastestGrowing.name,
-      change: fastestGrowing.growth,
+      change: `${fastestGrowing.growth} YoY`,
       dir: 'up',
       sub: fastestGrowing.signal,
       icon: TrendingUp,
@@ -138,7 +138,7 @@ function KpiSummaryCards() {
     {
       label: 'Top Growing Market',
       value: fastestRegion.region,
-      change: fastestRegion.growth,
+      change: `${fastestRegion.growth} YoY`,
       dir: 'up',
       sub: fastestRegion.note,
       icon: Globe,
@@ -368,9 +368,10 @@ function PriceAlertsSummary() {
                   </div>
                   <div className="text-right flex-shrink-0 ml-2">
                     <div className="text-sm font-bold text-navy">{alert.pricePoint}</div>
-                    <span className={`text-xs font-semibold ${isUp ? 'text-red-500' : 'text-emerald-600'}`}>
+                    <span className={`text-xs font-semibold ${isUp ? 'text-emerald-600' : 'text-red-500'}`}>
                       {alert.change} ({alert.pctChange})
                     </span>
+                    <div className="text-micro text-gray-400">vs {alert.period} ago</div>
                   </div>
                 </div>
                 <p className="text-xs text-gray-500 mt-1">{alert.reason}</p>
@@ -406,7 +407,7 @@ function GeographicHighlights() {
                 </div>
                 <div className="flex items-baseline gap-2">
                   <span className="text-lg font-bold text-navy">{r.value}</span>
-                  <span className={`text-xs font-semibold ${isUp ? 'text-emerald-600' : 'text-red-500'}`}>{r.growth}</span>
+                  <span className={`text-xs font-semibold ${isUp ? 'text-emerald-600' : 'text-red-500'}`}>{r.growth} YoY</span>
                 </div>
                 <div className="w-full h-5 mt-1">
                   <ResponsiveContainer width="100%" height="100%">
@@ -495,7 +496,7 @@ function MarketPulseExpanded() {
                   <p className="text-xs text-gray-500 mt-0.5">{item.impact}</p>
                 </div>
                 <span className={`text-xs font-bold flex-shrink-0 ${isUp ? 'text-emerald-600' : 'text-red-500'}`}>
-                  {item.change}
+                  {item.change} YoY
                 </span>
                 {isExpanded ? <ChevronUp size={14} className="text-gray-500 flex-shrink-0" /> : <ChevronDown size={14} className="text-gray-500 flex-shrink-0" />}
               </button>

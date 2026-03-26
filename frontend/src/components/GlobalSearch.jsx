@@ -20,6 +20,16 @@ const PAGES = [
   { type: 'page', label: 'Scenario Modelling', path: '/scenario', icon: Crosshair, keywords: ['scenario', 'modelling', 'simulation', 'what if'] },
   { type: 'page', label: 'Campaign Planner', path: '/campaigns', icon: Target, keywords: ['campaign', 'planner', 'marketing', 'budget', 'activation'] },
   { type: 'page', label: 'Report Builder', path: '/reports', icon: FileText, keywords: ['report', 'builder', 'export', 'pdf'] },
+  { type: 'page', label: 'Market Entry Wizard', path: '/market-entry', icon: Target, keywords: ['market entry', 'wizard', 'playbook', 'regulation', 'distributor', 'launch'] },
+  { type: 'page', label: 'Distributor Directory', path: '/distributors', icon: Building2, keywords: ['distributor', 'directory', 'importers', 'distribution'] },
+  { type: 'page', label: 'Price Positioning', path: '/price-positioning', icon: DollarSign, keywords: ['price', 'positioning', 'tier', 'rrp', 'competitor pricing'] },
+  { type: 'page', label: 'Brand Health Monitor', path: '/brand-health', icon: TrendingUp, keywords: ['brand health', 'social', 'mentions', 'sentiment', 'share of voice'] },
+  { type: 'page', label: 'Trade Show Calendar', path: '/trade-shows', icon: Tag, keywords: ['trade show', 'exhibition', 'prowein', 'vinexpo', 'bar convent', 'imbibe'] },
+  { type: 'page', label: 'Regulatory Compliance', path: '/regulatory', icon: FileText, keywords: ['regulatory', 'compliance', 'labelling', 'import', 'licence', 'duty'] },
+  { type: 'page', label: 'Depletion Forecasting', path: '/depletions', icon: TrendingUp, keywords: ['depletion', 'forecast', 'rate of sale', 'reorder', 'seasonality'] },
+  { type: 'page', label: 'Competitor Monitor', path: '/competitors', icon: Search, keywords: ['competitor', 'monitor', 'tracking', 'alerts', 'moves'] },
+  { type: 'page', label: 'Pitch Generator', path: '/pitch-generator', icon: FileText, keywords: ['pitch', 'generator', 'investor', 'deck', 'fundraising'] },
+  { type: 'page', label: 'Pricing Plans', path: '/subscription', icon: Tag, keywords: ['pricing', 'subscription', 'pro', 'enterprise', 'plans'] },
 ]
 
 const CATEGORIES = [

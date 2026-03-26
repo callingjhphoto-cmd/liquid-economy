@@ -171,14 +171,14 @@ export default function DepletionForecasting() {
         <Card className="p-4">
           <h3 className="text-sm font-bold text-navy mb-3">Cumulative Depletions</h3>
           <ResponsiveContainer width="100%" height={250}>
-            <LineChart data={forecast}>
+            <ComposedChart data={forecast}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="month" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 11 }} />
               <Tooltip formatter={v => v.toLocaleString()} />
-              <Area type="monotone" dataKey="cumulativeDepletions" fill={CHART_COLORS.primary + '20'} stroke={CHART_COLORS.primary} strokeWidth={2} />
+              <Area type="monotone" dataKey="cumulativeDepletions" fill={CHART_COLORS.primary + '20'} stroke="none" legendType="none" />
               <Line type="monotone" dataKey="cumulativeDepletions" name="Cumulative Cases" stroke={CHART_COLORS.primary} strokeWidth={2} dot={{ r: 3 }} />
-            </LineChart>
+            </ComposedChart>
           </ResponsiveContainer>
         </Card>
       </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, Link, Navigate, useLocation, useParams } from 'react-router-dom'
-import { LayoutDashboard, TrendingUp, DollarSign, Building2, LogOut, Menu, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag, Crosshair, ChevronDown, ChevronRight, Target, Loader2, Search, BarChart3, Calculator, MoreHorizontal, Rocket } from 'lucide-react'
+import { LayoutDashboard, TrendingUp, DollarSign, Building2, LogOut, Menu, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag, Crosshair, ChevronDown, ChevronRight, Target, Loader2, Search, BarChart3, Calculator, MoreHorizontal, Rocket, Activity, Calendar, Eye, ShieldAlert, Crown, Compass } from 'lucide-react'
 import { useLiveData } from './context/LiveDataContext'
 import { api, getToken, setToken, clearToken } from './lib/api'
 // ChatPanel disabled — backend not deployed; gated as "Coming Soon"
@@ -24,6 +24,16 @@ const ScenarioModeling = lazy(() => import('./pages/ScenarioModeling'))
 const CampaignPlanner = lazy(() => import('./pages/CampaignPlanner'))
 const MarginCalculator = lazy(() => import('./pages/MarginCalculator'))
 const Financials = lazy(() => import('./pages/Financials'))
+const MarketEntryWizard = lazy(() => import('./pages/MarketEntryWizard'))
+const DistributorDirectory = lazy(() => import('./pages/DistributorDirectory'))
+const PricePositioning = lazy(() => import('./pages/PricePositioning'))
+const BrandHealth = lazy(() => import('./pages/BrandHealth'))
+const TradeShows = lazy(() => import('./pages/TradeShows'))
+const RegulatoryCompliance = lazy(() => import('./pages/RegulatoryCompliance'))
+const DepletionForecasting = lazy(() => import('./pages/DepletionForecasting'))
+const CompetitorMonitor = lazy(() => import('./pages/CompetitorMonitor'))
+const PitchGenerator = lazy(() => import('./pages/PitchGenerator'))
+const SubscriptionTiers = lazy(() => import('./pages/SubscriptionTiers'))
 
 /* Route metadata for breadcrumbs */
 const routeMeta = {
@@ -42,6 +52,16 @@ const routeMeta = {
   '/financials': { label: 'Financials', group: 'Reports' },
   '/climate': { label: 'Climate & Yield', group: 'Tools' },
   '/pos': { label: 'POS Manufacturing', group: 'Tools' },
+  '/market-entry': { label: 'Market Entry Wizard', group: 'Planning' },
+  '/distributors': { label: 'Distributors', group: 'Planning' },
+  '/price-positioning': { label: 'Price Positioning', group: 'Intelligence' },
+  '/brand-health': { label: 'Brand Health', group: 'Intelligence' },
+  '/trade-shows': { label: 'Trade Shows', group: 'Tools' },
+  '/regulatory': { label: 'Regulatory', group: 'Tools' },
+  '/depletions': { label: 'Depletions', group: 'Planning' },
+  '/competitors': { label: 'Competitors', group: 'Intelligence' },
+  '/pitch-generator': { label: 'Pitch Generator', group: 'Reports' },
+  '/subscription': { label: 'Pricing Plans', group: 'Tools' },
 }
 
 function FocusManager() {
@@ -108,10 +128,10 @@ function BottomTabBar() {
 
   const tabs = [
     { to: '/', icon: LayoutDashboard, label: 'Dashboard', match: ['/'] },
-    { to: '/categories', icon: BarChart3, label: 'Intelligence', match: ['/categories', '/companies', '/pricing', '/venues', '/geographic'] },
-    { to: '/supply-chain', icon: Rocket, label: 'Planning', match: ['/supply-chain', '/scenario', '/margin', '/campaigns'] },
-    { to: '/reports', icon: FileText, label: 'Reports', match: ['/reports', '/valuations', '/financials'] },
-    { to: '/climate', icon: MoreHorizontal, label: 'Tools', match: ['/climate', '/pos'] },
+    { to: '/categories', icon: BarChart3, label: 'Intelligence', match: ['/categories', '/companies', '/pricing', '/venues', '/geographic', '/price-positioning', '/brand-health', '/competitors'] },
+    { to: '/supply-chain', icon: Rocket, label: 'Planning', match: ['/supply-chain', '/scenario', '/margin', '/campaigns', '/market-entry', '/distributors', '/depletions'] },
+    { to: '/reports', icon: FileText, label: 'Reports', match: ['/reports', '/valuations', '/financials', '/pitch-generator'] },
+    { to: '/climate', icon: MoreHorizontal, label: 'Tools', match: ['/climate', '/pos', '/trade-shows', '/regulatory', '/subscription'] },
   ]
 
   return (
@@ -314,14 +334,20 @@ function Layout({ onLogout }) {
               <NavItem to="/categories" icon={Wine} label="Categories" />
               <NavItem to="/companies" icon={Building2} label="Companies" />
               <NavItem to="/pricing" icon={DollarSign} label="Pricing" />
+              <NavItem to="/price-positioning" icon={Target} label="Price Positioning" />
               <NavItem to="/venues" icon={MapPin} label="Venues" />
               <NavItem to="/geographic" icon={Globe} label="Geographic" />
+              <NavItem to="/brand-health" icon={Activity} label="Brand Health" />
+              <NavItem to="/competitors" icon={Eye} label="Competitors" />
             </NavGroup>
 
             {/* Planning — action-oriented tools */}
             <NavGroup title="Planning">
               <NavItem to="/supply-chain" icon={Package} label="Supply Chain" />
-              <NavItem to="/scenario" icon={Crosshair} label="Market Entry" />
+              <NavItem to="/market-entry" icon={Compass} label="Market Entry Wizard" />
+              <NavItem to="/scenario" icon={Crosshair} label="Scenario Modeling" />
+              <NavItem to="/distributors" icon={Building2} label="Distributors" />
+              <NavItem to="/depletions" icon={BarChart3} label="Depletions" />
               <NavItem to="/margin" icon={Calculator} label="Margin Calculator" />
               <NavItem to="/campaigns" icon={Target} label="Campaign Planner" />
             </NavGroup>
@@ -331,12 +357,16 @@ function Layout({ onLogout }) {
               <NavItem to="/reports" icon={FileText} label="Report Builder" />
               <NavItem to="/valuations" icon={TrendingUp} label="Valuations" />
               <NavItem to="/financials" icon={DollarSign} label="Financials" />
+              <NavItem to="/pitch-generator" icon={Rocket} label="Pitch Generator" />
             </NavGroup>
 
             {/* Tools — specialist utilities */}
             <NavGroup title="Tools" defaultOpen={false}>
               <NavItem to="/climate" icon={CloudRain} label="Climate & Yield" />
               <NavItem to="/pos" icon={ShoppingBag} label="POS Manufacturing" />
+              <NavItem to="/trade-shows" icon={Calendar} label="Trade Shows" />
+              <NavItem to="/regulatory" icon={ShieldAlert} label="Regulatory" />
+              <NavItem to="/subscription" icon={Crown} label="Pricing Plans" />
             </NavGroup>
           </nav>
 
@@ -396,6 +426,16 @@ function Layout({ onLogout }) {
               <Route path="/margin" element={<MarginCalculator />} />
               <Route path="/financials" element={<Financials />} />
               <Route path="/reports" element={<ReportBuilder />} />
+              <Route path="/market-entry" element={<MarketEntryWizard />} />
+              <Route path="/distributors" element={<DistributorDirectory />} />
+              <Route path="/price-positioning" element={<PricePositioning />} />
+              <Route path="/brand-health" element={<BrandHealth />} />
+              <Route path="/trade-shows" element={<TradeShows />} />
+              <Route path="/regulatory" element={<RegulatoryCompliance />} />
+              <Route path="/depletions" element={<DepletionForecasting />} />
+              <Route path="/competitors" element={<CompetitorMonitor />} />
+              <Route path="/pitch-generator" element={<PitchGenerator />} />
+              <Route path="/subscription" element={<SubscriptionTiers />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </Suspense>

@@ -32,7 +32,7 @@ const groups = {
     { label: 'POS Manufacturing', to: '/pos' },
     { label: 'Trade Shows', to: '/trade-shows' },
     { label: 'Regulatory', to: '/regulatory' },
-    { label: 'Pricing Plans', to: '/subscription' },
+    { label: 'Liquid Agency', to: '/contact' },
   ],
 }
 

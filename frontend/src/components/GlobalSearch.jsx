@@ -29,7 +29,7 @@ const PAGES = [
   { type: 'page', label: 'Depletion Forecasting', path: '/depletions', icon: TrendingUp, keywords: ['depletion', 'forecast', 'rate of sale', 'reorder', 'seasonality'] },
   { type: 'page', label: 'Competitor Monitor', path: '/competitors', icon: Search, keywords: ['competitor', 'monitor', 'tracking', 'alerts', 'moves'] },
   { type: 'page', label: 'Pitch Generator', path: '/pitch-generator', icon: FileText, keywords: ['pitch', 'generator', 'investor', 'deck', 'fundraising'] },
-  { type: 'page', label: 'Pricing Plans', path: '/subscription', icon: Tag, keywords: ['pricing', 'subscription', 'pro', 'enterprise', 'plans'] },
+  { type: 'page', label: 'Liquid Agency', path: '/contact', icon: Tag, keywords: ['liquid', 'agency', 'contact', 'services', 'capability'] },
 ]
 
 const CATEGORIES = [

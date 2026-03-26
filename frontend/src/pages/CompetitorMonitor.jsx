@@ -172,7 +172,7 @@ export default function CompetitorMonitor() {
       </div>
 
       <div className="mt-6 p-3 bg-amber-50 border border-amber-200 rounded-lg text-xs text-amber-800">
-        <strong>Note:</strong> Competitor intelligence is curated from public sources (press releases, trade press, regulatory filings). Real-time monitoring via API integrations planned for Pro tier.
+        <strong>Note:</strong> Competitor intelligence is curated from public sources (press releases, trade press, regulatory filings). Real-time monitoring via API integrations is in development.
       </div>
     </div>
   )

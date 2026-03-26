@@ -1,13 +1,13 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, Link, Navigate, useLocation, useParams } from 'react-router-dom'
-import { LayoutDashboard, TrendingUp, DollarSign, Building2, LogOut, Menu, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag, Crosshair, ChevronDown, ChevronRight, Target, Loader2, Search, BarChart3, Calculator, MoreHorizontal, Rocket, Activity, Calendar, Eye, ShieldAlert, Crown, Compass } from 'lucide-react'
+import { LayoutDashboard, TrendingUp, DollarSign, Building2, LogOut, Menu, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag, Crosshair, ChevronDown, ChevronRight, Target, Loader2, Search, BarChart3, Calculator, MoreHorizontal, Rocket, Activity, Calendar, Eye, ShieldAlert, Briefcase, Compass } from 'lucide-react'
 import { useLiveData } from './context/LiveDataContext'
 import { api, getToken, setToken, clearToken } from './lib/api'
 // ChatPanel disabled — backend not deployed; gated as "Coming Soon"
 // import ChatPanel from './components/ChatPanel'
 import GlobalSearch from './components/GlobalSearch'
 import { LiveDataProvider } from './context/LiveDataContext'
-import { StatusNotice } from './components/ui'
+import { StatusNotice, ErrorBoundary } from './components/ui'
 
 const CommandCentre = lazy(() => import('./pages/CommandCentre'))
 const Valuations = lazy(() => import('./pages/Valuations'))
@@ -33,7 +33,7 @@ const RegulatoryCompliance = lazy(() => import('./pages/RegulatoryCompliance'))
 const DepletionForecasting = lazy(() => import('./pages/DepletionForecasting'))
 const CompetitorMonitor = lazy(() => import('./pages/CompetitorMonitor'))
 const PitchGenerator = lazy(() => import('./pages/PitchGenerator'))
-const SubscriptionTiers = lazy(() => import('./pages/SubscriptionTiers'))
+const ContactLiquidAgency = lazy(() => import('./pages/SubscriptionTiers'))
 
 /* Route metadata for breadcrumbs */
 const routeMeta = {
@@ -61,7 +61,7 @@ const routeMeta = {
   '/depletions': { label: 'Depletions', group: 'Planning' },
   '/competitors': { label: 'Competitors', group: 'Intelligence' },
   '/pitch-generator': { label: 'Pitch Generator', group: 'Reports' },
-  '/subscription': { label: 'Pricing Plans', group: 'Tools' },
+  '/contact': { label: 'Liquid Agency', group: 'Tools' },
 }
 
 function FocusManager() {
@@ -131,7 +131,7 @@ function BottomTabBar() {
     { to: '/categories', icon: BarChart3, label: 'Intelligence', match: ['/categories', '/companies', '/pricing', '/venues', '/geographic', '/price-positioning', '/brand-health', '/competitors'] },
     { to: '/supply-chain', icon: Rocket, label: 'Planning', match: ['/supply-chain', '/scenario', '/margin', '/campaigns', '/market-entry', '/distributors', '/depletions'] },
     { to: '/reports', icon: FileText, label: 'Reports', match: ['/reports', '/valuations', '/financials', '/pitch-generator'] },
-    { to: '/climate', icon: MoreHorizontal, label: 'Tools', match: ['/climate', '/pos', '/trade-shows', '/regulatory', '/subscription'] },
+    { to: '/climate', icon: MoreHorizontal, label: 'Tools', match: ['/climate', '/pos', '/trade-shows', '/regulatory', '/contact'] },
   ]
 
   return (
@@ -319,7 +319,7 @@ function Layout({ onLogout }) {
               </div>
               <div>
                 <h1 className="font-display text-body text-navy font-bold leading-tight">Liquid Economy</h1>
-                <p className="text-micro text-gray-500 tracking-wide">Glass-to-Glass Intelligence</p>
+                <p className="text-micro text-gray-500 tracking-wide">by <span className="text-gold font-semibold">Liquid Agency</span></p>
               </div>
             </div>
           </div>
@@ -366,7 +366,7 @@ function Layout({ onLogout }) {
               <NavItem to="/pos" icon={ShoppingBag} label="POS Manufacturing" />
               <NavItem to="/trade-shows" icon={Calendar} label="Trade Shows" />
               <NavItem to="/regulatory" icon={ShieldAlert} label="Regulatory" />
-              <NavItem to="/subscription" icon={Crown} label="Pricing Plans" />
+              <NavItem to="/contact" icon={Briefcase} label="Liquid Agency" />
             </NavGroup>
           </nav>
 
@@ -401,13 +401,17 @@ function Layout({ onLogout }) {
           <button onClick={() => setSidebarOpen(true)} className="min-h-[44px] min-w-[44px] flex items-center justify-center touch-manipulation">
             <Menu size={24} className="text-navy" />
           </button>
-          <h1 className="font-display text-section text-navy">Liquid Economy</h1>
+          <div className="text-center">
+            <h1 className="font-display text-section text-navy leading-tight">Liquid Economy</h1>
+            <p className="text-[10px] text-gray-400">by <span className="text-gold font-semibold">Liquid Agency</span></p>
+          </div>
           <button onClick={() => setSearchOpen(true)} className="min-h-[44px] min-w-[44px] flex items-center justify-center touch-manipulation">
             <Search size={20} className="text-navy" />
           </button>
         </header>
-        <div className="px-4 pb-20 pt-4 lg:px-8 lg:pb-8 lg:pt-8">
+        <div className="px-4 pb-20 pt-4 lg:px-8 lg:pb-8 lg:pt-8 flex flex-col min-h-full">
           <Breadcrumb />
+          <ErrorBoundary message="This page encountered an error. Try refreshing or navigating to another section.">
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<CommandCentre />} />
@@ -435,10 +439,21 @@ function Layout({ onLogout }) {
               <Route path="/depletions" element={<DepletionForecasting />} />
               <Route path="/competitors" element={<CompetitorMonitor />} />
               <Route path="/pitch-generator" element={<PitchGenerator />} />
-              <Route path="/subscription" element={<SubscriptionTiers />} />
+              <Route path="/contact" element={<ContactLiquidAgency />} />
+              <Route path="/subscription" element={<Navigate to="/contact" />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </Suspense>
+          </ErrorBoundary>
+          {/* Powered by Liquid footer */}
+          <div className="mt-auto pt-8 pb-4 text-center">
+            <div className="flex items-center justify-center gap-2 text-xs text-gray-400">
+              <span>Powered by</span>
+              <Link to="/contact" className="text-gold font-semibold hover:text-gold/80 transition-colors">Liquid Agency</Link>
+              <span className="text-gray-300">|</span>
+              <span>Drinks Industry Intelligence</span>
+            </div>
+          </div>
         </div>
       </main>
 

@@ -387,13 +387,6 @@ function Layout({ onLogout }) {
               <span>Sign Out</span>
             </button>
           </div>
-          <div className="px-5 py-3 border-t border-gray-100">
-            <div className="text-center">
-              <span className="text-[10px] text-gray-400 uppercase tracking-widest">Powered by</span>
-              <div className="text-[12px] font-semibold text-navy mt-0.5">Liquid Agency</div>
-              <div className="text-[10px] text-gray-400">Free intelligence platform</div>
-            </div>
-          </div>
         </div>
       </aside>
 

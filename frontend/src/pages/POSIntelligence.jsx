@@ -7,7 +7,7 @@ import {
 import {
   PageHeader, MetricCard, Card, Section, BentoGrid,
   TabGroup, FilterPills, DataTable, BottomSheet,
-  SkeletonCard, SkeletonChart
+  SkeletonCard, SkeletonChart, SubPageNav
 } from '../components/ui'
 import {
   MATERIAL_CATEGORIES, POS_COMPANIES, TRADE_PLATFORMS,
@@ -384,7 +384,7 @@ export default function POSIntelligence() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 max-w-7xl mx-auto">
       {/* ─── TIER 1: Hero + KPIs ─────────────────────────────────────────── */}
       <PageHeader
         title="POS Manufacturing Intelligence"
@@ -394,6 +394,7 @@ export default function POSIntelligence() {
           { label: 'POS Intelligence' }
         ]}
       />
+      <SubPageNav group="tools" />
 
       <BentoGrid>
         <MetricCard

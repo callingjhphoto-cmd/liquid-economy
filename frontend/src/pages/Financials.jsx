@@ -11,7 +11,7 @@ import {
 } from 'lucide-react'
 import {
   Card, MetricCard, PageHeader, SectionHeader, BentoGrid, ChartCard,
-  Badge, SkeletonCard
+  Badge, SkeletonCard, SubPageNav, BottomSheet
 } from '../components/ui'
 import { CHART_COLORS, CATEGORICAL } from '../data/chartColors'
 import {
@@ -346,7 +346,7 @@ export default function Financials() {
   }
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 max-w-7xl mx-auto">
       <PageHeader
         title="Financial Reports"
         subtitle="Earnings, inventory tracking, and financial intelligence across 5 publicly traded spirits companies."
@@ -357,6 +357,7 @@ export default function Financials() {
           </Badge>
         }
       />
+      <SubPageNav group="reports" />
 
       {/* ── Hero Metrics ── */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">

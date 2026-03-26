@@ -100,7 +100,7 @@ export default function Valuations() {
 
   /* \u2550\u2550\u2550\u2550\u2550 TIER 1: EXECUTIVE SUMMARY \u2550\u2550\u2550\u2550\u2550 */
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 max-w-7xl mx-auto">
       <PageHeader
         title="Valuations & M&A Intelligence"
         subtitle="Brand valuations, sector multiples, deal benchmarks, and methodology analysis \u00b7 Data as of March 2026"

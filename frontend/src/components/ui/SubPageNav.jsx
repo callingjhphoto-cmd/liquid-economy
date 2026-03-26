@@ -18,6 +18,11 @@ const groups = {
   reports: [
     { label: 'Report Builder', to: '/reports' },
     { label: 'Valuations', to: '/valuations' },
+    { label: 'Financials', to: '/financials' },
+  ],
+  tools: [
+    { label: 'Climate & Yield', to: '/climate' },
+    { label: 'POS Manufacturing', to: '/pos' },
   ],
 }
 

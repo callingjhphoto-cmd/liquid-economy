@@ -782,7 +782,7 @@ export default function CategoryIntelligence() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-6xl mx-auto space-y-6">
+      <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto space-y-6">
         <PageHeader title="Category Intelligence" subtitle="Loading categories\u2026" />
         <BentoGrid>
           <BentoGrid.Hero><SkeletonCard className="h-40" /></BentoGrid.Hero>
@@ -800,7 +800,7 @@ export default function CategoryIntelligence() {
   // ---- TIER 2/3: Detail view for selected category ----
   if (active) {
     return (
-      <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-6xl mx-auto">
+      <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto">
         {/* Back + Header */}
         <div className="mb-4 lg:mb-6">
           <button onClick={handleBack}
@@ -846,7 +846,7 @@ export default function CategoryIntelligence() {
 
   // ---- TIER 1: Gallery / Bento Grid View ----
   return (
-    <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-6xl mx-auto">
+    <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto">
       {/* Page Header */}
       <PageHeader
         title="Category Intelligence"

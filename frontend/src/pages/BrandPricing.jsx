@@ -720,7 +720,7 @@ export default function BrandPricing() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 max-w-7xl mx-auto">
       <PageHeader
         title={<span className="inline-flex items-center">Brand Pricing Monitor<MethodologyTooltip text="Prices collected from retailer websites. Last verified March 2026." /></span>}
         subtitle={`Cross-market RRP comparison \u2014 ${PRICING.length} expressions across ${TOTAL_RETAILERS} retailers in ${TOTAL_MARKETS} markets \u00b7 Data as of March 2026`}

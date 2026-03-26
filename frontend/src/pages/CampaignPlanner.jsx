@@ -1605,7 +1605,7 @@ const CampaignPlanner = () => {
 
   if (isMobile) {
     return (
-      <div className="space-y-6">
+      <div className="space-y-6 max-w-7xl mx-auto">
         <PageHeader
           title="Campaign Planner"
           subtitle="3-step mobile flow \u00b7 Data as of March 2026"
@@ -1756,7 +1756,7 @@ const CampaignPlanner = () => {
 
   // ─── DESKTOP RENDER ──────────────────────────────────────────────────────
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 max-w-7xl mx-auto">
       <PageHeader
         title="Campaign Planner"
         subtitle="5-step wizard to turn market intelligence into actionable campaign plans \u00b7 Data as of March 2026"

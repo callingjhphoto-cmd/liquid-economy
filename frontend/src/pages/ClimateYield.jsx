@@ -23,6 +23,7 @@ import {
   TabGroup,
   EntityLink,
   BottomSheet,
+  SubPageNav,
 } from '../components/ui'
 import { CHART_COLORS } from '../data/chartColors'
 
@@ -576,6 +577,7 @@ export default function ClimateYield() {
           { label: 'Climate & Yield' }
         ]}
       />
+      <SubPageNav group="tools" />
 
       {!selectedRegion ? (
         <>

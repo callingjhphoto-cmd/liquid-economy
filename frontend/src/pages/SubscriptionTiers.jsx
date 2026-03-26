@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  ExternalLink, Mail, Phone, MapPin, ArrowRight, Briefcase, BarChart3, Target, Users
+  ExternalLink, Mail, MapPin, ArrowRight, Crown, BarChart3, Target, Users, Briefcase
 } from 'lucide-react'
 import {
   Card, PageHeader, SubPageNav
@@ -29,29 +29,29 @@ const CAPABILITIES = [
   },
 ]
 
-export default function ContactLiquidAgency() {
+export default function ContactPage() {
   return (
     <div className="max-w-7xl mx-auto">
       <SubPageNav group="tools" />
       <PageHeader
-        title="Liquid Agency"
-        subtitle="Drinks industry intelligence, powered by Liquid"
-        icon={<Briefcase size={20} />}
+        title="Contact"
+        subtitle="Get in touch about Liquid Economy"
+        icon={<Crown size={20} />}
       />
 
       {/* Hero */}
       <Card className="p-8 mb-8 bg-gradient-to-br from-navy to-navy/90 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-gold/10 rounded-full -translate-y-1/2 translate-x-1/2" />
         <div className="relative z-10 max-w-2xl">
-          <h2 className="text-2xl font-bold mb-3 font-display">Intelligence as a Service</h2>
+          <h2 className="text-2xl font-bold mb-3 font-display">Glass-to-Glass Intelligence</h2>
           <p className="text-white/80 text-sm leading-relaxed mb-4">
-            Liquid Economy is not a standalone product \u2014 it is a capability of Liquid Agency. We build bespoke intelligence dashboards, market entry strategies, and data-driven brand plans for drinks businesses entering or expanding in competitive markets.
+            Liquid Economy provides bespoke intelligence dashboards, market entry strategies, and data-driven brand plans for drinks businesses entering or expanding in competitive markets.
           </p>
           <p className="text-white/80 text-sm leading-relaxed mb-6">
-            Whether you are a craft spirits startup seeking your first distributor or an established brand evaluating a new territory, our intelligence platform and advisory team work together to give you an unfair advantage.
+            Whether you are a craft spirits startup seeking your first distributor or an established brand evaluating a new territory, our intelligence platform gives you an unfair advantage.
           </p>
           <a
-            href="mailto:james@liquid.agency"
+            href="mailto:james@huertas.co.uk"
             className="inline-flex items-center gap-2 bg-gold text-white px-6 py-3 rounded-xl text-sm font-medium hover:bg-gold/90 transition-colors"
           >
             <Mail size={16} />
@@ -98,12 +98,12 @@ export default function ContactLiquidAgency() {
 
       {/* Contact */}
       <Card className="p-6">
-        <h3 className="text-lg font-bold text-navy mb-4">Contact Liquid Agency</h3>
+        <h3 className="text-lg font-bold text-navy mb-4">Get in Touch</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-3">
-            <a href="mailto:james@liquid.agency" className="flex items-center gap-3 text-sm text-gray-700 hover:text-navy transition-colors">
+            <a href="mailto:james@huertas.co.uk" className="flex items-center gap-3 text-sm text-gray-700 hover:text-navy transition-colors">
               <Mail size={16} className="text-gold" />
-              james@liquid.agency
+              james@huertas.co.uk
             </a>
             <div className="flex items-center gap-3 text-sm text-gray-700">
               <MapPin size={16} className="text-gold" />
@@ -111,10 +111,7 @@ export default function ContactLiquidAgency() {
             </div>
           </div>
           <div className="text-xs text-gray-500 leading-relaxed">
-            <p className="mb-2">Liquid Agency specialises in drinks industry intelligence, creative strategy, and brand development. We work with emerging and established brands across spirits, wine, beer, and no/low categories.</p>
-            <a href="https://liquid.agency" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-navy hover:underline font-medium">
-              Visit liquid.agency <ExternalLink size={12} />
-            </a>
+            <p>Liquid Economy specialises in drinks industry intelligence for emerging and established brands across spirits, wine, beer, and no/low categories.</p>
           </div>
         </div>
       </Card>

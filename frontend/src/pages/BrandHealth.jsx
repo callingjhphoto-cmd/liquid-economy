@@ -192,7 +192,7 @@ export default function BrandHealth() {
 
           {/* Data notice */}
           <div className="p-3 bg-amber-50 border border-amber-200 rounded-lg text-xs text-amber-800">
-            <strong>Note:</strong> Brand health data shown is mock/demonstration data generated for platform preview purposes. Live data integration via social listening APIs and Google Trends is in development.
+            <strong>Note:</strong> Brand health data shown is mock/demonstration data generated for platform preview purposes. Live data integration via social listening APIs and Google Trends is planned for Pro tier.
           </div>
         </div>
       </div>

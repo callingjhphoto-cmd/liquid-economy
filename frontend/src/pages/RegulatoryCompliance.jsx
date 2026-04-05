@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import {
-  ShieldAlert, Globe, ChevronDown, ChevronRight, Check, Clock,
-  DollarSign, FileText, AlertTriangle, Package, Tag, Zap
+  ShieldAlert, Globe, ChevronDown, Check, Clock,
+  DollarSign, FileText, AlertTriangle, Package, Tag
 } from 'lucide-react'
 import {
-  Card, PageHeader, SubPageNav, Badge, SectionHeader
+  Card, PageHeader, SubPageNav
 } from '../components/ui'
 import {
   MARKET_REGULATIONS, TARGET_MARKETS_WIZARD

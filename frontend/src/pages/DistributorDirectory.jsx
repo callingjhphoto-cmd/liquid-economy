@@ -1,10 +1,9 @@
 import React, { useState, useMemo } from 'react'
 import {
-  Building2, Search, Globe, Filter, ChevronDown, ChevronRight,
-  ExternalLink, Package, MapPin, DollarSign
+  Building2, Search, ChevronDown
 } from 'lucide-react'
 import {
-  Card, PageHeader, SubPageNav, Badge, SectionHeader
+  Card, PageHeader, SubPageNav, Badge
 } from '../components/ui'
 import { DISTRIBUTORS, COUNTRIES, ALL_CATEGORIES } from '../data/distributorData'
 

@@ -1,15 +1,10 @@
 import React, { useState, useMemo } from 'react'
 import {
-  DollarSign, Target, TrendingUp, ArrowRight, ChevronRight, AlertTriangle, Zap
+  DollarSign, Target, TrendingUp, AlertTriangle, Zap
 } from 'lucide-react'
 import {
-  BarChart, Bar, ResponsiveContainer, XAxis, YAxis, Tooltip, Cell,
-  CartesianGrid, ReferenceLine, ScatterChart, Scatter, ZAxis
-} from 'recharts'
-import {
-  Card, PageHeader, SubPageNav, Badge, SectionHeader
+  Card, PageHeader, SubPageNav, Badge
 } from '../components/ui'
-import { CHART_COLORS } from '../data/chartColors'
 
 const CATEGORIES = [
   { id: 'tequila', label: 'Tequila' },

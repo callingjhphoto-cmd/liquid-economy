@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  ExternalLink, Mail, MapPin, ArrowRight, Crown, BarChart3, Target, Users, Briefcase
+  Mail, MapPin, ArrowRight, Crown, BarChart3, Target, Users, Briefcase
 } from 'lucide-react'
 import {
   Card, PageHeader, SubPageNav

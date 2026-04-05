@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
 import {
   Eye, Globe, DollarSign, Rocket, Building2, Megaphone,
-  ChevronDown, AlertTriangle, TrendingUp, Target, Bell, Filter
+  ChevronDown, AlertTriangle, Target, Bell
 } from 'lucide-react'
 import {
   Card, PageHeader, SubPageNav, Badge
 } from '../components/ui'
 import { COMPETITOR_SETS, ALERT_TYPES } from '../data/competitorData'
-import { CHART_COLORS, CATEGORICAL } from '../data/chartColors'
 
 function AlertIcon({ type }) {
   const config = ALERT_TYPES[type] || { color: '#475569', icon: 'AlertTriangle' }

@@ -1,12 +1,12 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import {
-  Globe, MapPin, TrendingUp, TrendingDown, BarChart3, Shield, Ship,
-  Briefcase, Target, AlertTriangle, Building2, ChevronRight, X, Search
+  Globe, TrendingUp, TrendingDown, BarChart3, Shield,
+  ChevronRight, X, Search
 } from 'lucide-react'
 import {
-  Card, MetricCard, PageHeader, BentoGrid, DrillDown, DataTable,
-  EntityLink, SourceLink, SourceList, Badge, BottomSheet, SectionHeader,
+  Card, MetricCard, PageHeader, BentoGrid, DataTable,
+  EntityLink, SourceLink, Badge, BottomSheet, SectionHeader,
   YearSelector, SkeletonCard, SubPageNav
 } from '../components/ui'
 import { REGIONS, REGION_DATA } from '../data/geographicData'

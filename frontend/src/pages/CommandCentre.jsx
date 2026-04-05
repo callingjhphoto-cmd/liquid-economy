@@ -1,9 +1,9 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import {
-  TrendingUp, TrendingDown, Globe, BarChart3, Zap, ArrowUpRight,
+  TrendingUp, Globe, BarChart3, Zap, ArrowUpRight,
   ArrowDownRight, ChevronRight, ChevronDown, ChevronUp, DollarSign,
-  Calendar, AlertTriangle, Clock, Target, X, BookOpen, Copy, Lightbulb,
+  AlertTriangle, Target, X, BookOpen, Copy, Lightbulb,
   Activity, FileText, Building2
 } from 'lucide-react'
 import {
@@ -11,8 +11,8 @@ import {
 } from 'recharts'
 import LiveFeed from '../components/LiveFeed'
 import {
-  PageHeader, Card, SectionHeader, MetricCard, BentoGrid, DrillDown, EntityLink,
-  SkeletonCard, SkeletonChart, BottomSheet, MethodologyTooltip
+  PageHeader, Card, SectionHeader, BentoGrid, DrillDown,
+  SkeletonCard, SkeletonChart, BottomSheet, MethodologyTooltip, DataFreshness
 } from '../components/ui'
 import { CHART_COLORS } from '../data/chartColors'
 import {
@@ -855,11 +855,11 @@ export default function CommandCentre() {
       {/* ── Page Header ── */}
       <PageHeader
         title="Command Centre"
-        subtitle={`Global beverage alcohol intelligence ${'\u2014'} Data as of March 2026`}
+        subtitle={`Global beverage alcohol intelligence ${'\u2014'} real-time market monitoring`}
         action={
-          <div className="text-right">
-            <div className="text-xs text-gray-500">Last updated</div>
-            <div className="text-xs font-medium text-navy">Feb 26, 2026 14:30 GMT</div>
+          <div className="text-right space-y-1">
+            <DataFreshness date="March 2026" source="IWSR, Euromonitor, Industry" />
+            <div className="text-[10px] text-gray-400">Last refreshed: 26 Mar 2026 14:30 GMT</div>
           </div>
         }
       />

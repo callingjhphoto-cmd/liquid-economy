@@ -1,7 +1,6 @@
 import React, { useState, useMemo } from 'react'
 import {
-  Calendar, MapPin, DollarSign, Users, ExternalLink, Star,
-  ChevronDown, ChevronRight, Filter, Globe, Zap, TrendingUp
+  Calendar, MapPin, ChevronDown, Zap
 } from 'lucide-react'
 import {
   Card, PageHeader, SubPageNav, Badge

@@ -4,7 +4,7 @@ import {
   DollarSign, FileText, AlertTriangle, Package, Tag
 } from 'lucide-react'
 import {
-  Card, PageHeader, SubPageNav
+  Card, PageHeader, SubPageNav, DataFreshness
 } from '../components/ui'
 import {
   MARKET_REGULATIONS, TARGET_MARKETS_WIZARD
@@ -38,6 +38,7 @@ export default function RegulatoryCompliance() {
   return (
     <div className="max-w-7xl mx-auto">
       <SubPageNav group="tools" />
+      <DataFreshness date="April 2026" source="HMRC, TTB, EU Spirits Regulation, national trade bodies" />
       <PageHeader
         title="Regulatory Compliance Checker"
         subtitle="Market-specific import, labelling, and compliance requirements"

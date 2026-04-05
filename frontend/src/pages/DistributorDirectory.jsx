@@ -3,7 +3,7 @@ import {
   Building2, Search, ChevronDown
 } from 'lucide-react'
 import {
-  Card, PageHeader, SubPageNav, Badge
+  Card, PageHeader, SubPageNav, Badge, DataFreshness
 } from '../components/ui'
 import { DISTRIBUTORS, COUNTRIES, ALL_CATEGORIES } from '../data/distributorData'
 
@@ -92,6 +92,7 @@ export default function DistributorDirectory() {
   return (
     <div className="max-w-7xl mx-auto">
       <SubPageNav group="planning" />
+      <DataFreshness date="April 2026" source="Company filings, industry directories, direct outreach" />
       <PageHeader
         title="Distributor Directory"
         subtitle={`${DISTRIBUTORS.length} distributors across ${COUNTRIES.length} markets`}

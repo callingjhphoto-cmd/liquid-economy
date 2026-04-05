@@ -3,7 +3,7 @@ import {
   DollarSign, Target, TrendingUp, AlertTriangle, Zap
 } from 'lucide-react'
 import {
-  Card, PageHeader, SubPageNav, Badge
+  Card, PageHeader, SubPageNav, Badge, DataFreshness
 } from '../components/ui'
 
 const CATEGORIES = [
@@ -170,6 +170,7 @@ export default function PricePositioning() {
   return (
     <div className="max-w-7xl mx-auto">
       <SubPageNav group="intelligence" />
+      <DataFreshness date="April 2026" source="IWSR, Euromonitor, Nielsen, Mintel" />
       <PageHeader
         title="Price Positioning Tool"
         subtitle="See where your product sits in the competitive landscape"

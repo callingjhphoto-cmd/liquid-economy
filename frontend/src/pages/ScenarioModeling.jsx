@@ -153,7 +153,7 @@ export default function ScenarioModeling() {
     <div className="space-y-6 max-w-7xl mx-auto">
       <PageHeader
         title="Scenario Modeling"
-        subtitle="Go-to-market planning, unit economics, campaign intelligence & financial modeling \u00b7 Data as of March 2026"
+        subtitle="Go-to-market planning, unit economics, campaign intelligence & financial modeling \u00b7 Data as of April 2026"
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Scenarios' },

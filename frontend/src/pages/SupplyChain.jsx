@@ -4,7 +4,7 @@ import { Package, Factory, Truck, AlertTriangle, TrendingUp, TrendingDown, Exter
 import {
   PageHeader, Card, MetricCard, BentoGrid, DrillDown, DataTable,
   ChartCard, SourceList, FilterPills, EntityLink, BottomSheet,
-  SkeletonCard, SubPageNav, MethodologyTooltip
+  SkeletonCard, SubPageNav, MethodologyTooltip, DataFreshness
 } from '../components/ui'
 
 import {
@@ -152,6 +152,7 @@ export default function SupplyChain() {
         ]}
       />
       <SubPageNav group="planning" />
+      <DataFreshness date="April 2026" source="BLS PPI, USITC, Eurostat, supplier intelligence" />
 
       {/* ═══════ TIER 1: BENTO GRID SUMMARY ═══════ */}
       <BentoGrid>

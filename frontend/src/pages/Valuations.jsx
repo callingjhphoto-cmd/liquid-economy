@@ -10,7 +10,7 @@ import {
 import {
   Card, MetricCard, PageHeader, BentoGrid, DataTable, ChartCard, DrillDown,
   Badge, SectionHeader, SourceList, TabGroup, EntityLink, YearSelector, BottomSheet,
-  SkeletonCard, SubPageNav
+  SkeletonCard, SubPageNav, DataFreshness
 } from '../components/ui'
 import {
   BRAND_VALUATION_MODELS, BRAND_VALUATIONS, SECTOR_MULTIPLES,
@@ -103,13 +103,14 @@ export default function Valuations() {
     <div className="space-y-6 max-w-7xl mx-auto">
       <PageHeader
         title="Valuations & M&A Intelligence"
-        subtitle="Brand valuations, sector multiples, deal benchmarks, and methodology analysis \u00b7 Data as of March 2026"
+        subtitle="Brand valuations, sector multiples, deal benchmarks, and methodology analysis \u00b7 Data as of April 2026"
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Valuations' },
         ]}
       />
       <SubPageNav group="reports" />
+      <DataFreshness date="April 2026" source="SEC EDGAR, Bloomberg, PitchBook, IWSR M&amp;A database" />
 
       {/* Year Selector */}
       <div className="flex items-center justify-between">

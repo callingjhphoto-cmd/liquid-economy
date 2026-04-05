@@ -12,7 +12,7 @@ import {
   PageHeader, Card, AccentCard, MetricCard, BentoGrid, DataTable,
   ChartCard, Badge, FilterBar, TabGroup, FilterPills, SectionHeader,
   SectionLabel, SourceList, EntityLink, BottomSheet,
-  SkeletonCard, SubPageNav, MethodologyTooltip
+  SkeletonCard, SubPageNav, MethodologyTooltip, DataFreshness
 } from '../components/ui'
 
 import { SEGMENT_INFO, MARKET_CONFIG, RETAILERS, BRAND_DATABASE } from '../data/brandData'
@@ -726,14 +726,15 @@ export default function BrandPricing() {
   return (
     <div className="space-y-6 max-w-7xl mx-auto">
       <PageHeader
-        title={<span className="inline-flex items-center">Brand Pricing Monitor<MethodologyTooltip text="Prices collected from retailer websites. Last verified March 2026." /></span>}
-        subtitle={`Cross-market RRP comparison \u2014 ${PRICING.length} expressions across ${TOTAL_RETAILERS} retailers in ${TOTAL_MARKETS} markets \u00b7 Data as of March 2026`}
+        title={<span className="inline-flex items-center">Brand Pricing Monitor<MethodologyTooltip text="Prices collected from retailer websites. Last verified April 2026." /></span>}
+        subtitle={`Cross-market RRP comparison \u2014 ${PRICING.length} expressions across ${TOTAL_RETAILERS} retailers in ${TOTAL_MARKETS} markets \u00b7 Data as of April 2026`}
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Brand Pricing' },
         ]}
       />
       <SubPageNav group="intelligence" />
+      <DataFreshness date="April 2026" source="Retailer websites: Tesco, Waitrose, Total Wine, El Corte Ingl\u00e9s, Gall &amp; Gall" />
 
       {/* ── TIER 1: Executive Metrics ── */}
       <BentoGrid>

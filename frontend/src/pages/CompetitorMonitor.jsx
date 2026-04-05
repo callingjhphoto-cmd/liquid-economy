@@ -4,7 +4,7 @@ import {
   ChevronDown, AlertTriangle, Target, Bell
 } from 'lucide-react'
 import {
-  Card, PageHeader, SubPageNav, Badge
+  Card, PageHeader, SubPageNav, Badge, DataFreshness
 } from '../components/ui'
 import { COMPETITOR_SETS, ALERT_TYPES } from '../data/competitorData'
 
@@ -92,6 +92,7 @@ export default function CompetitorMonitor() {
         subtitle="Track competitor moves, pricing, and distribution changes"
         icon={<Eye size={20} />}
       />
+      <DataFreshness date="April 2026" source="IWSR, press releases, distributor intelligence" />
 
       {/* Category selector */}
       <Card className="p-4 mb-6">

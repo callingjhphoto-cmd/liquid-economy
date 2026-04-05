@@ -1608,7 +1608,7 @@ const CampaignPlanner = () => {
       <div className="space-y-6 max-w-7xl mx-auto">
         <PageHeader
           title="Campaign Planner"
-          subtitle="3-step mobile flow \u00b7 Data as of March 2026"
+          subtitle="3-step mobile flow \u00b7 Data as of April 2026"
           breadcrumbs={[
             { label: 'Command Centre', to: '/' },
             { label: 'Campaign Planner' }
@@ -1759,7 +1759,7 @@ const CampaignPlanner = () => {
     <div className="space-y-6 max-w-7xl mx-auto">
       <PageHeader
         title="Campaign Planner"
-        subtitle="5-step wizard to turn market intelligence into actionable campaign plans \u00b7 Data as of March 2026"
+        subtitle="5-step wizard to turn market intelligence into actionable campaign plans \u00b7 Data as of April 2026"
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Campaign Planner' }

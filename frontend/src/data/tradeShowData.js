@@ -4,7 +4,7 @@ export const TRADE_SHOWS = [
   {
     name: 'ProWein',
     location: 'D\u00fcsseldorf, Germany',
-    dates: { 2025: '16\u201318 March 2025', 2026: '15\u201317 March 2026' },
+    dates: { 2025: '16\u201318 March 2025', 2026: '15\u201317 April 2026' },
     category: 'Wine & Spirits',
     costToExhibit: '\u20ac5,000\u2013\u20ac25,000 (booth size dependent)',
     expectedVisitors: '50,000+',
@@ -154,7 +154,7 @@ export const TRADE_SHOWS = [
   {
     name: 'Craft Spirits Berlin',
     location: 'Berlin, Germany',
-    dates: { 2025: '22\u201323 March 2025', 2026: '21\u201322 March 2026' },
+    dates: { 2025: '22\u201323 March 2025', 2026: '21\u201322 April 2026' },
     category: 'Craft Spirits',
     costToExhibit: '\u20ac1,500\u2013\u20ac5,000',
     expectedVisitors: '3,000+',

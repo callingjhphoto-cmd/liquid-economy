@@ -3,7 +3,7 @@ import {
   Calendar, MapPin, ChevronDown, Zap
 } from 'lucide-react'
 import {
-  Card, PageHeader, SubPageNav, Badge
+  Card, PageHeader, SubPageNav, Badge, DataFreshness
 } from '../components/ui'
 import { TRADE_SHOWS, MONTHS } from '../data/tradeShowData'
 
@@ -106,6 +106,7 @@ export default function TradeShows() {
         subtitle={`${TRADE_SHOWS.length} global drinks industry events`}
         icon={<Calendar size={20} />}
       />
+      <DataFreshness date="April 2026" source="Event organisers, WSWA, Vinexpo, Prowein, Tales of the Cocktail" />
 
       {/* Controls */}
       <Card className="p-4 mb-6">

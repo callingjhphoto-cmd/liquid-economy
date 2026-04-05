@@ -9,7 +9,7 @@ import { Clock } from 'lucide-react'
  * @param {string} [source] - Data source (e.g. "IWSR, Euromonitor")
  * @param {string} [className] - Additional classes
  */
-export function DataFreshness({ date = 'March 2026', source, className = '' }) {
+export function DataFreshness({ date = 'April 2026', source, className = '' }) {
   return (
     <div className={`inline-flex items-center gap-1.5 text-[10px] text-gray-500 font-medium ${className}`}>
       <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0" />

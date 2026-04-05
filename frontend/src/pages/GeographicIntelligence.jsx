@@ -7,7 +7,7 @@ import {
 import {
   Card, MetricCard, PageHeader, BentoGrid, DataTable,
   EntityLink, SourceLink, Badge, BottomSheet, SectionHeader,
-  YearSelector, SkeletonCard, SubPageNav
+  YearSelector, SkeletonCard, SubPageNav, DataFreshness
 } from '../components/ui'
 import { REGIONS, REGION_DATA } from '../data/geographicData'
 
@@ -632,13 +632,14 @@ export default function GeographicIntelligence() {
       {/* Page Header */}
       <PageHeader
         title="Geographic Intelligence"
-        subtitle={`${totalMarkets} markets tracked \u00b7 Global spirits market insights \u00b7 Data as of March 2026`}
+        subtitle={`${totalMarkets} markets tracked \u00b7 Global spirits market insights \u00b7 Data as of April 2026`}
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Geographic Intelligence' },
         ]}
       />
       <SubPageNav group="intelligence" />
+      <DataFreshness date="April 2026" source="IWSR, UN COMTRADE, Eurostat, HMRC trade data" />
 
       {/* ── TIER 1: Executive Metrics ── */}
       <BentoGrid className="mb-6">

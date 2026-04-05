@@ -15,7 +15,7 @@ import {
   Card, MetricCard, PageHeader, YearSelector,
   BentoGrid, SectionHeader, SectionLabel, TabGroup,
   ChartCard, DataTable, SourceLink, SourceList, EntityLink, BottomSheet,
-  SkeletonCard, SkeletonChart, SubPageNav, ErrorBoundary, MethodologyTooltip
+  SkeletonCard, SkeletonChart, SubPageNav, ErrorBoundary, MethodologyTooltip, DataFreshness
 } from '../components/ui'
 
 // ============================================
@@ -853,10 +853,11 @@ export default function CategoryIntelligence() {
       {/* Page Header */}
       <PageHeader
         title="Category Intelligence"
-        subtitle={`${agg.categoryCount} categories \u00b7 2021\u20132025 \u00b7 Deep market analysis for brand managers \u00b7 Data as of March 2026`}
+        subtitle={`${agg.categoryCount} categories \u00b7 2021\u20132025 \u00b7 Deep market analysis for brand managers \u00b7 Data as of April 2026`}
         action={<YearSelector activeYear={selectedYear} onChange={handleYearChange} />}
       />
       <SubPageNav group="intelligence" />
+      <DataFreshness date="April 2026" source="IWSR, Euromonitor, DISCUS, SWA, TTB" />
 
       {/* Tier 1: Aggregate Executive Metrics */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">

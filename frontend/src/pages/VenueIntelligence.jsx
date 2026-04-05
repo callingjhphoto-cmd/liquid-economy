@@ -4,7 +4,7 @@ import { MapPin, TrendingUp, Wine, Search, ChevronDown, ChevronUp, ExternalLink,
 import {
   PageHeader, Card, MetricCard, BentoGrid, DrillDown, DataTable,
   ChartCard, SourceList, YearSelector,
-  EntityLink, BottomSheet, SkeletonCard, SkeletonChart, SubPageNav, ErrorBoundary
+  EntityLink, BottomSheet, SkeletonCard, SkeletonChart, SubPageNav, ErrorBoundary, DataFreshness
 } from '../components/ui'
 
 import {
@@ -381,7 +381,7 @@ export default function VenueIntelligence() {
     <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto space-y-6">
       <PageHeader
         title="Venue & On-Trade Intelligence"
-        subtitle={`${LONDON_VENUES.length} London venues \u00b7 World\u2019s 50 Best Bars 2021\u20132025 \u00b7 ${Object.keys(COMPANY_PROFILES).length} company profiles \u00b7 Data as of March 2026`}
+        subtitle={`${LONDON_VENUES.length} London venues \u00b7 World\u2019s 50 Best Bars 2021\u20132025 \u00b7 ${Object.keys(COMPANY_PROFILES).length} company profiles \u00b7 Data as of April 2026`}
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Venue Intelligence' },
@@ -389,6 +389,7 @@ export default function VenueIntelligence() {
         action={<YearSelector activeYear={selectedYear} onChange={setSelectedYear} years={YEARS} />}
       />
       <SubPageNav group="intelligence" />
+      <DataFreshness date="April 2026" source="World\u2019s 50 Best Bars, Imbibe, Difford\u2019s Guide, venue intel" />
 
       {/* ═══════ SEARCH BAR (Search-First UX) ═══════ */}
       <div className="relative">

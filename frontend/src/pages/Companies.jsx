@@ -9,7 +9,7 @@ import {
 import {
   Card, MetricCard, PageHeader, BentoGrid, FilterBar, Badge, DataTable,
   DrillDown, EntityLink, SourceList, BottomSheet, SectionHeader,
-  SkeletonCard, SubPageNav, ErrorBoundary
+  SkeletonCard, SubPageNav, ErrorBoundary, DataFreshness
 } from '../components/ui'
 import { COMPANIES, WHITE_SPACE } from '../data/companyData'
 import { CHART_COLORS } from '../data/chartColors'
@@ -877,13 +877,14 @@ export default function Companies() {
       {/* Page Header */}
       <PageHeader
         title="Competitive Intelligence"
-        subtitle={`${totalCompanies} companies tracked \u00b7 $${totalRevenue.toFixed(0)}B+ combined revenue \u00b7 Data as of March 2026`}
+        subtitle={`${totalCompanies} companies tracked \u00b7 $${totalRevenue.toFixed(0)}B+ combined revenue \u00b7 Data as of April 2026`}
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Companies' },
         ]}
       />
       <SubPageNav group="intelligence" />
+      <DataFreshness date="April 2026" source="SEC EDGAR, IWSR, Euromonitor, Companies House" />
 
       {/* ── TIER 1: Executive Metrics ── */}
       <BentoGrid className="mb-6">
@@ -891,7 +892,7 @@ export default function Companies() {
           <MetricCard
             label="Companies Tracked"
             value={String(totalCompanies)}
-            subtitle={`$${totalRevenue.toFixed(0)}B+ combined revenue \u00b7 Data as of March 2026`}
+            subtitle={`$${totalRevenue.toFixed(0)}B+ combined revenue \u00b7 Data as of April 2026`}
             icon={Building2}
             sparkData={COMPANIES.slice(0, 5).map((c, i) => ({ v: parseRevenue(c.revenue) }))}
           />

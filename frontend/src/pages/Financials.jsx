@@ -11,7 +11,7 @@ import {
 } from 'lucide-react'
 import {
   Card, MetricCard, PageHeader, SectionHeader, BentoGrid, ChartCard,
-  Badge, SkeletonCard, SubPageNav, BottomSheet
+  Badge, SkeletonCard, SubPageNav, BottomSheet, DataFreshness
 } from '../components/ui'
 import { CHART_COLORS, CATEGORICAL } from '../data/chartColors'
 import {
@@ -364,6 +364,7 @@ export default function Financials() {
         }
       />
       <SubPageNav group="reports" />
+      <DataFreshness date="April 2026" source="Yahoo Finance, SEC EDGAR, company filings" />
 
       {/* ── Hero Metrics ── */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">

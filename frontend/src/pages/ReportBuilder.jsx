@@ -72,7 +72,7 @@ export default function ReportBuilder() {
       {/* ══════ PAGE HEADER ══════ */}
       <PageHeader
         title="Report Builder"
-        subtitle="Build custom intelligence reports from templates, data sources, and dashboard widgets \u00b7 Data as of March 2026"
+        subtitle="Build custom intelligence reports from templates, data sources, and dashboard widgets \u00b7 Data as of April 2026"
         breadcrumbs={[{ label: 'Command Centre', to: '/' }, { label: 'Report Builder' }]}
       />
       <SubPageNav group="reports" />

@@ -284,7 +284,7 @@ export default function ReportBuilder() {
             {/* Coming Soon note instead of Generate button */}
             <div className="mt-4 w-full bg-gray-100 text-gray-500 py-3 rounded-lg font-medium text-sm flex items-center justify-center gap-2 cursor-not-allowed">
               <Clock size={16} />
-              Generate Report — Coming Soon
+              Generate Report \u2014 Coming Soon
             </div>
           </AccentCard>
 

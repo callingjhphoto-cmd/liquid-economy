@@ -391,7 +391,9 @@ function CategoryExpanded({ category, onClose }) {
           <YAxis type="category" dataKey="name" tick={{ fontSize: 10 }} width={140} />
           <Tooltip
             formatter={(value) => [`${config.currency}${value.toFixed(2)}`, 'Avg Price']}
-            contentStyle={{ fontSize: 11, borderRadius: 8, border: '1px solid #e5e7eb' }}
+            contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
+            labelStyle={{ color: '#f1f5f9' }}
+            itemStyle={{ color: '#94a3b8' }}
           />
           <Bar dataKey="price" radius={[0, 4, 4, 0]}>
             {chartData.map((entry, i) => (
@@ -418,7 +420,9 @@ function CategoryExpanded({ category, onClose }) {
               if (name === 'Avg Price') return [`${config.currency}${value}`, name]
               return [value, name]
             }}
-            contentStyle={{ fontSize: 11, borderRadius: 8, border: '1px solid #e5e7eb' }}
+            contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
+            labelStyle={{ color: '#f1f5f9' }}
+            itemStyle={{ color: '#94a3b8' }}
           />
           <Legend wrapperStyle={{ fontSize: 11 }} />
           <Scatter name="High-End" data={scatterData['High-End']} fill="#7C3AED" />

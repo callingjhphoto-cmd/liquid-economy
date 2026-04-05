@@ -684,7 +684,7 @@ export const REGION_DATA = {
         { country: 'Germany', value: 'R$35M', share: '20%' },
       ],
     },
-    marketEntry: { barriers: 'Moderate - regulatory environment becoming clearer; established distribution networks strong in key regions; tax structures can be complex', minInvestment: '$1.8M-$3.5M', timeToMarket: '11-16 months', keyPartners: ['Inbra (Brazilian Spirits Association)', 'Diageo Brasil', 'Pernod Ricard Brasil'], advice: 'Cach aça dominance requires differentiation through imported premium positioning. São Paulo and Rio de Janeiro are critical markets. Travel retail and e-commerce growing rapidly. On-premise channel (bars, nightclubs) important for brand visibility. Social media and influencer marketing effective for reaching younger consumers.' },
+    marketEntry: { barriers: 'Moderate - regulatory environment becoming clearer; established distribution networks strong in key regions; tax structures can be complex', minInvestment: '$1.8M-$3.5M', timeToMarket: '11-16 months', keyPartners: ['Inbra (Brazilian Spirits Association)', 'Diageo Brasil', 'Pernod Ricard Brasil'], advice: 'Cach a\u00e7a dominance requires differentiation through imported premium positioning. S\u00e3o Paulo and Rio de Janeiro are critical markets. Travel retail and e-commerce growing rapidly. On-premise channel (bars, nightclubs) important for brand visibility. Social media and influencer marketing effective for reaching younger consumers.' },
     dutyTariff: [
       { category: 'Imported Spirits', rate: '20%', notes: 'Plus ICMS state tax (7-18% depending on state)' },
       { category: 'Wine', rate: '27%', notes: 'Higher rate reflects import policy; ICMS additional' },
@@ -694,9 +694,9 @@ export const REGION_DATA = {
       { name: 'Diageo Brasil', type: 'Market leader', categories: 'Premium spirits & wine', minimumVolume: '2,000+ cases annually' },
       { name: 'Pernod Ricard Brasil', type: 'Major distributor', categories: 'All categories', minimumVolume: '1,500+ cases annually' },
       { name: 'Premium Trade Brasil', type: 'Premium specialist', categories: 'Imported spirits & wine', minimumVolume: '800+ cases annually' },
-      { name: 'Regional distributors (São Paulo, Rio)', type: 'Local specialists', categories: 'All categories', minimumVolume: '500+ cases annually' },
+      { name: 'Regional distributors (S\u00e3o Paulo, Rio)', type: 'Local specialists', categories: 'All categories', minimumVolume: '500+ cases annually' },
     ],
-    competitiveEntry: { easeOfEntry: 6, premiumOpportunity: 8, consolidation: 'High - Diageo and Pernod Ricard control ~50% of spirits market; cachaca market fragmented', whitespace: 'Premium imported spirits, craft cocktails, and non-alcoholic premium beverages. Sustainability and social responsibility positioning strong.', recommendation: 'Differentiate through premium imported positioning (compete with, not against, cachaca). Focus on São Paulo and Rio initially - largest market opportunity. On-premise channel (nightclubs, upscale restaurants, hotel bars) critical for brand building. E-commerce and travel retail growing rapidly. Partner with established distributor for market penetration.' },
+    competitiveEntry: { easeOfEntry: 6, premiumOpportunity: 8, consolidation: 'High - Diageo and Pernod Ricard control ~50% of spirits market; cachaca market fragmented', whitespace: 'Premium imported spirits, craft cocktails, and non-alcoholic premium beverages. Sustainability and social responsibility positioning strong.', recommendation: 'Differentiate through premium imported positioning (compete with, not against, cachaca). Focus on S\u00e3o Paulo and Rio initially - largest market opportunity. On-premise channel (nightclubs, upscale restaurants, hotel bars) critical for brand building. E-commerce and travel retail growing rapidly. Partner with established distributor for market penetration.' },
   },
   australia: {
     kpis: [

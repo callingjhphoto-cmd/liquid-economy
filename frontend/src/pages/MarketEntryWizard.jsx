@@ -266,7 +266,7 @@ function Playbook({ category, market }) {
                 <CartesianGrid strokeDasharray="3 3" horizontal={false} />
                 <XAxis type="number" tickFormatter={v => `${currency}${(v/1000).toFixed(0)}k`} tick={{ fontSize: 11 }} />
                 <YAxis type="category" dataKey="name" width={130} tick={{ fontSize: 10 }} />
-                <Tooltip formatter={v => `${currency}${v.toLocaleString()}`} />
+                <Tooltip formatter={v => `${currency}${v.toLocaleString()}`} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#94a3b8' }} />
                 <Bar dataKey="value" fill={CHART_COLORS.primary} radius={[0, 4, 4, 0]}>
                   {costChartData.map((_, i) => (
                     <Cell key={i} fill={i === costChartData.length - 1 ? CHART_COLORS.accent : CHART_COLORS.primary} />

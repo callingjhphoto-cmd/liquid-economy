@@ -111,7 +111,7 @@ export default function ChatPanel({ isOpen, onClose }) {
                     <ul className="text-xs space-y-1 mt-1">
                       {message.sources.map((source, i) => (
                         <li key={i} className={message.role === 'user' ? 'text-white/60' : 'text-navy/60'}>
-                          • {source}
+                          \u2022 {source}
                         </li>
                       ))}
                     </ul>
@@ -152,7 +152,7 @@ export default function ChatPanel({ isOpen, onClose }) {
               <Send size={18} />
             </button>
           </form>
-          <p className="text-xs text-gray-500 mt-2">Enter to send • Shift+Enter for new line</p>
+          <p className="text-xs text-gray-500 mt-2">Enter to send \u2022 Shift+Enter for new line</p>
         </div>
       </div>
     </>

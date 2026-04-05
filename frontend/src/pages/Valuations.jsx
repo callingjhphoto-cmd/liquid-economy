@@ -196,7 +196,9 @@ export default function Valuations() {
               <YAxis tick={{ fontSize: 10 }} tickFormatter={v => `${v}x`} />
               <Tooltip
                 formatter={(v, name) => [`${v}x`, name]}
-                contentStyle={{ fontSize: 11, borderRadius: 8 }}
+                contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
+                labelStyle={{ color: '#f1f5f9' }}
+                itemStyle={{ color: '#94a3b8' }}
               />
               <Bar dataKey="EV/Revenue" radius={[4, 4, 0, 0]}>
                 {sectorChartData.map((_, i) => (
@@ -281,7 +283,9 @@ export default function Valuations() {
               <YAxis tick={{ fontSize: 10 }} tickFormatter={v => `$${v}M`} />
               <Tooltip
                 formatter={(v) => [`$${v}M`, 'Total Value']}
-                contentStyle={{ fontSize: 11, borderRadius: 8 }}
+                contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
+                labelStyle={{ color: '#f1f5f9' }}
+                itemStyle={{ color: '#94a3b8' }}
               />
               <Bar dataKey="value" fill={CHART_COLORS.accent} radius={[4, 4, 0, 0]} />
             </BarChart>

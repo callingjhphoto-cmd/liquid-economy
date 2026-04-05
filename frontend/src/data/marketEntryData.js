@@ -1,4 +1,4 @@
-// Market Entry Wizard — comprehensive playbook data for 10 key markets x 11 categories
+// Market Entry Wizard \u2014 comprehensive playbook data for 10 key markets x 11 categories
 
 export const TARGET_MARKETS_WIZARD = [
   { id: 'uk', name: 'United Kingdom', flag: '\ud83c\uddec\ud83c\udde7', region: 'Europe' },
@@ -62,10 +62,10 @@ export const MARKET_REGULATIONS = {
   france: {
     importLicence: 'EU market. Customs registration. D\u00e9claration Pr\u00e9alable de Profession required for wholesale.',
     labelling: 'EU Regulation 1169/2011. French language mandatory. Loi \u00c9vin restricts health messaging. "Femme enceinte" pregnancy pictogram required.',
-    taxStamps: 'Capsule Repr\u00e9sentative de Droit (CRD) — fiscal stamp on all spirits/wine bottles.',
+    taxStamps: 'Capsule Repr\u00e9sentative de Droit (CRD) \u2014 fiscal stamp on all spirits/wine bottles.',
     dutyRates: { spirits: '\u20ac1,806.28/hectolitre pure alcohol', wine: '\u20ac3.91/hectolitre (still)', beer: '\u20ac3.84\u2013\u20ac7.68/hectolitre' },
     ageRestriction: '18+. Strict enforcement. No sale to intoxicated persons.',
-    advertisingRules: 'Loi \u00c9vin (1991) — strictest in Europe. No TV/cinema advertising. Print ads must include health warning. No sponsorship of sports events. Social media in grey area.',
+    advertisingRules: 'Loi \u00c9vin (1991) \u2014 strictest in Europe. No TV/cinema advertising. Print ads must include health warning. No sponsorship of sports events. Social media in grey area.',
     timeline: '3\u20136 months',
     estimatedCost: '\u20ac15,000\u2013\u20ac45,000 (CRD adds \u20ac0.02\u20130.05/bottle)',
   },
@@ -101,7 +101,7 @@ export const MARKET_REGULATIONS = {
   },
   uae: {
     importLicence: 'Trade licence from DED. Alcohol trading licence from Dubai Municipality (or relevant emirate). Free zone vs mainland decision critical.',
-    labelling: 'Arabic + English mandatory. Halal-adjacent — no Halal certification possible but packaging must not offend. Country of origin.',
+    labelling: 'Arabic + English mandatory. Halal-adjacent \u2014 no Halal certification possible but packaging must not offend. Country of origin.',
     taxStamps: 'Required. 50% excise tax on alcohol (2018). 5% VAT.',
     dutyRates: { spirits: '50% excise + 5% customs duty', wine: '50% excise + 5% customs', beer: '50% excise + 5% customs' },
     ageRestriction: '21+. Non-Muslim residents only (relaxed from 2023). Tourist sales via licensed venues.',
@@ -204,13 +204,13 @@ export const COMPETITOR_LANDSCAPE = {
     nolo: { leader: 'Seedlip (Diageo)', challengers: ['Lyre\u2019s', 'Caleno', 'Lucky Saint'], emerging: ['Three Spirit', 'Days Brewing', 'IMPOSSIBREW'], insight: 'Category grew 31% in 2025. First-taste trial is key. Health/wellness positioning wins.' },
     rtd: { leader: 'White Claw (Mark Anthony)', challengers: ['Smirnoff Ice (Diageo)', 'Gordon\u2019s G&T (Diageo)', 'Jack Daniel\u2019s & Cola'], emerging: ['Served', 'NIO Cocktails', 'Moth'], insight: 'Premium cocktail RTDs growing faster than hard seltzers. Can format preferred.' },
   },
-  // Other markets share similar structure — abbreviated for bundle size
+  // Other markets share similar structure \u2014 abbreviated for bundle size
   us: {
     tequila: { leader: 'Patr\u00f3n (Bacardi)', challengers: ['Don Julio (Diageo)', 'Casamigos (Diageo)', '1800 (Proximo)'], emerging: ['Clase Azul', 'Lobos 1707', 'Cincoro'], insight: 'Tequila surpassed vodka in US revenue (2025). Celebrity brands drive growth. 100% agave is baseline expectation.' },
     vodka: { leader: 'Tito\u2019s', challengers: ['Smirnoff (Diageo)', 'New Amsterdam', 'Grey Goose (Bacardi)'], emerging: ['Hanson of Sonoma', 'Deep Eddy (acquired)'], insight: 'Volume declining. Tito\u2019s dominates value-premium. Flavoured vodka via RTD crossover.' },
     gin: { leader: 'Aviation (Diageo)', challengers: ['Hendrick\u2019s', 'Tanqueray', 'Bombay Sapphire'], emerging: ['Empress 1908', 'Drumshanbo'], insight: 'Gin renaissance driven by cocktail culture. London Dry and contemporary styles.' },
     whisky: { leader: 'Jack Daniel\u2019s (Brown-Forman)', challengers: ['Crown Royal (Diageo)', 'Maker\u2019s Mark (Beam Suntory)', 'Bulleit (Diageo)'], emerging: ['Uncle Nearest', 'Westland', 'Rabbit Hole'], insight: 'American whiskey dominates domestically. Japanese whisky premium niche. Scotch steady.' },
-    rum: { leader: 'Bacardi', challengers: ['Captain Morgan (Diageo)', 'Malibu (Pernod)', 'Don Q'], emerging: ['Diplomático', 'Foursquare', 'Plantation'], insight: 'Premium dark rum growing. Spiced/flavoured still volume leader. Latin influence driving category.' },
+    rum: { leader: 'Bacardi', challengers: ['Captain Morgan (Diageo)', 'Malibu (Pernod)', 'Don Q'], emerging: ['Diplom\u00e1tico', 'Foursquare', 'Plantation'], insight: 'Premium dark rum growing. Spiced/flavoured still volume leader. Latin influence driving category.' },
     cognac: { leader: 'Hennessy (LVMH)', challengers: ['R\u00e9my Martin', 'Courvoisier', 'D\u2019USS\u00c9 (Bacardi)'], emerging: ['Pierre Ferrand', 'Hardy'], insight: 'US is largest cognac market. Hip-hop/culture connection drives awareness. VS/VSOP dominate.' },
     champagne: { leader: 'Mo\u00ebt & Chandon (LVMH)', challengers: ['Veuve Clicquot', 'Dom P\u00e9rignon', 'Perrier-Jou\u00ebt'], emerging: ['Grower Champagnes', 'Krug'], insight: 'US is #2 Champagne market. Prestige cuv\u00e9es outperforming standard brut.' },
     wine: { leader: 'Barefoot (Gallo)', challengers: ['Josh Cellars (Deutsch)', 'Meiomi (Constellation)', 'Kim Crawford'], emerging: ['Natural wine movement', 'Canned wines'], insight: 'DTC booming post-COVID. Premium $15-25 segment growing fastest.' },

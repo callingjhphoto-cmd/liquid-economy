@@ -148,7 +148,9 @@ function CompanyCard({ company, isExpanded, onToggle }) {
                   <YAxis tick={{ fontSize: 11 }} tickFormatter={v => `${company.currency}${v}B`} />
                   <Tooltip
                     formatter={(v) => [`${company.currency}${v}B`, 'Revenue']}
-                    contentStyle={{ borderRadius: 8, border: '1px solid #e5e7eb', fontSize: 12 }}
+                    contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
+                    labelStyle={{ color: '#f1f5f9' }}
+                    itemStyle={{ color: '#94a3b8' }}
                   />
                   <Bar dataKey="value" fill={company.color} radius={[4, 4, 0, 0]} />
                 </BarChart>
@@ -210,7 +212,9 @@ function InventoryTrackerChart() {
         <XAxis dataKey="year" tick={{ fontSize: 11 }} />
         <YAxis tick={{ fontSize: 11 }} tickFormatter={v => `$${v}B`} domain={[0, 25]} />
         <Tooltip
-          contentStyle={{ borderRadius: 8, border: '1px solid #e5e7eb', fontSize: 12 }}
+          contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
+          labelStyle={{ color: '#f1f5f9' }}
+          itemStyle={{ color: '#94a3b8' }}
           formatter={(v, name) => {
             if (name === 'dangerZone') return [`$${v}B`, 'Danger Threshold']
             if (name === 'total') return [`$${v}B`, 'Total Inventory']
@@ -291,7 +295,9 @@ function DepletionShipmentChart() {
         <XAxis dataKey="year" tick={{ fontSize: 11 }} />
         <YAxis tick={{ fontSize: 11 }} domain={[85, 125]} />
         <Tooltip
-          contentStyle={{ borderRadius: 8, border: '1px solid #e5e7eb', fontSize: 12 }}
+          contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
+          labelStyle={{ color: '#f1f5f9' }}
+          itemStyle={{ color: '#94a3b8' }}
           formatter={(v, name) => {
             if (name === 'gap') return [v > 0 ? `+${v} pts` : `${v} pts`, 'Gap (Overshipping)']
             return [v, name === 'shipments' ? 'Shipments' : 'Depletions']
@@ -434,8 +440,8 @@ export default function Financials() {
             <ul className="space-y-0.5 list-disc list-inside">
               <li>IWSR Global Spirits Database</li>
               <li>Nielsen IQ Off-Trade Panel Data</li>
-              <li>Financial Times — Spirits Inventory Analysis</li>
-              <li>Euromonitor International — Alcoholic Drinks</li>
+              <li>Financial Times \u2014 Spirits Inventory Analysis</li>
+              <li>Euromonitor International \u2014 Alcoholic Drinks</li>
               <li>Company investor presentations & earnings calls</li>
             </ul>
           </div>

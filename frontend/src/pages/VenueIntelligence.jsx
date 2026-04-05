@@ -507,7 +507,7 @@ export default function VenueIntelligence() {
                   <BarChart data={regionAnalysis} layout="vertical" accessibilityLayer={true}>
                     <XAxis type="number" />
                     <YAxis dataKey="name" type="category" width={120} tick={{ fontSize: 11 }} />
-                    <Tooltip formatter={(val) => [`${val} bars (${Math.round(val / 50 * 100)}%)`]} />
+                    <Tooltip formatter={(val) => [`${val} bars (${Math.round(val / 50 * 100)}%)`]} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#94a3b8' }} />
                     <Bar dataKey="value" fill={CHART_COLORS.primary} radius={[0, 4, 4, 0]}>
                       {regionAnalysis.map((_, i) => <Cell key={i} fill={CATEGORICAL[i % CATEGORICAL.length]} />)}
                     </Bar>
@@ -518,7 +518,7 @@ export default function VenueIntelligence() {
                   <BarChart data={cityData} layout="vertical" accessibilityLayer={true}>
                     <XAxis type="number" />
                     <YAxis dataKey="city" type="category" width={100} tick={{ fontSize: 11 }} />
-                    <Tooltip />
+                    <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#94a3b8' }} />
                     <Bar dataKey="count" fill={CHART_COLORS.primary} radius={[0, 4, 4, 0]} />
                   </BarChart>
                 </ChartCard>
@@ -678,7 +678,7 @@ export default function VenueIntelligence() {
                 <BarChart data={parentPenetration[selectedYear] || []} layout="vertical" accessibilityLayer={true}>
                   <XAxis type="number" domain={[0, 70]} tickFormatter={v => `${v}%`} />
                   <YAxis dataKey="name" type="category" width={140} tick={{ fontSize: 11 }} />
-                  <Tooltip formatter={(val) => [`${val}%`, 'Penetration']} />
+                  <Tooltip formatter={(val) => [`${val}%`, 'Penetration']} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#94a3b8' }} />
                   <Bar dataKey="pct" radius={[0, 4, 4, 0]} cursor="pointer" onClick={(data) => setSelectedCompany(data?.name || null)}>
                     {(parentPenetration[selectedYear] || []).map((entry, i) => (
                       <Cell key={i} fill={PARENT_COMPANIES[entry.name]?.color || '#666'} />
@@ -844,7 +844,7 @@ export default function VenueIntelligence() {
                 <LineChart data={regionalTrend} accessibilityLayer={true}>
                   <XAxis dataKey="year" />
                   <YAxis />
-                  <Tooltip />
+                  <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#94a3b8' }} />
                   <Legend />
                   <Line type="monotone" dataKey="Europe" stroke={CATEGORICAL[0]} strokeWidth={2} dot={{ r: 4 }} />
                   <Line type="monotone" dataKey="Asia" stroke={CATEGORICAL[1]} strokeWidth={2} dot={{ r: 4 }} />
@@ -926,7 +926,7 @@ export default function VenueIntelligence() {
                   <BarChart data={independentVsCorporate} accessibilityLayer={true}>
                     <XAxis dataKey="year" />
                     <YAxis domain={[0, 50]} />
-                    <Tooltip />
+                    <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#94a3b8' }} />
                     <Legend />
                     <Bar dataKey="Corporate-Backed" stackId="a" fill={CHART_COLORS.primary} radius={[4, 4, 0, 0]} />
                     <Bar dataKey="Independent" stackId="a" fill={CHART_COLORS.emerald} radius={[4, 4, 0, 0]} />
@@ -937,7 +937,7 @@ export default function VenueIntelligence() {
                   <LineChart data={penetrationTrend} accessibilityLayer={true}>
                     <XAxis dataKey="year" />
                     <YAxis tickFormatter={v => `${v}%`} />
-                    <Tooltip formatter={(val) => [`${val}%`]} />
+                    <Tooltip formatter={(val) => [`${val}%`]} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#94a3b8' }} />
                     <Legend />
                     {overallDominance.slice(0, 5).map(d => (
                       <Line key={d.name} type="monotone" dataKey={d.name} stroke={d.color} strokeWidth={2} dot={{ r: 3 }} />

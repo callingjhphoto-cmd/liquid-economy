@@ -566,7 +566,7 @@ function CompanyTier3({ company, onClose }) {
                         <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                         <XAxis dataKey="year" tick={{ fontSize: 11 }} />
                         <YAxis tick={{ fontSize: 11 }} />
-                        <Tooltip contentStyle={{ fontSize: 12 }} />
+                        <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#94a3b8' }} />
                         <Line type="monotone" dataKey="revenue" stroke={CHART_COLORS.primary} strokeWidth={2} name="Revenue ($B)" dot={{ fill: CHART_COLORS.primary }} />
                         <Line type="monotone" dataKey="margin" stroke={CHART_COLORS.accent} strokeWidth={2} name="Op. Margin (%)" dot={{ fill: CHART_COLORS.accent }} />
                       </LineChart>

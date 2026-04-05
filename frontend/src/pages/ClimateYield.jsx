@@ -228,7 +228,7 @@ function LiveWeatherPanel({ region }) {
             <XAxis dataKey="date" tick={{ fontSize: 9 }} interval={4} />
             <YAxis yAxisId="temp" tick={{ fontSize: 9 }} domain={['auto', 'auto']} />
             <YAxis yAxisId="precip" orientation="right" tick={{ fontSize: 9 }} />
-            <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#94a3b8' }} />
+            <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
             <Bar yAxisId="precip" dataKey="precip" fill={CHART_COLORS.blue} opacity={0.4} name="Rainfall (mm)" />
             <Line yAxisId="temp" dataKey="maxTemp" stroke={CHART_COLORS.rose} dot={false} strokeWidth={1.5} name="Max Temp (\u00b0C)" />
             <Line yAxisId="temp" dataKey="minTemp" stroke={CHART_COLORS.blue} dot={false} strokeWidth={1.5} name="Min Temp (\u00b0C)" />
@@ -270,7 +270,7 @@ function YieldChart({ region }) {
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis dataKey="year" tick={{ fontSize: 10 }} />
             <YAxis tick={{ fontSize: 10 }} domain={['auto', 'auto']} />
-            <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#94a3b8' }} />
+            <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
             <ReferenceLine y={region.avgYield} stroke="#C9A96E" strokeDasharray="5 5" label={{ value: '10yr Avg', position: 'right', fontSize: 9, fill: '#C9A96E' }} />
             <Bar dataKey="yield" name="Yield" radius={[4, 4, 0, 0]}>
               {data.map((entry, i) => (
@@ -313,14 +313,14 @@ function ClimateChart({ region }) {
                   <LineChart data={data} accessibilityLayer={true}>
                     <XAxis dataKey="year" tick={{ fontSize: 9 }} />
                     <YAxis tick={{ fontSize: 9 }} domain={['auto', 'auto']} />
-                    <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 10 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#94a3b8' }} />
+                    <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 10 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
                     <Line dataKey={m.key} stroke={m.color} strokeWidth={2} dot={{ r: 3 }} />
                   </LineChart>
                 ) : (
                   <BarChart data={data} accessibilityLayer={true}>
                     <XAxis dataKey="year" tick={{ fontSize: 9 }} />
                     <YAxis tick={{ fontSize: 9 }} />
-                    <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 10 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#94a3b8' }} />
+                    <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 10 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
                     <Bar dataKey={m.key} fill={m.color} radius={[3, 3, 0, 0]} opacity={0.7} />
                   </BarChart>
                 )}

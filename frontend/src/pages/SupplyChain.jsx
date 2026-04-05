@@ -361,7 +361,7 @@ export default function SupplyChain() {
                   {isExpanded && (
                     <div className="mt-3 pt-3 border-t border-gray-100">
                       <p className="text-xs text-gray-600 leading-relaxed mb-3">{data.description}</p>
-                      <div className="flex items-end gap-6">
+                      <div className="flex flex-col sm:flex-row sm:items-end gap-3 sm:gap-6">
                         <ChartCard
                           title="12-Month Trend"
                           height={120}
@@ -376,11 +376,11 @@ export default function SupplyChain() {
                             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                             <XAxis dataKey="date" tick={{ fontSize: 10, fill: '#9ca3af' }} tickLine={false} axisLine={false} />
                             <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} tickLine={false} axisLine={false} width={50} domain={['auto', 'auto']} />
-                            <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#94a3b8' }} />
+                            <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
                             <Area type="monotone" dataKey="value" stroke={CHART_COLORS.primary} strokeWidth={2} fill="url(#expandGrad)" dot={{ fill: CHART_COLORS.primary, r: 3, strokeWidth: 1, stroke: '#fff' }} />
                           </AreaChart>
                         </ChartCard>
-                        <div className="text-right space-y-1.5 min-w-[140px]">
+                        <div className="sm:text-right space-y-1.5 sm:min-w-[140px]">
                           {data.sourceUrl && (
                             <a href={data.sourceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-medium text-blue-600 hover:text-blue-800">
                               View source <ExternalLink className="w-3 h-3" />

@@ -350,7 +350,7 @@ function MarketTrendChart({ catKey }) {
           formatter={(val) => [`$${val.toFixed(1)}B`, 'Market Size']}
           contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
           labelStyle={{ color: '#f1f5f9', fontWeight: 600 }}
-          itemStyle={{ color: '#94a3b8' }}
+          itemStyle={{ color: '#f1f5f9' }}
         />
         <Area type="monotone" dataKey="size" stroke={CHART_COLORS.primary} fill={CHART_COLORS.primary} fillOpacity={0.08} strokeWidth={2} />
       </AreaChart>
@@ -397,7 +397,7 @@ function ChannelChart({ catKey }) {
           }}
           contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
           labelStyle={{ color: '#f1f5f9' }}
-          itemStyle={{ color: '#94a3b8' }}
+          itemStyle={{ color: '#f1f5f9' }}
         />
         {CHANNEL_CONFIG.map(ch => (
           <Bar key={ch.key} dataKey={ch.key} stackId="channels" fill={ch.color} radius={ch.key === 'travelRetail' ? [2, 2, 0, 0] : [0, 0, 0, 0]} />

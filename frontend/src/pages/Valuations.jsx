@@ -199,7 +199,7 @@ export default function Valuations() {
                 formatter={(v, name) => [`${v}x`, name]}
                 contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
                 labelStyle={{ color: '#f1f5f9' }}
-                itemStyle={{ color: '#94a3b8' }}
+                itemStyle={{ color: '#f1f5f9' }}
               />
               <Bar dataKey="EV/Revenue" radius={[4, 4, 0, 0]}>
                 {sectorChartData.map((_, i) => (
@@ -286,7 +286,7 @@ export default function Valuations() {
                 formatter={(v) => [`$${v}M`, 'Total Value']}
                 contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
                 labelStyle={{ color: '#f1f5f9' }}
-                itemStyle={{ color: '#94a3b8' }}
+                itemStyle={{ color: '#f1f5f9' }}
               />
               <Bar dataKey="value" fill={CHART_COLORS.accent} radius={[4, 4, 0, 0]} />
             </BarChart>

@@ -150,7 +150,7 @@ function CompanyCard({ company, isExpanded, onToggle }) {
                     formatter={(v) => [`${company.currency}${v}B`, 'Revenue']}
                     contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
                     labelStyle={{ color: '#f1f5f9' }}
-                    itemStyle={{ color: '#94a3b8' }}
+                    itemStyle={{ color: '#f1f5f9' }}
                   />
                   <Bar dataKey="value" fill={company.color} radius={[4, 4, 0, 0]} />
                 </BarChart>
@@ -214,7 +214,7 @@ function InventoryTrackerChart() {
         <Tooltip
           contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
           labelStyle={{ color: '#f1f5f9' }}
-          itemStyle={{ color: '#94a3b8' }}
+          itemStyle={{ color: '#f1f5f9' }}
           formatter={(v, name) => {
             if (name === 'dangerZone') return [`$${v}B`, 'Danger Threshold']
             if (name === 'total') return [`$${v}B`, 'Total Inventory']
@@ -297,7 +297,7 @@ function DepletionShipmentChart() {
         <Tooltip
           contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
           labelStyle={{ color: '#f1f5f9' }}
-          itemStyle={{ color: '#94a3b8' }}
+          itemStyle={{ color: '#f1f5f9' }}
           formatter={(v, name) => {
             if (name === 'gap') return [v > 0 ? `+${v} pts` : `${v} pts`, 'Gap (Overshipping)']
             return [v, name === 'shipments' ? 'Shipments' : 'Depletions']

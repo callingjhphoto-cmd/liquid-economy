@@ -600,7 +600,7 @@ function RecentlyUpdatedFeed() {
 function DeepDiveCTAs() {
   const ctas = [
     { label: 'View Full Category Data', sub: '11 categories with 5-year trends', to: '/categories', icon: BarChart3 },
-    { label: 'View All Companies', sub: '14 public + 47 craft tracked', to: '/companies', icon: Activity },
+    { label: 'View All Companies', sub: '14 major companies tracked', to: '/companies', icon: Activity },
     { label: 'Explore Pricing', sub: '208 brand expressions monitored', to: '/pricing', icon: DollarSign },
     { label: 'Geographic Intelligence', sub: '5 regions with market breakdowns', to: '/geographic', icon: Globe },
     { label: 'Venue Intelligence', sub: '50 Best Bars + 28 London venues', to: '/venues', icon: Target },
@@ -858,8 +858,8 @@ export default function CommandCentre() {
         subtitle={`Global beverage alcohol intelligence ${'\u2014'} real-time market monitoring`}
         action={
           <div className="text-right space-y-1">
-            <DataFreshness date="March 2026" source="IWSR, Euromonitor, Industry" />
-            <div className="text-[10px] text-gray-400">Last refreshed: 26 Mar 2026 14:30 GMT</div>
+            <DataFreshness date="April 2026" source="IWSR, Euromonitor, Industry" />
+            <div className="text-[10px] text-gray-400">Last refreshed: 5 Apr 2026 09:00 GMT</div>
           </div>
         }
       />

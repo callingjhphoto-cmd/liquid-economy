@@ -1,4 +1,4 @@
-export const DATA_LAST_UPDATED = '2026-03-21'
+export const DATA_LAST_UPDATED = '2026-04-05'
 
 // ══════════════════════════════════════════════════════════
 // Command Centre Data — extracted from inline JSX

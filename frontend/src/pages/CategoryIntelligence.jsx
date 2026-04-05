@@ -890,7 +890,7 @@ export default function CategoryIntelligence() {
         />
       </div>
 
-      {/* Tier 1: Category Bento Grid — F-pattern (largest first) */}
+      {/* Tier 1: Category Bento Grid \u2014 F-pattern (largest first) */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
         {sorted.map((cat, i) => (
           <CategoryCard

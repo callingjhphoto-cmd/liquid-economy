@@ -1,3 +1,21 @@
+# Overnight Build Log — 6 April 2026
+
+## Session summary
+
+**Shipped:** Mobile responsiveness pass — 375px safe across 7 pages (17 class fixes, build clean)
+
+1. **CategoryIntelligence — 2 grid fixes.** Both the 4-KPI overview card grid and the aggregate tier grid used bare `grid-cols-2 lg:grid-cols-4`. Changed to `grid-cols-1 sm:grid-cols-2 lg:grid-cols-4` so they stack single-column on iPhone SE instead of squeezing two 160px-wide cards side by side.
+
+2. **VenueIntelligence, BrandPricing, Companies — modal/card detail grids.** Each had `grid-cols-2` in bottom-sheet or expanded-card detail panels (venue stats, brand category modal, company mobile sheet). All changed to `grid-cols-1 sm:grid-cols-2`. At 375px these were producing ~167px columns with no breathing room.
+
+3. **CommandCentre hero stat.** The $635B headline was `text-4xl` (36px) with no mobile qualifier. Changed to `text-2xl sm:text-4xl` — still bold at 24px on small screens, full size at &#x2265;640px.
+
+4. **SupplyChain — 8 fixes.** Three metric card values (`text-2xl`) and the pressure index (`text-3xl`) now scale down via `text-xl sm:text-2xl` / `text-xl sm:text-3xl`. The commodity detail panel grid (`grid-cols-2`) and the segment-legend grid (`grid-cols-4`) both gained responsive prefixes so they don't squeeze at 375px.
+
+5. **GeographicIntelligence — 2 grid fixes.** Region drill-down KPI grid and mobile-sheet KPI grid both changed from bare `grid-cols-2` to `grid-cols-1 sm:grid-cols-2`. Build: `vite build` &#x2713; &#x2014; 0 errors, 0 warnings. Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 5 April 2026
 
 ## Session summary

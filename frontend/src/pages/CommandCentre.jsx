@@ -69,7 +69,7 @@ function HeroMarketCard() {
         </div>
 
         <div className="flex items-baseline gap-3 mb-2">
-          <span className="text-4xl font-bold text-navy">$635B</span>
+          <span className="text-2xl sm:text-4xl font-bold text-navy">$635B</span>
           <span className="inline-flex items-center gap-0.5 text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
             <ArrowUpRight size={12} />
             +3.1% YoY

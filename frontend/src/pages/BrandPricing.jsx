@@ -192,7 +192,7 @@ function CategorySummaryCard({ stat, isExpanded, onToggle }) {
         <Badge variant="navy" size="sm">{stat.count} brands</Badge>
       </div>
 
-      <div className="grid grid-cols-2 gap-2 mb-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
         <div>
           <SectionLabel>Avg (US)</SectionLabel>
           <p className="text-lg font-bold text-navy font-mono">
@@ -654,7 +654,7 @@ export default function BrandPricing() {
           title: category,
           content: (
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <div className="bg-gray-50 rounded-lg p-2.5 text-center">
                   <div className="text-xs text-gray-500 uppercase">Brands</div>
                   <div className="text-sm font-bold text-navy">{stat.count}</div>

@@ -560,7 +560,7 @@ function CategoryDetail({ cat, year, onBack }) {
       {activeTab === 'overview' && (
         <div className="space-y-5">
           {/* 4 KPI cards */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             <MetricCard
               label="Market Size"
               value={yd.marketSize}
@@ -860,7 +860,7 @@ export default function CategoryIntelligence() {
       <DataFreshness date="April 2026" source="IWSR, Euromonitor, DISCUS, SWA, TTB" />
 
       {/* Tier 1: Aggregate Executive Metrics */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
         <MetricCard
           label="Total Market"
           value={agg.totalSize}

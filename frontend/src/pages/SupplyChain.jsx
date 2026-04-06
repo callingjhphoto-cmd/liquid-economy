@@ -162,7 +162,7 @@ export default function SupplyChain() {
             <div className="flex items-start justify-between mb-3">
               <div>
                 <p className="text-label text-gray-500">Composite Pressure Index (2025)<MethodologyTooltip text="Weighted average of 8 commodity input costs: 60% raw materials, 30% freight indices, 10% energy. Updated quarterly from IWSR, S&P GSCI, and Drewry WCI." /></p>
-                <p className="text-3xl font-bold text-red-600 mt-1">7.2%</p>
+                <p className="text-xl sm:text-3xl font-bold text-red-600 mt-1">7.2%</p>
                 <p className="text-sm text-gray-500 mt-0.5">Weighted input cost rise</p>
               </div>
               <DollarSign size={24} className="text-gold" />
@@ -199,7 +199,7 @@ export default function SupplyChain() {
             <AlertTriangle size={16} className="text-red-500" />
             <p className="text-label text-gray-500">Critical Alerts</p>
           </div>
-          <p className="text-2xl font-bold text-red-600">{criticalCount}</p>
+          <p className="text-xl sm:text-2xl font-bold text-red-600">{criticalCount}</p>
           <p className="text-xs text-gray-500">{'\u2265'}15% YoY change</p>
         </Card>
 
@@ -208,7 +208,7 @@ export default function SupplyChain() {
             <TrendingUp size={16} className="text-orange-500" />
             <p className="text-label text-gray-500">High Alert</p>
           </div>
-          <p className="text-2xl font-bold text-orange-600">{highCount}</p>
+          <p className="text-xl sm:text-2xl font-bold text-orange-600">{highCount}</p>
           <p className="text-xs text-gray-500">8-14% YoY change</p>
         </Card>
 
@@ -296,7 +296,7 @@ export default function SupplyChain() {
                       title: data.label,
                       content: (
                         <div className="space-y-3">
-                          <div className="grid grid-cols-2 gap-2">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             <div className="bg-gray-50 rounded-lg p-2.5 text-center">
                               <div className="text-xs text-gray-500 uppercase">Current</div>
                               <div className="text-sm font-bold text-navy">{typeof data.value === 'number' ? data.value.toLocaleString() : data.value}{data.unit && <span className="text-xs text-gray-500 ml-0.5">{data.unit}</span>}</div>
@@ -465,7 +465,7 @@ export default function SupplyChain() {
                       <div key={i} style={{ width: `${s.value}%`, backgroundColor: s.color }} title={`${s.label}: ${s.value}%`} />
                     ))}
                   </div>
-                  <div className="grid grid-cols-4 gap-1 text-xs">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 text-xs">
                     {segments.map((seg, i) => (
                       <div key={i} className="flex items-center gap-0.5">
                         <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: seg.color }} />
@@ -571,15 +571,15 @@ export default function SupplyChain() {
           <BentoGrid>
             <Card>
               <p className="text-label text-gray-500">Brands Monitored</p>
-              <p className="text-2xl font-bold text-navy mt-1">32</p>
+              <p className="text-xl sm:text-2xl font-bold text-navy mt-1">32</p>
             </Card>
             <Card>
               <p className="text-label text-gray-500">Active Alerts</p>
-              <p className="text-2xl font-bold text-red-600 mt-1">{MARGIN_ALERTS.length}</p>
+              <p className="text-xl sm:text-2xl font-bold text-red-600 mt-1">{MARGIN_ALERTS.length}</p>
             </Card>
             <Card>
               <p className="text-label text-gray-500">Avg Price Increase Needed</p>
-              <p className="text-2xl font-bold text-green-600 mt-1">$2.80</p>
+              <p className="text-xl sm:text-2xl font-bold text-green-600 mt-1">$2.80</p>
             </Card>
           </BentoGrid>
 

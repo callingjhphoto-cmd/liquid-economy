@@ -288,7 +288,7 @@ function RegionTier2({ region, data, onClose, onViewFull }) {
             </div>
             {currentReport && (
               <div className="space-y-3">
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   <div className="bg-white rounded-lg border border-gray-100 p-3 text-center">
                     <div className="text-xs text-gray-500 uppercase">Market Size</div>
                     <div className="text-lg font-bold text-navy tabular-nums">{currentReport.marketSize}</div>
@@ -771,7 +771,7 @@ export default function GeographicIntelligence() {
             <p className="text-xs text-gray-600 leading-relaxed">{mobileSheet.trajectory}</p>
 
             {REGION_DATA[mobileSheet.key].kpis && (
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {REGION_DATA[mobileSheet.key].kpis.slice(0, 4).map((kpi, i) => (
                   <div key={i} className="bg-gray-50 rounded-lg p-2 text-center">
                     <div className="text-xs text-gray-500 uppercase">{kpi.label}</div>

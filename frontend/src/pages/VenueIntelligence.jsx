@@ -310,7 +310,7 @@ export default function VenueIntelligence() {
               </span>
               <span className="px-1.5 py-0.5 bg-gray-100 text-gray-600 rounded text-micro">{venue.type}</span>
             </div>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               <div className="bg-gray-50 rounded-lg p-2.5 text-center">
                 <div className="text-xs text-gray-500 uppercase">Area</div>
                 <div className="text-xs font-bold text-navy">{venue.area}</div>

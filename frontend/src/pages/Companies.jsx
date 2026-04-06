@@ -1027,7 +1027,7 @@ export default function Companies() {
           <div className="space-y-4">
             <p className="text-xs text-gray-600 leading-relaxed">{mobileSheet.description}</p>
 
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               <div className="bg-gray-50 rounded-lg p-2.5 text-center">
                 <div className="text-xs text-gray-500 uppercase">Revenue</div>
                 <div className="text-sm font-bold text-navy">{mobileSheet.revenue}</div>

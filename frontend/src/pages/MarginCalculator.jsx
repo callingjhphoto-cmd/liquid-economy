@@ -528,8 +528,8 @@ export default function MarginCalculator() {
           <ChartCard title="Your Product vs Category Benchmarks" height={220}>
             <BarChart data={comparisonData} layout="vertical" accessibilityLayer={true}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-              <XAxis type="number" domain={[0, 70]} tick={{ fontSize: 10 }} tickFormatter={v => v + '%'} />
-              <YAxis type="category" dataKey="name" width={80} tick={{ fontSize: 10, fill: '#6b7280' }} />
+              <XAxis type="number" domain={[0, 70]} tick={{ fontSize: 10, fill: '#9ca3af' }} tickFormatter={v => v + '%'} />
+              <YAxis type="category" dataKey="name" width={80} tick={{ fontSize: 10, fill: '#9ca3af' }} />
               <Tooltip formatter={(v) => v + '%'} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
               <Bar dataKey="margin" radius={[0, 4, 4, 0]}>
                 {comparisonData.map((entry, i) => (
@@ -542,8 +542,8 @@ export default function MarginCalculator() {
           <ChartCard title="Channel-Specific Margins" subtitle="Using category average RRP per channel" height={220}>
             <BarChart data={channelChartData} accessibilityLayer={true}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-              <XAxis dataKey="name" tick={{ fontSize: 10 }} />
-              <YAxis tick={{ fontSize: 10 }} tickFormatter={v => v + '%'} />
+              <XAxis dataKey="name" tick={{ fontSize: 10, fill: '#9ca3af' }} />
+              <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} tickFormatter={v => v + '%'} />
               <Tooltip formatter={(v, name) => name === 'margin' ? v + '%' : '\u00a3' + v} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
               <Bar dataKey="margin" name="Margin %" radius={[4, 4, 0, 0]}>
                 {channelChartData.map((entry, i) => (
@@ -580,8 +580,8 @@ export default function MarginCalculator() {
         <ChartCard title={'Cost Waterfall \u2014 ' + cat.label + ' (' + BOTTLE_SIZES[bottleSize].label + ')'} subtitle={'Target RRP: ' + fmt(targetRRP)} height={260}>
           <BarChart data={waterfallData} accessibilityLayer={true}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-            <XAxis dataKey="name" tick={{ fontSize: 9 }} interval={0} angle={-20} textAnchor="end" height={50} />
-            <YAxis tick={{ fontSize: 10 }} tickFormatter={v => '\u00a3' + v} />
+            <XAxis dataKey="name" tick={{ fontSize: 9, fill: '#9ca3af' }} interval={0} angle={-20} textAnchor="end" height={50} />
+            <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} tickFormatter={v => '\u00a3' + v} />
             <Tooltip formatter={(v) => fmt(v)} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
             <Bar dataKey="cost" radius={[4, 4, 0, 0]}>
               {waterfallData.map((entry, i) => (

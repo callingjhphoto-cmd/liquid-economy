@@ -144,8 +144,8 @@ function CompanyCard({ company, isExpanded, onToggle }) {
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={company.quarterlyRevenue} accessibilityLayer>
                   <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                  <XAxis dataKey="period" tick={{ fontSize: 11 }} />
-                  <YAxis tick={{ fontSize: 11 }} tickFormatter={v => `${company.currency}${v}B`} />
+                  <XAxis dataKey="period" tick={{ fontSize: 11, fill: '#9ca3af' }} />
+                  <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => `${company.currency}${v}B`} />
                   <Tooltip
                     formatter={(v) => [`${company.currency}${v}B`, 'Revenue']}
                     contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
@@ -209,8 +209,8 @@ function InventoryTrackerChart() {
     >
       <ComposedChart data={data} accessibilityLayer>
         <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-        <XAxis dataKey="year" tick={{ fontSize: 11 }} />
-        <YAxis tick={{ fontSize: 11 }} tickFormatter={v => `$${v}B`} domain={[0, 25]} />
+        <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#9ca3af' }} />
+        <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => `$${v}B`} domain={[0, 25]} />
         <Tooltip
           contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
           labelStyle={{ color: '#f1f5f9' }}
@@ -292,8 +292,8 @@ function DepletionShipmentChart() {
     >
       <ComposedChart data={gapData} accessibilityLayer>
         <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-        <XAxis dataKey="year" tick={{ fontSize: 11 }} />
-        <YAxis tick={{ fontSize: 11 }} domain={[85, 125]} />
+        <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#9ca3af' }} />
+        <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} domain={[85, 125]} />
         <Tooltip
           contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
           labelStyle={{ color: '#f1f5f9' }}

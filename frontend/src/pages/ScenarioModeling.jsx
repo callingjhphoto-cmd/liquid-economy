@@ -863,8 +863,8 @@ function CostWaterfall({ costs }) {
       <ChartCard title="Unit Economics Breakdown" subtitle="Cost waterfall from production to shelf (per unit, GBP)" height={220}>
         <BarChart data={items} margin={{ top: 5, right: 5, bottom: 5, left: 5 }} accessibilityLayer={true}>
           <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-          <XAxis dataKey="name" tick={{ fontSize: 9 }} />
-          <YAxis tick={{ fontSize: 9 }} tickFormatter={v => `\u00a3${v.toFixed(2)}`} />
+          <XAxis dataKey="name" tick={{ fontSize: 9, fill: '#9ca3af' }} />
+          <YAxis tick={{ fontSize: 9, fill: '#9ca3af' }} tickFormatter={v => `\u00a3${v.toFixed(2)}`} />
           <Tooltip formatter={(v) => [`\u00a3${v.toFixed(2)}`, 'Cost']} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
           <Bar dataKey="value" radius={[4, 4, 0, 0]}>
             {items.map((entry, i) => <Cell key={i} fill={entry.fill} />)}

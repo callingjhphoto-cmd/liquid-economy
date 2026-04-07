@@ -387,8 +387,8 @@ function CategoryExpanded({ category, onClose }) {
       >
         <BarChart data={chartData} layout="vertical" margin={{ left: 10, right: 30, top: 5, bottom: 5 }} accessibilityLayer={true}>
           <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-          <XAxis type="number" tick={{ fontSize: 10 }} tickFormatter={v => `${config.currency}${v}`} />
-          <YAxis type="category" dataKey="name" tick={{ fontSize: 10 }} width={140} />
+          <XAxis type="number" tick={{ fontSize: 10, fill: '#9ca3af' }} tickFormatter={v => `${config.currency}${v}`} />
+          <YAxis type="category" dataKey="name" tick={{ fontSize: 10, fill: '#9ca3af' }} width={140} />
           <Tooltip
             formatter={(value) => [`${config.currency}${value.toFixed(2)}`, 'Avg Price']}
             contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
@@ -412,8 +412,8 @@ function CategoryExpanded({ category, onClose }) {
       >
         <ScatterChart margin={{ top: 10, right: 30, bottom: 10, left: 10 }} accessibilityLayer={true}>
           <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-          <XAxis dataKey="volume" name="Volume (index)" type="number" tick={{ fontSize: 10 }} label={{ value: 'Brand Index', position: 'insideBottom', offset: -5, fontSize: 10 }} />
-          <YAxis dataKey="price" name="Avg Price" unit={config.currency} type="number" tick={{ fontSize: 10 }} />
+          <XAxis dataKey="volume" name="Volume (index)" type="number" tick={{ fontSize: 10, fill: '#9ca3af' }} label={{ value: 'Brand Index', position: 'insideBottom', offset: -5, fontSize: 10, fill: '#9ca3af' }} />
+          <YAxis dataKey="price" name="Avg Price" unit={config.currency} type="number" tick={{ fontSize: 10, fill: '#9ca3af' }} />
           <Tooltip
             cursor={{ strokeDasharray: '3 3' }}
             formatter={(value, name) => {

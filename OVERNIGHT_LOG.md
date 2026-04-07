@@ -1,3 +1,21 @@
+# Overnight Build Log — 7 April 2026
+
+## Session summary
+
+**Shipped:** Chart axis tick label visibility — 45 axes fixed across 10 pages (build clean)
+
+1. **Root cause.** Recharts renders axis ticks as SVG `<text>` elements. Without an explicit `fill` attribute, browsers inherit the document default — which on white chart backgrounds is effectively invisible. All `tick={{ fontSize: N }}` props were missing `fill: '#9ca3af'` (gray-400).
+
+2. **Pages fixed (10).** BrandHealth (2 axes), DepletionForecasting (5 axes across 2 charts), Financials (6 axes across 3 charts), ClimateYield (9 axes across 4 charts), MarginCalculator (6 axes across 3 charts), MarketEntryWizard (2 axes), ScenarioModeling (2 axes), Valuations (4 axes across 2 charts), VenueIntelligence (10 axes — 6 bare `<XAxis/>`/`<YAxis/>` with no tick prop at all), BrandPricing (4 axes across 2 charts incl. ScatterChart axis label).
+
+3. **Not touched.** CategoryIntelligence, Companies, SupplyChain were already correct with `fill: '#9ca3af'` or `fill: '#9CA3AF'` set from prior sessions.
+
+4. **Pattern enforced.** All tick objects now follow `tick={{ fontSize: N, fill: '#9ca3af' }}`. Secondary axis labels (e.g. ScatterChart `label` prop) also received `fill`.
+
+5. **Build:** `vite build` &#x2713; &#x2014; 0 errors, 0 warnings. Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 6 April 2026
 
 ## Session summary

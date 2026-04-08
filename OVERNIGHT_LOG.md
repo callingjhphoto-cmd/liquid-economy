@@ -1,3 +1,21 @@
+# Overnight Build Log — 8 April 2026
+
+## Session summary
+
+**Shipped:** BrandPricing data quality audit \u2014 missing category colour + 11 duplicate brand expressions removed (build clean)
+
+1. **Root cause.** `CATEGORY_COLORS` in BrandPricing.jsx was missing a `'Whisky'` entry. The database has 21 brand expressions under category `'Whisky'` (added in a later bulk-import pass) but the colour map only covered `'Scotch Whisky'`. All 21 entries were rendering chart bars with `undefined` fill \u2014 invisible or default browser colour on the scatter and bar charts.
+
+2. **Fix.** Added `'Whisky': '#D97706'` (amber-600, matching `'Scotch Whisky'`) to `CATEGORY_COLORS`. All 21 Whisky entries now render correctly.
+
+3. **Duplicate audit.** Full audit of `BRAND_DATABASE` revealed 11 exact same-brand-plus-expression duplicates introduced during the bulk `(added)` import passes. Removed 3 cross-category duplicates (Macallan 12yr Double Cask, Johnnie Walker Blue Label, Jack Daniel\u2019s Old No.7 each appeared once in their verified category and again in the Whisky block) and 8 same-category duplicates (\u00a0Patr\u00f3n Silver, Martell VS, R\u00e9my Martin VSOP, Havana Club 7 A\u00f1os, Mo\u00ebt Imp\u00e9rial Brut, Veuve Clicquot Yellow Label, Dom P\u00e9rignon 2015, Seedlip Garden 108). Each removed entry was the `verified: false` auto-generated copy; the original verified entry was retained.
+
+4. **Counts confirmed.** 272 expressions \u2192 261 after deduplication across 13 categories. CategoryIntelligence: all 11 categories \u00d7 5 years confirmed clean (marketSize, growth, growthDir, volumeCases, brands, channels all present). VenueIntelligence: 28 London profiles confirmed, all fields populated.
+
+5. **Build:** `vite build` \u2713 \u2014 2443 modules, 0 errors, 0 warnings. Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 7 April 2026
 
 ## Session summary

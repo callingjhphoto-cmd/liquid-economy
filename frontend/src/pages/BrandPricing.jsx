@@ -32,6 +32,7 @@ const TIER_COLORS = {
 }
 
 const CATEGORY_COLORS = {
+  'Whisky': '#D97706',
   'Scotch Whisky': '#D97706',
   'Bourbon & American': '#B45309',
   'Tequila': '#059669',

@@ -1,3 +1,21 @@
+# Overnight Build Log — 10 April 2026
+
+## Session summary
+
+**Shipped:** Rendering correctness pass — tooltip colours, axis tick JSX syntax, SupplyChain gradient, BrandPricing colour, brand dedup (build clean)
+
+1. **Axis tick JSX syntax regression fixed.** A prior mass-fix script wrote `tick={ fontSize: N, fill: '#9ca3af' }` (single braces) instead of valid JSX double-brace `tick={{ fontSize: N, fill: '#9ca3af' }}`, causing a `vite build` error (`Expected "}" but found ":"`) in Valuations.jsx. Fixed all 44 instances across 11 pages (BrandHealth, BrandPricing, ClimateYield, Companies, DepletionForecasting, Financials, MarginCalculator, MarketEntryWizard, ScenarioModeling, Valuations, VenueIntelligence).
+
+2. **Tooltip itemStyle colour.** Confirmed 29 Tooltip `itemStyle` props across 13 pages now use `#f1f5f9` (white on dark) — already applied in prior sessions, retained through rebase.
+
+3. **SupplyChain area gradient.** The expanding-market AreaChart referenced `fill="url(#expandGrad)"` but no `<linearGradient id="expandGrad">` existed in the file. Added the defs block with navy-to-transparent gradient; chart area fill now renders correctly.
+
+4. **BrandPricing CATEGORY_COLORS.** `'Whisky'` key was missing; 21 expressions in the catch-all bucket rendered `undefined` colour on scatter + bar charts. Added `'Whisky': '#D97706'` (amber, matching Scotch Whisky).
+
+5. **Brand deduplication — 260 expressions.** Removed remaining cross-category and same-category duplicates not caught by prior session (Gordon's RTD in Gin cat, and 4 others via Unicode-escape fix). Dataset now 260 verified expressions. Build: `vite build` ✓ — 2443 modules, 0 errors, 0 warnings. Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 8 April 2026
 
 ## Session summary

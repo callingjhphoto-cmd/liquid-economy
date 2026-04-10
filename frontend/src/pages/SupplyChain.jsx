@@ -373,6 +373,12 @@ export default function SupplyChain() {
                           ]}
                         >
                           <AreaChart data={Object.entries(data.historicalData).sort(([a], [b]) => a.localeCompare(b)).map(([d, v]) => ({ date: d.slice(5), value: v }))} accessibilityLayer={true}>
+                            <defs>
+                              <linearGradient id="expandGrad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stopColor="#1B2A4A" stopOpacity={0.18} />
+                                <stop offset="100%" stopColor="#1B2A4A" stopOpacity={0.02} />
+                              </linearGradient>
+                            </defs>
                             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                             <XAxis dataKey="date" tick={{ fontSize: 10, fill: '#9ca3af' }} tickLine={false} axisLine={false} />
                             <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} tickLine={false} axisLine={false} width={50} domain={['auto', 'auto']} />

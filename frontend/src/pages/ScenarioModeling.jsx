@@ -6,7 +6,7 @@ import {
 import {
   Target, DollarSign, TrendingUp, Package, Building2,
   ShieldAlert, Clock, Star, ChevronDown, ChevronUp, ChevronRight,
-  ArrowRight, Check, MapPin, Share2, Megaphone, Layers
+  ArrowRight, Check, MapPin, Share2, Megaphone, Layers, Zap, Globe
 } from 'lucide-react'
 import {
   Card, MetricCard, PageHeader, BentoGrid, DataTable, ChartCard,
@@ -552,22 +552,79 @@ export default function ScenarioModeling() {
           )}
 
           {/* STEP 2: Timeline + Go-to-Market */}
-          {brandStep === 2 && (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-              <LaunchTimeline markets={selectedMarkets} />
-              <Card padding="p-4">
-                <p className="text-xs font-semibold text-navy mb-3">Scenario Summary</p>
-                <div className="space-y-2 text-xs">
-                  <div className="flex justify-between border-b border-gray-100 pb-2"><span className="text-gray-500">Category</span><span className="font-medium text-navy">{PRODUCT_CATEGORIES.find(c => c.id === selectedCategory)?.label}</span></div>
-                  <div className="flex justify-between border-b border-gray-100 pb-2"><span className="text-gray-500">Archetype</span><span className="font-medium text-navy">{archetype.label}</span></div>
-                  <div className="flex justify-between border-b border-gray-100 pb-2"><span className="text-gray-500">Markets</span><span className="font-medium text-navy">{selectedMarkets.map(m => TARGET_MARKETS.find(t => t.id === m)?.label).join(', ')}</span></div>
-                  <div className="flex justify-between border-b border-gray-100 pb-2"><span className="text-gray-500">COGS / Unit</span><span className="font-medium text-navy">{gbp(costs.total_cogs)}</span></div>
-                  <div className="flex justify-between border-b border-gray-100 pb-2"><span className="text-gray-500">Gross Margin</span><span className="font-medium text-emerald-600">{margin}%</span></div>
-                  <div className="flex justify-between"><span className="text-gray-500">Success Rate</span><span className="font-medium text-navy">{archetype.successRate}</span></div>
+          {brandStep === 2 && (() => {
+            const numMargin = parseInt(margin)
+            const numSuccess = parseInt(archetype.successRate)
+            const marginGood = numMargin >= 45
+            const marginOk = numMargin >= 35
+            const successGood = numSuccess >= 30
+            const successOk = numSuccess >= 20
+            const primaryMarket = selectedMarkets.length > 0 ? TARGET_MARKETS.find(t => t.id === selectedMarkets[0]) : null
+            return (
+              <div className="space-y-4">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                  <LaunchTimeline markets={selectedMarkets} />
+                  <Card padding="p-4">
+                    <p className="text-xs font-semibold text-navy mb-3">Scenario Summary</p>
+                    <div className="space-y-2 text-xs">
+                      <div className="flex justify-between border-b border-gray-100 pb-2"><span className="text-gray-500">Category</span><span className="font-medium text-navy">{PRODUCT_CATEGORIES.find(c => c.id === selectedCategory)?.label}</span></div>
+                      <div className="flex justify-between border-b border-gray-100 pb-2"><span className="text-gray-500">Archetype</span><span className="font-medium text-navy">{archetype.label}</span></div>
+                      <div className="flex justify-between border-b border-gray-100 pb-2"><span className="text-gray-500">Markets</span><span className="font-medium text-navy">{selectedMarkets.map(m => TARGET_MARKETS.find(t => t.id === m)?.label).join(', ') || '\u2014'}</span></div>
+                      <div className="flex justify-between border-b border-gray-100 pb-2"><span className="text-gray-500">COGS / Unit</span><span className="font-medium text-navy">{gbp(costs.total_cogs)}</span></div>
+                      <div className="flex justify-between border-b border-gray-100 pb-2"><span className="text-gray-500">Gross Margin</span><span className={`font-medium ${marginGood ? 'text-emerald-600' : marginOk ? 'text-amber-500' : 'text-red-500'}`}>{margin}%</span></div>
+                      <div className="flex justify-between"><span className="text-gray-500">Success Rate</span><span className={`font-medium ${successGood ? 'text-emerald-600' : successOk ? 'text-amber-500' : 'text-red-500'}`}>{archetype.successRate}</span></div>
+                    </div>
+                  </Card>
                 </div>
-              </Card>
-            </div>
-          )}
+
+                {/* Liquid Intelligence \u2014 interpretation card */}
+                <Card padding="p-4" className="border-l-4 border-gold bg-gold/5">
+                  <div className="flex items-start gap-3">
+                    <div className="p-2 rounded-lg bg-gold/10 flex-shrink-0">
+                      <Zap size={16} className="text-gold" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-xs font-bold text-navy mb-3">Based on this scenario, Liquid recommends:</p>
+                      <div className="space-y-3">
+                        <div className="flex items-start gap-2">
+                          <TrendingUp size={12} className={`mt-0.5 flex-shrink-0 ${marginGood ? 'text-emerald-600' : marginOk ? 'text-amber-500' : 'text-red-500'}`} />
+                          <p className="text-xs text-gray-700 leading-relaxed">
+                            {marginGood
+                              ? `Strong ${margin}% margin gives headroom for ${archetype.marketingWeight.toLowerCase()} spend. You can absorb on-trade listing fees and sampling without compromising unit economics.`
+                              : marginOk
+                              ? `${margin}% margin is viable but tight for a ${archetype.label} launch. Build off-trade volume first to generate cashflow before investing in on-trade activation.`
+                              : `${margin}% margin creates profitability pressure. Target the ${gbp(costs.rrp_high)} price point or reduce packaging cost before committing to launch \u2014 especially under the ${archetype.label} model.`}
+                          </p>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <Star size={12} className={`mt-0.5 flex-shrink-0 ${successGood ? 'text-emerald-600' : successOk ? 'text-amber-500' : 'text-red-500'}`} />
+                          <p className="text-xs text-gray-700 leading-relaxed">
+                            {successGood
+                              ? `${archetype.label} has the strongest archetype success rate at ${archetype.successRate}. Prioritise distribution depth over breadth \u2014 secure 50 quality on-trade accounts before pursuing national listings.`
+                              : successOk
+                              ? `${archetype.label} brands succeed ${archetype.successRate} of the time. Lead with ${archetype.marketingWeight.toLowerCase()} to differentiate. Win 3\u20135 key accounts as proof-of-concept before scaling spend.`
+                              : `The ${archetype.label} archetype carries ${archetype.riskLevel} risk (${archetype.successRate} success rate). Secure anchor distribution commitments and validate demand before committing marketing budget.`}
+                          </p>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <Globe size={12} className={`mt-0.5 flex-shrink-0 ${selectedMarkets.length === 1 ? 'text-emerald-600' : selectedMarkets.length >= 3 ? 'text-amber-500' : 'text-gold'}`} />
+                          <p className="text-xs text-gray-700 leading-relaxed">
+                            {selectedMarkets.length === 0
+                              ? `Select a target market to generate market-specific channel and distribution recommendations.`
+                              : selectedMarkets.length === 1
+                              ? `Single-market focus is optimal for launch. Dominate ${primaryMarket?.label || 'your target market'} before adding distribution complexity \u2014 use this market to build distributor references.`
+                              : selectedMarkets.length >= 3
+                              ? `Entering ${selectedMarkets.length} markets simultaneously is high-risk for a new entrant. Phase the rollout: establish your primary market first, then use distributor pull to validate demand before expanding.`
+                              : `Dual-market entry is achievable. Ensure each market has a dedicated importer with proven ${PRODUCT_CATEGORIES.find(c => c.id === selectedCategory)?.label || 'category'} expertise \u2014 ask for references from their current portfolio.`}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              </div>
+            )
+          })()}
 
           {/* STEP 3: Risk Assessment + Pitfalls */}
           {brandStep === 3 && (

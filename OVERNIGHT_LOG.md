@@ -1,3 +1,21 @@
+# Overnight Build Log — 11 April 2026
+
+## Session summary
+
+**Shipped:** Scenario Modeling — Liquid Intelligence interpretation card in Step 2 (build clean)
+
+1. **Audit pass.** Scanned all 25 pages for rendering issues, unicode violations, tooltip styling, axis labels, and mobile breakpoints. No critical bugs found; all priority items from standing orders confirmed clean (11 categories × 5 years data complete, 260 brand expressions, 250 venue entries, 28 London profiles).
+
+2. **ScenarioModeling.jsx — Liquid Intelligence card.** Added a gold-accented interpretation panel beneath the LaunchTimeline + Scenario Summary grid in the brand wizard Step 2. The card generates three dynamic recommendations driven by: (1) gross margin band (≥45% strong / 35–44% viable / <35% pressure), (2) archetype success rate (≥30% / 20–29% / <20%), and (3) market count risk (single-market optimal, dual feasible, 3+ phase rollout advised).
+
+3. **Colour-coded summary values.** Gross Margin and Success Rate fields in the Scenario Summary card are now rendered in emerald/amber/red matching the interpretation signals — giving the user instant visual alignment between the numbers and the recommendation.
+
+4. **Icon imports.** Added `Zap` and `Globe` to the lucide-react import block in ScenarioModeling.jsx; no other files changed.
+
+5. **Build verified.** `./node_modules/.bin/vite build` — 0 errors, 0 warnings, 2443+ modules. Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 10 April 2026
 
 ## Session summary

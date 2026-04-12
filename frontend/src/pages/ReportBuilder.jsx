@@ -1,9 +1,8 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState } from 'react'
 import {
   FileText, Check, BarChart3, Globe, TrendingUp, DollarSign,
   Package, AlertTriangle, Target, Calendar, Briefcase,
-  ChevronRight, Eye, Users, Settings, Clock, Layers, X,
-  CheckCircle2, ArrowRight, Mail
+  Eye, Users, Layers, X, Mail
 } from 'lucide-react'
 import {
   REPORT_TEMPLATES, AVAILABLE_CATEGORIES, AVAILABLE_MARKETS,
@@ -11,7 +10,7 @@ import {
 } from '../data/reportBuilderData'
 import {
   Card, AccentCard, MetricCard, PageHeader, BentoGrid, DrillDown,
-  DataTable, TabGroup, Badge, EntityLink, SubPageNav, BottomSheet, StatusNotice
+  Badge, SubPageNav, BottomSheet
 } from '../components/ui'
 
 // Icon resolver for data-driven widget rendering
@@ -77,36 +76,31 @@ export default function ReportBuilder() {
       />
       <SubPageNav group="reports" />
 
-      {/* ══════ COMING SOON — WAITLIST CARD ══════ */}
+      {/* ══════ REQUEST A CUSTOM REPORT CTA ══════ */}
       <AccentCard>
         <div className="flex flex-col items-center text-center py-6">
           <div className="p-4 rounded-2xl bg-gradient-to-br from-navy/5 to-gold/5 mb-4">
             <FileText size={32} className="text-navy" />
           </div>
-          <h2 className="font-display text-lg text-navy mb-2">Automated Report Generation</h2>
+          <h2 className="font-display text-lg text-navy mb-2">Request a Custom Report</h2>
           <p className="text-sm text-gray-500 max-w-md mb-1">
-            AI-powered report generation is coming soon. Configure templates, select categories and markets,
-            and receive professional intelligence briefs delivered to your inbox.
+            Select a template below and configure your parameters. Our team will produce a bespoke
+            intelligence report \u2014 category entry analysis, competitive landscape, pricing benchmarks,
+            and go-to-market recommendations \u2014 delivered within 5 business days.
           </p>
           <p className="text-xs text-gray-500 mb-6">
-            Currently in development. Join the waitlist to be notified when this feature launches.
+            Typical reports: 20\u201340 pages. Starting from \u00a32,500.
           </p>
           <a
-            href="mailto:james@huertas.co.uk?subject=Liquid%20Economy%20%E2%80%94%20Report%20Builder%20Waitlist&body=I%27d%20like%20to%20join%20the%20waitlist%20for%20the%20Report%20Builder%20feature."
+            href="mailto:callingjhphoto@gmail.com?subject=Liquid%20Economy%20%E2%80%94%20Custom%20Report%20Request&body=Hi%2C%0A%0AI%27d%20like%20to%20request%20a%20custom%20intelligence%20report.%0A%0ATemplate%3A%20%5Be.g.%20Category%20Entry%20Report%5D%0ACategories%3A%20%5Be.g.%20Gin%2C%20Tequila%5D%0AMarkets%3A%20%5Be.g.%20UK%2C%20US%5D%0ABrief%3A%20%5BDescribe%20your%20specific%20question%20or%20objective%5D%0A%0AThanks"
             className="inline-flex items-center gap-2 px-6 py-3 bg-navy text-white rounded-lg font-medium text-sm hover:bg-navy/90 transition-colors"
           >
             <Mail size={16} />
-            Join Waitlist
+            Request a Custom Report
           </a>
-          <p className="text-xs text-gray-500 mt-3">james@huertas.co.uk</p>
+          <p className="text-xs text-gray-500 mt-3">callingjhphoto@gmail.com \u00b7 Response within 24 hours</p>
         </div>
       </AccentCard>
-
-      <StatusNotice
-        type="info"
-        title="Backend Required"
-        message="Report generation requires a backend connection. Join the waitlist to be notified when this feature launches."
-      />
 
       {/* ══════ TIER 1: HERO + TEMPLATE CARDS ══════ */}
       <BentoGrid>
@@ -196,10 +190,13 @@ export default function ReportBuilder() {
                               ))}
                             </div>
                           </div>
-                          <div className="w-full bg-gray-100 text-gray-500 py-3 rounded-lg font-medium text-sm flex items-center justify-center gap-2">
-                            <Clock size={16} />
-                            Generate Report \u2014 Coming Soon
-                          </div>
+                          <a
+                            href="mailto:callingjhphoto@gmail.com?subject=Liquid%20Economy%20%E2%80%94%20Custom%20Report%20Request"
+                            className="w-full bg-navy text-white py-3 rounded-lg font-medium text-sm flex items-center justify-center gap-2 hover:bg-navy/90 transition-colors"
+                          >
+                            <Mail size={16} />
+                            Request This Report
+                          </a>
                         </div>
                       )
                     })
@@ -281,11 +278,14 @@ export default function ReportBuilder() {
               ))}
             </div>
 
-            {/* Coming Soon note instead of Generate button */}
-            <div className="mt-4 w-full bg-gray-100 text-gray-500 py-3 rounded-lg font-medium text-sm flex items-center justify-center gap-2 cursor-not-allowed">
-              <Clock size={16} />
-              Generate Report \u2014 Coming Soon
-            </div>
+            {/* Request report CTA */}
+            <a
+              href="mailto:callingjhphoto@gmail.com?subject=Liquid%20Economy%20%E2%80%94%20Custom%20Report%20Request"
+              className="mt-4 w-full bg-navy text-white py-3 rounded-lg font-medium text-sm flex items-center justify-center gap-2 hover:bg-navy/90 transition-colors"
+            >
+              <Mail size={16} />
+              Request This Report
+            </a>
           </AccentCard>
 
           {/* Quick Add Widgets preview */}

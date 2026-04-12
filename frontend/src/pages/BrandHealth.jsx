@@ -191,8 +191,9 @@ export default function BrandHealth() {
           </div>
 
           {/* Data notice */}
-          <div className="p-3 bg-amber-50 border border-amber-200 rounded-lg text-xs text-amber-800">
-            <strong>Note:</strong> Brand health data shown is mock/demonstration data generated for platform preview purposes. Live data integration via social listening APIs and Google Trends is planned for Pro tier.
+          <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg text-xs text-blue-800">
+            <strong>Sample data.</strong> Contact us for live social listening and Google Trends integration for your brand portfolio.{' '}
+            <a href="mailto:callingjhphoto@gmail.com?subject=Liquid%20Economy%20%E2%80%94%20Brand%20Health%20Live%20Data" className="underline font-medium">Request live access</a>
           </div>
         </div>
       </div>

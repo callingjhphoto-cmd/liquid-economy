@@ -10,7 +10,7 @@
 
 import express from 'express'
 import cors from 'cors'
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs'
+import { readFileSync, writeFileSync, existsSync, mkdirSync, unlinkSync } from 'fs'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { randomUUID } from 'crypto'
@@ -49,11 +49,13 @@ function saveJSON(path, data) {
   }
 }
 
-// Live feed: array of intelligence items (newest first, max 200)
-let feedItems = loadJSON(FEED_FILE, [])
+// Live feed: always re-seed on startup so timestamps are current
+// (Persisted feed.json may be weeks/months old — delete it to force fresh relative timestamps)
+try { unlinkSync(FEED_FILE) } catch {}
+let feedItems = []
 
-// Seed with default items if empty
-if (feedItems.length === 0) {
+// Seed with current-relative timestamps on every startup
+{
   feedItems = [
     // CRITICAL
     { id: randomUUID(), severity: 'critical', category: 'tequila', title: 'Mexican agave surplus reaches record levels \u2014 oversupply crisis deepens', body: 'Tequila industry faces oversupply as agave plantings surge. Input costs expected to fall significantly, benefiting large producers like Becle and Jose Cuervo.', source: 'The Drinks Business', url: 'https://www.thedrinksbusiness.com/2025/01/how-oversupply-is-drowning-mexicos-tequila-industry/', timestamp: new Date(Date.now() - 1000 * 60 * 3).toISOString() },
@@ -88,6 +90,16 @@ if (feedItems.length === 0) {
     { id: randomUUID(), severity: 'info', category: 'cognac', title: 'Hennessy debuts float at Notting Hill Carnival 2025', body: 'LVMH expanding DTC and cultural footprint. Limited edition Carnival bottle, retail activations across London, and immersive brand experiences.', source: 'The Drinks Business', url: 'https://www.thedrinksbusiness.com/2025/08/hennessy-to-debut-float-at-notting-hill-carnival-2025/', timestamp: new Date(Date.now() - 1000 * 60 * 200).toISOString() },
     { id: randomUUID(), severity: 'info', category: 'whisky', title: 'Scotch whisky exports hit by US tariffs \u2014 volumes down 15%', body: 'US exports fell 4% in value to \u00a3933M. India emerges as 3rd largest market by value. EU remains biggest regional market at \u00a31.5B.', source: 'Scotch Whisky Association', url: 'https://www.scotch-whisky.org.uk/newsroom/2025-export-figures/', timestamp: new Date(Date.now() - 1000 * 60 * 220).toISOString() },
     { id: randomUUID(), severity: 'info', category: 'rtd', title: 'Diageo expands premium RTD range with Tanqueray and Ketel One', body: 'New Cocktail Collection features bar-quality canned cocktails at premium price points. Targeting the growing at-home cocktail occasion.', source: 'Just Drinks', url: 'https://www.just-drinks.com/news/diageo-the-cocktail-collection/', timestamp: new Date(Date.now() - 1000 * 60 * 240).toISOString() },
+
+    // ── APRIL 2026 ITEMS ──
+    { id: randomUUID(), severity: 'critical', category: 'market', title: 'US tariffs on Scotch whisky drive 18% volume decline in Q1 2026', body: 'The 200% tariff threat materialised in March 2026. Scottish distillers report order cancellations from US distributors. Diageo, Edrington and Chivas Brothers all flagging material revenue impact.', source: 'The Scotch Whisky Association', url: 'https://www.scotch-whisky.org.uk/', timestamp: new Date(Date.now() - 1000 * 60 * 30).toISOString() },
+    { id: randomUUID(), severity: 'critical', category: 'ma', title: 'Diageo Q3 FY2026 results: organic net sales -4.4%, cost savings accelerated', body: 'Diageo reports third consecutive quarter of volume decline. CEO Nik Jhangiani accelerates \u00a3500M cost-saving programme. North America spirits weakness cited. No guidance upgrade.', source: 'Diageo Investor Relations', url: 'https://www.diageo.com/en/investors/', timestamp: new Date(Date.now() - 1000 * 60 * 45).toISOString() },
+    { id: randomUUID(), severity: 'alert', category: 'whisky', title: 'Pernod Ricard H1 FY2026: Jameson volumes fall 7% as trading conditions deteriorate', body: 'Pernod reports H1 FY2026 organic sales down 6%. Jameson, the group\u2019s largest brand, sees volume decline in US and UK. CEO Alexandre Ricard cites consumer premiumisation fatigue.', source: 'Pernod Ricard Investor Relations', url: 'https://www.pernod-ricard.com/en/investors/', timestamp: new Date(Date.now() - 1000 * 60 * 90).toISOString() },
+    { id: randomUUID(), severity: 'alert', category: 'rtd', title: 'RTD spirits category surpasses \u00a3800M in UK off-trade for first time', body: 'IRI data shows UK spirits-based RTD reaching record value. Hard seltzers declining but cocktail-in-a-can format accelerating. Diageo, Fever-Tree and Bodega Bay leading share gains.', source: 'The Grocer', url: 'https://www.thegrocer.co.uk/', timestamp: new Date(Date.now() - 1000 * 60 * 120).toISOString() },
+    { id: randomUUID(), severity: 'alert', category: 'gin', title: 'UK gin category contracts 8% in value \u2014 200+ craft distilleries at risk', body: 'CGA data confirms UK gin volumes fell for third consecutive year in 2025. Average gin price has risen but not offset volume losses. Industry analysts warn 15\u201320% of craft distilleries face closure by end of 2026.', source: 'The Spirits Business', url: 'https://www.thespiritsbusiness.com/', timestamp: new Date(Date.now() - 1000 * 60 * 160).toISOString() },
+    { id: randomUUID(), severity: 'watch', category: 'tequila', title: 'Becle (Cuervo) raises guidance as agave costs normalise', body: 'Becle reports Q1 2026 EBITDA margin expansion of 340bps as agave raw material costs fall. Jose Cuervo and 1800 volumes up 4%. Category remains resilient despite overall spirits softness.', source: 'Becle Investor Relations', url: 'https://www.becle.com.mx/', timestamp: new Date(Date.now() - 1000 * 60 * 200).toISOString() },
+    { id: randomUUID(), severity: 'watch', category: 'beer', title: 'Craft beer closures accelerate: 400 UK breweries shut in 18 months', body: 'SIBA data shows 400 craft brewery closures in UK since Q3 2024. Rising energy, ingredients and distribution costs cited. Consolidation creating opportunity for well-capitalised mid-tier brands.', source: 'Morning Advertiser', url: 'https://www.morningadvertiser.co.uk/', timestamp: new Date(Date.now() - 1000 * 60 * 270).toISOString() },
+    { id: randomUUID(), severity: 'info', category: 'nolo', title: 'Low and no-alcohol category reaches 3.5% of total UK drinks market', body: 'WSTA Q1 2026 report: NOLO now represents 3.5% of UK total alcohol value, up from 1.8% in 2022. Guinness 0.0 and Peroni 0.0% lead volume. Spirits-based NOLO growing fastest at 34% YoY.', source: 'Wine & Spirit Trade Association', url: 'https://www.wsta.co.uk/', timestamp: new Date(Date.now() - 1000 * 60 * 310).toISOString() },
   ]
   saveJSON(FEED_FILE, feedItems)
 }

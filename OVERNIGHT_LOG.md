@@ -1,3 +1,21 @@
+# Overnight Build Log — 13 April 2026
+
+## Session summary
+
+**Shipped:** Valuations Market Signals card (Liquid Intelligence) + PitchGenerator mobile grid fix (build clean)
+
+1. **Full platform audit.** Scanned all 25 pages for unicode violations (JSX text nodes), tooltip styling, axis tick fill colours, and mobile grid layouts. All previously fixed items confirmed clean: 29 tooltips using `#f1f5f9`, all 44 axis tick instances have `fill: '#9ca3af'`, no literal non-ASCII in JSX render paths. GlobalSearch (Cmd+K) confirmed fully operational with faceted results across Pages, Categories, Brands, Venues, and Companies.
+
+2. **Valuations.jsx \u2014 Market Signals card.** Added a gold-accented Liquid Intelligence panel between the BentoGrid hero section and the Sector Multiples DrillDown. The card generates three dynamic signals computed from page data: (1) EV/Revenue multiple environment \u2014 avg \u22484.0x renders as \u201cfair value trading\u201d in blue, \u22655x \u201cpremium multiples\u201d in emerald, <3.5x \u201ccompressed\u201d in amber; (2) filtered M&A premium environment \u2014 updates live when the Year Selector changes, reads \u201cstandard range\u201d (emerald) for 20\u201329%, \u201cstrong premiums\u201d (gold) for \u226530%, \u201csubdued\u201d (amber) for <20%; (3) deal-count activity \u2014 \u226549 deals \u201cactive consolidation window\u201d, 5\u20138 \u201cmoderate pace\u201d, <5 \u201cselective environment\u201d. Added `Zap` to lucide import. Addresses fix_plan item 17.
+
+3. **PitchGenerator.jsx \u2014 4 grid-cols-3 fixes.** Four bare `grid grid-cols-3` instances inside pitch section cards changed to `grid-cols-1 sm:grid-cols-3`. At 375\u202fpx the 3-column layout compressed cells to \u2248109\u202fpx \u2014 too narrow for the Market size/CAGR/Target, Distribution margin/control/scale, 3-Year Revenue, and Financial KPI grids rendered inside each pitch section. Now stacks single-column on mobile, 3-col at \u2265640\u202fpx.
+
+4. **Scope confirmed clear.** No remaining critical rendering issues across the 25-page platform. PitchGenerator was the last page with a bare grid-cols-3 in a visible (non-mobile-sheet) context. fix_plan items 12 (GlobalSearch), 17 (Valuations signals) now marked complete.
+
+5. **Build:** `vite build` \u2713 \u2014 0 errors, 0 warnings, 2443+ modules. Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 11 April 2026
 
 ## Session summary

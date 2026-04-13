@@ -5,7 +5,7 @@ import {
 } from 'recharts'
 import {
   TrendingUp, TrendingDown, DollarSign, Scale, Building2, Layers,
-  ArrowUpRight, ArrowDownRight, Info, Target, Briefcase, BarChart3
+  ArrowUpRight, ArrowDownRight, Info, Target, Briefcase, BarChart3, Zap
 } from 'lucide-react'
 import {
   Card, MetricCard, PageHeader, BentoGrid, DataTable, ChartCard, DrillDown,
@@ -177,6 +177,79 @@ export default function Valuations() {
           icon={Building2}
         />
       </BentoGrid>
+
+      {/* \u2550\u2550\u2550\u2550\u2550 MARKET SIGNALS \u2014 Liquid Intelligence \u2550\u2550\u2550\u2550\u2550 */}
+      <div className="border-l-4 border-gold bg-gradient-to-r from-gold/5 to-transparent rounded-xl p-5">
+        <div className="flex items-center gap-2 mb-4">
+          <Zap size={16} className="text-gold" />
+          <span className="text-sm font-bold text-navy">Market Signals</span>
+          <span className="text-xs text-gray-400 ml-auto">Up to {selectedYear}</span>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {/* Signal 1: Average multiple environment */}
+          {(() => {
+            const m = parseFloat(avgMultiple)
+            const hi = m >= 5
+            const lo = m < 3.5
+            return (
+              <div className={`p-3 rounded-lg border ${hi ? 'bg-emerald-50 border-emerald-200' : lo ? 'bg-amber-50 border-amber-200' : 'bg-blue-50 border-blue-200'}`}>
+                <div className={`text-xs font-semibold mb-1 ${hi ? 'text-emerald-700' : lo ? 'text-amber-700' : 'text-blue-700'}`}>
+                  Avg EV/Revenue: {avgMultiple}x
+                </div>
+                <p className={`text-xs leading-relaxed ${hi ? 'text-emerald-600' : lo ? 'text-amber-600' : 'text-blue-600'}`}>
+                  {hi
+                    ? 'Premium multiples \u2014 category momentum supports strong acquisition valuations in 2025\u201326.'
+                    : lo
+                    ? 'Compressed multiples \u2014 potential value opportunities exist across premium segments.'
+                    : 'Fair value trading \u2014 M&A will be selective; strategic alignment is paramount.'}
+                </p>
+              </div>
+            )
+          })()}
+
+          {/* Signal 2: M&A premium environment */}
+          {(() => {
+            const p = parseInt(filteredAvgPremium)
+            const hi = p >= 30
+            const lo = p < 20
+            return (
+              <div className={`p-3 rounded-lg border ${hi ? 'bg-gold/10 border-gold/30' : lo ? 'bg-amber-50 border-amber-200' : 'bg-emerald-50 border-emerald-200'}`}>
+                <div className={`text-xs font-semibold mb-1 ${hi ? 'text-amber-800' : lo ? 'text-amber-700' : 'text-emerald-700'}`}>
+                  Avg M&A Premium: {filteredAvgPremium}%
+                </div>
+                <p className={`text-xs leading-relaxed ${hi ? 'text-amber-700' : lo ? 'text-amber-600' : 'text-emerald-600'}`}>
+                  {hi
+                    ? 'Strong premiums signal competition for quality assets \u2014 favourable conditions for sellers.'
+                    : lo
+                    ? 'Subdued premiums \u2014 buyers are disciplined; brand fundamentals drive price.'
+                    : 'Standard premium range \u2014 healthy deal market with rational pricing behaviour.'}
+                </p>
+              </div>
+            )
+          })()}
+
+          {/* Signal 3: Deal activity */}
+          {(() => {
+            const n = filteredDealCount
+            const hi = n >= 9
+            const lo = n < 5
+            return (
+              <div className={`p-3 rounded-lg border ${hi ? 'bg-gold/10 border-gold/30' : lo ? 'bg-gray-50 border-gray-200' : 'bg-emerald-50 border-emerald-200'}`}>
+                <div className={`text-xs font-semibold mb-1 ${hi ? 'text-amber-800' : lo ? 'text-gray-600' : 'text-emerald-700'}`}>
+                  Deal Activity: {filteredDealCount} deal{filteredDealCount !== 1 ? 's' : ''}
+                </div>
+                <p className={`text-xs leading-relaxed ${hi ? 'text-amber-700' : lo ? 'text-gray-500' : 'text-emerald-600'}`}>
+                  {hi
+                    ? 'Active consolidation window \u2014 strategic buyers executing across categories.'
+                    : lo
+                    ? 'Selective deal environment \u2014 only category-defining assets are trading.'
+                    : 'Moderate M&A pace \u2014 mid-size brands with strong distribution attracting interest.'}
+                </p>
+              </div>
+            )
+          })()}
+        </div>
+      </div>
 
       {/* \u2550\u2550\u2550\u2550\u2550 TIER 2: EXPANDABLE SECTIONS \u2550\u2550\u2550\u2550\u2550 */}
 

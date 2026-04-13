@@ -91,7 +91,7 @@ export default function PitchGenerator() {
 
       // Market
       <div key="market" className="space-y-3 text-sm text-gray-700">
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div className="p-3 bg-navy/5 rounded-lg text-center">
             <div className="text-xs text-gray-500">Global Market</div>
             <div className="text-lg font-bold text-navy">{catData.globalMarketSize}</div>
@@ -158,7 +158,7 @@ export default function PitchGenerator() {
       <div key="distribution" className="space-y-3 text-sm text-gray-700">
         <div className="p-3 bg-navy/5 rounded-lg">
           <div className="text-xs font-semibold text-navy mb-1">Distribution Model: {dist.name}</div>
-          <div className="grid grid-cols-3 gap-2 text-xs mt-2">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs mt-2">
             <div><span className="text-gray-500">Margin:</span> <span className="font-medium">{dist.margin}</span></div>
             <div><span className="text-gray-500">Control:</span> <span className="font-medium">{dist.control}</span></div>
             <div><span className="text-gray-500">Scale:</span> <span className="font-medium">{dist.scalability}</span></div>
@@ -172,7 +172,7 @@ export default function PitchGenerator() {
       <div key="financials" className="space-y-3 text-sm text-gray-700">
         <div className="p-3 bg-navy/5 rounded-lg">
           <div className="text-xs font-semibold text-navy mb-2">3-Year Revenue Projection ({scenario})</div>
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div className="text-center">
               <div className="text-xs text-gray-500">Year 1</div>
               <div className="text-lg font-bold text-navy">{'\u00a3'}{yearlyRevenue.year1.toLocaleString()}</div>
@@ -187,7 +187,7 @@ export default function PitchGenerator() {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div className="p-2 bg-gray-50 rounded-lg text-center text-xs">
             <div className="text-gray-500">Gross Margin</div>
             <div className="font-bold text-navy">{(finTemplate.grossMargin * 100).toFixed(0)}%</div>

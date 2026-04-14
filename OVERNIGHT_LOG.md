@@ -1,3 +1,21 @@
+# Overnight Build Log — 14 April 2026
+
+## Session summary
+
+**Shipped:** CampaignPlanner Liquid Intelligence signals card + mobile grid fixes across 2 pages (build clean)
+
+1. **Audit pass.** Scanned all 25 pages for bare (non-responsive) grid-cols values, unicode violations, tooltip styling, and axis tick fill. All previously fixed items confirmed clean. Found two new bare `grid-cols-3` instances: CampaignPlanner On-Trade/Off-Trade sub-slider grids (lines 768, 790) and CompetitorMonitor expanded brand card (line 52).
+
+2. **CampaignPlanner \u2014 Liquid Intelligence card (Step 5).** Added a gold-accented Liquid Intelligence panel between the Risk Factors DrillDown and Agency Handoff Brief in `renderStep5`. Three dynamic signals computed from live campaign state: (1) budget adequacy vs. objective \u2014 three bands (high \u2265\u00a3100k emerald, mid \u2265\u00a330k blue, low amber) with copy tailored to awareness/premium/trial/volume objectives; (2) channel concentration risk \u2014 dominant channel \u226550% flags amber (\u201csingle-channel dependency\u201d), 35\u201349% gold (\u201cmoderate weighting\u201d), <35% emerald (\u201cwell-diversified\u201d); (3) timing / seasonality risk \u2014 January launch red (\u201cDry January headwind\u201d), UK June/July amber (\u201cmedia costs 20\u201330% higher\u201d), otherwise emerald clear. Card hidden until at least budget or objective is set. Matches style of Valuations (Apr 13) and ScenarioModeling (Apr 11) Liquid Intelligence cards.
+
+3. **CampaignPlanner mobile grid fixes.** On-Trade Split and Off-Trade Split sub-slider grids inside the \u201cFine-tune Digital Split\u201d DrillDown changed from bare `grid-cols-3` to `grid-cols-1 sm:grid-cols-3`. At 375\u202fpx each slider cell was \u2248109\u202fpx \u2014 too narrow for label + percentage + range input thumb. Now stacks single-column on mobile, 3-col at \u2265640\u202fpx.
+
+4. **CompetitorMonitor mobile grid fix.** Expanded brand card Segment / Avg Price / Market Share info grid changed from bare `grid-cols-3` to `grid-cols-1 sm:grid-cols-3`. Consistent with CompetitorCard UX at 375\u202fpx.
+
+5. **Build:** `vite build` \u2713 \u2014 2443 modules, 0 errors, 0 warnings. Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 13 April 2026
 
 ## Session summary

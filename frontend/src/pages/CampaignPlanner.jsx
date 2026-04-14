@@ -765,7 +765,7 @@ const CampaignPlanner = () => {
           {campaignData.onTrade > 0 && (
             <div>
               <h5 className="text-xs font-semibold text-navy mb-3">On-Trade Split</h5>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {[
                   { key: 'barActivations', label: 'Bar Activations' },
                   { key: 'restaurantPartnerships', label: 'Restaurant' },
@@ -787,7 +787,7 @@ const CampaignPlanner = () => {
           {campaignData.offTrade > 0 && (
             <div>
               <h5 className="text-xs font-semibold text-navy mb-3">Off-Trade Split</h5>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {[
                   { key: 'supermarketPromo', label: 'Supermarket' },
                   { key: 'specialistRetailer', label: 'Specialist' },
@@ -1033,6 +1033,132 @@ const CampaignPlanner = () => {
             })}
           </div>
         </DrillDown>
+
+        {/* Liquid Intelligence — Campaign Signals */}
+        {(() => {
+          const budget = parseFloat(campaignData.budget) || 0
+          const maxChannel = Math.max(campaignData.digital, campaignData.onTrade, campaignData.offTrade, campaignData.travelRetail)
+          const dominantChannelName = (() => {
+            if (campaignData.digital === maxChannel) return 'Digital/Social'
+            if (campaignData.onTrade === maxChannel) return 'On-Trade'
+            if (campaignData.offTrade === maxChannel) return 'Off-Trade'
+            return 'Travel Retail'
+          })()
+          const obj = campaignData.objective
+          const isAwareness = obj === 'awareness'
+          const isPremium = obj === 'premium'
+          const isTrial = obj === 'trial'
+          // Signal 1: Budget adequacy vs. objective
+          const budgetBand = budget >= 100000 ? 'high' : budget >= 30000 ? 'mid' : budget > 0 ? 'low' : 'none'
+          // Signal 2: Channel concentration risk
+          const concHi = maxChannel >= 50
+          const concMid = maxChannel >= 35
+          // Signal 3: Timing risk (Dry January, Summer peak UK)
+          const month = campaignData.startMonth
+          const market = campaignData.market
+          const dryJan = month === 'January' && obj !== 'nolo'
+          const ukSummerPeak = (market === 'UK') && (month === 'June' || month === 'July')
+          const timingRisk = dryJan ? 'high' : ukSummerPeak ? 'medium' : 'low'
+
+          if (budget === 0 && !obj) return null
+
+          return (
+            <div className="border-l-4 border-gold bg-gradient-to-r from-gold/5 to-transparent rounded-xl p-5">
+              <div className="flex items-center gap-2 mb-4">
+                <Zap size={16} className="text-gold" />
+                <span className="text-sm font-bold text-navy">Liquid Intelligence</span>
+                <span className="text-xs text-gray-400 ml-auto">Campaign signals</span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+                {/* Signal 1: Budget adequacy */}
+                {budget > 0 && (
+                  <div className={`p-3 rounded-lg border ${
+                    budgetBand === 'high' ? 'bg-emerald-50 border-emerald-200'
+                    : budgetBand === 'mid' ? 'bg-blue-50 border-blue-200'
+                    : 'bg-amber-50 border-amber-200'
+                  }`}>
+                    <div className={`text-xs font-semibold mb-1 ${
+                      budgetBand === 'high' ? 'text-emerald-700'
+                      : budgetBand === 'mid' ? 'text-blue-700'
+                      : 'text-amber-700'
+                    }`}>
+                      Budget: {getCurrency()}{budget.toLocaleString()}
+                    </div>
+                    <p className={`text-xs leading-relaxed ${
+                      budgetBand === 'high' ? 'text-emerald-600'
+                      : budgetBand === 'mid' ? 'text-blue-600'
+                      : 'text-amber-600'
+                    }`}>
+                      {budgetBand === 'high'
+                        ? (isAwareness
+                          ? 'Sufficient for a multi-market awareness push with TV/video and influencer layers.'
+                          : isPremium
+                          ? 'Premium launch budget \u2014 room for high-production creative and sampling at scale.'
+                          : 'Full-funnel budget \u2014 supports concurrent trial, volume, and retention mechanics.')
+                        : budgetBand === 'mid'
+                        ? (isTrial
+                          ? 'Viable for a focused trial campaign \u2014 concentrate on 1-2 high-conversion channels.'
+                          : 'Workable mid-range budget \u2014 prioritise channels that best match your objective.')
+                        : 'Lean budget \u2014 focus on a single channel for maximum concentration and measurability.'
+                      }
+                    </p>
+                  </div>
+                )}
+
+                {/* Signal 2: Channel concentration */}
+                <div className={`p-3 rounded-lg border ${
+                  concHi ? 'bg-amber-50 border-amber-200'
+                  : concMid ? 'bg-gold/10 border-gold/30'
+                  : 'bg-emerald-50 border-emerald-200'
+                }`}>
+                  <div className={`text-xs font-semibold mb-1 ${
+                    concHi ? 'text-amber-700' : concMid ? 'text-amber-800' : 'text-emerald-700'
+                  }`}>
+                    {dominantChannelName}: {maxChannel.toFixed(0)}%
+                  </div>
+                  <p className={`text-xs leading-relaxed ${
+                    concHi ? 'text-amber-600' : concMid ? 'text-amber-700' : 'text-emerald-600'
+                  }`}>
+                    {concHi
+                      ? `Heavy concentration in ${dominantChannelName}. Single-channel dependency increases execution risk \u2014 ensure backup tactics.`
+                      : concMid
+                      ? `Moderate ${dominantChannelName} weighting \u2014 healthy lead channel with meaningful diversification.`
+                      : 'Well-diversified channel mix \u2014 reduces single-point-of-failure risk and broadens reach.'}
+                  </p>
+                </div>
+
+                {/* Signal 3: Timing */}
+                <div className={`p-3 rounded-lg border ${
+                  timingRisk === 'high' ? 'bg-red-50 border-red-200'
+                  : timingRisk === 'medium' ? 'bg-amber-50 border-amber-200'
+                  : 'bg-emerald-50 border-emerald-200'
+                }`}>
+                  <div className={`text-xs font-semibold mb-1 ${
+                    timingRisk === 'high' ? 'text-red-700'
+                    : timingRisk === 'medium' ? 'text-amber-700'
+                    : 'text-emerald-700'
+                  }`}>
+                    Launch: {month || 'not set'}{market ? ` \u00b7 ${market}` : ''}
+                  </div>
+                  <p className={`text-xs leading-relaxed ${
+                    timingRisk === 'high' ? 'text-red-600'
+                    : timingRisk === 'medium' ? 'text-amber-600'
+                    : 'text-emerald-600'
+                  }`}>
+                    {dryJan
+                      ? 'January headwind \u2014 alcohol demand dips significantly. Delay launch to Feb or pivot to moderation/premium messaging.'
+                      : ukSummerPeak
+                      ? 'UK summer peak season \u2014 media costs 20\u201330% higher. Ensure creative is outstanding and brief is locked 6+ weeks ahead.'
+                      : month
+                      ? 'Timing looks clear of major headwinds. Confirm distributor stock is allocated 8\u201312 weeks before launch.'
+                      : 'Set a launch month to receive timing intelligence.'}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )
+        })()}
 
         {/* Agency Handoff Brief (Tier 3) */}
         <Card className="bg-gradient-to-r from-gold/10 to-gold/5 border-2 border-gold/30">

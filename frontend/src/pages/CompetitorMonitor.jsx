@@ -49,7 +49,7 @@ function CompetitorCard({ brand, expanded, onToggle }) {
       </button>
       {expanded && (
         <div className="px-4 pb-4 border-t border-gray-100">
-          <div className="grid grid-cols-3 gap-3 mt-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-3">
             <div className="text-center p-2 bg-gray-50 rounded-lg">
               <div className="text-xs text-gray-500">Segment</div>
               <div className="text-sm font-bold text-navy">{brand.segment}</div>

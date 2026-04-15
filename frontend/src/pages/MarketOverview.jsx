@@ -88,12 +88,12 @@ export default function MarketOverview() {
       <DataFreshness date="April 2026" source="IWSR, Euromonitor, Rabobank, DISCUS, OIV" />
 
       {/* Hero card */}
-      <Card className="p-8 bg-gradient-to-br from-navy/5 to-gold/5 border-gold/20">
+      <Card className="p-5 sm:p-8 bg-gradient-to-br from-navy/5 to-gold/5 border-gold/20">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
           <div>
             <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Global Total Drinks Market 2025</p>
-            <div className="flex items-baseline gap-3 mt-1">
-              <h1 className="text-5xl font-display font-bold text-navy">{totalValue}</h1>
+            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mt-1">
+              <h1 className="text-3xl sm:text-5xl font-display font-bold text-navy">{totalValue}</h1>
               <span className="text-lg font-semibold text-emerald-600">{totalGrowth} YoY</span>
               <span className="text-sm text-gray-500">\u00b7 {cagr10} 10-yr CAGR</span>
             </div>

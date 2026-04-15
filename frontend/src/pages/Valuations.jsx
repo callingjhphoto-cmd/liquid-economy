@@ -542,7 +542,7 @@ function MethodologyGrid() {
                   <p className="text-micro font-semibold text-gray-500 uppercase mb-1">Example</p>
                   <p className="text-xs text-gray-700">{method.example}</p>
                 </div>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
                     <p className="text-xs font-semibold text-emerald-600 mb-1">Pros</p>
                     <p className="text-xs text-gray-600">{method.pros}</p>

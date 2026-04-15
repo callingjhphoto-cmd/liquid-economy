@@ -114,7 +114,7 @@ function RegionCardTier1({ region, data, onClick, isHighlighted }) {
         <span>Top: {topBrand}</span>
         {data && data.channels && (
           <>
-            <span>\u00b7</span>
+            <span>{'\u00b7'}</span>
             <span>E-com: {data.channels.eCommerce}%</span>
           </>
         )}

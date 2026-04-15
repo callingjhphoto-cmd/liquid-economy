@@ -152,7 +152,7 @@ export default function ChatPanel({ isOpen, onClose }) {
               <Send size={18} />
             </button>
           </form>
-          <p className="text-xs text-gray-500 mt-2">Enter to send \u2022 Shift+Enter for new line</p>
+          <p className="text-xs text-gray-500 mt-2">Enter to send {'\u2022'} Shift+Enter for new line</p>
         </div>
       </div>
     </>

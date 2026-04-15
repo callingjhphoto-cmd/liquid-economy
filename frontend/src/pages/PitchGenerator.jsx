@@ -111,10 +111,10 @@ export default function PitchGenerator() {
 
       // Product
       <div key="product" className="space-y-2 text-sm text-gray-700">
-        <p><strong>{name}</strong> is positioned at \u00a3{numRRP.toFixed(0)} RRP in the {targetMarket} market, targeting the premium segment.</p>
+        <p><strong>{name}</strong> is positioned at {'\u00a3'}{numRRP.toFixed(0)} RRP in the {targetMarket} market, targeting the premium segment.</p>
         <div className="p-3 bg-gray-50 rounded-lg">
           <div className="text-xs font-semibold text-navy mb-1">Positioning</div>
-          <p>At \u00a3{numRRP.toFixed(0)}, {name} sits in the premium tier, competing with established brands while offering clear differentiation through [your unique proposition].</p>
+          <p>At {'\u00a3'}{numRRP.toFixed(0)}, {name} sits in the premium tier, competing with established brands while offering clear differentiation through [your unique proposition].</p>
         </div>
         <p className="italic text-gray-500">[Add: your liquid story, production method, unique ingredients, provenance narrative, packaging innovation]</p>
       </div>,

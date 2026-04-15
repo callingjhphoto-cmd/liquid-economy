@@ -10,6 +10,7 @@ import { LiveDataProvider } from './context/LiveDataContext'
 import { StatusNotice, ErrorBoundary } from './components/ui'
 
 const CommandCentre = lazy(() => import('./pages/CommandCentre'))
+const MarketOverview = lazy(() => import('./pages/MarketOverview'))
 const Valuations = lazy(() => import('./pages/Valuations'))
 const BrandPricing = lazy(() => import('./pages/BrandPricing'))
 const Companies = lazy(() => import('./pages/Companies'))
@@ -412,6 +413,7 @@ function Layout({ onLogout }) {
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<CommandCentre />} />
+              <Route path="/market-overview" element={<MarketOverview />} />
               <Route path="/climate" element={<ClimateYield />} />
               <Route path="/supply-chain" element={<SupplyChain />} />
               <Route path="/geographic" element={<GeographicIntelligence />} />

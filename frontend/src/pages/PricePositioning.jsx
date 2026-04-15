@@ -236,7 +236,7 @@ export default function PricePositioning() {
             {tier.position === 'below' && (
               <div className="p-3 bg-red-50 border border-red-200 rounded-lg flex gap-2 mb-4">
                 <AlertTriangle size={14} className="text-red-600 mt-0.5 flex-shrink-0" />
-                <span className="text-red-800 text-xs">Your price is below the lowest tier. You may face perception issues \u2014 consumers often associate very low prices with poor quality in premium spirits categories.</span>
+                <span className="text-red-800 text-xs">Your price is below the lowest tier. You may face perception issues {'\u2014'} consumers often associate very low prices with poor quality in premium spirits categories.</span>
               </div>
             )}
 
@@ -251,7 +251,7 @@ export default function PricePositioning() {
 
           {/* All tiers visual */}
           <Card className="p-6">
-            <h3 className="text-sm font-bold text-navy mb-4">Price Tier Map \u2014 {CATEGORIES.find(c => c.id === category)?.label}</h3>
+            <h3 className="text-sm font-bold text-navy mb-4">Price Tier Map {'\u2014'} {CATEGORIES.find(c => c.id === category)?.label}</h3>
             <div className="space-y-3">
               {benchmarks.tiers.map((t, i) => {
                 const isActive = t.name === tier.name && !tier.position
@@ -323,7 +323,7 @@ export default function PricePositioning() {
 
       {/* Always show full benchmark table */}
       <Card className="p-6">
-        <h3 className="text-sm font-bold text-navy mb-4">Full Price Benchmarks \u2014 {CATEGORIES.find(c => c.id === category)?.label}</h3>
+        <h3 className="text-sm font-bold text-navy mb-4">Full Price Benchmarks {'\u2014'} {CATEGORIES.find(c => c.id === category)?.label}</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>

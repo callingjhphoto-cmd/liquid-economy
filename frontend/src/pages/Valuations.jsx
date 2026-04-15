@@ -319,7 +319,7 @@ export default function Valuations() {
                   ) : b.trend === 'down' ? (
                     <TrendingDown size={14} className="text-red-500" />
                   ) : (
-                    <span className="text-xs text-gray-500">\u2014</span>
+                    <span className="text-xs text-gray-500">{'\u2014'}</span>
                   )}
                 </div>
                 <div className="flex items-baseline gap-2">
@@ -328,7 +328,7 @@ export default function Valuations() {
                 </div>
                 <div className="flex items-center gap-3 mt-2 text-xs text-gray-500">
                   <span>{b.multiple} EV/Rev</span>
-                  <span>\u00b7</span>
+                  <span>{'\u00b7'}</span>
                   <span>{b.methodology}</span>
                 </div>
               </Card>

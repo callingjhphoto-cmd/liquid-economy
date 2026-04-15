@@ -16,7 +16,7 @@ import {
 } from '../components/ui'
 import { CHART_COLORS } from '../data/chartColors'
 import {
-  KPI_TRENDS, CATEGORY_SNAPSHOT, REGIONAL_PULSE, MARKET_SIGNALS,
+  KPI_TRENDS, CATEGORY_SNAPSHOT, REGIONAL_PULSE, REGIONAL_PULSE_EXTENDED, MARKET_SIGNALS,
   MARKET_PULSE, PRICE_ALERTS, INSIGHT_BRIEFINGS, UPCOMING_EVENTS,
   RECENTLY_UPDATED, RECENT_MOVERS
 } from '../data/commandCentreData'
@@ -37,7 +37,7 @@ function HeroMarketCard() {
 
   return (
     <div
-      onClick={() => navigate('/categories')}
+      onClick={() => navigate('/market-overview')}
       className="bg-gradient-to-br from-navy/[0.04] to-transparent bg-white rounded-xl border border-gray-100 p-6 hover:shadow-lg hover:border-gold/30 transition-all cursor-pointer relative overflow-hidden group"
     >
       {/* Background sparkline */}
@@ -388,14 +388,18 @@ function PriceAlertsSummary() {
   )
 }
 
-// ── Geographic Highlights ──
+// ── Geographic Highlights (10yr CAGR enabled) ──
 function GeographicHighlights() {
+  // Use the extended 10-year dataset (2016-2025) when available
+  const regions = REGIONAL_PULSE_EXTENDED && REGIONAL_PULSE_EXTENDED.length > 0 ? REGIONAL_PULSE_EXTENDED : REGIONAL_PULSE
   return (
     <div>
       <SectionHeader size="md">Geographic Highlights</SectionHeader>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2">
-        {REGIONAL_PULSE.map((r, i) => {
+        {regions.map((r, i) => {
           const isUp = r.dir === 'up'
+          // Normalise trend data: extended dataset uses {year, v}, legacy uses {v}
+          const trendData = (r.trend || []).map(p => ({ v: p.v }))
           return (
             <Link key={i} to="/geographic" className="no-underline">
               <div className="bg-white rounded-xl border border-gray-100 p-3 hover:shadow-md hover:border-gray-200 transition-all group">
@@ -409,9 +413,14 @@ function GeographicHighlights() {
                   <span className="text-lg font-bold text-navy">{r.value}</span>
                   <span className={`text-xs font-semibold ${isUp ? 'text-emerald-600' : 'text-red-500'}`}>{r.growth} YoY</span>
                 </div>
+                {r.cagr10 && (
+                  <div className="text-xs text-gray-500 mt-0.5">
+                    <span className="font-semibold text-navy">{r.cagr10}</span> 10-yr CAGR
+                  </div>
+                )}
                 <div className="w-full h-5 mt-1">
                   <ResponsiveContainer width="100%" height="100%">
-                    <AreaChart data={r.trend} margin={{ top: 0, right: 0, bottom: 0, left: 0 }} accessibilityLayer={true}>
+                    <AreaChart data={trendData} margin={{ top: 0, right: 0, bottom: 0, left: 0 }} accessibilityLayer={true}>
                       <Area type="monotone" dataKey="v" stroke={isUp ? '#22c55e' : '#ef4444'} strokeWidth={1} fill={isUp ? '#22c55e10' : '#ef444410'} dot={false} isAnimationActive={false} />
                     </AreaChart>
                   </ResponsiveContainer>

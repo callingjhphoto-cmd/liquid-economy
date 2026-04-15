@@ -98,7 +98,7 @@ export default function ReportBuilder() {
             <Mail size={16} />
             Request a Custom Report
           </a>
-          <p className="text-xs text-gray-500 mt-3">callingjhphoto@gmail.com \u00b7 Response within 24 hours</p>
+          <p className="text-xs text-gray-500 mt-3">callingjhphoto@gmail.com {'\u00b7'} Response within 24 hours</p>
         </div>
       </AccentCard>
 

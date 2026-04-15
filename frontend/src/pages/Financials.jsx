@@ -441,8 +441,8 @@ export default function Financials() {
             <ul className="space-y-0.5 list-disc list-inside">
               <li>IWSR Global Spirits Database</li>
               <li>Nielsen IQ Off-Trade Panel Data</li>
-              <li>Financial Times \u2014 Spirits Inventory Analysis</li>
-              <li>Euromonitor International \u2014 Alcoholic Drinks</li>
+              <li>Financial Times {'\u2014'} Spirits Inventory Analysis</li>
+              <li>Euromonitor International {'\u2014'} Alcoholic Drinks</li>
               <li>Company investor presentations & earnings calls</li>
             </ul>
           </div>

@@ -247,7 +247,7 @@ export default function SupplyChain() {
               </div>
               <p className="text-xs text-gray-500 mb-1">{stage.summary}</p>
               <p className="text-sm font-bold text-navy">{stage.kpi}</p>
-              <p className="text-xs text-gray-500 mt-1">Click to explore \u2192</p>
+              <p className="text-xs text-gray-500 mt-1">Click to explore {'\u2192'}</p>
             </Card>
           )
         })}
@@ -462,7 +462,7 @@ export default function SupplyChain() {
                       <span className="text-xs text-gray-500">{data.keyInput}</span>
                       {data.inputTrend === 'rising' && <TrendingUp className="w-3 h-3 text-red-500" />}
                       {data.inputTrend === 'falling' && <TrendingDown className="w-3 h-3 text-green-500" />}
-                      {data.inputTrend === 'stable' && <span className="text-xs font-bold text-gray-500">\u2014</span>}
+                      {data.inputTrend === 'stable' && <span className="text-xs font-bold text-gray-500">{'\u2014'}</span>}
                     </div>
                   </div>
                   {/* Stacked bar */}

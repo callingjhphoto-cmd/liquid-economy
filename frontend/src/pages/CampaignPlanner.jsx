@@ -1473,7 +1473,7 @@ const CampaignPlanner = () => {
             <DollarSign className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
             <div>
               <h3 className="font-display font-bold text-sm text-green-900 mb-1">Step 2: Budget & Timing</h3>
-              <p className="text-xs text-green-700">Set your total budget and date range. We\u2019ll show the recommended channel split.</p>
+              <p className="text-xs text-green-700">Set your total budget and date range. We{'\u2019'}ll show the recommended channel split.</p>
             </div>
           </div>
         </Card>

@@ -519,8 +519,8 @@ function FullPriceTable({ onClose }) {
       return <span className={`text-xs px-1.5 py-0.5 rounded font-medium ${info.color}`}>{v}</span>
     }},
     { key: 'usa', label: 'USA ($)', align: 'right', render: (v) => v ? <span className="font-mono">${v}</span> : '\u2014' },
-    { key: 'uk', label: 'UK (\u00a3)', align: 'right', render: (v) => v ? <span className="font-mono">\u00a3{v}</span> : '\u2014' },
-    { key: 'eu', label: 'EU (\u20ac)', align: 'right', render: (v) => v ? <span className="font-mono">\u20ac{v}</span> : '\u2014' },
+    { key: 'uk', label: 'UK (\u00a3)', align: 'right', render: (v) => v ? <span className="font-mono">{'\u00a3'}{v}</span> : '\u2014' },
+    { key: 'eu', label: 'EU (\u20ac)', align: 'right', render: (v) => v ? <span className="font-mono">{'\u20ac'}{v}</span> : '\u2014' },
     { key: 'me', label: 'ME ($)', align: 'right', render: (v) => v ? <span className="font-mono">${v}</span> : '\u2014' },
     { key: 'differential', label: 'Spread', align: 'right', render: (v) => (
       <span className={`font-mono font-medium ${v > 30 ? 'text-red-500' : v > 15 ? 'text-amber-500' : 'text-green-500'}`}>
@@ -790,29 +790,46 @@ export default function BrandPricing() {
         </AccentCard>
       )}
 
-      {/* ── TIER 1: Category Cards ── */}
-      <SectionHeader size="lg" subtitle="Click any category to explore brand tiers, prices, and market comparisons">
-        Category Overview
-      </SectionHeader>
+      {/* ── TIER 1/2: Click-replace navigation (Option B) ── */}
+      {!expandedCategory && !showFullTable && (
+        <>
+          <SectionHeader size="lg" subtitle="Click any category to explore brand tiers, prices, and market comparisons">
+            Category Overview
+          </SectionHeader>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {stats.categoryStats.map(stat => (
-          <div key={stat.category} id={`card-${stat.category.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>
-            <CategorySummaryCard
-              stat={stat}
-              isExpanded={expandedCategory === stat.category}
-              onToggle={() => handleCategoryToggle(stat.category)}
-            />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {stats.categoryStats.map(stat => (
+              <div key={stat.category} id={`card-${stat.category.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>
+                <CategorySummaryCard
+                  stat={stat}
+                  isExpanded={false}
+                  onToggle={() => handleCategoryToggle(stat.category)}
+                />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </>
+      )}
 
-      {/* ── TIER 2: Expanded Category Detail ── */}
+      {/* ── Click-replace detail view ── */}
       {expandedCategory && (
-        <CategoryExpanded
-          category={expandedCategory}
-          onClose={() => setExpandedCategory(null)}
-        />
+        <>
+          <div className="flex items-center gap-2 text-xs">
+            <button
+              onClick={() => setExpandedCategory(null)}
+              className="inline-flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-lg border border-gray-200 bg-white hover:bg-gray-50 text-navy font-medium transition-colors touch-manipulation"
+            >
+              <ArrowRight size={14} className="rotate-180" />
+              Back to all categories
+            </button>
+            <span className="text-gray-400">/</span>
+            <span className="font-semibold text-navy">{expandedCategory}</span>
+          </div>
+          <CategoryExpanded
+            category={expandedCategory}
+            onClose={() => setExpandedCategory(null)}
+          />
+        </>
       )}
 
       {/* ── CTA: Tier 3 ── */}

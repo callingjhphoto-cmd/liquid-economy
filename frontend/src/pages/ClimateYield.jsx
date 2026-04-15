@@ -180,7 +180,7 @@ function LiveWeatherPanel({ region }) {
     <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200 animate-pulse">
       <div className="flex items-center gap-2 mb-3">
         <RefreshCw size={14} className="animate-spin text-blue-500" />
-        <span className="text-xs text-blue-600 font-medium">Loading live weather data from Open-Meteo\u2026</span>
+        <span className="text-xs text-blue-600 font-medium">Loading live weather data from Open-Meteo{'\u2026'}</span>
       </div>
       <div className="h-40 bg-blue-100 rounded-lg" />
     </Card>
@@ -208,7 +208,7 @@ function LiveWeatherPanel({ region }) {
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <Globe size={14} className="text-blue-600" />
-          <span className="text-xs font-semibold text-blue-800 uppercase tracking-wider">Live Weather \u2014 Last 30 Days</span>
+          <span className="text-xs font-semibold text-blue-800 uppercase tracking-wider">Live Weather {'\u2014'} Last 30 Days</span>
           <span className="text-xs text-blue-500">{region.lat}\u00b0N, {region.lon}\u00b0E</span>
         </div>
         <span className="text-xs text-blue-400">Source: Open-Meteo API (real-time)</span>

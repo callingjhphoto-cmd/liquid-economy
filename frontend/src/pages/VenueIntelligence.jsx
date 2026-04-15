@@ -426,7 +426,7 @@ export default function VenueIntelligence() {
               <Card className="h-full" hover onClick={() => toggleSection('50best')}>
                 <div className="flex items-start justify-between mb-3">
                   <div>
-                    <p className="text-label text-gray-500">World\u2019s 50 Best Bars {selectedYear}</p>
+                    <p className="text-label text-gray-500">World{'\u2019'}s 50 Best Bars {selectedYear}</p>
                     <p className="text-3xl font-bold text-navy mt-1">{londonCount}</p>
                     <p className="text-sm text-gray-500 mt-0.5">London bars in Top 50</p>
                   </div>
@@ -450,7 +450,7 @@ export default function VenueIntelligence() {
                     <span className="font-semibold text-navy">{perennialBars.length}</span>
                   </div>
                 </div>
-                <p className="text-xs text-gray-500 mt-3">Click to explore rankings \u2192</p>
+                <p className="text-xs text-gray-500 mt-3">Click to explore rankings {'\u2192'}</p>
               </Card>
             </BentoGrid.Hero>
 
@@ -527,7 +527,7 @@ export default function VenueIntelligence() {
 
               {/* Perennial bars */}
               <Card>
-                <h4 className="text-sm font-semibold text-navy mb-1">Perennial Bars \u2014 Appeared 4+ Years</h4>
+                <h4 className="text-sm font-semibold text-navy mb-1">Perennial Bars {'\u2014'} Appeared 4+ Years</h4>
                 <p className="text-xs text-gray-500 mb-3">Key accounts for brand partnerships</p>
                 <div className="space-y-1.5 max-h-72 overflow-y-auto">
                   {perennialBars.map(bar => (
@@ -879,7 +879,7 @@ export default function VenueIntelligence() {
                                 <span className={`inline-block w-7 h-5 leading-5 rounded text-micro font-bold ${row[y] >= 4 ? 'bg-green-500 text-white' : row[y] >= 3 ? 'bg-green-300 text-green-900' : row[y] >= 2 ? 'bg-blue-200 text-blue-800' : 'bg-gray-100 text-gray-600'}`}>
                                   {row[y]}
                                 </span>
-                              ) : <span className="text-gray-300">\u2014</span>}
+                              ) : <span className="text-gray-300">{'\u2014'}</span>}
                             </td>
                           ))}
                           <td className="py-1.5 text-center font-bold text-navy">{row.total}</td>
@@ -1078,11 +1078,11 @@ export default function VenueIntelligence() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-gray-700">
                   <div className="space-y-2">
                     <div>
-                      <h5 className="font-semibold text-navy">Entry Strategy \u2014 Luxury Accounts</h5>
+                      <h5 className="font-semibold text-navy">Entry Strategy {'\u2014'} Luxury Accounts</h5>
                       <p>Target independent-minded bars like Satan\u2019s Whiskers, Tay\u0113r + Elementary, and Lyaness. These venues select on quality, not corporate spend.</p>
                     </div>
                     <div>
-                      <h5 className="font-semibold text-navy">Visibility \u2014 50 Best Bars</h5>
+                      <h5 className="font-semibold text-navy">Visibility {'\u2014'} 50 Best Bars</h5>
                       <p>Perennial bars (Tay\u0113r, Connaught, Jigger & Pony, Paradiso) offer global bartender community visibility through long-term partnerships.</p>
                     </div>
                   </div>
@@ -1093,7 +1093,7 @@ export default function VenueIntelligence() {
                     </div>
                     <div>
                       <h5 className="font-semibold text-navy">Geographic Trend</h5>
-                      <p>Asia\u2019s share has grown to match Europe. London remains the strongest single-city hub for on-trade credibility globally.</p>
+                      <p>Asia{'\u2019'}s share has grown to match Europe. London remains the strongest single-city hub for on-trade credibility globally.</p>
                     </div>
                   </div>
                 </div>

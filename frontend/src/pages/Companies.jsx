@@ -145,11 +145,11 @@ function CompanyCardTier1({ company, onClick, isHighlighted }) {
 
       <div className="flex items-center gap-3 text-xs text-gray-500">
         <span>{brandCount} brands</span>
-        <span>\u00b7</span>
+        <span>{'\u00b7'}</span>
         <span>{categoryCount} categories</span>
         {company.employees && (
           <>
-            <span>\u00b7</span>
+            <span>{'\u00b7'}</span>
             <span>{company.employees}</span>
           </>
         )}
@@ -455,7 +455,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
           )}
           {company.maTimeline && (
             <>
-              <span>\u00b7</span>
+              <span>{'\u00b7'}</span>
               <span>{company.maTimeline.length} M&A events</span>
             </>
           )}

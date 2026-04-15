@@ -1,4 +1,16 @@
-export const DATA_LAST_UPDATED = '2026-03-21'
+import { ADDITIONAL_EUROPEAN_REGIONS } from './climate_fragments/climate_yield_europe_fragment.js'
+import { NEW_WORLD_WINE_REGIONS } from './climate_fragments/climate_yield_newworld_fragment.js'
+import {
+  REGIONS_EXPANDED as SPIRITS_RUM_REGIONS,
+  REGIONS_MEZCAL_AGAVE_EXPANDED as SPIRITS_AGAVE_REGIONS,
+  REGIONS_HOPS_EXPANDED as SPIRITS_HOPS_REGIONS,
+  REGIONS_BARLEY_GRAIN_EXPANDED as SPIRITS_BARLEY_REGIONS,
+  REGIONS_APPLE_PEAR_EXPANDED as SPIRITS_APPLE_REGIONS,
+} from './climate_fragments/climate_yield_spirits_fragment.js'
+import { BOTANICAL_REGIONS } from './climate_fragments/climate_yield_botanicals_fragment.js'
+import { CAVA_MOSEL_REGIONS } from './climate_fragments/climate_yield_data_fragment.js'
+
+export const DATA_LAST_UPDATED = '2026-04-14'
 
 /**
  * Climate & Yield Intelligence Data
@@ -303,7 +315,22 @@ export const REGIONS = [
       2024: { yield: 4.1, rainfall: 540, avgTemp: 16.6, frostDays: 9, sunHours: 2870, season: 'Return to average. Balanced vintage. No significant fires. Market facing oversupply \u2014 grape prices declining. Some Napa growers not finding buyers. Wine industry structural shift.', outlook: 'neutral' },
       2025: { yield: null, rainfall: null, avgTemp: null, frostDays: null, sunHours: null, season: 'Dormant. Winter rains adequate. Reservoir levels good for irrigation. Fire outlook for summer unknown. Grape market remains oversupplied. Possible vineyard removal acceleration.', outlook: 'monitoring' }
     }
-  }
+  },
+  // ─────────────────────────────────────────────────────────
+  // EXPANSION: 100+ additional regions from research agents
+  // Covers European wine (18), New World wine (9+), spirits crops (rum/agave/hops/barley/apple),
+  // botanicals (oak/cork/peat/juniper/vanilla), plus Cava + Mosel.
+  // All regions follow the same schema; 20-year historical depth where sourceable.
+  // ─────────────────────────────────────────────────────────
+  ...ADDITIONAL_EUROPEAN_REGIONS,
+  ...NEW_WORLD_WINE_REGIONS,
+  ...SPIRITS_RUM_REGIONS,
+  ...SPIRITS_AGAVE_REGIONS,
+  ...SPIRITS_HOPS_REGIONS,
+  ...SPIRITS_BARLEY_REGIONS,
+  ...SPIRITS_APPLE_REGIONS,
+  ...BOTANICAL_REGIONS,
+  ...CAVA_MOSEL_REGIONS,
 ]
 
 export const FORWARD_SIGNALS = [

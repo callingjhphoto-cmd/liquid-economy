@@ -1,3 +1,21 @@
+# Overnight Build Log — 15 April 2026
+
+## Session summary
+
+**Shipped:** Mobile responsiveness final pass \u2014 MarketOverview hero overflow fix + Valuations Pros/Cons grid collapse (build clean)
+
+1. **Full platform audit.** Scanned all 26 pages for bare grid-cols-2/3/4+, text-4xl/5xl/6xl without responsive prefixes, tables without overflow-x-auto wrappers, whitespace-nowrap overflow risks, and fixed-pixel widths. Confirmed: all grid-cols-3/4/5/6 carry responsive prefixes; all tables are wrapped in overflow-x-auto; all whitespace-nowrap uses are on scrollable tab bars. Identified two genuine layout breakages at 375\u202fpx.
+
+2. **MarketOverview \u2014 hero heading overflow.** The `$1.6T` headline used `text-5xl` (48\u202fpx) in a `flex items-baseline gap-3` row alongside `+1.5% YoY` (text-lg) and `\u00b7 +3.4% 10-yr CAGR` (text-sm). At 375\u202fpx with `p-8` card padding, combined inline content measured ~392\u202fpx against a 311\u202fpx inner width \u2014 guaranteed horizontal overflow. Fixed: `text-5xl` \u2192 `text-3xl sm:text-5xl`; `p-8` \u2192 `p-5 sm:p-8`; flex row gains `flex-wrap` + `gap-x-3 gap-y-1` so the YoY badge wraps cleanly to a second line on mobile.
+
+3. **Valuations \u2014 Pros/Cons grid collapse.** Inside each expanded valuation method card (EV/EBITDA, DCF, etc.), a `grid-cols-2` showed Pros (left) and Cons (right) as full paragraph text. At 375\u202fpx the columns were ~155\u202fpx each \u2014 12\u202fpx text wrapping to 5\u20136 tightly-spaced lines per column, very hard to read. Changed to `grid-cols-1 sm:grid-cols-2`: stacks Pros then Cons on mobile, side-by-side at \u2265640\u202fpx.
+
+4. **All other grid-cols-2 instances confirmed safe.** Remaining bare `grid-cols-2` instances across ScenarioModeling, MarginCalculator, ClimateYield, POSIntelligence, ReportBuilder, PitchGenerator, and CampaignPlanner are either: (a) inside BottomSheet / mobileDetail panels which are already full-width mobile contexts; (b) in `renderMobileStep*` functions intentionally designed for mobile; or (c) hold compact numeric stats (\u22648 chars) that render acceptably at ~170\u202fpx column width.
+
+5. **Build:** `vite build` \u2713 \u2014 0 errors, 0 warnings. Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 14 April 2026
 
 ## Session summary

@@ -36,6 +36,8 @@ const CompetitorMonitor = lazy(() => import('./pages/CompetitorMonitor'))
 const PitchGenerator = lazy(() => import('./pages/PitchGenerator'))
 const SubscriptionTiers = lazy(() => import('./pages/SubscriptionTiers'))
 const ProfileKhorusCocktails = lazy(() => import('./pages/ProfileKhorusCocktails'))
+const ClientProfile = lazy(() => import('./pages/ClientProfile'))
+const ProfilesIndex = lazy(() => import('./pages/ProfilesIndex'))
 
 /* Route metadata for breadcrumbs */
 const routeMeta = {
@@ -459,15 +461,53 @@ function Layout({ onLogout }) {
   )
 }
 
-// AppRouter: handles /p/* profile routes outside Layout (no sidebar/nav)
+// Profile loader: lazy-loads the profile data module for the given slug
+// then passes it to ClientProfile renderer.
+// Falls back to ProfileKhorusCocktails for backwards compat during transition.
+function ProfileRoute() {
+  const { slug } = useParams()
+  const [profile, setProfile] = React.useState(undefined)
+  const [loading, setLoading] = React.useState(true)
+
+  React.useEffect(() => {
+    setLoading(true)
+    setProfile(undefined)
+    import(`./data/profiles/${slug}.js`)
+      .then((mod) => {
+        setProfile(mod.default || null)
+        setLoading(false)
+      })
+      .catch(() => {
+        setProfile(null)
+        setLoading(false)
+      })
+  }, [slug])
+
+  if (loading) return <PageLoader />
+  return (
+    <Suspense fallback={<PageLoader />}>
+      <ClientProfile profile={profile} slug={slug} />
+    </Suspense>
+  )
+}
+
+// AppRouter: handles /p/* profile routes and /profiles index outside Layout (no sidebar/nav)
 function AppRouter({ onLogout }) {
   return (
     <Routes>
       <Route
-        path="/p/khorus-cocktails"
+        path="/profiles"
         element={
           <Suspense fallback={<PageLoader />}>
-            <ProfileKhorusCocktails />
+            <ProfilesIndex />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/p/:slug"
+        element={
+          <Suspense fallback={<PageLoader />}>
+            <ProfileRoute />
           </Suspense>
         }
       />

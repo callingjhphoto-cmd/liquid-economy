@@ -17,7 +17,7 @@
 
 // ---------------------------------------------------------------------------
 // MODULE 1: TOP 20 COCKTAILS GLOBAL RANKING 2024-2026
-// Source: [R2] — DI World\u2019s 50 Best Bars Brand Report, Difford\u2019s Guide analytics
+// Source: [R2] - DI World's 50 Best Bars Brand Report, Difford's Guide analytics
 // Methodology: DI surveys 100 elite bars; Difford\u2019s uses 700k+ monthly page-views
 // ---------------------------------------------------------------------------
 export const top20Cocktails = [
@@ -245,7 +245,7 @@ export const top20Cocktails = [
 
 // ---------------------------------------------------------------------------
 // MODULE 2: FLAVOUR FAMILIES
-// Source: [R3] — Bacardi Cocktail Trends Report, TOTC 2024-25, Difford\u2019s, W50B
+// Source: [R3] - Bacardi Cocktail Trends Report, TOTC 2024-25, Difford's, W50B
 // ---------------------------------------------------------------------------
 export const flavourFamilies = [
   {

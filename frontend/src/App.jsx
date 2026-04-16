@@ -35,6 +35,7 @@ const DepletionForecasting = lazy(() => import('./pages/DepletionForecasting'))
 const CompetitorMonitor = lazy(() => import('./pages/CompetitorMonitor'))
 const PitchGenerator = lazy(() => import('./pages/PitchGenerator'))
 const SubscriptionTiers = lazy(() => import('./pages/SubscriptionTiers'))
+const ProfileKhorusCocktails = lazy(() => import('./pages/ProfileKhorusCocktails'))
 
 /* Route metadata for breadcrumbs */
 const routeMeta = {
@@ -458,6 +459,23 @@ function Layout({ onLogout }) {
   )
 }
 
+// AppRouter: handles /p/* profile routes outside Layout (no sidebar/nav)
+function AppRouter({ onLogout }) {
+  return (
+    <Routes>
+      <Route
+        path="/p/khorus-cocktails"
+        element={
+          <Suspense fallback={<PageLoader />}>
+            <ProfileKhorusCocktails />
+          </Suspense>
+        }
+      />
+      <Route path="*" element={<Layout onLogout={onLogout} />} />
+    </Routes>
+  )
+}
+
 export default function App() {
   // Auth bypassed — backend not deployed on Railway yet
   const [authenticated, setAuthenticated] = useState(true)
@@ -475,7 +493,7 @@ export default function App() {
     <BrowserRouter>
       <FocusManager />
       <LiveDataProvider>
-        <Layout onLogout={handleLogout} />
+        <AppRouter onLogout={handleLogout} />
       </LiveDataProvider>
     </BrowserRouter>
   )

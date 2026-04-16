@@ -66,6 +66,7 @@ const routeMeta = {
   '/competitors': { label: 'Competitors', group: 'Intelligence' },
   '/pitch-generator': { label: 'Pitch Generator', group: 'Reports' },
   '/contact': { label: 'Contact', group: 'Tools' },
+  '/profiles': { label: 'Client Profiles', group: 'Reports' },
 }
 
 function FocusManager() {
@@ -443,6 +444,8 @@ function Layout({ onLogout }) {
               <Route path="/pitch-generator" element={<PitchGenerator />} />
               <Route path="/contact" element={<SubscriptionTiers />} />
               <Route path="/subscription" element={<Navigate to="/contact" />} />
+              <Route path="/profiles" element={<ProfilesIndex />} />
+              <Route path="/p/:slug" element={<ProfileRoute />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </Suspense>
@@ -491,26 +494,10 @@ function ProfileRoute() {
   )
 }
 
-// AppRouter: handles /p/* profile routes and /profiles index outside Layout (no sidebar/nav)
+// AppRouter: all routes flow through Layout so sidebar appears on every page including /p/*
 function AppRouter({ onLogout }) {
   return (
     <Routes>
-      <Route
-        path="/profiles"
-        element={
-          <Suspense fallback={<PageLoader />}>
-            <ProfilesIndex />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/p/:slug"
-        element={
-          <Suspense fallback={<PageLoader />}>
-            <ProfileRoute />
-          </Suspense>
-        }
-      />
       <Route path="*" element={<Layout onLogout={onLogout} />} />
     </Routes>
   )

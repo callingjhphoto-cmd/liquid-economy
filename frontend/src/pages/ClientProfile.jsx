@@ -4,32 +4,77 @@
  * Iterates profile.modules and renders via a component registry.
  *
  * Supports archetypes: use-case, brand-owner, regional
- * Routes: /p/:slug
+ * Routes: /p/:slug (rendered inside main Layout so sidebar appears)
  */
 
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
+// ---- Tint palette (muted main-app palette only) ------------------------------
+// Map any incoming colour hint to a small set of subtle tints.
+// Order matches main-app cards: amber, emerald, blue, pink, orange.
+const TINT_BG = ['bg-amber-50', 'bg-emerald-50', 'bg-blue-50', 'bg-pink-50', 'bg-orange-50']
+const TINT_TEXT = ['text-amber-700', 'text-emerald-700', 'text-blue-700', 'text-pink-700', 'text-orange-700']
+const tintFor = (i) => TINT_BG[i % TINT_BG.length]
+const tintTextFor = (i) => TINT_TEXT[i % TINT_TEXT.length]
+
+const trendTintIndex = (t = '') => {
+  if (t.includes('rising') || t.includes('+')) return 1 // emerald
+  if (t.includes('dominant') || t.includes('stable')) return 2 // blue
+  if (t.includes('decline') || t.includes('caution') || t.includes('\u2212')) return 3 // pink
+  if (t.includes('watch')) return 4 // orange
+  return 0 // amber default
+}
+
 // ---- Primitive components ----------------------------------------------------
 
-const Badge = ({ label, colour }) => (
-  <span
-    className="inline-block text-caption font-medium px-2 py-0.5 rounded-full"
-    style={{ background: colour + '18', color: colour, border: `1px solid ${colour}33` }}
-  >{label}</span>
+const Chip = ({ label, tone = 'default' }) => {
+  const toneClass = {
+    default: 'bg-gray-100 text-gray-700',
+    rising: 'bg-emerald-50 text-emerald-700',
+    dominant: 'bg-blue-50 text-blue-700',
+    stable: 'bg-gray-100 text-gray-700',
+    caution: 'bg-pink-50 text-pink-700',
+    watch: 'bg-orange-50 text-orange-700',
+    classic: 'bg-amber-50 text-amber-700',
+    modern: 'bg-blue-50 text-blue-700',
+  }[tone] || 'bg-gray-100 text-gray-700'
+  return (
+    <span className={`inline-block text-caption font-medium px-2 py-0.5 rounded-full ${toneClass}`}>
+      {label}
+    </span>
+  )
+}
+
+const trendTone = (t) => {
+  if (t === 'rising' || t === 'fast-rising') return 'rising'
+  if (t === 'stable-dominant' || t === 'dominant' || t === 'dominant-consumer' || t === 'leading') return 'dominant'
+  if (t === 'stable') return 'stable'
+  if (t === 'fatigue') return 'caution'
+  if (t === 'resurgent' || t === 'established-growing') return 'classic'
+  return 'default'
+}
+
+const Card = ({ children, className = '', ...rest }) => (
+  <div
+    className={`bg-white border border-gray-200 rounded-bento p-6 shadow-sm ${className}`}
+    {...rest}
+  >
+    {children}
+  </div>
 )
 
-const Card = ({ children, className = '', style = {} }) => (
+const TintCard = ({ tintIdx = 0, children, className = '', ...rest }) => (
   <div
-    className={`bg-white border border-gray-200 rounded-bento p-5 shadow-sm ${className}`}
-    style={style}
+    className={`${tintFor(tintIdx)} border border-gray-200/70 rounded-bento p-6 ${className}`}
+    {...rest}
   >
     {children}
   </div>
 )
 
 const SectionHeader = ({ title, sub, linkTo }) => (
-  <div className="mb-5 flex items-start justify-between gap-4">
+  <div className="mb-6 flex items-start justify-between gap-4">
     <div>
       <h2 className="text-section font-display text-navy">{title}</h2>
       {sub && <p className="text-caption text-gray-600 mt-1">{sub}</p>}
@@ -45,15 +90,7 @@ const SectionHeader = ({ title, sub, linkTo }) => (
   </div>
 )
 
-const trendColour = (t = '') => {
-  if (t.includes('rising') || t.includes('+')) return '#38A169'
-  if (t.includes('dominant') || t.includes('stable')) return '#2B6CB0'
-  if (t.includes('decline') || t.includes('caution') || t.includes('\u2212')) return '#C53030'
-  if (t.includes('watch')) return '#DD6B20'
-  return '#6B7280'
-}
-
-// ---- MODULE: TopCocktails ---------------------------------------------------
+// ---- MODULE: TopCocktails (BENTO GRID, no table) ----------------------------
 
 function TopCocktailsModule({ data }) {
   const [expanded, setExpanded] = useState(null)
@@ -67,63 +104,45 @@ function TopCocktailsModule({ data }) {
     }
     return map[t] || t
   }
-  const tc = (t) => {
-    if (t === 'rising' || t === 'fast-rising') return '#38A169'
-    if (t === 'stable-dominant' || t === 'dominant' || t === 'dominant-consumer') return '#2B6CB0'
-    if (t === 'stable') return '#6B7280'
-    if (t === 'fatigue') return '#C53030'
-    if (t === 'resurgent' || t === 'established-growing') return '#C9A96E'
-    return '#6B7280'
-  }
   return (
     <section id="module-top-cocktails">
       <SectionHeader
         title="Top 20 Cocktails \u2014 Global Ranking 2024\u20132026"
-        sub="Sources: Drinks International World\u2019s 50 Best Bars Brand Report \u00b7 Difford\u2019s Guide (700k+ monthly searches) \u00b7 IWSR"
+        sub="Drinks International World\u2019s 50 Best Bars Brand Report \u00b7 Difford\u2019s Guide (700k+ monthly searches) \u00b7 IWSR"
         linkTo="/categories?category=cocktails"
       />
-      <Card className="overflow-x-auto p-0">
-        <table className="w-full text-body">
-          <thead>
-            <tr className="border-b border-gray-200 text-left text-label text-gray-500 uppercase tracking-wide bg-gray-50">
-              <th className="px-4 py-3">#</th>
-              <th className="px-4 py-3">Cocktail</th>
-              <th className="px-4 py-3 hidden sm:table-cell">Spirit Base</th>
-              <th className="px-4 py-3 hidden md:table-cell">DI Rank</th>
-              <th className="px-4 py-3">Trend</th>
-              <th className="px-4 py-3 hidden md:table-cell">Move</th>
-            </tr>
-          </thead>
-          <tbody>
-            {cocktails.map((c) => (
-              <React.Fragment key={c.rank}>
-                <tr
-                  className="border-b border-gray-100 hover:bg-surface cursor-pointer transition-colors"
-                  onClick={() => setExpanded(expanded === c.rank ? null : c.rank)}
-                >
-                  <td className="px-4 py-3 text-gray-500 font-mono text-caption">{c.rank}</td>
-                  <td className="px-4 py-3">
-                    <span className="font-semibold text-navy">{c.name}</span>
-                    <span className="ml-2 text-caption text-gray-500">{c.type}</span>
-                  </td>
-                  <td className="px-4 py-3 text-gray-700 hidden sm:table-cell text-caption">{c.spiritBase}</td>
-                  <td className="px-4 py-3 text-gray-600 hidden md:table-cell text-caption">{c.diRank}</td>
-                  <td className="px-4 py-3">
-                    <Badge label={trendLabel(c.trend)} colour={tc(c.trend)} />
-                  </td>
-                  <td className="px-4 py-3 text-gray-600 hidden md:table-cell text-caption">{c.rankMove}</td>
-                </tr>
-                {expanded === c.rank && (
-                  <tr className="bg-amber-50">
-                    <td colSpan={6} className="px-4 py-3 text-caption text-amber-900 italic">{c.note}</td>
-                  </tr>
-                )}
-              </React.Fragment>
-            ))}
-          </tbody>
-        </table>
-      </Card>
-      <p className="text-caption text-gray-500 mt-2">Tap any row for analyst note. DI = Drinks International survey of 100 elite bars.</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {cocktails.map((c) => {
+          const isOpen = expanded === c.rank
+          return (
+            <Card
+              key={c.rank}
+              className="cursor-pointer hover:border-gold/40 hover:shadow-md transition-all flex flex-col"
+              onClick={() => setExpanded(isOpen ? null : c.rank)}
+            >
+              <div className="flex items-baseline justify-between mb-3">
+                <span className="text-label uppercase tracking-wider text-gray-500 font-mono">#{c.rank}</span>
+                {c.diRank && <span className="text-label text-gray-400">DI {c.diRank}</span>}
+              </div>
+              <h3 className="text-subsection font-display text-navy leading-tight">{c.name}</h3>
+              <p className="text-caption text-gray-500 mt-1">{c.spiritBase}</p>
+              <div className="flex items-center gap-2 mt-3 flex-wrap">
+                <Chip label={trendLabel(c.trend)} tone={trendTone(c.trend)} />
+                {c.type && <Chip label={c.type} tone={c.type.toLowerCase().includes('classic') ? 'classic' : 'modern'} />}
+              </div>
+              {c.rankMove && (
+                <p className="text-caption text-gray-500 mt-3 font-mono">{c.rankMove}</p>
+              )}
+              {isOpen && c.note && (
+                <div className="mt-3 pt-3 border-t border-gray-100">
+                  <p className="text-caption text-gray-700 leading-relaxed italic">{c.note}</p>
+                </div>
+              )}
+            </Card>
+          )
+        })}
+      </div>
+      <p className="text-caption text-gray-500 mt-3">Tap any card for the analyst note. DI = Drinks International survey of 100 elite bars.</p>
     </section>
   )
 }
@@ -132,47 +151,42 @@ function TopCocktailsModule({ data }) {
 
 function FlavourRadarModule({ data }) {
   const families = data.families || []
-  const tc = (t) => {
-    if (t === 'rising' || t === 'fast-rising') return '#38A169'
-    if (t === 'stable-dominant' || t === 'dominant' || t === 'dominant-consumer') return '#2B6CB0'
-    if (t === 'fatigue') return '#C53030'
-    if (t === 'resurgent' || t === 'established-growing' || t === 'leading') return '#C9A96E'
-    return '#6B7280'
-  }
   return (
     <section id="module-flavour-radar">
       <SectionHeader
         title="Flavour Families \u2014 2025\u20132026 Intelligence"
-        sub="Sources: Bacardi Cocktail Trends Report \u00b7 Tales of the Cocktail 2025 \u00b7 W50B menu analysis"
+        sub="Bacardi Cocktail Trends Report \u00b7 Tales of the Cocktail 2025 \u00b7 W50B menu analysis"
         linkTo="/categories"
       />
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
-        {families.map((f) => (
-          <Card key={f.id}>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {families.map((f, i) => (
+          <TintCard key={f.id} tintIdx={trendTintIndex(f.trend)}>
             <div className="flex items-start justify-between mb-3">
               <div>
                 <span className="text-lg mr-2">{f.icon}</span>
                 <span className="font-semibold text-navy">{f.name}</span>
               </div>
-              <Badge label={f.trend.replace('-', ' ').replace(/^\w/, c => c.toUpperCase())} colour={tc(f.trend)} />
+              <Chip label={f.trend.replace('-', ' ').replace(/^\w/, c => c.toUpperCase())} tone={trendTone(f.trend)} />
             </div>
-            <p className="text-caption text-emerald-700 font-semibold mb-1">{f.growthSignal}</p>
-            <p className="text-caption text-gray-600 mb-3">{f.penetration}</p>
+            {f.growthSignal && (
+              <p className={`text-caption font-semibold mb-1 ${tintTextFor(trendTintIndex(f.trend))}`}>{f.growthSignal}</p>
+            )}
+            <p className="text-caption text-gray-700 mb-3">{f.penetration}</p>
             <div className="mb-3">
-              <p className="text-caption font-semibold text-gray-700 mb-1">Key ingredients</p>
+              <p className="text-label uppercase tracking-wider font-semibold text-gray-600 mb-1.5">Key ingredients</p>
               <div className="flex flex-wrap gap-1">
                 {(f.ingredients || []).slice(0, 5).map((i) => (
-                  <span key={i} className="text-caption bg-surface text-gray-700 border border-gray-200 px-2 py-0.5 rounded">{i}</span>
+                  <span key={i} className="text-caption bg-white/70 text-gray-700 border border-gray-200/60 px-2 py-0.5 rounded">{i}</span>
                 ))}
               </div>
             </div>
             {f.eventApplication && (
-              <div className="border-t border-gray-200 pt-3 mt-3">
-                <p className="text-caption font-semibold text-editorial mb-1">Application</p>
+              <div className="border-t border-gray-200/60 pt-3 mt-3">
+                <p className="text-label uppercase tracking-wider font-semibold text-editorial mb-1">Application</p>
                 <p className="text-caption text-gray-700 leading-relaxed">{f.eventApplication}</p>
               </div>
             )}
-          </Card>
+          </TintCard>
         ))}
       </div>
     </section>
@@ -188,25 +202,25 @@ function LuxuryVenuesModule({ data }) {
     <section id="module-luxury-venues">
       <SectionHeader
         title="Luxury Venue Intelligence"
-        sub="Signature cocktails, pricing bands &amp; theatre at elite global venues"
+        sub="Signature cocktails, pricing bands and theatre at elite global venues"
         linkTo="/venues"
       />
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {venues.map((v, i) => (
-          <Card key={i} className="cursor-pointer hover:border-gold hover:shadow-md transition-all" onClick={() => setExpanded(expanded === i ? null : i)}>
+          <Card key={i} className="cursor-pointer hover:border-gold/40 hover:shadow-md transition-all" onClick={() => setExpanded(expanded === i ? null : i)}>
             <div className="flex items-start justify-between mb-2">
               <div>
                 <p className="font-semibold text-navy">{v.venue}</p>
                 <p className="text-caption text-gray-600">{v.location}</p>
               </div>
-              <Badge label={v.tier} colour="#2B6CB0" />
+              <Chip label={v.tier} tone="dominant" />
             </div>
             <p className="text-body text-gray-700 mb-2">{v.signatureCocktail}</p>
             <div className="flex gap-4 text-caption text-gray-600">
               <span>Standard: <span className="text-navy font-medium">{v.avgCostPerServe}</span></span>
             </div>
             {expanded === i && (
-              <div className="mt-3 border-t border-gray-200 pt-3 space-y-1.5">
+              <div className="mt-3 border-t border-gray-100 pt-3 space-y-1.5">
                 <p className="text-caption text-gray-600"><span className="text-navy font-semibold">Dominant brand:</span> {v.dominantBrand}</p>
                 <p className="text-caption text-gray-600"><span className="text-navy font-semibold">Theatre:</span> {v.theatre}</p>
                 <p className="text-caption text-gray-500 italic">{v.source}</p>
@@ -215,7 +229,7 @@ function LuxuryVenuesModule({ data }) {
           </Card>
         ))}
       </div>
-      <p className="text-caption text-gray-500 mt-2">Tap any card for full detail.</p>
+      <p className="text-caption text-gray-500 mt-3">Tap any card for full detail.</p>
     </section>
   )
 }
@@ -226,7 +240,7 @@ function PresentationModule({ data }) {
   return (
     <section id="module-presentation">
       <SectionHeader
-        title="Presentation &amp; Theatre Library"
+        title="Presentation and Theatre Library"
         sub="Ice programme, glassware specs, and activation formats"
       />
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -238,7 +252,7 @@ function PresentationModule({ data }) {
                 <p className="text-body font-semibold text-navy">{ice.format}</p>
                 <p className="text-caption text-gray-600 mt-0.5">{ice.specialist}</p>
                 <p className="text-caption text-gray-700 mt-1">{ice.why}</p>
-                <p className="text-caption mt-1"><span className="text-gold font-semibold">Luxury signal:</span> <span className="text-gray-700">{ice.luxurySignal}</span></p>
+                <p className="text-caption mt-1"><span className="text-editorial font-semibold">Luxury signal:</span> <span className="text-gray-700">{ice.luxurySignal}</span></p>
               </div>
             ))}
           </div>
@@ -250,7 +264,7 @@ function PresentationModule({ data }) {
               <div key={i} className="border-b border-gray-100 pb-3 last:border-0 last:pb-0">
                 <div className="flex items-start justify-between">
                   <p className="text-body font-semibold text-navy">{g.name}</p>
-                  <Badge label={g.signalLevel} colour="#C9A96E" />
+                  <Chip label={g.signalLevel} tone="classic" />
                 </div>
                 <p className="text-caption text-gray-600 mt-0.5">{g.maker}</p>
                 <p className="text-caption text-gray-700 mt-1">{g.notes}</p>
@@ -289,41 +303,41 @@ function TrendArcModule({ data }) {
     <section id="module-trend-arc">
       <SectionHeader
         title="20-Year Cocktail Trend Arc \u2014 2006\u20132026"
-        sub="Six eras of luxury on-premise evolution \u00b7 Source: Drinks International, Difford\u2019s Guide, IWSR, W50B"
+        sub="Six eras of luxury on-premise evolution \u00b7 Drinks International, Difford\u2019s Guide, IWSR, W50B"
         linkTo="/categories"
       />
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 mb-8">
-        {eras.map((era) => (
-          <Card key={era.id} style={{ borderTopColor: era.accentColour, borderTopWidth: '3px' }}>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+        {eras.map((era, i) => (
+          <TintCard key={era.id} tintIdx={i}>
             <div className="mb-3">
-              <span className="text-label uppercase tracking-wider" style={{ color: era.accentColour }}>{era.label}</span>
-              <p className="text-body-lg font-display text-navy mt-0.5">{era.subtitle}</p>
+              <span className={`text-label uppercase tracking-wider font-semibold ${tintTextFor(i)}`}>{era.label}</span>
+              <p className="text-subsection font-display text-navy mt-0.5 leading-tight">{era.subtitle}</p>
             </div>
             <div className="mb-3">
-              <p className="text-caption font-semibold text-gray-600 mb-1.5">Dominant cocktails</p>
+              <p className="text-label uppercase tracking-wider font-semibold text-gray-600 mb-1.5">Dominant cocktails</p>
               <div className="flex flex-wrap gap-1">
                 {(era.dominantCocktails || []).slice(0, 5).map((c) => (
-                  <span key={c} className="text-caption bg-surface text-gray-700 border border-gray-200 px-2 py-0.5 rounded-full">{c}</span>
+                  <span key={c} className="text-caption bg-white/70 text-gray-700 border border-gray-200/60 px-2 py-0.5 rounded-full">{c}</span>
                 ))}
               </div>
             </div>
-            <p className="text-caption text-gray-600 leading-relaxed mb-2">{era.culturalMoment}</p>
-            <div className="border-t border-gray-200 pt-2 mt-2">
-              <p className="text-caption font-semibold text-editorial mb-0.5">Luxury behaviour</p>
+            <p className="text-caption text-gray-700 leading-relaxed mb-2">{era.culturalMoment}</p>
+            <div className="border-t border-gray-200/60 pt-2 mt-2">
+              <p className="text-label uppercase tracking-wider font-semibold text-editorial mb-0.5">Luxury behaviour</p>
               <p className="text-caption text-gray-700 leading-relaxed">{era.luxuryBehaviour}</p>
             </div>
-          </Card>
+          </TintCard>
         ))}
       </div>
       {findings.length > 0 && (
-        <div className="mb-3">
-          <h3 className="text-subsection font-display text-navy mb-3">Three Surprising Findings</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {findings.map((f) => (
-              <Card key={f.id} style={{ borderLeftColor: f.colour, borderLeftWidth: '3px' }}>
-                <p className="text-body font-semibold mb-2" style={{ color: f.colour }}>{f.headline}</p>
+        <div>
+          <h3 className="text-subsection font-display text-navy mb-4">Three Surprising Findings</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {findings.map((f, i) => (
+              <TintCard key={f.id} tintIdx={i}>
+                <p className={`text-body font-semibold mb-2 ${tintTextFor(i)}`}>{f.headline}</p>
                 <p className="text-caption text-gray-700 leading-relaxed">{f.detail}</p>
-              </Card>
+              </TintCard>
             ))}
           </div>
         </div>
@@ -342,29 +356,29 @@ function CategorySnapshotModule({ data }) {
         sub={`${data.marketSize || ''} \u00b7 ${data.cagr || ''} \u00b7 ${data.source || ''}`}
         linkTo={data.linkTo}
       />
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {(data.subCategories || []).map((sc, i) => (
-          <Card key={i} style={{ borderLeftColor: trendColour(sc.trend), borderLeftWidth: '3px' }}>
+          <TintCard key={i} tintIdx={trendTintIndex(sc.trend)}>
             <div className="flex items-start justify-between mb-2">
               <p className="font-semibold text-navy">{sc.name}</p>
-              <Badge label={sc.share} colour={trendColour(sc.trend)} />
+              <Chip label={sc.share} tone={trendTone(sc.trend)} />
             </div>
-            <p className="text-caption text-emerald-700 font-semibold mb-1">{sc.trend}</p>
-            <p className="text-caption text-gray-600 leading-relaxed">{sc.notes}</p>
-          </Card>
+            <p className={`text-caption font-semibold mb-1 ${tintTextFor(trendTintIndex(sc.trend))}`}>{sc.trend}</p>
+            <p className="text-caption text-gray-700 leading-relaxed">{sc.notes}</p>
+          </TintCard>
         ))}
       </div>
       {(data.regionalSignals || []).length > 0 && (
         <div>
-          <h3 className="text-subsection font-display text-navy mb-3">Regional Signals</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3">
+          <h3 className="text-subsection font-display text-navy mb-4">Regional Signals</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {data.regionalSignals.map((r, i) => {
-              const col = r.direction === 'opportunity' ? '#38A169' : r.direction === 'caution' ? '#C53030' : '#DD6B20'
+              const tIdx = r.direction === 'opportunity' ? 1 : r.direction === 'caution' ? 3 : 4
               return (
-                <Card key={i} style={{ borderTopColor: col, borderTopWidth: '3px' }}>
+                <TintCard key={i} tintIdx={tIdx}>
                   <p className="font-semibold text-navy mb-1">{r.market}</p>
-                  <p className="text-caption text-gray-600 leading-relaxed">{r.signal}</p>
-                </Card>
+                  <p className="text-caption text-gray-700 leading-relaxed">{r.signal}</p>
+                </TintCard>
               )
             })}
           </div>
@@ -381,25 +395,25 @@ function CompetitorWatchModule({ data }) {
     <section id="module-competitor-watch">
       <SectionHeader
         title="Competitor Watch"
-        sub="Brand-level positioning and threat signals \u00b7 Volume data gap flagged (see fitness review Q10)"
+        sub="Brand-level positioning and threat signals \u00b7 Volume data gap flagged"
         linkTo="/competitors"
       />
       {data.note && (
-        <div className="mb-4 px-4 py-3 rounded-bento bg-amber-50 border border-amber-200">
+        <div className="mb-4 px-4 py-3 rounded-bento bg-amber-50 border border-amber-100">
           <p className="text-caption text-amber-800">{data.note}</p>
         </div>
       )}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        {(data.competitors || []).map((c) => (
-          <Card key={c.name} style={{ borderLeftColor: c.colour, borderLeftWidth: '3px' }}>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {(data.competitors || []).map((c, i) => (
+          <TintCard key={c.name} tintIdx={i}>
             <div className="flex items-start justify-between mb-2">
               <p className="font-semibold text-navy">{c.name}</p>
-              <span className="text-caption text-gray-500">{c.owner}</span>
+              <span className="text-caption text-gray-600">{c.owner}</span>
             </div>
-            <p className="text-caption text-gray-700 mb-2">{c.positioning}</p>
-            <p className="text-caption text-gray-600 mb-1"><span className="text-gold font-semibold">Threat:</span> {c.threat}</p>
-            <p className="text-caption text-gray-600"><span className="text-editorial font-semibold">Signal:</span> {c.signal}</p>
-          </Card>
+            <p className="text-caption text-gray-700 mb-2 leading-relaxed">{c.positioning}</p>
+            <p className="text-caption text-gray-700 mb-1"><span className={`font-semibold ${tintTextFor(i)}`}>Threat:</span> {c.threat}</p>
+            <p className="text-caption text-gray-700"><span className="text-editorial font-semibold">Signal:</span> {c.signal}</p>
+          </TintCard>
         ))}
       </div>
     </section>
@@ -416,33 +430,33 @@ function MarketIntelModule({ data }) {
         sub="Entry signals and channel recommendations per priority market"
         linkTo="/geographic"
       />
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        {(data.markets || []).map((m) => (
-          <Card key={m.name} style={{ borderTopColor: m.colour, borderTopWidth: '3px' }}>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {(data.markets || []).map((m, i) => (
+          <TintCard key={m.name} tintIdx={i}>
             <div className="flex items-start justify-between mb-3">
               <div>
                 <p className="font-semibold text-navy">{m.name}</p>
-                <p className="text-caption text-emerald-700 font-semibold mt-0.5">{m.signal}</p>
+                <p className={`text-caption font-semibold mt-0.5 ${tintTextFor(i)}`}>{m.signal}</p>
               </div>
             </div>
             <div className="space-y-1.5 mb-3">
-              {(m.metrics || []).map((metric, i) => (
-                <div key={i} className="flex items-start justify-between text-caption">
-                  <span className="text-gray-500">{metric.label}</span>
+              {(m.metrics || []).map((metric, j) => (
+                <div key={j} className="flex items-start justify-between text-caption">
+                  <span className="text-gray-600">{metric.label}</span>
                   <span className="text-navy font-medium text-right ml-2">{metric.value}</span>
                 </div>
               ))}
             </div>
-            <div className="border-t border-gray-200 pt-3">
-              <p className="text-caption text-editorial font-semibold mb-1">Recommendation</p>
+            <div className="border-t border-gray-200/60 pt-3">
+              <p className="text-label uppercase tracking-wider text-editorial font-semibold mb-1">Recommendation</p>
               <p className="text-caption text-gray-700 leading-relaxed">{m.recommendation}</p>
             </div>
             {m.linkTo && (
-              <Link to={m.linkTo} className="text-caption text-gray-500 hover:text-editorial mt-2 block transition-colors">
+              <Link to={m.linkTo} className="text-caption text-gray-600 hover:text-editorial mt-2 block transition-colors">
                 Full geographic data \u2192
               </Link>
             )}
-          </Card>
+          </TintCard>
         ))}
       </div>
     </section>
@@ -459,17 +473,17 @@ function DemographicsLensModule({ data }) {
         sub={data.source}
         linkTo={data.linkTo}
       />
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {(data.highlights || []).map((h) => (
-          <Card key={h.segment} style={{ borderLeftColor: h.colour, borderLeftWidth: '3px' }}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {(data.highlights || []).map((h, i) => (
+          <TintCard key={h.segment} tintIdx={i}>
             <p className="font-semibold text-navy mb-1">{h.segment}</p>
-            <p className="text-caption text-emerald-700 font-semibold mb-2">{h.signal}</p>
-            <p className="text-caption text-gray-600 leading-relaxed mb-2">{h.detail}</p>
-            <div className="border-t border-gray-200 pt-2">
-              <p className="text-caption font-semibold text-editorial mb-0.5">Relevance</p>
+            <p className={`text-caption font-semibold mb-2 ${tintTextFor(i)}`}>{h.signal}</p>
+            <p className="text-caption text-gray-700 leading-relaxed mb-2">{h.detail}</p>
+            <div className="border-t border-gray-200/60 pt-2">
+              <p className="text-label uppercase tracking-wider font-semibold text-editorial mb-0.5">Relevance</p>
               <p className="text-caption text-gray-700 leading-relaxed">{h.relevance}</p>
             </div>
-          </Card>
+          </TintCard>
         ))}
       </div>
     </section>
@@ -478,21 +492,21 @@ function DemographicsLensModule({ data }) {
 
 // ---- MODULE: OpportunityRadar (CommercialNarrativeCard) ---------------------
 
-const STEP_CHIP = "inline-block text-label uppercase tracking-wider px-2 py-0.5 rounded-full bg-navy text-white mb-1.5"
+const STEP_CHIP = "inline-block text-label uppercase tracking-wider px-2 py-0.5 rounded-full bg-gray-100 text-gray-700 mb-1.5 font-semibold"
 
 function CommercialNarrativeCard({ o }) {
   const [open, setOpen] = useState(false)
   return (
-    <Card style={{ borderLeftColor: o.colour || '#1A1F36', borderLeftWidth: '4px' }}>
+    <div className="bg-white border border-gray-200 rounded-bento p-6 shadow-sm border-l-4 border-l-editorial">
       <div
         className="flex items-start justify-between cursor-pointer"
         onClick={() => setOpen(!open)}
       >
         <div className="flex-1">
-          <span className={STEP_CHIP} style={{ background: '#C9A96E', color: '#1A1F36' }}>Signal</span>
+          <span className={STEP_CHIP}>Signal</span>
           <h3 className="text-subsection font-display text-navy mt-1">{o.signal}</h3>
           {o.urgency && (
-            <p className="text-caption text-accent-red font-semibold mt-0.5">{o.urgency.split(' \u2014')[0]}</p>
+            <p className="text-caption text-pink-700 font-semibold mt-0.5">{o.urgency.split(' \u2014')[0]}</p>
           )}
         </div>
         <span className="text-gray-400 ml-3 mt-1 text-body">{open ? '\u25b2' : '\u25bc'}</span>
@@ -503,7 +517,7 @@ function CommercialNarrativeCard({ o }) {
 
       {/* Expanded: full six-step template */}
       {open && (
-        <div className="mt-4 space-y-4 border-t border-gray-200 pt-4">
+        <div className="mt-4 space-y-4 border-t border-gray-100 pt-4">
           {o.adjacency && (
             <div>
               <span className={STEP_CHIP}>Adjacency</span>
@@ -529,14 +543,14 @@ function CommercialNarrativeCard({ o }) {
             </div>
           )}
           {o.reallocation && (
-            <div className="border-t border-gray-200 pt-3">
-              <span className={STEP_CHIP} style={{ background: '#C9A96E', color: '#1A1F36' }}>Reallocation</span>
+            <div className="border-t border-gray-100 pt-3">
+              <span className={STEP_CHIP}>Reallocation</span>
               <p className="text-caption text-gray-700 leading-relaxed">{o.reallocation}</p>
             </div>
           )}
         </div>
       )}
-    </Card>
+    </div>
   )
 }
 
@@ -572,34 +586,32 @@ const MODULE_REGISTRY = {
   OpportunityRadar: OpportunityRadarModule,
 }
 
-// ---- Profile header ---------------------------------------------------------
+// ---- Profile hero (sits inside main Layout content area) --------------------
 
-function ProfileHeader({ profile }) {
+function ProfileHero({ profile }) {
   const modules = profile.modules || []
-  const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+  const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 
   return (
-    <header className="border-b border-gray-200 bg-white/95 sticky top-0 z-30 backdrop-blur">
-      {/* Navy editorial strip */}
-      <div className="bg-navy">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+    <div className="mb-10">
+      {/* Navy editorial hero card */}
+      <div className="bg-navy rounded-bento overflow-hidden shadow-sm">
+        <div className="px-6 py-7 sm:px-8 sm:py-8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
           <div>
-            <div className="flex items-center gap-2">
-              <Link to="/" className="text-label text-gold uppercase tracking-wider hover:text-gold-light transition-colors">
-                Liquid Economy
-              </Link>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-label text-gold uppercase tracking-wider">Client Intelligence</span>
               <span className="text-gray-400">/</span>
-              <span className="text-label text-gray-300 uppercase tracking-wider">Client Intelligence</span>
+              <span className="text-label text-gray-300 uppercase tracking-wider">{profile.archetype || 'Profile'}</span>
             </div>
-            <h1 className="text-page font-display text-white mt-1">
+            <h1 className="text-page font-display text-white leading-tight">
               {profile.client?.name} \u2014 {profile.meta?.profileTitle}
             </h1>
-            <p className="text-caption text-gray-300 mt-1">{profile.meta?.subtitle}</p>
+            <p className="text-body text-gray-300 mt-2 max-w-2xl leading-relaxed">{profile.meta?.subtitle}</p>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 shrink-0">
             <span className="text-caption text-gray-300">Data: {profile.meta?.dataFreshness}</span>
             <a
-              href={`mailto:${profile.meta?.contactEmail}?subject=${encodeURIComponent(profile.name + ' \u2014 Follow-up')}`}
+              href={`mailto:${profile.meta?.contactEmail}?subject=${encodeURIComponent((profile.client?.name || '') + ' \u2014 Follow-up')}`}
               className="text-caption bg-gold hover:bg-gold-light text-navy font-semibold px-3 py-1.5 rounded-bento transition-colors"
             >
               Contact Liquid
@@ -607,8 +619,9 @@ function ProfileHeader({ profile }) {
           </div>
         </div>
       </div>
-      {/* Section nav */}
-      <nav className="max-w-7xl mx-auto px-4 py-2 flex gap-5 overflow-x-auto">
+
+      {/* In-page section nav */}
+      <nav className="mt-4 flex gap-5 overflow-x-auto pb-1">
         {modules.map((m, i) => {
           const labelMap = {
             TopCocktails: 'Top Cocktails', FlavourRadar: 'Flavours', LuxuryVenues: 'Venues',
@@ -616,10 +629,11 @@ function ProfileHeader({ profile }) {
             CompetitorWatch: 'Competitors', MarketIntel: 'Markets', DemographicsLens: 'Demographics',
             OpportunityRadar: 'Radar',
           }
+          const id = `module-${m.type.toLowerCase().replace(/([A-Z])/g, '-$1').replace(/^-/, '').toLowerCase()}`
           return (
             <button
               key={i}
-              onClick={() => scrollTo(`module-${m.type.toLowerCase().replace(/([A-Z])/g, '-$1').replace(/^-/, '').toLowerCase()}`)}
+              onClick={() => scrollTo(id)}
               className="text-caption font-medium text-gray-600 hover:text-navy whitespace-nowrap transition-colors"
             >
               {labelMap[m.type] || m.type}
@@ -627,7 +641,7 @@ function ProfileHeader({ profile }) {
           )
         })}
       </nav>
-    </header>
+    </div>
   )
 }
 
@@ -635,7 +649,7 @@ function ProfileHeader({ profile }) {
 
 function ProfileNotFound({ slug }) {
   return (
-    <div className="min-h-screen bg-surface text-navy flex items-center justify-center px-4">
+    <div className="text-navy flex items-center justify-center py-20 px-4">
       <div className="text-center">
         <p className="text-6xl font-display text-gray-300 mb-4">404</p>
         <p className="text-section font-display text-navy mb-2">Profile not found</p>
@@ -658,6 +672,7 @@ function ProfileNotFound({ slug }) {
 /**
  * ClientProfile receives a `profile` prop (the default export from a profile data file).
  * App.jsx passes this after lazy-loading the correct profile module.
+ * Rendered inside the main Layout — so sidebar appears automatically.
  */
 export default function ClientProfile({ profile, slug }) {
   if (!profile) {
@@ -667,9 +682,9 @@ export default function ClientProfile({ profile, slug }) {
   const modules = profile.modules || []
 
   return (
-    <div className="min-h-screen bg-surface text-navy font-body">
-      <ProfileHeader profile={profile} />
-      <main className="max-w-7xl mx-auto px-4 py-8 space-y-14">
+    <div className="text-navy font-body">
+      <ProfileHero profile={profile} />
+      <div className="space-y-12">
         {modules.map((mod, i) => {
           const id = `module-${mod.type.toLowerCase().replace(/([A-Z])/g, '-$1').replace(/^-/, '').toLowerCase()}`
           const ModuleComponent = MODULE_REGISTRY[mod.type]
@@ -687,7 +702,7 @@ export default function ClientProfile({ profile, slug }) {
           )
         })}
 
-        <footer className="border-t border-gray-200 pt-6 pb-10 text-center">
+        <footer className="border-t border-gray-200 pt-6 pb-2 text-center">
           <p className="text-caption text-gray-600">
             Sources: {profile.meta?.sourcedFrom}
           </p>
@@ -704,7 +719,7 @@ export default function ClientProfile({ profile, slug }) {
           </p>
           <p className="text-caption text-gray-400 mt-3">Powered by Liquid Agency \u00b7 Drinks Industry Intelligence</p>
         </footer>
-      </main>
+      </div>
     </div>
   )
 }

@@ -11,6 +11,7 @@ import {
 } from 'recharts'
 import { CATEGORIES } from '../data/categoryData'
 import { CHART_COLORS, CHANNEL_COLORS, CATEGORICAL } from '../data/chartColors'
+import { getCategoryDemographics } from '../data/spiritsDemographicsData'
 import {
   Card, MetricCard, PageHeader, YearSelector,
   BentoGrid, SectionHeader, SectionLabel, TabGroup,
@@ -476,6 +477,233 @@ function CategoryCard({ cat, year, isHero, onClick }) {
 }
 
 // ============================================
+// TIER 2: Demographics Panel (from 5-category research pass)
+// Source data: spiritsDemographicsData.js
+// ============================================
+function DemoBadge({ label, value }) {
+  return (
+    <div className="bg-gray-50 rounded-lg p-2.5 min-w-0">
+      <div className="text-xs text-gray-500 truncate">{label}</div>
+      <div className="text-sm font-bold text-navy mt-0.5 leading-tight">{value}</div>
+    </div>
+  )
+}
+
+function DemoTable({ rows, columns }) {
+  if (!rows || rows.length === 0) return null
+  return (
+    <div className="overflow-x-auto">
+      <table className="w-full text-xs border-collapse">
+        <thead>
+          <tr className="border-b border-gray-100">
+            {columns.map((col, i) => (
+              <th key={i} className="text-left text-gray-500 font-semibold py-2 pr-3 whitespace-nowrap">{col.label}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, ri) => (
+            <tr key={ri} className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
+              {columns.map((col, ci) => (
+                <td key={ci} className="py-2 pr-3 text-gray-700 align-top leading-snug">
+                  {col.render ? col.render(row[col.key], row) : (row[col.key] ?? '\u2014')}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}
+
+function DemographicsPanel({ categoryKey }) {
+  const data = getCategoryDemographics(categoryKey)
+  if (!data) return (
+    <Card padding="p-6">
+      <div className="text-center text-gray-400 text-sm py-4">
+        <p>No demographics data available for this category.</p>
+        <p className="text-xs mt-1 text-gray-400">Spirits research covers: Whisky, Agave, Gin, Rum, Vodka, Cognac, NOLO.</p>
+      </div>
+    </Card>
+  )
+
+  const { marketSizeFigure, cagr, source, subCategories, demographics, topBrands, keyTrends, sources } = data
+
+  return (
+    <div className="space-y-5">
+      {/* Hero metrics */}
+      {(marketSizeFigure || cagr) && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {marketSizeFigure && <DemoBadge label="Market Size (2025)" value={marketSizeFigure} />}
+          {cagr && <DemoBadge label="Growth CAGR" value={cagr} />}
+        </div>
+      )}
+
+      {/* Sub-categories */}
+      {subCategories && subCategories.length > 0 && (
+        <Card>
+          <SectionLabel>Sub-Category Breakdown</SectionLabel>
+          <DemoTable
+            rows={subCategories}
+            columns={[
+              { key: 'name', label: 'Sub-Category', render: v => <span className="font-semibold text-gray-800">{v}</span> },
+              { key: 'share', label: 'Market Share' },
+              { key: 'cagr', label: 'CAGR' },
+              { key: 'notes', label: 'Notes', render: v => <span className="text-gray-600 text-xs">{v}</span> }
+            ]}
+          />
+        </Card>
+      )}
+
+      {/* Age demographics */}
+      {demographics.age && demographics.age.length > 0 && (
+        <Card>
+          <SectionLabel>Age Demographics</SectionLabel>
+          <DemoTable
+            rows={demographics.age}
+            columns={[
+              { key: 'bracket', label: 'Age Bracket', render: v => <span className="font-semibold text-gray-800">{v}</span> },
+              { key: 'share', label: 'Share / Stat' },
+              { key: 'notes', label: 'Intelligence', render: v => <span className="text-gray-600 text-xs">{v}</span> }
+            ]}
+          />
+        </Card>
+      )}
+
+      {/* Gender demographics */}
+      {demographics.gender && demographics.gender.length > 0 && (
+        <Card>
+          <SectionLabel>Gender Split</SectionLabel>
+          <div className="space-y-3">
+            {demographics.gender.map((g, i) => (
+              <div key={i} className="flex items-start gap-3 pb-3 border-b border-gray-50 last:border-0 last:pb-0">
+                <div className="w-24 shrink-0">
+                  <span className={`inline-block px-2 py-0.5 rounded-full text-xs font-semibold ${
+                    g.segment.toLowerCase().includes('female') ? 'bg-pink-50 text-pink-700' :
+                    g.segment.toLowerCase().includes('male') ? 'bg-blue-50 text-blue-700' :
+                    'bg-gray-100 text-gray-700'
+                  }`}>{g.segment}</span>
+                </div>
+                <div className="flex-1 min-w-0">
+                  {g.share && <div className="text-sm font-bold text-navy mb-0.5">{g.share}</div>}
+                  <p className="text-xs text-gray-600 leading-relaxed">{g.notes}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Card>
+      )}
+
+      {/* Income */}
+      {demographics.income && demographics.income.length > 0 && (
+        <Card>
+          <SectionLabel>Income Profile</SectionLabel>
+          <div className="space-y-2.5">
+            {demographics.income.map((inc, i) => (
+              <div key={i} className="flex items-start gap-2.5 pb-2.5 border-b border-gray-50 last:border-0 last:pb-0">
+                <span className="px-2 py-0.5 bg-emerald-50 text-emerald-700 rounded-full text-xs font-semibold shrink-0 mt-0.5">{inc.bracket}</span>
+                <p className="text-xs text-gray-600 leading-relaxed">{inc.notes}</p>
+              </div>
+            ))}
+          </div>
+        </Card>
+      )}
+
+      {/* Region */}
+      {demographics.region && demographics.region.length > 0 && (
+        <Card>
+          <SectionLabel>Regional Intelligence</SectionLabel>
+          <DemoTable
+            rows={demographics.region}
+            columns={[
+              { key: 'name', label: 'Region', render: v => <span className="font-semibold text-gray-800">{v}</span> },
+              { key: 'share', label: 'Share' },
+              { key: 'notes', label: 'Intelligence', render: v => <span className="text-gray-600 text-xs">{v}</span> }
+            ]}
+          />
+        </Card>
+      )}
+
+      {/* Occasions */}
+      {demographics.occasion && demographics.occasion.length > 0 && (
+        <Card>
+          <SectionLabel>Consumption Occasions</SectionLabel>
+          <div className="flex flex-wrap gap-2">
+            {demographics.occasion.map((occ, i) => (
+              <div key={i} className="group relative">
+                <span className="px-3 py-1.5 bg-blue-50 border border-blue-100 text-blue-800 text-xs font-medium rounded-lg cursor-default">{occ.name}</span>
+                <div className="hidden group-hover:block absolute z-10 left-0 top-7 w-64 bg-gray-900 text-white text-xs rounded-lg p-2.5 shadow-xl leading-relaxed">
+                  {occ.notes}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-3 space-y-1.5">
+            {demographics.occasion.map((occ, i) => (
+              <div key={i} className="flex items-start gap-2">
+                <span className="text-blue-500 mt-0.5 shrink-0">\u25b6</span>
+                <div>
+                  <span className="text-xs font-semibold text-gray-800">{occ.name}: </span>
+                  <span className="text-xs text-gray-600">{occ.notes}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Card>
+      )}
+
+      {/* Top Brands */}
+      {topBrands && topBrands.length > 0 && (
+        <Card>
+          <SectionLabel>Top Brands by Volume / Influence</SectionLabel>
+          <DemoTable
+            rows={topBrands}
+            columns={[
+              { key: 'rank', label: '#', render: v => <span className="text-gray-400 font-mono">{v}</span> },
+              { key: 'name', label: 'Brand', render: v => <span className="font-semibold text-gray-800">{v}</span> },
+              { key: 'owner', label: 'Owner', render: v => <span className="text-gray-600">{v}</span> },
+              { key: 'volumeCases', label: 'Volume (9L)' },
+              { key: 'notes', label: 'Notes', render: v => <span className="text-gray-600 text-xs">{v}</span> }
+            ]}
+          />
+        </Card>
+      )}
+
+      {/* Key Trends */}
+      {keyTrends && keyTrends.length > 0 && (
+        <Card>
+          <SectionLabel>Key Trends (2024\u20132026)</SectionLabel>
+          <div className="space-y-2">
+            {keyTrends.map((t, i) => (
+              <div key={i} className="flex items-start gap-2.5 py-2 border-b border-gray-50 last:border-0 last:py-0">
+                <span className="w-5 h-5 rounded-full bg-navy text-white text-micro font-bold flex items-center justify-center shrink-0 mt-0.5">{i + 1}</span>
+                <p className="text-sm text-gray-700 leading-relaxed">{t}</p>
+              </div>
+            ))}
+          </div>
+        </Card>
+      )}
+
+      {/* Sources */}
+      {sources && sources.length > 0 && (
+        <Card padding="p-4">
+          <SectionLabel>Research Sources</SectionLabel>
+          <div className="flex flex-wrap gap-x-3 gap-y-1">
+            {sources.map((s, i) => (
+              <span key={i} className="text-xs text-gray-500 italic">{s}</span>
+            ))}
+          </div>
+          {source && (
+            <p className="text-xs text-gray-400 mt-2">Data file: {source}</p>
+          )}
+        </Card>
+      )}
+    </div>
+  )
+}
+
+// ============================================
 // TIER 2 + 3: Category Detail Panel
 // ============================================
 function CategoryDetail({ cat, year, onBack }) {
@@ -495,11 +723,14 @@ function CategoryDetail({ cat, year, onBack }) {
 
   const brandCount = (yd.brands.highEnd?.length || 0) + (yd.brands.midTier?.length || 0) + (yd.brands.value?.length || 0)
 
+  const hasDemographics = !!getCategoryDemographics(cat.key)
+
   const tabs = [
     { key: 'overview', label: 'Overview' },
     { key: 'markets', label: `Markets (${yd.topMarkets.length})` },
     { key: 'brands', label: `Brands (${brandCount})` },
-    { key: 'trends', label: `Trends (${yd.trends.length})` }
+    { key: 'trends', label: `Trends (${yd.trends.length})` },
+    ...(hasDemographics ? [{ key: 'demographics', label: 'Demographics' }] : [])
   ]
 
   // Build DataTable rows for Tier 3 full data table
@@ -719,6 +950,11 @@ function CategoryDetail({ cat, year, onBack }) {
       {/* TAB: Trends (Tier 2 sourced trends) */}
       {activeTab === 'trends' && (
         <TrendsList trends={yd.trends} />
+      )}
+
+      {/* TAB: Demographics (from 5-category Gemini Deep Research pass, April 2026) */}
+      {activeTab === 'demographics' && (
+        <DemographicsPanel categoryKey={cat.key} />
       )}
     </div>
   )

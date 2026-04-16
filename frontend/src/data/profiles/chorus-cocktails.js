@@ -218,6 +218,7 @@ const chorusProfile = {
   modules: [
     { type: 'TopCocktails', data: { cocktails: annotatedCocktails, sourceKeys: moduleSources.topCocktails } },
     { type: 'FlavourRadar', data: { families: annotatedFlavours, sourceKeys: moduleSources.flavourRadar } },
+    { type: 'FlavourDemographicAggregator', data: { sourceKeys: ['DI', 'DIFFORDS', 'IWSR', 'CGA', 'BACARDI'] } },
     { type: 'LuxuryVenues', data: { venues: annotatedVenues, sourceKeys: moduleSources.luxuryVenues } },
     { type: 'Presentation', data: { ...presentationTheatre, sourceKeys: moduleSources.presentation } },
     { type: 'TrendArc', data: { ...twentyYearArc, sourceKeys: moduleSources.trendArc } },

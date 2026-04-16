@@ -124,13 +124,26 @@ const COCKTAIL_SLUG_MAP = {
   'Dry Martini': 'dry-martini',
   'Aperol Spritz': 'aperol-spritz',
   'Paloma': 'paloma',
+  'Moscow Mule': 'moscow-mule',
+  'Gin Basil Smash': 'gin-basil-smash',
+  'Manhattan': 'manhattan',
+  'Vieux Carr\u00e9': 'vieux-carre',
+  'Mai Tai': 'mai-tai',
+  'The Last Word': 'the-last-word',
+  'Amaretto Sour': 'amaretto-sour',
+  'Picante de la Casa': 'picante-de-la-casa',
+  'Mojito': 'mojito',
+  'Penicillin': 'penicillin',
 }
 
-// Known detail page slugs (phase 1 — 10 cocktails)
+// Known detail page slugs (phase 2 — all 20 cocktails)
 const DETAIL_SLUGS = new Set([
   'negroni', 'old-fashioned', 'margarita', 'espresso-martini',
   'porn-star-martini', 'daiquiri', 'whiskey-sour', 'dry-martini',
   'aperol-spritz', 'paloma',
+  'moscow-mule', 'gin-basil-smash', 'manhattan', 'vieux-carre',
+  'mai-tai', 'the-last-word', 'amaretto-sour', 'picante-de-la-casa',
+  'mojito', 'penicillin',
 ])
 
 // ---- MODULE: TopCocktails ---------------------------------------------------
@@ -671,11 +684,19 @@ import W50BMenuIntelModule from '../components/profile/W50BMenuIntelModule'
 // ---- MODULE: SourcesAuthorities ---------------------------------------------
 import SourcesAuthoritiesModule from '../components/profile/SourcesAuthoritiesModule'
 
+// ---- MODULE: FlavourDemographicAggregator -----------------------------------
+import FlavourDemographicAggregator from '../components/profile/FlavourDemographicAggregator'
+
+function FlavourDemographicAggregatorModule({ data, profile }) {
+  return <FlavourDemographicAggregator profile={profile} />
+}
+
 // ---- Module registry --------------------------------------------------------
 
 const MODULE_REGISTRY = {
   TopCocktails: TopCocktailsModule,
   FlavourRadar: FlavourRadarModule,
+  FlavourDemographicAggregator: FlavourDemographicAggregatorModule,
   LuxuryVenues: LuxuryVenuesModule,
   Presentation: PresentationModule,
   TrendArc: TrendArcModule,
@@ -693,7 +714,9 @@ const MODULE_REGISTRY = {
 function ModuleTabs({ modules }) {
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   const labelMap = {
-    TopCocktails: 'Top Cocktails', FlavourRadar: 'Flavours', LuxuryVenues: 'Venues',
+    TopCocktails: 'Top Cocktails', FlavourRadar: 'Flavours',
+    FlavourDemographicAggregator: 'Flavour Demographics',
+    LuxuryVenues: 'Venues',
     Presentation: 'Theatre', TrendArc: 'Trend Arc', CategorySnapshot: 'Category',
     CompetitorWatch: 'Competitors', MarketIntel: 'Markets', DemographicsLens: 'Demographics',
     OpportunityRadar: 'Radar', W50BMenuIntel: 'W50B Menus',
@@ -797,10 +820,10 @@ function SourcesMethodologySection({ profile }) {
         <h3 className="text-subsection font-display text-navy mb-2">How to read this profile</h3>
         <ul className="space-y-2 text-caption text-gray-700 leading-relaxed list-disc pl-4">
           <li><span className="font-semibold text-navy">Rank-based data</span> (DI / Difford's) is direct placement in each source's most recent annual list.</li>
-          <li><span className="font-semibold text-navy">“Move” deltas</span> (e.g. +19 from #23 in 2022) are year-over-year list position changes computed from the named source's historical rankings.</li>
+          <li><span className="font-semibold text-navy">"Move" deltas</span> (e.g. +19 from #23 in 2022) are year-over-year list position changes computed from the named source's historical rankings.</li>
           <li><span className="font-semibold text-navy">Growth signals</span> on flavour families are headline figures from Bacardi Cocktail Trends Report and are qualitative unless marked with a specific percentage.</li>
           <li><span className="font-semibold text-navy">Pricing bands</span> combine on-menu capture (venue websites, press) with operator interview triangulation — converted to GBP/USD/AED at April 2026 rates.</li>
-          <li><span className="font-semibold text-navy">Unverified figures</span> are marked “TBD” rather than estimated.</li>
+          <li><span className="font-semibold text-navy">Unverified figures</span> are marked "TBD" rather than estimated.</li>
         </ul>
       </Card>
     </section>

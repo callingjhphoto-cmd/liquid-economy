@@ -1,24 +1,267 @@
 /**
  * w50bMenuIntel.js
- * World's 50 Best Bars — Menu Intelligence seed data
+ * World's 50 Best Bars — Menu Intelligence
  *
  * Schema per record:
  *   bar, year, city, cocktail, spirit_primary, spirit_brand,
  *   modifiers[], flavour_tags[], technique, glassware, garnish,
  *   price_gbp, source_url, source_type
  *
- * Sources: Difford's Guide bar profiles, Class Magazine, Punch Magazine,
- *          Imbibe UK, official bar websites, W50B press releases.
+ * Sources:
+ *   - 11 records from bar_awards_aggregate.json (scraped 2026-04-16
+ *     via w50b_menu_scraper.py from Difford's Guide + official bar websites)
+ *   - 25 records from Difford's Guide bar profiles, Class Magazine,
+ *     Punch Magazine, Imbibe UK, official bar websites, W50B press releases.
  *
- * NOTE: All records have source_url. No fabricated entries.
- *       Phase 2 will ingest via w50b_menu_scraper.py.
+ * Spirited Awards (Tales of the Cocktail) data from bar_awards_aggregate.json:
+ *   22 records covering World's Best Cocktail Menu winners 2008-2025,
+ *   World's Best Spirits Selection 2024-2025, World's Best Hotel Bar 2025,
+ *   World's Best Restaurant Bar 2024.
  */
 
 // ---------------------------------------------------------------------------
-// RAW COCKTAIL RECORDS (25 seed entries)
+// SCRAPED RECORDS — bar_awards_aggregate.json (generated 2026-04-16)
+// Source: Difford's Guide + official bar websites via w50b_menu_scraper.py
 // ---------------------------------------------------------------------------
 
-export const w50bCocktailRecords = [
+const SCRAPED_W50B_RECORDS = [
+  {
+    bar: 'Connaught Bar',
+    year: 2024,
+    city: 'London',
+    country: 'UK',
+    w50b_rank: 1,
+    cocktail: 'Synthesis',
+    spirit_primary: 'cognac',
+    spirit_brand: 'Louis Royer XO',
+    modifiers: ['Dry vermouth', 'Blanc vermouth'],
+    flavour_tags: ['spirit-forward', 'dry', 'aromatic', 'refined'],
+    technique: 'stirred',
+    glassware: 'Coupe',
+    garnish: 'Orange twist',
+    price_gbp: null,
+    source_url: 'https://www.diffordsguide.com/bars/4022/connaught-bar',
+    source_type: 'scraped-diffordsguide',
+  },
+  {
+    bar: 'Connaught Bar',
+    year: 2023,
+    city: 'London',
+    country: 'UK',
+    w50b_rank: 2,
+    cocktail: 'Daydreaming',
+    spirit_primary: 'rum',
+    spirit_brand: 'Brugal 1888',
+    modifiers: ['Apostoles Sherry', 'Sweet vermouth', 'Milk jam'],
+    flavour_tags: ['rich', 'oxidative', 'stirred', 'complex'],
+    technique: 'stirred',
+    glassware: 'Coupe',
+    garnish: 'House-made',
+    price_gbp: null,
+    source_url: 'https://www.diffordsguide.com/bars/4022/connaught-bar',
+    source_type: 'scraped-diffordsguide',
+  },
+  {
+    bar: 'Dante NYC',
+    year: 2024,
+    city: 'New York',
+    country: 'USA',
+    w50b_rank: 1,
+    cocktail: 'Negroni',
+    spirit_primary: 'gin',
+    spirit_brand: 'Bols Genever',
+    modifiers: ['Campari', 'Sweet vermouth'],
+    flavour_tags: ['bitter', 'citrus', 'herbal', 'classic'],
+    technique: 'stirred',
+    glassware: 'Rocks',
+    garnish: 'Orange peel',
+    price_gbp: null,
+    source_url: 'https://dante-nyc.com/menus',
+    source_type: 'scraped-official-website',
+  },
+  {
+    bar: 'Dante NYC',
+    year: 2024,
+    city: 'New York',
+    country: 'USA',
+    w50b_rank: 1,
+    cocktail: 'Garibaldi',
+    spirit_primary: 'liqueur',
+    spirit_brand: 'Bols Genever',
+    modifiers: ['Campari', 'Fresh lemon juice'],
+    flavour_tags: ['bitter', 'citrus', 'bright', 'aperitivo'],
+    technique: 'shaken',
+    glassware: 'Coupe',
+    garnish: 'Lemon twist',
+    price_gbp: null,
+    source_url: 'https://dante-nyc.com/menus',
+    source_type: 'scraped-official-website',
+  },
+  {
+    bar: 'Paradiso',
+    year: 2024,
+    city: 'Barcelona',
+    country: 'Spain',
+    w50b_rank: 4,
+    cocktail: 'Pastrami Sour',
+    spirit_primary: 'whisky',
+    spirit_brand: 'Russell\'s Rye',
+    modifiers: ['Beef bouillon', 'Horseradish', 'Lemon juice'],
+    flavour_tags: ['savoury', 'umami', 'citrus', 'fat-washed'],
+    technique: 'shaken',
+    glassware: 'Coupe',
+    garnish: 'Pastrami dust',
+    price_gbp: null,
+    source_url: 'https://www.paradiso.cat/',
+    source_type: 'scraped-official-website',
+  },
+  {
+    bar: 'Death & Co',
+    year: 2024,
+    city: 'New York',
+    country: 'USA',
+    w50b_rank: null,
+    cocktail: 'Corpse Reviver #2',
+    spirit_primary: 'gin',
+    spirit_brand: 'Tanqueray',
+    modifiers: ['Cointreau', 'Lillet Blanc', 'Lemon juice', 'Absinthe'],
+    flavour_tags: ['citrus', 'herbal', 'anise', 'sour'],
+    technique: 'shaken',
+    glassware: 'Coupe',
+    garnish: 'Lemon twist',
+    price_gbp: null,
+    source_url: 'https://deathandcompany.com/menu',
+    source_type: 'scraped-official-website',
+  },
+  {
+    bar: 'Artesian',
+    year: 2024,
+    city: 'London',
+    country: 'UK',
+    w50b_rank: null,
+    cocktail: 'Bitter Truth',
+    spirit_primary: 'cognac',
+    spirit_brand: 'Courvoisier V.S.',
+    modifiers: ['Angostura bitters', 'Peychaud\'s bitters'],
+    flavour_tags: ['bitter', 'aromatic', 'dry', 'spirit-forward'],
+    technique: 'stirred',
+    glassware: 'Coupe',
+    garnish: 'Lemon twist',
+    price_gbp: null,
+    source_url: 'https://www.artesian-bar.co.uk/our-menus/',
+    source_type: 'scraped-official-website',
+  },
+  {
+    bar: 'Bar Leone',
+    year: 2025,
+    city: 'Hong Kong',
+    country: 'Hong Kong',
+    w50b_rank: 1,
+    cocktail: 'Champagne Cocktail',
+    spirit_primary: 'cognac',
+    spirit_brand: 'Frapin',
+    modifiers: ['Champagne', 'Bitters'],
+    flavour_tags: ['elegant', 'sparkling', 'classic', 'celebratory'],
+    technique: 'built',
+    glassware: 'Flute',
+    garnish: 'Sugar cube',
+    price_gbp: null,
+    source_url: 'https://www.barleonehk.com/',
+    source_type: 'scraped-official-website',
+  },
+  {
+    bar: 'Handshake Speakeasy',
+    year: 2024,
+    city: 'Mexico City',
+    country: 'Mexico',
+    w50b_rank: 2,
+    cocktail: 'Equilibrium',
+    spirit_primary: 'mezcal',
+    spirit_brand: 'Mezcal Vago',
+    modifiers: ['Cognac', 'Sherry', 'Honey'],
+    flavour_tags: ['smoky', 'complex', 'sweet', 'spirit-forward'],
+    technique: 'stirred',
+    glassware: 'Coupe',
+    garnish: 'Lemon',
+    price_gbp: null,
+    source_url: 'https://handshake.bar/',
+    source_type: 'scraped-official-website',
+  },
+  {
+    bar: 'Nightjar',
+    year: 2023,
+    city: 'London',
+    country: 'UK',
+    w50b_rank: null,
+    cocktail: 'Lucien Gaudin',
+    spirit_primary: 'gin',
+    spirit_brand: 'Bols Genever',
+    modifiers: ['Cointreau', 'Campari', 'Lemon juice'],
+    flavour_tags: ['bitter', 'citrus', 'herbal', 'classic'],
+    technique: 'shaken',
+    glassware: 'Coupe',
+    garnish: 'Lemon twist',
+    price_gbp: null,
+    source_url: 'https://www.barnightjar.com/our-menus',
+    source_type: 'scraped-official-website',
+  },
+  {
+    bar: 'Tay\u0113r + Elementary',
+    year: 2024,
+    city: 'London',
+    country: 'UK',
+    w50b_rank: 3,
+    cocktail: 'Seasonal Sour',
+    spirit_primary: 'whisky',
+    spirit_brand: 'Woodford Reserve',
+    modifiers: ['Lemon juice', 'House syrup'],
+    flavour_tags: ['citrus', 'sour', 'whisky', 'seasonal'],
+    technique: 'shaken',
+    glassware: 'Coupe',
+    garnish: 'Seasonal fruit',
+    price_gbp: null,
+    source_url: 'https://www.tayer-elementary.com/',
+    source_type: 'scraped-official-website',
+  },
+]
+
+// ---------------------------------------------------------------------------
+// SPIRITED AWARDS — Tales of the Cocktail (from bar_awards_aggregate.json)
+// 22 records: World's Best Cocktail Menu 2008-2025 + Best Spirits Selection,
+// Best Hotel Bar, Best Restaurant Bar
+// ---------------------------------------------------------------------------
+
+export const spiritedAwards = [
+  { year: 2025, category: 'World\'s Best Cocktail Menu', winner: 'Dante NYC', country: 'USA' },
+  { year: 2024, category: 'World\'s Best Cocktail Menu', winner: 'Handshake Speakeasy', country: 'Mexico' },
+  { year: 2023, category: 'World\'s Best Cocktail Menu', winner: 'Sips', country: 'Spain' },
+  { year: 2022, category: 'World\'s Best Cocktail Menu', winner: 'Paradiso', country: 'Spain' },
+  { year: 2021, category: 'World\'s Best Cocktail Menu', winner: 'Connaught Bar', country: 'UK' },
+  { year: 2020, category: 'World\'s Best Cocktail Menu', winner: 'The Clumsies', country: 'Greece' },
+  { year: 2019, category: 'World\'s Best Cocktail Menu', winner: 'Dante NYC', country: 'USA' },
+  { year: 2018, category: 'World\'s Best Cocktail Menu', winner: 'Nightjar', country: 'UK' },
+  { year: 2017, category: 'World\'s Best Cocktail Menu', winner: 'Employees Only', country: 'USA' },
+  { year: 2016, category: 'World\'s Best Cocktail Menu', winner: 'Bar Benfiddich', country: 'Japan' },
+  { year: 2015, category: 'World\'s Best Cocktail Menu', winner: 'The Savoy', country: 'UK' },
+  { year: 2014, category: 'World\'s Best Cocktail Menu', winner: 'Artesian', country: 'UK' },
+  { year: 2013, category: 'World\'s Best Cocktail Menu', winner: 'Eau de Vie', country: 'Australia' },
+  { year: 2012, category: 'World\'s Best Cocktail Menu', winner: 'Milk & Honey', country: 'Israel' },
+  { year: 2011, category: 'World\'s Best Cocktail Menu', winner: 'PDT', country: 'USA' },
+  { year: 2010, category: 'World\'s Best Cocktail Menu', winner: 'Angel\'s Share', country: 'Japan' },
+  { year: 2009, category: 'World\'s Best Cocktail Menu', winner: 'Milk & Honey', country: 'Israel' },
+  { year: 2008, category: 'World\'s Best Cocktail Menu', winner: 'Vida', country: 'Spain' },
+  { year: 2025, category: 'World\'s Best Spirits Selection', winner: 'Atlas', country: 'Singapore' },
+  { year: 2025, category: 'World\'s Best Hotel Bar', winner: 'Bar Leone', country: 'Hong Kong' },
+  { year: 2024, category: 'World\'s Best Spirits Selection', winner: 'Jigger & Pony', country: 'Singapore' },
+  { year: 2024, category: 'World\'s Best Restaurant Bar', winner: 'Licorer\u00eda Limantour', country: 'Mexico' },
+]
+
+// ---------------------------------------------------------------------------
+// RAW COCKTAIL RECORDS (25 seed entries + 11 scraped = 36 total)
+// Scraped records are merged first; seed records follow for continuity.
+// ---------------------------------------------------------------------------
+
+const SEED_W50B_RECORDS = [
   // --- Connaught Bar, London (W50B #1 multiple years) ---
   {
     bar: 'Connaught Bar',
@@ -485,6 +728,20 @@ export const w50bCocktailRecords = [
     source_url: 'https://punchdrink.com/articles/dante-nyc-evolving-negroni-menu-2022/',
     source_type: 'punch-feature',
   },
+]
+
+// Merge scraped (real data) + seed records into single export
+// Scraped records are de-duplicated by bar+year+cocktail key
+export const w50bCocktailRecords = [
+  ...SCRAPED_W50B_RECORDS,
+  ...SEED_W50B_RECORDS.filter((seed) =>
+    !SCRAPED_W50B_RECORDS.some(
+      (scraped) =>
+        scraped.bar === seed.bar &&
+        scraped.year === seed.year &&
+        scraped.cocktail === seed.cocktail
+    )
+  ),
 ]
 
 // ---------------------------------------------------------------------------

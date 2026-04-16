@@ -8,31 +8,31 @@ import {
 
 const Badge = ({ label, colour }) => (
   <span
-    className="inline-block text-xs font-medium px-2 py-0.5 rounded-full"
-    style={{ background: colour + '22', color: colour, border: `1px solid ${colour}44` }}
+    className="inline-block text-caption font-medium px-2 py-0.5 rounded-full"
+    style={{ background: colour + '18', color: colour, border: `1px solid ${colour}33` }}
   >{label}</span>
 )
 
 const SectionHeader = ({ title, sub }) => (
   <div className="mb-5">
-    <h2 className="text-lg font-semibold text-slate-100">{title}</h2>
-    {sub && <p className="text-xs text-slate-400 mt-0.5">{sub}</p>}
+    <h2 className="text-section font-display text-navy">{title}</h2>
+    {sub && <p className="text-caption text-gray-600 mt-1">{sub}</p>}
   </div>
 )
 
-const Card = ({ children, className = '' }) => (
-  <div className={`bg-slate-800/60 border border-slate-700/50 rounded-xl p-5 ${className}`}>
+const Card = ({ children, className = '', style = {} }) => (
+  <div className={`bg-white border border-gray-200 rounded-bento p-5 shadow-sm ${className}`} style={style}>
     {children}
   </div>
 )
 
 const trendColour = (t) => {
-  if (t === 'rising' || t === 'fast-rising') return '#34d399'
-  if (t === 'stable-dominant' || t === 'dominant' || t === 'dominant-consumer') return '#60a5fa'
-  if (t === 'stable') return '#94a3b8'
-  if (t === 'fatigue') return '#f87171'
-  if (t === 'resurgent' || t === 'established-growing') return '#a78bfa'
-  return '#94a3b8'
+  if (t === 'rising' || t === 'fast-rising') return '#38A169'
+  if (t === 'stable-dominant' || t === 'dominant' || t === 'dominant-consumer') return '#2B6CB0'
+  if (t === 'stable') return '#6B7280'
+  if (t === 'fatigue') return '#C53030'
+  if (t === 'resurgent' || t === 'established-growing') return '#C9A96E'
+  return '#6B7280'
 }
 
 const trendLabel = (t) => {
@@ -55,9 +55,9 @@ const Module1 = () => {
         sub="Sources: Drinks International World\u2019s 50 Best Bars Brand Report \u00b7 Difford\u2019s Guide (700k+ monthly searches) \u00b7 IWSR"
       />
       <Card className="overflow-x-auto p-0">
-        <table className="w-full text-sm">
+        <table className="w-full text-body">
           <thead>
-            <tr className="border-b border-slate-700 text-left text-xs text-slate-400 uppercase tracking-wide">
+            <tr className="border-b border-gray-200 bg-gray-50 text-left text-label text-gray-500 uppercase tracking-wide">
               <th className="px-4 py-3">#</th>
               <th className="px-4 py-3">Cocktail</th>
               <th className="px-4 py-3 hidden sm:table-cell">Spirit Base</th>
@@ -71,25 +71,25 @@ const Module1 = () => {
             {top20Cocktails.map((c) => (
               <React.Fragment key={c.rank}>
                 <tr
-                  className="border-b border-slate-700/50 hover:bg-slate-700/30 cursor-pointer transition-colors"
+                  className="border-b border-gray-100 hover:bg-surface cursor-pointer transition-colors"
                   onClick={() => setExpanded(expanded === c.rank ? null : c.rank)}
                 >
-                  <td className="px-4 py-3 text-slate-300 font-mono text-xs">{c.rank}</td>
+                  <td className="px-4 py-3 text-gray-500 font-mono text-caption">{c.rank}</td>
                   <td className="px-4 py-3">
-                    <span className="font-medium text-slate-100">{c.name}</span>
-                    <span className="ml-2 text-xs text-slate-500">{c.type}</span>
+                    <span className="font-semibold text-navy">{c.name}</span>
+                    <span className="ml-2 text-caption text-gray-500">{c.type}</span>
                   </td>
-                  <td className="px-4 py-3 text-slate-300 hidden sm:table-cell text-xs">{c.spiritBase}</td>
-                  <td className="px-4 py-3 text-slate-400 hidden md:table-cell text-xs">{c.diRank}</td>
-                  <td className="px-4 py-3 text-slate-400 hidden lg:table-cell text-xs">{c.diffordsRank}</td>
+                  <td className="px-4 py-3 text-gray-700 hidden sm:table-cell text-caption">{c.spiritBase}</td>
+                  <td className="px-4 py-3 text-gray-600 hidden md:table-cell text-caption">{c.diRank}</td>
+                  <td className="px-4 py-3 text-gray-600 hidden lg:table-cell text-caption">{c.diffordsRank}</td>
                   <td className="px-4 py-3">
                     <Badge label={trendLabel(c.trend)} colour={trendColour(c.trend)} />
                   </td>
-                  <td className="px-4 py-3 text-slate-400 hidden md:table-cell text-xs">{c.rankMove}</td>
+                  <td className="px-4 py-3 text-gray-600 hidden md:table-cell text-caption">{c.rankMove}</td>
                 </tr>
                 {expanded === c.rank && (
-                  <tr className="bg-slate-900/40">
-                    <td colSpan={7} className="px-4 py-3 text-xs text-slate-300 italic">{c.note}</td>
+                  <tr className="bg-amber-50">
+                    <td colSpan={7} className="px-4 py-3 text-caption text-amber-900 italic">{c.note}</td>
                   </tr>
                 )}
               </React.Fragment>
@@ -97,7 +97,7 @@ const Module1 = () => {
           </tbody>
         </table>
       </Card>
-      <p className="text-xs text-slate-500 mt-2">Tap any row for analyst note. DI = Drinks International survey of 100 elite bars.</p>
+      <p className="text-caption text-gray-500 mt-2">Tap any row for analyst note. DI = Drinks International survey of 100 elite bars.</p>
     </section>
   )
 }
@@ -116,26 +116,26 @@ const Module2 = () => (
           <div className="flex items-start justify-between mb-3">
             <div>
               <span className="text-lg mr-2">{f.icon}</span>
-              <span className="font-semibold text-slate-100">{f.name}</span>
+              <span className="font-semibold text-navy">{f.name}</span>
             </div>
             <Badge
               label={f.trend.replace('-', ' ').replace(/^\w/, c => c.toUpperCase())}
               colour={trendColour(f.trend)}
             />
           </div>
-          <p className="text-xs text-emerald-400 font-medium mb-1">{f.growthSignal}</p>
-          <p className="text-xs text-slate-400 mb-3">{f.penetration}</p>
+          <p className="text-caption text-emerald-700 font-semibold mb-1">{f.growthSignal}</p>
+          <p className="text-caption text-gray-600 mb-3">{f.penetration}</p>
           <div className="mb-3">
-            <p className="text-xs font-medium text-slate-300 mb-1">Key ingredients</p>
+            <p className="text-caption font-semibold text-gray-700 mb-1">Key ingredients</p>
             <div className="flex flex-wrap gap-1">
               {f.ingredients.slice(0, 5).map((i) => (
-                <span key={i} className="text-xs bg-slate-700/60 text-slate-300 px-2 py-0.5 rounded">{i}</span>
+                <span key={i} className="text-caption bg-surface border border-gray-200 text-gray-700 px-2 py-0.5 rounded">{i}</span>
               ))}
             </div>
           </div>
-          <div className="border-t border-slate-700 pt-3 mt-3">
-            <p className="text-xs font-medium text-sky-400 mb-1">Khorus application</p>
-            <p className="text-xs text-slate-300 leading-relaxed">{f.eventApplication}</p>
+          <div className="border-t border-gray-200 pt-3 mt-3">
+            <p className="text-caption font-semibold text-editorial mb-1">Khorus application</p>
+            <p className="text-caption text-gray-700 leading-relaxed">{f.eventApplication}</p>
           </div>
         </Card>
       ))}
@@ -155,30 +155,30 @@ const Module3 = () => {
       />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {luxuryVenueIntel.map((v, i) => (
-          <Card key={i} className="cursor-pointer hover:border-slate-600 transition-colors" onClick={() => setExpanded(expanded === i ? null : i)}>
+          <Card key={i} className="cursor-pointer hover:border-gold hover:shadow-md transition-all" onClick={() => setExpanded(expanded === i ? null : i)}>
             <div className="flex items-start justify-between mb-2">
               <div>
-                <p className="font-semibold text-slate-100">{v.venue}</p>
-                <p className="text-xs text-slate-400">{v.location}</p>
+                <p className="font-semibold text-navy">{v.venue}</p>
+                <p className="text-caption text-gray-600">{v.location}</p>
               </div>
-              <Badge label={v.tier} colour="#60a5fa" />
+              <Badge label={v.tier} colour="#2B6CB0" />
             </div>
-            <p className="text-sm text-slate-300 mb-2">{v.signatureCocktail}</p>
-            <div className="flex gap-4 text-xs text-slate-400">
-              <span>Standard: <span className="text-slate-200">{v.avgCostPerServe}</span></span>
-              <span className="hidden sm:inline">Vintage: <span className="text-slate-200">{v.vintageOption}</span></span>
+            <p className="text-body text-gray-700 mb-2">{v.signatureCocktail}</p>
+            <div className="flex gap-4 text-caption text-gray-600">
+              <span>Standard: <span className="text-navy font-medium">{v.avgCostPerServe}</span></span>
+              <span className="hidden sm:inline">Vintage: <span className="text-navy font-medium">{v.vintageOption}</span></span>
             </div>
             {expanded === i && (
-              <div className="mt-3 border-t border-slate-700 pt-3 space-y-1.5">
-                <p className="text-xs text-slate-400"><span className="text-slate-300 font-medium">Dominant brand:</span> {v.dominantBrand}</p>
-                <p className="text-xs text-slate-400"><span className="text-slate-300 font-medium">Theatre:</span> {v.theatre}</p>
-                <p className="text-xs text-slate-500">{v.source}</p>
+              <div className="mt-3 border-t border-gray-200 pt-3 space-y-1.5">
+                <p className="text-caption text-gray-600"><span className="text-navy font-semibold">Dominant brand:</span> {v.dominantBrand}</p>
+                <p className="text-caption text-gray-600"><span className="text-navy font-semibold">Theatre:</span> {v.theatre}</p>
+                <p className="text-caption text-gray-500 italic">{v.source}</p>
               </div>
             )}
           </Card>
         ))}
       </div>
-      <p className="text-xs text-slate-500 mt-2">Tap any card for full detail including dominant brand &amp; theatre format.</p>
+      <p className="text-caption text-gray-500 mt-2">Tap any card for full detail including dominant brand &amp; theatre format.</p>
     </section>
   )
 }
@@ -194,14 +194,14 @@ const Module4 = () => (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
       {/* Ice */}
       <Card>
-        <h3 className="text-sm font-semibold text-slate-200 mb-3">Ice Programme</h3>
+        <h3 className="text-subsection font-display text-navy mb-3">Ice Programme</h3>
         <div className="space-y-3">
           {presentationTheatre.iceProgramme.map((ice, i) => (
-            <div key={i} className="border-b border-slate-700/50 pb-3 last:border-0 last:pb-0">
-              <p className="text-sm font-medium text-slate-200">{ice.format}</p>
-              <p className="text-xs text-slate-400 mt-0.5">{ice.specialist}</p>
-              <p className="text-xs text-slate-300 mt-1">{ice.why}</p>
-              <p className="text-xs mt-1"><span className="text-amber-400">Luxury signal:</span> <span className="text-slate-300">{ice.luxurySignal}</span></p>
+            <div key={i} className="border-b border-gray-100 pb-3 last:border-0 last:pb-0">
+              <p className="text-body font-semibold text-navy">{ice.format}</p>
+              <p className="text-caption text-gray-600 mt-0.5">{ice.specialist}</p>
+              <p className="text-caption text-gray-700 mt-1">{ice.why}</p>
+              <p className="text-caption mt-1"><span className="text-gold font-semibold">Luxury signal:</span> <span className="text-gray-700">{ice.luxurySignal}</span></p>
             </div>
           ))}
         </div>
@@ -209,16 +209,16 @@ const Module4 = () => (
 
       {/* Glassware */}
       <Card>
-        <h3 className="text-sm font-semibold text-slate-200 mb-3">Glassware Hierarchy</h3>
+        <h3 className="text-subsection font-display text-navy mb-3">Glassware Hierarchy</h3>
         <div className="space-y-3">
           {presentationTheatre.glassware.map((g, i) => (
-            <div key={i} className="border-b border-slate-700/50 pb-3 last:border-0 last:pb-0">
+            <div key={i} className="border-b border-gray-100 pb-3 last:border-0 last:pb-0">
               <div className="flex items-start justify-between">
-                <p className="text-sm font-medium text-slate-200">{g.name}</p>
-                <Badge label={g.signalLevel} colour="#a78bfa" />
+                <p className="text-body font-semibold text-navy">{g.name}</p>
+                <Badge label={g.signalLevel} colour="#C9A96E" />
               </div>
-              <p className="text-xs text-slate-400 mt-0.5">{g.maker}</p>
-              <p className="text-xs text-slate-300 mt-1">{g.notes}</p>
+              <p className="text-caption text-gray-600 mt-0.5">{g.maker}</p>
+              <p className="text-caption text-gray-700 mt-1">{g.notes}</p>
             </div>
           ))}
         </div>
@@ -226,15 +226,15 @@ const Module4 = () => (
 
       {/* Theatre Formats */}
       <Card>
-        <h3 className="text-sm font-semibold text-slate-200 mb-3">Activation Formats</h3>
+        <h3 className="text-subsection font-display text-navy mb-3">Activation Formats</h3>
         <div className="space-y-3">
           {presentationTheatre.theatreFormats.map((t, i) => (
-            <div key={i} className="border-b border-slate-700/50 pb-3 last:border-0 last:pb-0">
-              <p className="text-sm font-medium text-slate-200">{t.name}</p>
-              <p className="text-xs text-slate-400 mt-0.5 leading-relaxed">{t.description}</p>
-              <p className="text-xs mt-1.5">
-                <span className="text-sky-400 font-medium">For Khorus: </span>
-                <span className="text-slate-300">{t.suitabilityForKhorus}</span>
+            <div key={i} className="border-b border-gray-100 pb-3 last:border-0 last:pb-0">
+              <p className="text-body font-semibold text-navy">{t.name}</p>
+              <p className="text-caption text-gray-600 mt-0.5 leading-relaxed">{t.description}</p>
+              <p className="text-caption mt-1.5">
+                <span className="text-editorial font-semibold">For Khorus: </span>
+                <span className="text-gray-700">{t.suitabilityForKhorus}</span>
               </p>
             </div>
           ))}
@@ -256,37 +256,37 @@ const Module5 = () => (
     {/* Era timeline cards */}
     <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 mb-8">
       {twentyYearArc.eras.map((era) => (
-        <Card key={era.id} style={{ borderTopColor: era.accentColour, borderTopWidth: '2px' }}>
+        <Card key={era.id} style={{ borderTopColor: era.accentColour, borderTopWidth: '3px' }}>
           <div className="mb-3">
-            <span className="text-xs font-bold uppercase tracking-wider" style={{ color: era.accentColour }}>{era.label}</span>
-            <p className="text-sm font-semibold text-slate-100 mt-0.5">{era.subtitle}</p>
+            <span className="text-label uppercase tracking-wider" style={{ color: era.accentColour }}>{era.label}</span>
+            <p className="text-body-lg font-display text-navy mt-0.5">{era.subtitle}</p>
           </div>
           <div className="mb-3">
-            <p className="text-xs font-medium text-slate-400 mb-1.5">Dominant cocktails</p>
+            <p className="text-caption font-semibold text-gray-600 mb-1.5">Dominant cocktails</p>
             <div className="flex flex-wrap gap-1">
               {era.dominantCocktails.slice(0, 5).map((c) => (
-                <span key={c} className="text-xs bg-slate-700/70 text-slate-300 px-2 py-0.5 rounded-full">{c}</span>
+                <span key={c} className="text-caption bg-surface border border-gray-200 text-gray-700 px-2 py-0.5 rounded-full">{c}</span>
               ))}
             </div>
           </div>
-          <p className="text-xs text-slate-400 leading-relaxed mb-2">{era.culturalMoment}</p>
-          <div className="border-t border-slate-700 pt-2 mt-2">
-            <p className="text-xs font-medium text-sky-400 mb-0.5">Luxury behaviour</p>
-            <p className="text-xs text-slate-300 leading-relaxed">{era.luxuryBehaviour}</p>
+          <p className="text-caption text-gray-600 leading-relaxed mb-2">{era.culturalMoment}</p>
+          <div className="border-t border-gray-200 pt-2 mt-2">
+            <p className="text-caption font-semibold text-editorial mb-0.5">Luxury behaviour</p>
+            <p className="text-caption text-gray-700 leading-relaxed">{era.luxuryBehaviour}</p>
           </div>
-          <p className="text-xs text-slate-500 mt-2 italic">{era.flavourProfile}</p>
+          <p className="text-caption text-gray-500 mt-2 italic">{era.flavourProfile}</p>
         </Card>
       ))}
     </div>
 
     {/* Three surprising findings */}
     <div className="mb-3">
-      <h3 className="text-sm font-semibold text-slate-300 mb-3">Three Surprising Findings</h3>
+      <h3 className="text-subsection font-display text-navy mb-3">Three Surprising Findings</h3>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {twentyYearArc.surprisingFindings.map((f) => (
           <Card key={f.id} style={{ borderLeftColor: f.colour, borderLeftWidth: '3px' }}>
-            <p className="text-sm font-semibold mb-2" style={{ color: f.colour }}>{f.headline}</p>
-            <p className="text-xs text-slate-300 leading-relaxed">{f.detail}</p>
+            <p className="text-body font-semibold mb-2" style={{ color: f.colour }}>{f.headline}</p>
+            <p className="text-caption text-gray-700 leading-relaxed">{f.detail}</p>
           </Card>
         ))}
       </div>
@@ -296,6 +296,8 @@ const Module5 = () => (
 
 // ---- Module 6: Opportunity Radar --------------------------------------------
 
+const STEP_CHIP = "inline-block text-label uppercase tracking-wider px-2 py-0.5 rounded-full bg-navy text-white mb-1.5"
+
 const Module6 = () => (
   <section id="opportunity-radar">
     <SectionHeader
@@ -304,32 +306,35 @@ const Module6 = () => (
     />
     <div className="space-y-4">
       {opportunityRadar.map((o) => (
-        <Card key={o.id} style={{ borderLeftColor: o.colour, borderLeftWidth: '3px' }}>
+        <Card key={o.id} style={{ borderLeftColor: o.colour, borderLeftWidth: '4px' }}>
           <div className="flex items-start justify-between mb-3">
-            <h3 className="text-base font-semibold text-slate-100">{o.signal}</h3>
-            <span className="text-xs text-red-400 font-medium shrink-0 ml-3">{o.urgency.split(' \u2014')[0]}</span>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-300 leading-relaxed">
             <div>
-              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1">Signal</p>
+              <span className={STEP_CHIP} style={{ background: '#C9A96E', color: '#1A1F36' }}>Signal</span>
+              <h3 className="text-subsection font-display text-navy mt-1">{o.signal}</h3>
+            </div>
+            <span className="text-caption text-accent-red font-semibold shrink-0 ml-3">{o.urgency.split(' \u2014')[0]}</span>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-caption text-gray-700 leading-relaxed">
+            <div>
+              <span className={STEP_CHIP}>Signal</span>
               <p>{o.signalDetail}</p>
             </div>
             <div>
-              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1">Migration</p>
+              <span className={STEP_CHIP}>Migration</span>
               <p>{o.migration}</p>
             </div>
             <div>
-              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1">Product</p>
+              <span className={STEP_CHIP}>Product</span>
               <p>{o.product}</p>
             </div>
             <div>
-              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1">Brief</p>
+              <span className={STEP_CHIP}>Brief</span>
               <p>{o.brief}</p>
             </div>
           </div>
-          <div className="mt-3 pt-3 border-t border-slate-700">
-            <p className="text-xs font-semibold text-amber-400 mb-1">Reallocation logic</p>
-            <p className="text-xs text-slate-300 leading-relaxed">{o.reallocation}</p>
+          <div className="mt-3 pt-3 border-t border-gray-200">
+            <span className={STEP_CHIP} style={{ background: '#C9A96E', color: '#1A1F36' }}>Reallocation</span>
+            <p className="text-caption text-gray-700 leading-relaxed">{o.reallocation}</p>
           </div>
         </Card>
       ))}
@@ -352,38 +357,40 @@ export default function ProfileKhorusCocktails() {
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 
   return (
-    <div className="min-h-screen bg-[#0f172a] text-slate-100">
+    <div className="min-h-screen bg-surface text-navy font-body">
       {/* Header */}
-      <header className="border-b border-slate-800 bg-[#0f172a]/95 sticky top-0 z-30 backdrop-blur">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-medium text-sky-400 uppercase tracking-wider">Liquid Economy</span>
-              <span className="text-slate-600">/</span>
-              <span className="text-xs text-slate-500">Client Intelligence</span>
+      <header className="border-b border-gray-200 bg-white/95 sticky top-0 z-30 backdrop-blur">
+        <div className="bg-navy">
+          <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="text-label text-gold uppercase tracking-wider">Liquid Economy</span>
+                <span className="text-gray-400">/</span>
+                <span className="text-label text-gray-300 uppercase tracking-wider">Client Intelligence</span>
+              </div>
+              <h1 className="text-page font-display text-white mt-1">
+                {profileMeta.clientName} \u2014 {profileMeta.profileTitle}
+              </h1>
+              <p className="text-caption text-gray-300 mt-1">{profileMeta.subtitle}</p>
             </div>
-            <h1 className="text-xl font-bold text-slate-100 mt-0.5">
-              {profileMeta.clientName} \u2014 {profileMeta.profileTitle}
-            </h1>
-            <p className="text-xs text-slate-400 mt-0.5">{profileMeta.subtitle}</p>
-          </div>
-          <div className="flex items-center gap-3">
-            <span className="text-xs text-slate-500">Data: {profileMeta.dataFreshness}</span>
-            <a
-              href={`mailto:${profileMeta.contactEmail}?subject=Khorus%20Cocktail%20Intelligence%20%E2%80%94%20Follow-up`}
-              className="text-xs bg-sky-600 hover:bg-sky-500 text-white px-3 py-1.5 rounded-lg transition-colors"
-            >
-              Contact Liquid
-            </a>
+            <div className="flex items-center gap-3">
+              <span className="text-caption text-gray-300">Data: {profileMeta.dataFreshness}</span>
+              <a
+                href={`mailto:${profileMeta.contactEmail}?subject=Khorus%20Cocktail%20Intelligence%20%E2%80%94%20Follow-up`}
+                className="text-caption bg-gold hover:bg-gold-light text-navy font-semibold px-3 py-1.5 rounded-bento transition-colors"
+              >
+                Contact Liquid
+              </a>
+            </div>
           </div>
         </div>
         {/* Section nav */}
-        <nav className="max-w-7xl mx-auto px-4 pb-3 flex gap-4 overflow-x-auto">
+        <nav className="max-w-7xl mx-auto px-4 py-2 flex gap-5 overflow-x-auto">
           {NAV_ITEMS.map((n) => (
             <button
               key={n.id}
               onClick={() => scrollTo(n.id)}
-              className="text-xs text-slate-400 hover:text-slate-200 whitespace-nowrap transition-colors"
+              className="text-caption font-medium text-gray-600 hover:text-navy whitespace-nowrap transition-colors"
             >
               {n.label}
             </button>
@@ -401,16 +408,17 @@ export default function ProfileKhorusCocktails() {
         <Module6 />
 
         {/* Footer */}
-        <footer className="border-t border-slate-800 pt-6 pb-10 text-center">
-          <p className="text-xs text-slate-500">
+        <footer className="border-t border-gray-200 pt-6 pb-10 text-center">
+          <p className="text-caption text-gray-600">
             Sources: {profileMeta.sourcedFrom}
           </p>
-          <p className="text-xs text-slate-600 mt-2">
+          <p className="text-caption text-gray-500 mt-2">
             Prepared by Liquid Economy \u00b7 {profileMeta.lastUpdated} \u00b7{' '}
-            <a href={`mailto:${profileMeta.contactEmail}`} className="underline hover:text-slate-400">
+            <a href={`mailto:${profileMeta.contactEmail}`} className="underline hover:text-navy">
               {profileMeta.contactEmail}
             </a>
           </p>
+          <p className="text-caption text-gray-400 mt-3">Powered by Liquid Agency \u00b7 Drinks Industry Intelligence</p>
         </footer>
       </main>
     </div>

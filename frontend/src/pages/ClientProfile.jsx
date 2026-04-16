@@ -112,6 +112,27 @@ function ModuleHeader({ title, subtitle, linkTo }) {
   )
 }
 
+// Direct name-to-slug map — avoids regex string literals in JSX file context
+const COCKTAIL_SLUG_MAP = {
+  'Negroni': 'negroni',
+  'Old Fashioned': 'old-fashioned',
+  'Margarita': 'margarita',
+  'Espresso Martini': 'espresso-martini',
+  'Porn Star Martini': 'porn-star-martini',
+  'Daiquiri': 'daiquiri',
+  'Whiskey Sour': 'whiskey-sour',
+  'Dry Martini': 'dry-martini',
+  'Aperol Spritz': 'aperol-spritz',
+  'Paloma': 'paloma',
+}
+
+// Known detail page slugs (phase 1 — 10 cocktails)
+const DETAIL_SLUGS = new Set([
+  'negroni', 'old-fashioned', 'margarita', 'espresso-martini',
+  'porn-star-martini', 'daiquiri', 'whiskey-sour', 'dry-martini',
+  'aperol-spritz', 'paloma',
+])
+
 // ---- MODULE: TopCocktails ---------------------------------------------------
 
 function TopCocktailsModule({ data, profile }) {
@@ -129,12 +150,14 @@ function TopCocktailsModule({ data, profile }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">
         {cocktails.map((c) => {
           const isOpen = expanded === c.rank
-          return (
+          const slug = COCKTAIL_SLUG_MAP[c.name] || null
+          const hasDetail = slug !== null && DETAIL_SLUGS.has(slug)
+          const cardContent = (
             <Card
               key={c.rank}
               padding="p-5"
               hover
-              onClick={() => setExpanded(isOpen ? null : c.rank)}
+              onClick={hasDetail ? undefined : () => setExpanded(isOpen ? null : c.rank)}
             >
               <div className="flex items-baseline justify-between mb-3">
                 <span className="text-label text-gray-500 font-mono">#{c.rank}</span>
@@ -148,6 +171,9 @@ function TopCocktailsModule({ data, profile }) {
                   <Badge variant={c.type.toLowerCase().includes('classic') ? 'gold' : 'blue'}>
                     {c.type}
                   </Badge>
+                )}
+                {hasDetail && (
+                  <Badge variant="default">View detail &rarr;</Badge>
                 )}
               </div>
               {c.rankMove && (
@@ -165,9 +191,20 @@ function TopCocktailsModule({ data, profile }) {
               )}
             </Card>
           )
+          return hasDetail ? (
+            <Link
+              key={c.rank}
+              to={`/p/chorus-cocktails/cocktail/${slug}`}
+              className="no-underline"
+            >
+              {cardContent}
+            </Link>
+          ) : (
+            <React.Fragment key={c.rank}>{cardContent}</React.Fragment>
+          )
         })}
       </div>
-      <p className="text-caption text-gray-500 mt-3">Tap any card for the analyst note. DI = Drinks International survey of 100 elite bars; Difford’s = 700k+ monthly consumer search panel.</p>
+      <p className="text-caption text-gray-500 mt-3">Cards with &ldquo;View detail&rdquo; link to the full drill-down. Tap non-linked cards for the analyst note. DI = Drinks International survey of 100 elite bars; Difford's = 700k+ monthly consumer search panel.</p>
     </section>
   )
 }
@@ -759,8 +796,8 @@ function SourcesMethodologySection({ profile }) {
       <Card padding="p-5" className="bg-gray-50/50">
         <h3 className="text-subsection font-display text-navy mb-2">How to read this profile</h3>
         <ul className="space-y-2 text-caption text-gray-700 leading-relaxed list-disc pl-4">
-          <li><span className="font-semibold text-navy">Rank-based data</span> (DI / Difford’s) is direct placement in each source’s most recent annual list.</li>
-          <li><span className="font-semibold text-navy">“Move” deltas</span> (e.g. +19 from #23 in 2022) are year-over-year list position changes computed from the named source’s historical rankings.</li>
+          <li><span className="font-semibold text-navy">Rank-based data</span> (DI / Difford's) is direct placement in each source's most recent annual list.</li>
+          <li><span className="font-semibold text-navy">“Move” deltas</span> (e.g. +19 from #23 in 2022) are year-over-year list position changes computed from the named source's historical rankings.</li>
           <li><span className="font-semibold text-navy">Growth signals</span> on flavour families are headline figures from Bacardi Cocktail Trends Report and are qualitative unless marked with a specific percentage.</li>
           <li><span className="font-semibold text-navy">Pricing bands</span> combine on-menu capture (venue websites, press) with operator interview triangulation — converted to GBP/USD/AED at April 2026 rates.</li>
           <li><span className="font-semibold text-navy">Unverified figures</span> are marked “TBD” rather than estimated.</li>

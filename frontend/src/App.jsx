@@ -1,6 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, Link, Navigate, useLocation, useParams } from 'react-router-dom'
-import { LayoutDashboard, TrendingUp, DollarSign, Building2, LogOut, Menu, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag, Crosshair, ChevronDown, ChevronRight, Target, Loader2, Search, BarChart3, Calculator, MoreHorizontal, Rocket, Activity, Calendar, Eye, ShieldAlert, Crown, Compass } from 'lucide-react'
+import { LayoutDashboard, TrendingUp, DollarSign, Building2, LogOut, Menu, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag, Crosshair, ChevronDown, ChevronRight, Target, Loader2, Search, BarChart3, Calculator, MoreHorizontal, Rocket, Activity, Calendar, Eye, ShieldAlert, Crown, Compass, Lock } from 'lucide-react'
 import { useLiveData } from './context/LiveDataContext'
 import { api, getToken, setToken, clearToken } from './lib/api'
 // ChatPanel disabled — backend not deployed; gated as "Coming Soon"
@@ -8,6 +8,8 @@ import { api, getToken, setToken, clearToken } from './lib/api'
 import GlobalSearch from './components/GlobalSearch'
 import { LiveDataProvider } from './context/LiveDataContext'
 import { StatusNotice, ErrorBoundary } from './components/ui'
+import { GuestProvider, useGuest } from './context/GuestContext'
+import GuestLockedPage from './pages/GuestLockedPage'
 
 const CommandCentre = lazy(() => import('./pages/CommandCentre'))
 const MarketOverview = lazy(() => import('./pages/MarketOverview'))
@@ -38,6 +40,7 @@ const SubscriptionTiers = lazy(() => import('./pages/SubscriptionTiers'))
 const ProfileChorusCocktails = lazy(() => import('./pages/ProfileChorusCocktails'))
 const ClientProfile = lazy(() => import('./pages/ClientProfile'))
 const ProfilesIndex = lazy(() => import('./pages/ProfilesIndex'))
+const CocktailDetail = lazy(() => import('./pages/CocktailDetail'))
 
 /* Route metadata for breadcrumbs */
 const routeMeta = {
@@ -219,7 +222,27 @@ function Login({ onLogin }) {
 
 function NavItem({ to, icon: Icon, label }) {
   const location = useLocation()
+  const { isGuest } = useGuest()
   const active = location.pathname === to
+
+  if (isGuest) {
+    return (
+      <div className="group relative">
+        <span
+          className="flex items-center gap-3 px-3 py-2 min-h-[44px] rounded-lg text-[13px] font-medium text-gray-300 cursor-default select-none"
+          onClick={(e) => e.preventDefault()}
+        >
+          <Lock size={13} className="text-gray-300 shrink-0" />
+          <span className="opacity-60">{label}</span>
+        </span>
+        <div className="pointer-events-none absolute left-full top-1/2 -translate-y-1/2 ml-2 z-50 hidden group-hover:flex items-center whitespace-nowrap bg-navy text-white text-xs px-2.5 py-1.5 rounded-lg shadow-lg">
+          Available in full Liquid Economy
+          <span className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-navy" />
+        </div>
+      </div>
+    )
+  }
+
   return (
     <Link
       to={to}
@@ -293,11 +316,13 @@ function Layout({ onLogout }) {
   // const [chatOpen, setChatOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const location = useLocation()
+  const { isGuest, guestProfile, guestToken } = useGuest()
 
   /* Close mobile sidebar on navigation */
   useEffect(() => { setSidebarOpen(false) }, [location.pathname])
 
   useEffect(() => {
+    if (isGuest) return // block Cmd+K in guest mode
     const handler = (e) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault()
@@ -306,7 +331,10 @@ function Layout({ onLogout }) {
     }
     window.addEventListener('keydown', handler)
     return () => window.removeEventListener('keydown', handler)
-  }, [])
+  }, [isGuest])
+
+  // Route guard: if guest, only /p/<guestProfile> and children are allowed
+  const isGuestAllowed = !isGuest || location.pathname.startsWith(`/p/${guestProfile}`)
 
   return (
     <div className="flex h-screen bg-gray-50">
@@ -329,8 +357,16 @@ function Layout({ onLogout }) {
             </div>
           </div>
 
-          {/* Live status pulse */}
-          <LivePulse />
+          {/* Guest mode banner in sidebar */}
+          {isGuest && (
+            <div className="mx-3 mb-2 px-3 py-2 rounded-lg bg-navy/5 border border-navy/10">
+              <p className="text-xs font-semibold text-navy tracking-wide uppercase">Guest Preview</p>
+              <p className="text-[11px] text-gray-500 mt-0.5">Chorus Cocktails profile only</p>
+            </div>
+          )}
+
+          {/* Live status pulse — hidden in guest mode */}
+          {!isGuest && <LivePulse />}
 
           <nav className="flex-1 px-2 space-y-0.5 overflow-y-auto">
             {/* Intelligence — core data pages */}
@@ -376,21 +412,36 @@ function Layout({ onLogout }) {
           </nav>
 
           <div className="p-2 border-t border-gray-100 space-y-0.5">
-            <button onClick={() => setSearchOpen(true)} className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-500 hover:text-navy hover:bg-gray-50 w-full text-left text-[13px] font-medium">
-              <Search size={15} />
-              <span>Search</span>
-              <kbd className="ml-auto text-xs text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded font-mono">{'\u2318'}K</kbd>
-            </button>
-            <NavGroup title="Coming Soon" defaultOpen={false}>
-              <div className="px-3 py-2 text-xs text-gray-500">
-                <p>Analyst Chat and Export Tracker are in development.</p>
-                <a href="mailto:james@huertas.co.uk" className="text-navy hover:underline">Join the waitlist {'\u2192'}</a>
-              </div>
-            </NavGroup>
-            <button onClick={onLogout} className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-500 hover:text-red-500 hover:bg-red-50 w-full text-left text-[13px] font-medium">
-              <LogOut size={15} />
-              <span>Sign Out</span>
-            </button>
+            {!isGuest && (
+              <button onClick={() => setSearchOpen(true)} className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-500 hover:text-navy hover:bg-gray-50 w-full text-left text-[13px] font-medium">
+                <Search size={15} />
+                <span>Search</span>
+                <kbd className="ml-auto text-xs text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded font-mono">{'\u2318'}K</kbd>
+              </button>
+            )}
+            {!isGuest && (
+              <NavGroup title="Coming Soon" defaultOpen={false}>
+                <div className="px-3 py-2 text-xs text-gray-500">
+                  <p>Analyst Chat and Export Tracker are in development.</p>
+                  <a href="mailto:james@huertas.co.uk" className="text-navy hover:underline">Join the waitlist {'\u2192'}</a>
+                </div>
+              </NavGroup>
+            )}
+            {!isGuest && (
+              <button onClick={onLogout} className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-500 hover:text-red-500 hover:bg-red-50 w-full text-left text-[13px] font-medium">
+                <LogOut size={15} />
+                <span>Sign Out</span>
+              </button>
+            )}
+            {isGuest && (
+              <a
+                href="mailto:james@huertas.co.uk?subject=Liquid Economy - Full Access Request"
+                className="flex items-center gap-3 px-3 py-2 rounded-lg text-navy hover:bg-navy/5 w-full text-left text-[13px] font-medium"
+              >
+                <Crown size={15} />
+                <span>Request full access</span>
+              </a>
+            )}
           </div>
         </div>
       </aside>
@@ -407,14 +458,34 @@ function Layout({ onLogout }) {
             <Menu size={24} className="text-navy" />
           </button>
           <h1 className="font-display text-section text-navy">Liquid Economy</h1>
-          <button onClick={() => setSearchOpen(true)} className="min-h-[44px] min-w-[44px] flex items-center justify-center touch-manipulation">
-            <Search size={20} className="text-navy" />
-          </button>
+          {isGuest ? (
+            <span className="text-[10px] font-bold tracking-widest text-navy bg-navy/10 px-2 py-1 rounded-lg uppercase">
+              Guest
+            </span>
+          ) : (
+            <button onClick={() => setSearchOpen(true)} className="min-h-[44px] min-w-[44px] flex items-center justify-center touch-manipulation">
+              <Search size={20} className="text-navy" />
+            </button>
+          )}
         </header>
+
+        {/* Desktop guest badge — top-right of content area */}
+        {isGuest && (
+          <div className="hidden lg:flex justify-end px-8 pt-4">
+            <span className="inline-flex items-center gap-1.5 text-[10px] font-bold tracking-widest text-navy bg-navy/8 border border-navy/15 px-3 py-1.5 rounded-full uppercase">
+              <Lock size={10} />
+              Chorus Preview &middot; Guest
+            </span>
+          </div>
+        )}
+
         <div className="px-4 pb-20 pt-4 lg:px-8 lg:pb-8 lg:pt-8 flex flex-col min-h-full">
-          <Breadcrumb />
+          {!isGuest && <Breadcrumb />}
           <ErrorBoundary message="This page encountered an error. Try refreshing or navigating to another section.">
           <Suspense fallback={<PageLoader />}>
+            {!isGuestAllowed ? (
+              <GuestLockedPage profile={guestProfile} />
+            ) : (
             <Routes>
               <Route path="/" element={<CommandCentre />} />
               <Route path="/market-overview" element={<MarketOverview />} />
@@ -446,9 +517,11 @@ function Layout({ onLogout }) {
               <Route path="/subscription" element={<Navigate to="/contact" />} />
               <Route path="/profiles" element={<ProfilesIndex />} />
               <Route path="/p/khorus-cocktails" element={<Navigate to="/p/chorus-cocktails" replace />} />
+              <Route path="/p/chorus-cocktails/cocktail/:cocktailSlug" element={<CocktailDetail />} />
               <Route path="/p/:slug" element={<ProfileRoute />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
+            )}
           </Suspense>
           </ErrorBoundary>
         </div>
@@ -456,11 +529,11 @@ function Layout({ onLogout }) {
 
       {/* Chat Panel — disabled, backend not deployed */}
 
-      {/* Global Search (Cmd+K) */}
-      <GlobalSearch isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
+      {/* Global Search (Cmd+K) — hidden in guest mode */}
+      {!isGuest && <GlobalSearch isOpen={searchOpen} onClose={() => setSearchOpen(false)} />}
 
-      {/* Bottom Tab Bar — Mobile Only */}
-      <BottomTabBar />
+      {/* Bottom Tab Bar — Mobile Only, hidden in guest mode */}
+      {!isGuest && <BottomTabBar />}
     </div>
   )
 }
@@ -496,11 +569,14 @@ function ProfileRoute() {
 }
 
 // AppRouter: all routes flow through Layout so sidebar appears on every page including /p/*
+// GuestProvider must be inside BrowserRouter (needs useLocation)
 function AppRouter({ onLogout }) {
   return (
-    <Routes>
-      <Route path="*" element={<Layout onLogout={onLogout} />} />
-    </Routes>
+    <GuestProvider>
+      <Routes>
+        <Route path="*" element={<Layout onLogout={onLogout} />} />
+      </Routes>
+    </GuestProvider>
   )
 }
 

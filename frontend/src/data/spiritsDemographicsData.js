@@ -1,4 +1,13 @@
 // =============================================================================
+// ESTIMATED FIELDS FLAG
+// Fields marked with estimatedSources are derived estimates — not directly
+// sourced from a primary per-segment publication. Treat as directionally
+// indicative only. Full sourcing requires a targeted primary research pass.
+// =============================================================================
+
+export const SOURCE_FLAG_ESTIMATED = 'estimated — derived from category totals, not per-segment sourced'
+
+// =============================================================================
 // SPIRITS DEMOGRAPHICS DATA
 // Sources: 5 Gemini Deep Research reports (April 2026)
 //   spirits_01_whisky.md       \u2014 IWSR, SWA, DISCUS, Mintel, Shanken's Impact
@@ -251,7 +260,8 @@ export const SPIRITS_DEMOGRAPHICS = {
         {
           name: 'United States',
           share: '63% of global exported tequila',
-          notes: '52% of US national demand concentrated in CA, TX, FL, NY, IL. ~30.6M 9L cases imported 2024\u201325. Source: CRT data via spirits_02_agave.md.'
+          notes: '52% of US national demand concentrated in CA, TX, FL, NY, IL. ~30.6M 9L cases imported 2024\u201325. Source: CRT data via spirits_02_agave.md.',
+          estimatedSources: SOURCE_FLAG_ESTIMATED + ' — state-level demand split (CA/TX/FL/NY/IL) is a Liquid Economy estimate derived from total US CRT import volumes; CRT does not publish per-state breakdowns'
         },
         {
           name: 'Mexico (domestic)',
@@ -809,7 +819,8 @@ export const SPIRITS_DEMOGRAPHICS = {
         name: 'Vegan Cream Liqueurs',
         share: null,
         cagr: '8.6% CAGR to $1.23B by 2033',
-        notes: 'Market $582M in 2024. Almond, coconut, oat, soy bases. ~21% of global adults lactose intolerant. Source: spirits_05_liqueurs_aperitifs.md.'
+        notes: 'Market $582M in 2024. Almond, coconut, oat, soy bases. ~21% of global adults lactose intolerant. Source: spirits_05_liqueurs_aperitifs.md.',
+        estimatedSources: SOURCE_FLAG_ESTIMATED + ' — $582M figure and 8.6% CAGR are cited from a market research aggregator in spirits_05 research; no primary report (e.g. Mintel, IWSR) was directly verified'
       }
     ],
     demographics: {
@@ -852,7 +863,8 @@ export const SPIRITS_DEMOGRAPHICS = {
         {
           name: 'North America',
           share: '34% of global cream liqueur volume',
-          notes: 'Super-premium light aperitifs growing at +7% CAGR in US. Source: spirits_05_liqueurs_aperitifs.md.'
+          notes: 'Super-premium light aperitifs growing at +7% CAGR in US. Source: spirits_05_liqueurs_aperitifs.md.',
+          estimatedSources: SOURCE_FLAG_ESTIMATED + ' — 34% North America global cream volume share is derived from category-level IWSR totals in spirits_05 research; not sourced from a dedicated cream liqueur market report'
         }
       ],
       occasion: [
@@ -913,7 +925,7 @@ export const SPIRITS_DEMOGRAPHICS = {
         }
       ],
       occasion: [
-        { name: 'Casual social / convenience', notes: 'Primary RTD occasion. Convenience channels and off-trade shelf. Agave RTDs +45% in convenience channels.' },
+        { name: 'Casual social / convenience', notes: 'Primary RTD occasion. Convenience channels and off-trade shelf. Agave RTDs +45% in convenience channels.', estimatedSources: SOURCE_FLAG_ESTIMATED + ' — Agave RTD +45% convenience channel figure is an estimate derived from broad agave category growth data; no primary Nielsen/Circana convenience-channel cut was directly sourced' },
         { name: 'Aperitivo / Spritz', notes: 'Lillet + Absolut RTD formats. Fever-Tree canned Gin Spritz collaboration with Papa Salt.' }
       ]
     },

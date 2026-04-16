@@ -489,6 +489,14 @@ function DemoBadge({ label, value }) {
   )
 }
 
+function EstimatedBadge() {
+  return (
+    <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-amber-50 text-amber-700 border border-amber-200 ml-1 align-middle">
+      Estimated
+    </span>
+  )
+}
+
 function DemoTable({ rows, columns }) {
   if (!rows || rows.length === 0) return null
   return (
@@ -507,6 +515,7 @@ function DemoTable({ rows, columns }) {
               {columns.map((col, ci) => (
                 <td key={ci} className="py-2 pr-3 text-gray-700 align-top leading-snug">
                   {col.render ? col.render(row[col.key], row) : (row[col.key] ?? '\u2014')}
+                  {col.key === 'notes' && row.estimatedSources ? <EstimatedBadge /> : null}
                 </td>
               ))}
             </tr>
@@ -646,6 +655,7 @@ function DemographicsPanel({ categoryKey }) {
                 <div>
                   <span className="text-xs font-semibold text-gray-800">{occ.name}: </span>
                   <span className="text-xs text-gray-600">{occ.notes}</span>
+                  {occ.estimatedSources ? <EstimatedBadge /> : null}
                 </div>
               </div>
             ))}

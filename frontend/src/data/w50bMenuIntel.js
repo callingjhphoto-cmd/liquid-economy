@@ -746,40 +746,13 @@ export const w50bCocktailRecords = [
 
 // ---------------------------------------------------------------------------
 // PRE-COMPUTED AGGREGATIONS
+// NOTE: spiritUsageByYear and flavourTrajectoryByYear were removed (fabrication
+// audit, April 2026). Per-year spirit-usage percentages and flavour index values
+// were not sourced from actual Drinks International W50B Brand Reports or
+// Difford's/Bacardi reports — they were estimated aggregations without a primary
+// data source. Removed to maintain data integrity. Both exports will be restored
+// once the W50B menu scraper has sufficient per-year records (currently 36).
 // ---------------------------------------------------------------------------
-
-/**
- * Spirit usage share by year (% of records for that year)
- * Derived from records above, supplemented with W50B press coverage.
- * Sources: Drinks International W50B Brand Report 2013-2025, W50B press data.
- */
-export const spiritUsageByYear = {
-  2013: { gin: 32, whisky: 18, rum: 14, tequila: 8, mezcal: 3, vodka: 12, liqueur: 8, other: 5 },
-  2014: { gin: 30, whisky: 19, rum: 15, tequila: 9, mezcal: 4, vodka: 11, liqueur: 7, other: 5 },
-  2015: { gin: 28, whisky: 20, rum: 16, tequila: 10, mezcal: 5, vodka: 10, liqueur: 7, other: 4 },
-  2016: { gin: 27, whisky: 21, rum: 14, tequila: 11, mezcal: 6, vodka: 9, liqueur: 8, other: 4 },
-  2017: { gin: 26, whisky: 20, rum: 13, tequila: 12, mezcal: 8, vodka: 8, liqueur: 9, other: 4 },
-  2018: { gin: 25, whisky: 19, rum: 14, tequila: 12, mezcal: 9, vodka: 8, liqueur: 9, other: 4 },
-  2019: { gin: 27, whisky: 17, rum: 13, tequila: 11, mezcal: 10, vodka: 7, liqueur: 10, other: 5 },
-  2020: { gin: 26, whisky: 17, rum: 12, tequila: 12, mezcal: 11, vodka: 7, liqueur: 10, other: 5 },
-  2021: { gin: 24, whisky: 16, rum: 12, tequila: 13, mezcal: 12, vodka: 7, liqueur: 11, other: 5 },
-  2022: { gin: 23, whisky: 16, rum: 11, tequila: 14, mezcal: 13, vodka: 6, liqueur: 12, other: 5 },
-  2023: { gin: 22, whisky: 16, rum: 11, tequila: 15, mezcal: 14, vodka: 6, liqueur: 11, other: 5 },
-  2024: { gin: 21, whisky: 17, rum: 10, tequila: 16, mezcal: 14, vodka: 5, liqueur: 12, other: 5 },
-}
-
-/**
- * Flavour family trajectory by year (index 100 = 2013 baseline)
- * Sources: Difford's Guide flavour data, Bacardi Cocktail Trends Report, W50B menu reviews.
- */
-export const flavourTrajectoryByYear = {
-  2013: { botanical: 100, bitter_amaro: 60, umami_savoury: 30, tropical: 80, citrus: 100, smoky: 45, floral: 55, fermented: 25 },
-  2015: { botanical: 105, bitter_amaro: 75, umami_savoury: 40, tropical: 85, citrus: 100, smoky: 55, floral: 60, fermented: 35 },
-  2017: { botanical: 108, bitter_amaro: 88, umami_savoury: 52, tropical: 90, citrus: 102, smoky: 70, floral: 68, fermented: 48 },
-  2019: { botanical: 112, bitter_amaro: 95, umami_savoury: 65, tropical: 95, citrus: 105, smoky: 82, floral: 78, fermented: 65 },
-  2021: { botanical: 110, bitter_amaro: 100, umami_savoury: 82, tropical: 105, citrus: 108, smoky: 92, floral: 85, fermented: 85 },
-  2023: { botanical: 108, bitter_amaro: 105, umami_savoury: 98, tropical: 110, citrus: 110, smoky: 98, floral: 90, fermented: 100 },
-}
 
 /**
  * Top cocktails by spirit family — curated from seed records + W50B press
@@ -836,11 +809,7 @@ export const heatmap = {
 // DERIVED EXPORTS (pre-sorted for components)
 // ---------------------------------------------------------------------------
 
-// Top 10 spirits by 2024 share
-export const topSpiritsByShare2024 = Object.entries(spiritUsageByYear[2024])
-  .sort((a, b) => b[1] - a[1])
-  .slice(0, 10)
-  .map(([spirit, share]) => ({ spirit, share }))
+// topSpiritsByShare2024 removed — was derived from spiritUsageByYear (fabrication audit, April 2026)
 
 // Flavour families with 2013-2023 trajectory deltas (for trend display)
 export const FLAVOUR_FAMILIES = [
@@ -856,11 +825,4 @@ export const FLAVOUR_FAMILIES = [
 
 export const SPIRIT_FAMILIES = ['gin', 'mezcal', 'rum', 'whisky', 'tequila', 'vodka', 'liqueur', 'brandy']
 
-// Years with full data
-export const CHART_YEARS = [2013, 2015, 2017, 2019, 2021, 2022, 2023, 2024]
-
-// Spirit usage data formatted for Recharts BarChart
-export const spiritChartData = CHART_YEARS.map((year) => ({
-  year,
-  ...spiritUsageByYear[year],
-}))
+// CHART_YEARS and spiritChartData removed — both derived from spiritUsageByYear (fabrication audit, April 2026)

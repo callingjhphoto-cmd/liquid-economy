@@ -3,31 +3,26 @@
  * World's 50 Best Bars — Menu Intelligence module
  * Renders inside ClientProfile.jsx via the module registry.
  *
- * 3 sub-panels:
- *   1. Spirit Usage Trajectory — stacked bar (Recharts)
- *   2. Flavour x Spirit Heatmap — table grid with intensity shading
- *   3. Cocktails-by-Bar Showcase — bento grid of cocktail cards
+ * 2 sub-panels (after fabrication audit, April 2026):
+ *   1. Flavour x Spirit Heatmap — table grid with intensity shading
+ *   2. Cocktails-by-Bar Showcase — bento grid of cocktail cards
+ *
+ * Removed panels:
+ *   - Spirit Usage Trajectory (stacked bar) — relied on spiritUsageByYear which
+ *     was not sourced from actual Drinks International W50B Brand Reports
+ *   - Flavour trajectory "10yr delta" row — relied on flavourTrajectoryByYear
+ *     which had no primary source
+ * Both will return once the W50B scraper has sufficient per-year menu records.
  */
 
 import React, { useState } from 'react'
 import { ExternalLink } from 'lucide-react'
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  ResponsiveContainer,
-  Legend,
-} from 'recharts'
 import { Card, AccentCard, SectionHeader, Badge } from '../ui'
 import {
-  spiritChartData,
   heatmap,
   w50bCocktailRecords,
   FLAVOUR_FAMILIES,
   SPIRIT_FAMILIES,
-  flavourTrajectoryByYear,
 } from '../../data/w50bMenuIntel'
 
 // ---------------------------------------------------------------------------
@@ -50,85 +45,24 @@ const SPIRIT_LABELS = {
   mezcal: 'Mezcal', vodka: 'Vodka', liqueur: 'Liqueur / Aperitivo', other: 'Other',
 }
 
-const CHART_TOOLTIP_STYLE = {
-  contentStyle: {
-    backgroundColor: '#1e293b',
-    border: 'none',
-    borderRadius: '8px',
-    fontSize: '12px',
-    color: '#f1f5f9',
-  },
-  labelStyle: { color: '#f1f5f9', fontWeight: 600 },
-  itemStyle: { color: '#94a3b8' },
-}
-
 // ---------------------------------------------------------------------------
-// Sub-panel 1: Spirit Usage Trajectory
+// Data-pending notice (replaces fabricated trajectory charts)
 // ---------------------------------------------------------------------------
 
-function SpiritTrajectoryPanel() {
+function TrajectoryPendingNotice() {
   return (
     <Card padding="p-5">
-      <h3 className="text-subsection font-display text-navy mb-1">Spirit Base Share — W50B Top 50 Menus</h3>
-      <p className="text-caption text-gray-500 mb-4">
-        % of flagship cocktails by spirit family across W50B-ranked bars, 2013-2024.
-        Source:{' '}
-        <a
-          href="https://drinksint.com/news/brands-reports"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline hover:text-navy"
-        >
-          Drinks International W50B Brand Report
-        </a>
-        {' '}+ Liquid Economy menu analysis.
-      </p>
-      <div className="h-64">
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={spiritChartData} barSize={18}>
-            <XAxis
-              dataKey="year"
-              tick={{ fontSize: 11, fill: '#6b7280' }}
-              axisLine={false}
-              tickLine={false}
-            />
-            <YAxis
-              tick={{ fontSize: 11, fill: '#6b7280' }}
-              axisLine={false}
-              tickLine={false}
-              unit="%"
-              width={32}
-            />
-            <Tooltip
-              {...CHART_TOOLTIP_STYLE}
-              formatter={(value, name) => [`${value}%`, SPIRIT_LABELS[name] || name]}
-            />
-            <Legend
-              iconType="square"
-              iconSize={10}
-              wrapperStyle={{ fontSize: 11, paddingTop: 8 }}
-              formatter={(value) => SPIRIT_LABELS[value] || value}
-            />
-            {Object.keys(SPIRIT_COLORS).map((spirit) => (
-              <Bar
-                key={spirit}
-                dataKey={spirit}
-                stackId="spirits"
-                fill={SPIRIT_COLORS[spirit]}
-              />
-            ))}
-          </BarChart>
-        </ResponsiveContainer>
-      </div>
-      <p className="text-label text-gray-400 mt-2">
-        Key signal: Gin dominant but declining from 32% (2013) to 21% (2024). Mezcal/tequila combined 30% by 2024 — up from 11% in 2013.
+      <h3 className="text-subsection font-display text-navy mb-2">Spirit Usage &amp; Flavour Trajectory</h3>
+      <p className="text-sm text-gray-500 leading-relaxed">
+        Multi-year spirit-usage and flavour-trajectory charts require per-year W50B menu data
+        that is currently only partially scraped (36 records). Coming as the scrape deepens.
       </p>
     </Card>
   )
 }
 
 // ---------------------------------------------------------------------------
-// Sub-panel 2: Flavour x Spirit Heatmap
+// Sub-panel 1: Flavour x Spirit Heatmap
 // ---------------------------------------------------------------------------
 
 function HeatmapCell({ value }) {
@@ -153,20 +87,12 @@ function HeatmapCell({ value }) {
 }
 
 function FlavourHeatmapPanel() {
-  // Compute trajectory delta for each flavour: 2023 vs 2013 index
-  const trajectoryDelta = {}
-  FLAVOUR_FAMILIES.forEach(({ key }) => {
-    const base = flavourTrajectoryByYear[2013]?.[key] || 100
-    const latest = flavourTrajectoryByYear[2023]?.[key] || 100
-    trajectoryDelta[key] = Math.round(((latest - base) / base) * 100)
-  })
-
   return (
     <Card padding="p-5">
       <h3 className="text-subsection font-display text-navy mb-1">Flavour x Spirit Heatmap</h3>
       <p className="text-caption text-gray-500 mb-4">
         Frequency of each flavour family per spirit base across 25 seed cocktail records.
-        Cell intensity = occurrence count. Right column = 2013-2023 index change.
+        Cell intensity = occurrence count.
       </p>
       <div className="overflow-x-auto">
         <table className="text-xs border-collapse w-full">
@@ -194,30 +120,9 @@ function FlavourHeatmapPanel() {
                 ))}
               </tr>
             ))}
-            <tr className="border-t border-gray-200">
-              <td className="py-1.5 pr-3 text-[10px] text-gray-400 font-medium">
-                10yr delta
-              </td>
-              {FLAVOUR_FAMILIES.map(({ key }) => {
-                const delta = trajectoryDelta[key]
-                return (
-                  <td
-                    key={key}
-                    className="text-center py-1.5 px-2 text-[10px] font-medium"
-                    style={{ color: delta > 0 ? '#15803d' : delta < 0 ? '#dc2626' : '#6b7280' }}
-                  >
-                    {delta > 0 ? `+${delta}%` : `${delta}%`}
-                  </td>
-                )
-              })}
-            </tr>
           </tbody>
         </table>
       </div>
-      <p className="text-label text-gray-400 mt-3">
-        Strongest growth: Umami/Savoury +227%, Fermented +300%, Smoky +118% (2013-2023 index).
-        Citrus and Botanical remain the anchors across all spirit bases.
-      </p>
     </Card>
   )
 }
@@ -382,7 +287,7 @@ export default function W50BMenuIntelModule({ data, profile }) {
       </AccentCard>
 
       <div className="space-y-6">
-        <SpiritTrajectoryPanel />
+        <TrajectoryPendingNotice />
         <FlavourHeatmapPanel />
         <Card padding="p-5">
           <CocktailShowcasePanel />

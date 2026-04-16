@@ -701,6 +701,113 @@ export const opportunityRadar = [
   }
 ]
 
+// ---------------------------------------------------------------------------
+// TWENTY-YEAR TREND ARC: 2006-2026
+// Source: [R9] = ~/Documents/Claude/research/chloe_khorus_cocktails/08_twenty_year_trend_arc.md
+// Generated: April 2026
+// All figures from Drinks International, Difford\u2019s Guide, IWSR, Tales of the Cocktail,
+// World\u2019s 50 Best Bars, CGA by NIQ, Bacardi Cocktail Trends Report, Synthesis Research
+// ---------------------------------------------------------------------------
+export const twentyYearArc = {
+  eras: [
+    {
+      id: 'era1',
+      label: '2006\u20132009',
+      subtitle: 'Cosmo Tail-End & Speakeasy Emergence',
+      dominantCocktails: ['Cosmopolitan', 'Classic Martini', 'Mojito', 'Flavoured Martinis', 'Appletini'],
+      flavourProfile: 'Sweet, feminine, approachable \u2014 luxury segment moving toward dry & bitter',
+      culturalMoment: 'Sex & the City cultural dominance; Milk & Honey (2003) and PDT (2007) define early speakeasy template',
+      luxuryBehaviour: 'Ultra-premium venues (Dukes Bar, The Connaught) quietly rejecting neon-coloured excess; gin reclaiming prestige bars',
+      keyIngredient: 'Flavoured vodka (mass); gin (prestige)',
+      accentColour: '#818cf8',
+      // [R9] Era 1: Milk & Honey and PDT origin point per Tales of the Cocktail historical records
+    },
+    {
+      id: 'era2',
+      label: '2010\u20132014',
+      subtitle: 'Craft Explosion & Bitters Renaissance',
+      dominantCocktails: ['Old Fashioned', 'Negroni', 'Daiquiri', 'Sazerac', 'Mai Tai', 'Last Word'],
+      flavourProfile: 'Bitter, spirit-forward, complex \u2014 sweetness was anathema',
+      culturalMoment: 'Craft bourbon booms; farm-to-table influences bars; World\u2019s 50 Best Bars launches (2013)',
+      luxuryBehaviour: 'Artisanal minimalism (Death & Co template) vs molecular maximalism; bartending elevated to competitive sport via brand sponsorships',
+      keyIngredient: 'Artisanal bitters, hand-cracked ice, heritage rye & bourbon',
+      accentColour: '#f59e0b',
+      // [R9] Era 2: DI 2013-2014 bartender surveys; W50B inaugural 2013 list
+    },
+    {
+      id: 'era3',
+      label: '2015\u20132018',
+      subtitle: 'Instagram Era & Aperol Spritz Explosion',
+      dominantCocktails: ['Negroni', 'Old Fashioned', 'Aperol Spritz', 'Mezcal Margarita', 'Gin & Tonic', 'Espresso Martini'],
+      flavourProfile: 'Bittersweet, botanical, fresh \u2014 visual shareability as important as taste',
+      culturalMoment: 'Instagram reshapes hospitality; Aperol Spritz transforms from regional Italian aperitif to global luxury signifier; Japanese whisky investment peaks',
+      luxuryBehaviour: 'Spritz Bars become de facto requirement at premium weddings & galas; mezcal breaks through as ultra-premium agave; W50B decentralises globally',
+      keyIngredient: 'Aperol, premium tonics (Fever-Tree), small-batch mezcal, Japanese whisky',
+      accentColour: '#f97316',
+      // [R9] Era 3: DI 2015-2018 reports on Aperol Spritz rise; IWSR mezcal data 2015-2018
+    },
+    {
+      id: 'era4',
+      label: '2019\u20132021',
+      subtitle: 'Pre-Pandemic Peak & Pandemic Pivot',
+      dominantCocktails: ['Negroni', 'Espresso Martini', 'Old Fashioned', 'Aperol Spritz', 'Negroni Sbagliato', 'At-Home RTD'],
+      flavourProfile: 'Bifurcated \u2014 simultaneously maximalist (Spritz) and minimalist (zero-proof bitter amari)',
+      culturalMoment: '2019 zenith of on-premise luxury; March 2020 global shutdown; RTD growth outpaces bottled spirits by 2021',
+      luxuryBehaviour: 'Premium at-home kit delivery; RTD cocktails move from sacrilege to growth engine; zero-proof discovery via Seedlip & Wilfred\u2019s; pre-batched cocktails become event-acceptable',
+      keyIngredient: 'Prosecco (Sbagliato), premium RTD base spirits, Seedlip, cold-brew coffee',
+      accentColour: '#06b6d4',
+      // [R9] Era 4: DI 2022 confirming Negroni #1; IWSR RTD data 2020-2021
+    },
+    {
+      id: 'era5',
+      label: '2022\u20132024',
+      subtitle: 'Gastronomic Maturation & Savoury Turn',
+      dominantCocktails: ['Negroni (#1 DI 2022\u20132025)', 'Old Fashioned (#2)', 'Margarita (#3)', 'Espresso Martini (#4, +116% US)', 'Daiquiri (#5)', 'Whiskey Sour (#6)'],
+      flavourProfile: 'Bitter-forward maturation; savoury/umami emergence; coffee ascendant; clarified clarity meets garnish complexity',
+      culturalMoment: 'Post-pandemic revenge socialising; Espresso Martini Tower replaces Champagne tower at galas; 30% of top Asian bars feature savoury elements by 2024',
+      luxuryBehaviour: 'Clarified milk punches become luxury batch standard; zero-proof sheds teetotaler stigma \u2014 dual menus with equivalent pricing; Handshake Speakeasy Mexico City #1 W50B 2024',
+      keyIngredient: 'Campari, cold-brew espresso, miso, clarified cream, premium vermouth, edible gold',
+      accentColour: '#34d399',
+      // [R9] Era 5: DI 2022-2025 reports; CGA 116% YoY Espresso Martini US Q3 2024; Synthesis Research 30% savoury Asia
+    },
+    {
+      id: 'era6',
+      label: '2025\u20132026',
+      subtitle: 'Smoky Peak, Spritz Fatigue & Zero-Proof Parity',
+      dominantCocktails: ['Negroni (#1)', 'Oaxaca Old Fashioned (DI top 50 entry)', 'Margarita (#3)', 'Espresso Martini (#4)', 'Savoury Gimlets', 'Botanical Gimlets'],
+      flavourProfile: 'Smoky, savoury, umami-rich, herbaceous, bitter \u2014 low-sugar refinement; multi-sensory activation',
+      culturalMoment: 'Aperol Spritz drops #9 \u2192 #92 Difford\u2019s 2020\u20132025; agave smoke mainstream; AI-assisted cocktail ideation emerges',
+      luxuryBehaviour: 'Zero-proof = equal-status menu items with equivalent craft & pricing; smoke activation under glass cloches; savoury/umami as luxury expectation not avant-garde',
+      keyIngredient: 'Mezcal, umami bitters, NA amari, aromatic woods, clarified cream (dairy-free variants), fat-washed spirits',
+      accentColour: '#f87171',
+      // [R9] Era 6: Difford\u2019s Aperol Spritz #92 (2025); DI Oaxaca Old Fashioned top 50; Synthesis 30% savoury global
+    }
+  ],
+  surprisingFindings: [
+    {
+      id: 'aperol-fade',
+      headline: 'Aperol Spritz: #9 \u2192 #92',
+      detail: 'Difford\u2019s Guide consumer search data shows the Aperol Spritz collapsed from #9 (2020) to #92 (2025) \u2014 the sharpest single-drink decline in the data. Still #8 on Drinks International\u2019s prestige-bar survey, but consumer appetite is evaporating. The drink has become a tourist marker, not a luxury signal.',
+      colour: '#f87171',
+      // [R9] Difford\u2019s Guide consumer search data 2025
+    },
+    {
+      id: 'smoke-mainstream',
+      headline: 'Smoke Crossed Into Mainstream',
+      detail: 'The Oaxaca Old Fashioned (mezcal + tequila) entered the Drinks International top 50 in 2025 \u2014 confirming that smoky profiles are no longer a niche bartender trick. Luxury bars now carry 3\u20135 mezcals on rotation and treat smoke as a core flavour dimension with terroir narrative.',
+      colour: '#fb923c',
+      // [R9] DI 2024-2025 reports; W50B 2025 lists
+    },
+    {
+      id: 'zerop-inverted',
+      headline: 'Zero-Proof: Compromise \u2192 Premium',
+      detail: 'Non-alcoholic options completed a full category inversion. In 2019 they were an afterthought. By 2025, 68% of luxury events feature dedicated zero-proof menus, 24\u201330% of guests actively request them, and pricing has reached near-parity with alcoholic equivalents. French Bloom (LVMH-backed) at $100\u2013$119/bottle has replaced Champagne for some luxury toasts. Soho House banned the word \u201cmocktail.\u201d',
+      colour: '#a78bfa',
+      // [R9] IWSR 2025; R7 zero-proof luxury deep research
+    }
+  ]
+}
+
 export const profileMeta = {
   clientName: 'Khorus',
   profileTitle: 'Cocktail Intelligence Profile',

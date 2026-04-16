@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {
   top20Cocktails, flavourFamilies, luxuryVenueIntel,
-  presentationTheatre, opportunityRadar, profileMeta
+  presentationTheatre, opportunityRadar, profileMeta, twentyYearArc
 } from '../data/profileKhorusCocktails'
 
 // ---- Shared primitives -------------------------------------------------------
@@ -244,29 +244,53 @@ const Module4 = () => (
   </section>
 )
 
-// ---- Module 5: 20-Year Trend Arc (placeholder) ------------------------------
+// ---- Module 5: 20-Year Trend Arc --------------------------------------------
 
 const Module5 = () => (
   <section id="trend-arc">
     <SectionHeader
-      title="20-Year Trend Arc"
-      sub="Cocktail renaissance from Prohibition revival to the precision bar era"
+      title="20-Year Cocktail Trend Arc \u2014 2006\u20132026"
+      sub="Six eras of luxury on-premise evolution \u00b7 Source: Drinks International, Difford\u2019s Guide, IWSR, World\u2019s 50 Best Bars, Tales of the Cocktail, CGA by NIQ"
     />
-    <Card className="border-dashed border-slate-600">
-      <div className="text-center py-6">
-        <p className="text-slate-400 text-sm">Full trend arc visualisation \u2014 in development</p>
-        <p className="text-slate-500 text-xs mt-2">
-          2005: Cocktail renaissance begins (Bramble, PDT) \u00b7 2010: Craft bartending emerges \u00b7
-          2015: Aperitivo culture peaks \u00b7 2020: Pandemic premiumisation \u00b7 2025: Precision bar era &amp; ZP parity
-        </p>
-        <a
-          href={`mailto:${profileMeta.contactEmail}?subject=Khorus%20%E2%80%94%20Trend%20Arc%20Data%20Request`}
-          className="inline-block mt-4 text-xs text-sky-400 hover:text-sky-300 underline"
-        >
-          Request full trend arc data \u2192
-        </a>
+
+    {/* Era timeline cards */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 mb-8">
+      {twentyYearArc.eras.map((era) => (
+        <Card key={era.id} style={{ borderTopColor: era.accentColour, borderTopWidth: '2px' }}>
+          <div className="mb-3">
+            <span className="text-xs font-bold uppercase tracking-wider" style={{ color: era.accentColour }}>{era.label}</span>
+            <p className="text-sm font-semibold text-slate-100 mt-0.5">{era.subtitle}</p>
+          </div>
+          <div className="mb-3">
+            <p className="text-xs font-medium text-slate-400 mb-1.5">Dominant cocktails</p>
+            <div className="flex flex-wrap gap-1">
+              {era.dominantCocktails.slice(0, 5).map((c) => (
+                <span key={c} className="text-xs bg-slate-700/70 text-slate-300 px-2 py-0.5 rounded-full">{c}</span>
+              ))}
+            </div>
+          </div>
+          <p className="text-xs text-slate-400 leading-relaxed mb-2">{era.culturalMoment}</p>
+          <div className="border-t border-slate-700 pt-2 mt-2">
+            <p className="text-xs font-medium text-sky-400 mb-0.5">Luxury behaviour</p>
+            <p className="text-xs text-slate-300 leading-relaxed">{era.luxuryBehaviour}</p>
+          </div>
+          <p className="text-xs text-slate-500 mt-2 italic">{era.flavourProfile}</p>
+        </Card>
+      ))}
+    </div>
+
+    {/* Three surprising findings */}
+    <div className="mb-3">
+      <h3 className="text-sm font-semibold text-slate-300 mb-3">Three Surprising Findings</h3>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {twentyYearArc.surprisingFindings.map((f) => (
+          <Card key={f.id} style={{ borderLeftColor: f.colour, borderLeftWidth: '3px' }}>
+            <p className="text-sm font-semibold mb-2" style={{ color: f.colour }}>{f.headline}</p>
+            <p className="text-xs text-slate-300 leading-relaxed">{f.detail}</p>
+          </Card>
+        ))}
       </div>
-    </Card>
+    </div>
   </section>
 )
 

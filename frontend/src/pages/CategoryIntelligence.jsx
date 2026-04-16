@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import {
   TrendingUp, TrendingDown, Minus, Globe, BarChart3,
   ChevronRight, ChevronDown, Award, Star, Package,
-  ArrowLeft, Download, FileText, Layers
+  ArrowLeft, Download, FileText, Layers, Zap
 } from 'lucide-react'
 import {
   AreaChart, Area, BarChart, Bar, XAxis, YAxis,
@@ -714,6 +714,106 @@ function DemographicsPanel({ categoryKey }) {
 }
 
 // ============================================
+// LIQUID INTELLIGENCE CARD
+// ============================================
+function CategoryIntelligenceCard({ yd, cat, year }) {
+  if (!yd) return null
+
+  const growthNum = parseNumeric(yd.growth)
+  const channels = yd.channels || {}
+  const kpis = yd.tradeKPIs
+
+  // Signal 1: Growth momentum
+  let growthColor, growthLabel, growthCopy
+  if (growthNum >= 8) {
+    growthColor = 'emerald'; growthLabel = 'Strong growth window'
+    growthCopy = `${yd.growth} YoY \u2014 category outpacing the broader market. Accelerate distribution build and SKU launch timing to capture expanding shelf space.`
+  } else if (growthNum >= 4) {
+    growthColor = 'blue'; growthLabel = 'Sustainable growth phase'
+    growthCopy = `${yd.growth} YoY \u2014 healthy mid-single-digit expansion. Focus on account share capture and premium mix shift rather than raw volume.`
+  } else if (growthNum >= 1) {
+    growthColor = 'amber'; growthLabel = 'Growth normalising'
+    growthCopy = `${yd.growth} YoY \u2014 category cooling from peak. Shift strategy toward margin optimisation and key-account defence over new-door pursuit.`
+  } else {
+    growthColor = 'red'; growthLabel = 'Volume contraction'
+    growthCopy = `${yd.growth} YoY \u2014 category in decline. Defend priority accounts, tighten promotional spend, and accelerate premium mix shift to offset volume loss.`
+  }
+
+  // Signal 2: Channel concentration
+  const channelEntries = Object.entries(channels)
+  const dominantEntry = channelEntries.reduce((max, e) => e[1] > max[1] ? e : max, ['', 0])
+  const dominantName = { onTrade: 'On-Trade', offTrade: 'Off-Trade', eCommerce: 'E-Commerce', travelRetail: 'Travel Retail' }[dominantEntry[0]] || dominantEntry[0]
+  const dominantPct = dominantEntry[1]
+  let chanColor, chanLabel, chanCopy
+  if (dominantPct >= 55) {
+    chanColor = 'amber'; chanLabel = 'Channel concentration risk'
+    chanCopy = `${dominantName} accounts for ${dominantPct}% of volume \u2014 single-channel dependency. Diversify activation spend into under-penetrated channels to reduce exposure.`
+  } else if (dominantPct >= 45) {
+    chanColor = 'blue'; chanLabel = 'Moderate channel weighting'
+    chanCopy = `${dominantName} leads at ${dominantPct}% \u2014 manageable concentration. Secondary channels (e-commerce, travel retail) offer incremental volume without cannibalisation.`
+  } else {
+    chanColor = 'emerald'; chanLabel = 'Well-diversified channel mix'
+    chanCopy = `No single channel exceeds 45% share \u2014 balanced distribution across on-trade, off-trade, and emerging channels. Strong structural resilience to trade disruption.`
+  }
+
+  // Signal 3: Gross margin environment (only when tradeKPIs available)
+  let marginColor, marginLabel, marginCopy
+  if (kpis && kpis.grossMarginPct != null) {
+    const m = kpis.grossMarginPct
+    if (m >= 60) {
+      marginColor = 'emerald'; marginLabel = 'Premium margin environment'
+      marginCopy = `${m}% gross margin \u2014 industry-leading profitability. Category economics support investment in brand-building and premium activation programmes.`
+    } else if (m >= 50) {
+      marginColor = 'blue'; marginLabel = 'Solid margin profile'
+      marginCopy = `${m}% gross margin \u2014 competitive profitability. Standard trade terms and promotional investment are sustainable at current price points.`
+    } else if (m >= 40) {
+      marginColor = 'amber'; marginLabel = 'Margin pressure zone'
+      marginCopy = `${m}% gross margin \u2014 below-category average. Review promotional mechanics and consider premiumisation to protect brand economics.`
+    } else {
+      marginColor = 'red'; marginLabel = 'Margin compression'
+      marginCopy = `${m}% gross margin \u2014 structurally challenged. Renegotiate trade terms, reduce promotional depth, and exit lowest-margin accounts.`
+    }
+  }
+
+  const colorMap = {
+    emerald: { dot: 'bg-emerald-500', label: 'text-emerald-700', bg: 'bg-emerald-50 border-emerald-200' },
+    blue:    { dot: 'bg-blue-500',    label: 'text-blue-700',    bg: 'bg-blue-50 border-blue-200'    },
+    amber:   { dot: 'bg-amber-500',   label: 'text-amber-700',   bg: 'bg-amber-50 border-amber-200'  },
+    red:     { dot: 'bg-red-500',     label: 'text-red-700',     bg: 'bg-red-50 border-red-200'      },
+  }
+
+  const signals = [
+    { color: growthColor,  label: growthLabel,  copy: growthCopy  },
+    { color: chanColor,    label: chanLabel,    copy: chanCopy    },
+    ...(kpis && kpis.grossMarginPct != null ? [{ color: marginColor, label: marginLabel, copy: marginCopy }] : []),
+  ]
+
+  return (
+    <div className="rounded-xl border border-gold/30 bg-gradient-to-br from-amber-50/60 to-white p-5">
+      <div className="flex items-center gap-2 mb-4">
+        <Zap size={16} className="text-gold" />
+        <span className="text-sm font-bold text-navy">Liquid Intelligence</span>
+        <span className="ml-auto text-xs text-gray-400 font-medium">{cat.label} \u00b7 {year}</span>
+      </div>
+      <div className="space-y-3">
+        {signals.map((s, i) => {
+          const c = colorMap[s.color] || colorMap.blue
+          return (
+            <div key={i} className={`rounded-lg border p-3.5 ${c.bg}`}>
+              <div className="flex items-center gap-2 mb-1">
+                <div className={`w-2 h-2 rounded-full shrink-0 ${c.dot}`} />
+                <span className={`text-xs font-bold uppercase tracking-wide ${c.label}`}>{s.label}</span>
+              </div>
+              <p className="text-xs text-gray-700 leading-relaxed pl-4">{s.copy}</p>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+// ============================================
 // TIER 2 + 3: Category Detail Panel
 // ============================================
 function CategoryDetail({ cat, year, onBack }) {
@@ -899,6 +999,9 @@ function CategoryDetail({ cat, year, onBack }) {
               )}
             </Card>
           )}
+
+          {/* ══════ LIQUID INTELLIGENCE ══════ */}
+          <CategoryIntelligenceCard yd={yd} cat={cat} year={year} />
 
           {/* View Full Report CTA (Tier 3 gate) */}
           <button

@@ -3,42 +3,43 @@
  * Full drill-down page for a single cocktail.
  * Route: /p/chorus-cocktails/cocktail/:cocktailSlug
  *
- * Modules:
- *   1. Hero
- *   2. Demographics (BarChart + PieChart)
- *   3. Geographics (bar chart top 10 markets)
- *   4. Consumption channel split (donut via PieChart)
- *   5. Persona cards
- *   6. Flavour profile (RadarChart + tag cloud)
+ * Modules (updated April 2026 -- honesty pass):
+ *   1. Methodology banner
+ *   2. Hero
+ *   3. Demographics (cited-quote list -- NO fabricated bar charts)
+ *   4. Geographics (key markets list -- NO percentage chart)
+ *   5. Persona cards (with illustrative disclaimer)
+ *   6. Flavour profile (RadarChart + tag cloud -- bartender-calibrated)
  *   7. How to make at home (collapsible recipe)
- *   8. Commercial context (line chart + pricing)
- *   9. Adjacent cocktails (flavour-overlap graph-walk links)
- *   10. Sources
+ *   8. Commercial context (price range only -- volume trend REMOVED)
+ *   9. Adjacent cocktails (cross-ordered with -- NO overlap scores)
+ *   10. Aggregate profile
+ *   11. Methodology detail
+ *   12. Sources
+ *
+ * REMOVED vs prior version:
+ *   - ConsumptionModule (donut chart) -- fabricated channel-split percentages
+ *   - Geographics bar chart -- fabricated market share percentages
+ *   - Demographics bar chart (age/gender/income pct) -- fabricated
+ *   - CommercialModule volume trend line -- fabricated indexed series
+ *   - AdjacentsModule overlap-score chips and bar -- invented numbers
  */
 
 import React, { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import {
   RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
-  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
-  PieChart, Pie, Cell,
-  LineChart, Line,
+  Tooltip,
 } from 'recharts'
-import { ArrowLeft, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react'
+import { ResponsiveContainer } from 'recharts'
+import { ArrowLeft, ChevronDown, ChevronUp, ExternalLink, AlertCircle, BookOpen } from 'lucide-react'
 import {
   Card,
   AccentCard,
   SectionHeader,
   Badge,
-  PageHeader,
 } from '../components/ui'
 import { getCocktailDetail, FLAVOUR_KEYS, TREND_COLORS } from '../data/cocktailDetails'
-
-// ---- colour palette ---------------------------------------------------------
-const CHART_TOOLTIP = { contentStyle: { background: '#1e293b', border: 'none', borderRadius: '8px', color: '#f1f5f9' }, itemStyle: { color: '#94a3b8' }, labelStyle: { color: '#f1f5f9', fontWeight: 600 } }
-const DEMOGRAPHIC_COLORS = ['#1e3a5f', '#2563eb', '#3b82f6', '#60a5fa', '#93c5fd']
-const CHANNEL_COLORS = ['#1e3a5f', '#4ade80', '#f59e0b', '#818cf8']
-const GEO_COLOR = '#2563eb'
 
 function trendVariant(t = '') {
   if (t === 'fast-rising' || t === 'rising') return 'green'
@@ -66,17 +67,20 @@ function difficultyLabel(n) {
   return 'Advanced'
 }
 
-// ---- Custom Recharts tooltip ------------------------------------------------
-function DarkTooltip({ active, payload, label }) {
-  if (!active || !payload?.length) return null
+// ---- MODULE: Methodology banner (top of page) -------------------------------
+function MethodologyBanner({ baseSpirit }) {
   return (
-    <div style={{ background: '#1e293b', border: 'none', borderRadius: 8, padding: '8px 12px' }}>
-      {label && <p style={{ color: '#f1f5f9', fontWeight: 600, marginBottom: 4, fontSize: 12 }}>{label}</p>}
-      {payload.map((p, i) => (
-        <p key={i} style={{ color: '#94a3b8', fontSize: 11, margin: '2px 0' }}>
-          {p.name}: <span style={{ color: '#f1f5f9', fontWeight: 600 }}>{p.value}{p.name && p.name.toLowerCase().includes('pct') || typeof p.value === 'number' && p.value <= 100 ? '%' : ''}</span>
+    <div className="rounded-lg border border-blue-200 bg-blue-50 p-4 flex gap-3">
+      <AlertCircle size={16} className="text-blue-500 shrink-0 mt-0.5" />
+      <div>
+        <p className="text-caption font-semibold text-blue-800 mb-1">Data transparency</p>
+        <p className="text-caption text-blue-700 leading-relaxed">
+          Demographic and market context shown here is sourced at the <strong>{baseSpirit}</strong> category
+          level via IWSR-cited research. Per-cocktail channel splits, market shares, and volume trends are
+          not yet underwritten by per-cocktail licensed data -- currently represented qualitatively.
+          See Methodology section at the bottom of this page for full detail.
         </p>
-      ))}
+      </div>
     </div>
   )
 }
@@ -124,13 +128,15 @@ function HeroModule({ cocktail }) {
   )
 }
 
-// ---- MODULE: Demographics ---------------------------------------------------
+// ---- MODULE: Demographics (cited-quote list, no percentage charts) ----------
 function DemographicsModule({ data }) {
   const [view, setView] = useState('age')
-  const chartData = data[view] || []
+  const items = data[view] || []
   return (
     <section>
-      <SectionHeader size="lg" subtitle="Consumer profile by age, gender and income — cited from category intelligence research">Demographics</SectionHeader>
+      <SectionHeader size="lg" subtitle="Category-level consumer profile -- qualitative, cited from research files">
+        Demographics
+      </SectionHeader>
       <div className="flex gap-2 mb-4 flex-wrap">
         {['age', 'gender', 'income'].map((v) => (
           <button
@@ -143,139 +149,77 @@ function DemographicsModule({ data }) {
         ))}
       </div>
       <Card padding="p-5">
-        <ResponsiveContainer width="100%" height={220}>
-          <BarChart data={chartData} margin={{ top: 4, right: 16, left: 0, bottom: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" vertical={false} />
-            <XAxis dataKey="bracket" tick={{ fontSize: 11, fill: '#64748b' }} axisLine={false} tickLine={false} />
-            <YAxis tick={{ fontSize: 11, fill: '#64748b' }} axisLine={false} tickLine={false} unit="%" />
-            <Tooltip content={<DarkTooltip />} />
-            <Bar dataKey="pct" name="Share" radius={[4, 4, 0, 0]}>
-              {chartData.map((_, i) => (
-                <Cell key={i} fill={DEMOGRAPHIC_COLORS[i % DEMOGRAPHIC_COLORS.length]} />
-              ))}
-            </Bar>
-          </BarChart>
-        </ResponsiveContainer>
-        {data.note && <p className="text-caption text-gray-500 mt-3 italic">{data.note}</p>}
-      </Card>
-    </section>
-  )
-}
-
-// ---- MODULE: Geographics ----------------------------------------------------
-function GeographicsModule({ data }) {
-  return (
-    <section>
-      <SectionHeader size="lg" subtitle="Top 10 consumption markets — indexed share of global cocktail calls at elite venues">Geographics</SectionHeader>
-      <Card padding="p-5">
-        <ResponsiveContainer width="100%" height={360}>
-          <BarChart data={data} layout="vertical" margin={{ top: 0, right: 24, left: 8, bottom: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" horizontal={false} />
-            <XAxis type="number" tick={{ fontSize: 11, fill: '#64748b' }} axisLine={false} tickLine={false} unit="%" />
-            <YAxis dataKey="market" type="category" width={120} interval={0} tick={{ fontSize: 11, fill: '#475569' }} axisLine={false} tickLine={false} />
-            <Tooltip
-              content={({ active, payload }) => {
-                if (!active || !payload?.length) return null
-                const d = payload[0]?.payload
-                return (
-                  <div style={{ background: '#1e293b', borderRadius: 8, padding: '10px 14px' }}>
-                    <p style={{ color: '#f1f5f9', fontWeight: 600, fontSize: 13 }}>{d?.market}</p>
-                    <p style={{ color: '#94a3b8', fontSize: 11 }}>Share: <span style={{ color: '#f1f5f9' }}>{d?.share}%</span></p>
-                    {d?.note && <p style={{ color: '#94a3b8', fontSize: 11, marginTop: 4, maxWidth: 200 }}>{d.note}</p>}
-                    {d?.source && <p style={{ color: '#475569', fontSize: 10, marginTop: 4 }}>Source: {d.source}</p>}
-                  </div>
-                )
-              }}
-            />
-            <Bar dataKey="share" name="Market share" fill={GEO_COLOR} radius={[0, 4, 4, 0]} />
-          </BarChart>
-        </ResponsiveContainer>
-        <p className="text-caption text-gray-400 mt-2">Shares are estimated percentages of global on-trade cocktail mentions at elite bars. Sources: DI, IWSR, Liquid Economy research.</p>
-      </Card>
-    </section>
-  )
-}
-
-// ---- MODULE: Consumption split ----------------------------------------------
-function ConsumptionModule({ data }) {
-  const chartData = [
-    { name: 'On-trade', value: data.onTrade },
-    { name: 'Off-trade', value: data.offTrade },
-    { name: 'RTD', value: data.rtd },
-    { name: 'Home-made', value: data.home },
-  ]
-  const [active, setActive] = useState(null)
-  return (
-    <section>
-      <SectionHeader size="lg" subtitle="Channel split by estimated volume share — hover for detail">Consumption Channels</SectionHeader>
-      <Card padding="p-5">
-        <div className="flex flex-col md:flex-row gap-6 items-center">
-          <ResponsiveContainer width="100%" height={220}>
-            <PieChart>
-              <Pie
-                data={chartData}
-                cx="50%"
-                cy="50%"
-                innerRadius={60}
-                outerRadius={90}
-                paddingAngle={3}
-                dataKey="value"
-                onMouseEnter={(_, i) => setActive(i)}
-                onMouseLeave={() => setActive(null)}
-              >
-                {chartData.map((_, i) => (
-                  <Cell
-                    key={i}
-                    fill={CHANNEL_COLORS[i]}
-                    opacity={active === null || active === i ? 1 : 0.4}
-                    style={{ cursor: 'pointer' }}
-                  />
-                ))}
-              </Pie>
-              <Tooltip
-                content={({ active: a, payload }) => {
-                  if (!a || !payload?.length) return null
-                  const d = payload[0]
-                  return (
-                    <div style={{ background: '#1e293b', borderRadius: 8, padding: '8px 12px' }}>
-                      <p style={{ color: '#f1f5f9', fontWeight: 600, fontSize: 12 }}>{d.name}</p>
-                      <p style={{ color: '#94a3b8', fontSize: 11 }}>{d.value}%</p>
-                    </div>
-                  )
-                }}
-              />
-            </PieChart>
-          </ResponsiveContainer>
-          <div className="space-y-3 min-w-[180px]">
-            {chartData.map((d, i) => (
-              <div
-                key={d.name}
-                className="flex items-center justify-between gap-4 cursor-pointer"
-                onMouseEnter={() => setActive(i)}
-                onMouseLeave={() => setActive(null)}
-              >
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full" style={{ background: CHANNEL_COLORS[i] }} />
-                  <span className="text-caption text-gray-600">{d.name}</span>
+        <div className="space-y-3">
+          {items.map((item, i) => {
+            const bracket = item.bracket || item.segment
+            const label = item.label
+            const note = item.note
+            return (
+              <div key={i} className="border-b border-gray-50 pb-3 last:border-0 last:pb-0">
+                <div className="flex items-center gap-3 mb-1">
+                  <span className="text-body font-semibold text-navy w-28 shrink-0">{bracket}</span>
+                  <span className={`px-2 py-0.5 rounded text-caption font-medium ${
+                    label && label.toLowerCase().includes('dominant')
+                      ? 'bg-navy text-white'
+                      : label && label.toLowerCase().includes('strong')
+                      ? 'bg-blue-100 text-blue-800'
+                      : label && label.toLowerCase().includes('moderate')
+                      ? 'bg-gray-100 text-gray-700'
+                      : label && label.toLowerCase().includes('minimal')
+                      ? 'bg-gray-50 text-gray-400'
+                      : 'bg-gray-100 text-gray-600'
+                  }`}>{label}</span>
                 </div>
-                <span className={`text-caption font-semibold ${active === i ? 'text-navy' : 'text-gray-500'}`}>{d.value}%</span>
+                {note && <p className="text-caption text-gray-500 leading-relaxed pl-1">{note}</p>}
               </div>
-            ))}
-          </div>
+            )
+          })}
         </div>
-        {data.source && (
-          <p className="text-caption text-gray-400 mt-3 border-t border-gray-100 pt-3">{data.source}</p>
+        {data.note && (
+          <p className="text-caption text-gray-400 mt-4 pt-3 border-t border-gray-100 italic">{data.note}</p>
         )}
       </Card>
     </section>
   )
 }
 
-// ---- MODULE: Persona cards --------------------------------------------------
+// ---- MODULE: Geographics (key markets list, no percentage chart) ------------
+function GeographicsModule({ data }) {
+  return (
+    <section>
+      <SectionHeader size="lg" subtitle="Key markets -- qualitative presence notes, no percentage breakdown">
+        Key Markets
+      </SectionHeader>
+      <Card padding="p-5">
+        <div className="space-y-2">
+          {data.map((d, i) => (
+            <div key={i} className="flex items-start gap-3 py-2 border-b border-gray-50 last:border-0">
+              <span className="text-body font-semibold text-navy w-28 shrink-0">{d.market}</span>
+              <p className="text-caption text-gray-600 leading-relaxed">{d.note}</p>
+            </div>
+          ))}
+        </div>
+        <p className="text-caption text-gray-400 mt-4 pt-3 border-t border-gray-100">
+          Market presence shown qualitatively. Per-cocktail market share data is not currently licensed -- percentage breakdowns removed.
+        </p>
+      </Card>
+    </section>
+  )
+}
+
+// ---- MODULE: Persona cards (with illustrative disclaimer) ------------------
 function PersonasModule({ personas }) {
   return (
     <section>
-      <SectionHeader size="lg" subtitle="Drinker archetypes based on demographic + occasion analysis">Drinker Profiles</SectionHeader>
+      <SectionHeader size="lg" subtitle="Drinker archetypes -- illustrative, not survey-validated">
+        Drinker Profiles
+      </SectionHeader>
+      <div className="rounded-lg border border-amber-200 bg-amber-50 p-3 mb-4 flex gap-2">
+        <AlertCircle size={14} className="text-amber-500 shrink-0 mt-0.5" />
+        <p className="text-caption text-amber-700">
+          <strong>Illustrative archetypes only.</strong> These personas are editorial constructs based on category-level research, not survey-validated consumer data. They should not be cited as primary research.
+        </p>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {personas.map((p, i) => (
           <AccentCard key={i} padding="p-5">
@@ -287,14 +231,16 @@ function PersonasModule({ personas }) {
             <p className="text-label text-gray-500 uppercase tracking-wider mb-1">Occasion</p>
             <p className="text-caption text-gray-700 mb-3">{p.occasion}</p>
             <p className="text-caption text-gray-700 leading-relaxed mb-3">{p.description}</p>
-            <div className="border-t border-gray-100 pt-3">
-              <p className="text-label text-gray-500 uppercase tracking-wider mb-1.5">Also orders</p>
-              <div className="flex flex-wrap gap-1">
-                {p.adjacents.map((a) => (
-                  <Badge key={a} variant="default">{a}</Badge>
-                ))}
+            {p.adjacents && p.adjacents.length > 0 && (
+              <div className="border-t border-gray-100 pt-3">
+                <p className="text-label text-gray-500 uppercase tracking-wider mb-1.5">Also orders</p>
+                <div className="flex flex-wrap gap-1">
+                  {p.adjacents.map((a) => (
+                    <Badge key={a} variant="default">{a}</Badge>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </AccentCard>
         ))}
       </div>
@@ -310,9 +256,12 @@ function FlavourModule({ flavour }) {
   }))
   return (
     <section>
-      <SectionHeader size="lg" subtitle="Flavour profile radar + descriptor tags">Flavour Profile</SectionHeader>
+      <SectionHeader size="lg" subtitle="Bartender-calibrated flavour estimate + descriptor tags">
+        Flavour Profile
+      </SectionHeader>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Card padding="p-5">
+          <p className="text-caption text-gray-400 mb-3 italic">Bartender-calibrated estimate -- not instrument-measured</p>
           <ResponsiveContainer width="100%" height={260}>
             <RadarChart data={radarData} cx="50%" cy="50%" outerRadius={90}>
               <PolarGrid stroke="#e2e8f0" />
@@ -371,7 +320,9 @@ function RecipeModule({ recipe }) {
   const [open, setOpen] = useState(false)
   return (
     <section>
-      <SectionHeader size="lg" subtitle="Full recipe with brand suggestions, method and difficulty">How to Make at Home</SectionHeader>
+      <SectionHeader size="lg" subtitle="Full recipe with brand suggestions, method and difficulty">
+        How to Make at Home
+      </SectionHeader>
       <Card padding="p-5">
         <button
           className="w-full flex items-center justify-between text-left"
@@ -425,26 +376,16 @@ function RecipeModule({ recipe }) {
   )
 }
 
-// ---- MODULE: Commercial Context --------------------------------------------
+// ---- MODULE: Commercial Context (price range only -- no volume trend) -------
 function CommercialModule({ commercial }) {
   return (
     <section>
-      <SectionHeader size="lg" subtitle="5-year indexed volume trend + price range by channel">Commercial Context</SectionHeader>
+      <SectionHeader size="lg" subtitle="Estimated price range by channel -- volume trend removed pending licensed data">
+        Commercial Context
+      </SectionHeader>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Card padding="p-5">
-          <p className="text-label text-gray-500 uppercase tracking-wider mb-3">Volume trend (indexed, 2021 = 100)</p>
-          <ResponsiveContainer width="100%" height={180}>
-            <LineChart data={commercial.volumeTrend} margin={{ top: 4, right: 16, left: 0, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" vertical={false} />
-              <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#64748b' }} axisLine={false} tickLine={false} />
-              <YAxis tick={{ fontSize: 11, fill: '#64748b' }} axisLine={false} tickLine={false} />
-              <Tooltip content={<DarkTooltip />} />
-              <Line type="monotone" dataKey="indexedGrowth" stroke="#1e3a5f" strokeWidth={2.5} dot={{ fill: '#1e3a5f', r: 4 }} name="Volume index" />
-            </LineChart>
-          </ResponsiveContainer>
-        </Card>
-        <Card padding="p-5">
-          <p className="text-label text-gray-500 uppercase tracking-wider mb-3">Price range (GBP)</p>
+          <p className="text-label text-gray-500 uppercase tracking-wider mb-3">Price range (GBP) -- estimated</p>
           <div className="space-y-3">
             <div className="flex items-center justify-between py-2 border-b border-gray-100">
               <span className="text-caption text-gray-600">At home (ingredients)</span>
@@ -461,21 +402,26 @@ function CommercialModule({ commercial }) {
               </div>
             )}
           </div>
-          <div className="mt-4 pt-4 border-t border-gray-100">
-            <p className="text-label text-gray-500 uppercase tracking-wider mb-1.5">Forecast</p>
-            <p className="text-caption text-gray-700 leading-relaxed">{commercial.forecast}</p>
-          </div>
+        </Card>
+        <Card padding="p-5">
+          <p className="text-label text-gray-500 uppercase tracking-wider mb-3">Category forecast</p>
+          <p className="text-body text-gray-700 leading-relaxed">{commercial.forecast}</p>
+          <p className="text-caption text-gray-400 mt-3 pt-3 border-t border-gray-100 italic">
+            Per-cocktail volume trend index has been removed. A fabricated indexed series (2021=100) previously appeared here and has been deleted. Category-level growth data cited above where available.
+          </p>
         </Card>
       </div>
     </section>
   )
 }
 
-// ---- MODULE: Adjacent cocktails --------------------------------------------
-function AdjacentsModule({ adjacents, parentSlug }) {
+// ---- MODULE: Adjacent cocktails (no overlap scores) ------------------------
+function AdjacentsModule({ adjacents }) {
   return (
     <section>
-      <SectionHeader size="lg" subtitle="Cocktails with highest flavour + demographic overlap &mdash; click to explore">People Who Drink This Also Drink</SectionHeader>
+      <SectionHeader size="lg" subtitle="Frequently cross-ordered -- click to explore">
+        Cross-Ordered With
+      </SectionHeader>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {adjacents.map((a) => (
           <Link
@@ -486,11 +432,9 @@ function AdjacentsModule({ adjacents, parentSlug }) {
             <Card padding="p-4" hover>
               <div className="flex items-center justify-between">
                 <span className="text-body font-semibold text-navy">{a.name}</span>
-                <Badge variant="green">{a.overlapScore}% overlap</Badge>
+                <ExternalLink size={14} className="text-gray-400" />
               </div>
-              <div className="mt-2 bg-gray-100 rounded-full h-1.5">
-                <div className="h-1.5 rounded-full bg-navy" style={{ width: `${a.overlapScore}%` }} />
-              </div>
+              <p className="text-caption text-gray-500 mt-1">Tap to explore</p>
             </Card>
           </Link>
         ))}
@@ -503,10 +447,46 @@ function AdjacentsModule({ adjacents, parentSlug }) {
 function AggregateProfileModule({ text }) {
   return (
     <section>
-      <SectionHeader size="lg" subtitle="Flavour proximity + demographic crossover analysis">Cocktails People Like You Drink</SectionHeader>
+      <SectionHeader size="lg" subtitle="Flavour proximity + demographic crossover analysis">
+        Cocktail Profile Summary
+      </SectionHeader>
       <AccentCard padding="p-5">
         <p className="text-body text-navy leading-relaxed">{text}</p>
       </AccentCard>
+    </section>
+  )
+}
+
+// ---- MODULE: Methodology detail (bottom of page) ----------------------------
+function MethodologyModule({ cocktail }) {
+  return (
+    <section>
+      <SectionHeader size="lg" subtitle="What is sourced, what is estimated, what is illustrative">
+        Methodology
+      </SectionHeader>
+      <Card padding="p-6">
+        <div className="flex gap-3 mb-4">
+          <BookOpen size={18} className="text-editorial shrink-0 mt-0.5" />
+          <h3 className="text-body font-semibold text-navy">Data sourcing approach</h3>
+        </div>
+        <div className="space-y-4 text-caption text-gray-700 leading-relaxed">
+          <p>
+            <strong className="text-navy">What is sourced:</strong> Rankings from Drinks International Brand &amp; Bar Report 2025 and Difford's Guide Top 100 Cocktails 2025 are published primary sources. Category-level demographic data (age index, gender split, income profile) is drawn from IWSR-cited research held in Liquid Economy's internal intelligence files (spirits_01 through spirits_05). Any direct quotes from IWSR, CGA, SWA, CRT or DISCUS are identified in the note field of each demographic entry.
+          </p>
+          <p>
+            <strong className="text-navy">What is estimated:</strong> Price ranges are market estimates based on observed UK on-trade and retail pricing as of April 2026. The flavour radar is a bartender-calibrated qualitative estimate on a 0-10 scale -- it is not derived from sensory analysis instruments. These are defensible editorial judgements, not claimed data.
+          </p>
+          <p>
+            <strong className="text-navy">What is illustrative:</strong> Drinker persona archetypes are editorial constructs built from category-level research patterns. They are not derived from cocktail-level survey data and should not be presented to clients as primary research findings.
+          </p>
+          <p>
+            <strong className="text-navy">What was removed (April 2026):</strong> This page previously displayed per-cocktail channel split percentages (on-trade/off-trade/RTD/home), per-cocktail market share by country, a 2021--2025 indexed volume trend line, and flavour "overlap scores" between cocktails. All of these were fabricated from category-level proxies and presented without adequate disclosure. They have been deleted. They will be reinstated only when underwritten by licensed per-cocktail IWSR data.
+          </p>
+          {cocktail.methodology && (
+            <p className="italic text-gray-500 border-t border-gray-100 pt-4 mt-2">{cocktail.methodology}</p>
+          )}
+        </div>
+      </Card>
     </section>
   )
 }
@@ -515,7 +495,9 @@ function AggregateProfileModule({ text }) {
 function SourcesModule({ sources }) {
   return (
     <section>
-      <SectionHeader size="lg" subtitle="Data sources cited across all fields on this page">Sources</SectionHeader>
+      <SectionHeader size="lg" subtitle="Data sources cited across all fields on this page">
+        Sources
+      </SectionHeader>
       <Card padding="p-5">
         <ul className="space-y-2">
           {sources.map((s, i) => (
@@ -573,38 +555,43 @@ export default function CocktailDetail() {
         Chorus Cocktail Intelligence
       </Link>
 
-      {/* 1. Hero */}
+      {/* 1. Methodology banner */}
+      <MethodologyBanner baseSpirit={cocktail.baseSpirit} />
+
+      {/* 2. Hero */}
       <HeroModule cocktail={cocktail} />
 
-      {/* 2. Demographics */}
-      <DemographicsModule data={cocktail.demographics} />
+      {/* 3. Demographics */}
+      {cocktail.demographics && <DemographicsModule data={cocktail.demographics} />}
 
-      {/* 3. Geographics */}
-      <GeographicsModule data={cocktail.geographics} />
-
-      {/* 4. Consumption channels */}
-      <ConsumptionModule data={cocktail.consumption} />
+      {/* 4. Geographics */}
+      {cocktail.geographics && <GeographicsModule data={cocktail.geographics} />}
 
       {/* 5. Personas */}
-      <PersonasModule personas={cocktail.personas} />
+      {cocktail.personas && <PersonasModule personas={cocktail.personas} />}
 
       {/* 6. Flavour profile */}
-      <FlavourModule flavour={cocktail.flavour} />
+      {cocktail.flavour && <FlavourModule flavour={cocktail.flavour} />}
 
       {/* 7. Recipe */}
-      <RecipeModule recipe={cocktail.recipe} />
+      {cocktail.recipe && <RecipeModule recipe={cocktail.recipe} />}
 
       {/* 8. Commercial context */}
-      <CommercialModule commercial={cocktail.commercial} />
+      {cocktail.commercial && <CommercialModule commercial={cocktail.commercial} />}
 
       {/* 9. Aggregate profile */}
-      <AggregateProfileModule text={cocktail.aggregateProfile} />
+      {cocktail.aggregateProfile && <AggregateProfileModule text={cocktail.aggregateProfile} />}
 
       {/* 10. Adjacent cocktails */}
-      <AdjacentsModule adjacents={cocktail.adjacents} parentSlug={cocktailSlug} />
+      {cocktail.adjacents && cocktail.adjacents.length > 0 && (
+        <AdjacentsModule adjacents={cocktail.adjacents} />
+      )}
 
-      {/* 11. Sources */}
-      <SourcesModule sources={cocktail.sources} />
+      {/* 11. Methodology detail */}
+      <MethodologyModule cocktail={cocktail} />
+
+      {/* 12. Sources */}
+      {cocktail.sources && <SourcesModule sources={cocktail.sources} />}
     </div>
   )
 }

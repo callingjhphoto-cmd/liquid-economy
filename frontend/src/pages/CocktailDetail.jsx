@@ -168,11 +168,11 @@ function GeographicsModule({ data }) {
     <section>
       <SectionHeader size="lg" subtitle="Top 10 consumption markets — indexed share of global cocktail calls at elite venues">Geographics</SectionHeader>
       <Card padding="p-5">
-        <ResponsiveContainer width="100%" height={280}>
+        <ResponsiveContainer width="100%" height={360}>
           <BarChart data={data} layout="vertical" margin={{ top: 0, right: 24, left: 8, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" horizontal={false} />
             <XAxis type="number" tick={{ fontSize: 11, fill: '#64748b' }} axisLine={false} tickLine={false} unit="%" />
-            <YAxis dataKey="market" type="category" width={60} tick={{ fontSize: 11, fill: '#475569' }} axisLine={false} tickLine={false} />
+            <YAxis dataKey="market" type="category" width={120} interval={0} tick={{ fontSize: 11, fill: '#475569' }} axisLine={false} tickLine={false} />
             <Tooltip
               content={({ active, payload }) => {
                 if (!active || !payload?.length) return null

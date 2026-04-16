@@ -1,6 +1,6 @@
 /**
  * drinksAuthorities.js
- * Sources & Authorities data for the Khorus cocktail intelligence profile.
+ * Sources & Authorities data for the Chorus cocktail intelligence profile.
  * All fields sourced from ~/Documents/Claude/research/drinks_trend_providers/sources_module_spec.md
  * Generated April 2026 — do not hand-edit tier/credibility notes without updating spec.
  */

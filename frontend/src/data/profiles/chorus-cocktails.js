@@ -1,9 +1,9 @@
 /**
- * khorus-cocktails.js
- * Khorus Cocktail Intelligence — use-case archetype
- * Migrated from src/data/profileKhorusCocktails.js (April 2026)
+ * chorus-cocktails.js
+ * Chorus Cocktail Intelligence — use-case archetype
+ * Migrated from src/data/profileChorusCocktails.js (April 2026)
  *
- * Sources: 9 deep research reports in ~/Documents/Claude/research/chloe_khorus_cocktails/
+ * Sources: 9 deep research reports in ~/Documents/Claude/research/chloe_chorus_cocktails/
  * All data unchanged from original. Thin wrapper pointing ClientProfile at existing arrays.
  */
 
@@ -14,13 +14,13 @@ import {
   presentationTheatre,
   opportunityRadar,
   twentyYearArc,
-} from '../profileKhorusCocktails'
+} from '../profileChorusCocktails'
 
 import { drinksAuthorities } from './sources/drinksAuthorities'
 
 // Source registry — every data point cites back into here.
 // Keys are stable; labels + URLs render in the Methodology section and inline.
-export const KHORUS_SOURCES = {
+export const CHORUS_SOURCES = {
   DI: {
     key: 'DI',
     label: 'Drinks International — Brand & Bar Reports',
@@ -86,12 +86,12 @@ export const KHORUS_SOURCES = {
   },
   R1: {
     key: 'R1',
-    label: 'Liquid Economy — Khorus Internal Data Audit',
+    label: 'Liquid Economy — Chorus Internal Data Audit',
     shortLabel: 'Liquid Economy (R1)',
     url: null,
-    snippet: 'Internal research audit — available on request to Khorus stakeholders.',
+    snippet: 'Internal research audit — available on request to Chorus stakeholders.',
     coverage: 'April 2026',
-    methodology: 'Cross-reference of primary sources against Khorus’s own live event data.',
+    methodology: 'Cross-reference of primary sources against Chorus’s own live event data.',
   },
   R4: {
     key: 'R4',
@@ -181,7 +181,7 @@ const annotatedVenues = luxuryVenueIntel.map((v) => ({
   sources: (v.source || '')
     .match(/R\d/g)
     ?.map((s) => s.toUpperCase())
-    .filter((k) => KHORUS_SOURCES[k]) || ['R4'],
+    .filter((k) => CHORUS_SOURCES[k]) || ['R4'],
 }))
 
 const annotatedOpportunities = opportunityRadar.map((o) => ({
@@ -191,12 +191,12 @@ const annotatedOpportunities = opportunityRadar.map((o) => ({
     : ['R4', 'DI', 'CGA'],
 }))
 
-const khorusProfile = {
-  slug: 'khorus-cocktails',
-  name: 'Khorus Cocktail Intelligence',
+const chorusProfile = {
+  slug: 'chorus-cocktails',
+  name: 'Chorus Cocktail Intelligence',
   archetype: 'use-case',
   client: {
-    name: 'Khorus',
+    name: 'Chorus',
     website: null,
     primaryContact: 'Chloe',
   },
@@ -214,7 +214,7 @@ const khorusProfile = {
     sourcedFrom: 'DI World’s 50 Best Bars Brand Report, Difford’s Guide analytics, IWSR 2024–2026, Bacardi Cocktail Trends Report, W50B menu analysis, Tales of the Cocktail 2024–2025',
     contactEmail: 'callingjhphoto@gmail.com',
   },
-  sources: KHORUS_SOURCES,
+  sources: CHORUS_SOURCES,
   modules: [
     { type: 'TopCocktails', data: { cocktails: annotatedCocktails, sourceKeys: moduleSources.topCocktails } },
     { type: 'FlavourRadar', data: { families: annotatedFlavours, sourceKeys: moduleSources.flavourRadar } },
@@ -228,4 +228,4 @@ const khorusProfile = {
   narratives: annotatedOpportunities,
 }
 
-export default khorusProfile
+export default chorusProfile

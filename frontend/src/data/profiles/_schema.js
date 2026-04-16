@@ -4,7 +4,7 @@
  * Each profile file exports a default object conforming to this shape.
  *
  * ARCHETYPES
- *   'use-case'    — experience buyer (e.g. Khorus: luxury events lens)
+ *   'use-case'    — experience buyer (e.g. Chorus: luxury events lens)
  *   'brand-owner' — gin/whisky/spirits producer (e.g. Eden Mill: category lens)
  *   'regional'    — regional producer (e.g. Cava bodega: sparkling + market lens)
  *

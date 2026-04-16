@@ -326,10 +326,10 @@ function PresentationModule({ data, profile }) {
               <div key={i} className="border-b border-gray-100 pb-3 last:border-0 last:pb-0">
                 <p className="text-body font-semibold text-navy">{t.name}</p>
                 <p className="text-caption text-gray-500 mt-0.5 leading-relaxed">{t.description}</p>
-                {t.suitabilityForKhorus && (
+                {t.suitabilityForChorus && (
                   <p className="text-caption mt-1.5">
                     <span className="text-editorial font-semibold">Application: </span>
-                    <span className="text-gray-700">{t.suitabilityForKhorus}</span>
+                    <span className="text-gray-700">{t.suitabilityForChorus}</span>
                   </p>
                 )}
               </div>
@@ -752,7 +752,7 @@ function SourcesMethodologySection({ profile }) {
               )
             })}
           </div>
-          <p className="text-caption text-gray-500 mt-3">Internal research reports are available to Khorus stakeholders on request — <a href="mailto:callingjhphoto@gmail.com?subject=Khorus%20%E2%80%94%20Source%20Request" className="text-editorial hover:text-navy underline">request access</a>.</p>
+          <p className="text-caption text-gray-500 mt-3">Internal research reports are available to Chorus stakeholders on request — <a href="mailto:callingjhphoto@gmail.com?subject=Chorus%20%E2%80%94%20Source%20Request" className="text-editorial hover:text-navy underline">request access</a>.</p>
         </div>
       )}
 

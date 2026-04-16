@@ -14,8 +14,8 @@ import { PageHeader, Card, AccentCard, Badge } from '../components/ui'
 
 const PROFILES = [
   {
-    slug: 'khorus-cocktails',
-    name: 'Khorus',
+    slug: 'chorus-cocktails',
+    name: 'Chorus',
     title: 'Cocktail Intelligence Profile',
     archetype: 'use-case',
     subtitle: 'Global ranking, flavour trends, luxury event intel for luxury events programming',

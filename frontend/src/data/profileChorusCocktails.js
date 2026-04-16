@@ -1,7 +1,7 @@
 /**
- * profileKhorusCocktails.js
- * Data file for Khorus Cocktail Intelligence Profile
- * Sources: 7 deep research reports in ~/Documents/Claude/research/chloe_khorus_cocktails/
+ * profileChorusCocktails.js
+ * Data file for Chorus Cocktail Intelligence Profile
+ * Sources: 7 deep research reports in ~/Documents/Claude/research/chloe_chorus_cocktails/
  * Generated: April 2026
  *
  * CITATION KEY
@@ -557,42 +557,42 @@ export const presentationTheatre = {
       name: 'Espresso Martini Tower',
       description: 'Stacked coupe glasses, batched pour cascades down tiers. Replaces Champagne tower at galas/weddings.',
       brands: 'Ketel One, Tito’s, Mr Black coffee liqueur',
-      suitabilityForKhorus: 'Excellent — universally loved, high theatre, highly photographable',
+      suitabilityForChorus: 'Excellent — universally loved, high theatre, highly photographable',
       source: '[R8]'
     },
     {
       name: 'Smoking Dome Reveal',
       description: 'Applewood or hickory chips under glass cloche. Tableside lift creates visual plume + aroma hit.',
       brands: 'Don Julio 1942, Macallan, mezcal expressions',
-      suitabilityForKhorus: 'Excellent for intimate dinners and VIP tables',
+      suitabilityForChorus: 'Excellent for intimate dinners and VIP tables',
       source: '[R8]'
     },
     {
       name: 'Aperol Spritz / Gin Cart (Mobile)',
       description: 'Branded vintage tricycle or cart. Mobile mixing, custom botanicals, Instagram focal point.',
       brands: 'Aperol, Hendrick’s, The Botanist',
-      suitabilityForKhorus: 'Strong for daytime / garden events',
+      suitabilityForChorus: 'Strong for daytime / garden events',
       source: '[R8]'
     },
     {
       name: 'Tableside Martini Trolley (Guéridon)',
       description: 'Gold standard set by Connaught Bar. Bitters lineup, personalised build, tableside performance.',
       brands: 'Connaught Bar Gin, Tanqueray No.10',
-      suitabilityForKhorus: 'Premium — for seated dinner activations',
+      suitabilityForChorus: 'Premium — for seated dinner activations',
       source: '[R8]'
     },
     {
       name: 'Liquid Nitrogen Garnishes',
       description: 'Instant freeze on tableside. Dramatic smoke effect. Used for edible botanicals and fruit spheres.',
       brands: 'Venue-specific techniques',
-      suitabilityForKhorus: 'High impact but requires skilled operator',
+      suitabilityForChorus: 'High impact but requires skilled operator',
       source: '[R8]'
     },
     {
       name: 'Edible Gold Garnish',
       description: '24-karat gold leaf (Slofoodgroup / Easy Leaf). Gold-dusted coffee beans, gold rim margaritas.',
       brands: 'Grey Goose Devil’s Roast (gold beans); Annabel’s The Judith (24k gold theme)',
-      suitabilityForKhorus: 'Scalable luxury signal — low cost, high perceived value',
+      suitabilityForChorus: 'Scalable luxury signal — low cost, high perceived value',
       source: '[R8]'
     }
   ]
@@ -625,7 +625,7 @@ export const middleEastIntel = {
     { ingredient: 'Taif Rose', use: 'Prized Arabian rose from Ta’if, Saudi Arabia. Rosewater pairings with cardamom.' },
     { ingredient: 'Cardamom', use: 'Warm spiced depth. Traditional Qahwa coffee translation into cocktails. Popular in both alcoholic and zero-proof.' }
   ],
-  note: 'Khorus MENA presence referenced in research as a live communications agency operating across the Gulf region. [R6]'
+  note: 'Chorus MENA presence referenced in research as a live communications agency operating across the Gulf region. [R6]'
 }
 
 // ---------------------------------------------------------------------------
@@ -663,7 +663,7 @@ export const zeroproofLuxury = {
 
 // ---------------------------------------------------------------------------
 // MODULE 8: OPPORTUNITY RADAR (Signal → Migration → Product → Brief → Reallocation)
-// Hand-authored for v1, calibrated to Khorus luxury-events use case
+// Hand-authored for v1, calibrated to Chorus luxury-events use case
 // ---------------------------------------------------------------------------
 export const opportunityRadar = [
   {
@@ -671,7 +671,7 @@ export const opportunityRadar = [
     signal: 'Spritz Fatigue → Highball Intercept',
     signalDetail: 'Aperol Spritz collapsed from #9 Difford’s 2020 to #92 in 2025. Consumer search declining while DI ranking still holds (#8). Classic divergence pattern.',
     migration: 'Consumers migrating to Paloma (+5 DI ranks since 2022), Hugo Spritz (new top-50 entry), and gin-based highballs. Refreshment category is not dying — it’s being redistributed.',
-    product: 'Bespoke spritz station anchored by premium gin highball (The Botanist / Monkey 47 / Hendrick’s) with house botanicals and exotic citrus. Offer a “Signature Khorus Spritz” as the arrival drink across events.',
+    product: 'Bespoke spritz station anchored by premium gin highball (The Botanist / Monkey 47 / Hendrick’s) with house botanicals and exotic citrus. Offer a “Signature Chorus Spritz” as the arrival drink across events.',
     brief: 'Replace Aperol as the default arrival drink. Build a branded gin highball programme with 2–3 seasonal variants. Partners: Remy Cointreau (The Botanist), Hendrick’s (William Grant).',
     reallocation: 'Shift arrival-drink budget from Aperol activation to gin highball programme. Higher perceived premium, lower commodity feel, stronger brand storytelling opportunity.',
     urgency: 'Act now — Spritz is still commercially strong but brand equity is eroding. First-mover advantage in repositioning arrival drinks at UK luxury events.',
@@ -682,8 +682,8 @@ export const opportunityRadar = [
     signal: 'Zero-Proof Wedding & Corporate Demand',
     signalDetail: '24–30% of luxury event guests now actively request zero-proof options (IWSR 2025). Search for “dry weddings” +85% YoY. 68% of luxury events already have dedicated ZP menus — but quality is highly variable.',
     migration: 'Market moving from “juice corner” to full-parity non-alcoholic programmes. French Bloom ($100–$119/bottle, LVMH-backed) is replacing Champagne for toasts. Soho House banning “mocktail” language.',
-    product: 'Khorus Zero-Proof Luxury Tier. Curated NA programme: French Bloom for toasts, Seedlip / Everleaf for cocktail hour, Three Spirit Nightcap for post-dinner. Presented in identical glassware with same theatre. Adaptogens (ashwagandha, lion’s mane) as optional “function” layer.',
-    brief: 'Develop a standard Khorus ZP package that can be appended to any event proposal. Include tasting notes and menu card for each drink. Position as wellness-forward luxury, not abstinence.',
+    product: 'Chorus Zero-Proof Luxury Tier. Curated NA programme: French Bloom for toasts, Seedlip / Everleaf for cocktail hour, Three Spirit Nightcap for post-dinner. Presented in identical glassware with same theatre. Adaptogens (ashwagandha, lion’s mane) as optional “function” layer.',
+    brief: 'Develop a standard Chorus ZP package that can be appended to any event proposal. Include tasting notes and menu card for each drink. Position as wellness-forward luxury, not abstinence.',
     reallocation: 'Zero-proof cocktails run 10–15% pour cost vs 18–22% for alcoholic — higher margin at near-equivalent pricing. Budget reallocation improves event P&L while raising guest satisfaction.',
     urgency: 'Competitive table-stakes within 12 months. Build now before it becomes a commodity expectation.',
     colour: '#6d28d9'
@@ -693,7 +693,7 @@ export const opportunityRadar = [
     signal: 'Caviar Garnish + Ultra-Premium Tequila Crossover',
     signalDetail: 'Don Julio 1942 Chaparritos at Oscars, Met Gala, F1 Melbourne. Clase Azul Dia de Muertos at $1,900/bottle. Caviar Martini at Silverleaf (London). The F1 Mischief “Podium” pairs Don Julio 1942 with caviar service. These activations are coalescing into a recognisable luxury gesture.',
     migration: 'The Margarita (DI #3) is being “elevated” out of casual dining into luxury territory through ultra-premium agave spirits + culinary garnish crossover. High-low pairing (caviar + tequila) is the most talked-about luxury drinks moment of 2024–2025.',
-    product: 'The Khorus Caviar Margarita activation. Clase Azul Reposado or Don Julio 1942, fresh lime, agave — garnished with a quenelle of Golden Ossetra caviar on chip + crème fraîche alongside. Serves as the headline moment at premium events.',
+    product: 'The Chorus Caviar Margarita activation. Clase Azul Reposado or Don Julio 1942, fresh lime, agave — garnished with a quenelle of Golden Ossetra caviar on chip + crème fraîche alongside. Serves as the headline moment at premium events.',
     brief: 'Source Clase Azul / Don Julio 1942 via on-trade allocation. Partner with a premium caviar supplier (Caviar House, The Caviar Co, Petrossian). Build as a “signature activation” uplift that sits above standard bar package.',
     reallocation: 'Charge as a VIP activation uplift (£15–25 per serve premium). One activation moment (e.g., 7pm reveal) rather than full bar, concentrates spend for maximum impact.',
     urgency: 'Window is 12–18 months before mainstream saturation. Currently a differentiated luxury signal.',
@@ -703,7 +703,7 @@ export const opportunityRadar = [
 
 // ---------------------------------------------------------------------------
 // TWENTY-YEAR TREND ARC: 2006-2026
-// Source: [R9] = ~/Documents/Claude/research/chloe_khorus_cocktails/08_twenty_year_trend_arc.md
+// Source: [R9] = ~/Documents/Claude/research/chloe_chorus_cocktails/08_twenty_year_trend_arc.md
 // Generated: April 2026
 // All figures from Drinks International, Difford’s Guide, IWSR, Tales of the Cocktail,
 // World’s 50 Best Bars, CGA by NIQ, Bacardi Cocktail Trends Report, Synthesis Research
@@ -809,7 +809,7 @@ export const twentyYearArc = {
 }
 
 export const profileMeta = {
-  clientName: 'Khorus',
+  clientName: 'Chorus',
   profileTitle: 'Cocktail Intelligence Profile',
   subtitle: 'Global ranking, flavour trends, luxury event intel — tailored for luxury events programming',
   lastUpdated: 'April 2026',

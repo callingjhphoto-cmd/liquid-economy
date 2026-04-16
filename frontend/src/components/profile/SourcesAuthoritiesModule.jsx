@@ -108,7 +108,7 @@ export default function SourcesAuthoritiesModule({ data }) {
     <section id="module-sources-authorities">
       <SectionHeader
         size="lg"
-        subtitle="Where Khorus intelligence comes from"
+        subtitle="Where Chorus intelligence comes from"
       >
         Sources &amp; Authorities
       </SectionHeader>

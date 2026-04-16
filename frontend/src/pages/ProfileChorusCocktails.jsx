@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {
   top20Cocktails, flavourFamilies, luxuryVenueIntel,
   presentationTheatre, opportunityRadar, profileMeta, twentyYearArc
-} from '../data/profileKhorusCocktails'
+} from '../data/profileChorusCocktails'
 
 // ---- Shared primitives -------------------------------------------------------
 
@@ -134,7 +134,7 @@ const Module2 = () => (
             </div>
           </div>
           <div className="border-t border-gray-200 pt-3 mt-3">
-            <p className="text-caption font-semibold text-editorial mb-1">Khorus application</p>
+            <p className="text-caption font-semibold text-editorial mb-1">Chorus application</p>
             <p className="text-caption text-gray-700 leading-relaxed">{f.eventApplication}</p>
           </div>
         </Card>
@@ -233,8 +233,8 @@ const Module4 = () => (
               <p className="text-body font-semibold text-navy">{t.name}</p>
               <p className="text-caption text-gray-600 mt-0.5 leading-relaxed">{t.description}</p>
               <p className="text-caption mt-1.5">
-                <span className="text-editorial font-semibold">For Khorus: </span>
-                <span className="text-gray-700">{t.suitabilityForKhorus}</span>
+                <span className="text-editorial font-semibold">For Chorus: </span>
+                <span className="text-gray-700">{t.suitabilityForChorus}</span>
               </p>
             </div>
           ))}
@@ -353,7 +353,7 @@ const NAV_ITEMS = [
   { id: 'opportunity-radar', label: 'Radar' },
 ]
 
-export default function ProfileKhorusCocktails() {
+export default function ProfileChorusCocktails() {
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 
   return (
@@ -376,7 +376,7 @@ export default function ProfileKhorusCocktails() {
             <div className="flex items-center gap-3">
               <span className="text-caption text-gray-500">Data: {profileMeta.dataFreshness}</span>
               <a
-                href={`mailto:${profileMeta.contactEmail}?subject=Khorus%20Cocktail%20Intelligence%20%E2%80%94%20Follow-up`}
+                href={`mailto:${profileMeta.contactEmail}?subject=Chorus%20Cocktail%20Intelligence%20%E2%80%94%20Follow-up`}
                 className="text-caption bg-navy hover:bg-navy-light text-white font-semibold px-3 py-1.5 rounded-bento transition-colors"
               >
                 Contact Liquid

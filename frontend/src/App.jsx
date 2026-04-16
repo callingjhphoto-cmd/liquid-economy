@@ -35,7 +35,7 @@ const DepletionForecasting = lazy(() => import('./pages/DepletionForecasting'))
 const CompetitorMonitor = lazy(() => import('./pages/CompetitorMonitor'))
 const PitchGenerator = lazy(() => import('./pages/PitchGenerator'))
 const SubscriptionTiers = lazy(() => import('./pages/SubscriptionTiers'))
-const ProfileKhorusCocktails = lazy(() => import('./pages/ProfileKhorusCocktails'))
+const ProfileChorusCocktails = lazy(() => import('./pages/ProfileChorusCocktails'))
 const ClientProfile = lazy(() => import('./pages/ClientProfile'))
 const ProfilesIndex = lazy(() => import('./pages/ProfilesIndex'))
 
@@ -445,6 +445,7 @@ function Layout({ onLogout }) {
               <Route path="/contact" element={<SubscriptionTiers />} />
               <Route path="/subscription" element={<Navigate to="/contact" />} />
               <Route path="/profiles" element={<ProfilesIndex />} />
+              <Route path="/p/khorus-cocktails" element={<Navigate to="/p/chorus-cocktails" replace />} />
               <Route path="/p/:slug" element={<ProfileRoute />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
@@ -466,7 +467,7 @@ function Layout({ onLogout }) {
 
 // Profile loader: lazy-loads the profile data module for the given slug
 // then passes it to ClientProfile renderer.
-// Falls back to ProfileKhorusCocktails for backwards compat during transition.
+// Falls back to ProfileChorusCocktails for backwards compat during transition.
 function ProfileRoute() {
   const { slug } = useParams()
   const [profile, setProfile] = React.useState(undefined)

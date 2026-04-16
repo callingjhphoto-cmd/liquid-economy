@@ -16,6 +16,8 @@ import {
   twentyYearArc,
 } from '../profileKhorusCocktails'
 
+import { drinksAuthorities } from './sources/drinksAuthorities'
+
 // Source registry — every data point cites back into here.
 // Keys are stable; labels + URLs render in the Methodology section and inline.
 export const KHORUS_SOURCES = {
@@ -220,6 +222,7 @@ const khorusProfile = {
     { type: 'Presentation', data: { ...presentationTheatre, sourceKeys: moduleSources.presentation } },
     { type: 'TrendArc', data: { ...twentyYearArc, sourceKeys: moduleSources.trendArc } },
     { type: 'W50BMenuIntel', data: { sourceKeys: ['W50B', 'DI', 'DIFFORDS', 'BACARDI'] } },
+    { type: 'SourcesAuthorities', title: 'Sources & Authorities', anchor: 'sources', data: { sources: drinksAuthorities } },
     { type: 'OpportunityRadar', data: { narratives: annotatedOpportunities, sourceKeys: moduleSources.opportunityRadar } },
   ],
   narratives: annotatedOpportunities,

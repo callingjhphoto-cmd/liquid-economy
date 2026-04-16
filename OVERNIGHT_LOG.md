@@ -1,3 +1,21 @@
+# Overnight Build Log — 16 April 2026
+
+## Session summary
+
+**Shipped:** CategoryIntelligence \u2014 Liquid Intelligence interpretation card across all 11 categories \u00d7 5 years (build clean)
+
+1. **Full platform audit.** Confirmed all prior fixes still clean: 29 tooltips use `#f1f5f9`, all 44 axis tick instances have `fill: '#9ca3af'`, no literal non-ASCII in JSX render paths, all grid-cols values carry correct responsive prefixes. No new regressions found.
+
+2. **CategoryIntelligence.jsx \u2014 Liquid Intelligence card.** Added a gold-accented `CategoryIntelligenceCard` component rendered in the Overview tab of every category detail view (55 views across 11 categories \u00d7 5 years). Positioned between the Trade KPIs block and the \u201cView Full Report\u201d CTA. Three dynamic signals: (1) growth momentum \u2014 four bands keyed to `yd.growth` numeric value (\u22658% emerald \u201cStrong growth window\u201d, 4\u20137.9% blue \u201cSustainable growth\u201d, 1\u20133.9% amber \u201cGrowth normalising\u201d, <1% red \u201cVolume contraction\u201d), each with tailored tactical copy; (2) channel concentration risk \u2014 dominant channel flagged amber at >55%, blue at 45\u201354%, emerald when no channel exceeds 45%; (3) gross margin environment \u2014 renders only when `tradeKPIs` is present, four margin bands at 60/50/40% with investment/risk copy. Added `Zap` to lucide import.
+
+3. **Pattern consistency.** Card uses the same gold-accent `border-gold/30` + `from-amber-50/60` gradient + Zap header pattern established in Valuations (Apr 13), ScenarioModeling (Apr 11), and CampaignPlanner (Apr 14). Signal pills share the same dot + uppercase label + body-copy structure.
+
+4. **No data hallucination.** All signal thresholds derive directly from `yd.growth`, `yd.channels`, and `yd.tradeKPIs.grossMarginPct` \u2014 fields verified clean in the Apr 5 and Apr 8 data audits. No hard-coded copy referencing specific category names.
+
+5. **Build:** `vite build` \u2713 \u2014 0 errors, 0 warnings, 2443+ modules. Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 15 April 2026
 
 ## Session summary

@@ -358,26 +358,26 @@ export default function ProfileKhorusCocktails() {
 
   return (
     <div className="min-h-screen bg-surface text-navy font-body">
-      {/* Header */}
+      {/* Header \u2014 light editorial (dark band removed to match main site) */}
       <header className="border-b border-gray-200 bg-white/95 sticky top-0 z-30 backdrop-blur">
-        <div className="bg-navy">
+        <div className="bg-white">
           <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <div>
               <div className="flex items-center gap-2">
                 <span className="text-label text-gold uppercase tracking-wider">Liquid Economy</span>
-                <span className="text-gray-400">/</span>
-                <span className="text-label text-gray-300 uppercase tracking-wider">Client Intelligence</span>
+                <span className="text-gray-300">/</span>
+                <span className="text-label text-gray-500 uppercase tracking-wider">Client Intelligence</span>
               </div>
-              <h1 className="text-page font-display text-white mt-1">
+              <h1 className="text-page font-display text-navy mt-1">
                 {profileMeta.clientName} \u2014 {profileMeta.profileTitle}
               </h1>
-              <p className="text-caption text-gray-300 mt-1">{profileMeta.subtitle}</p>
+              <p className="text-caption text-gray-600 mt-1">{profileMeta.subtitle}</p>
             </div>
             <div className="flex items-center gap-3">
-              <span className="text-caption text-gray-300">Data: {profileMeta.dataFreshness}</span>
+              <span className="text-caption text-gray-500">Data: {profileMeta.dataFreshness}</span>
               <a
                 href={`mailto:${profileMeta.contactEmail}?subject=Khorus%20Cocktail%20Intelligence%20%E2%80%94%20Follow-up`}
-                className="text-caption bg-gold hover:bg-gold-light text-navy font-semibold px-3 py-1.5 rounded-bento transition-colors"
+                className="text-caption bg-navy hover:bg-navy-light text-white font-semibold px-3 py-1.5 rounded-bento transition-colors"
               >
                 Contact Liquid
               </a>

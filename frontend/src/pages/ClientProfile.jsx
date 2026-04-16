@@ -11,7 +11,7 @@
 
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ChevronRight, ArrowRight, Mail } from 'lucide-react'
+import { ChevronRight, ArrowRight, Mail, ExternalLink, BookOpen } from 'lucide-react'
 import {
   PageHeader,
   Card,
@@ -19,7 +19,55 @@ import {
   SectionHeader,
   Badge,
   BentoGrid,
+  SourceLink,
 } from '../components/ui'
+
+// ---- Source citation primitives --------------------------------------------
+
+// Renders a compact set of inline source tags given an array of source keys
+// and the profile-wide source registry.
+function SourceTags({ keys = [], registry = {}, className = '' }) {
+  if (!keys || keys.length === 0) return null
+  return (
+    <span className={`inline-flex flex-wrap items-center gap-1 ${className}`}>
+      {keys.map((k) => {
+        const src = registry[k]
+        if (!src) return null
+        const content = (
+          <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] font-medium text-navy/60 hover:text-navy bg-navy/5 hover:bg-navy/10 transition-colors">
+            {src.shortLabel || src.label}
+            {src.url && <ExternalLink size={8} />}
+          </span>
+        )
+        return src.url ? (
+          <a
+            key={k}
+            href={src.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={src.snippet || src.label}
+            className="no-underline"
+          >
+            {content}
+          </a>
+        ) : (
+          <span key={k} title={src.snippet || src.label}>{content}</span>
+        )
+      })}
+    </span>
+  )
+}
+
+// Compact "Sourced from" row used directly under each module heading
+function ModuleSources({ keys = [], registry = {} }) {
+  if (!keys || keys.length === 0) return null
+  return (
+    <div className="flex flex-wrap items-center gap-2 mt-1 mb-4">
+      <span className="text-label text-gray-500 uppercase tracking-wider">Sources</span>
+      <SourceTags keys={keys} registry={registry} />
+    </div>
+  )
+}
 
 // ---- Tone mapping (maps free-form profile data to shared Badge variants) ----
 
@@ -66,16 +114,18 @@ function ModuleHeader({ title, subtitle, linkTo }) {
 
 // ---- MODULE: TopCocktails ---------------------------------------------------
 
-function TopCocktailsModule({ data }) {
+function TopCocktailsModule({ data, profile }) {
   const [expanded, setExpanded] = useState(null)
   const cocktails = data.cocktails || []
+  const registry = profile?.sources || {}
   return (
     <section id="module-top-cocktails">
       <ModuleHeader
         title="Top 20 Cocktails \u2014 Global Ranking 2024\u20132026"
-        subtitle="Drinks International World\u2019s 50 Best Bars Brand Report \u00b7 Difford\u2019s Guide \u00b7 IWSR"
+        subtitle="Elite on-premise ranking + consumer search intent \u2014 two independent panels cross-referenced"
         linkTo="/categories?category=cocktails"
       />
+      <ModuleSources keys={data.sourceKeys} registry={registry} />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">
         {cocktails.map((c) => {
           const isOpen = expanded === c.rank
@@ -103,6 +153,11 @@ function TopCocktailsModule({ data }) {
               {c.rankMove && (
                 <p className="text-caption text-gray-500 mt-3 font-mono">{c.rankMove}</p>
               )}
+              {c.sources && c.sources.length > 0 && (
+                <div className="mt-3 pt-3 border-t border-gray-100">
+                  <SourceTags keys={c.sources} registry={registry} />
+                </div>
+              )}
               {isOpen && c.note && (
                 <div className="mt-3 pt-3 border-t border-gray-100">
                   <p className="text-caption text-gray-700 leading-relaxed italic">{c.note}</p>
@@ -112,22 +167,24 @@ function TopCocktailsModule({ data }) {
           )
         })}
       </div>
-      <p className="text-caption text-gray-500 mt-3">Tap any card for the analyst note. DI = Drinks International survey of 100 elite bars.</p>
+      <p className="text-caption text-gray-500 mt-3">Tap any card for the analyst note. DI = Drinks International survey of 100 elite bars; Difford\u2019s = 700k+ monthly consumer search panel.</p>
     </section>
   )
 }
 
 // ---- MODULE: FlavourRadar ---------------------------------------------------
 
-function FlavourRadarModule({ data }) {
+function FlavourRadarModule({ data, profile }) {
   const families = data.families || []
+  const registry = profile?.sources || {}
   return (
     <section id="module-flavour-radar">
       <ModuleHeader
         title="Flavour Families \u2014 2025\u20132026 Intelligence"
-        subtitle="Bacardi Cocktail Trends Report \u00b7 Tales of the Cocktail 2025 \u00b7 W50B menu analysis"
+        subtitle="Seven families ranked by growth signal and luxury-event applicability"
         linkTo="/categories"
       />
+      <ModuleSources keys={data.sourceKeys} registry={registry} />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
         {families.map((f) => (
           <AccentCard key={f.id} padding="p-5">
@@ -158,6 +215,11 @@ function FlavourRadarModule({ data }) {
                 <p className="text-caption text-gray-700 leading-relaxed">{f.eventApplication}</p>
               </div>
             )}
+            {f.sources && f.sources.length > 0 && (
+              <div className="mt-3 pt-3 border-t border-gray-100">
+                <SourceTags keys={f.sources} registry={registry} />
+              </div>
+            )}
           </AccentCard>
         ))}
       </div>
@@ -167,9 +229,10 @@ function FlavourRadarModule({ data }) {
 
 // ---- MODULE: LuxuryVenues --------------------------------------------------
 
-function LuxuryVenuesModule({ data }) {
+function LuxuryVenuesModule({ data, profile }) {
   const [expanded, setExpanded] = useState(null)
   const venues = data.venues || []
+  const registry = profile?.sources || {}
   return (
     <section id="module-luxury-venues">
       <ModuleHeader
@@ -177,6 +240,7 @@ function LuxuryVenuesModule({ data }) {
         subtitle="Signature cocktails, pricing bands and theatre at elite global venues"
         linkTo="/venues"
       />
+      <ModuleSources keys={data.sourceKeys} registry={registry} />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
         {venues.map((v, i) => (
           <Card
@@ -196,30 +260,36 @@ function LuxuryVenuesModule({ data }) {
             <div className="flex gap-4 text-caption text-gray-500">
               <span>Standard: <span className="text-navy font-medium">{v.avgCostPerServe}</span></span>
             </div>
+            {v.sources && v.sources.length > 0 && (
+              <div className="mt-3 pt-3 border-t border-gray-100">
+                <SourceTags keys={v.sources} registry={registry} />
+              </div>
+            )}
             {expanded === i && (
               <div className="mt-3 border-t border-gray-100 pt-3 space-y-1.5">
                 <p className="text-caption text-gray-600"><span className="text-navy font-semibold">Dominant brand:</span> {v.dominantBrand}</p>
                 <p className="text-caption text-gray-600"><span className="text-navy font-semibold">Theatre:</span> {v.theatre}</p>
-                <p className="text-caption text-gray-500 italic">{v.source}</p>
               </div>
             )}
           </Card>
         ))}
       </div>
-      <p className="text-caption text-gray-500 mt-3">Tap any card for full detail.</p>
+      <p className="text-caption text-gray-500 mt-3">Tap any card for full detail including dominant brand and theatre format.</p>
     </section>
   )
 }
 
 // ---- MODULE: Presentation --------------------------------------------------
 
-function PresentationModule({ data }) {
+function PresentationModule({ data, profile }) {
+  const registry = profile?.sources || {}
   return (
     <section id="module-presentation">
       <ModuleHeader
         title="Presentation and Theatre Library"
         subtitle="Ice programme, glassware specs, and activation formats"
       />
+      <ModuleSources keys={data.sourceKeys} registry={registry} />
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
         <Card padding="p-5">
           <h3 className="text-subsection font-display text-navy mb-3">Ice Programme</h3>
@@ -273,16 +343,18 @@ function PresentationModule({ data }) {
 
 // ---- MODULE: TrendArc -------------------------------------------------------
 
-function TrendArcModule({ data }) {
+function TrendArcModule({ data, profile }) {
   const eras = data.eras || []
   const findings = data.surprisingFindings || []
+  const registry = profile?.sources || {}
   return (
     <section id="module-trend-arc">
       <ModuleHeader
         title="20-Year Cocktail Trend Arc \u2014 2006\u20132026"
-        subtitle="Six eras of luxury on-premise evolution \u00b7 Drinks International, Difford\u2019s Guide, IWSR, W50B"
+        subtitle="Six eras of luxury on-premise evolution"
         linkTo="/categories"
       />
+      <ModuleSources keys={data.sourceKeys} registry={registry} />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 mb-10">
         {eras.map((era) => (
           <AccentCard key={era.id} padding="p-5">
@@ -470,7 +542,7 @@ function DemographicsLensModule({ data }) {
 
 // ---- MODULE: OpportunityRadar -----------------------------------------------
 
-function CommercialNarrativeCard({ o }) {
+function CommercialNarrativeCard({ o, registry }) {
   const [open, setOpen] = useState(false)
   return (
     <AccentCard padding="p-5">
@@ -491,6 +563,12 @@ function CommercialNarrativeCard({ o }) {
         />
       </div>
       <p className="text-caption text-gray-700 leading-relaxed mt-2">{o.signalDetail}</p>
+
+      {o.sources && o.sources.length > 0 && (
+        <div className="mt-3">
+          <SourceTags keys={o.sources} registry={registry} />
+        </div>
+      )}
 
       {open && (
         <div className="mt-4 space-y-4 border-t border-gray-100 pt-4">
@@ -530,17 +608,19 @@ function CommercialNarrativeCard({ o }) {
   )
 }
 
-function OpportunityRadarModule({ data }) {
+function OpportunityRadarModule({ data, profile }) {
   const narratives = data.narratives || []
+  const registry = profile?.sources || {}
   return (
     <section id="module-opportunity-radar">
       <ModuleHeader
         title="Opportunity Radar"
         subtitle="Commercial narratives \u2014 signal, adjacency, demographic, product, brief, and media reallocation"
       />
+      <ModuleSources keys={data.sourceKeys} registry={registry} />
       <div className="space-y-4">
         {narratives.map((o) => (
-          <CommercialNarrativeCard key={o.id} o={o} />
+          <CommercialNarrativeCard key={o.id} o={o} registry={registry} />
         ))}
       </div>
     </section>
@@ -587,8 +667,96 @@ function ModuleTabs({ modules }) {
             </button>
           )
         })}
+        <button
+          onClick={() => scrollTo('module-sources-methodology')}
+          className="px-3 py-1.5 rounded-full text-[12px] font-medium bg-gold/10 text-gold hover:bg-gold hover:text-navy transition-colors flex-shrink-0 inline-flex items-center gap-1"
+        >
+          <BookOpen size={10} />
+          Sources
+        </button>
       </div>
     </div>
+  )
+}
+
+// ---- Sources & Methodology section -----------------------------------------
+
+function SourcesMethodologySection({ profile }) {
+  const registry = profile?.sources || {}
+  const keys = Object.keys(registry)
+  if (keys.length === 0) return null
+
+  // Split public (has URL) from internal (Liquid Economy research)
+  const external = keys.filter((k) => registry[k].url)
+  const internal = keys.filter((k) => !registry[k].url)
+
+  return (
+    <section id="module-sources-methodology">
+      <SectionHeader size="lg" subtitle="Every data point in this profile cites back to one of the sources below. Click any tag to open the primary source; internal research is available on request.">
+        Sources and Methodology
+      </SectionHeader>
+
+      {external.length > 0 && (
+        <div className="mb-6">
+          <h3 className="text-label text-gray-500 uppercase tracking-wider mb-3">Primary external sources</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+            {external.map((k) => {
+              const s = registry[k]
+              return (
+                <Card key={k} padding="p-5">
+                  <div className="flex items-start justify-between mb-2">
+                    <div className="min-w-0">
+                      <p className="font-semibold text-navy">{s.label}</p>
+                      {s.coverage && <p className="text-caption text-gray-500 mt-0.5">Coverage: {s.coverage}</p>}
+                    </div>
+                    <Badge variant="blue" className="ml-2 flex-shrink-0">{k}</Badge>
+                  </div>
+                  {s.methodology && (
+                    <p className="text-caption text-gray-700 leading-relaxed mb-3">{s.methodology}</p>
+                  )}
+                  <SourceLink label={s.shortLabel || s.label} url={s.url} snippet={s.snippet} />
+                </Card>
+              )
+            })}
+          </div>
+        </div>
+      )}
+
+      {internal.length > 0 && (
+        <div className="mb-6">
+          <h3 className="text-label text-gray-500 uppercase tracking-wider mb-3">Liquid Economy internal research</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+            {internal.map((k) => {
+              const s = registry[k]
+              return (
+                <AccentCard key={k} padding="p-5">
+                  <div className="flex items-start justify-between mb-2">
+                    <p className="font-semibold text-navy">{s.label}</p>
+                    <Badge variant="gold" className="ml-2 flex-shrink-0">{k}</Badge>
+                  </div>
+                  {s.coverage && <p className="text-caption text-gray-500 mb-2">Coverage: {s.coverage}</p>}
+                  {s.methodology && (
+                    <p className="text-caption text-gray-700 leading-relaxed">{s.methodology}</p>
+                  )}
+                </AccentCard>
+              )
+            })}
+          </div>
+          <p className="text-caption text-gray-500 mt-3">Internal research reports are available to Khorus stakeholders on request \u2014 <a href="mailto:callingjhphoto@gmail.com?subject=Khorus%20%E2%80%94%20Source%20Request" className="text-editorial hover:text-navy underline">request access</a>.</p>
+        </div>
+      )}
+
+      <Card padding="p-5" className="bg-gray-50/50">
+        <h3 className="text-subsection font-display text-navy mb-2">How to read this profile</h3>
+        <ul className="space-y-2 text-caption text-gray-700 leading-relaxed list-disc pl-4">
+          <li><span className="font-semibold text-navy">Rank-based data</span> (DI / Difford\u2019s) is direct placement in each source\u2019s most recent annual list.</li>
+          <li><span className="font-semibold text-navy">\u201cMove\u201d deltas</span> (e.g. +19 from #23 in 2022) are year-over-year list position changes computed from the named source\u2019s historical rankings.</li>
+          <li><span className="font-semibold text-navy">Growth signals</span> on flavour families are headline figures from Bacardi Cocktail Trends Report and are qualitative unless marked with a specific percentage.</li>
+          <li><span className="font-semibold text-navy">Pricing bands</span> combine on-menu capture (venue websites, press) with operator interview triangulation \u2014 converted to GBP/USD/AED at April 2026 rates.</li>
+          <li><span className="font-semibold text-navy">Unverified figures</span> are marked \u201cTBD\u201d rather than estimated.</li>
+        </ul>
+      </Card>
+    </section>
   )
 }
 
@@ -675,6 +843,9 @@ export default function ClientProfile({ profile, slug }) {
             </div>
           )
         })}
+
+        {/* Sources & Methodology \u2014 always last, above the footer */}
+        <SourcesMethodologySection profile={profile} />
 
         <footer className="border-t border-gray-200 pt-6 pb-2 text-center">
           <p className="text-caption text-gray-500">

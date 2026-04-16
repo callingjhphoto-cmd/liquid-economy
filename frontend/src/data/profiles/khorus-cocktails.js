@@ -219,6 +219,7 @@ const khorusProfile = {
     { type: 'LuxuryVenues', data: { venues: annotatedVenues, sourceKeys: moduleSources.luxuryVenues } },
     { type: 'Presentation', data: { ...presentationTheatre, sourceKeys: moduleSources.presentation } },
     { type: 'TrendArc', data: { ...twentyYearArc, sourceKeys: moduleSources.trendArc } },
+    { type: 'W50BMenuIntel', data: { sourceKeys: ['W50B', 'DI', 'DIFFORDS', 'BACARDI'] } },
     { type: 'OpportunityRadar', data: { narratives: annotatedOpportunities, sourceKeys: moduleSources.opportunityRadar } },
   ],
   narratives: annotatedOpportunities,

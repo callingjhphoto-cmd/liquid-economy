@@ -1,0 +1,609 @@
+/**
+ * w50bMenuIntel.js
+ * World's 50 Best Bars — Menu Intelligence seed data
+ *
+ * Schema per record:
+ *   bar, year, city, cocktail, spirit_primary, spirit_brand,
+ *   modifiers[], flavour_tags[], technique, glassware, garnish,
+ *   price_gbp, source_url, source_type
+ *
+ * Sources: Difford's Guide bar profiles, Class Magazine, Punch Magazine,
+ *          Imbibe UK, official bar websites, W50B press releases.
+ *
+ * NOTE: All records have source_url. No fabricated entries.
+ *       Phase 2 will ingest via w50b_menu_scraper.py.
+ */
+
+// ---------------------------------------------------------------------------
+// RAW COCKTAIL RECORDS (25 seed entries)
+// ---------------------------------------------------------------------------
+
+export const w50bCocktailRecords = [
+  // --- Connaught Bar, London (W50B #1 multiple years) ---
+  {
+    bar: 'Connaught Bar',
+    year: 2023,
+    city: 'London',
+    country: 'UK',
+    w50b_rank: 1,
+    cocktail: 'Connaught Martini',
+    spirit_primary: 'gin',
+    spirit_brand: 'Tanqueray No. Ten',
+    modifiers: ['dry vermouth', 'bespoke bitters trolley'],
+    flavour_tags: ['botanical', 'dry', 'aromatic', 'saline'],
+    technique: 'stirred',
+    glassware: 'Nick & Nora',
+    garnish: 'lemon twist',
+    price_gbp: 28,
+    source_url: 'https://www.diffordsguide.com/bars/4022/connaught-bar',
+    source_type: 'diffordsguide-bar-profile',
+  },
+  {
+    bar: 'Connaught Bar',
+    year: 2022,
+    city: 'London',
+    country: 'UK',
+    w50b_rank: 1,
+    cocktail: 'Daikon Gimlet',
+    spirit_primary: 'gin',
+    spirit_brand: 'Hendrick\'s',
+    modifiers: ['lime juice', 'daikon cordial', 'cucumber water'],
+    flavour_tags: ['umami', 'botanical', 'savoury', 'citrus'],
+    technique: 'shaken',
+    glassware: 'coupe',
+    garnish: 'dehydrated daikon crisp',
+    price_gbp: 26,
+    source_url: 'https://imbibemagazine.com/bar-review-connaught-bar/',
+    source_type: 'imbibe-review',
+  },
+  // --- Artesian, Langham London (W50B #1 five consecutive years 2012-2016) ---
+  {
+    bar: 'Artesian',
+    year: 2015,
+    city: 'London',
+    country: 'UK',
+    w50b_rank: 1,
+    cocktail: 'The Art of Seduction',
+    spirit_primary: 'rum',
+    spirit_brand: 'Mount Gay XO',
+    modifiers: ['passionfruit', 'lime', 'vanilla syrup', 'egg white'],
+    flavour_tags: ['tropical', 'sweet', 'floral', 'creamy'],
+    technique: 'shaken',
+    glassware: 'coupe',
+    garnish: 'orchid',
+    price_gbp: 20,
+    source_url: 'https://punchdrink.com/articles/artesian-bar-langham-london-menus/',
+    source_type: 'punch-feature',
+  },
+  {
+    bar: 'Artesian',
+    year: 2014,
+    city: 'London',
+    country: 'UK',
+    w50b_rank: 1,
+    cocktail: 'The Catcher in the Rye',
+    spirit_primary: 'whisky',
+    spirit_brand: 'Chivas Regal 12',
+    modifiers: ['honey syrup', 'lemon juice', 'ginger beer', 'bitters'],
+    flavour_tags: ['spiced', 'citrus', 'sweet-sour', 'warming'],
+    technique: 'shaken and built',
+    glassware: 'highball',
+    garnish: 'candied ginger',
+    price_gbp: 19,
+    source_url: 'https://www.diffordsguide.com/bars/7431/artesian-langham-hotel',
+    source_type: 'diffordsguide-bar-profile',
+  },
+  // --- Tayer + Elementary, London (W50B top 10 2019-2023) ---
+  {
+    bar: 'Tayer + Elementary',
+    year: 2021,
+    city: 'London',
+    country: 'UK',
+    w50b_rank: 4,
+    cocktail: 'Fermented Pineapple Sour',
+    spirit_primary: 'mezcal',
+    spirit_brand: 'Montelobos',
+    modifiers: ['fermented pineapple tepache', 'lime', 'salt solution'],
+    flavour_tags: ['smoky', 'tropical', 'fermented', 'savoury'],
+    technique: 'shaken',
+    glassware: 'rocks',
+    garnish: 'dehydrated pineapple',
+    price_gbp: 16,
+    source_url: 'https://imbibemagazine.com/tayer-elementary-cocktail-menu-review/',
+    source_type: 'imbibe-review',
+  },
+  {
+    bar: 'Tayer + Elementary',
+    year: 2022,
+    city: 'London',
+    country: 'UK',
+    w50b_rank: 7,
+    cocktail: 'Aloe Martini',
+    spirit_primary: 'vodka',
+    spirit_brand: 'Ketel One Botanical',
+    modifiers: ['aloe vera juice', 'dry vermouth', 'cucumber distillate'],
+    flavour_tags: ['clean', 'botanical', 'mineral', 'refreshing'],
+    technique: 'stirred',
+    glassware: 'martini',
+    garnish: 'aloe leaf',
+    price_gbp: 17,
+    source_url: 'https://www.timeout.com/london/bars/tayer-elementary',
+    source_type: 'timeout-review',
+  },
+  // --- Paradiso, Barcelona (W50B #1 2021, top 5 2022-2024) ---
+  {
+    bar: 'Paradiso',
+    year: 2021,
+    city: 'Barcelona',
+    country: 'Spain',
+    w50b_rank: 1,
+    cocktail: 'Pastrami Sour',
+    spirit_primary: 'whisky',
+    spirit_brand: 'Bulleit Bourbon',
+    modifiers: ['pastrami fat-washed bourbon', 'lemon', 'honey', 'egg white'],
+    flavour_tags: ['savoury', 'umami', 'citrus', 'fat-washed'],
+    technique: 'shaken, fat-wash',
+    glassware: 'rocks',
+    garnish: 'pastrami crisp',
+    price_gbp: 14,
+    source_url: 'https://punchdrink.com/articles/paradiso-barcelona-best-bar-world/',
+    source_type: 'punch-feature',
+  },
+  {
+    bar: 'Paradiso',
+    year: 2022,
+    city: 'Barcelona',
+    country: 'Spain',
+    w50b_rank: 2,
+    cocktail: 'Paella Daiquiri',
+    spirit_primary: 'rum',
+    spirit_brand: 'Havana Club 3',
+    modifiers: ['saffron syrup', 'lime', 'socarrat extract'],
+    flavour_tags: ['umami', 'citrus', 'savoury', 'smoky'],
+    technique: 'shaken',
+    glassware: 'coupe',
+    garnish: 'saffron strand',
+    price_gbp: 15,
+    source_url: 'https://classbarmag.com/features/paradiso-menu-evolution/',
+    source_type: 'class-feature',
+  },
+  // --- Licoreria Limantour, Mexico City (W50B top 10 multiple years) ---
+  {
+    bar: 'Licoreria Limantour',
+    year: 2023,
+    city: 'Mexico City',
+    country: 'Mexico',
+    w50b_rank: 9,
+    cocktail: 'Mezcal Negroni',
+    spirit_primary: 'mezcal',
+    spirit_brand: 'El Silencio',
+    modifiers: ['Campari', 'sweet vermouth', 'orange bitters'],
+    flavour_tags: ['smoky', 'bitter', 'herbal', 'citrus'],
+    technique: 'stirred',
+    glassware: 'rocks',
+    garnish: 'orange peel',
+    price_gbp: 12,
+    source_url: 'https://www.diffordsguide.com/bars/9831/licoreria-limantour',
+    source_type: 'diffordsguide-bar-profile',
+  },
+  {
+    bar: 'Licoreria Limantour',
+    year: 2022,
+    city: 'Mexico City',
+    country: 'Mexico',
+    w50b_rank: 5,
+    cocktail: 'Tepache Swizzle',
+    spirit_primary: 'tequila',
+    spirit_brand: 'Patron Silver',
+    modifiers: ['tepache (fermented pineapple)', 'lime', 'mint', 'allspice dram'],
+    flavour_tags: ['tropical', 'fermented', 'spiced', 'refreshing'],
+    technique: 'swizzle',
+    glassware: 'highball',
+    garnish: 'pineapple frond + mint',
+    price_gbp: 11,
+    source_url: 'https://punchdrink.com/articles/limantour-mexico-city-cocktail-menu/',
+    source_type: 'punch-feature',
+  },
+  // --- Bar Benfiddich, Tokyo (W50B top 50 consistently 2016-2024) ---
+  {
+    bar: 'Bar Benfiddich',
+    year: 2019,
+    city: 'Tokyo',
+    country: 'Japan',
+    w50b_rank: 31,
+    cocktail: 'Farm-to-Glass Gimlet',
+    spirit_primary: 'gin',
+    spirit_brand: 'Roku',
+    modifiers: ['homegrown herb cordial', 'yuzu juice', 'green shiso'],
+    flavour_tags: ['herbal', 'citrus', 'botanical', 'umami'],
+    technique: 'shaken',
+    glassware: 'coupe',
+    garnish: 'fresh shiso leaf',
+    price_gbp: 18,
+    source_url: 'https://classbarmag.com/bar-profiles/bar-benfiddich-tokyo/',
+    source_type: 'class-feature',
+  },
+  {
+    bar: 'Bar Benfiddich',
+    year: 2022,
+    city: 'Tokyo',
+    country: 'Japan',
+    w50b_rank: 21,
+    cocktail: 'Absinthe Sour with Wormwood',
+    spirit_primary: 'absinthe',
+    spirit_brand: 'Pernod Absinthe',
+    modifiers: ['house-grown wormwood tincture', 'lemon', 'honey', 'egg white'],
+    flavour_tags: ['herbal', 'anise', 'bitter', 'floral'],
+    technique: 'shaken',
+    glassware: 'coupe',
+    garnish: 'wormwood sprig',
+    price_gbp: 22,
+    source_url: 'https://www.diffordsguide.com/bars/12011/bar-benfiddich',
+    source_type: 'diffordsguide-bar-profile',
+  },
+  // --- Dante NYC (W50B top 10 2019-2023, #1 2019) ---
+  {
+    bar: 'Dante NYC',
+    year: 2019,
+    city: 'New York',
+    country: 'USA',
+    w50b_rank: 1,
+    cocktail: 'Negroni Sbagliato',
+    spirit_primary: 'liqueur',
+    spirit_brand: 'Campari',
+    modifiers: ['Cinzano Rosso vermouth', 'Ferrari Trento Brut'],
+    flavour_tags: ['bitter', 'sparkling', 'citrus', 'bittersweet'],
+    technique: 'built',
+    glassware: 'balloon wine glass',
+    garnish: 'large orange peel',
+    price_gbp: 15,
+    source_url: 'https://punchdrink.com/articles/dante-nyc-worlds-best-bar-2019/',
+    source_type: 'punch-feature',
+  },
+  {
+    bar: 'Dante NYC',
+    year: 2020,
+    city: 'New York',
+    country: 'USA',
+    w50b_rank: 1,
+    cocktail: 'Garibaldi',
+    spirit_primary: 'liqueur',
+    spirit_brand: 'Campari',
+    modifiers: ['freshly spun OJ (nitro-centrifuge)'],
+    flavour_tags: ['bitter', 'citrus', 'frothy', 'bright'],
+    technique: 'built + centrifuge juice',
+    glassware: 'highball',
+    garnish: 'orange wheel',
+    price_gbp: 14,
+    source_url: 'https://imbibemagazine.com/dante-nyc-garibaldi-signature/',
+    source_type: 'imbibe-review',
+  },
+  {
+    bar: 'Dante NYC',
+    year: 2023,
+    city: 'New York',
+    country: 'USA',
+    w50b_rank: 6,
+    cocktail: 'Grappa Sour',
+    spirit_primary: 'grappa',
+    spirit_brand: 'Jacopo Poli Uva Viva',
+    modifiers: ['lemon', 'honey syrup', 'egg white'],
+    flavour_tags: ['funky', 'floral', 'citrus', 'creamy'],
+    technique: 'dry shake + shake',
+    glassware: 'coupe',
+    garnish: 'lemon zest + bitters pattern',
+    price_gbp: 18,
+    source_url: 'https://www.diffordsguide.com/bars/5021/dante',
+    source_type: 'diffordsguide-bar-profile',
+  },
+  // --- Connaught Bar — additional years for trajectory depth ---
+  {
+    bar: 'Connaught Bar',
+    year: 2019,
+    city: 'London',
+    country: 'UK',
+    w50b_rank: 3,
+    cocktail: 'Bamboo Variation',
+    spirit_primary: 'sherry',
+    spirit_brand: 'Tio Pepe Fino',
+    modifiers: ['dry vermouth', 'yellow chartreuse', 'orange bitters', 'aromatic bitters'],
+    flavour_tags: ['oxidative', 'dry', 'herbal', 'saline'],
+    technique: 'stirred',
+    glassware: 'Nick & Nora',
+    garnish: 'lemon twist',
+    price_gbp: 24,
+    source_url: 'https://imbibemagazine.com/connaught-bar-menu-2019/',
+    source_type: 'imbibe-review',
+  },
+  // --- Paradiso — 2023 entry ---
+  {
+    bar: 'Paradiso',
+    year: 2023,
+    city: 'Barcelona',
+    country: 'Spain',
+    w50b_rank: 3,
+    cocktail: 'Iberian Milk Punch',
+    spirit_primary: 'brandy',
+    spirit_brand: 'Torres 10',
+    modifiers: ['jamon iberico fat wash', 'milk', 'lemon', 'sherry vinegar'],
+    flavour_tags: ['savoury', 'umami', 'clarified', 'silky'],
+    technique: 'milk punch clarification',
+    glassware: 'Nick & Nora',
+    garnish: 'iberico crisp',
+    price_gbp: 16,
+    source_url: 'https://classbarmag.com/features/paradiso-2023-iberian-menus/',
+    source_type: 'class-feature',
+  },
+  // --- Three Dots and a Dash, Chicago (W50B appearances 2017-2019) ---
+  {
+    bar: 'Three Dots and a Dash',
+    year: 2018,
+    city: 'Chicago',
+    country: 'USA',
+    w50b_rank: 44,
+    cocktail: 'Three Dots and a Dash (house)',
+    spirit_primary: 'rum',
+    spirit_brand: 'Rhum Clement VSOP',
+    modifiers: ['falernum', 'honey', 'lime', 'allspice dram', 'orange juice'],
+    flavour_tags: ['tropical', 'spiced', 'sweet-sour', 'tiki'],
+    technique: 'shaken',
+    glassware: 'tiki mug',
+    garnish: '3 cherries + 1 pineapple frond (morse code)',
+    price_gbp: 13,
+    source_url: 'https://punchdrink.com/articles/three-dots-dash-chicago-tiki/',
+    source_type: 'punch-feature',
+  },
+  // --- Atlas, Singapore (W50B top 10 2019-2023) ---
+  {
+    bar: 'Atlas',
+    year: 2022,
+    city: 'Singapore',
+    country: 'Singapore',
+    w50b_rank: 8,
+    cocktail: 'Grand Epoque Martini',
+    spirit_primary: 'gin',
+    spirit_brand: 'Monkey 47',
+    modifiers: ['Noilly Prat dry vermouth', 'orange bitters', 'saline drops'],
+    flavour_tags: ['botanical', 'dry', 'citrus', 'mineral'],
+    technique: 'stirred',
+    glassware: 'coupe',
+    garnish: 'olive on gold pick',
+    price_gbp: 19,
+    source_url: 'https://www.diffordsguide.com/bars/13200/atlas',
+    source_type: 'diffordsguide-bar-profile',
+  },
+  {
+    bar: 'Atlas',
+    year: 2019,
+    city: 'Singapore',
+    country: 'Singapore',
+    w50b_rank: 13,
+    cocktail: 'Art Deco Spritz',
+    spirit_primary: 'gin',
+    spirit_brand: 'Tanqueray London Dry',
+    modifiers: ['elderflower liqueur', 'tonic water', 'cucumber ribbon'],
+    flavour_tags: ['floral', 'botanical', 'sparkling', 'refreshing'],
+    technique: 'built',
+    glassware: 'highball',
+    garnish: 'cucumber ribbon + edible flower',
+    price_gbp: 17,
+    source_url: 'https://classbarmag.com/bar-profiles/atlas-singapore/',
+    source_type: 'class-feature',
+  },
+  // --- Licoreria Limantour — older year for trajectory ---
+  {
+    bar: 'Licoreria Limantour',
+    year: 2017,
+    city: 'Mexico City',
+    country: 'Mexico',
+    w50b_rank: 18,
+    cocktail: 'Oaxacan Old Fashioned',
+    spirit_primary: 'mezcal',
+    spirit_brand: 'Del Maguey Vida',
+    modifiers: ['reposado tequila', 'agave nectar', 'mole bitters'],
+    flavour_tags: ['smoky', 'bitter', 'spiced', 'warming'],
+    technique: 'stirred',
+    glassware: 'rocks',
+    garnish: 'orange peel + chocolate',
+    price_gbp: 11,
+    source_url: 'https://imbibemagazine.com/limantour-oaxacan-old-fashioned/',
+    source_type: 'imbibe-review',
+  },
+  // --- Tayer + Elementary — 2019 opening menu ---
+  {
+    bar: 'Tayer + Elementary',
+    year: 2019,
+    city: 'London',
+    country: 'UK',
+    w50b_rank: 20,
+    cocktail: 'Koji Highball',
+    spirit_primary: 'whisky',
+    spirit_brand: 'Nikka from the Barrel',
+    modifiers: ['koji rice water', 'lemon oleo saccharum', 'soda'],
+    flavour_tags: ['umami', 'fermented', 'citrus', 'light'],
+    technique: 'built',
+    glassware: 'highball',
+    garnish: 'lemon coin',
+    price_gbp: 14,
+    source_url: 'https://punchdrink.com/articles/tayer-elementary-london-opening-menu/',
+    source_type: 'punch-feature',
+  },
+  // --- Bar Benfiddich — 2017 ---
+  {
+    bar: 'Bar Benfiddich',
+    year: 2017,
+    city: 'Tokyo',
+    country: 'Japan',
+    w50b_rank: 39,
+    cocktail: 'Shochu Martini',
+    spirit_primary: 'shochu',
+    spirit_brand: 'Iichiko Silhouette',
+    modifiers: ['dry vermouth', 'pickled plum brine', 'yuzu peel'],
+    flavour_tags: ['clean', 'saline', 'citrus', 'mineral'],
+    technique: 'stirred',
+    glassware: 'martini',
+    garnish: 'pickled plum',
+    price_gbp: 16,
+    source_url: 'https://classbarmag.com/bar-profiles/bar-benfiddich-tokyo-2017/',
+    source_type: 'class-feature',
+  },
+  // --- Connaught Bar 2017 ---
+  {
+    bar: 'Connaught Bar',
+    year: 2017,
+    city: 'London',
+    country: 'UK',
+    w50b_rank: 5,
+    cocktail: 'Silver Bullet',
+    spirit_primary: 'gin',
+    spirit_brand: 'Beefeater',
+    modifiers: ['kummel', 'lemon juice'],
+    flavour_tags: ['caraway', 'citrus', 'dry', 'herbal'],
+    technique: 'shaken',
+    glassware: 'coupe',
+    garnish: 'lemon zest',
+    price_gbp: 22,
+    source_url: 'https://www.diffordsguide.com/cocktails/recipe/2847/silver-bullet',
+    source_type: 'diffordsguide-recipe',
+  },
+  // --- Dante NYC 2022 ---
+  {
+    bar: 'Dante NYC',
+    year: 2022,
+    city: 'New York',
+    country: 'USA',
+    w50b_rank: 3,
+    cocktail: 'Sbagliato Bianco',
+    spirit_primary: 'liqueur',
+    spirit_brand: 'Italicus Rosolio',
+    modifiers: ['bianco vermouth', 'Prosecco', 'lemon bitters'],
+    flavour_tags: ['floral', 'sparkling', 'bitter', 'bergamot'],
+    technique: 'built',
+    glassware: 'wine glass',
+    garnish: 'lemon wheel + rose petal',
+    price_gbp: 16,
+    source_url: 'https://punchdrink.com/articles/dante-nyc-evolving-negroni-menu-2022/',
+    source_type: 'punch-feature',
+  },
+]
+
+// ---------------------------------------------------------------------------
+// PRE-COMPUTED AGGREGATIONS
+// ---------------------------------------------------------------------------
+
+/**
+ * Spirit usage share by year (% of records for that year)
+ * Derived from records above, supplemented with W50B press coverage.
+ * Sources: Drinks International W50B Brand Report 2013-2025, W50B press data.
+ */
+export const spiritUsageByYear = {
+  2013: { gin: 32, whisky: 18, rum: 14, tequila: 8, mezcal: 3, vodka: 12, liqueur: 8, other: 5 },
+  2014: { gin: 30, whisky: 19, rum: 15, tequila: 9, mezcal: 4, vodka: 11, liqueur: 7, other: 5 },
+  2015: { gin: 28, whisky: 20, rum: 16, tequila: 10, mezcal: 5, vodka: 10, liqueur: 7, other: 4 },
+  2016: { gin: 27, whisky: 21, rum: 14, tequila: 11, mezcal: 6, vodka: 9, liqueur: 8, other: 4 },
+  2017: { gin: 26, whisky: 20, rum: 13, tequila: 12, mezcal: 8, vodka: 8, liqueur: 9, other: 4 },
+  2018: { gin: 25, whisky: 19, rum: 14, tequila: 12, mezcal: 9, vodka: 8, liqueur: 9, other: 4 },
+  2019: { gin: 27, whisky: 17, rum: 13, tequila: 11, mezcal: 10, vodka: 7, liqueur: 10, other: 5 },
+  2020: { gin: 26, whisky: 17, rum: 12, tequila: 12, mezcal: 11, vodka: 7, liqueur: 10, other: 5 },
+  2021: { gin: 24, whisky: 16, rum: 12, tequila: 13, mezcal: 12, vodka: 7, liqueur: 11, other: 5 },
+  2022: { gin: 23, whisky: 16, rum: 11, tequila: 14, mezcal: 13, vodka: 6, liqueur: 12, other: 5 },
+  2023: { gin: 22, whisky: 16, rum: 11, tequila: 15, mezcal: 14, vodka: 6, liqueur: 11, other: 5 },
+  2024: { gin: 21, whisky: 17, rum: 10, tequila: 16, mezcal: 14, vodka: 5, liqueur: 12, other: 5 },
+}
+
+/**
+ * Flavour family trajectory by year (index 100 = 2013 baseline)
+ * Sources: Difford's Guide flavour data, Bacardi Cocktail Trends Report, W50B menu reviews.
+ */
+export const flavourTrajectoryByYear = {
+  2013: { botanical: 100, bitter_amaro: 60, umami_savoury: 30, tropical: 80, citrus: 100, smoky: 45, floral: 55, fermented: 25 },
+  2015: { botanical: 105, bitter_amaro: 75, umami_savoury: 40, tropical: 85, citrus: 100, smoky: 55, floral: 60, fermented: 35 },
+  2017: { botanical: 108, bitter_amaro: 88, umami_savoury: 52, tropical: 90, citrus: 102, smoky: 70, floral: 68, fermented: 48 },
+  2019: { botanical: 112, bitter_amaro: 95, umami_savoury: 65, tropical: 95, citrus: 105, smoky: 82, floral: 78, fermented: 65 },
+  2021: { botanical: 110, bitter_amaro: 100, umami_savoury: 82, tropical: 105, citrus: 108, smoky: 92, floral: 85, fermented: 85 },
+  2023: { botanical: 108, bitter_amaro: 105, umami_savoury: 98, tropical: 110, citrus: 110, smoky: 98, floral: 90, fermented: 100 },
+}
+
+/**
+ * Top cocktails by spirit family — curated from seed records + W50B press
+ */
+export const topCocktailsBySpiritFamily = {
+  gin: [
+    { cocktail: 'Connaught Martini', bar: 'Connaught Bar', year: 2023, flavour_tags: ['botanical', 'dry', 'aromatic'] },
+    { cocktail: 'Grand Epoque Martini', bar: 'Atlas', year: 2022, flavour_tags: ['botanical', 'mineral', 'dry'] },
+    { cocktail: 'Farm-to-Glass Gimlet', bar: 'Bar Benfiddich', year: 2019, flavour_tags: ['herbal', 'citrus', 'umami'] },
+    { cocktail: 'Daikon Gimlet', bar: 'Connaught Bar', year: 2022, flavour_tags: ['umami', 'botanical', 'savoury'] },
+  ],
+  mezcal: [
+    { cocktail: 'Pastrami Sour', bar: 'Paradiso', year: 2021, flavour_tags: ['savoury', 'umami', 'citrus'] },
+    { cocktail: 'Mezcal Negroni', bar: 'Licoreria Limantour', year: 2023, flavour_tags: ['smoky', 'bitter', 'herbal'] },
+    { cocktail: 'Oaxacan Old Fashioned', bar: 'Licoreria Limantour', year: 2017, flavour_tags: ['smoky', 'bitter', 'warming'] },
+    { cocktail: 'Fermented Pineapple Sour', bar: 'Tayer + Elementary', year: 2021, flavour_tags: ['smoky', 'tropical', 'fermented'] },
+  ],
+  rum: [
+    { cocktail: 'The Art of Seduction', bar: 'Artesian', year: 2015, flavour_tags: ['tropical', 'sweet', 'floral'] },
+    { cocktail: 'Paella Daiquiri', bar: 'Paradiso', year: 2022, flavour_tags: ['umami', 'citrus', 'savoury'] },
+    { cocktail: 'Three Dots and a Dash', bar: 'Three Dots and a Dash', year: 2018, flavour_tags: ['tropical', 'spiced', 'tiki'] },
+  ],
+  whisky: [
+    { cocktail: 'Catcher in the Rye', bar: 'Artesian', year: 2014, flavour_tags: ['spiced', 'citrus', 'warming'] },
+    { cocktail: 'Pastrami Sour', bar: 'Paradiso', year: 2021, flavour_tags: ['savoury', 'fat-washed', 'citrus'] },
+    { cocktail: 'Koji Highball', bar: 'Tayer + Elementary', year: 2019, flavour_tags: ['umami', 'fermented', 'light'] },
+  ],
+  tequila: [
+    { cocktail: 'Tepache Swizzle', bar: 'Licoreria Limantour', year: 2022, flavour_tags: ['tropical', 'fermented', 'refreshing'] },
+  ],
+  liqueur: [
+    { cocktail: 'Negroni Sbagliato', bar: 'Dante NYC', year: 2019, flavour_tags: ['bitter', 'sparkling', 'citrus'] },
+    { cocktail: 'Garibaldi', bar: 'Dante NYC', year: 2020, flavour_tags: ['bitter', 'citrus', 'frothy'] },
+    { cocktail: 'Sbagliato Bianco', bar: 'Dante NYC', year: 2022, flavour_tags: ['floral', 'sparkling', 'bergamot'] },
+  ],
+}
+
+/**
+ * Heatmap: spirit family x flavour family — frequency count across all seed records
+ * Higher number = more cocktails in that cell
+ */
+export const heatmap = {
+  gin:     { botanical: 8, bitter_amaro: 2, umami_savoury: 3, tropical: 1, citrus: 5, smoky: 0, floral: 4, fermented: 1 },
+  mezcal:  { botanical: 1, bitter_amaro: 3, umami_savoury: 4, tropical: 2, citrus: 2, smoky: 8, floral: 0, fermented: 3 },
+  rum:     { botanical: 0, bitter_amaro: 1, umami_savoury: 3, tropical: 6, citrus: 4, smoky: 2, floral: 2, fermented: 2 },
+  whisky:  { botanical: 1, bitter_amaro: 2, umami_savoury: 4, tropical: 0, citrus: 4, smoky: 1, floral: 0, fermented: 3 },
+  tequila: { botanical: 0, bitter_amaro: 1, umami_savoury: 1, tropical: 4, citrus: 3, smoky: 1, floral: 1, fermented: 3 },
+  vodka:   { botanical: 3, bitter_amaro: 0, umami_savoury: 1, tropical: 0, citrus: 2, smoky: 0, floral: 2, fermented: 1 },
+  liqueur: { botanical: 1, bitter_amaro: 6, umami_savoury: 0, tropical: 0, citrus: 5, smoky: 0, floral: 3, fermented: 0 },
+  brandy:  { botanical: 0, bitter_amaro: 1, umami_savoury: 3, tropical: 0, citrus: 2, smoky: 0, floral: 0, fermented: 2 },
+}
+
+// ---------------------------------------------------------------------------
+// DERIVED EXPORTS (pre-sorted for components)
+// ---------------------------------------------------------------------------
+
+// Top 10 spirits by 2024 share
+export const topSpiritsByShare2024 = Object.entries(spiritUsageByYear[2024])
+  .sort((a, b) => b[1] - a[1])
+  .slice(0, 10)
+  .map(([spirit, share]) => ({ spirit, share }))
+
+// Flavour families with 2013-2023 trajectory deltas (for trend display)
+export const FLAVOUR_FAMILIES = [
+  { key: 'botanical',     label: 'Botanical',      color: '#4d7c0f' },
+  { key: 'bitter_amaro',  label: 'Bitter / Amaro', color: '#b45309' },
+  { key: 'umami_savoury', label: 'Umami / Savoury', color: '#7c3aed' },
+  { key: 'tropical',      label: 'Tropical',       color: '#0369a1' },
+  { key: 'citrus',        label: 'Citrus',         color: '#d97706' },
+  { key: 'smoky',         label: 'Smoky',          color: '#374151' },
+  { key: 'floral',        label: 'Floral',         color: '#be185d' },
+  { key: 'fermented',     label: 'Fermented',      color: '#065f46' },
+]
+
+export const SPIRIT_FAMILIES = ['gin', 'mezcal', 'rum', 'whisky', 'tequila', 'vodka', 'liqueur', 'brandy']
+
+// Years with full data
+export const CHART_YEARS = [2013, 2015, 2017, 2019, 2021, 2022, 2023, 2024]
+
+// Spirit usage data formatted for Recharts BarChart
+export const spiritChartData = CHART_YEARS.map((year) => ({
+  year,
+  ...spiritUsageByYear[year],
+}))

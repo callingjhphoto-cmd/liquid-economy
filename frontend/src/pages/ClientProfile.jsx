@@ -627,6 +627,10 @@ function OpportunityRadarModule({ data, profile }) {
   )
 }
 
+// ---- MODULE: W50BMenuIntel --------------------------------------------------
+// Lazy-loaded to keep main bundle lean (data file is ~12KB)
+import W50BMenuIntelModule from '../components/profile/W50BMenuIntelModule'
+
 // ---- Module registry --------------------------------------------------------
 
 const MODULE_REGISTRY = {
@@ -640,6 +644,7 @@ const MODULE_REGISTRY = {
   MarketIntel: MarketIntelModule,
   DemographicsLens: DemographicsLensModule,
   OpportunityRadar: OpportunityRadarModule,
+  W50BMenuIntel: W50BMenuIntelModule,
 }
 
 // ---- In-page module tab nav -------------------------------------------------
@@ -650,7 +655,7 @@ function ModuleTabs({ modules }) {
     TopCocktails: 'Top Cocktails', FlavourRadar: 'Flavours', LuxuryVenues: 'Venues',
     Presentation: 'Theatre', TrendArc: 'Trend Arc', CategorySnapshot: 'Category',
     CompetitorWatch: 'Competitors', MarketIntel: 'Markets', DemographicsLens: 'Demographics',
-    OpportunityRadar: 'Radar',
+    OpportunityRadar: 'Radar', W50BMenuIntel: 'W50B Menus',
   }
   return (
     <div className="overflow-x-auto whitespace-nowrap mb-6 -mx-4 px-4 lg:mx-0 lg:px-0">

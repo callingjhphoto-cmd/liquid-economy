@@ -74,7 +74,7 @@ function ModuleSources({ keys = [], registry = {} }) {
 const trendVariant = (t = '') => {
   if (t === 'rising' || t === 'fast-rising' || t.includes('rising') || t.includes('+')) return 'green'
   if (t === 'stable-dominant' || t === 'dominant' || t === 'dominant-consumer' || t === 'leading' || t.includes('dominant')) return 'blue'
-  if (t === 'fatigue' || t === 'decline' || t.includes('decline') || t.includes('caution') || t.includes('\u2212')) return 'red'
+  if (t === 'fatigue' || t === 'decline' || t.includes('decline') || t.includes('caution') || t.includes('−')) return 'red'
   if (t.includes('watch')) return 'orange'
   if (t === 'resurgent' || t === 'established-growing') return 'gold'
   return 'default'
@@ -121,8 +121,8 @@ function TopCocktailsModule({ data, profile }) {
   return (
     <section id="module-top-cocktails">
       <ModuleHeader
-        title="Top 20 Cocktails \u2014 Global Ranking 2024\u20132026"
-        subtitle="Elite on-premise ranking + consumer search intent \u2014 two independent panels cross-referenced"
+        title="Top 20 Cocktails — Global Ranking 2024–2026"
+        subtitle="Elite on-premise ranking + consumer search intent — two independent panels cross-referenced"
         linkTo="/categories?category=cocktails"
       />
       <ModuleSources keys={data.sourceKeys} registry={registry} />
@@ -167,7 +167,7 @@ function TopCocktailsModule({ data, profile }) {
           )
         })}
       </div>
-      <p className="text-caption text-gray-500 mt-3">Tap any card for the analyst note. DI = Drinks International survey of 100 elite bars; Difford\u2019s = 700k+ monthly consumer search panel.</p>
+      <p className="text-caption text-gray-500 mt-3">Tap any card for the analyst note. DI = Drinks International survey of 100 elite bars; Difford’s = 700k+ monthly consumer search panel.</p>
     </section>
   )
 }
@@ -180,7 +180,7 @@ function FlavourRadarModule({ data, profile }) {
   return (
     <section id="module-flavour-radar">
       <ModuleHeader
-        title="Flavour Families \u2014 2025\u20132026 Intelligence"
+        title="Flavour Families — 2025–2026 Intelligence"
         subtitle="Seven families ranked by growth signal and luxury-event applicability"
         linkTo="/categories"
       />
@@ -350,7 +350,7 @@ function TrendArcModule({ data, profile }) {
   return (
     <section id="module-trend-arc">
       <ModuleHeader
-        title="20-Year Cocktail Trend Arc \u2014 2006\u20132026"
+        title="20-Year Cocktail Trend Arc — 2006–2026"
         subtitle="Six eras of luxury on-premise evolution"
         linkTo="/categories"
       />
@@ -401,8 +401,8 @@ function CategorySnapshotModule({ data }) {
   return (
     <section id="module-category-snapshot">
       <ModuleHeader
-        title={`Category Snapshot \u2014 ${data.category || 'Category'}`}
-        subtitle={`${data.marketSize || ''} \u00b7 ${data.cagr || ''} \u00b7 ${data.source || ''}`}
+        title={`Category Snapshot — ${data.category || 'Category'}`}
+        subtitle={`${data.marketSize || ''} · ${data.cagr || ''} · ${data.source || ''}`}
         linkTo={data.linkTo}
       />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 mb-6">
@@ -441,7 +441,7 @@ function CompetitorWatchModule({ data }) {
     <section id="module-competitor-watch">
       <ModuleHeader
         title="Competitor Watch"
-        subtitle="Brand-level positioning and threat signals \u00b7 Volume data gap flagged"
+        subtitle="Brand-level positioning and threat signals · Volume data gap flagged"
         linkTo="/competitors"
       />
       {data.note && (
@@ -519,7 +519,7 @@ function DemographicsLensModule({ data }) {
   return (
     <section id="module-demographics-lens">
       <ModuleHeader
-        title={`Demographics Lens \u2014 ${data.category || 'Category'}`}
+        title={`Demographics Lens — ${data.category || 'Category'}`}
         subtitle={data.source}
         linkTo={data.linkTo}
       />
@@ -554,7 +554,7 @@ function CommercialNarrativeCard({ o, registry }) {
           <Badge variant="default" className="mb-1.5">Signal</Badge>
           <h3 className="text-subsection font-display text-navy mt-1">{o.signal}</h3>
           {o.urgency && (
-            <p className="text-caption text-red-700 font-semibold mt-0.5">{o.urgency.split(' \u2014')[0]}</p>
+            <p className="text-caption text-red-700 font-semibold mt-0.5">{o.urgency.split(' —')[0]}</p>
           )}
         </div>
         <ChevronRight
@@ -615,7 +615,7 @@ function OpportunityRadarModule({ data, profile }) {
     <section id="module-opportunity-radar">
       <ModuleHeader
         title="Opportunity Radar"
-        subtitle="Commercial narratives \u2014 signal, adjacency, demographic, product, brief, and media reallocation"
+        subtitle="Commercial narratives — signal, adjacency, demographic, product, brief, and media reallocation"
       />
       <ModuleSources keys={data.sourceKeys} registry={registry} />
       <div className="space-y-4">
@@ -742,18 +742,18 @@ function SourcesMethodologySection({ profile }) {
               )
             })}
           </div>
-          <p className="text-caption text-gray-500 mt-3">Internal research reports are available to Khorus stakeholders on request \u2014 <a href="mailto:callingjhphoto@gmail.com?subject=Khorus%20%E2%80%94%20Source%20Request" className="text-editorial hover:text-navy underline">request access</a>.</p>
+          <p className="text-caption text-gray-500 mt-3">Internal research reports are available to Khorus stakeholders on request — <a href="mailto:callingjhphoto@gmail.com?subject=Khorus%20%E2%80%94%20Source%20Request" className="text-editorial hover:text-navy underline">request access</a>.</p>
         </div>
       )}
 
       <Card padding="p-5" className="bg-gray-50/50">
         <h3 className="text-subsection font-display text-navy mb-2">How to read this profile</h3>
         <ul className="space-y-2 text-caption text-gray-700 leading-relaxed list-disc pl-4">
-          <li><span className="font-semibold text-navy">Rank-based data</span> (DI / Difford\u2019s) is direct placement in each source\u2019s most recent annual list.</li>
-          <li><span className="font-semibold text-navy">\u201cMove\u201d deltas</span> (e.g. +19 from #23 in 2022) are year-over-year list position changes computed from the named source\u2019s historical rankings.</li>
+          <li><span className="font-semibold text-navy">Rank-based data</span> (DI / Difford’s) is direct placement in each source’s most recent annual list.</li>
+          <li><span className="font-semibold text-navy">“Move” deltas</span> (e.g. +19 from #23 in 2022) are year-over-year list position changes computed from the named source’s historical rankings.</li>
           <li><span className="font-semibold text-navy">Growth signals</span> on flavour families are headline figures from Bacardi Cocktail Trends Report and are qualitative unless marked with a specific percentage.</li>
-          <li><span className="font-semibold text-navy">Pricing bands</span> combine on-menu capture (venue websites, press) with operator interview triangulation \u2014 converted to GBP/USD/AED at April 2026 rates.</li>
-          <li><span className="font-semibold text-navy">Unverified figures</span> are marked \u201cTBD\u201d rather than estimated.</li>
+          <li><span className="font-semibold text-navy">Pricing bands</span> combine on-menu capture (venue websites, press) with operator interview triangulation — converted to GBP/USD/AED at April 2026 rates.</li>
+          <li><span className="font-semibold text-navy">Unverified figures</span> are marked “TBD” rather than estimated.</li>
         </ul>
       </Card>
     </section>
@@ -771,7 +771,7 @@ function ProfileNotFound({ slug }) {
         <p className="text-body text-gray-500 mb-6">No profile registered for &ldquo;{slug}&rdquo;</p>
         <div className="flex gap-4 justify-center">
           <Link to="/profiles" className="text-body text-editorial hover:text-navy no-underline">
-            View all profiles \u2192
+            View all profiles →
           </Link>
           <Link to="/" className="text-body text-gray-500 hover:text-navy no-underline">
             Back to dashboard
@@ -791,7 +791,7 @@ export default function ClientProfile({ profile, slug }) {
 
   const modules = profile.modules || []
   const clientName = profile.client?.name || 'Profile'
-  const title = `${clientName} \u2014 ${profile.meta?.profileTitle || ''}`
+  const title = `${clientName} — ${profile.meta?.profileTitle || ''}`
   const archetype = (profile.archetype || 'profile').replace('-', ' ')
 
   return (
@@ -809,7 +809,7 @@ export default function ClientProfile({ profile, slug }) {
             <Badge variant="navy" size="lg">{archetype}</Badge>
             {profile.meta?.contactEmail && (
               <a
-                href={`mailto:${profile.meta.contactEmail}?subject=${encodeURIComponent(clientName + ' \u2014 Follow-up')}`}
+                href={`mailto:${profile.meta.contactEmail}?subject=${encodeURIComponent(clientName + ' — Follow-up')}`}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-white bg-navy hover:bg-navy-light rounded-lg transition-colors no-underline"
               >
                 <Mail size={12} />
@@ -844,7 +844,7 @@ export default function ClientProfile({ profile, slug }) {
           )
         })}
 
-        {/* Sources & Methodology \u2014 always last, above the footer */}
+        {/* Sources & Methodology — always last, above the footer */}
         <SourcesMethodologySection profile={profile} />
 
         <footer className="border-t border-gray-200 pt-6 pb-2 text-center">
@@ -852,17 +852,17 @@ export default function ClientProfile({ profile, slug }) {
             Sources: {profile.meta?.sourcedFrom}
           </p>
           <p className="text-caption text-gray-500 mt-2">
-            Prepared by Liquid Economy \u00b7 {profile.meta?.lastUpdated} \u00b7{' '}
+            Prepared by Liquid Economy · {profile.meta?.lastUpdated} ·{' '}
             <a href={`mailto:${profile.meta?.contactEmail}`} className="underline hover:text-navy">
               {profile.meta?.contactEmail}
             </a>
           </p>
           <p className="text-caption text-gray-400 mt-1">
             <Link to="/profiles" className="hover:text-navy transition-colors no-underline">All profiles</Link>
-            {' \u00b7 '}
+            {' · '}
             <Link to="/" className="hover:text-navy transition-colors no-underline">Liquid Economy dashboard</Link>
           </p>
-          <p className="text-caption text-gray-400 mt-3">Powered by Liquid Agency \u00b7 Drinks Industry Intelligence</p>
+          <p className="text-caption text-gray-400 mt-3">Powered by Liquid Agency · Drinks Industry Intelligence</p>
         </footer>
       </div>
     </div>

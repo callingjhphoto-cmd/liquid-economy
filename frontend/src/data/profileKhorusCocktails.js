@@ -6,7 +6,7 @@
  *
  * CITATION KEY
  *   [R1] = 00_internal_data_audit.md
- *   [R2] = 01_top_cocktails_global.md (DI/Difford\u2019s/IWSR deep research)
+ *   [R2] = 01_top_cocktails_global.md (DI/Difford’s/IWSR deep research)
  *   [R3] = 02_flavour_trends.md (Bacardi/TOTC/DI/W50B deep research)
  *   [R4] = 03_luxury_events.md (Connaught/F1/Fashion Week deep research)
  *   [R5] = 04_pricing_intelligence.md
@@ -18,7 +18,7 @@
 // ---------------------------------------------------------------------------
 // MODULE 1: TOP 20 COCKTAILS GLOBAL RANKING 2024-2026
 // Source: [R2] - DI World's 50 Best Bars Brand Report, Difford's Guide analytics
-// Methodology: DI surveys 100 elite bars; Difford\u2019s uses 700k+ monthly page-views
+// Methodology: DI surveys 100 elite bars; Difford’s uses 700k+ monthly page-views
 // ---------------------------------------------------------------------------
 export const top20Cocktails = [
   {
@@ -26,7 +26,7 @@ export const top20Cocktails = [
     name: 'Negroni',
     spiritBase: 'Gin',
     type: 'Classic',
-    diRank: '#1 (2022\u20132025)',
+    diRank: '#1 (2022–2025)',
     diffordsRank: '#25',
     trend: 'stable-dominant',
     note: '26% of top bars list as #1; 53% place in top 3. [R2]',
@@ -41,7 +41,7 @@ export const top20Cocktails = [
     diffordsRank: '#18',
     trend: 'stable',
     note: 'Benchmark for ice programme and spirit curation. [R2]',
-    rankMove: '\u22121 since 2022'
+    rankMove: '−1 since 2022'
   },
   {
     rank: 3,
@@ -51,7 +51,7 @@ export const top20Cocktails = [
     diRank: '#3',
     diffordsRank: '#4',
     trend: 'rising',
-    note: 'Fragmented by variants (Tommy\u2019s, Mezcal, Picante). [R2]',
+    note: 'Fragmented by variants (Tommy’s, Mezcal, Picante). [R2]',
     rankMove: 'Stable top 3'
   },
   {
@@ -74,7 +74,7 @@ export const top20Cocktails = [
     diffordsRank: '#1 (11 consecutive years)',
     trend: 'dominant-consumer',
     note: 'Absolute consumer search juggernaut. Passion fruit + vanilla vodka + Champagne sidecar. [R2]',
-    rankMove: 'Consistent #1 Difford\u2019s'
+    rankMove: 'Consistent #1 Difford’s'
   },
   {
     rank: 6,
@@ -106,7 +106,7 @@ export const top20Cocktails = [
     diRank: '#7',
     diffordsRank: '#23',
     trend: 'rising',
-    note: '\u20182025 was a good year for Martinis\u2019 \u2014 Difford\u2019s. Freezer-martini trend accelerating. [R2]',
+    note: '‘2025 was a good year for Martinis’ — Difford’s. Freezer-martini trend accelerating. [R2]',
     rankMove: '+1 since 2023'
   },
   {
@@ -118,7 +118,7 @@ export const top20Cocktails = [
     diffordsRank: '#92 (falling)',
     trend: 'fatigue',
     note: 'Peaked #6 DI 2022. Consumer search collapsing. Opportunity: intercept with gin highball. [R2]',
-    rankMove: '\u22184 vs 2022 DI; \u221283 Difford\u2019s'
+    rankMove: '∘4 vs 2022 DI; −83 Difford’s'
   },
   {
     rank: 10,
@@ -128,7 +128,7 @@ export const top20Cocktails = [
     diRank: '#9',
     diffordsRank: '#14',
     trend: 'rising',
-    note: 'Replacing Spritz as the \u2018refresher\u2019 of choice at elite bars. [R2]',
+    note: 'Replacing Spritz as the ‘refresher’ of choice at elite bars. [R2]',
     rankMove: '+5 since 2022'
   },
   {
@@ -137,7 +137,7 @@ export const top20Cocktails = [
     spiritBase: 'Vodka / Gin',
     type: 'Classic',
     diRank: '#10',
-    diffordsRank: '\u2014',
+    diffordsRank: '—',
     trend: 'stable',
     note: 'High RTD presence. Copper mug theatre remains a draw. [R2]',
     rankMove: 'Stable'
@@ -147,10 +147,10 @@ export const top20Cocktails = [
     name: 'Gin Basil Smash',
     spiritBase: 'Gin',
     type: 'Modern Classic',
-    diRank: '\u2014',
+    diRank: '—',
     diffordsRank: '#2',
     trend: 'rising',
-    note: 'Created by J\u00f6rg Meyer. Up from #33 in 2016. Vibrant green visual. [R2]',
+    note: 'Created by Jörg Meyer. Up from #33 in 2016. Vibrant green visual. [R2]',
     rankMove: '+31 since 2016'
   },
   {
@@ -166,10 +166,10 @@ export const top20Cocktails = [
   },
   {
     rank: 14,
-    name: 'Vieux Carr\u00e9',
+    name: 'Vieux Carré',
     spiritBase: 'Rye / Cognac',
     type: 'Classic',
-    diRank: '\u2014',
+    diRank: '—',
     diffordsRank: '#3',
     trend: 'rising',
     note: 'New Orleans heritage. Cognac crossover appeal for luxury events. [R2]',
@@ -180,7 +180,7 @@ export const top20Cocktails = [
     name: 'Mai Tai',
     spiritBase: 'Rum',
     type: 'Classic',
-    diRank: '\u2014',
+    diRank: '—',
     diffordsRank: '#5',
     trend: 'stable',
     note: 'Tiki staple. High visual theatre. [R2]',
@@ -191,7 +191,7 @@ export const top20Cocktails = [
     name: 'The Last Word',
     spiritBase: 'Gin',
     type: 'Classic',
-    diRank: '\u2014',
+    diRank: '—',
     diffordsRank: '#6',
     trend: 'rising',
     note: 'Prohibition-era revival. Equal parts gin, Chartreuse, maraschino. [R2]',
@@ -202,7 +202,7 @@ export const top20Cocktails = [
     name: 'Amaretto Sour',
     spiritBase: 'Liqueur (Amaretto)',
     type: 'Classic',
-    diRank: '\u2014',
+    diRank: '—',
     diffordsRank: '#7',
     trend: 'rising',
     note: 'Elevated by Morgenthaler method (overproof bourbon). [R2]',
@@ -213,10 +213,10 @@ export const top20Cocktails = [
     name: 'Picante de la Casa (Spicy Margarita)',
     spiritBase: 'Tequila',
     type: 'Modern',
-    diRank: '\u2014',
+    diRank: '—',
     diffordsRank: '#9 (was #20 in 2020)',
     trend: 'fast-rising',
-    note: 'Largest rank gain in Difford\u2019s top 20. Jalape\u00f1o/agave. [R2]',
+    note: 'Largest rank gain in Difford’s top 20. Jalapeño/agave. [R2]',
     rankMove: '+11 since 2020'
   },
   {
@@ -224,8 +224,8 @@ export const top20Cocktails = [
     name: 'Mojito',
     spiritBase: 'Rum',
     type: 'Classic',
-    diRank: '\u2014',
-    diffordsRank: '\u2014',
+    diRank: '—',
+    diffordsRank: '—',
     trend: 'stable',
     note: 'High RTD/consumer volume. Yacht charter staple. [R2]',
     rankMove: 'Stable consumer'
@@ -253,13 +253,13 @@ export const flavourFamilies = [
     name: 'Savoury & Umami',
     icon: '\ud83c\udf71',
     growthSignal: '20% global consumer interest growth (Bacardi)',
-    penetration: '30% of Asia Top 100 bar cocktails feature savoury elements; 96% list \u22651',
+    penetration: '30% of Asia Top 100 bar cocktails feature savoury elements; 96% list ≥1',
     trend: 'leading',
     colour: '#64748b',
     ingredients: ['Miso', 'Seaweed / Kombu', 'Tomato water', 'Fino sherry', 'Sesame oil (fat-wash)', 'Truffle oil', 'Fermented soy'],
     venueExamples: [
-      'Handshake Speakeasy (Mexico City, W50B #1) \u2014 tom yum gimlet with coconut oil-washed tequila',
-      'Bar Pompette \u2014 toasted kombu syrup + dill umami bitters',
+      'Handshake Speakeasy (Mexico City, W50B #1) — tom yum gimlet with coconut oil-washed tequila',
+      'Bar Pompette — toasted kombu syrup + dill umami bitters',
       'Wagyu-washed Martini at top London venues'
     ],
     eventApplication: 'Bespoke Martini station: olive oil-washed vodka, premium vermouth, caviar or truffle garnish. Hits Martini-mania + savoury zeitgeist simultaneously.',
@@ -270,16 +270,16 @@ export const flavourFamilies = [
     name: 'Bitter & Amaro',
     icon: '\ud83c\udf4a',
     growthSignal: '41% of bartenders actively experimenting (Bacardi survey)',
-    penetration: 'Mainstream \u2014 driven by Negroni dominance and aperitivo culture',
+    penetration: 'Mainstream — driven by Negroni dominance and aperitivo culture',
     trend: 'established-growing',
     colour: '#b45309',
-    ingredients: ['Campari', 'Cynar', 'Fernet-Branca', 'Amaro Montenegro', 'Non-alcoholic amari (Lyre\u2019s Italian Orange)', 'Gentian bitters'],
+    ingredients: ['Campari', 'Cynar', 'Fernet-Branca', 'Amaro Montenegro', 'Non-alcoholic amari (Lyre’s Italian Orange)', 'Gentian bitters'],
     venueExamples: [
-      'Negroni #1 globally (DI 2022\u20132025)',
-      'Connaught Bar \u2014 Coffee Negroni on rotating menu',
+      'Negroni #1 globally (DI 2022–2025)',
+      'Connaught Bar — Coffee Negroni on rotating menu',
       'Soho House NA Picante: Pentire Adrift swapped for tequila'
     ],
-    eventApplication: 'Zero-proof Negroni programme using NA amaro. Same glassware, same theatre, no alcohol. ~24\u201330% of luxury event guests choose zero-proof. [R7]',
+    eventApplication: 'Zero-proof Negroni programme using NA amaro. Same glassware, same theatre, no alcohol. ~24–30% of luxury event guests choose zero-proof. [R7]',
     source: '[R3]'
   },
   {
@@ -287,14 +287,14 @@ export const flavourFamilies = [
     name: 'Smoky',
     icon: '\ud83d\udd25',
     growthSignal: 'Agave boom driving mainstream acceptance; Oaxaca Old Fashioned debuted DI top 50',
-    penetration: 'Significant \u2014 mezcal + peated Scotch crossover',
+    penetration: 'Significant — mezcal + peated Scotch crossover',
     trend: 'rising',
     colour: '#374151',
     ingredients: ['Mezcal', 'Peated Scotch (Laphroaig, Ardbeg)', 'Smoked sea salt', 'Hickory / applewood chips', 'Charred oak syrups'],
     venueExamples: [
-      'Oaxacan Paloma \u2014 mezcal, yuzu, agave, salt rim',
+      'Oaxacan Paloma — mezcal, yuzu, agave, salt rim',
       'Smoked Old Fashioned under glass cloche (tableside)',
-      'Campari\u2019s Mads Negroni at Cannes 2025 \u2014 mezcal substituted for gin'
+      'Campari’s Mads Negroni at Cannes 2025 — mezcal substituted for gin'
     ],
     eventApplication: 'Smoking dome reveal. Tableside applewood-smoked Old Fashioned or Negroni Mezcal. Multi-sensory theatre that photographs and films well.',
     source: '[R3]'
@@ -303,15 +303,15 @@ export const flavourFamilies = [
     id: 'low-sugar-sour',
     name: 'Low-Sugar Sour',
     icon: '\ud83c\udf4b',
-    growthSignal: 'TOTC 2025 consensus: \u2018drinks were sour\u2019 \u2014 retreat from sweetness',
+    growthSignal: 'TOTC 2025 consensus: ‘drinks were sour’ — retreat from sweetness',
     penetration: 'Growing fast across Gen Z / Millennial premium segment',
     trend: 'rising',
     colour: '#ca8a04',
     ingredients: ['Calamansi', 'Yuzu', 'Meyer lemon', 'Blood orange', 'Verjus', 'Natural botanical sweetness only'],
     venueExamples: [
-      'Crystal Gimlet \u2014 gin, yuzu, clarified basil & cucumber cordial',
+      'Crystal Gimlet — gin, yuzu, clarified basil & cucumber cordial',
       'Daiquiri variants with exotic citrus at W50B bars',
-      'Sour-forward aperitif lists at Claridge\u2019s / Connaught'
+      'Sour-forward aperitif lists at Claridge’s / Connaught'
     ],
     eventApplication: 'Pre-batched clarified milk punch. Batch days in advance, pours crystal-clear over stamped ice. Luxury appearance at bar speed. Perfect for high-volume corporate galas.',
     source: '[R3]'
@@ -321,16 +321,16 @@ export const flavourFamilies = [
     name: 'Tropical & Floral',
     icon: '\ud83c\udf34',
     growthSignal: 'Passion fruit + guava projected defining cocktail fruits of 2026',
-    penetration: 'Porn Star Martini #1 Difford\u2019s 11 years; Hugo Spritz new top-50 entry',
+    penetration: 'Porn Star Martini #1 Difford’s 11 years; Hugo Spritz new top-50 entry',
     trend: 'resurgent',
     colour: '#059669',
     ingredients: ['Passion fruit', 'Guava', 'Lychee', 'Elderflower', 'Hibiscus', 'Butterfly pea flower', 'Lavender', 'Jasmine'],
     venueExamples: [
-      'Atlantis The Palm, Hakkasan \u2014 The Hakka: vodka, sake, lychee, coconut',
-      'Burj Al Arab Gilt bar \u2014 Sakura: Sakura tea, grapefruit zest',
+      'Atlantis The Palm, Hakkasan — The Hakka: vodka, sake, lychee, coconut',
+      'Burj Al Arab Gilt bar — Sakura: Sakura tea, grapefruit zest',
       'Porn Star Martini: passion fruit + vanilla + Champagne sidecar'
     ],
-    eventApplication: 'Tropical Milk Punch \u2014 batchable, clarified, stunning colour. Tequila, guava cordial, pasilla chilli. Hits tropical, heat, and luxury technique simultaneously.',
+    eventApplication: 'Tropical Milk Punch — batchable, clarified, stunning colour. Tequila, guava cordial, pasilla chilli. Hits tropical, heat, and luxury technique simultaneously.',
     source: '[R3]'
   },
   {
@@ -338,31 +338,31 @@ export const flavourFamilies = [
     name: 'Spicy & Heat',
     icon: '\ud83c\udf36\ufe0f',
     growthSignal: '+20% average annual growth in beverage launches (spice/heat)',
-    penetration: 'Picante de la Casa +11 Difford\u2019s ranks 2020\u20132025',
+    penetration: 'Picante de la Casa +11 Difford’s ranks 2020–2025',
     trend: 'fast-rising',
     colour: '#dc2626',
-    ingredients: ['Jalape\u00f1o', 'Habanero', 'Chipotle', 'Ancho Reyes', 'Tajin', 'Buzz-button flower', 'Gochugaru'],
+    ingredients: ['Jalapeño', 'Habanero', 'Chipotle', 'Ancho Reyes', 'Tajin', 'Buzz-button flower', 'Gochugaru'],
     venueExamples: [
-      'Picante de la Casa: tequila, jalape\u00f1o, coriander, lime',
-      'Soho House Non-Alcoholic Picante \u2014 Pentire Adrift base',
-      'Electric Passion Margarita at luxury yacht charters \u2014 buzz-button garnish'
+      'Picante de la Casa: tequila, jalapeño, coriander, lime',
+      'Soho House Non-Alcoholic Picante — Pentire Adrift base',
+      'Electric Passion Margarita at luxury yacht charters — buzz-button garnish'
     ],
-    eventApplication: '"Sweet heat" positioning \u2014 tropical fruit + chilli tincture as an add-on to Margarita service. Low-commitment way to access the trend without full menu overhaul.',
+    eventApplication: '"Sweet heat" positioning — tropical fruit + chilli tincture as an add-on to Margarita service. Low-commitment way to access the trend without full menu overhaul.',
     source: '[R3]'
   },
   {
     id: 'coffee-spiced',
     name: 'Coffee & Spiced',
-    icon: '\u2615',
+    icon: '☕',
     growthSignal: '45% of bartenders experimenting with espresso / coffee (Bacardi)',
     penetration: 'Espresso Martini +116% value velocity US; Carajillo rising fast',
     trend: 'dominant',
     colour: '#4b2e0a',
     ingredients: ['Cold brew', 'Espresso', 'Licor 43', 'Mr Black', 'Kahlua', 'Cardamom', 'Vanilla', 'Cacao air'],
     venueExamples: [
-      'Espresso Martini Tower \u2014 replacing Champagne tower at weddings and galas',
-      'Grey Goose \u201cThe Devil\u2019s Roast\u201d at NYFW 2026: espresso martini + gold-dusted beans',
-      'F1 Mischief superyacht: \u2018Podium\u2019 cocktail with cacao husk distillate'
+      'Espresso Martini Tower — replacing Champagne tower at weddings and galas',
+      'Grey Goose “The Devil’s Roast” at NYFW 2026: espresso martini + gold-dusted beans',
+      'F1 Mischief superyacht: ‘Podium’ cocktail with cacao husk distillate'
     ],
     eventApplication: 'Espresso Martini Tower as centrepiece activation. Coupe glasses stacked, batched pour cascades down. Universally loved flavour + maximum visual theatre. [R8]',
     source: '[R3]'
@@ -380,18 +380,18 @@ export const luxuryVenueIntel = [
     tier: 'World-class',
     signatureCocktail: 'Connaught Martini (tableside trolley)',
     dominantBrand: 'Connaught Bar Gin / Tanqueray No.10',
-    avgCostPerServe: '\u00a323\u2013\u00a325 (~$30)',
-    vintageOption: '\u00a3100\u2013\u00a3120 (1970s Gordon\u2019s / Haig)',
+    avgCostPerServe: '£23–£25 (~$30)',
+    vintageOption: '£100–£120 (1970s Gordon’s / Haig)',
     theatre: 'Martini trolley, handmade bitters lineup, tableside ritual',
     source: '[R4][R5]'
   },
   {
-    venue: 'Annabel\u2019s',
+    venue: 'Annabel’s',
     location: 'Berkeley Square, Mayfair',
     tier: 'Private members club',
-    signatureCocktail: '\u201cThe Judith\u201d \u2014 Hennessy, Galliano, lemon foam, smoked paprika',
+    signatureCocktail: '“The Judith” — Hennessy, Galliano, lemon foam, smoked paprika',
     dominantBrand: 'Hennessy Cognac / Suntory Toki',
-    avgCostPerServe: 'Membership-gated (\u00a33,500 pa + \u00a31,250 join)',
+    avgCostPerServe: 'Membership-gated (£3,500 pa + £1,250 join)',
     vintageOption: 'Yamazaki 55 available',
     theatre: 'Immersive themed interiors; seasonal art installations; Japanese restaurant with The Book of Five Rings cocktail menu',
     source: '[R4]'
@@ -400,9 +400,9 @@ export const luxuryVenueIntel = [
     venue: 'Savoy Beaufort Bar',
     location: 'Strand, London',
     tier: 'Historic super-prime',
-    signatureCocktail: '\u201cRed Carpet\u201d \u2014 whisky, amaro, honey, cold-brew coffee',
+    signatureCocktail: '“Red Carpet” — whisky, amaro, honey, cold-brew coffee',
     dominantBrand: 'Pol Roger / Laurent-Perrier Grand Siecle',
-    avgCostPerServe: '\u00a325+',
+    avgCostPerServe: '£25+',
     vintageOption: 'Caviar Bumps alongside Champagne',
     theatre: 'Jet-black and burnished gold interior; Champagne focus; caviar pairings',
     source: '[R4]'
@@ -422,9 +422,9 @@ export const luxuryVenueIntel = [
     venue: 'Gilt Bar, Burj Al Arab',
     location: 'Dubai',
     tier: 'Middle East flagship',
-    signatureCocktail: '\u201cOseille\u201d \u2014 sorrel-infused vodka, dehydrated yoghurt, green cardamom',
+    signatureCocktail: '“Oseille” — sorrel-infused vodka, dehydrated yoghurt, green cardamom',
     dominantBrand: 'LOUIS XIII Rare Cask 42.1 (exclusive Gulf pouring)',
-    avgCostPerServe: 'AED 90\u2013150 (~$25\u2013$41)',
+    avgCostPerServe: 'AED 90–150 (~$25–$41)',
     vintageOption: 'LOUIS XIII by glass',
     theatre: 'In-house centrifuge, sous-vide, rotovap; white gold-threaded marble feature wall; Thibault Mequignon as mixologist',
     source: '[R6]'
@@ -433,9 +433,9 @@ export const luxuryVenueIntel = [
     venue: 'F1 MISCHIEF Superyacht',
     location: 'Melbourne Grand Prix',
     tier: 'Ultra-premium event',
-    signatureCocktail: '\u201cThe Podium\u201d \u2014 Don Julio 1942, white vermouth, lime cordial, cacao husk, single ice sphere',
+    signatureCocktail: '“The Podium” — Don Julio 1942, white vermouth, lime cordial, cacao husk, single ice sphere',
     dominantBrand: 'Don Julio 1942',
-    avgCostPerServe: 'Included in $6k\u2013$9k event access',
+    avgCostPerServe: 'Included in $6k–$9k event access',
     vintageOption: 'Caviar service + salted lime cleanser',
     theatre: '69.5m superyacht; single ice sphere serve; tableside caviar pairing',
     source: '[R4]'
@@ -444,10 +444,10 @@ export const luxuryVenueIntel = [
     venue: 'Tambourine Room by Tristan Brandt',
     location: 'Miami (Michelin-starred)',
     tier: 'Michelin pairing',
-    signatureCocktail: '\u201cFive Spice Milk Punch\u201d paired with Kyushu Hamachi; \u201cLucky Cat Highball\u201d (Macallan 12, bergamot)',
+    signatureCocktail: '“Five Spice Milk Punch” paired with Kyushu Hamachi; “Lucky Cat Highball” (Macallan 12, bergamot)',
     dominantBrand: 'Macallan / Brugal 1888',
     avgCostPerServe: '$80+ cocktail pairing flight (supplement to $185 menu)',
-    vintageOption: 'Macallan experience $34\u2013$127',
+    vintageOption: 'Macallan experience $34–$127',
     theatre: '10-course tasting menu; Art Deco pre-cocktails; cuisine-paired cocktail programme',
     source: '[R4]'
   }
@@ -461,41 +461,41 @@ export const pricingBands = [
   {
     tier: 'Super-prime London / NYC',
     venues: 'Connaught, Savoy Beaufort, Aman NYC',
-    standardRange: '\u00a320\u2013\u00a330 ($25\u2013$38)',
-    signatureRange: '\u00a337 (Connaught Martini)',
-    vintageRange: '\u00a3100\u2013\u00a3120',
-    ultraPremiumPour: 'Louis XIII: \u00a3350/50ml at Ritz; Pappy 23yo: \u00a3500/50ml at Ritz',
+    standardRange: '£20–£30 ($25–$38)',
+    signatureRange: '£37 (Connaught Martini)',
+    vintageRange: '£100–£120',
+    ultraPremiumPour: 'Louis XIII: £350/50ml at Ritz; Pappy 23yo: £500/50ml at Ritz',
     eventPackage: 'N/A (a la carte)',
-    notes: 'Theatrical service is the price driver, not COGS. Decoy pricing (\u00a3120 vintage) makes \u00a337 feel reasonable. [R5]'
+    notes: 'Theatrical service is the price driver, not COGS. Decoy pricing (£120 vintage) makes £37 feel reasonable. [R5]'
   },
   {
     tier: 'Mayfair private members clubs',
-    venues: 'Annabel\u2019s, 5 Hertford St, Oswald\u2019s',
-    standardRange: 'Mayfair standard (\u00a320\u2013\u00a330)',
+    venues: 'Annabel’s, 5 Hertford St, Oswald’s',
+    standardRange: 'Mayfair standard (£20–£30)',
     signatureRange: 'Membership-gated',
-    vintageRange: 'Oswald\u2019s: retail-price fine wine (loss leader for members)',
+    vintageRange: 'Oswald’s: retail-price fine wine (loss leader for members)',
     ultraPremiumPour: 'Yamazaki 55 allocated selectively',
-    eventPackage: '\u00a33,250 pa + \u00a31,250 join (Annabel\u2019s)',
-    notes: 'Clubs use beverage as membership perk \u2014 subsidised pricing strategy. [R5]'
+    eventPackage: '£3,250 pa + £1,250 join (Annabel’s)',
+    notes: 'Clubs use beverage as membership perk — subsidised pricing strategy. [R5]'
   },
   {
     tier: 'Middle East luxury hotel bars',
     venues: 'Burj Al Arab Gilt, Emirates Palace, Waldorf DIFC',
-    standardRange: 'AED 75\u2013150 (~$20\u2013$41)',
-    signatureRange: 'AED 90\u2013150',
+    standardRange: 'AED 75–150 (~$20–$41)',
+    signatureRange: 'AED 90–150',
     vintageRange: 'LOUIS XIII Rare Cask 42.1 at Emirates Palace (excl. Gulf)',
     ultraPremiumPour: 'TBD',
-    eventPackage: 'Happy Hour AED 35\u201339 at St. Trop (Waldorf DIFC)',
+    eventPackage: 'Happy Hour AED 35–39 at St. Trop (Waldorf DIFC)',
     notes: 'Dual-track: premium licensed bars (UAE) + zero-proof innovation (Saudi). [R6]'
   },
   {
     tier: 'Luxury event / private hire',
     venues: 'High-end weddings, corporate galas',
-    standardRange: '$50\u2013$90 per guest (open bar package)',
+    standardRange: '$50–$90 per guest (open bar package)',
     signatureRange: 'Ultra top-shelf: $100+ per head',
     vintageRange: 'TBD by client spec',
     ultraPremiumPour: 'Clase Azul Dia de Muertos: $150+ per pour (est. from $1,900 bottle)',
-    eventPackage: '2.4x\u20133x wholesale markup + 18\u201322% service charge',
+    eventPackage: '2.4x–3x wholesale markup + 18–22% service charge',
     notes: 'Per-guest packaging preferred over consumption billing. Break-even: 2 drinks/hr1, 1 drink/hr thereafter. [R5]'
   },
   {
@@ -505,7 +505,7 @@ export const pricingBands = [
     signatureRange: 'Included',
     vintageRange: 'Louis XIII: $230 per 10ml (F1 Las Vegas)',
     ultraPremiumPour: 'Yamazaki 55: $2,000/0.5oz (Morimoto Asia); $7,000 event ticket (Portland)',
-    eventPackage: 'F1 Paddock Club: $6k\u2013$9k pp ($15k secondary market Miami/Monaco)',
+    eventPackage: 'F1 Paddock Club: $6k–$9k pp ($15k secondary market Miami/Monaco)',
     notes: 'Beverages fully subsumed by access premium. Drink cost irrelevant. [R5]'
   }
 ]
@@ -518,21 +518,21 @@ export const presentationTheatre = {
   iceProgramme: [
     {
       format: 'Hand-carved sphere (2.5 inch)',
-      specialist: 'Gl\u00e4ce Luxury Ice (US) \u2014 ~$325/50 pieces; Okamoto Studio (Tokyo)',
-      why: 'Maximum volume-to-surface ratio; slowest dilution. 20\u201340 min melt time.',
+      specialist: 'Gläce Luxury Ice (US) — ~$325/50 pieces; Okamoto Studio (Tokyo)',
+      why: 'Maximum volume-to-surface ratio; slowest dilution. 20–40 min melt time.',
       luxurySignal: 'Very high',
       source: '[R8]'
     },
     {
       format: 'Perfect cube (Kold-Draft machine)',
-      specialist: 'Kold-Draft 1.25-inch cube \u2014 industry gold standard for volume venues',
+      specialist: 'Kold-Draft 1.25-inch cube — industry gold standard for volume venues',
       why: 'Crystal clarity, dense, preserves carbonation. Indicator of venue quality.',
       luxurySignal: 'High',
       source: '[R8]'
     },
     {
       format: 'Branded / inclusion ice',
-      specialist: 'Mixology Ice / Celebration Iceworks \u2014 edible gold infusions, flower inclusions',
+      specialist: 'Mixology Ice / Celebration Iceworks — edible gold infusions, flower inclusions',
       why: 'Custom branding, edible flower suspension, gold-leaf inclusion.',
       luxurySignal: 'Very high (event-specific)',
       source: '[R8]'
@@ -548,7 +548,7 @@ export const presentationTheatre = {
   glassware: [
     { name: 'Nick & Nora', maker: 'Luigi Bormioli (2025 German Design Award Gold) / Orrefors', signalLevel: 'High', notes: 'Art Deco revival. Standard for Martini, Manhattan. 0.95mm laser rim.' },
     { name: 'Baccarat Harcourt', maker: 'Baccarat', signalLevel: 'Ultra-premium', notes: '$780+ per flute. Status object.' },
-    { name: 'Lalique crystal', maker: 'Lalique', signalLevel: 'Ultra-premium', notes: 'Beluga Epicure II: \u20ac15,000 decanter. Four Seasons NYC Billionaire\u2019s Row cocktail served exclusively in Lalique.' },
+    { name: 'Lalique crystal', maker: 'Lalique', signalLevel: 'Ultra-premium', notes: 'Beluga Epicure II: €15,000 decanter. Four Seasons NYC Billionaire’s Row cocktail served exclusively in Lalique.' },
     { name: 'Richard Brendon / Jancis Robinson', maker: 'Richard Brendon', signalLevel: 'High functional luxury', notes: 'Mouth-blown feel, Michelin favourite. Aromas maximised by calibrated bowl.' },
     { name: 'Zalto / Riedel Performance', maker: 'Zalto / Riedel', signalLevel: 'Professional high-end', notes: 'Sommelier standard. Less visual drama than Baccarat but supreme functionality.' }
   ],
@@ -556,8 +556,8 @@ export const presentationTheatre = {
     {
       name: 'Espresso Martini Tower',
       description: 'Stacked coupe glasses, batched pour cascades down tiers. Replaces Champagne tower at galas/weddings.',
-      brands: 'Ketel One, Tito\u2019s, Mr Black coffee liqueur',
-      suitabilityForKhorus: 'Excellent \u2014 universally loved, high theatre, highly photographable',
+      brands: 'Ketel One, Tito’s, Mr Black coffee liqueur',
+      suitabilityForKhorus: 'Excellent — universally loved, high theatre, highly photographable',
       source: '[R8]'
     },
     {
@@ -570,15 +570,15 @@ export const presentationTheatre = {
     {
       name: 'Aperol Spritz / Gin Cart (Mobile)',
       description: 'Branded vintage tricycle or cart. Mobile mixing, custom botanicals, Instagram focal point.',
-      brands: 'Aperol, Hendrick\u2019s, The Botanist',
+      brands: 'Aperol, Hendrick’s, The Botanist',
       suitabilityForKhorus: 'Strong for daytime / garden events',
       source: '[R8]'
     },
     {
-      name: 'Tableside Martini Trolley (Gu\u00e9ridon)',
+      name: 'Tableside Martini Trolley (Guéridon)',
       description: 'Gold standard set by Connaught Bar. Bitters lineup, personalised build, tableside performance.',
       brands: 'Connaught Bar Gin, Tanqueray No.10',
-      suitabilityForKhorus: 'Premium \u2014 for seated dinner activations',
+      suitabilityForKhorus: 'Premium — for seated dinner activations',
       source: '[R8]'
     },
     {
@@ -591,8 +591,8 @@ export const presentationTheatre = {
     {
       name: 'Edible Gold Garnish',
       description: '24-karat gold leaf (Slofoodgroup / Easy Leaf). Gold-dusted coffee beans, gold rim margaritas.',
-      brands: 'Grey Goose Devil\u2019s Roast (gold beans); Annabel\u2019s The Judith (24k gold theme)',
-      suitabilityForKhorus: 'Scalable luxury signal \u2014 low cost, high perceived value',
+      brands: 'Grey Goose Devil’s Roast (gold beans); Annabel’s The Judith (24k gold theme)',
+      suitabilityForKhorus: 'Scalable luxury signal — low cost, high perceived value',
       source: '[R8]'
     }
   ]
@@ -605,24 +605,24 @@ export const presentationTheatre = {
 export const middleEastIntel = {
   overview: 'Bifurcated market: licensed premium bars (UAE/Qatar/Bahrain) + sophisticated zero-proof innovation (Saudi Arabia). Both tracks converge on high-end experiential presentation.',
   licensedVenues: [
-    { venue: 'Gilt, Burj Al Arab', city: 'Dubai', note: 'Centrifuge / rotovap techniques; LOUIS XIII Gulf exclusive; AED 90\u2013150 cocktails' },
-    { venue: 'Skyview Bar, Burj Al Arab', city: 'Dubai', note: 'Passion Fruit Martini signature; classic luxury; AED 135\u2013150' },
+    { venue: 'Gilt, Burj Al Arab', city: 'Dubai', note: 'Centrifuge / rotovap techniques; LOUIS XIII Gulf exclusive; AED 90–150 cocktails' },
+    { venue: 'Skyview Bar, Burj Al Arab', city: 'Dubai', note: 'Passion Fruit Martini signature; classic luxury; AED 135–150' },
     { venue: 'Broadway, Emirates Palace', city: 'Abu Dhabi', note: 'LOUIS XIII Rare Cask 42.1 exclusive Gulf pouring; international bar takeovers incl. DUKES London' },
     { venue: 'Hakkasan, Atlantis The Palm', city: 'Dubai', note: 'The Hakka: vodka, sake, lychee, coconut; AED packages from 538pp' }
   ],
   zeroproofLeaders: [
-    { venue: 'Tonic Bar, Four Seasons Riyadh', city: 'Riyadh', note: 'All-female bar team. Imperial Sparkle (yuzu + Lyre\u2019s). Mediterranean Whisper (clarified cucumber + dill). SAR 55\u2013\u201369.' },
+    { venue: 'Tonic Bar, Four Seasons Riyadh', city: 'Riyadh', note: 'All-female bar team. Imperial Sparkle (yuzu + Lyre’s). Mediterranean Whisper (clarified cucumber + dill). SAR 55––69.' },
     { venue: 'Alieia by the Sea / The Good Butcher', city: 'Jeddah', note: 'Charbel Mallah: Wooden Smokey House mocktail under smoke cloche. Narrative-driven presentation.' }
   ],
   megaEvents: [
-    { event: 'Abu Dhabi F1 Grand Prix', note: 'Shams Suite: 7hr open bar + gourmet. Harbour Club: Champagne on race day. Superyacht: from \u00a3455/day (Friday); \u00a33k+ full weekend.' },
+    { event: 'Abu Dhabi F1 Grand Prix', note: 'Shams Suite: 7hr open bar + gourmet. Harbour Club: Champagne on race day. Superyacht: from £455/day (Friday); £3k+ full weekend.' },
     { event: 'Dubai World Cup', note: 'Royal Enclosure: Majlis banquet + free-flowing bubbly. Silks Restaurant private suites from AED 4,900. Oyster + caviar station.' },
     { event: 'Riyadh Season', note: 'All zero-proof. Sophisticated mocktail programming with Saudi staples.' }
   ],
   regionalFlavours: [
-    { ingredient: 'Saffron', use: 'Floral aroma, golden hue. Saffron Lemonade, Saffron Golden Milk. Most expensive spice \u2014 instant luxury signal.' },
+    { ingredient: 'Saffron', use: 'Floral aroma, golden hue. Saffron Lemonade, Saffron Golden Milk. Most expensive spice — instant luxury signal.' },
     { ingredient: 'Dates', use: 'Natural sweetness + cultural heritage. Date purees/syrups as base for zero-proof builds.' },
-    { ingredient: 'Taif Rose', use: 'Prized Arabian rose from Ta\u2019if, Saudi Arabia. Rosewater pairings with cardamom.' },
+    { ingredient: 'Taif Rose', use: 'Prized Arabian rose from Ta’if, Saudi Arabia. Rosewater pairings with cardamom.' },
     { ingredient: 'Cardamom', use: 'Warm spiced depth. Traditional Qahwa coffee translation into cocktails. Popular in both alcoholic and zero-proof.' }
   ],
   note: 'Khorus MENA presence referenced in research as a live communications agency operating across the Gulf region. [R6]'
@@ -633,70 +633,70 @@ export const middleEastIntel = {
 // Source: [R7] Zero-proof luxury cocktail trends deep research
 // ---------------------------------------------------------------------------
 export const zeroproofLuxury = {
-  marketSize: '$13B+ global zero-proof market (2024). CAGR 7\u20138% to 2028. [R7]',
+  marketSize: '$13B+ global zero-proof market (2024). CAGR 7–8% to 2028. [R7]',
   iwsrCAGR: {
-    overallNoLow: '+4% (2024\u20132028)',
+    overallNoLow: '+4% (2024–2028)',
     noAlcohol: '+7%',
     noAlcoholRTD: '+10% (fastest)',
-    usSpecific: '+18% (US no-alcohol 2024\u20132028)'
+    usSpecific: '+18% (US no-alcohol 2024–2028)'
   },
-  eventDemand: '24\u201330% of luxury event guests now request zero-proof options. 68% of luxury events feature dedicated zero-proof menus. [R7]',
-  demographics: '40%+ of Millennials / Gen Z actively reducing alcohol. 92% of NA buyers also purchase alcohol \u2014 \u201cflexitarian\u201d not fully sober. [R7]',
-  pricingParity: 'Luxury ZP cocktails: $9\u2013$14. Alcoholic equivalent: $14\u2013$18. Near-parity justified by costly botanical extraction and short shelf life. [R7]',
+  eventDemand: '24–30% of luxury event guests now request zero-proof options. 68% of luxury events feature dedicated zero-proof menus. [R7]',
+  demographics: '40%+ of Millennials / Gen Z actively reducing alcohol. 92% of NA buyers also purchase alcohol — “flexitarian” not fully sober. [R7]',
+  pricingParity: 'Luxury ZP cocktails: $9–$14. Alcoholic equivalent: $14–$18. Near-parity justified by costly botanical extraction and short shelf life. [R7]',
   venues: [
-    { venue: 'The Connaught Bar', offering: 'Flora \u2014 Aecorn dry, purple cordial, peach and jasmine soda. Same theatrical service as alcoholic.' },
-    { venue: 'Soho House', offering: 'Non-Alcoholic Picante (Pentire Adrift). Banned the word \u201cmocktail\u201d \u2014 \u201cnon-alcoholic cocktails\u201d only.' },
+    { venue: 'The Connaught Bar', offering: 'Flora — Aecorn dry, purple cordial, peach and jasmine soda. Same theatrical service as alcoholic.' },
+    { venue: 'Soho House', offering: 'Non-Alcoholic Picante (Pentire Adrift). Banned the word “mocktail” — “non-alcoholic cocktails” only.' },
     { venue: 'Aman Nai Lert Bangkok', offering: '0% Negroni and No Whiskey Sour on Godai-inspired menu.' },
-    { venue: 'Rosewood properties', offering: 'Rosewood Reverie: chamomile, cherry, ashwagandha, rosewater. \u201cMood Enhancing Libations\u201d menu.' }
+    { venue: 'Rosewood properties', offering: 'Rosewood Reverie: chamomile, cherry, ashwagandha, rosewater. “Mood Enhancing Libations” menu.' }
   ],
   premiumBrands: [
     { brand: 'Seedlip', notes: 'Pioneer. Grove 42 (blood orange, ginger, sansho pepper). Luxury spritz base.' },
-    { brand: 'Lyre\u2019s', notes: 'Most comprehensive range. Italian Orange replicates aperitivo. Classico for toast moments.' },
-    { brand: 'French Bloom', notes: 'LVMH-backed. Organic Chardonnay, oak-aged. $100\u2013$119/bottle. True champagne-class positioning.' },
+    { brand: 'Lyre’s', notes: 'Most comprehensive range. Italian Orange replicates aperitivo. Classico for toast moments.' },
+    { brand: 'French Bloom', notes: 'LVMH-backed. Organic Chardonnay, oak-aged. $100–$119/bottle. True champagne-class positioning.' },
     { brand: 'Everleaf', notes: 'Conservation biologist founder. Forest: saffron, vanilla, orange blossom. Premium spritz base.' },
     { brand: 'Pentire', notes: 'Cornish coastline. Adrift: rock samphire, sage, sea salt. Soho House NA Picante base.' },
     { brand: 'Three Spirit', notes: 'Mood-enhancing botanicals. Nightcap: woodsy, vanilla, soft bitterness. Digestif role.' },
     { brand: 'Feragaia', notes: "Scotland's first alcohol-free spirit. Kaffir lime, pink peppercorn, cayenne. Zero-proof Penicillin." }
   ],
-  adaptogens: 'CBD, ashwagandha, lion\u2019s mane, rhodiola appearing on luxury event menus as \u201cbooze-free buzz\u201d. Rosewood leads. [R7]'
+  adaptogens: 'CBD, ashwagandha, lion’s mane, rhodiola appearing on luxury event menus as “booze-free buzz”. Rosewood leads. [R7]'
 }
 
 // ---------------------------------------------------------------------------
-// MODULE 8: OPPORTUNITY RADAR (Signal \u2192 Migration \u2192 Product \u2192 Brief \u2192 Reallocation)
+// MODULE 8: OPPORTUNITY RADAR (Signal → Migration → Product → Brief → Reallocation)
 // Hand-authored for v1, calibrated to Khorus luxury-events use case
 // ---------------------------------------------------------------------------
 export const opportunityRadar = [
   {
     id: 'spritz-fatigue',
-    signal: 'Spritz Fatigue \u2192 Highball Intercept',
-    signalDetail: 'Aperol Spritz collapsed from #9 Difford\u2019s 2020 to #92 in 2025. Consumer search declining while DI ranking still holds (#8). Classic divergence pattern.',
-    migration: 'Consumers migrating to Paloma (+5 DI ranks since 2022), Hugo Spritz (new top-50 entry), and gin-based highballs. Refreshment category is not dying \u2014 it\u2019s being redistributed.',
-    product: 'Bespoke spritz station anchored by premium gin highball (The Botanist / Monkey 47 / Hendrick\u2019s) with house botanicals and exotic citrus. Offer a \u201cSignature Khorus Spritz\u201d as the arrival drink across events.',
-    brief: 'Replace Aperol as the default arrival drink. Build a branded gin highball programme with 2\u20133 seasonal variants. Partners: Remy Cointreau (The Botanist), Hendrick\u2019s (William Grant).',
+    signal: 'Spritz Fatigue → Highball Intercept',
+    signalDetail: 'Aperol Spritz collapsed from #9 Difford’s 2020 to #92 in 2025. Consumer search declining while DI ranking still holds (#8). Classic divergence pattern.',
+    migration: 'Consumers migrating to Paloma (+5 DI ranks since 2022), Hugo Spritz (new top-50 entry), and gin-based highballs. Refreshment category is not dying — it’s being redistributed.',
+    product: 'Bespoke spritz station anchored by premium gin highball (The Botanist / Monkey 47 / Hendrick’s) with house botanicals and exotic citrus. Offer a “Signature Khorus Spritz” as the arrival drink across events.',
+    brief: 'Replace Aperol as the default arrival drink. Build a branded gin highball programme with 2–3 seasonal variants. Partners: Remy Cointreau (The Botanist), Hendrick’s (William Grant).',
     reallocation: 'Shift arrival-drink budget from Aperol activation to gin highball programme. Higher perceived premium, lower commodity feel, stronger brand storytelling opportunity.',
-    urgency: 'Act now \u2014 Spritz is still commercially strong but brand equity is eroding. First-mover advantage in repositioning arrival drinks at UK luxury events.',
+    urgency: 'Act now — Spritz is still commercially strong but brand equity is eroding. First-mover advantage in repositioning arrival drinks at UK luxury events.',
     colour: '#0f766e'
   },
   {
     id: 'zero-proof-weddings',
     signal: 'Zero-Proof Wedding & Corporate Demand',
-    signalDetail: '24\u201330% of luxury event guests now actively request zero-proof options (IWSR 2025). Search for \u201cdry weddings\u201d +85% YoY. 68% of luxury events already have dedicated ZP menus \u2014 but quality is highly variable.',
-    migration: 'Market moving from \u201cjuice corner\u201d to full-parity non-alcoholic programmes. French Bloom ($100\u2013$119/bottle, LVMH-backed) is replacing Champagne for toasts. Soho House banning \u201cmocktail\u201d language.',
-    product: 'Khorus Zero-Proof Luxury Tier. Curated NA programme: French Bloom for toasts, Seedlip / Everleaf for cocktail hour, Three Spirit Nightcap for post-dinner. Presented in identical glassware with same theatre. Adaptogens (ashwagandha, lion\u2019s mane) as optional \u201cfunction\u201d layer.',
+    signalDetail: '24–30% of luxury event guests now actively request zero-proof options (IWSR 2025). Search for “dry weddings” +85% YoY. 68% of luxury events already have dedicated ZP menus — but quality is highly variable.',
+    migration: 'Market moving from “juice corner” to full-parity non-alcoholic programmes. French Bloom ($100–$119/bottle, LVMH-backed) is replacing Champagne for toasts. Soho House banning “mocktail” language.',
+    product: 'Khorus Zero-Proof Luxury Tier. Curated NA programme: French Bloom for toasts, Seedlip / Everleaf for cocktail hour, Three Spirit Nightcap for post-dinner. Presented in identical glassware with same theatre. Adaptogens (ashwagandha, lion’s mane) as optional “function” layer.',
     brief: 'Develop a standard Khorus ZP package that can be appended to any event proposal. Include tasting notes and menu card for each drink. Position as wellness-forward luxury, not abstinence.',
-    reallocation: 'Zero-proof cocktails run 10\u201315% pour cost vs 18\u201322% for alcoholic \u2014 higher margin at near-equivalent pricing. Budget reallocation improves event P&L while raising guest satisfaction.',
+    reallocation: 'Zero-proof cocktails run 10–15% pour cost vs 18–22% for alcoholic — higher margin at near-equivalent pricing. Budget reallocation improves event P&L while raising guest satisfaction.',
     urgency: 'Competitive table-stakes within 12 months. Build now before it becomes a commodity expectation.',
     colour: '#6d28d9'
   },
   {
     id: 'caviar-tequila',
     signal: 'Caviar Garnish + Ultra-Premium Tequila Crossover',
-    signalDetail: 'Don Julio 1942 Chaparritos at Oscars, Met Gala, F1 Melbourne. Clase Azul Dia de Muertos at $1,900/bottle. Caviar Martini at Silverleaf (London). The F1 Mischief \u201cPodium\u201d pairs Don Julio 1942 with caviar service. These activations are coalescing into a recognisable luxury gesture.',
-    migration: 'The Margarita (DI #3) is being \u201celevated\u201d out of casual dining into luxury territory through ultra-premium agave spirits + culinary garnish crossover. High-low pairing (caviar + tequila) is the most talked-about luxury drinks moment of 2024\u20132025.',
-    product: 'The Khorus Caviar Margarita activation. Clase Azul Reposado or Don Julio 1942, fresh lime, agave \u2014 garnished with a quenelle of Golden Ossetra caviar on chip + cr\u00e8me fra\u00eeche alongside. Serves as the headline moment at premium events.',
-    brief: 'Source Clase Azul / Don Julio 1942 via on-trade allocation. Partner with a premium caviar supplier (Caviar House, The Caviar Co, Petrossian). Build as a \u201csignature activation\u201d uplift that sits above standard bar package.',
-    reallocation: 'Charge as a VIP activation uplift (\u00a315\u201325 per serve premium). One activation moment (e.g., 7pm reveal) rather than full bar, concentrates spend for maximum impact.',
-    urgency: 'Window is 12\u201318 months before mainstream saturation. Currently a differentiated luxury signal.',
+    signalDetail: 'Don Julio 1942 Chaparritos at Oscars, Met Gala, F1 Melbourne. Clase Azul Dia de Muertos at $1,900/bottle. Caviar Martini at Silverleaf (London). The F1 Mischief “Podium” pairs Don Julio 1942 with caviar service. These activations are coalescing into a recognisable luxury gesture.',
+    migration: 'The Margarita (DI #3) is being “elevated” out of casual dining into luxury territory through ultra-premium agave spirits + culinary garnish crossover. High-low pairing (caviar + tequila) is the most talked-about luxury drinks moment of 2024–2025.',
+    product: 'The Khorus Caviar Margarita activation. Clase Azul Reposado or Don Julio 1942, fresh lime, agave — garnished with a quenelle of Golden Ossetra caviar on chip + crème fraîche alongside. Serves as the headline moment at premium events.',
+    brief: 'Source Clase Azul / Don Julio 1942 via on-trade allocation. Partner with a premium caviar supplier (Caviar House, The Caviar Co, Petrossian). Build as a “signature activation” uplift that sits above standard bar package.',
+    reallocation: 'Charge as a VIP activation uplift (£15–25 per serve premium). One activation moment (e.g., 7pm reveal) rather than full bar, concentrates spend for maximum impact.',
+    urgency: 'Window is 12–18 months before mainstream saturation. Currently a differentiated luxury signal.',
     colour: '#b45309'
   }
 ]
@@ -705,17 +705,17 @@ export const opportunityRadar = [
 // TWENTY-YEAR TREND ARC: 2006-2026
 // Source: [R9] = ~/Documents/Claude/research/chloe_khorus_cocktails/08_twenty_year_trend_arc.md
 // Generated: April 2026
-// All figures from Drinks International, Difford\u2019s Guide, IWSR, Tales of the Cocktail,
-// World\u2019s 50 Best Bars, CGA by NIQ, Bacardi Cocktail Trends Report, Synthesis Research
+// All figures from Drinks International, Difford’s Guide, IWSR, Tales of the Cocktail,
+// World’s 50 Best Bars, CGA by NIQ, Bacardi Cocktail Trends Report, Synthesis Research
 // ---------------------------------------------------------------------------
 export const twentyYearArc = {
   eras: [
     {
       id: 'era1',
-      label: '2006\u20132009',
+      label: '2006–2009',
       subtitle: 'Cosmo Tail-End & Speakeasy Emergence',
       dominantCocktails: ['Cosmopolitan', 'Classic Martini', 'Mojito', 'Flavoured Martinis', 'Appletini'],
-      flavourProfile: 'Sweet, feminine, approachable \u2014 luxury segment moving toward dry & bitter',
+      flavourProfile: 'Sweet, feminine, approachable — luxury segment moving toward dry & bitter',
       culturalMoment: 'Sex & the City cultural dominance; Milk & Honey (2003) and PDT (2007) define early speakeasy template',
       luxuryBehaviour: 'Ultra-premium venues (Dukes Bar, The Connaught) quietly rejecting neon-coloured excess; gin reclaiming prestige bars',
       keyIngredient: 'Flavoured vodka (mass); gin (prestige)',
@@ -724,11 +724,11 @@ export const twentyYearArc = {
     },
     {
       id: 'era2',
-      label: '2010\u20132014',
+      label: '2010–2014',
       subtitle: 'Craft Explosion & Bitters Renaissance',
       dominantCocktails: ['Old Fashioned', 'Negroni', 'Daiquiri', 'Sazerac', 'Mai Tai', 'Last Word'],
-      flavourProfile: 'Bitter, spirit-forward, complex \u2014 sweetness was anathema',
-      culturalMoment: 'Craft bourbon booms; farm-to-table influences bars; World\u2019s 50 Best Bars launches (2013)',
+      flavourProfile: 'Bitter, spirit-forward, complex — sweetness was anathema',
+      culturalMoment: 'Craft bourbon booms; farm-to-table influences bars; World’s 50 Best Bars launches (2013)',
       luxuryBehaviour: 'Artisanal minimalism (Death & Co template) vs molecular maximalism; bartending elevated to competitive sport via brand sponsorships',
       keyIngredient: 'Artisanal bitters, hand-cracked ice, heritage rye & bourbon',
       accentColour: '#f59e0b',
@@ -736,10 +736,10 @@ export const twentyYearArc = {
     },
     {
       id: 'era3',
-      label: '2015\u20132018',
+      label: '2015–2018',
       subtitle: 'Instagram Era & Aperol Spritz Explosion',
       dominantCocktails: ['Negroni', 'Old Fashioned', 'Aperol Spritz', 'Mezcal Margarita', 'Gin & Tonic', 'Espresso Martini'],
-      flavourProfile: 'Bittersweet, botanical, fresh \u2014 visual shareability as important as taste',
+      flavourProfile: 'Bittersweet, botanical, fresh — visual shareability as important as taste',
       culturalMoment: 'Instagram reshapes hospitality; Aperol Spritz transforms from regional Italian aperitif to global luxury signifier; Japanese whisky investment peaks',
       luxuryBehaviour: 'Spritz Bars become de facto requirement at premium weddings & galas; mezcal breaks through as ultra-premium agave; W50B decentralises globally',
       keyIngredient: 'Aperol, premium tonics (Fever-Tree), small-batch mezcal, Japanese whisky',
@@ -748,60 +748,60 @@ export const twentyYearArc = {
     },
     {
       id: 'era4',
-      label: '2019\u20132021',
+      label: '2019–2021',
       subtitle: 'Pre-Pandemic Peak & Pandemic Pivot',
       dominantCocktails: ['Negroni', 'Espresso Martini', 'Old Fashioned', 'Aperol Spritz', 'Negroni Sbagliato', 'At-Home RTD'],
-      flavourProfile: 'Bifurcated \u2014 simultaneously maximalist (Spritz) and minimalist (zero-proof bitter amari)',
+      flavourProfile: 'Bifurcated — simultaneously maximalist (Spritz) and minimalist (zero-proof bitter amari)',
       culturalMoment: '2019 zenith of on-premise luxury; March 2020 global shutdown; RTD growth outpaces bottled spirits by 2021',
-      luxuryBehaviour: 'Premium at-home kit delivery; RTD cocktails move from sacrilege to growth engine; zero-proof discovery via Seedlip & Wilfred\u2019s; pre-batched cocktails become event-acceptable',
+      luxuryBehaviour: 'Premium at-home kit delivery; RTD cocktails move from sacrilege to growth engine; zero-proof discovery via Seedlip & Wilfred’s; pre-batched cocktails become event-acceptable',
       keyIngredient: 'Prosecco (Sbagliato), premium RTD base spirits, Seedlip, cold-brew coffee',
       accentColour: '#06b6d4',
       // [R9] Era 4: DI 2022 confirming Negroni #1; IWSR RTD data 2020-2021
     },
     {
       id: 'era5',
-      label: '2022\u20132024',
+      label: '2022–2024',
       subtitle: 'Gastronomic Maturation & Savoury Turn',
-      dominantCocktails: ['Negroni (#1 DI 2022\u20132025)', 'Old Fashioned (#2)', 'Margarita (#3)', 'Espresso Martini (#4, +116% US)', 'Daiquiri (#5)', 'Whiskey Sour (#6)'],
+      dominantCocktails: ['Negroni (#1 DI 2022–2025)', 'Old Fashioned (#2)', 'Margarita (#3)', 'Espresso Martini (#4, +116% US)', 'Daiquiri (#5)', 'Whiskey Sour (#6)'],
       flavourProfile: 'Bitter-forward maturation; savoury/umami emergence; coffee ascendant; clarified clarity meets garnish complexity',
       culturalMoment: 'Post-pandemic revenge socialising; Espresso Martini Tower replaces Champagne tower at galas; 30% of top Asian bars feature savoury elements by 2024',
-      luxuryBehaviour: 'Clarified milk punches become luxury batch standard; zero-proof sheds teetotaler stigma \u2014 dual menus with equivalent pricing; Handshake Speakeasy Mexico City #1 W50B 2024',
+      luxuryBehaviour: 'Clarified milk punches become luxury batch standard; zero-proof sheds teetotaler stigma — dual menus with equivalent pricing; Handshake Speakeasy Mexico City #1 W50B 2024',
       keyIngredient: 'Campari, cold-brew espresso, miso, clarified cream, premium vermouth, edible gold',
       accentColour: '#34d399',
       // [R9] Era 5: DI 2022-2025 reports; CGA 116% YoY Espresso Martini US Q3 2024; Synthesis Research 30% savoury Asia
     },
     {
       id: 'era6',
-      label: '2025\u20132026',
+      label: '2025–2026',
       subtitle: 'Smoky Peak, Spritz Fatigue & Zero-Proof Parity',
       dominantCocktails: ['Negroni (#1)', 'Oaxaca Old Fashioned (DI top 50 entry)', 'Margarita (#3)', 'Espresso Martini (#4)', 'Savoury Gimlets', 'Botanical Gimlets'],
-      flavourProfile: 'Smoky, savoury, umami-rich, herbaceous, bitter \u2014 low-sugar refinement; multi-sensory activation',
-      culturalMoment: 'Aperol Spritz drops #9 \u2192 #92 Difford\u2019s 2020\u20132025; agave smoke mainstream; AI-assisted cocktail ideation emerges',
+      flavourProfile: 'Smoky, savoury, umami-rich, herbaceous, bitter — low-sugar refinement; multi-sensory activation',
+      culturalMoment: 'Aperol Spritz drops #9 → #92 Difford’s 2020–2025; agave smoke mainstream; AI-assisted cocktail ideation emerges',
       luxuryBehaviour: 'Zero-proof = equal-status menu items with equivalent craft & pricing; smoke activation under glass cloches; savoury/umami as luxury expectation not avant-garde',
       keyIngredient: 'Mezcal, umami bitters, NA amari, aromatic woods, clarified cream (dairy-free variants), fat-washed spirits',
       accentColour: '#f87171',
-      // [R9] Era 6: Difford\u2019s Aperol Spritz #92 (2025); DI Oaxaca Old Fashioned top 50; Synthesis 30% savoury global
+      // [R9] Era 6: Difford’s Aperol Spritz #92 (2025); DI Oaxaca Old Fashioned top 50; Synthesis 30% savoury global
     }
   ],
   surprisingFindings: [
     {
       id: 'aperol-fade',
-      headline: 'Aperol Spritz: #9 \u2192 #92',
-      detail: 'Difford\u2019s Guide consumer search data shows the Aperol Spritz collapsed from #9 (2020) to #92 (2025) \u2014 the sharpest single-drink decline in the data. Still #8 on Drinks International\u2019s prestige-bar survey, but consumer appetite is evaporating. The drink has become a tourist marker, not a luxury signal.',
+      headline: 'Aperol Spritz: #9 → #92',
+      detail: 'Difford’s Guide consumer search data shows the Aperol Spritz collapsed from #9 (2020) to #92 (2025) — the sharpest single-drink decline in the data. Still #8 on Drinks International’s prestige-bar survey, but consumer appetite is evaporating. The drink has become a tourist marker, not a luxury signal.',
       colour: '#f87171',
-      // [R9] Difford\u2019s Guide consumer search data 2025
+      // [R9] Difford’s Guide consumer search data 2025
     },
     {
       id: 'smoke-mainstream',
       headline: 'Smoke Crossed Into Mainstream',
-      detail: 'The Oaxaca Old Fashioned (mezcal + tequila) entered the Drinks International top 50 in 2025 \u2014 confirming that smoky profiles are no longer a niche bartender trick. Luxury bars now carry 3\u20135 mezcals on rotation and treat smoke as a core flavour dimension with terroir narrative.',
+      detail: 'The Oaxaca Old Fashioned (mezcal + tequila) entered the Drinks International top 50 in 2025 — confirming that smoky profiles are no longer a niche bartender trick. Luxury bars now carry 3–5 mezcals on rotation and treat smoke as a core flavour dimension with terroir narrative.',
       colour: '#fb923c',
       // [R9] DI 2024-2025 reports; W50B 2025 lists
     },
     {
       id: 'zerop-inverted',
-      headline: 'Zero-Proof: Compromise \u2192 Premium',
-      detail: 'Non-alcoholic options completed a full category inversion. In 2019 they were an afterthought. By 2025, 68% of luxury events feature dedicated zero-proof menus, 24\u201330% of guests actively request them, and pricing has reached near-parity with alcoholic equivalents. French Bloom (LVMH-backed) at $100\u2013$119/bottle has replaced Champagne for some luxury toasts. Soho House banned the word \u201cmocktail.\u201d',
+      headline: 'Zero-Proof: Compromise → Premium',
+      detail: 'Non-alcoholic options completed a full category inversion. In 2019 they were an afterthought. By 2025, 68% of luxury events feature dedicated zero-proof menus, 24–30% of guests actively request them, and pricing has reached near-parity with alcoholic equivalents. French Bloom (LVMH-backed) at $100–$119/bottle has replaced Champagne for some luxury toasts. Soho House banned the word “mocktail.”',
       colour: '#a78bfa',
       // [R9] IWSR 2025; R7 zero-proof luxury deep research
     }
@@ -811,9 +811,9 @@ export const twentyYearArc = {
 export const profileMeta = {
   clientName: 'Khorus',
   profileTitle: 'Cocktail Intelligence Profile',
-  subtitle: 'Global ranking, flavour trends, luxury event intel \u2014 tailored for luxury events programming',
+  subtitle: 'Global ranking, flavour trends, luxury event intel — tailored for luxury events programming',
   lastUpdated: 'April 2026',
   dataFreshness: 'April 2026',
-  sourcedFrom: 'DI World\u2019s 50 Best Bars Brand Report, Difford\u2019s Guide analytics, IWSR 2024\u20132026, Bacardi Cocktail Trends Report, World\u2019s 50 Best Bars menu analysis, Tales of the Cocktail 2024\u20132025, Class Magazine, The Spirits Business, Imbibe',
+  sourcedFrom: 'DI World’s 50 Best Bars Brand Report, Difford’s Guide analytics, IWSR 2024–2026, Bacardi Cocktail Trends Report, World’s 50 Best Bars menu analysis, Tales of the Cocktail 2024–2025, Class Magazine, The Spirits Business, Imbibe',
   contactEmail: 'callingjhphoto@gmail.com'
 }

@@ -1,6 +1,6 @@
 /**
  * khorus-cocktails.js
- * Khorus Cocktail Intelligence \u2014 use-case archetype
+ * Khorus Cocktail Intelligence — use-case archetype
  * Migrated from src/data/profileKhorusCocktails.js (April 2026)
  *
  * Sources: 9 deep research reports in ~/Documents/Claude/research/chloe_khorus_cocktails/
@@ -16,25 +16,25 @@ import {
   twentyYearArc,
 } from '../profileKhorusCocktails'
 
-// Source registry \u2014 every data point cites back into here.
+// Source registry — every data point cites back into here.
 // Keys are stable; labels + URLs render in the Methodology section and inline.
 export const KHORUS_SOURCES = {
   DI: {
     key: 'DI',
-    label: 'Drinks International \u2014 Brand & Bar Reports',
+    label: 'Drinks International — Brand & Bar Reports',
     shortLabel: 'Drinks International',
     url: 'https://drinksint.com/news/brands-reports',
-    snippet: 'Annual survey of the world\u2019s 100 best bars. Rankings reflect list placement at elite on-premise venues, not consumer search volume.',
-    coverage: '2013\u20132025 (annual)',
-    methodology: 'Bartender survey across 100 nominated elite bars. Measures supply-side prestige \u2014 what top bars actually pour and list.',
+    snippet: 'Annual survey of the world’s 100 best bars. Rankings reflect list placement at elite on-premise venues, not consumer search volume.',
+    coverage: '2013–2025 (annual)',
+    methodology: 'Bartender survey across 100 nominated elite bars. Measures supply-side prestige — what top bars actually pour and list.',
   },
   DIFFORDS: {
     key: 'DIFFORDS',
-    label: 'Difford\u2019s Guide \u2014 Top 100 Cocktails',
-    shortLabel: 'Difford\u2019s Guide',
+    label: 'Difford’s Guide — Top 100 Cocktails',
+    shortLabel: 'Difford’s Guide',
     url: 'https://www.diffordsguide.com/encyclopedia/288/bws/top-100-cocktails',
     snippet: '700k+ monthly page-view cocktail search platform. Rankings reflect real-world consumer intent.',
-    coverage: '2015\u20132025 (monthly)',
+    coverage: '2015–2025 (monthly)',
     methodology: 'Rank derived from aggregated consumer page-views. Signals demand-side appetite rather than elite bar prestige.',
   },
   IWSR: {
@@ -43,7 +43,7 @@ export const KHORUS_SOURCES = {
     shortLabel: 'IWSR',
     url: 'https://www.theiwsr.com',
     snippet: 'Category-level volume and value data for global beverage alcohol and no/low-alcohol markets.',
-    coverage: '2024\u20132028 forecast horizon',
+    coverage: '2024–2028 forecast horizon',
     methodology: 'Trade-channel survey + on/off-trade depletions. Figures cited are IWSR-published headline numbers (CAGR, value growth).',
   },
   BACARDI: {
@@ -57,43 +57,43 @@ export const KHORUS_SOURCES = {
   },
   W50B: {
     key: 'W50B',
-    label: 'World\u2019s 50 Best Bars',
-    shortLabel: 'World\u2019s 50 Best Bars',
+    label: 'World’s 50 Best Bars',
+    shortLabel: 'World’s 50 Best Bars',
     url: 'https://www.worlds50bestbars.com',
-    snippet: 'Academy-voted ranking of the world\u2019s top 50 bars \u2014 a primary luxury on-premise reference.',
-    coverage: '2013\u20132025 annual lists + menus',
-    methodology: 'Secondary menu & signature-cocktail analysis across each year\u2019s top-50 venue list.',
+    snippet: 'Academy-voted ranking of the world’s top 50 bars — a primary luxury on-premise reference.',
+    coverage: '2013–2025 annual lists + menus',
+    methodology: 'Secondary menu & signature-cocktail analysis across each year’s top-50 venue list.',
   },
   TOTC: {
     key: 'TOTC',
-    label: 'Tales of the Cocktail \u2014 Industry Reports',
+    label: 'Tales of the Cocktail — Industry Reports',
     shortLabel: 'Tales of the Cocktail',
     url: 'https://talesofthecocktail.org',
-    snippet: 'New Orleans industry conference \u2014 editorial round-ups capture seminar consensus on emerging directions.',
+    snippet: 'New Orleans industry conference — editorial round-ups capture seminar consensus on emerging directions.',
     coverage: '2024 & 2025 editions',
     methodology: 'Editorial synthesis of seminars, dinners and bartender interviews at TOTC.',
   },
   CGA: {
     key: 'CGA',
-    label: 'CGA by NIQ \u2014 On-Premise Measurement',
+    label: 'CGA by NIQ — On-Premise Measurement',
     shortLabel: 'CGA by NIQ',
     url: 'https://cgastrategy.com',
-    snippet: 'On-premise sales measurement \u2014 tracks actual drink-by-drink pour data in the USA and UK.',
+    snippet: 'On-premise sales measurement — tracks actual drink-by-drink pour data in the USA and UK.',
     coverage: 'Rolling 52-week US/UK on-premise panel',
     methodology: 'EPOS-integrated sales tracking at panel venues. Used here for velocity (e.g. Espresso Martini +116%).',
   },
   R1: {
     key: 'R1',
-    label: 'Liquid Economy \u2014 Khorus Internal Data Audit',
+    label: 'Liquid Economy — Khorus Internal Data Audit',
     shortLabel: 'Liquid Economy (R1)',
     url: null,
-    snippet: 'Internal research audit \u2014 available on request to Khorus stakeholders.',
+    snippet: 'Internal research audit — available on request to Khorus stakeholders.',
     coverage: 'April 2026',
-    methodology: 'Cross-reference of primary sources against Khorus\u2019s own live event data.',
+    methodology: 'Cross-reference of primary sources against Khorus’s own live event data.',
   },
   R4: {
     key: 'R4',
-    label: 'Liquid Economy \u2014 Luxury Events Deep Research',
+    label: 'Liquid Economy — Luxury Events Deep Research',
     shortLabel: 'Liquid Economy (R4)',
     url: null,
     snippet: 'Internal deep-dive on Connaught, F1, Fashion Week, Emirates Palace and peer venues.',
@@ -102,7 +102,7 @@ export const KHORUS_SOURCES = {
   },
   R5: {
     key: 'R5',
-    label: 'Liquid Economy \u2014 Pricing Intelligence',
+    label: 'Liquid Economy — Pricing Intelligence',
     shortLabel: 'Liquid Economy (R5)',
     url: null,
     snippet: 'Internal pricing intelligence across super-prime, members club, Gulf and F1 hospitality tiers.',
@@ -111,7 +111,7 @@ export const KHORUS_SOURCES = {
   },
   R6: {
     key: 'R6',
-    label: 'Liquid Economy \u2014 Middle East Luxury Cocktail Report',
+    label: 'Liquid Economy — Middle East Luxury Cocktail Report',
     shortLabel: 'Liquid Economy (R6)',
     url: null,
     snippet: 'Gulf & Saudi-specific programme research including licensed venues and zero-proof innovation.',
@@ -120,7 +120,7 @@ export const KHORUS_SOURCES = {
   },
   R7: {
     key: 'R7',
-    label: 'Liquid Economy \u2014 Zero-Proof Luxury Research',
+    label: 'Liquid Economy — Zero-Proof Luxury Research',
     shortLabel: 'Liquid Economy (R7)',
     url: null,
     snippet: 'Zero-proof luxury programme research drawing on IWSR no/low data + operator interviews.',
@@ -129,25 +129,25 @@ export const KHORUS_SOURCES = {
   },
   R8: {
     key: 'R8',
-    label: 'Liquid Economy \u2014 Presentation & Theatre Report',
+    label: 'Liquid Economy — Presentation & Theatre Report',
     shortLabel: 'Liquid Economy (R8)',
     url: null,
     snippet: 'Research pass on ice, glassware and activation formats at luxury venues.',
     coverage: 'April 2026',
-    methodology: 'Supplier interviews (Gl\u00e4ce, Okamoto, Kold-Draft), venue capture, W50B menu review.',
+    methodology: 'Supplier interviews (Gläce, Okamoto, Kold-Draft), venue capture, W50B menu review.',
   },
   R9: {
     key: 'R9',
-    label: 'Liquid Economy \u2014 20-Year Cocktail Trend Arc',
+    label: 'Liquid Economy — 20-Year Cocktail Trend Arc',
     shortLabel: 'Liquid Economy (R9)',
     url: null,
-    snippet: 'Longitudinal synthesis across DI, Difford\u2019s, IWSR, TOTC, W50B, CGA, Bacardi and Synthesis Research.',
-    coverage: '2006\u20132026',
+    snippet: 'Longitudinal synthesis across DI, Difford’s, IWSR, TOTC, W50B, CGA, Bacardi and Synthesis Research.',
+    coverage: '2006–2026',
     methodology: 'Era-by-era triangulation: primary source figures per era, cross-checked against at least two independent sources.',
   },
 }
 
-// Per-module source mapping \u2014 which source keys back which module.
+// Per-module source mapping — which source keys back which module.
 const moduleSources = {
   topCocktails: ['DI', 'DIFFORDS', 'IWSR', 'CGA'],
   flavourRadar: ['BACARDI', 'TOTC', 'W50B', 'DIFFORDS'],
@@ -161,8 +161,8 @@ const moduleSources = {
 // rank cell can be cited individually.
 const annotatedCocktails = top20Cocktails.map((c) => {
   const rowSources = []
-  if (c.diRank && !c.diRank.includes('\u2014')) rowSources.push('DI')
-  if (c.diffordsRank && !c.diffordsRank.includes('\u2014')) rowSources.push('DIFFORDS')
+  if (c.diRank && !c.diRank.includes('—')) rowSources.push('DI')
+  if (c.diffordsRank && !c.diffordsRank.includes('—')) rowSources.push('DIFFORDS')
   // Espresso Martini explicitly references CGA velocity data
   if (c.note && c.note.includes('CGA')) rowSources.push('CGA')
   return { ...c, sources: rowSources.length ? rowSources : ['DI'] }
@@ -175,7 +175,7 @@ const annotatedFlavours = flavourFamilies.map((f) => ({
 
 const annotatedVenues = luxuryVenueIntel.map((v) => ({
   ...v,
-  // source field on existing data is like '[R4][R5]' \u2014 parse to keys
+  // source field on existing data is like '[R4][R5]' — parse to keys
   sources: (v.source || '')
     .match(/R\d/g)
     ?.map((s) => s.toUpperCase())
@@ -206,10 +206,10 @@ const khorusProfile = {
   },
   meta: {
     profileTitle: 'Cocktail Intelligence Profile',
-    subtitle: 'Global ranking, flavour trends, luxury event intel \u2014 tailored for luxury events programming',
+    subtitle: 'Global ranking, flavour trends, luxury event intel — tailored for luxury events programming',
     lastUpdated: 'April 2026',
     dataFreshness: 'April 2026',
-    sourcedFrom: 'DI World\u2019s 50 Best Bars Brand Report, Difford\u2019s Guide analytics, IWSR 2024\u20132026, Bacardi Cocktail Trends Report, W50B menu analysis, Tales of the Cocktail 2024\u20132025',
+    sourcedFrom: 'DI World’s 50 Best Bars Brand Report, Difford’s Guide analytics, IWSR 2024–2026, Bacardi Cocktail Trends Report, W50B menu analysis, Tales of the Cocktail 2024–2025',
     contactEmail: 'callingjhphoto@gmail.com',
   },
   sources: KHORUS_SOURCES,

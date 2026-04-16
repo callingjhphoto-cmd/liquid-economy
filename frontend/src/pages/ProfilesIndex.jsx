@@ -52,7 +52,7 @@ export default function ProfilesIndex() {
     <div className="max-w-7xl mx-auto">
       <PageHeader
         title="Client Profiles"
-        subtitle="Each profile is a personalised lens over Liquid Economy\u2019s full category intelligence. Curated for a specific client, archetype, and scope \u2014 linking through to the underlying data at every point."
+        subtitle="Each profile is a personalised lens over Liquid Economy’s full category intelligence. Curated for a specific client, archetype, and scope — linking through to the underlying data at every point."
         breadcrumbs={[
           { label: 'Dashboard', to: '/' },
           { label: 'Client Profiles' },
@@ -87,7 +87,7 @@ export default function ProfilesIndex() {
                 ))}
               </div>
               <div className="flex items-center justify-between text-caption text-gray-500 mb-3">
-                <span>{p.markets.join(' \u00b7 ')}</span>
+                <span>{p.markets.join(' · ')}</span>
                 <span>Updated {p.updated}</span>
               </div>
               <div className="text-caption font-semibold text-editorial hover:text-navy flex items-center gap-1 transition-colors">
@@ -114,7 +114,7 @@ export default function ProfilesIndex() {
       </div>
 
       <div className="mt-10 border-t border-gray-200 pt-6 text-center">
-        <p className="text-caption text-gray-400">Powered by Liquid Agency \u00b7 Drinks Industry Intelligence</p>
+        <p className="text-caption text-gray-400">Powered by Liquid Agency · Drinks Industry Intelligence</p>
       </div>
     </div>
   )

@@ -1,3 +1,21 @@
+# Overnight Build Log — 17 April 2026
+
+## Session summary
+
+**Shipped:** VenueIntelligence \u2014 Liquid Intelligence signals card (build clean)
+
+1. **Full platform audit.** Scanned all 26 pages for rendering issues, unicode violations (JSX text nodes), tooltip itemStyle colour, chart axis tick fill, and bare grid-cols classes. All previously fixed items confirmed clean. Companies, ReportBuilder, GeographicIntelligence pages verified: tooltips `#f1f5f9`, axes `fill: '#9ca3af'`, all grids have responsive prefixes. No regressions found.
+
+2. **VenueIntelligence.jsx \u2014 Liquid Intelligence card.** Added a gold-accented `Venue Intelligence Signals` card rendered between the BentoGrid hero and the 50 Best Bars DrillDown. Three dynamic signals computed from year-selector-reactive memoised hooks: (1) London Access \u2014 `londonCount` in Top 50: \u22654 emerald \u201cStrong London window\u201d / 2\u20133 blue \u201cSelective access\u201d / \u22641 amber \u201cThin London footprint\u201d; (2) Corporate Lock-in \u2014 `corpPct` of Top 50 bars: <40% emerald \u201cIndependent-friendly landscape\u201d / 40\u201354% blue \u201cMixed environment\u201d / \u226555% amber \u201cHigh corporate lock-in\u201d; (3) Market Leader Concentration \u2014 top company\u2019s penetration pct: <25% emerald \u201cFragmented field\u201d / 25\u201339% blue \u201cStrong player present\u201d / \u226540% gold/amber \u201cDominant concentration\u201d with dynamic company name interpolated.
+
+3. **Pattern consistency.** Card uses the established gold-accent `border-l-4 border-gold bg-gradient-to-r from-gold/5` pattern and `Zap` header icon from Valuations (Apr 13), ScenarioModeling (Apr 11), CampaignPlanner (Apr 14), CategoryIntelligence (Apr 16). All five major intelligence pages now carry Liquid Intelligence signal cards. No new data imports required \u2014 all three signals derive from hooks already computed at render time (`independentVsCorporate`, `parentPenetration`, `useVenueMetrics`).
+
+4. **No data hallucination.** Signal thresholds are pure numeric comparisons on live computed values. The dominant company name in Signal 3 copy is dynamically interpolated from `parentPenetration[selectedYear]?.[0]?.name` \u2014 no hard-coded brand references.
+
+5. **Build:** `vite build` \u2713 \u2014 0 errors, 0 warnings, 2469 modules. Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 16 April 2026
 
 ## Session summary

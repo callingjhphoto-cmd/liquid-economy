@@ -492,6 +492,79 @@ export default function VenueIntelligence() {
             </Card>
           </BentoGrid>
 
+          {/* ═══════ VENUE INTELLIGENCE \u2014 Liquid Intelligence ═══════ */}
+          <div className="border-l-4 border-gold bg-gradient-to-r from-gold/5 to-transparent rounded-xl p-5">
+            <div className="flex items-center gap-2 mb-4">
+              <Zap size={16} className="text-gold" />
+              <span className="text-sm font-bold text-navy">Venue Intelligence Signals</span>
+              <span className="text-xs text-gray-400 ml-auto">{selectedYear}</span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {/* Signal 1: London presence window */}
+              {(() => {
+                const hi = londonCount >= 4
+                const lo = londonCount <= 1
+                return (
+                  <div className={`p-3 rounded-lg border ${hi ? 'bg-emerald-50 border-emerald-200' : lo ? 'bg-amber-50 border-amber-200' : 'bg-blue-50 border-blue-200'}`}>
+                    <div className={`text-xs font-semibold mb-1 ${hi ? 'text-emerald-700' : lo ? 'text-amber-700' : 'text-blue-700'}`}>
+                      London Access: {londonCount} bars in Top 50
+                    </div>
+                    <p className={`text-xs leading-relaxed ${hi ? 'text-emerald-600' : lo ? 'text-amber-600' : 'text-blue-600'}`}>
+                      {hi
+                        ? 'Strong London window \u2014 multiple tier-1 venues available for on-trade entry and perennial brand partnerships.'
+                        : lo
+                        ? 'Thin London footprint \u2014 single flagship raises dependency risk; consider Edinburgh or Bristol as complementary markets.'
+                        : 'Selective access \u2014 viable entry routes exist; focus on perennial bars for resilient long-term on-trade positioning.'}
+                    </p>
+                  </div>
+                )
+              })()}
+
+              {/* Signal 2: Corporate lock-in */}
+              {(() => {
+                const corp = independentVsCorporate.find(d => d.year === selectedYear.toString())?.corpPct || 0
+                const lo = corp < 40
+                const hi = corp >= 55
+                return (
+                  <div className={`p-3 rounded-lg border ${lo ? 'bg-emerald-50 border-emerald-200' : hi ? 'bg-amber-50 border-amber-200' : 'bg-blue-50 border-blue-200'}`}>
+                    <div className={`text-xs font-semibold mb-1 ${lo ? 'text-emerald-700' : hi ? 'text-amber-700' : 'text-blue-700'}`}>
+                      Corporate Lock-in: {corp}% of Top 50
+                    </div>
+                    <p className={`text-xs leading-relaxed ${lo ? 'text-emerald-600' : hi ? 'text-amber-600' : 'text-blue-600'}`}>
+                      {lo
+                        ? 'Independent-friendly landscape \u2014 bartender community open to quality-led brands; credibility-first entry is the winning play.'
+                        : hi
+                        ? 'High corporate lock-in \u2014 majority of top bars tied to major groups; target independent accounts and 50 Best perennial venues.'
+                        : 'Mixed environment \u2014 significant corporate presence but independent placement is achievable for differentiated products.'}
+                    </p>
+                  </div>
+                )
+              })()}
+
+              {/* Signal 3: Market leader concentration */}
+              {(() => {
+                const topPct = parentPenetration[selectedYear]?.[0]?.pct || 0
+                const topName = parentPenetration[selectedYear]?.[0]?.name || '\u2014'
+                const lo = topPct < 25
+                const hi = topPct >= 40
+                return (
+                  <div className={`p-3 rounded-lg border ${lo ? 'bg-emerald-50 border-emerald-200' : hi ? 'bg-gold/10 border-gold/30' : 'bg-blue-50 border-blue-200'}`}>
+                    <div className={`text-xs font-semibold mb-1 ${lo ? 'text-emerald-700' : hi ? 'text-amber-800' : 'text-blue-700'}`}>
+                      Top Company: {topName} ({topPct}%)
+                    </div>
+                    <p className={`text-xs leading-relaxed ${lo ? 'text-emerald-600' : hi ? 'text-amber-700' : 'text-blue-600'}`}>
+                      {lo
+                        ? 'Fragmented field \u2014 no dominant lock; well-positioned quality brands can self-select into multiple venues without displacement risk.'
+                        : hi
+                        ? `Dominant concentration \u2014 ${topName} controls ${topPct}% of top bars; back-bar space is contested. Focus on 5\u201310 independent flagship accounts.`
+                        : `Strong player present \u2014 ${topName} leads but the field remains contestable; 5\u20138 key account relationships build credible on-trade presence.`}
+                    </p>
+                  </div>
+                )
+              })()}
+            </div>
+          </div>
+
           {/* ═══════ TIER 2: DRILL-DOWN SECTIONS ═══════ */}
 
           {/* --- 50 Best Bars Analysis --- */}

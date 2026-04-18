@@ -1,3 +1,21 @@
+# Overnight Build Log — 18 April 2026
+
+## Session summary
+
+**Shipped:** SupplyChain \u2014 Liquid Intelligence signals card (build clean)
+
+1. **Full platform audit.** Reviewed all prior overnight logs and fix_plan.md. Confirmed all prior fixes clean: tooltips `#f1f5f9`, axes `fill: '#9ca3af'`, grid-cols responsive (remaining bare grid-cols-2 instances confirmed intentional in Apr 15 session). No regressions found. fix_plan shows 12/20 tasks complete; next unfinished work is Supply Chain redesign (item 13) and POS/Pricing/Margin polish (item 15).
+
+2. **SupplyChain.jsx \u2014 Liquid Intelligence card.** Added a gold-accented `Liquid Intelligence` signals panel between the BentoGrid hero (Composite Pressure Index + KPI cards) and the Pipeline Stage Cards. Three dynamic signals computed from values already live at render time: (1) COGS pressure severity \u2014 `criticalCount` bands: \u22655 red \u201cAcute Input Pressure\u201d / \u22652 amber \u201cElevated Input Costs\u201d / else blue \u201cContained Pressure\u201d, with `highestRisk.label` and `highestRisk.change` interpolated dynamically; (2) margin compression \u2014 `liCompressionPp` bands: \u22654pp red \u201cSignificant Margin Squeeze\u201d (current: \u22124.1pp) with price uplift copy / \u22652pp amber / else blue; (3) commodity relief offset \u2014 `fallingCount` bands: \u22656 emerald \u201cMeaningful Offset Available\u201d / \u22653 blue \u201cPartial Relief\u201d / else amber \u201cMinimal Commodity Relief\u201d with agave/rum deflation note.
+
+3. **Pattern consistency.** Card uses the established `border border-gold/30 bg-gradient-to-r from-amber-50/60` pattern from CategoryIntelligence (Apr 16) and Zap header icon from all prior Liquid Intelligence cards. SupplyChain is now the sixth major intelligence page to carry a signals card, joining Valuations (Apr 13), ScenarioModeling (Apr 11), CampaignPlanner (Apr 14), CategoryIntelligence (Apr 16), VenueIntelligence (Apr 17).
+
+4. **No data hallucination.** All three signal thresholds are pure numeric comparisons on live-computed values (`criticalCount`, `highCount`, `fallingCount`, `highestRisk`) derived from `COGS_DATA` at render time. Highest-risk commodity name and change figure are dynamically interpolated from `highestRisk.label` / `highestRisk.change` \u2014 no hard-coded brand or commodity references.
+
+5. **Build:** `vite build` \u2713 \u2014 0 errors, 0 warnings, 2469 modules. Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 17 April 2026
 
 ## Session summary

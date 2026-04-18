@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react'
 import { AreaChart, Area, BarChart, Bar, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid, Cell } from 'recharts'
-import { Package, Factory, Truck, AlertTriangle, TrendingUp, TrendingDown, ExternalLink, DollarSign, Globe, Shield, Droplets, ChevronDown, ChevronUp, ArrowUpDown } from 'lucide-react'
+import { Package, Factory, Truck, AlertTriangle, TrendingUp, TrendingDown, ExternalLink, DollarSign, Globe, Shield, Droplets, ChevronDown, ChevronUp, ArrowUpDown, Zap } from 'lucide-react'
 import {
   PageHeader, Card, MetricCard, BentoGrid, DrillDown, DataTable,
   ChartCard, SourceList, FilterPills, EntityLink, BottomSheet,
@@ -62,6 +62,29 @@ export default function SupplyChain() {
       return v > max.val ? { label: d.label, change: d.change, val: v } : max
     }, { label: '', change: '', val: 0 })
   }, [])
+
+  // Supply Chain Liquid Intelligence signals
+  const liPressureIndex = 7.2
+  const liRetailRise = 3.1
+  const liCompressionPp = 4.1
+
+  const liSig1 = criticalCount >= 5
+    ? { dot: 'bg-red-500', color: 'text-red-600', label: 'Acute Input Pressure', copy: `${criticalCount} commodities tracking \u226515% YoY inflation. Immediate pricing review recommended. Highest exposure: ${highestRisk.label} at ${highestRisk.change}.` }
+    : criticalCount >= 2
+    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Elevated Input Costs', copy: `${criticalCount} commodities in critical range (\u226515% YoY). Monitor COGS buffer and review supplier contracts. Highest risk: ${highestRisk.label} at ${highestRisk.change}.` }
+    : { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Contained Pressure', copy: `Critical commodity alerts are limited. ${highCount} inputs in elevated range (8\u201314% YoY). Standard monitoring protocols apply.` }
+
+  const liSig2 = liCompressionPp >= 4
+    ? { dot: 'bg-red-500', color: 'text-red-600', label: 'Significant Margin Squeeze', copy: `Input costs rising ${liPressureIndex}% vs ${liRetailRise}% average retail pass-through. Estimated \u22124.1pp gross margin compression in 2025. Price uplift and cost recovery strategies are material.` }
+    : liCompressionPp >= 2
+    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Moderate Margin Pressure', copy: `Input cost inflation (${liPressureIndex}%) partially offset by ${liRetailRise}% retail price increases. Monitor gross margin buffers closely.` }
+    : { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Manageable Spread', copy: `Input cost rise (${liPressureIndex}%) broadly matched by retail price increases (${liRetailRise}%). Margin resilience intact.` }
+
+  const liSig3 = fallingCount >= 6
+    ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Meaningful Offset Available', copy: `${fallingCount} tracked commodities declining, providing partial COGS relief. Agave and rum categories best positioned to capture input deflation this cycle.` }
+    : fallingCount >= 3
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Partial Relief', copy: `${fallingCount} commodities show falling prices, offering limited offset against broader inflation. Prioritise agave and grain sourcing windows.` }
+    : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Minimal Commodity Relief', copy: `Only ${fallingCount} tracked commodities are declining. Input inflation is broad-based \u2014 no significant commodity-level offset available this cycle.` }
 
   // Sorted & filtered commodity keys
   const sortedKeys = useMemo(() => {
@@ -221,6 +244,28 @@ export default function SupplyChain() {
           <p className="text-xs text-gray-500">{highestRisk.label}</p>
         </Card>
       </BentoGrid>
+
+      {/* ═══════ LIQUID INTELLIGENCE SIGNALS ═══════ */}
+      <div className="border border-gold/30 rounded-xl bg-gradient-to-r from-amber-50/60 to-white p-4">
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-7 h-7 rounded-lg bg-gold/10 flex items-center justify-center">
+            <Zap size={14} className="text-gold" />
+          </div>
+          <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
+          <span className="text-xs text-gray-400 ml-auto">Supply Chain Signals \u00b7 2025</span>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          {[liSig1, liSig2, liSig3].map((sig, i) => (
+            <div key={i} className="bg-white/70 rounded-lg p-3 border border-gold/10">
+              <div className="flex items-center gap-1.5 mb-1.5">
+                <div className={`w-2 h-2 rounded-full flex-shrink-0 ${sig.dot}`} />
+                <span className={`text-xs font-bold uppercase tracking-wide ${sig.color}`}>{sig.label}</span>
+              </div>
+              <p className="text-xs text-gray-600 leading-relaxed">{sig.copy}</p>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* ═══════ PIPELINE STAGE CARDS ═══════ */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">

@@ -1,3 +1,21 @@
+# Overnight Build Log — 19 April 2026
+
+## Session summary
+
+**Shipped:** GeographicIntelligence \u2014 Liquid Intelligence signals card (build clean)
+
+1. **Repo audit.** Confirmed 12/20 fix_plan tasks complete. Three prior overnight commits (SupplyChain signals, 18 Apr log, Chorus data) were stranded in detached HEAD; cherry-picked onto main before starting new work.
+
+2. **GeographicIntelligence.jsx \u2014 Liquid Intelligence card.** Added gold-accented `Liquid Intelligence` signals panel between the search bar and the region cards grid. Three signals computed from live `REGION_DATA` at module level (no state dependency): (1) Global Growth Momentum \u2014 `highGrowthCount` markets with `kpis[0].change > 5%`: \u22656 emerald \u201cStrong Global Tailwind\u201d (current: 6 markets) / 4\u20135 blue \u201cSelective Momentum\u201d / <4 amber with `fastestGrowing.name` interpolated; (2) Digital Channel Disruption \u2014 `ecomLeader.pct` threshold: \u226530% amber \u201cDigital Disruption Critical\u201d (current: China at 45%) / 15\u201329% blue / else navy; (3) Regulatory Headwind Index \u2014 `negativeRegCount` (regions with any `impact === 'negative'` regulatory item): \u22655 amber \u201cElevated Compliance Burden\u201d (current: 5 markets) / 3\u20134 blue / <3 emerald.
+
+3. **Pattern consistency.** Follows the established `border border-gold/30 bg-gradient-to-r from-amber-50/60` pattern and `Zap` header icon from SupplyChain (Apr 18), CategoryIntelligence (Apr 16), CampaignPlanner (Apr 14), ScenarioModeling (Apr 11), Valuations (Apr 13), VenueIntelligence (Apr 17). GeographicIntelligence is now the seventh major intelligence page to carry a Liquid Intelligence card \u2014 all 7 are complete.
+
+4. **No data hallucination.** All three signal thresholds are pure numeric comparisons on live-computed values derived from `REGION_DATA` at module evaluation time. Region names and percentages in signal copy are dynamically interpolated from `fastestGrowing.name` and `ecomLeader.pct / ecomLeader.region.name` \u2014 no hard-coded geographic references.
+
+5. **Build:** `vite build` \u2713 \u2014 0 errors, 0 warnings. Pushed to main (including 3 cherry-picked prior commits); Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 18 April 2026
 
 ## Session summary

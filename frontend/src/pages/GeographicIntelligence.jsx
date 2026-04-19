@@ -2,7 +2,7 @@ import React, { useState, useMemo, useCallback, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import {
   Globe, TrendingUp, TrendingDown, BarChart3, Shield,
-  ChevronRight, X, Search
+  ChevronRight, X, Search, Zap
 } from 'lucide-react'
 import {
   Card, MetricCard, PageHeader, BentoGrid, DataTable,
@@ -72,6 +72,35 @@ const regulatoryChanges = REGIONS.filter(r => {
   const data = REGION_DATA[r.key]
   return data && data.regulatory && data.regulatory.length > 0
 }).length
+
+/* ── Liquid Intelligence derived values ── */
+const highGrowthCount = REGIONS.filter(r => {
+  const d = REGION_DATA[r.key]
+  return d && d.kpis && d.kpis[0] && d.kpis[0].change > 5
+}).length
+
+const negativeRegCount = REGIONS.filter(r => {
+  const d = REGION_DATA[r.key]
+  return d && Array.isArray(d.regulatory) && d.regulatory.some(item => item.impact === 'negative')
+}).length
+
+const liSig1 = highGrowthCount >= 6
+  ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Strong Global Tailwind', copy: `${highGrowthCount} of ${totalMarkets} tracked markets growing >5% YoY. Broad-based expansion signals a favourable export and activation window across all major regions.` }
+  : highGrowthCount >= 4
+  ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Selective Momentum', copy: `${highGrowthCount} high-growth markets identified. Concentrate portfolio activation in leading performers to maximise return on market investment.` }
+  : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Concentrated Opportunities', copy: `Growth is narrowly concentrated. Focus on ${fastestGrowing ? fastestGrowing.name : 'leading markets'} and other outliers \u2014 broad multi-market activation is premature this cycle.` }
+
+const liSig2 = ecomLeader && ecomLeader.pct >= 30
+  ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Digital Disruption Critical', copy: `${ecomLeader.region.name} leads at ${ecomLeader.pct}% e-commerce share. Digital-first distribution strategy now essential for full-market penetration in key growth regions.` }
+  : ecomLeader && ecomLeader.pct >= 15
+  ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Digital Adoption Accelerating', copy: `${ecomLeader.region.name} driving digital channel at ${ecomLeader.pct}%. Build DTC capability ahead of mainstream channel disruption in mid-tier markets.` }
+  : { dot: 'bg-navy-500', color: 'text-navy', label: 'Traditional Channels Dominant', copy: `E-commerce peaks at ${ecomLeader ? ecomLeader.pct : 0}% (${ecomLeader ? ecomLeader.region.name : 'top market'}). On-trade and off-trade remain primary; digital is supplementary.` }
+
+const liSig3 = negativeRegCount >= 5
+  ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Elevated Compliance Burden', copy: `${negativeRegCount} of ${totalMarkets} markets face adverse regulatory changes. Compliance cost increases and distribution complexity require active management across portfolio.` }
+  : negativeRegCount >= 3
+  ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Moderate Regulatory Pressure', copy: `${negativeRegCount} markets with adverse regulatory items active. Monitor duty reform and advertising restriction developments in key accounts.` }
+  : { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Stable Regulatory Backdrop', copy: `Adverse regulatory changes limited across tracked markets. Current access conditions are broadly supportive of distribution and portfolio expansion.` }
 
 
 /* ════════════════════════════════════════════
@@ -702,6 +731,28 @@ export default function GeographicIntelligence() {
             <X size={14} />
           </button>
         )}
+      </div>
+
+      {/* ═══════ LIQUID INTELLIGENCE SIGNALS ═══════ */}
+      <div className="border border-gold/30 rounded-xl bg-gradient-to-r from-amber-50/60 to-white p-4 mb-6">
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-7 h-7 rounded-lg bg-gold/10 flex items-center justify-center">
+            <Zap size={14} className="text-gold" />
+          </div>
+          <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
+          <span className="text-xs text-gray-400 ml-auto">Geographic Signals \u00b7 2025</span>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          {[liSig1, liSig2, liSig3].map((sig, i) => (
+            <div key={i} className="bg-white/70 rounded-lg p-3 border border-gold/10">
+              <div className="flex items-center gap-1.5 mb-1.5">
+                <div className={`w-2 h-2 rounded-full flex-shrink-0 ${sig.dot}`} />
+                <span className={`text-xs font-bold uppercase tracking-wide ${sig.color}`}>{sig.label}</span>
+              </div>
+              <p className="text-xs text-gray-600 leading-relaxed">{sig.copy}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* ── Region Cards Grid (Tier 1) ── */}

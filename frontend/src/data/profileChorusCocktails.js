@@ -1,18 +1,28 @@
 /**
  * profileChorusCocktails.js
  * Data file for Chorus Cocktail Intelligence Profile
- * Sources: 7 deep research reports in ~/Documents/Claude/research/chloe_chorus_cocktails/
- * Generated: April 2026
+ * Sources: 18 deep research reports in ~/Documents/Claude/research/chloe_chorus_cocktails/
+ * Generated: April 2026 | Updated with Ralph-loop research data: April 2026
  *
  * CITATION KEY
- *   [R1] = 00_internal_data_audit.md
- *   [R2] = 01_top_cocktails_global.md (DI/Difford’s/IWSR deep research)
- *   [R3] = 02_flavour_trends.md (Bacardi/TOTC/DI/W50B deep research)
- *   [R4] = 03_luxury_events.md (Connaught/F1/Fashion Week deep research)
- *   [R5] = 04_pricing_intelligence.md
- *   [R6] = 05_middle_east.md
- *   [R7] = 06_zero_proof_luxury.md (IWSR no/low data)
- *   [R8] = 07_presentation_theatre.md
+ *   [R1]  = 00_internal_data_audit.md
+ *   [R2]  = 01_top_cocktails_global.md (DI/Difford’s/IWSR deep research)
+ *   [R3]  = 02_flavour_trends.md (Bacardi/TOTC/DI/W50B deep research)
+ *   [R4]  = 03_luxury_events.md (Connaught/F1/Fashion Week deep research)
+ *   [R5]  = 04_pricing_intelligence.md
+ *   [R6]  = 05_middle_east.md
+ *   [R7]  = 06_zero_proof_luxury.md (IWSR no/low data)
+ *   [R8]  = 07_presentation_theatre.md
+ *   [R9]  = 08_twenty_year_trend_arc.md
+ *   [R10] = 08_apac_luxury.md (Asia-Pacific venue intelligence)
+ *   [R11] = 09_wedding_intel.md (Vogue Weddings / Harper’s Bazaar / The Knot)
+ *   [R12] = 10_brand_sponsorship.md (spirit brand partnership economics)
+ *   [R13] = 11_competitor_agencies.md (competitive landscape)
+ *   [R14] = spirits_01_whisky.md (IWSR/SWA/DISCUS)
+ *   [R15] = spirits_02_agave.md (CRT/IWSR/Shanken’s)
+ *   [R16] = spirits_03_gin.md (IWSR/WSTA)
+ *   [R17] = spirits_04_rum_vodka_cognac.md (IWSR/BNIC)
+ *   [R18] = spirits_05_liqueurs_aperitifs.md (IWSR/Campari/Pernod Ricard)
  */
 
 // ---------------------------------------------------------------------------
@@ -173,7 +183,7 @@ export const top20Cocktails = [
     diffordsRank: '#3',
     trend: 'rising',
     note: 'New Orleans heritage. Cognac crossover appeal for luxury events. [R2]',
-    rankMove: '+TBD'
+    rankMove: 'Climbed from outside top 50 to #3 Difford’s by 2025 [R2]'
   },
   {
     rank: 15,
@@ -195,7 +205,7 @@ export const top20Cocktails = [
     diffordsRank: '#6',
     trend: 'rising',
     note: 'Prohibition-era revival. Equal parts gin, Chartreuse, maraschino. [R2]',
-    rankMove: '+TBD since revival'
+    rankMove: 'Climbed steadily to #6 Difford’s by 2025 from outside top 50 in 2010 [R2]'
   },
   {
     rank: 17,
@@ -206,7 +216,7 @@ export const top20Cocktails = [
     diffordsRank: '#7',
     trend: 'rising',
     note: 'Elevated by Morgenthaler method (overproof bourbon). [R2]',
-    rankMove: '+TBD'
+    rankMove: 'Consumer-driven climb; benefits from nostalgic indulgence wave [R2]'
   },
   {
     rank: 18,
@@ -484,7 +494,7 @@ export const pricingBands = [
     standardRange: 'AED 75–150 (~$20–$41)',
     signatureRange: 'AED 90–150',
     vintageRange: 'LOUIS XIII Rare Cask 42.1 at Emirates Palace (excl. Gulf)',
-    ultraPremiumPour: 'TBD',
+    ultraPremiumPour: 'LOUIS XIII Rare Cask 42.1 exclusive Gulf pouring at Emirates Palace Broadway (single venue in Gulf region). [R6]',
     eventPackage: 'Happy Hour AED 35–39 at St. Trop (Waldorf DIFC)',
     notes: 'Dual-track: premium licensed bars (UAE) + zero-proof innovation (Saudi). [R6]'
   },
@@ -493,7 +503,7 @@ export const pricingBands = [
     venues: 'High-end weddings, corporate galas',
     standardRange: '$50–$90 per guest (open bar package)',
     signatureRange: 'Ultra top-shelf: $100+ per head',
-    vintageRange: 'TBD by client spec',
+    vintageRange: 'Clase Azul Día de Muertos: $150+ per pour (est. from $1,900 bottle, 10,000 decanters). Don Julio 1942 Chaparritos at Oscars, F1 Melbourne. [R4][R5]',
     ultraPremiumPour: 'Clase Azul Dia de Muertos: $150+ per pour (est. from $1,900 bottle)',
     eventPackage: '2.4x–3x wholesale markup + 18–22% service charge',
     notes: 'Per-guest packaging preferred over consumption billing. Break-even: 2 drinks/hr1, 1 drink/hr thereafter. [R5]'
@@ -807,6 +817,365 @@ export const twentyYearArc = {
     }
   ]
 }
+
+
+// ---------------------------------------------------------------------------
+// MODULE 9: APAC LUXURY VENUE INTELLIGENCE
+// Source: [R10] Asia-Pacific luxury cocktail scene deep research (April 2026)
+// Research agent: 772.7s (12.9 min); W50B / Asia’s 50 Best Bars / DI
+// ---------------------------------------------------------------------------
+export const apacVenueIntel = [
+  {
+    venue: 'Manhattan Bar (Conrad Singapore Orchard)',
+    location: 'Singapore',
+    tier: 'Asia premier',
+    note: 'In-house rickhouse; barrel-aged Negroni and Manhattan. 220+ American whiskies. Solera-aged cocktail programme unique in Asia.',
+    avgPricePerServe: 'SGD 25–27 (~$18–$20)',
+    dominantFlavours: ['spirit-forward', 'oak', 'smoke'],
+    dominantBrands: ['Michter’s Rye', 'Del Maguey Mezcal', 'Perrier-Jouët'],
+    source: '[R10]'
+  },
+  {
+    venue: 'Native (Amoy Street)',
+    location: 'Singapore',
+    tier: 'Hyper-local specialist',
+    note: 'Vijay Mudaliar: avoids Western spirits. Forages regional distillates. Antz cocktail (Chalong Bay Rum + weaver ants + liquid nitrogen) is globally cited. Ketel One Sustainable Bar Award.',
+    avgPricePerServe: 'SGD 23 (~$17)',
+    dominantFlavours: ['Southeast Asian terroir', 'umami', 'botanical'],
+    source: '[R10]'
+  },
+  {
+    venue: 'Jigger & Pony (Amara Hotel)',
+    location: 'Singapore',
+    tier: 'Best Bar Singapore (multi-year)',
+    note: '"Honest cocktails" ethos. Maker’s Mark, Roku Gin, Bombay Sapphire partnerships. Espresso Martini riffs and French 75 elevated versions.',
+    avgPricePerServe: 'SGD 25 (~$18)',
+    dominantFlavours: ['approachable', 'citrus', 'balanced'],
+    source: '[R10]'
+  },
+  {
+    venue: 'Virtú (Four Seasons Tokyo at Otemachi)',
+    location: 'Tokyo',
+    tier: 'Michter’s Art of Hospitality Award',
+    note: 'French-Japanese fusion. Seven Virtues cocktail programme. Home-made tonics, small-batch blends. Rare cognacs + vintage French champagne.',
+    avgPricePerServe: '¥2,500–¥5,000+ (~$17–$33)',
+    dominantFlavours: ['shiso', 'yuzu', 'floral', 'citrus'],
+    dominantBrands: ['Don Julio', 'Michter’s Whiskey'],
+    source: '[R10]'
+  },
+  {
+    venue: 'Bar Benfiddich (Shinjuku)',
+    location: 'Tokyo',
+    tier: 'Apothecary-style cult bar',
+    note: 'Hiroyasu Kayama. 15 seats. No menu. Farm-to-glass: ingredients from family farm in Saitama. Precision ice-carving, seasonal Japanese botanicals.',
+    avgPricePerServe: '¥3,000–¥7,000+ (est.)',
+    dominantFlavours: ['Japanese botanical', 'sake', 'ferment'],
+    source: '[R10]'
+  }
+]
+
+export const apacFlavourProfiles = [
+  { ingredient: 'Yuzu', region: 'Japan / Korea', use: 'Replaces lime/lemon in high-end sours and gimlets. Aromatic, floral citrus with depth. W50B bars use extensively.' },
+  { ingredient: 'Shiso', region: 'Japan', use: 'Herbaceous, mint-adjacent leaf. Gin cocktail base at Virtú Tokyo. Also used as garnish.' },
+  { ingredient: 'Pandan', region: 'Southeast Asia', use: 'Sweet, coconut-adjacent, green vanilla note. Aman Nai Lert Bangkok cocktail programme. [R7]' },
+  { ingredient: 'Sake / Shochu', region: 'Japan', use: 'Base or modifier. SG Shochu (Singapore); The Hakka cocktail (Hakkasan Dubai) uses sake + lychee.' },
+  { ingredient: 'Hallabong orange', region: 'Korea / Jeju', use: 'Premium Korean citrus used at Charles H Seoul for seasonal menus.' },
+  { ingredient: 'Tonka / Asian spice', region: 'APAC', use: 'Cardamom crossover. Complex spice profiles in Singapore and Hong Kong luxury bars.' }
+]
+
+// ---------------------------------------------------------------------------
+// MODULE 10: WEDDING INTELLIGENCE
+// Source: [R11] Luxury wedding cocktail intelligence (Vogue Weddings, Harper’s Bazaar, The Knot)
+// Research agent: 1050.7s (17.5 min)
+// ---------------------------------------------------------------------------
+export const weddingIntel = {
+  budgetTiers: [
+    {
+      tier: 'Standard / Limited',
+      costPerGuestGBP: '£15–£35',
+      costPerGuestUSD: '$20–$45',
+      inclusions: 'Beer, house wine, basic spirits. Simple mixers. Standard glassware.',
+      source: '[R11]'
+    },
+    {
+      tier: 'Premium / Enhanced',
+      costPerGuestGBP: '£40–£70',
+      costPerGuestUSD: '$50–$90',
+      inclusions: 'Premium spirits (Grey Goose, Casamigos, Maker’s Mark). 1–2 signature cocktails with custom names. Fresh juices.',
+      source: '[R11]'
+    },
+    {
+      tier: 'Luxury / Artisanal',
+      costPerGuestGBP: '£75–£100',
+      costPerGuestUSD: '$95–$130',
+      inclusions: 'Top-shelf and rare spirits. Trained mixologists. Complex signature cocktails. Premium glassware, custom ice. Zero-proof integrations.',
+      source: '[R11]'
+    },
+    {
+      tier: 'Ultra-Luxury / Bespoke',
+      costPerGuestGBP: '£100+',
+      costPerGuestUSD: '$130+',
+      inclusions: 'Exclusive rare vintages. Interactive molecular mixology stations. Elaborate presentations (cocktail towers, dry ice). Dedicated sommelier. Multi-day event coverage.',
+      source: '[R11]'
+    }
+  ],
+  budgetShareOfTotal: '10–20% of total wedding budget allocated to bar and beverage services (industry benchmark). [R11]',
+  consumptionMetric: '2 drinks in first hour, 1 drink/hour thereafter. Standard 5hr event = ~6 drinks per guest. [R11]',
+  hiddenCosts: 'Service fees 20–22% + local taxes. Bartender gratuities 15–20%. Venue minimums can inflate per-guest spend significantly. [R11]',
+  zeroproofDemand: '24–25% of adult wedding guests opt for alcohol-free drinks. Rises to 28% for 18–34 cohort. Search for "dry weddings" +85% YoY. [R11]',
+  venueHighlights: [
+    { name: 'Aman Venice', location: 'Venice, Italy', note: 'Bespoke cocktails for couple’s narrative; rare Italian amari; prosecco from boutique Veneto vineyards. [R11]' },
+    { name: 'Chateau Challain', location: 'Loire Valley, France', note: 'French 75 classics; Champagne towers resurgent; herbs from estate gardens. [R11]' },
+    { name: 'Nizuc Resort & Spa', location: 'Cancun, Mexico', note: '100% tailored programming. Premium tequila + mezcal focus. Mezcal Margarita with dried orange and smoky sea salt. [R11]' },
+    { name: 'Grand Wailea', location: 'Maui, Hawaii', note: 'Polynesian mixology beyond standard Mai Tai; locally distilled organic rums; macadamia nut orgeat. [R11]' },
+    { name: 'The Apurva Kempinski', location: 'Bali, Indonesia', note: 'Indonesian spices, rare teas, mangosteen and rambutan in cocktails. [R11]' }
+  ],
+  chronologicalProgramme: [
+    { phase: 'Welcome drink / arrival', examples: 'Champagne or French Bloom (NA), prosecco-based spritz, bespoke gin highball. Single signature serve for operational simplicity + visual impact.' },
+    { phase: 'Cocktail hour', examples: 'Mobile bar or two-station split: alcoholic and zero-proof parallel. Signature cocktail named for couple. Canape pairings.' },
+    { phase: 'Reception open bar', examples: 'Full programme -- spirit-forward classics + lighter options. 1 bartender per 50 guests recommended.' },
+    { phase: 'Late-night bar', examples: 'Espresso Martini Tower as centrepiece activation. Coffee cocktail programme.' }
+  ],
+  espressoMartiniTower: 'Replacing the traditional Champagne tower at high-end weddings. Stacked coupes, batched pour cascade. "A bold, sophisticated centrepiece for late-night receptions." (Harper’s Bazaar 2025). [R11]',
+  trendsVogue2025: [
+    'Zero-Proof Toast: French Bloom (LVMH-backed, $100–$119/bottle) replacing Champagne for inclusive toasts',
+    'Custom stir sticks, branded ice cubes, monogrammed edible sugar sheets on foam cocktails',
+    'Mobile bars: vintage horse trailers, Cantina Caravans -- interactive focal point not corner bar',
+    'Garnishes: natural edible fresh flowers and green herbs reflecting venue landscape',
+    '457% increase in non-alcoholic beverage sales reported at luxury Cedar Lakes Estate in one year'
+  ],
+  source: '[R11]'
+}
+
+// ---------------------------------------------------------------------------
+// MODULE 11: SPIRIT BRAND PARTNERSHIP ECONOMICS
+// Source: [R12] Spirit brand sponsorship economics deep research (April 2026)
+// Research agent: 3292.5s (54.9 min)
+// ---------------------------------------------------------------------------
+export const brandPartnershipEconomics = {
+  marketContext: 'Prestige white spirits category predicted to grow 79% over next 5 years. Global premium spirits market projected to reach $315.7B by 2029. [R12]',
+  sponsorshipTiers: [
+    {
+      tier: 'Local / Regional (500–2,000 attendees)',
+      feeRange: '$5,000–$25,000',
+      drivers: 'Audience fit and first-party data access',
+      source: '[R12]'
+    },
+    {
+      tier: 'Industry Conferences / Galas (2,000–5,000 attendees)',
+      feeRange: '$15,000–$75,000',
+      drivers: 'Comprehensive packages: speaking role, data capture, primary pouring rights',
+      source: '[R12]'
+    },
+    {
+      tier: 'Premium / Luxury Events (curated UHNW)',
+      feeRange: '$25,000–$250,000+',
+      drivers: 'Strict exclusivity, VIP hospitality access, audience net worth (avg. $3.6M+ household at Polo Hamptons benchmark).',
+      source: '[R12]'
+    }
+  ],
+  benchmarkPoloHamptons: {
+    description: 'Polo Hamptons provides a definitive UHNW luxury event benchmark. Audience average household net worth $3.6M+.',
+    tiers: [
+      { name: 'Platinum Plus', singleDate: '$85,000', dualDate: '$150,000', deliverables: '20x20 custom luxury tent, 18 VIP invites per event, category exclusivity, 6 two-page magazine spreads' },
+      { name: 'Platinum', singleDate: '$35,000', dualDate: '$50,000', deliverables: '15x15 tent, 12 VIP invites, 5 two-page magazine spreads' },
+      { name: 'Gold', singleDate: '$14,000', dualDate: '$22,000', deliverables: '9x9 tent, 6 VIP invites, 3 full-page magazine ads' },
+      { name: 'Corporate Cabana', singleDate: '$6,500', dualDate: '$12,000', deliverables: 'Private cabana, 10 VIP guests, 1 full-page magazine ad' }
+    ],
+    source: '[R12]'
+  },
+  compedPoursModel: {
+    description: 'Brand provides predetermined liquid volume at no cost in exchange for exclusive category pouring rights.',
+    agencyBenefit: 'Reduces wholesale purchase cost; improves event P&L margin.',
+    brandMotivation: 'Trial use and liquid-to-lips conversion at HNW occasions. Brand-switching intent among affluent demographics.',
+    source: '[R12]'
+  },
+  sponsoredBarPricing: {
+    formula: '40–60% of event costs + projected lead value + audience premium',
+    example: 'If luxury event costs $100k to produce, primary beverage sponsor asked for $40k–$60k for full aesthetic bar control.',
+    exclusivity: 'Category exclusivity fiercely protected -- no competitor brand visible, poured or mentioned.',
+    source: '[R12]'
+  },
+  doubleMarginModel: 'Event agencies increasingly use "double-margin" model: charge clients premium experience fees while securing comped or subsidised liquid from spirit brands. [R12]',
+  brandFlexibility: {
+    mostFlexible: 'White spirits (vodka) -- volume-based generosity, RTD crossover opportunities.',
+    mostPremium: 'Ultra-premium agave (Clase Azul, Don Julio 1942) and single-malt Scotch (Macallan Fine & Rare) -- demand higher fees and cultural exclusivity.',
+    roiShift: 'Moving from logo exposure to first-party data collection, experiential media equivalent value (MEV), and long-term brand equity. [R12]'
+  },
+  source: '[R12]'
+}
+
+// ---------------------------------------------------------------------------
+// MODULE 12: COMPETITOR AGENCY LANDSCAPE
+// Source: [R13] Competitor luxury events agency intelligence (April 2026)
+// Research agent: 3115.1s (51.9 min)
+// ---------------------------------------------------------------------------
+export const competitorLandscape = {
+  overview: 'Market bifurcated between ultra-discreet heritage agencies (Fait Accompli, The Admirable Crichton) and commercialised global conglomerates (Rhubarb Hospitality Collection). Technological vacuum across sector -- no incumbent integrates predictive analytics.',
+  sustainabilityNote: 'Zero-waste, plastic-free, food-redistribution partnerships are now baseline expectation for tier-1 agencies.',
+  agencies: [
+    {
+      name: 'Quintessentially',
+      positioning: 'Global lifestyle management + UHNW concierge. 25 years operating.',
+      beverage: 'Quintessentially Cocktails sub-entity: pop-up mobile bars, signature classics, bespoke menus.',
+      techAngle: 'Beginning to explore AI but sector remains ripe for disruption.',
+      source: '[R13]'
+    },
+    {
+      name: 'Banana Split',
+      positioning: 'Founded 1976. 50-year heritage. Premier London luxury events. £1.5M in-house AV inventory.',
+      beverage: 'High-impact theatrical corporate experiences.',
+      source: '[R13]'
+    },
+    {
+      name: 'Fait Accompli',
+      positioning: 'Founded 1987. Most discreet globally. British Royal Family, Dior, YSL clients. No Instagram. 80% NDA-covered.',
+      beverage: 'Classified. Black-book networking model.',
+      source: '[R13]'
+    },
+    {
+      name: 'The Admirable Crichton',
+      positioning: 'Founded 1984. Royal Warrant. Titan of London luxury catering.',
+      beverage: 'Theatrical flair + industry-leading sustainability (zero-waste, plastic-free front-of-house).',
+      source: '[R13]'
+    },
+    {
+      name: 'Rhubarb Hospitality Collection',
+      positioning: 'Founded 1996. Acquired by Oak View Group 2023. 2,500+ staff, 5M people/year.',
+      beverage: 'Venues: Sky Garden, Royal Albert Hall, Hudson Yards NYC, The Brewery London.',
+      source: '[R13]'
+    }
+  ],
+  chorusDifferentiation: 'Chorus opportunity: no incumbent agency integrates predictive analytics for beverage consumption, real-time ESG tracking, or hyper-personalised guest profiling. Data-driven architecture can outpace heritage black-book models. [R13]',
+  pricingBenchmarks: {
+    agencyFee: '15–20% of total event spend (standard across tier-1)',
+    baselineCocktailService: 'Approximately £50 per guest for limited premium service',
+    source: '[R13]'
+  },
+  source: '[R13]'
+}
+
+// ---------------------------------------------------------------------------
+// MODULE 13: SPIRIT CATEGORY SNAPSHOTS
+// Source: [R14–R18] Spirit category deep research (April 2026, IWSR-cited)
+// Scope: Category-level data only. Not attributed to Chorus-specific performance.
+// ---------------------------------------------------------------------------
+export const spiritCategorySnapshots = [
+  {
+    category: 'Whisky (Global)',
+    marketSize2025: '$69.8B–$77.9B (global whisky market)',
+    cagr: '5.1–7.0% through 2030s',
+    keyMetrics: [
+      'Scotch exports: £5.4B value (2024), 3.7% value decline vs 3.9% volume growth (SWA)',
+      'India overtook France as largest Scotch market by volume: 192M bottles (2024), +14.6% YoY (SWA)',
+      'USA: largest Scotch market by value at £971M (2024)',
+      'Blended Scotch +4.4% value 2024 (£3.2B / 59.4% of exports). Single malt -17.2% value.',
+      'American whiskey exports: $1.3B in 2024 (54% of all US spirits exports). EU retaliatory tariffs cut 35% in 2025.',
+      'Bourbon: 69–75% of American whiskey volume. 28.4M 9L cases US domestic 2024.',
+      'Women now 36% of global whisky drinkers (IWSR 2024).',
+      'Rare whisky auction values fell 18% late 2024 -- ultra-premium correction underway.'
+    ],
+    luxurySignal: 'Macallan Valerio Adami 1926 sold $2.7M at Sotheby’s 2023 ($107k/oz theoretical). Yamazaki 55: $60k MSRP, up to $795k at auction.',
+    chorusRelevance: 'Penicillin (Scotch), Old Fashioned / Manhattan (bourbon/rye), Whiskey Sour -- all drawing on category resilience. Smoked Old Fashioned riff accelerating at luxury venues.',
+    source: '[R14]'
+  },
+  {
+    category: 'Agave (Tequila + Mezcal)',
+    marketSize2025: '$25.7B (tequila global market)',
+    cagr: '9.1% to 2033 (tequila)',
+    keyMetrics: [
+      'Don Julio: +28.2% volume growth to 4.4M cases. Jose Cuervo: -6.4% to 8.9M cases.',
+      'Casamigos: -20.7% -- celebrity brand saturation impact (CRT data cited in spirits_02_agave.md)',
+      'Cristalino: highest volume growth of all tequila segments (IWSR)',
+      'Tequila US market now majority-female at 52% (CRT 2024)',
+      '25–34 age bracket: 24.2% of US tequila consumption share',
+      'Blue agave prices crashed from 32 MXP/kg (2022) to 5 MXP/kg (early 2024) -- overplanting',
+      'Premium-plus agave: 68.2% of total tequila revenue'
+    ],
+    luxurySignal: 'Clase Azul Dia de Muertos "Recuerdos" $1,900/bottle (10,000 decanters). Don Julio 1942 Chaparritos at Oscars + F1. Caviar + tequila pairing the defining luxury moment of 2024–25.',
+    chorusRelevance: 'Margarita (#3 DI), Paloma (#9 DI), Picante de la Casa (#9 Difford’s). Agave dominates luxury event activations. The Chorus Caviar Margarita opportunity.',
+    source: '[R15]'
+  },
+  {
+    category: 'Gin',
+    marketSize2025: '$26.02B (global gin market)',
+    cagr: '4.72% to 2031 (global); UK and Spain declining, India / Japan / Texas growing',
+    keyMetrics: [
+      'Global gin volumes: 107M 9L cases (2024), +2% growth (decelerating from +4% in 2023)',
+      'UK craft gin closures accelerating: excise +10.1% (2023) and +3.65% (2024/25)',
+      'Gin demographics: UK/Oceania 55% female; US younger male-skewed',
+      'US gin drinkers earn ~$20k above national average HHI; Canadian gin drinkers $48k above',
+      'Under-34 cohort: 42% of US gin drinkers',
+      'Gin is most popular spirits category in World’s Best Bars (DI Brand Report 2025)'
+    ],
+    luxurySignal: 'Negroni, Dry Martini, Gin Basil Smash, The Last Word, French 75 -- all gin-led. Connaught Bar Gin distilled in-house (£95/bottle). Monkey 47 dominates ultra-premium gin occasions.',
+    chorusRelevance: 'Gin underpins top-3 DI cocktails (Negroni #1, Dry Martini #7). Spritz fatigue creates opportunity: gin highball programme as Aperol replacement.',
+    source: '[R16]'
+  },
+  {
+    category: 'Rum',
+    marketSize2025: '$19.84B (global rum market)',
+    cagr: '5.2% value growth 2024–2028 (IWSR)',
+    keyMetrics: [
+      'Super-premium rum: +5.5% value globally vs prior year (2024)',
+      'Premium-plus rum US forecast: 7% volume CAGR, 8% value CAGR (2021–2026)',
+      'Dark rum in UK on-trade: +5% value (driving premiumisation)',
+      'Spiced/flavoured rum: 56%+ of US sales; $7B market (2024)',
+      'Rum market North America: 38.3% of global share',
+      'Global rum projected: $27.93B by 2033'
+    ],
+    luxurySignal: 'Diplomatico, Zacapa, Plantation -- aged premium sipping rums competing with Scotch/cognac. Daiquiri (#5 DI) and Mai Tai driving premium rum on-trade.',
+    chorusRelevance: 'Daiquiri (#5 DI), Mojito (yacht/resort staple), Mai Tai (tiki theatre). Aged rum "figuring out its premium journey" -- opportunity in narrative for luxury events.',
+    source: '[R17]'
+  },
+  {
+    category: 'Vodka',
+    marketSize2025: 'Volume declining in traditional segments; RTD spirits-based growing +20% (US 2025, IWSR)',
+    cagr: 'Overall volume pressure; value maintained via premiumisation',
+    keyMetrics: [
+      'Vodka captured 21.5% of global RTD bottled cocktail market (2025, IWSR)',
+      'Average US on-trade cocktail price: $13.50 (CGA 2024); cocktails 35% of spirits value on-trade',
+      'Grey Goose "The Devil’s Roast" espresso martini at NYFW 2026 with Heidi Klum',
+      'Belvedere "Hot Child in the City" campaign at Raoul’s Soho, NYFW 2026',
+      'Espresso Martini: +116% value velocity US on-trade (CGA Q3 2024)'
+    ],
+    luxurySignal: 'Grey Goose at Oscars, Met Gala, Fashion Weeks. Belvedere cultural storytelling model. Ketel One Sustainable Bar Award winner.',
+    chorusRelevance: 'Espresso Martini (#4 DI) and Porn Star Martini (#1 Difford’s) are both vodka-based. Espresso Martini Tower at Chorus events = vodka + coffee liqueur activation.',
+    source: '[R17]'
+  },
+  {
+    category: 'Cognac',
+    marketSize2025: '$22B+ global excess inventory; correction from pandemic boom',
+    cagr: 'Negative near-term: China on-trade -4% (2024), US post-pandemic slump',
+    keyMetrics: [
+      'Hennessy: powers Annabel’s "The Judith" signature cocktail; Michelin pairing dinners',
+      'Louis XIII: "THE DROP" 10ml portable vials. $2,300/set (LaQuan Smith collab at Super Bowl + F1 Las Vegas)',
+      'Louis XIII at Ritz London Rivoli Bar: £350/50ml pour',
+      'Pappy Van Winkle 23yo: £500/50ml at Ritz London',
+      'Vieux Carré (#3 Difford’s): rye + cognac crossover cocktail gaining prestige bar traction'
+    ],
+    luxurySignal: 'Louis XIII is the ultra-prestige pour at F1, fashion events, and mega-hospitality. Hennessy Paradis at Annabel’s and Michelin pairing dinners.',
+    chorusRelevance: 'Vieux Carré (#3 Difford’s) represents cognac in cocktail renaissance. Louis XIII as optional ultra-prestige add-on for Chorus VIP tables.',
+    source: '[R17]'
+  },
+  {
+    category: 'Aperitifs, Liqueurs & Vermouth',
+    marketSize2025: 'Global aperitifs: $11.2B (2024) → $17.1B by 2033 (4.7% CAGR). Global liqueurs: $119.9B–$135.35B.',
+    cagr: 'Aperitifs: 4.7–5.8% CAGR. Liqueurs: 1.1–3.3% CAGR.',
+    keyMetrics: [
+      'Aperitif market: 38.4% wine-based (vermouth), 29.7% spirit-based (Campari/Aperol), 21.4% bitter aperitifs',
+      'Vermouth market: $20.1B (2024) → $29.65B by 2033 (4.4% CAGR -- Vermouth Renaissance well underway)',
+      'Campari Group: Aperol 26% of group revenue; House of Aperitifs 43–46% of group sales',
+      'Cointreau: essential in Margarita, Cosmopolitan -- "resilient growth driver" (Remy Cointreau annual report)',
+      'Euromonitor: global liqueurs to reach 135.6M 9L cases (2026), +7.5% value to $61.3B',
+      'Amari and aperitif bitters: outpacing traditional spirits in menu integration growth (DI)',
+      'Non-alcoholic aperitifs (Others segment): 8.2% CAGR -- fastest niche growth'
+    ],
+    luxurySignal: 'Campari powers Negroni (#1 DI). Aperol Spritz (#8 DI but #92 Difford’s -- market divergence signal). Premium vermouth programs (Carpano Antica, Cocchi Torino) treated like premium spirit at top bars.',
+    chorusRelevance: 'Spritz fatigue opens alternatives: Cynar Spritz, Hugo Spritz (elderflower), Campari Spritz. Vermouth renaissance supports Dry Martini (#7 DI) demand.',
+    source: '[R18]'
+  }
+]
 
 export const profileMeta = {
   clientName: 'Chorus',

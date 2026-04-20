@@ -7,7 +7,7 @@ import {
 import {
   PageHeader, MetricCard, Card, Section, BentoGrid,
   TabGroup, FilterPills, DataTable, BottomSheet,
-  SkeletonCard, SkeletonChart, SubPageNav
+  SkeletonCard, SkeletonChart, SubPageNav, DataFreshness
 } from '../components/ui'
 import {
   MATERIAL_CATEGORIES, POS_COMPANIES, TRADE_PLATFORMS,
@@ -367,6 +367,15 @@ export default function POSIntelligence() {
     ...MATERIAL_CATEGORIES.map(c => ({ key: c.id, label: c.name }))
   ]
 
+  // Liquid Intelligence signals
+  const liSig1POS = { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Direct Sourcing Advantage', copy: `Factory-direct pricing eliminates a 2.5\u20134\u00d7 intermediary markup. A glorifier at \u00a310 factory-gate typically reaches brands at \u00a335\u201345 via agency \u2014 a recoverable cost that funds additional campaign spend or margin.` }
+  const liSig2POS = avgLeadDays <= 40
+    ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Manageable Lead Times', copy: `Average factory lead time is ${avgLeadDays} days. With 8\u201312 weeks forward planning, direct sourcing is operationally viable for most campaign cycles without compromising launch timelines.` }
+    : avgLeadDays <= 60
+    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Lead Time Planning Required', copy: `Average factory lead time is ${avgLeadDays} days. POS orders require commitment 10\u201314 weeks before campaign launch. Brief changes after order placement will incur significant cost and delay.` }
+    : { dot: 'bg-red-500', color: 'text-red-600', label: 'Extended Lead Times', copy: `Average lead time is ${avgLeadDays} days across material categories. Plan POS orders a minimum of 16 weeks ahead. Premium glass and custom closures carry the longest individual lead times.` }
+  const liSig3POS = { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Geographic Concentration Risk', copy: `The majority of ${totalFactories} verified factories are China-based, centred on ${topHub}. Geopolitical risk, Drewry freight cost volatility (+110% WCI), and QC requirements make dual-source strategies advisable for critical POS items.` }
+
   if (loading) {
     return (
       <div className="space-y-6">
@@ -395,6 +404,7 @@ export default function POSIntelligence() {
         ]}
       />
       <SubPageNav group="tools" />
+      <DataFreshness date="April 2026" source="Trade directories, manufacturer listings, Drewry WCI, IWSR" />
 
       <BentoGrid>
         <MetricCard
@@ -426,6 +436,28 @@ export default function POSIntelligence() {
           direction="down"
         />
       </BentoGrid>
+
+      {/* ─── LIQUID INTELLIGENCE SIGNALS ─────────────────────────────────── */}
+      <div className="border border-gold/30 rounded-xl bg-gradient-to-r from-amber-50/60 to-white p-4">
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-7 h-7 rounded-lg bg-gold/10 flex items-center justify-center">
+            <Zap size={14} className="text-gold" />
+          </div>
+          <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
+          <span className="text-xs text-gray-400 ml-auto">POS Supply Chain Signals \u00b7 2026</span>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          {[liSig1POS, liSig2POS, liSig3POS].map((sig, i) => (
+            <div key={i} className="bg-white/70 rounded-lg p-3 border border-gold/10">
+              <div className="flex items-center gap-1.5 mb-1.5">
+                <div className={`w-2 h-2 rounded-full flex-shrink-0 ${sig.dot}`} />
+                <span className={`text-xs font-bold uppercase tracking-wide ${sig.color}`}>{sig.label}</span>
+              </div>
+              <p className="text-xs text-gray-600 leading-relaxed">{sig.copy}</p>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* ─── TIER 2: Tab Navigation + Expandable Content ─────────────────── */}
       <Section>

@@ -15,7 +15,7 @@ import {
 } from '../data/marginCalcData'
 import {
   Card, MetricCard, PageHeader, BentoGrid, DrillDown,
-  ChartCard, DataTable, SubPageNav, BottomSheet
+  ChartCard, DataTable, SubPageNav, BottomSheet, DataFreshness
 } from '../components/ui'
 import { CHART_COLORS } from '../data/chartColors'
 
@@ -258,6 +258,25 @@ export default function MarginCalculator() {
     ...bm,
   }))
 
+  // Liquid Intelligence signals
+  const marginAbove = (computed.margin - benchmarks.avgMargin).toFixed(1)
+  const marginBelow = (benchmarks.avgMargin - computed.margin).toFixed(1)
+  const liSig1 = computed.margin >= 45
+    ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Strong Margin Position', copy: `Your ${computed.margin.toFixed(1)}% margin is ${marginAbove}pp above the ${cat.label} category average (${benchmarks.avgMargin}%). Well-positioned to absorb input cost shocks or increase marketing investment.` }
+    : computed.margin >= 35
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Healthy Margin', copy: `At ${computed.margin.toFixed(1)}%, you are ${computed.margin > benchmarks.avgMargin ? marginAbove + 'pp above' : marginBelow + 'pp below'} the ${cat.label} average (${benchmarks.avgMargin}%). Adequate buffer for commodity volatility at current RRP.` }
+    : computed.margin >= 25
+    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Tight Margin', copy: `Your ${computed.margin.toFixed(1)}% is ${marginBelow}pp below the ${cat.label} average (${benchmarks.avgMargin}%). Limited headroom \u2014 review RRP or focus on reducing the highest input cost component.` }
+    : { dot: 'bg-red-500', color: 'text-red-600', label: 'Critical Margin', copy: `At ${computed.margin.toFixed(1)}%, you are significantly below the ${cat.label} average (${benchmarks.avgMargin}%). A pricing or cost structure review is required before a viable commercial launch.` }
+  const liSig2 = bestScenario.impact > 0
+    ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: `Best Lever: ${bestScenario.label}`, copy: `Activating \u201c${bestScenario.label}\u201d adds +${bestScenario.impact.toFixed(1)}pp, bringing gross margin to ${(computed.baseMargin + bestScenario.impact).toFixed(1)}%. Use Advanced Mode to stack multiple scenarios and model the combined impact.` }
+    : { dot: 'bg-gray-400', color: 'text-gray-500', label: 'No Positive Scenarios', copy: `No available scenario improves this category\u2019s margin at the current RRP. Consider raising the RRP target or exploring direct sourcing to reduce input costs before launch.` }
+  const liSig3 = readinessScore >= 70
+    ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Strong Launch Timing', copy: `${cat.label} scores ${readinessScore}/100 on launch readiness. Category growth, COGS trajectory, and geographic opportunity all support a market entry in the next 12 months.` }
+    : readinessScore >= 50
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Viable with Positioning', copy: `${cat.label} scores ${readinessScore}/100. Conditions are viable but competitive density is elevated \u2014 a clear brand point of difference is essential to justify the price tier.` }
+    : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Challenging Timing', copy: `${cat.label} scores ${readinessScore}/100. Adverse COGS trends or high competitive density make this a difficult launch window. A phased entry with limited SKU focus is recommended.` }
+
   return (
     <div className="space-y-6 max-w-7xl mx-auto">
       {/* ══════ PAGE HEADER ══════ */}
@@ -267,6 +286,7 @@ export default function MarginCalculator() {
         breadcrumbs={[{ label: 'Command Centre', to: '/' }, { label: 'Margin Calculator' }]}
       />
       <SubPageNav group="planning" />
+      <DataFreshness date="April 2026" source="IWSR, NielsenIQ, trade body reports, UK HMRC duty tables" />
 
       {/* ══════ TIER 1: HERO + KPI BENTO ══════ */}
       <BentoGrid>
@@ -403,6 +423,28 @@ export default function MarginCalculator() {
           direction="up"
         />
       </BentoGrid>
+
+      {/* ══════ LIQUID INTELLIGENCE SIGNALS ══════ */}
+      <div className="border border-gold/30 rounded-xl bg-gradient-to-r from-amber-50/60 to-white p-4">
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-7 h-7 rounded-lg bg-gold/10 flex items-center justify-center">
+            <Zap size={14} className="text-gold" />
+          </div>
+          <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
+          <span className="text-xs text-gray-400 ml-auto">Margin Signals \u00b7 {cat.label}</span>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          {[liSig1, liSig2, liSig3].map((sig, i) => (
+            <div key={i} className="bg-white/70 rounded-lg p-3 border border-gold/10">
+              <div className="flex items-center gap-1.5 mb-1.5">
+                <div className={`w-2 h-2 rounded-full flex-shrink-0 ${sig.dot}`} />
+                <span className={`text-xs font-bold uppercase tracking-wide ${sig.color}`}>{sig.label}</span>
+              </div>
+              <p className="text-xs text-gray-600 leading-relaxed">{sig.copy}</p>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* ══════ TIER 2: EXPANDABLE DETAIL PANELS (Advanced Mode) ══════ */}
       {advancedMode && (<>

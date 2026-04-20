@@ -167,8 +167,30 @@ export default function PricePositioning() {
     range: t.max - t.min,
   })) || []
 
+  // Liquid Intelligence signals (category-level, always visible)
+  const catLabel = CATEGORIES.find(c => c.id === category)?.label || category
+  const lowestTier = benchmarks?.tiers[0]
+  const highestTier = benchmarks?.tiers[benchmarks.tiers.length - 1]
+  const tierCount = benchmarks?.tiers.length || 0
+  const avgOnTrade = benchmarks?.avgOnTrade || 0
+  const curr = selectedMarket?.currency || '\u00a3'
+
+  const liSig1 = tierCount >= 4
+    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Complex Pricing Landscape', copy: `${catLabel} has ${tierCount} price tiers spanning ${curr}${lowestTier?.min}\u2013${curr}${highestTier?.max}. Each tier has established incumbents \u2014 strong brand story and distinctive packaging are essential to carve a position.` }
+    : tierCount === 3
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Structured Market Tiers', copy: `${catLabel} has ${tierCount} clear price tiers from ${curr}${lowestTier?.min} to ${curr}${highestTier?.max}. Entry above ${curr}${lowestTier?.max} signals premium intent and unlocks on-trade placement opportunities.` }
+    : { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Defined Price Architecture', copy: `${catLabel} operates in ${tierCount} tier bands from ${curr}${lowestTier?.min} to ${curr}${highestTier?.max}. Pricing at or above the mid-tier floor is the minimum threshold for serious on-premise listings.` }
+
+  const liSig2 = avgOnTrade >= 12
+    ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Premium On-Trade Economics', copy: `Average on-trade pour price for ${catLabel} is ${curr}${avgOnTrade.toFixed(2)}. Category economics reward premium positioning with above-average serve margins and stronger venue listing priority.` }
+    : avgOnTrade >= 8
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Standard On-Trade Economics', copy: `Average ${catLabel} on-trade pour is ${curr}${avgOnTrade.toFixed(2)}. Standard margins apply \u2014 premium brands can negotiate better placement by demonstrating category growth credentials and consumer demand.` }
+    : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Volume-Led On-Trade', copy: `Average ${catLabel} on-trade pour is ${curr}${avgOnTrade.toFixed(2)}. Category economics favour rate-of-sale over margin \u2014 robust distribution network and listed accounts are the primary value drivers.` }
+
+  const liSig3 = { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Category Signal', copy: benchmarks?.insight || `${catLabel} market intelligence unavailable.` }
+
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto space-y-6">
       <SubPageNav group="intelligence" />
       <DataFreshness date="April 2026" source="IWSR, Euromonitor, Nielsen, Mintel" />
       <PageHeader
@@ -212,6 +234,28 @@ export default function PricePositioning() {
           </div>
         </div>
       </Card>
+
+      {/* Liquid Intelligence Signals */}
+      <div className="border border-gold/30 rounded-xl bg-gradient-to-r from-amber-50/60 to-white p-4">
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-7 h-7 rounded-lg bg-gold/10 flex items-center justify-center">
+            <Zap size={14} className="text-gold" />
+          </div>
+          <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
+          <span className="text-xs text-gray-400 ml-auto">Pricing Signals \u00b7 {catLabel}</span>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          {[liSig1, liSig2, liSig3].map((sig, i) => (
+            <div key={i} className="bg-white/70 rounded-lg p-3 border border-gold/10">
+              <div className="flex items-center gap-1.5 mb-1.5">
+                <div className={`w-2 h-2 rounded-full flex-shrink-0 ${sig.dot}`} />
+                <span className={`text-xs font-bold uppercase tracking-wide ${sig.color}`}>{sig.label}</span>
+              </div>
+              <p className="text-xs text-gray-600 leading-relaxed">{sig.copy}</p>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* Results */}
       {tier && (

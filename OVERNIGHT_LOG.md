@@ -1,3 +1,23 @@
+# Overnight Build Log — 20 April 2026
+
+## Session summary
+
+**Shipped:** Liquid Intelligence signals + DataFreshness on MarginCalculator, PricePositioning, POSIntelligence (build clean)
+
+1. **Repo audit.** Confirmed 12/20 fix_plan tasks complete. Highest-impact remaining work: item 15 (POS + Pricing + Margin cohesion). All three pages were missing Liquid Intelligence signals cards; MarginCalculator and POSIntelligence were also missing DataFreshness badges.
+
+2. **MarginCalculator.jsx \u2014 Liquid Intelligence card + DataFreshness.** Added `DataFreshness` to imports and placed badge after `SubPageNav`. Three dynamic signals computed just before the return using values already in scope: (1) Margin health \u2014 `computed.margin` vs `benchmarks.avgMargin`: \u226545% emerald \u201cStrong\u201d / \u226535% blue \u201cHealthy\u201d / \u226525% amber \u201cTight\u201d / else red \u201cCritical\u201d, pp delta interpolated; (2) Best scenario lever \u2014 `bestScenario.label` and `bestScenario.impact`, with projected margin shown; (3) Launch readiness timing \u2014 `readinessScore` bands: \u226570 emerald / \u226550 blue / else amber. Card placed between the BentoGrid KPIs and the Advanced Mode drill-down section.
+
+3. **PricePositioning.jsx \u2014 Liquid Intelligence card + wrapper fix.** Fixed missing `space-y-6` on the top-level wrapper div. Three category-responsive signals computed from `PRICE_BENCHMARKS[category]`: (1) Tier complexity \u2014 tierCount bands (\u22654 amber \u201cComplex Landscape\u201d / 3 blue \u201cStructured Market\u201d / else blue), with price range interpolated from `lowestTier.min` and `highestTier.max`; (2) On-trade economics \u2014 `avgOnTrade` bands (\u226512 emerald premium / \u22658 blue standard / else amber volume-led); (3) Category signal \u2014 `benchmarks.insight` passed directly as copy. Card placed between the input selectors card and the Results section.
+
+4. **POSIntelligence.jsx \u2014 Liquid Intelligence card + DataFreshness.** Added `DataFreshness` to imports and placed badge after `SubPageNav`. Three signals computed from module-level constants (no state dependency): (1) Direct Sourcing Advantage \u2014 static copy highlighting 2.5\u20134\u00d7 markup elimination with a concrete glorifier cost example; (2) Lead time risk \u2014 `avgLeadDays` bands: \u226440 emerald / \u226460 amber \u201cPlanning Required\u201d / else red \u201cExtended\u201d; (3) Geographic Concentration Risk \u2014 static copy referencing `totalFactories`, `topHub`, and Drewry WCI +110% freight context. Card placed between the KPI BentoGrid and the Tab Navigation section.
+
+5. **Pattern consistency.** All three pages now match the `border border-gold/30 bg-gradient-to-r from-amber-50/60` Liquid Intelligence card pattern used across 7 prior pages (SupplyChain, Geographic, Category, Venue, Campaign, Scenario, Valuations). Total pages with Liquid Intelligence signals: 10 of 31.
+
+6. **Build:** `vite build` \u2713 \u2014 0 errors, 0 warnings. Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 19 April 2026
 
 ## Session summary

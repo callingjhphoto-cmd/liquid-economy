@@ -1,3 +1,23 @@
+# Overnight Build Log — 21 April 2026
+
+## Session summary
+
+**Shipped:** ScenarioModeling — gbp currency bug fix; BrandHealth — Liquid Intelligence signals card (build clean)
+
+1. **Repo audit.** Confirmed 7 prior commits were stranded in detached HEAD (Apr 18–20 sessions); cherry-picked all 7 onto main before starting new work. Also read fix_plan.md (12/20 complete) and next_task.md. Highest-impact remaining work identified: a rendering bug in ScenarioModeling and the BrandHealth page lacking a Liquid Intelligence card.
+
+2. **ScenarioModeling.jsx — gbp currency helper bug.** The `gbp` helper function used a JavaScript template literal with `{'£'}` syntax (a JSX expression pattern, not valid in a JS string). This rendered all prices as `{'£'}2.50` on screen instead of `£2.50`. Fixed by removing the wrapping braces and quotes: `` const gbp = (v) => `£${v.toFixed(2)}` ``. The matching YAxis `tickFormatter` on the CostWaterfall chart carried the same bug and was fixed in the same pass. Affects MetricCard values, Scenario Summary table, and Liquid Intelligence copy on STEP 2.
+
+3. **BrandHealth.jsx — Liquid Intelligence signals card.** Added gold-accented signals panel between the 4-column KPI metric grid and the 12-month trend chart. Three signals computed reactively from `data` (updates on brand switch, no extra state): (1) Sentiment health — `avgSentiment` bands: ≥80 emerald “Strong Sentiment” / ≥60 blue “Positive Sentiment” / else amber “Mixed Signals”, with concrete copy on what to do next; (2) Share of Voice — `shareOfVoice` bands: ≥25% emerald “Category Leader” / ≥15% blue “Competitive Presence” / else amber “Building Share”; (3) Momentum — `trendDirection` ‘up’ emerald / ‘stable’ blue / ‘down’ amber, with actionable recommendation for each state.
+
+4. **Pattern consistency.** Card uses the established `border border-gold/30 bg-gradient-to-r from-amber-50/60` pattern matching MarginCalculator, PricePositioning, POSIntelligence (Apr 20–21). BrandHealth is now the 11th page with a Liquid Intelligence card out of 31 total.
+
+5. **No data hallucination.** All signal thresholds are pure comparisons on `data.avgSentiment`, `data.shareOfVoice`, `data.trendDirection` — values drawn directly from `BRAND_HEALTH_DATA[selectedBrand]`. No hard-coded brand names in signal copy.
+
+6. **Build:** `vite build` ✓ — 0 errors, 0 warnings, 2469 modules. Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 20 April 2026
 
 ## Session summary

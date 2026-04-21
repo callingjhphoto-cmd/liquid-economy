@@ -27,7 +27,7 @@ const NAVY = CHART_COLORS.primary
 const PIE_COLORS = [CHART_COLORS.primary, CHART_COLORS.accent, CHART_COLORS.blue, CHART_COLORS.emerald, CHART_COLORS.amber]
 
 /* \u2500\u2500 Helpers \u2500\u2500 */
-const gbp = (v) => `{'\u00a3'}${v.toFixed(2)}`
+const gbp = (v) => `\u00a3${v.toFixed(2)}`
 
 /* \u2500\u2500 Category insight data (shown when user selects a category in Step 1) \u2500\u2500 */
 const CATEGORY_INSIGHTS = {
@@ -921,7 +921,7 @@ function CostWaterfall({ costs }) {
         <BarChart data={items} margin={{ top: 5, right: 5, bottom: 5, left: 5 }} accessibilityLayer={true}>
           <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
           <XAxis dataKey="name" tick={{ fontSize: 9, fill: '#9ca3af' }} />
-          <YAxis tick={{ fontSize: 9, fill: '#9ca3af' }} tickFormatter={v => `{'\u00a3'}${v.toFixed(2)}`} />
+          <YAxis tick={{ fontSize: 9, fill: '#9ca3af' }} tickFormatter={v => `\u00a3${v.toFixed(2)}`} />
           <Tooltip formatter={(v) => [`\u00a3${v.toFixed(2)}`, 'Cost']} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
           <Bar dataKey="value" radius={[4, 4, 0, 0]}>
             {items.map((entry, i) => <Cell key={i} fill={entry.fill} />)}

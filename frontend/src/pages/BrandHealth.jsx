@@ -127,6 +127,47 @@ export default function BrandHealth() {
             <MetricBox label="Trend" value={data.trendDirection === 'up' ? 'Growing' : 'Stable'} subValue="12-month direction" trend={data.trendDirection} />
           </div>
 
+          {/* Liquid Intelligence */}
+          {(() => {
+            const liSig1 = data.avgSentiment >= 80
+              ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Strong Sentiment', copy: `Sentiment at ${data.avgSentiment}/100 — well above the advocacy threshold. Brand is generating positive earned media organically. Prioritise scale over conversion.` }
+              : data.avgSentiment >= 60
+              ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Positive Sentiment', copy: `Sentiment at ${data.avgSentiment}/100 signals a broadly positive reception. Focus review generation on underperforming channels to lift the aggregate score.` }
+              : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Mixed Signals', copy: `Sentiment at ${data.avgSentiment}/100 requires active management. Diagnose lowest-scoring channels before scaling distribution or paid spend.` }
+            const liSig2 = data.shareOfVoice >= 25
+              ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Category Leader', copy: `${data.shareOfVoice}% share of voice is a dominant position. Defend through consistent content cadence and trade activation to prevent challenger erosion.` }
+              : data.shareOfVoice >= 15
+              ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Competitive Presence', copy: `${data.shareOfVoice}% share of voice is competitive. Invest in TikTok and search — the two highest-growth mention channels — to close the gap on category leaders.` }
+              : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Building Share', copy: `${data.shareOfVoice}% share of voice is below the momentum threshold. Prioritise ambassador programmes and trade events to generate earned media at low cost-per-mention.` }
+            const liSig3 = data.trendDirection === 'up'
+              ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Momentum Building', copy: `Growing 12-month trend signals increasing brand heat. Convert momentum into distribution gains — a rising share of voice creates leverage in retailer and on-trade listing negotiations.` }
+              : data.trendDirection === 'stable'
+              ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Holding Position', copy: `Stable 12-month trend with no material decline. Targeted activation in Q3–Q4 peak season should unlock incremental mention growth without requiring a full reset.` }
+              : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Declining Momentum', copy: `A declining trend requires a strategic reset. Prioritise earned media and PR over paid spend until the organic signal stabilises — amplifying a declining base accelerates churn.` }
+            return (
+              <div className="border border-gold/30 rounded-xl bg-gradient-to-r from-amber-50/60 to-white p-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-7 h-7 rounded-lg bg-gold/10 flex items-center justify-center">
+                    <Zap size={14} className="text-gold" />
+                  </div>
+                  <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
+                  <span className="text-xs text-gray-400 ml-auto">Brand Signal {'\u00b7'} {brand.name}</span>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                  {[liSig1, liSig2, liSig3].map((sig, i) => (
+                    <div key={i} className="bg-white/70 rounded-lg p-3 border border-gold/10">
+                      <div className="flex items-center gap-1.5 mb-1.5">
+                        <div className={`w-2 h-2 rounded-full flex-shrink-0 ${sig.dot}`} />
+                        <span className={`text-xs font-bold uppercase tracking-wide ${sig.color}`}>{sig.label}</span>
+                      </div>
+                      <p className="text-xs text-gray-600 leading-relaxed">{sig.copy}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )
+          })()}
+
           {/* Line chart */}
           <Card className="p-4">
             <div className="flex items-center justify-between mb-4">

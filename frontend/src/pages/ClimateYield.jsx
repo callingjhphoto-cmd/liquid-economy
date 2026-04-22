@@ -7,7 +7,7 @@ import {
 import {
   CloudRain, Sun, Thermometer, Snowflake, TrendingUp, TrendingDown,
   AlertTriangle, CheckCircle, Droplets, Wind, Sprout, Leaf, Globe,
-  Calendar, RefreshCw, Download, ChevronRight
+  Calendar, RefreshCw, Download, ChevronRight, Zap
 } from 'lucide-react'
 import { REGIONS, FORWARD_SIGNALS, CLIMATE_SOURCES } from '../data/climateYieldData'
 import {
@@ -567,6 +567,36 @@ export default function ClimateYield() {
     return { highRiskCount, bearishRegions, worstYieldRegion }
   }, [])
 
+  // Liquid Intelligence signals — derived from summaryKpis at render time
+  const liHighRiskCount = summaryKpis.highRiskCount
+  const liBearishCount = summaryKpis.bearishRegions.length
+  const liWorstRegion = summaryKpis.worstYieldRegion
+  const liMediumCount = FORWARD_SIGNALS.filter(s => s.risk === 'medium').length
+
+  const liSig1 = liHighRiskCount >= 3
+    ? { dot: 'bg-red-500', color: 'text-red-600', label: 'Critical Climate Alert', copy: `${liHighRiskCount} high-risk agricultural signals active. Immediate supply chain review recommended across all exposed categories.` }
+    : liHighRiskCount >= 2
+    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Elevated Climate Risk', copy: `${liHighRiskCount} high-risk signals active this season. Champagne spring frost (April) and Mediterranean juniper wildfire season (summer) require active monitoring. Confirm 12\u201318\u202fmonth inventory buffers.` }
+    : liHighRiskCount >= 1
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Single Risk In Focus', copy: `${liHighRiskCount} high-risk climate signal active this cycle, plus ${liMediumCount} medium-risk signals in monitoring. Targeted sourcing vigilance recommended.` }
+    : { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Low Climate Risk', copy: `No high-risk climate signals flagged across monitored regions. ${liMediumCount} signals in medium-risk monitoring. Business-as-usual sourcing conditions apply.` }
+
+  const liSig2 = liBearishCount >= 4
+    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Widespread Bearish Pressure', copy: `${liBearishCount} production regions tracking bearish yield outlook. Buyers with concentrated input exposure should review supplier alternatives and consider forward contract positions.` }
+    : liBearishCount >= 2
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Selective Supply Stress', copy: `${liBearishCount} production regions in bearish territory. Targeted impact on specific categories \u2014 review sourcing strategy for affected inputs.` }
+    : { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Broadly Supportive Supply', copy: `Most monitored regions show neutral or bullish yield outlook. Supply conditions broadly supportive across the spirits input portfolio.` }
+
+  const liSig3 = liWorstRegion
+    ? liWorstRegion.change < -10
+      ? { dot: 'bg-red-500', color: 'text-red-600', label: 'Yield Shock Detected', copy: `${liWorstRegion.name} tracking ${liWorstRegion.change.toFixed(1)}% YoY yield decline \u2014 the steepest in the monitored portfolio. Input cost inflation typically follows within 12\u201318 months.` }
+      : liWorstRegion.change < -5
+      ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Yield Contraction', copy: `${liWorstRegion.name} shows the steepest yield decline at ${liWorstRegion.change.toFixed(1)}% YoY. Review sourcing contracts and inventory positions for affected category inputs.` }
+      : liWorstRegion.change < 0
+      ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Mild Yield Softness', copy: `${liWorstRegion.name} leads the portfolio with a ${liWorstRegion.change.toFixed(1)}% YoY yield move. Declines are moderate across the board \u2014 no immediate sourcing alarm warranted.` }
+      : { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Yields Stable or Growing', copy: `All monitored regions tracking neutral or positive yield trajectory. Agave oversupply continues to provide tequila producers a rare input cost advantage.` }
+    : { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Yield Data Updating', copy: 'Yield trajectory calculation in progress across the monitored portfolio.' }
+
   return (
     <div className="max-w-7xl mx-auto space-y-6">
       <PageHeader
@@ -622,6 +652,28 @@ export default function ClimateYield() {
               direction="down"
             />
           </BentoGrid>
+
+          {/* ═══════ LIQUID INTELLIGENCE SIGNALS ═══════ */}
+          <div className="border border-gold/30 rounded-xl bg-gradient-to-r from-amber-50/60 to-white p-4">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="w-7 h-7 rounded-lg bg-gold/10 flex items-center justify-center">
+                <Zap size={14} className="text-gold" />
+              </div>
+              <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
+              <span className="text-xs text-gray-400 ml-auto">Climate &amp; Yield Signals \u00b7 2025</span>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              {[liSig1, liSig2, liSig3].map((sig, i) => (
+                <div key={i} className="bg-white/70 rounded-lg p-3 border border-gold/10">
+                  <div className="flex items-center gap-1.5 mb-1.5">
+                    <div className={`w-2 h-2 rounded-full flex-shrink-0 ${sig.dot}`} />
+                    <span className={`text-xs font-bold uppercase tracking-wide ${sig.color}`}>{sig.label}</span>
+                  </div>
+                  <p className="text-xs text-gray-600 leading-relaxed">{sig.copy}</p>
+                </div>
+              ))}
+            </div>
+          </div>
 
           {/* TIER 2: Forward Analysis (DrillDown) */}
           <ForwardSignals />

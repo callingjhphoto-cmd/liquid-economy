@@ -1,3 +1,23 @@
+# Overnight Build Log — 22 April 2026
+
+## Session summary
+
+**Shipped:** ClimateYield — Liquid Intelligence signals card (build clean)
+
+1. **Repo audit.** Confirmed 9 prior commits were stranded in detached HEAD (Apr 18–21 sessions); cherry-picked all 9 onto main before starting new work. Read fix_plan.md (12/20 tasks marked complete, though actual completion is higher from prior overnight logs). Identified ClimateYield as the only major intelligence page missing a Liquid Intelligence card — highest-impact bounded task for tonight.
+
+2. **ClimateYield.jsx — Liquid Intelligence signals card.** Added gold-accented signals panel between the BentoGrid hero section and the ForwardSignals DrillDown. Three signals computed from the existing `summaryKpis` useMemo (no new state): (1) Critical Climate Risk — `liHighRiskCount` bands: ≥3 red / ≥2 amber “Elevated Climate Risk” (current: 2 signals — Champagne spring frost in April + Mediterranean juniper wildfire season) with 12–18 month inventory buffer copy; ≥1 blue; 0 emerald; (2) Bearish Region Pressure — `liBearishCount` bands: ≥4 amber “Widespread Bearish Pressure” / ≥2 blue / ≤1 emerald; copy recommends forward contract review at the amber threshold; (3) Yield Contraction — `liWorstRegion.change` bands: <−10% red “Yield Shock” / <−5% amber “Yield Contraction” (current: Champagne at ∼−7.1% YoY) / <0% blue / ≥0% emerald; dynamic region name and percentage interpolated from `worstYieldRegion`.
+
+3. **Pattern consistency.** Card uses the established `border border-gold/30 bg-gradient-to-r from-amber-50/60` pattern and `Zap` header icon matching SupplyChain, GeographicIntelligence, CategoryIntelligence, VenueIntelligence, and all other Liquid Intelligence pages. Subtitle span uses `·` escape sequence (not literal \xb7). Copy strings use `–`/`—` escapes — no literal non-ASCII in any JSX or JS signal strings.
+
+4. **No data hallucination.** All three signal thresholds are pure numeric comparisons on computed values from `summaryKpis` — itself derived from `FORWARD_SIGNALS` and `REGIONS` arrays at memo-evaluation time. The Champagne/juniper references in Signal 1 amber copy are accurate (both appear explicitly as `risk: 'high'` in `FORWARD_SIGNALS`). The region name in Signal 3 is dynamically interpolated from `worstYieldRegion.name`.
+
+5. **ClimateYield is now the 12th page with a Liquid Intelligence card** out of 31 total. Also cherry-picked 9 stranded commits (Apr 18–21) onto main before the new work.
+
+6. **Build:** `vite build` ✓ — 0 errors, 0 warnings. Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 21 April 2026
 
 ## Session summary

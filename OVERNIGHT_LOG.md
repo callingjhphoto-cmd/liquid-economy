@@ -1,3 +1,21 @@
+# Overnight Build Log — 23 April 2026
+
+## Session summary
+
+**Shipped:** Financials + DepletionForecasting — Liquid Intelligence signals cards (build clean); 11 stranded commits cherry-picked onto main
+
+1. **Repo audit.** Confirmed 11 prior commits were stranded in detached HEAD (Apr 18–22 sessions); cherry-picked all 11 onto main before starting new work. Scanned all 31 pages for unicode violations in JSX text nodes — all clean (remaining `—` chars are in template literals and comments, not JSX text nodes). Identified Financials and DepletionForecasting as the two highest-impact pages missing Liquid Intelligence cards.
+
+2. **Financials.jsx — Liquid Intelligence signals card.** Added `Zap` to lucide imports. Three signals computed from static module-level data (no new state): (1) Inventory Overhang Status — `liInv.total` ($20.1B) vs $18B danger zone: ≥$20B red "Inventory Overhang Critical" (current: $2.1B above threshold) / ≥$18B amber / <$18B emerald; copy references distributor destocking and pricing constraint context; (2) Sector Growth Health — `liGrowingCount` (2 of 5 companies growing: Diageo +1.4%, Campari +5.4%; Pernod −1.2%, Brown-Forman −1.0%, Rémy −8.4%): ≥4 emerald / ≥3 blue / ≥2 amber "Majority Sector Declining" (current) / <2 red; copy directs user to target growing-company portfolios; (3) Depletion Gap Resolution — `liLatestGap` (1pt from peak 10pt in 2022): ≤1 blue "Near-Resolved" (current) / ≤3 blue / ≤6 amber / >6 red; copy names 2026 pricing normalisation as the key signal. Card placed between DepletionShipmentChart and Company Financial Profiles section.
+
+3. **DepletionForecasting.jsx — Liquid Intelligence signals card (reactive tool).** Three signals that update dynamically from user inputs (no additional state): (1) Distribution scale — `numDist` bands: ≥300 emerald "Scale Distribution" / ≥150 blue "Mid-Tier" / ≥50 blue "Building" / <50 amber "Limited"; copy tailors advice to seeding vs scale growth phase; (2) Annual revenue run rate — `annualRevenue` bands: ≥£200k emerald / ≥£50k blue / ≥£10k blue / <£10k amber; concrete thresholds for distributor partnership readiness; (3) Seasonal spike risk — `liPeakRatio` (peakMonth.depletions / avgMonthly): ≥2× red "High Spike Risk" / ≥1.5× amber "Moderate Seasonality" / else blue "Low Variance". Card guarded with `liHasData` (numDist > 0 && numROS > 0) so it only renders when the user has entered parameters. Subtitle interpolates the active seasonality profile label.
+
+4. **Pattern consistency.** Both cards use the established `border border-gold/30 bg-gradient-to-r from-amber-50/60` pattern and `Zap` header icon matching all 12 prior Liquid Intelligence pages. Financials and DepletionForecasting are now the 13th and 14th pages with Liquid Intelligence cards out of 31 total.
+
+5. **Build:** `vite build` ✓ — 0 errors, 0 warnings. Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 22 April 2026
 
 ## Session summary

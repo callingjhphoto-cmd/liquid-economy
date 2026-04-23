@@ -93,6 +93,32 @@ export default function DepletionForecasting() {
   const peakMonth = forecast.reduce((max, f) => f.depletions > max.depletions ? f : max, forecast[0] || { month: '-', depletions: 0 })
   const totalReorders = forecast.reduce((s, f) => s + f.reordersNeeded, 0)
 
+  // Liquid Intelligence signals — reactive to user inputs
+  const liHasData = numDist > 0 && numROS > 0
+  const liPeakRatio = avgMonthly > 0 ? peakMonth.depletions / avgMonthly : 1
+
+  const liSig1 = numDist >= 300
+    ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Scale Distribution', copy: `${numDist} distribution points is a strong commercial footprint. At this scale, focus investment on rate-of-sale activation to compound volume growth rather than further account acquisition.` }
+    : numDist >= 150
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Mid-Tier Distribution', copy: `${numDist} points puts this brand on track for mainstream visibility. Prioritise top-performing accounts for activation spend to lift the average rate of sale above ${numROS} cases/month.` }
+    : numDist >= 50
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Building Distribution', copy: `${numDist} points is a healthy seeding-phase network. Target 20–30% quarterly growth in account count while maintaining quality — minimum ${numROS} cases/month rate of sale per account.` }
+    : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Limited Distribution', copy: `${numDist} distribution points is a focused seeding phase. Prioritise account quality and reorder frequency over breadth. Use proof-of-concept data to drive distributor conversations.` }
+
+  const liSig2 = annualRevenue >= 200000
+    ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Strong Revenue Forecast', copy: `£${(annualRevenue / 1000).toFixed(0)}k annual revenue forecast justifies premium listing investment and brand-building spend. Consider dedicated field sales resource.` }
+    : annualRevenue >= 50000
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Healthy Revenue Run Rate', copy: `£${(annualRevenue / 1000).toFixed(0)}k annual revenue supports continued distribution build and targeted activation. Suitable for distributor partnership conversations.` }
+    : annualRevenue >= 10000
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Growing Revenue Base', copy: `£${(annualRevenue / 1000).toFixed(0)}k annual run rate. Viable if in investment phase. Focus on account quality and reorder frequency to build the revenue foundation before scaling accounts.` }
+    : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Early Stage Revenue', copy: `£${(annualRevenue / 1000).toFixed(1)}k annual revenue forecast reflects early-stage distribution. Acceptable for brand seeding; target minimum £10k before seeking wider distributor listings.` }
+
+  const liSig3 = liPeakRatio >= 2
+    ? { dot: 'bg-red-500', color: 'text-red-600', label: 'High Seasonal Spike Risk', copy: `${peakMonth.month} peak is ${liPeakRatio.toFixed(1)}× average monthly volume. Ensure 6–8 weeks buffer stock pre-peak. Communicate forecast to distributor by ${peakMonth.month === 'Dec' ? 'Oct' : 'Apr'} to avoid lost sales.` }
+    : liPeakRatio >= 1.5
+    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Moderate Seasonality', copy: `${peakMonth.month} peak is ${liPeakRatio.toFixed(1)}× average monthly volume. Plan 4–6 weeks of buffer stock ahead of the peak window. Align reorder schedule with the ${totalReorders}-order annual cadence.` }
+    : { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Low Seasonal Variance', copy: `Consistent depletion profile across the year. Standard 4-week reorder cycle applies. ${totalReorders} annual reorders at ${numReorder} cases/order provides a manageable logistics cadence.` }
+
   return (
     <div className="max-w-7xl mx-auto">
       <SubPageNav group="planning" />
@@ -182,6 +208,30 @@ export default function DepletionForecasting() {
           </ResponsiveContainer>
         </Card>
       </div>
+
+      {/* ═══════ LIQUID INTELLIGENCE SIGNALS ═══════ */}
+      {liHasData && (
+        <div className="border border-gold/30 rounded-xl bg-gradient-to-r from-amber-50/60 to-white p-4 mb-6">
+          <div className="flex items-center gap-2 mb-3">
+            <div className="w-7 h-7 rounded-lg bg-gold/10 flex items-center justify-center">
+              <Zap size={14} className="text-gold" />
+            </div>
+            <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
+            <span className="text-xs text-gray-400 ml-auto">Forecast Signals &middot; {seasonality === 'champagne' ? 'Champagne' : profile.label}</span>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {[liSig1, liSig2, liSig3].map((sig, i) => (
+              <div key={i} className="bg-white/70 rounded-lg p-3 border border-gold/10">
+                <div className="flex items-center gap-1.5 mb-1.5">
+                  <div className={`w-2 h-2 rounded-full flex-shrink-0 ${sig.dot}`} />
+                  <span className={`text-xs font-bold uppercase tracking-wide ${sig.color}`}>{sig.label}</span>
+                </div>
+                <p className="text-xs text-gray-600 leading-relaxed">{sig.copy}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Reorder schedule */}
       <Card className="p-4 mb-6">

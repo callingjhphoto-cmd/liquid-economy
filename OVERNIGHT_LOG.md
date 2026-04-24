@@ -1,3 +1,21 @@
+# Overnight Build Log — 24 April 2026
+
+## Session summary
+
+**Shipped:** MarketOverview — Liquid Intelligence signals card (build clean); 13 stranded commits cherry-picked onto main
+
+1. **Repo audit.** Confirmed 13 prior commits were stranded in detached HEAD (Apr 18–23 sessions); cherry-picked all 13 onto main before starting new work. Verified 14 pages already carry Liquid Intelligence cards; identified MarketOverview as the highest-impact remaining page — the top-level $1.6T global market view visited by every user.
+
+2. **MarketOverview.jsx — Liquid Intelligence signals card.** Three signals computed at module level from static `DRINKS_MARKET_SEGMENTS` and `MARKET_SIGNALS` data (no state, no re-computation on render): (1) Market Segment Momentum — `liGrowingSegCount` (4 of 5 segments advancing; wine −1.2% YoY the sole contraction): 5 emerald "Full Sector Expansion" / 4 blue "Broad Sector Growth" (current) / 3 amber "Mixed" / <3 amber "Contraction"; (2) Macro Risk Thermometer — `liHighUrgencyCount` (3 high-urgency signals active: China 30% import duty on EU spirits, EU label enforcement from June 2026, Diageo capital signals): 0 emerald / ≤2 blue / ≤3 amber "Elevated Macro Risk" (current) / 4+ red; copy names cognac-exposed brands as most at risk; (3) Fastest-Growing Opportunity — `liFastestSeg` + `liFastestPct` (RTD at +16.4% YoY): ≥15% emerald "Exceptional Growth Window" (current) / ≥8% blue / ≥4% blue / <4% amber; copy references the spirits-RTD 47% volume stat from the existing data.
+
+3. **Card placement.** Inserted between the Category Group Breakdown grid (5 segment cards) and the Regional Breakdown section header — after the user has absorbed the top-level market data, immediately contextualising it with interpretation.
+
+4. **Unicode compliance.** All signal copy strings use `—` (em dash) and `·` (middle dot) escape sequences — no literal non-ASCII bytes in any JS signal string or JSX expression. Fixed mid-session after Python replacement wrote literal UTF-8 bytes rather than escape text; verified via byte-level scan.
+
+5. **Build:** `vite build` ✓ — 0 errors, 0 warnings. Pushed to main; Railway auto-deploy triggered. MarketOverview is now the 15th page with a Liquid Intelligence card out of 31 total.
+
+---
+
 # Overnight Build Log — 23 April 2026
 
 ## Session summary

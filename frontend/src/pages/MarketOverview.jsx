@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import {
   PageHeader, Card, MetricCard, BentoGrid, SectionHeader, DataFreshness,
 } from '../components/ui'
-import { Globe, TrendingUp, Wine, Beer, Grape, Sparkles, Package, AlertTriangle } from 'lucide-react'
+import { Globe, TrendingUp, Wine, Beer, Grape, Sparkles, Package, AlertTriangle, Zap } from 'lucide-react'
 import { REGIONAL_PULSE_EXTENDED, CATEGORY_SNAPSHOT, MARKET_SIGNALS } from '../data/commandCentreData'
 import { ResponsiveContainer, AreaChart, Area, XAxis, Tooltip } from 'recharts'
 
@@ -61,6 +61,42 @@ const DRINKS_MARKET_SEGMENTS = [
     color: '#8B5CF6',
   },
 ]
+
+/* ── Liquid Intelligence derived values (all static data, computed once at module level) ── */
+const liGrowingSegCount = DRINKS_MARKET_SEGMENTS.filter(s => !s.growth.startsWith('-')).length
+
+const liHighUrgencyCount = (MARKET_SIGNALS || []).filter(s => s.urgency === 'high').length
+
+const liFastestSeg = DRINKS_MARKET_SEGMENTS.reduce((best, s) => {
+  const pct = parseFloat(s.growth.replace(/[^-\d.]/g, ''))
+  const bestPct = parseFloat(best.growth.replace(/[^-\d.]/g, ''))
+  return pct > bestPct ? s : best
+})
+const liFastestPct = parseFloat(liFastestSeg.growth.replace(/[^-\d.]/g, ''))
+
+const liSig1 = liGrowingSegCount >= 5
+  ? { dot: 'bg-emerald-500', color: 'text-emerald-700', label: 'Full Sector Expansion', copy: 'All five market segments are growing. Broad-based momentum creates an exceptional window for launches, distributor renegotiations, and premium shelf positioning across categories.' }
+  : liGrowingSegCount >= 4
+  ? { dot: 'bg-blue-500', color: 'text-blue-700', label: 'Broad Sector Growth', copy: `${liGrowingSegCount} of 5 market segments advancing. Wine (-1.2% YoY) is the sole contraction \u2014 spirits, beer, NoLo, and RTD all positive. Prioritise 2026 entry into growing categories.` }
+  : liGrowingSegCount >= 3
+  ? { dot: 'bg-amber-500', color: 'text-amber-700', label: 'Mixed Sector Momentum', copy: 'More than one segment in decline. Concentrate investment in growing verticals and exit volume commitments in contracting categories.' }
+  : { dot: 'bg-amber-500', color: 'text-amber-700', label: 'Sector Contraction', copy: 'Most market segments in decline. Defensive positioning advised \u2014 protect premium SKUs, reduce promotional spend in over-indexed channels, hold pricing discipline.' }
+
+const liSig2 = liHighUrgencyCount === 0
+  ? { dot: 'bg-emerald-500', color: 'text-emerald-700', label: 'Clear Macro Environment', copy: 'No high-urgency macro signals active. Stable backdrop supports planned investment and distributor expansion programmes through 2026.' }
+  : liHighUrgencyCount <= 2
+  ? { dot: 'bg-blue-500', color: 'text-blue-700', label: 'Manageable Headwinds', copy: `${liHighUrgencyCount} high-urgency market signal${liHighUrgencyCount === 1 ? '' : 's'} active. Monitor the Market Signals section \u2014 current events are material but containable within standard planning assumptions.` }
+  : liHighUrgencyCount <= 3
+  ? { dot: 'bg-amber-500', color: 'text-amber-700', label: 'Elevated Macro Risk', copy: `${liHighUrgencyCount} high-urgency signals active: China 30% import duty on EU spirits, EU label enforcement from June 2026, and Diageo capital signals. Cognac-exposed brands face compounding headwinds \u2014 review forward hedge positions.` }
+  : { dot: 'bg-red-500', color: 'text-red-700', label: 'Critical Risk Concentration', copy: `${liHighUrgencyCount} high-urgency market signals active simultaneously. Reassess launch timelines, review distributor contract flexibility, and escalate to senior planning.` }
+
+const liSig3 = liFastestPct >= 15
+  ? { dot: 'bg-emerald-500', color: 'text-emerald-700', label: 'Exceptional Growth Window', copy: `${liFastestSeg.label} (${liFastestSeg.growth} YoY) is the standout growth opportunity. Spirits-based RTDs now hold 47% of segment volume \u2014 white space remains in premium on-premise formats and functional hybrid expressions.` }
+  : liFastestPct >= 8
+  ? { dot: 'bg-blue-500', color: 'text-blue-700', label: 'Strong Growth Window', copy: `${liFastestSeg.label} (${liFastestSeg.growth} YoY) leads all segments. Accelerate NPD and distribution investment in this category ahead of the next pricing cycle.` }
+  : liFastestPct >= 4
+  ? { dot: 'bg-blue-500', color: 'text-blue-700', label: 'Solid Growth Leader', copy: `${liFastestSeg.label} (${liFastestSeg.growth} YoY) is the fastest-growing segment. Moderate pace supports sustainable margin management without capacity over-extension.` }
+  : { dot: 'bg-amber-500', color: 'text-amber-700', label: 'Subdued Growth Leader', copy: `${liFastestSeg.label} (${liFastestSeg.growth} YoY) is the strongest performer in a broadly flat market. Focus on margin preservation and channel optimisation rather than volume growth.` }
 
 export default function MarketOverview() {
   const totalValue = '$1.6T'
@@ -144,6 +180,28 @@ export default function MarketOverview() {
             </Link>
           )
         })}
+      </div>
+
+      {/* Liquid Intelligence */}
+      <div className="border border-gold/30 rounded-xl bg-gradient-to-r from-amber-50/60 to-white p-4">
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-7 h-7 rounded-lg bg-gold/10 flex items-center justify-center">
+            <Zap size={14} className="text-gold" />
+          </div>
+          <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
+          <span className="text-xs text-gray-400 ml-auto">Global Market Signals {'\u00b7'} 2025</span>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          {[liSig1, liSig2, liSig3].map((sig, i) => (
+            <div key={i} className="bg-white/70 rounded-lg p-3 border border-gold/10">
+              <div className="flex items-center gap-1.5 mb-1.5">
+                <div className={`w-2 h-2 rounded-full flex-shrink-0 ${sig.dot}`} />
+                <span className={`text-xs font-bold uppercase tracking-wide ${sig.color}`}>{sig.label}</span>
+              </div>
+              <p className="text-xs text-gray-600 leading-relaxed">{sig.copy}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Regional pulse with 10yr CAGR */}

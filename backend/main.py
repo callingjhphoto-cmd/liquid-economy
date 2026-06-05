@@ -168,12 +168,18 @@ async def lifespan(app: FastAPI):
     create_tables(engine)
     run_seed(settings.database_url)
 
-    # Back-populate the Category graph from existing brands (idempotent)
-    try:
-        from database.backfill_categories import run as backfill_categories
-        backfill_categories()
-    except Exception as exc:  # noqa: BLE001
-        logger.warning(f"category backfill skipped: {exc}")
+    # Back-populate the Category graph in the background so it never blocks
+    # (or crashes) startup before the healthcheck on /api/health.
+    import threading
+
+    def _deferred_backfill():
+        try:
+            from database.backfill_categories import run as backfill_categories
+            backfill_categories()
+        except Exception as exc:  # noqa: BLE001
+            logger.warning(f"category backfill skipped: {exc}")
+
+    threading.Thread(target=_deferred_backfill, daemon=True).start()
 
     # Schedule collectors
     scheduler.add_job(run_yahoo_finance, CronTrigger.from_crontab(settings.schedule_yahoo_finance),

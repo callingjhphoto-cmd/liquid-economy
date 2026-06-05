@@ -331,6 +331,89 @@ class DataSource(Base):
 
 
 # ───────────────────────────────────────────
+# CATEGORY GRAPH (vertical analysis) — added 2026-06-05
+# ───────────────────────────────────────────
+
+class Category(Base):
+    """Drinks category as a first-class entity (vodka, gin, tequila…)."""
+    __tablename__ = "categories"
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(120), nullable=False, unique=True)
+    slug = Column(String(120), unique=True)
+    parent = Column(String(120))  # optional super-category, e.g. "Scotch" -> "Whisky"
+    description = Column(Text)
+    created_at = Column(DateTime, server_default=func.now())
+
+
+class BrandCategory(Base):
+    """Many-to-many link: a brand/expression belongs to one or more categories."""
+    __tablename__ = "brand_categories"
+
+    brand_id = Column(Integer, ForeignKey("brands.id"), primary_key=True)
+    category_id = Column(Integer, ForeignKey("categories.id"), primary_key=True)
+    is_primary = Column(Boolean, default=True)
+    created_at = Column(DateTime, server_default=func.now())
+
+
+# ───────────────────────────────────────────
+# DATA → CREATIVE LINK (the keystone) — added 2026-06-05
+# ───────────────────────────────────────────
+
+class CreativeBrief(Base):
+    """A market signal auto-converted into a creative trigger. Links Know-it → Make-it."""
+    __tablename__ = "creative_briefs"
+
+    id = Column(Integer, primary_key=True)
+    status = Column(String(40), default="new_signal")  # new_signal, under_review, briefed, archived
+    source_signal = Column(String(120))  # e.g. "price_anomaly", "trade_surge"
+    brand_id = Column(Integer, ForeignKey("brands.id"))
+    category_id = Column(Integer, ForeignKey("categories.id"))
+    triggering_data = Column(Text)  # JSON: {"table": [ids], "metric": ..., "change": ...}
+    headline = Column(String(300))  # the one-line story
+    analyst_summary = Column(Text)
+    creative_challenge = Column(Text)  # the brief handed to the studio
+    severity = Column(String(20), default="medium")
+    created_at = Column(DateTime, server_default=func.now())
+    updated_at = Column(DateTime, server_default=func.now(), onupdate=func.now())
+
+    __table_args__ = (Index("ix_brief_status", "status", "created_at"),)
+
+
+# ───────────────────────────────────────────
+# PER-BRAND PRODUCT LAYER (bespoke terminal) — added 2026-06-05
+# ───────────────────────────────────────────
+
+class Client(Base):
+    """A Liquid client/prospect brand that gets a bespoke terminal view."""
+    __tablename__ = "clients"
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(200), nullable=False, unique=True)
+    status = Column(String(40), default="prospect")  # prospect, pilot, active
+    created_at = Column(DateTime, server_default=func.now())
+
+    template = relationship("BrandTemplate", back_populates="client",
+                            uselist=False, cascade="all, delete-orphan")
+
+
+class BrandTemplate(Base):
+    """Config that renders the same platform as a bespoke terminal for one client."""
+    __tablename__ = "brand_templates"
+
+    id = Column(Integer, primary_key=True)
+    client_id = Column(Integer, ForeignKey("clients.id"), nullable=False, unique=True)
+    focus_brand_id = Column(Integer, ForeignKey("brands.id"))
+    focus_category_id = Column(Integer, ForeignKey("categories.id"))
+    competitor_brand_ids = Column(Text)  # JSON array of brand ids
+    focus_markets = Column(Text)  # JSON array, e.g. ["USA","UK","Spain"]
+    config = Column(Text)  # JSON: arbitrary view config
+    created_at = Column(DateTime, server_default=func.now())
+
+    client = relationship("Client", back_populates="template")
+
+
+# ───────────────────────────────────────────
 # ENGINE & SESSION FACTORY
 # ───────────────────────────────────────────
 

@@ -25,6 +25,7 @@ from api.venues import router as venues_router
 from api.market_intelligence import router as market_intelligence_router
 from api.commodities import router as commodities_router
 from api.company_intelligence import router as company_intelligence_router
+from api.terminal import router as terminal_router
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(name)s] %(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -167,6 +168,13 @@ async def lifespan(app: FastAPI):
     create_tables(engine)
     run_seed(settings.database_url)
 
+    # Back-populate the Category graph from existing brands (idempotent)
+    try:
+        from database.backfill_categories import run as backfill_categories
+        backfill_categories()
+    except Exception as exc:  # noqa: BLE001
+        logger.warning(f"category backfill skipped: {exc}")
+
     # Schedule collectors
     scheduler.add_job(run_yahoo_finance, CronTrigger.from_crontab(settings.schedule_yahoo_finance),
                       id="yahoo_finance", replace_existing=True)
@@ -190,8 +198,16 @@ async def lifespan(app: FastAPI):
                       id="who_gho", replace_existing=True)
     scheduler.add_job(run_oecd, CronTrigger.from_crontab(settings.schedule_oecd),
                       id="oecd", replace_existing=True)
+
+    # Sentinel: price-anomaly → CreativeBrief (the data→creative agent), daily 06:30 UTC
+    def run_price_sentinel():
+        from collectors.sentinel_price_anomaly import run as run_sentinel
+        run_sentinel()
+    scheduler.add_job(run_price_sentinel, CronTrigger.from_crontab("30 6 * * *"),
+                      id="sentinel_price_anomaly", replace_existing=True)
+
     scheduler.start()
-    logger.info("Scheduler started with 12 collectors registered")
+    logger.info("Scheduler started with 12 collectors + 1 sentinel registered")
 
     yield
 
@@ -230,6 +246,7 @@ from api.chatbot import get_db as chat_get_db
 from api.reports import get_db as rep_get_db
 from api.categories import get_db as cat_get_db
 from api.market_intelligence import get_db as mi_get_db
+from api.terminal import get_db as term_get_db
 
 app.dependency_overrides[dash_get_db] = get_db
 app.dependency_overrides[comp_get_db] = get_db
@@ -237,6 +254,7 @@ app.dependency_overrides[exp_get_db] = get_db
 app.dependency_overrides[chat_get_db] = get_db
 app.dependency_overrides[rep_get_db] = get_db
 app.dependency_overrides[cat_get_db] = get_db
+app.dependency_overrides[term_get_db] = get_db
 app.dependency_overrides[mi_get_db] = get_db
 
 app.include_router(dashboard_router)
@@ -249,6 +267,7 @@ app.include_router(venues_router)
 app.include_router(market_intelligence_router)
 app.include_router(commodities_router)
 app.include_router(company_intelligence_router)
+app.include_router(terminal_router)
 
 
 # ── Auth endpoints ──

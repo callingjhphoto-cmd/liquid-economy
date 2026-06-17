@@ -47,7 +47,7 @@ export const REGIONS_EXPANDED = [
     avgYield: 38,
     priceLink: 'ICIDCA production data highly limited post-2020. Cuban rum production estimated from imperial-era trade data and regional sugar reports. Industry collapsed 2020-2023; recovery uncertain.',
     historical: {
-      2006: { yield: 45, rainfall: 1250, avgTemp: 26.0, frostDays: 0, sunHours: 2700, season: '[estimated] Stable production post-Special Period normalization. Hurricane season moderate. Pi\u00f1a sugar content normal.', outlook: 'neutral' },
+      2006: { yield: 45, rainfall: 1250, avgTemp: 26.0, frostDays: 0, sunHours: 2700, season: '[estimated] Stable production post-Special Period normalization. Hurricane season moderate. Piña sugar content normal.', outlook: 'neutral' },
       2007: { yield: 46, rainfall: 1200, avgTemp: 26.1, frostDays: 0, sunHours: 2680, season: '[estimated] Good growing season. No major hurricanes affecting cane. Yields consistent with early 2000s trend.', outlook: 'neutral' },
       2008: { yield: 41, rainfall: 1400, avgTemp: 25.8, frostDays: 0, sunHours: 2600, season: '[estimated] Hurricane Ike (Sept) caused damage to eastern provinces. Yields declined. Labor disruption noted.', outlook: 'bearish' },
       2009: { yield: 44, rainfall: 1180, avgTemp: 26.2, frostDays: 0, sunHours: 2720, season: '[estimated] Recovery year post-Ike. Good growing conditions. Yields stabilized.', outlook: 'neutral' },
@@ -101,9 +101,9 @@ export const REGIONS_EXPANDED = [
       2019: { yield: 44, rainfall: 1480, avgTemp: 26.6, frostDays: 0, sunHours: 2700, season: 'Dorian tracked well north. Normal growing season. Yields consistent. Production stable.', outlook: 'neutral' },
       2020: { yield: 42, rainfall: 1690, avgTemp: 26.3, frostDays: 0, sunHours: 2580, season: 'Hurricane season active (Eta, Iota); Martinique mostly spared. COVID labor constraints. Harvest proceeded despite disruptions. Yields below average from labor shortage (not weather).', outlook: 'neutral' },
       2021: { yield: 45, rainfall: 1620, avgTemp: 26.5, frostDays: 0, sunHours: 2600, season: 'Good growing year. No major hurricane impacts. Labor normalized post-COVID. Yields back to AOC ceiling. Production strong.', outlook: 'neutral' },
-      2022: { yield: 43, rainfall: 1350, avgTemp: 26.9, frostDays: 0, sunHours: 2800, season: 'Drier year (El Ni\u00f1o pattern). Yields below average 43 t/ha. Hurricane season quiet. Heat stress from low rainfall.', outlook: 'neutral' },
+      2022: { yield: 43, rainfall: 1350, avgTemp: 26.9, frostDays: 0, sunHours: 2800, season: 'Drier year (El Niño pattern). Yields below average 43 t/ha. Hurricane season quiet. Heat stress from low rainfall.', outlook: 'neutral' },
       2023: { yield: 44, rainfall: 1580, avgTemp: 26.6, frostDays: 0, sunHours: 2650, season: 'Recovery from 2022 dryness. Adequate rainfall. Normal harvest timing. Yields to AOC ceiling. Production stable ~4.0-4.2M liters.', outlook: 'neutral' },
-      2024: { yield: 42, rainfall: 1750, avgTemp: 26.2, frostDays: 0, sunHours: 2520, season: 'La Ni\u00f1a transition. Heavy June-July rains (some waterlogging risk). Hurricane Beryl (Cat 5, July) tracked just south of Martinique (smaller impact than 2017). Yields slightly below average.', outlook: 'neutral' },
+      2024: { yield: 42, rainfall: 1750, avgTemp: 26.2, frostDays: 0, sunHours: 2520, season: 'La Niña transition. Heavy June-July rains (some waterlogging risk). Hurricane Beryl (Cat 5, July) tracked just south of Martinique (smaller impact than 2017). Yields slightly below average.', outlook: 'neutral' },
       2025: { yield: null, rainfall: null, avgTemp: null, frostDays: null, sunHours: null, season: 'Dry season underway. Hurricane season forecast active (June-Nov 2025). AOC yield regulations maintained. Production target ~4.0-4.2M liters if conditions normal.', outlook: 'monitoring' }
     }
   },
@@ -139,9 +139,9 @@ export const REGIONS_EXPANDED = [
       2019: { yield: 67, rainfall: 1380, avgTemp: 27.3, frostDays: 0, sunHours: 2900, season: 'Dorian tracked north. Normal growing season. Yields consistent. Production stable.', outlook: 'neutral' },
       2020: { yield: 65, rainfall: 1540, avgTemp: 27.2, frostDays: 0, sunHours: 2800, season: 'Hurricane season active (Eta, Iota). Barbados less direct impact. Adequate rainfall. COVID labor challenges. Yields slightly below trend from logistics disruption.', outlook: 'neutral' },
       2021: { yield: 68, rainfall: 1380, avgTemp: 27.4, frostDays: 0, sunHours: 2850, season: 'Good growing conditions. No major hurricane impacts. Labor normalized. Yields back to average. Mount Gay estate cane ramping up (~10-15% of molasses needs from owned parcels).', outlook: 'bullish' },
-      2022: { yield: 70, rainfall: 1260, avgTemp: 27.6, frostDays: 0, sunHours: 2950, season: 'Drier year but adequate. Yields strong. El Ni\u00f1o pattern. Good sugar season.', outlook: 'neutral' },
-      2023: { yield: 66, rainfall: 1450, avgTemp: 27.8, frostDays: 0, sunHours: 2850, season: '[CIMH 1561mm estimate] El Ni\u00f1o brought variable rainfall. Hurricane season active but tracked away. Yields average.', outlook: 'neutral' },
-      2024: { yield: 64, rainfall: 1516, avgTemp: 27.7, frostDays: 0, sunHours: 2800, season: '[Trading Economics 1516.47mm] La Ni\u00f1a transition. Heavy June-July rains. Hurricane Beryl (July) impacted Jamaica; Barbados had peripheral effects. Yields slightly below average.', outlook: 'neutral' },
+      2022: { yield: 70, rainfall: 1260, avgTemp: 27.6, frostDays: 0, sunHours: 2950, season: 'Drier year but adequate. Yields strong. El Niño pattern. Good sugar season.', outlook: 'neutral' },
+      2023: { yield: 66, rainfall: 1450, avgTemp: 27.8, frostDays: 0, sunHours: 2850, season: '[CIMH 1561mm estimate] El Niño brought variable rainfall. Hurricane season active but tracked away. Yields average.', outlook: 'neutral' },
+      2024: { yield: 64, rainfall: 1516, avgTemp: 27.7, frostDays: 0, sunHours: 2800, season: '[Trading Economics 1516.47mm] La Niña transition. Heavy June-July rains. Hurricane Beryl (July) impacted Jamaica; Barbados had peripheral effects. Yields slightly below average.', outlook: 'neutral' },
       2025: { yield: null, rainfall: null, avgTemp: null, frostDays: null, sunHours: null, season: 'Dry season underway. Hurricane forecast active. Mount Gay estate cane stable source. Molasses supply adequate from combination island + imports. Yields expected average conditions.', outlook: 'monitoring' }
     }
   },
@@ -179,7 +179,7 @@ export const REGIONS_EXPANDED = [
       2021: { yield: 58, rainfall: 1420, avgTemp: 26.2, frostDays: 0, sunHours: 2700, season: '[estimated] Worthy Park sole major estate. Good growing conditions. Limited island production but estate optimized.', outlook: 'neutral' },
       2022: { yield: 61, rainfall: 1280, avgTemp: 26.5, frostDays: 0, sunHours: 2850, season: '[estimated] Drier conditions. Yields slightly below average. Worthy Park adapting to sole-producer role. Molasses increasingly imported.', outlook: 'neutral' },
       2023: { yield: 59, rainfall: 1480, avgTemp: 26.4, frostDays: 0, sunHours: 2750, season: '[estimated] Adequate rainfall. Yields average. Worthy Park stable producer.', outlook: 'neutral' },
-      2024: { yield: 53, rainfall: 1620, avgTemp: 26.3, frostDays: 0, sunHours: 2700, season: 'La Ni\u00f1a transition. Heavy June-July rains (flooding risk). Hurricane Beryl (Cat 5, July) tracked through Jamaica (major impact). Cane lodging, harvest disruption. Yields down 10%. Worthy Park affected but recovering.', outlook: 'bearish' },
+      2024: { yield: 53, rainfall: 1620, avgTemp: 26.3, frostDays: 0, sunHours: 2700, season: 'La Niña transition. Heavy June-July rains (flooding risk). Hurricane Beryl (Cat 5, July) tracked through Jamaica (major impact). Cane lodging, harvest disruption. Yields down 10%. Worthy Park affected but recovering.', outlook: 'bearish' },
       2025: { yield: null, rainfall: null, avgTemp: null, frostDays: null, sunHours: null, season: 'Dry season underway. Worthy Park estate production resumed post-Beryl. Jamaica rum increasingly molasses-import dependent. Island cane yields secondary to sourcing strategy.', outlook: 'monitoring' }
     }
   },
@@ -218,9 +218,9 @@ export const REGIONS_EXPANDED = [
       2019: { yield: 61, rainfall: 1480, avgTemp: 26.4, frostDays: 0, sunHours: 2800, season: 'Dorian tracked north. Normal growing season. Yields consistent with 10-yr average.', outlook: 'neutral' },
       2020: { yield: 59, rainfall: 1620, avgTemp: 26.2, frostDays: 0, sunHours: 2750, season: 'Hurricane season active (Eta, Iota impact December; outside main cane harvest). COVID labor constraints. Yields slightly below trend from logistics.', outlook: 'neutral' },
       2021: { yield: 63, rainfall: 1580, avgTemp: 26.4, frostDays: 0, sunHours: 2800, season: 'Good growing conditions. Labor normalized. No major hurricane impacts. Yields back to average. Production strong.', outlook: 'neutral' },
-      2022: { yield: 65, rainfall: 1340, avgTemp: 26.7, frostDays: 0, sunHours: 2900, season: 'Drier year (El Ni\u00f1o). Yields strong despite lower rainfall. El Ni\u00f1o suppresses Atlantic hurricane activity.', outlook: 'bullish' },
-      2023: { yield: 62, rainfall: 1600, avgTemp: 26.5, frostDays: 0, sunHours: 2800, season: 'El Ni\u00f1o transitioning. Good rainfall recovery. Hurricane season active but tracked away. Yields average.', outlook: 'neutral' },
-      2024: { yield: 60, rainfall: 1720, avgTemp: 26.3, frostDays: 0, sunHours: 2750, season: 'La Ni\u00f1a transition. Adequate rainfall. Hurricane Beryl (July) tracked west; minor DR impact. Yields slightly below average from heavy June-July rains (waterlogging risk).', outlook: 'neutral' },
+      2022: { yield: 65, rainfall: 1340, avgTemp: 26.7, frostDays: 0, sunHours: 2900, season: 'Drier year (El Niño). Yields strong despite lower rainfall. El Niño suppresses Atlantic hurricane activity.', outlook: 'bullish' },
+      2023: { yield: 62, rainfall: 1600, avgTemp: 26.5, frostDays: 0, sunHours: 2800, season: 'El Niño transitioning. Good rainfall recovery. Hurricane season active but tracked away. Yields average.', outlook: 'neutral' },
+      2024: { yield: 60, rainfall: 1720, avgTemp: 26.3, frostDays: 0, sunHours: 2750, season: 'La Niña transition. Adequate rainfall. Hurricane Beryl (July) tracked west; minor DR impact. Yields slightly below average from heavy June-July rains (waterlogging risk).', outlook: 'neutral' },
       2025: { yield: null, rainfall: null, avgTemp: null, frostDays: null, sunHours: null, season: 'Dry season underway. Hurricane forecast active. Brugal & Barceló brands stable supply. Island yields expected average if conditions normal.', outlook: 'monitoring' }
     }
   },
@@ -256,9 +256,9 @@ export const REGIONS_EXPANDED = [
       2019: { yield: 71, rainfall: 2100, avgTemp: 26.6, frostDays: 0, sunHours: 2650, season: '[estimated] Good rainfall distribution. Yields maintained at high level. Oil discovery announcements boosting industry confidence.', outlook: 'neutral' },
       2020: { yield: 70, rainfall: 2200, avgTemp: 26.3, frostDays: 0, sunHours: 2600, season: '[estimated] Wet year. COVID labor constraints moderate. Yields 70 t/ha (strong). Guyana rum export accelerating.', outlook: 'neutral' },
       2021: { yield: 72, rainfall: 2050, avgTemp: 26.5, frostDays: 0, sunHours: 2700, season: '[estimated] Good growing season. Labor normalized. Yields 72 t/ha. Oil revenue enabling GuySuCo expansion. Demerara Distillers modernizing.', outlook: 'bullish' },
-      2022: { yield: 73, rainfall: 1950, avgTemp: 26.7, frostDays: 0, sunHours: 2800, season: '[estimated from industry reports] Strong yields 73 t/ha. El Ni\u00f1o drier conditions but adequate moisture in Demerara region. Production ramping up.', outlook: 'bullish' },
+      2022: { yield: 73, rainfall: 1950, avgTemp: 26.7, frostDays: 0, sunHours: 2800, season: '[estimated from industry reports] Strong yields 73 t/ha. El Niño drier conditions but adequate moisture in Demerara region. Production ramping up.', outlook: 'bullish' },
       2023: { yield: 72, rainfall: 2150, avgTemp: 26.4, frostDays: 0, sunHours: 2650, season: '[estimated] Good rainfall recovery. Yields maintained 72 t/ha. Demerara rum gaining global recognition. Production 10M+ liters/yr.', outlook: 'neutral' },
-      2024: { yield: 74, rainfall: 2200, avgTemp: 26.3, frostDays: 0, sunHours: 2600, season: 'La Ni\u00f1a transition. Wet conditions (heavy June-July rains). Exceptional yields 74 t/ha. Guyana oil wealth transforming industry. GuySuCo & Demerara Distillers both expanding.', outlook: 'bullish' },
+      2024: { yield: 74, rainfall: 2200, avgTemp: 26.3, frostDays: 0, sunHours: 2600, season: 'La Niña transition. Wet conditions (heavy June-July rains). Exceptional yields 74 t/ha. Guyana oil wealth transforming industry. GuySuCo & Demerara Distillers both expanding.', outlook: 'bullish' },
       2025: { yield: null, rainfall: null, avgTemp: null, frostDays: null, sunHours: null, season: 'Dry season underway (typical pattern). Oil-driven capital investment continuing. Guyana positioned as fastest-growing Caribbean rum exporter 2025-2030. Yields expected 72-74 t/ha.', outlook: 'monitoring' }
     }
   },

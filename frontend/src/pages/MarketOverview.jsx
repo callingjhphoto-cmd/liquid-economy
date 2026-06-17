@@ -77,21 +77,21 @@ const liFastestPct = parseFloat(liFastestSeg.growth.replace(/[^-\d.]/g, ''))
 const liSig1 = liGrowingSegCount >= 5
   ? { dot: 'bg-emerald-500', color: 'text-emerald-700', label: 'Full Sector Expansion', copy: 'All five market segments are growing. Broad-based momentum creates an exceptional window for launches, distributor renegotiations, and premium shelf positioning across categories.' }
   : liGrowingSegCount >= 4
-  ? { dot: 'bg-blue-500', color: 'text-blue-700', label: 'Broad Sector Growth', copy: `${liGrowingSegCount} of 5 market segments advancing. Wine (-1.2% YoY) is the sole contraction \u2014 spirits, beer, NoLo, and RTD all positive. Prioritise 2026 entry into growing categories.` }
+  ? { dot: 'bg-blue-500', color: 'text-blue-700', label: 'Broad Sector Growth', copy: `${liGrowingSegCount} of 5 market segments advancing. Wine (-1.2% YoY) is the sole contraction — spirits, beer, NoLo, and RTD all positive. Prioritise 2026 entry into growing categories.` }
   : liGrowingSegCount >= 3
   ? { dot: 'bg-amber-500', color: 'text-amber-700', label: 'Mixed Sector Momentum', copy: 'More than one segment in decline. Concentrate investment in growing verticals and exit volume commitments in contracting categories.' }
-  : { dot: 'bg-amber-500', color: 'text-amber-700', label: 'Sector Contraction', copy: 'Most market segments in decline. Defensive positioning advised \u2014 protect premium SKUs, reduce promotional spend in over-indexed channels, hold pricing discipline.' }
+  : { dot: 'bg-amber-500', color: 'text-amber-700', label: 'Sector Contraction', copy: 'Most market segments in decline. Defensive positioning advised — protect premium SKUs, reduce promotional spend in over-indexed channels, hold pricing discipline.' }
 
 const liSig2 = liHighUrgencyCount === 0
   ? { dot: 'bg-emerald-500', color: 'text-emerald-700', label: 'Clear Macro Environment', copy: 'No high-urgency macro signals active. Stable backdrop supports planned investment and distributor expansion programmes through 2026.' }
   : liHighUrgencyCount <= 2
-  ? { dot: 'bg-blue-500', color: 'text-blue-700', label: 'Manageable Headwinds', copy: `${liHighUrgencyCount} high-urgency market signal${liHighUrgencyCount === 1 ? '' : 's'} active. Monitor the Market Signals section \u2014 current events are material but containable within standard planning assumptions.` }
+  ? { dot: 'bg-blue-500', color: 'text-blue-700', label: 'Manageable Headwinds', copy: `${liHighUrgencyCount} high-urgency market signal${liHighUrgencyCount === 1 ? '' : 's'} active. Monitor the Market Signals section — current events are material but containable within standard planning assumptions.` }
   : liHighUrgencyCount <= 3
-  ? { dot: 'bg-amber-500', color: 'text-amber-700', label: 'Elevated Macro Risk', copy: `${liHighUrgencyCount} high-urgency signals active: China 30% import duty on EU spirits, EU label enforcement from June 2026, and Diageo capital signals. Cognac-exposed brands face compounding headwinds \u2014 review forward hedge positions.` }
+  ? { dot: 'bg-amber-500', color: 'text-amber-700', label: 'Elevated Macro Risk', copy: `${liHighUrgencyCount} high-urgency signals active: China 30% import duty on EU spirits, EU label enforcement from June 2026, and Diageo capital signals. Cognac-exposed brands face compounding headwinds — review forward hedge positions.` }
   : { dot: 'bg-red-500', color: 'text-red-700', label: 'Critical Risk Concentration', copy: `${liHighUrgencyCount} high-urgency market signals active simultaneously. Reassess launch timelines, review distributor contract flexibility, and escalate to senior planning.` }
 
 const liSig3 = liFastestPct >= 15
-  ? { dot: 'bg-emerald-500', color: 'text-emerald-700', label: 'Exceptional Growth Window', copy: `${liFastestSeg.label} (${liFastestSeg.growth} YoY) is the standout growth opportunity. Spirits-based RTDs now hold 47% of segment volume \u2014 white space remains in premium on-premise formats and functional hybrid expressions.` }
+  ? { dot: 'bg-emerald-500', color: 'text-emerald-700', label: 'Exceptional Growth Window', copy: `${liFastestSeg.label} (${liFastestSeg.growth} YoY) is the standout growth opportunity. Spirits-based RTDs now hold 47% of segment volume — white space remains in premium on-premise formats and functional hybrid expressions.` }
   : liFastestPct >= 8
   ? { dot: 'bg-blue-500', color: 'text-blue-700', label: 'Strong Growth Window', copy: `${liFastestSeg.label} (${liFastestSeg.growth} YoY) leads all segments. Accelerate NPD and distribution investment in this category ahead of the next pricing cycle.` }
   : liFastestPct >= 4
@@ -115,7 +115,7 @@ export default function MarketOverview() {
     <div className="space-y-6 max-w-7xl mx-auto">
       <PageHeader
         title={<span className="inline-flex items-center">Global Drinks Market</span>}
-        subtitle="Total addressable market across all drinks categories \u2014 spirits, beer, wine, NoLo, RTD"
+        subtitle="Total addressable market across all drinks categories — spirits, beer, wine, NoLo, RTD"
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Market Overview' },
@@ -131,7 +131,7 @@ export default function MarketOverview() {
             <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mt-1">
               <h1 className="text-3xl sm:text-5xl font-display font-bold text-navy">{totalValue}</h1>
               <span className="text-lg font-semibold text-emerald-600">{totalGrowth} YoY</span>
-              <span className="text-sm text-gray-500">\u00b7 {cagr10} 10-yr CAGR</span>
+              <span className="text-sm text-gray-500">· {cagr10} 10-yr CAGR</span>
             </div>
             <p className="text-sm text-gray-600 mt-2 max-w-2xl">
               Market includes spirits ($635B), beer ($880B), wine ($330B), NoLo ($31B), and RTD ($40B).
@@ -189,7 +189,7 @@ export default function MarketOverview() {
             <Zap size={14} className="text-gold" />
           </div>
           <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
-          <span className="text-xs text-gray-400 ml-auto">Global Market Signals {'\u00b7'} 2025</span>
+          <span className="text-xs text-gray-400 ml-auto">Global Market Signals {'·'} 2025</span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           {[liSig1, liSig2, liSig3].map((sig, i) => (
@@ -205,8 +205,8 @@ export default function MarketOverview() {
       </div>
 
       {/* Regional pulse with 10yr CAGR */}
-      <SectionHeader size="lg" subtitle="Regional share of global drinks market \u00b7 10-year compound annual growth (2016-2025)">
-        Regional Breakdown \u2014 10 Year Trend
+      <SectionHeader size="lg" subtitle="Regional share of global drinks market · 10-year compound annual growth (2016-2025)">
+        Regional Breakdown — 10 Year Trend
       </SectionHeader>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">

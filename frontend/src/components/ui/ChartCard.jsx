@@ -38,7 +38,7 @@ export function ChartCard({
   const [showDataTable, setShowDataTable] = useState(false)
 
   const handleCopy = () => {
-    const text = copyData || `${title}${subtitle ? ' \u2014 ' + subtitle : ''}${source ? '\nSource: ' + source : ''}`
+    const text = copyData || `${title}${subtitle ? ' — ' + subtitle : ''}${source ? '\nSource: ' + source : ''}`
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true)
       setTimeout(() => setCopied(false), 1500)
@@ -71,7 +71,7 @@ export function ChartCard({
         <div className="flex items-center justify-center" style={{ height: Math.min(height, 200) }}>
           <div className="flex flex-col items-center gap-2">
             <div className="w-8 h-8 border-2 border-navy/20 border-t-navy rounded-full animate-spin" />
-            <span className="text-xs text-gray-500">Loading chart data{'\u2026'}</span>
+            <span className="text-xs text-gray-500">Loading chart data{'…'}</span>
           </div>
         </div>
       ) : (

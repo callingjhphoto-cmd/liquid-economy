@@ -6,7 +6,7 @@ export default function MetricCard({ label, value, sublabel, icon: Icon, color =
       <div className="flex items-start justify-between">
         <div>
           <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">{label}</p>
-          <p className={`text-2xl font-bold mt-1 ${color}`}>{value ?? '\u2014'}</p>
+          <p className={`text-2xl font-bold mt-1 ${color}`}>{value ?? '—'}</p>
           {sublabel && <p className="text-xs text-gray-500 mt-1">{sublabel}</p>}
         </div>
         {Icon && (

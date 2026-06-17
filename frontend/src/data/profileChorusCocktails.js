@@ -261,7 +261,7 @@ export const flavourFamilies = [
   {
     id: 'savoury-umami',
     name: 'Savoury & Umami',
-    icon: '\ud83c\udf71',
+    icon: '🍱',
     growthSignal: '20% global consumer interest growth (Bacardi)',
     penetration: '30% of Asia Top 100 bar cocktails feature savoury elements; 96% list ≥1',
     trend: 'leading',
@@ -278,7 +278,7 @@ export const flavourFamilies = [
   {
     id: 'bitter-amaro',
     name: 'Bitter & Amaro',
-    icon: '\ud83c\udf4a',
+    icon: '🍊',
     growthSignal: '41% of bartenders actively experimenting (Bacardi survey)',
     penetration: 'Mainstream — driven by Negroni dominance and aperitivo culture',
     trend: 'established-growing',
@@ -295,7 +295,7 @@ export const flavourFamilies = [
   {
     id: 'smoky',
     name: 'Smoky',
-    icon: '\ud83d\udd25',
+    icon: '🔥',
     growthSignal: 'Agave boom driving mainstream acceptance; Oaxaca Old Fashioned debuted DI top 50',
     penetration: 'Significant — mezcal + peated Scotch crossover',
     trend: 'rising',
@@ -312,7 +312,7 @@ export const flavourFamilies = [
   {
     id: 'low-sugar-sour',
     name: 'Low-Sugar Sour',
-    icon: '\ud83c\udf4b',
+    icon: '🍋',
     growthSignal: 'TOTC 2025 consensus: ‘drinks were sour’ — retreat from sweetness',
     penetration: 'Growing fast across Gen Z / Millennial premium segment',
     trend: 'rising',
@@ -329,7 +329,7 @@ export const flavourFamilies = [
   {
     id: 'tropical',
     name: 'Tropical & Floral',
-    icon: '\ud83c\udf34',
+    icon: '🌴',
     growthSignal: 'Passion fruit + guava projected defining cocktail fruits of 2026',
     penetration: 'Porn Star Martini #1 Difford’s 11 years; Hugo Spritz new top-50 entry',
     trend: 'resurgent',
@@ -346,7 +346,7 @@ export const flavourFamilies = [
   {
     id: 'spicy-heat',
     name: 'Spicy & Heat',
-    icon: '\ud83c\udf36\ufe0f',
+    icon: '🌶️',
     growthSignal: '+20% average annual growth in beverage launches (spice/heat)',
     penetration: 'Picante de la Casa +11 Difford’s ranks 2020–2025',
     trend: 'fast-rising',

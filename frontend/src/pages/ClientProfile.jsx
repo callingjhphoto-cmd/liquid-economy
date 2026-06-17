@@ -127,7 +127,7 @@ const COCKTAIL_SLUG_MAP = {
   'Moscow Mule': 'moscow-mule',
   'Gin Basil Smash': 'gin-basil-smash',
   'Manhattan': 'manhattan',
-  'Vieux Carr\u00e9': 'vieux-carre',
+  'Vieux Carré': 'vieux-carre',
   'Mai Tai': 'mai-tai',
   'The Last Word': 'the-last-word',
   'Amaretto Sour': 'amaretto-sour',

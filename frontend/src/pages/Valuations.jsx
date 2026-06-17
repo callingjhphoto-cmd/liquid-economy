@@ -19,10 +19,10 @@ import {
 } from '../data/valuationsData'
 
 import { CATEGORICAL, CHART_COLORS } from '../data/chartColors'
-/* \u2500\u2500 Design tokens \u2500\u2500 */
+/* ── Design tokens ── */
 const COLORS = CATEGORICAL
 
-/* \u2500\u2500 Derived metrics \u2500\u2500 */
+/* ── Derived metrics ── */
 const totalBrandValue = BRAND_VALUATIONS.reduce((s, b) => s + b.valueNum, 0)
 const avgMultiple = (BRAND_VALUATIONS.reduce((s, b) => s + b.multipleNum, 0) / BRAND_VALUATIONS.length).toFixed(1)
 const highestBrand = [...BRAND_VALUATIONS].sort((a, b) => b.valueNum - a.valueNum)[0]
@@ -31,15 +31,15 @@ const totalMaDeals = MA_VALUATION_BENCHMARKS.length
 const avgMaPremium = (MA_VALUATION_BENCHMARKS.reduce((s, d) => s + d.premiumNum, 0) / totalMaDeals).toFixed(0)
 const highestYoy = [...BRAND_VALUATIONS].sort((a, b) => b.yoyNum - a.yoyNum)[0]
 
-/* \u2500\u2500 Chart data: sector multiples comparison \u2500\u2500 */
+/* ── Chart data: sector multiples comparison ── */
 const sectorChartData = SECTOR_MULTIPLES.map(s => ({
-  name: s.category.length > 12 ? s.category.slice(0, 12) + '\u2026' : s.category,
+  name: s.category.length > 12 ? s.category.slice(0, 12) + '…' : s.category,
   fullName: s.category,
   'EV/Revenue': s.evRevenueNum,
   'EV/EBITDA': s.evEbitdaNum,
 }))
 
-/* \u2500\u2500 Chart data: M&A deals by year \u2500\u2500 */
+/* ── Chart data: M&A deals by year ── */
 const maByYear = MA_VALUATION_BENCHMARKS.reduce((acc, d) => {
   acc[d.year] = (acc[d.year] || 0) + d.valueNum
   return acc
@@ -84,7 +84,7 @@ export default function Valuations() {
   if (loading) {
     return (
       <div className="space-y-6">
-        <PageHeader title="Valuations & M&A Intelligence" subtitle="Loading valuation data\u2026" />
+        <PageHeader title="Valuations & M&A Intelligence" subtitle="Loading valuation data…" />
         <BentoGrid>
           <BentoGrid.Hero><SkeletonCard className="h-40" /></BentoGrid.Hero>
           <SkeletonCard />
@@ -98,12 +98,12 @@ export default function Valuations() {
     )
   }
 
-  /* \u2550\u2550\u2550\u2550\u2550 TIER 1: EXECUTIVE SUMMARY \u2550\u2550\u2550\u2550\u2550 */
+  /* ═════ TIER 1: EXECUTIVE SUMMARY ═════ */
   return (
     <div className="space-y-6 max-w-7xl mx-auto">
       <PageHeader
         title="Valuations & M&A Intelligence"
-        subtitle="Brand valuations, sector multiples, deal benchmarks, and methodology analysis \u00b7 Data as of April 2026"
+        subtitle="Brand valuations, sector multiples, deal benchmarks, and methodology analysis · Data as of April 2026"
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Valuations' },
@@ -117,7 +117,7 @@ export default function Valuations() {
         <YearSelector activeYear={selectedYear} onChange={setSelectedYear} />
       </div>
 
-      {/* \u2500\u2500 Tier 1: Bento Grid \u2500\u2500 */}
+      {/* ── Tier 1: Bento Grid ── */}
       <BentoGrid>
         {/* Hero card */}
         <BentoGrid.Hero>
@@ -151,7 +151,7 @@ export default function Valuations() {
         <MetricCard
           label="Highest Valued"
           value={highestBrand.brand}
-          subtitle={`${highestBrand.estimatedValue} \u00b7 ${highestBrand.category}`}
+          subtitle={`${highestBrand.estimatedValue} · ${highestBrand.category}`}
           icon={Target}
           change={highestBrand.yoy}
           direction="up"
@@ -159,13 +159,13 @@ export default function Valuations() {
         <MetricCard
           label="Biggest Deal"
           value={biggestDeal.target}
-          subtitle={`${biggestDeal.value} \u00b7 ${biggestDeal.category} \u00b7 ${biggestDeal.year}`}
+          subtitle={`${biggestDeal.value} · ${biggestDeal.category} · ${biggestDeal.year}`}
           icon={Briefcase}
         />
         <MetricCard
           label="Fastest Growing"
           value={highestYoy.brand}
-          subtitle={`${highestYoy.category} \u00b7 ${highestYoy.estimatedValue}`}
+          subtitle={`${highestYoy.category} · ${highestYoy.estimatedValue}`}
           icon={TrendingUp}
           change={highestYoy.yoy}
           direction="up"
@@ -173,12 +173,12 @@ export default function Valuations() {
         <MetricCard
           label="M&A Activity"
           value={`${filteredDealCount} deals`}
-          subtitle={`Up to ${selectedYear} \u2014 $${(filteredDealValue / 1000).toFixed(1)}B total`}
+          subtitle={`Up to ${selectedYear} — $${(filteredDealValue / 1000).toFixed(1)}B total`}
           icon={Building2}
         />
       </BentoGrid>
 
-      {/* \u2550\u2550\u2550\u2550\u2550 MARKET SIGNALS \u2014 Liquid Intelligence \u2550\u2550\u2550\u2550\u2550 */}
+      {/* ═════ MARKET SIGNALS — Liquid Intelligence ═════ */}
       <div className="border-l-4 border-gold bg-gradient-to-r from-gold/5 to-transparent rounded-xl p-5">
         <div className="flex items-center gap-2 mb-4">
           <Zap size={16} className="text-gold" />
@@ -198,10 +198,10 @@ export default function Valuations() {
                 </div>
                 <p className={`text-xs leading-relaxed ${hi ? 'text-emerald-600' : lo ? 'text-amber-600' : 'text-blue-600'}`}>
                   {hi
-                    ? 'Premium multiples \u2014 category momentum supports strong acquisition valuations in 2025\u201326.'
+                    ? 'Premium multiples — category momentum supports strong acquisition valuations in 2025–26.'
                     : lo
-                    ? 'Compressed multiples \u2014 potential value opportunities exist across premium segments.'
-                    : 'Fair value trading \u2014 M&A will be selective; strategic alignment is paramount.'}
+                    ? 'Compressed multiples — potential value opportunities exist across premium segments.'
+                    : 'Fair value trading — M&A will be selective; strategic alignment is paramount.'}
                 </p>
               </div>
             )
@@ -219,10 +219,10 @@ export default function Valuations() {
                 </div>
                 <p className={`text-xs leading-relaxed ${hi ? 'text-amber-700' : lo ? 'text-amber-600' : 'text-emerald-600'}`}>
                   {hi
-                    ? 'Strong premiums signal competition for quality assets \u2014 favourable conditions for sellers.'
+                    ? 'Strong premiums signal competition for quality assets — favourable conditions for sellers.'
                     : lo
-                    ? 'Subdued premiums \u2014 buyers are disciplined; brand fundamentals drive price.'
-                    : 'Standard premium range \u2014 healthy deal market with rational pricing behaviour.'}
+                    ? 'Subdued premiums — buyers are disciplined; brand fundamentals drive price.'
+                    : 'Standard premium range — healthy deal market with rational pricing behaviour.'}
                 </p>
               </div>
             )
@@ -240,10 +240,10 @@ export default function Valuations() {
                 </div>
                 <p className={`text-xs leading-relaxed ${hi ? 'text-amber-700' : lo ? 'text-gray-500' : 'text-emerald-600'}`}>
                   {hi
-                    ? 'Active consolidation window \u2014 strategic buyers executing across categories.'
+                    ? 'Active consolidation window — strategic buyers executing across categories.'
                     : lo
-                    ? 'Selective deal environment \u2014 only category-defining assets are trading.'
-                    : 'Moderate M&A pace \u2014 mid-size brands with strong distribution attracting interest.'}
+                    ? 'Selective deal environment — only category-defining assets are trading.'
+                    : 'Moderate M&A pace — mid-size brands with strong distribution attracting interest.'}
                 </p>
               </div>
             )
@@ -251,12 +251,12 @@ export default function Valuations() {
         </div>
       </div>
 
-      {/* \u2550\u2550\u2550\u2550\u2550 TIER 2: EXPANDABLE SECTIONS \u2550\u2550\u2550\u2550\u2550 */}
+      {/* ═════ TIER 2: EXPANDABLE SECTIONS ═════ */}
 
       {/* Category multiples chart */}
       <DrillDown
         title="Sector Trading Multiples"
-        summary={`${SECTOR_MULTIPLES.length} segments tracked \u2014 Luxury/Prestige leads at 7.2x EV/Revenue`}
+        summary={`${SECTOR_MULTIPLES.length} segments tracked — Luxury/Prestige leads at 7.2x EV/Revenue`}
       >
         <div className="space-y-4">
           <ChartCard
@@ -302,7 +302,7 @@ export default function Valuations() {
       {/* Brand valuations */}
       <DrillDown
         title="Brand Valuations"
-        summary={`${BRAND_VALUATIONS.length} spirits brands \u2014 $${totalBrandValue.toFixed(1)}B total tracked value`}
+        summary={`${BRAND_VALUATIONS.length} spirits brands — $${totalBrandValue.toFixed(1)}B total tracked value`}
       >
         <div className="space-y-4">
           {/* Visual cards for top brands */}
@@ -312,14 +312,14 @@ export default function Valuations() {
                 <div className="flex items-start justify-between mb-2">
                   <div>
                     <p className="text-sm font-semibold text-navy">{b.brand}</p>
-                    <p className="text-xs text-gray-500">{b.parent} \u00b7 {b.category}</p>
+                    <p className="text-xs text-gray-500">{b.parent} · {b.category}</p>
                   </div>
                   {b.trend === 'up' ? (
                     <TrendingUp size={14} className="text-emerald-500" />
                   ) : b.trend === 'down' ? (
                     <TrendingDown size={14} className="text-red-500" />
                   ) : (
-                    <span className="text-xs text-gray-500">{'\u2014'}</span>
+                    <span className="text-xs text-gray-500">{'—'}</span>
                   )}
                 </div>
                 <div className="flex items-baseline gap-2">
@@ -328,7 +328,7 @@ export default function Valuations() {
                 </div>
                 <div className="flex items-center gap-3 mt-2 text-xs text-gray-500">
                   <span>{b.multiple} EV/Rev</span>
-                  <span>{'\u00b7'}</span>
+                  <span>{'·'}</span>
                   <span>{b.methodology}</span>
                 </div>
               </Card>
@@ -343,7 +343,7 @@ export default function Valuations() {
       {/* M&A benchmarks */}
       <DrillDown
         title="M&A Valuation Benchmarks"
-        summary={`${filteredDealCount} transactions (up to ${selectedYear}) \u2014 $${(filteredDealValue / 1000).toFixed(1)}B total \u2014 avg premium ${filteredAvgPremium}%`}
+        summary={`${filteredDealCount} transactions (up to ${selectedYear}) — $${(filteredDealValue / 1000).toFixed(1)}B total — avg premium ${filteredAvgPremium}%`}
       >
         <div className="space-y-4">
           <ChartCard
@@ -378,7 +378,7 @@ export default function Valuations() {
             ]}
             data={filteredDeals}
             searchable
-            searchPlaceholder="Search deals\u2026"
+            searchPlaceholder="Search deals…"
             searchKey="target"
             compact
             exportable
@@ -389,7 +389,7 @@ export default function Valuations() {
       {/* Key acquirers */}
       <DrillDown
         title="Key Acquirers & Portfolios"
-        summary={`${KEY_ACQUIRERS.length} active acquirers tracked \u2014 Diageo leads with 5 deals`}
+        summary={`${KEY_ACQUIRERS.length} active acquirers tracked — Diageo leads with 5 deals`}
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {KEY_ACQUIRERS.map((acq) => (
@@ -458,7 +458,7 @@ export default function Valuations() {
       {/* Valuation methodologies */}
       <DrillDown
         title="Brand Valuation Methodologies"
-        summary={`${BRAND_VALUATION_MODELS.length} standard approaches \u2014 tap to explore formulas and use cases`}
+        summary={`${BRAND_VALUATION_MODELS.length} standard approaches — tap to explore formulas and use cases`}
       >
         <MethodologyGrid />
       </DrillDown>
@@ -478,7 +478,7 @@ export default function Valuations() {
   )
 }
 
-/* \u2550\u2550\u2550\u2550\u2550 TIER 3: DEEP DIVE COMPONENTS \u2550\u2550\u2550\u2550\u2550 */
+/* ═════ TIER 3: DEEP DIVE COMPONENTS ═════ */
 
 function FullBrandTable() {
   return (
@@ -497,7 +497,7 @@ function FullBrandTable() {
       ]}
       data={BRAND_VALUATIONS}
       searchable
-      searchPlaceholder="Search brands\u2026"
+      searchPlaceholder="Search brands…"
       searchKey="brand"
       exportable
     />

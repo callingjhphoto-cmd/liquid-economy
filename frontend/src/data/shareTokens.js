@@ -12,7 +12,7 @@ const shareTokens = {
   'CH-2026-XQRP7W': {
     profile: 'chorus-cocktails',
     expiresAt: '2026-07-31',
-    label: 'Chorus Cocktails \u2014 guest preview',
+    label: 'Chorus Cocktails — guest preview',
   },
 }
 

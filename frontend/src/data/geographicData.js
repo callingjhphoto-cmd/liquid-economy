@@ -7,7 +7,7 @@ export const REGIONS = [
   {
     key: 'us',
     name: 'United States',
-    flag: '\ud83c\uddfa\ud83c\uddf8',
+    flag: '🇺🇸',
     source: 'IWSR, Nielsen',
     summary: 'World\'s largest spirits market with premiumization trend and growing RTD segment.',
     trajectory: 'Strong volume growth in super-premium and craft spirits categories.',
@@ -15,7 +15,7 @@ export const REGIONS = [
   {
     key: 'uk',
     name: 'United Kingdom',
-    flag: '\ud83c\uddec\ud83c\udde7',
+    flag: '🇬🇧',
     source: 'Euromonitor, Drinks International',
     summary: 'Mature market with robust on-premise recovery and premium gin renaissance.',
     trajectory: 'Post-pandemic hospitality rebound driving growth in premium segments.',
@@ -23,7 +23,7 @@ export const REGIONS = [
   {
     key: 'eu27',
     name: 'Europe (EU27)',
-    flag: '\ud83c\uddea\ud83c\uddfa',
+    flag: '🇪🇺',
     source: 'Euromonitor, The Spirits Business',
     summary: 'Diverse regional markets with strong tradition and sustainability focus.',
     trajectory: 'Health-conscious consumers driving low/no alcohol category expansion.',
@@ -31,7 +31,7 @@ export const REGIONS = [
   {
     key: 'meafrica',
     name: 'Middle East & Africa',
-    flag: '\ud83c\uddf8\ud83c\udde6',
+    flag: '🇸🇦',
     source: 'Statista, IWSR',
     summary: 'Growing markets with premium and non-alcoholic beverages driving expansion.',
     trajectory: 'Rising middle class and travel retail creating significant opportunities.',
@@ -39,7 +39,7 @@ export const REGIONS = [
   {
     key: 'china',
     name: 'China',
-    flag: '\ud83c\udde8\ud83c\uddf3',
+    flag: '🇨🇳',
     source: 'Nielsen, Drinks Business Asia',
     summary: 'Baijiu dominance with explosive growth in imported spirits and e-commerce.',
     trajectory: 'Young consumers adopting international spirits; e-commerce transformation ongoing.',
@@ -47,7 +47,7 @@ export const REGIONS = [
   {
     key: 'india',
     name: 'India',
-    flag: '\ud83c\uddee\ud83c\uddf3',
+    flag: '🇮🇳',
     source: 'Nielsen, Euromonitor India',
     summary: 'Fastest-growing spirits market with rising aspirational consumers and regulatory complexity.',
     trajectory: 'Double-digit growth driven by premiumization and first-time drinkers in urban centers.',
@@ -55,7 +55,7 @@ export const REGIONS = [
   {
     key: 'japan',
     name: 'Japan',
-    flag: '\ud83c\uddef\ud83c\uddf5',
+    flag: '🇯🇵',
     source: 'IWSR Japan, Drinks Business',
     summary: 'Mature market with strong heritage brands and growing craft spirits segment.',
     trajectory: 'Premiumization and experiential consumption driving category evolution.',
@@ -63,7 +63,7 @@ export const REGIONS = [
   {
     key: 'brazil',
     name: 'Brazil',
-    flag: '\ud83c\udde7\ud83c\uddf7',
+    flag: '🇧🇷',
     source: 'Euromonitor, ABDI Brasil',
     summary: 'Latin America\'s largest market with cachaca dominance and growing imported spirits.',
     trajectory: 'Rising middle class and e-commerce adoption accelerating premium category growth.',
@@ -71,7 +71,7 @@ export const REGIONS = [
   {
     key: 'australia',
     name: 'Australia',
-    flag: '\ud83c\udde6\ud83c\uddfa',
+    flag: '🇦🇺',
     source: 'IWSR, Australian Beverages Council',
     summary: 'Affluent market with strong on-premise culture and sustainability consciousness.',
     trajectory: 'Premium gin and whisky expansion driven by experiential consumption trends.',
@@ -79,7 +79,7 @@ export const REGIONS = [
   {
     key: 'seasia',
     name: 'Southeast Asia',
-    flag: '\ud83c\uddf8\ud83c\uddec',
+    flag: '🇸🇬',
     source: 'Euromonitor, ASEAN Spirits Federation',
     summary: 'High-growth emerging markets with diverse consumption patterns and travel retail significance.',
     trajectory: 'Rising incomes and tourism driving premium spirits and travel retail expansion.',
@@ -558,16 +558,16 @@ export const REGION_DATA = {
     ],
     importExport: {
       topImports: [
-        { country: 'Scotland', value: '\u00a340M', share: '38%' },
-        { country: 'France', value: '\u00a318M', share: '22%' },
-        { country: 'United States', value: '\u00a312M', share: '15%' },
-        { country: 'Ireland', value: '\u00a38M', share: '12%' },
+        { country: 'Scotland', value: '£40M', share: '38%' },
+        { country: 'France', value: '£18M', share: '22%' },
+        { country: 'United States', value: '£12M', share: '15%' },
+        { country: 'Ireland', value: '£8M', share: '12%' },
       ],
       topExports: [
-        { country: 'Nepal', value: '\u20b92.5B', share: '35%' },
-        { country: 'Bangladesh', value: '\u20b91.8B', share: '28%' },
-        { country: 'Sri Lanka', value: '\u20b91.2B', share: '22%' },
-        { country: 'Mauritius', value: '\u20b90.8B', share: '15%' },
+        { country: 'Nepal', value: '₹2.5B', share: '35%' },
+        { country: 'Bangladesh', value: '₹1.8B', share: '28%' },
+        { country: 'Sri Lanka', value: '₹1.2B', share: '22%' },
+        { country: 'Mauritius', value: '₹0.8B', share: '15%' },
       ],
     },
     marketEntry: { barriers: 'High - complex state-by-state regulations; significant import duties; local partnerships essential; compliance requirements stringent', minInvestment: '$2M-$4M', timeToMarket: '12-18 months', keyPartners: ['United Spirits Limited', 'Diageo India', 'Pernod Ricard India'], advice: 'State regulations vary dramatically - focus on key states (Maharashtra, Delhi, Goa, Karnataka). Premium positioning essential due to high tariffs making mass market unviable. On-premise (restaurants, bars, hotels) critical for brand building. Direct engagement with mixologists and hospitality venue managers crucial.' },
@@ -615,10 +615,10 @@ export const REGION_DATA = {
     ],
     importExport: {
       topImports: [
-        { country: 'Scotland', value: '\u00a5\u0034\u0035\u0042', share: '42%' },
-        { country: 'United States', value: '\u00a5\u0034\u0030\u0042', share: '28%' },
-        { country: 'France', value: '\u00a5\u0032\u0035\u0042', share: '18%' },
-        { country: 'Ireland', value: '\u00a5\u0031\u0030\u0042', share: '12%' },
+        { country: 'Scotland', value: '¥\u0034\u0035\u0042', share: '42%' },
+        { country: 'United States', value: '¥\u0034\u0030\u0042', share: '28%' },
+        { country: 'France', value: '¥\u0032\u0035\u0042', share: '18%' },
+        { country: 'Ireland', value: '¥\u0031\u0030\u0042', share: '12%' },
       ],
       topExports: [
         { country: 'South Korea', value: 'KRW 9.2B', share: '34%' },
@@ -650,7 +650,7 @@ export const REGION_DATA = {
       { label: 'On-Trade Value', value: '$4.2B', change: 12.4, changeDir: 'up' },
       { label: 'E-commerce Growth', value: '18.2%', change: 6.7, changeDir: 'up' },
     ],
-    topBrands: ['Johnnie Walker', 'Hennessy', 'Grey Goose', 'Ypioca Cach\u00e9a', 'Pitu Cach\u00e9a'],
+    topBrands: ['Johnnie Walker', 'Hennessy', 'Grey Goose', 'Ypioca Cachéa', 'Pitu Cachéa'],
     channels: { onTrade: 42, offTrade: 40, eCommerce: 13, travelRetail: 5 },
     trends: [
       { text: 'Premium imported spirits gaining share vs. traditional cachaca', source: 'Euromonitor Passport Alcoholic Drinks', url: 'https://www.euromonitor.com' },
@@ -666,7 +666,7 @@ export const REGION_DATA = {
       { year: 2025, marketSize: '$11.5B', growth: 8.3, volumeCases: '136M', keyEvents: ['Travel retail recovery complete', 'Sustainability messaging gaining traction'], topPerformer: 'Craft and sustainable positioning brands', outlook: 'Market poised for continued strong growth with premium category expansion' },
     ],
     regulatory: [
-      { aspect: 'Import Licensing', description: 'Requires CISQ (Conselho Interministerial de Pre\u00e7os de Bebidas Alco\u00f3licas) approval. Standard 4-8 week process for most categories.' },
+      { aspect: 'Import Licensing', description: 'Requires CISQ (Conselho Interministerial de Preços de Bebidas Alcoólicas) approval. Standard 4-8 week process for most categories.' },
       { aspect: 'Labeling & Compliance', description: 'Portuguese language labeling mandatory. Content declaration, origin, and health warnings required. Local standards certification necessary.' },
       { aspect: 'Taxation Structure', description: 'ICMS tax varies by state (7-18%); IPI (Imposto sobre Produtos Industrializados) also applies. Complex structure requires local expertise.' },
     ],
@@ -684,7 +684,7 @@ export const REGION_DATA = {
         { country: 'Germany', value: 'R$35M', share: '20%' },
       ],
     },
-    marketEntry: { barriers: 'Moderate - regulatory environment becoming clearer; established distribution networks strong in key regions; tax structures can be complex', minInvestment: '$1.8M-$3.5M', timeToMarket: '11-16 months', keyPartners: ['Inbra (Brazilian Spirits Association)', 'Diageo Brasil', 'Pernod Ricard Brasil'], advice: 'Cach a\u00e7a dominance requires differentiation through imported premium positioning. S\u00e3o Paulo and Rio de Janeiro are critical markets. Travel retail and e-commerce growing rapidly. On-premise channel (bars, nightclubs) important for brand visibility. Social media and influencer marketing effective for reaching younger consumers.' },
+    marketEntry: { barriers: 'Moderate - regulatory environment becoming clearer; established distribution networks strong in key regions; tax structures can be complex', minInvestment: '$1.8M-$3.5M', timeToMarket: '11-16 months', keyPartners: ['Inbra (Brazilian Spirits Association)', 'Diageo Brasil', 'Pernod Ricard Brasil'], advice: 'Cach aça dominance requires differentiation through imported premium positioning. São Paulo and Rio de Janeiro are critical markets. Travel retail and e-commerce growing rapidly. On-premise channel (bars, nightclubs) important for brand visibility. Social media and influencer marketing effective for reaching younger consumers.' },
     dutyTariff: [
       { category: 'Imported Spirits', rate: '20%', notes: 'Plus ICMS state tax (7-18% depending on state)' },
       { category: 'Wine', rate: '27%', notes: 'Higher rate reflects import policy; ICMS additional' },
@@ -694,9 +694,9 @@ export const REGION_DATA = {
       { name: 'Diageo Brasil', type: 'Market leader', categories: 'Premium spirits & wine', minimumVolume: '2,000+ cases annually' },
       { name: 'Pernod Ricard Brasil', type: 'Major distributor', categories: 'All categories', minimumVolume: '1,500+ cases annually' },
       { name: 'Premium Trade Brasil', type: 'Premium specialist', categories: 'Imported spirits & wine', minimumVolume: '800+ cases annually' },
-      { name: 'Regional distributors (S\u00e3o Paulo, Rio)', type: 'Local specialists', categories: 'All categories', minimumVolume: '500+ cases annually' },
+      { name: 'Regional distributors (São Paulo, Rio)', type: 'Local specialists', categories: 'All categories', minimumVolume: '500+ cases annually' },
     ],
-    competitiveEntry: { easeOfEntry: 6, premiumOpportunity: 8, consolidation: 'High - Diageo and Pernod Ricard control ~50% of spirits market; cachaca market fragmented', whitespace: 'Premium imported spirits, craft cocktails, and non-alcoholic premium beverages. Sustainability and social responsibility positioning strong.', recommendation: 'Differentiate through premium imported positioning (compete with, not against, cachaca). Focus on S\u00e3o Paulo and Rio initially - largest market opportunity. On-premise channel (nightclubs, upscale restaurants, hotel bars) critical for brand building. E-commerce and travel retail growing rapidly. Partner with established distributor for market penetration.' },
+    competitiveEntry: { easeOfEntry: 6, premiumOpportunity: 8, consolidation: 'High - Diageo and Pernod Ricard control ~50% of spirits market; cachaca market fragmented', whitespace: 'Premium imported spirits, craft cocktails, and non-alcoholic premium beverages. Sustainability and social responsibility positioning strong.', recommendation: 'Differentiate through premium imported positioning (compete with, not against, cachaca). Focus on São Paulo and Rio initially - largest market opportunity. On-premise channel (nightclubs, upscale restaurants, hotel bars) critical for brand building. E-commerce and travel retail growing rapidly. Partner with established distributor for market penetration.' },
   },
   australia: {
     kpis: [
@@ -818,10 +818,10 @@ export const REGION_DATA = {
 // ── Data Methodology ──
 export const DATA_METHODOLOGY = {
   overview: 'Market size estimates synthesized from IWSR Global Spirits Database, Euromonitor Passport Alcoholic Drinks, and DISCUS public disclosures. Growth rates represent year-over-year value change in USD at constant exchange rates unless otherwise stated.',
-  pricing: 'Pricing data collected from retailer websites (Tesco, Sainsbury\'s, Waitrose, Master of Malt, Total Wine, Drizly, El Corte Ingl\u00e9s) during April 2026. Prices reflect standard retail, not promotional pricing, unless flagged.',
+  pricing: 'Pricing data collected from retailer websites (Tesco, Sainsbury\'s, Waitrose, Master of Malt, Total Wine, Drizly, El Corte Inglés) during April 2026. Prices reflect standard retail, not promotional pricing, unless flagged.',
   sources: [
     { name: 'IWSR Global Spirits Database 2025', description: 'Proprietary database covering 160+ markets with volume and value data by category, price band, and channel.', url: 'https://www.theiwsr.com/global-spirits-report' },
-    { name: 'Euromonitor Passport \u2014 Alcoholic Drinks', description: 'Market sizing, forecasts, and competitive landscape data for spirits, wine, and beer across 100+ countries.', url: 'https://www.euromonitor.com/alcoholic-drinks' },
+    { name: 'Euromonitor Passport — Alcoholic Drinks', description: 'Market sizing, forecasts, and competitive landscape data for spirits, wine, and beer across 100+ countries.', url: 'https://www.euromonitor.com/alcoholic-drinks' },
     { name: 'DISCUS Annual Economic Briefing', description: 'US spirits industry data: shipments, revenue, state-level trends, and category performance from the Distilled Spirits Council.', url: 'https://www.discus.org/economics/research' },
     { name: 'NielsenIQ Off-Trade Panel', description: 'Retail scanner data from off-premise channels (supermarkets, liquor stores) covering sales volume, value, and distribution metrics.', url: 'https://www.nielseniq.com/global/en/insights/' },
     { name: 'The Spirits Business / Drinks International', description: 'Trade publication market intelligence, brand rankings, and industry trend analysis.', url: 'https://www.thespiritsbusiness.com/category/market-data/' },

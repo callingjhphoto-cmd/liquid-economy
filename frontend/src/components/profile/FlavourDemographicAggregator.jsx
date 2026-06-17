@@ -30,7 +30,7 @@ const FAMILIES = [
     color: '#b45309',
     bgClass: 'bg-amber-50',
     borderClass: 'border-amber-200',
-    icon: '\u26ab',
+    icon: '⚫',
     commercialContext: 'bitter, Negroni-family serves signal maximum palate sophistication and premium on-trade credibility',
   },
   {
@@ -41,7 +41,7 @@ const FAMILIES = [
     color: '#4d7c0f',
     bgClass: 'bg-green-50',
     borderClass: 'border-green-200',
-    icon: '\u2663',
+    icon: '♣',
     commercialContext: 'botanical and herb-forward serves align with wellness-adjacent premium positioning and gin-culture markets',
   },
   {
@@ -52,7 +52,7 @@ const FAMILIES = [
     color: '#374151',
     bgClass: 'bg-gray-50',
     borderClass: 'border-gray-200',
-    icon: '\u2601',
+    icon: '☁',
     commercialContext: 'smoky serves create sensory theatre and signal connoisseur-level mixology programming',
   },
   {
@@ -63,7 +63,7 @@ const FAMILIES = [
     color: '#d97706',
     bgClass: 'bg-yellow-50',
     borderClass: 'border-yellow-200',
-    icon: '\u2600',
+    icon: '☀',
     commercialContext: 'citrus-forward serves are the most universally accessible flavour family and drive highest volume at events',
   },
   {
@@ -74,7 +74,7 @@ const FAMILIES = [
     color: '#0369a1',
     bgClass: 'bg-sky-50',
     borderClass: 'border-sky-200',
-    icon: '\u2665',
+    icon: '♥',
     commercialContext: 'sweet-forward serves are the gateway flavour family and recruit non-cocktail drinkers into premium occasions',
   },
   {
@@ -85,7 +85,7 @@ const FAMILIES = [
     color: '#dc2626',
     bgClass: 'bg-red-50',
     borderClass: 'border-red-200',
-    icon: '\u25b2',
+    icon: '▲',
     commercialContext: 'spicy-heat serves are the fastest-growing flavour trend 2024-2026 (Bacardi Trends Report) and skew strongly to Gen Z and younger Millennials',
   },
   {
@@ -96,7 +96,7 @@ const FAMILIES = [
     color: '#7c3aed',
     bgClass: 'bg-violet-50',
     borderClass: 'border-violet-200',
-    icon: '\u25c6',
+    icon: '◆',
     commercialContext: 'savoury-umami serves are the frontier of culinary mixology, commanding the highest price points and drawing Michelin-star dining audiences',
   },
 ]
@@ -269,7 +269,7 @@ function FamilyCard({ family, aggregate, members, isOpen, onToggle }) {
               </p>
             )}
           </div>
-          <span className="text-label text-gray-400 flex-shrink-0 mt-1">{isOpen ? '\u25b2' : '\u25bc'}</span>
+          <span className="text-label text-gray-400 flex-shrink-0 mt-1">{isOpen ? '▲' : '▼'}</span>
         </div>
       </button>
 

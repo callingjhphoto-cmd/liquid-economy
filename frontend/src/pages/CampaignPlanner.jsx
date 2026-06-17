@@ -73,7 +73,7 @@ const CampaignPlanner = () => {
   // ─── HELPER FUNCTIONS ────────────────────────────────────────────────────
   const getCurrency = () => {
     const market = MARKETS.find(m => m.code === campaignData.market)
-    return market ? market.currency : '\u00a3'
+    return market ? market.currency : '£'
   }
 
   const getBrandDisplay = () => {
@@ -100,7 +100,7 @@ const CampaignPlanner = () => {
       }
       if (cocktailName.includes('margarita')) {
         return [
-          { name: 'Tommy\u2019s Margarita (Patr\u00f3n)', position: 'Premium margarita benchmark, dominant in cocktail bars', threat: 'high' },
+          { name: 'Tommy’s Margarita (Patrón)', position: 'Premium margarita benchmark, dominant in cocktail bars', threat: 'high' },
           { name: 'Classic Margarita (Cuervo)', position: 'Volume leader at value-mid tier, strong off-trade RTD', threat: 'high' },
           { name: 'Casamigos Margarita', position: 'Celebrity-backed, strong social media presence 25-35 demo', threat: 'medium' },
         ]
@@ -119,8 +119,8 @@ const CampaignPlanner = () => {
     const data = CATEGORY_SUPPLY_CHAIN[cat] || CATEGORY_SUPPLY_CHAIN.gin
     let volumeStatus = 'green'
     let volumeMessage = 'Supply chain capacity adequate for projected volume'
-    if (projectedVolume > 500) { volumeStatus = 'red'; volumeMessage = 'High volume campaign \u2014 confirm production allocation 16+ weeks in advance' }
-    else if (projectedVolume > 200) { volumeStatus = 'amber'; volumeMessage = 'Moderate volume \u2014 confirm stock allocation with distributor 12 weeks prior' }
+    if (projectedVolume > 500) { volumeStatus = 'red'; volumeMessage = 'High volume campaign — confirm production allocation 16+ weeks in advance' }
+    else if (projectedVolume > 200) { volumeStatus = 'amber'; volumeMessage = 'Moderate volume — confirm stock allocation with distributor 12 weeks prior' }
     return { ...data, volumeStatus, volumeMessage, projectedVolume }
   }, [campaignData.category, campaignData.budget])
 
@@ -265,7 +265,7 @@ const CampaignPlanner = () => {
     const objective = OBJECTIVES.find(o => o.id === campaignData.objective)
     const deliverables = getContentDeliverables()
     const competitors = getCompetitors()
-    const summary = `CAMPAIGN BRIEF\n${'='.repeat(50)}\n\nBrand: ${getBrandDisplay()}\nMarket: ${campaignData.market}\nPeriod: ${campaignData.startMonth} \u2013 ${campaignData.endMonth}\nBudget: ${getCurrency()}${Number(campaignData.budget).toLocaleString()}\nObjective: ${objective?.label}\n\nCHANNEL ALLOCATION\n- Digital/Social: ${campaignData.digital.toFixed(0)}%\n- On-Trade: ${campaignData.onTrade.toFixed(0)}%\n- Off-Trade: ${campaignData.offTrade.toFixed(0)}%\n- Travel Retail: ${campaignData.travelRetail.toFixed(0)}%\n\nCOMPETITIVE LANDSCAPE\n${competitors.map(c => `- ${c.name}: ${c.position}`).join('\n')}\n\nCONTENT DELIVERABLES\n${deliverables.map(d => `- ${d.quantity} ${d.type} (${d.format})`).join('\n')}\n\nPLATFORM SPLIT (of Digital Budget)\n- Meta/Instagram: ${campaignData.metaInstagram.toFixed(0)}%\n- TikTok: ${campaignData.tiktok.toFixed(0)}%\n- YouTube: ${campaignData.youtube.toFixed(0)}%\n- Influencer/KOL: ${campaignData.influencer.toFixed(0)}%`
+    const summary = `CAMPAIGN BRIEF\n${'='.repeat(50)}\n\nBrand: ${getBrandDisplay()}\nMarket: ${campaignData.market}\nPeriod: ${campaignData.startMonth} – ${campaignData.endMonth}\nBudget: ${getCurrency()}${Number(campaignData.budget).toLocaleString()}\nObjective: ${objective?.label}\n\nCHANNEL ALLOCATION\n- Digital/Social: ${campaignData.digital.toFixed(0)}%\n- On-Trade: ${campaignData.onTrade.toFixed(0)}%\n- Off-Trade: ${campaignData.offTrade.toFixed(0)}%\n- Travel Retail: ${campaignData.travelRetail.toFixed(0)}%\n\nCOMPETITIVE LANDSCAPE\n${competitors.map(c => `- ${c.name}: ${c.position}`).join('\n')}\n\nCONTENT DELIVERABLES\n${deliverables.map(d => `- ${d.quantity} ${d.type} (${d.format})`).join('\n')}\n\nPLATFORM SPLIT (of Digital Budget)\n- Meta/Instagram: ${campaignData.metaInstagram.toFixed(0)}%\n- TikTok: ${campaignData.tiktok.toFixed(0)}%\n- YouTube: ${campaignData.youtube.toFixed(0)}%\n- Influencer/KOL: ${campaignData.influencer.toFixed(0)}%`
     const blob = new Blob([summary], { type: 'text/plain' })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
@@ -339,7 +339,7 @@ const CampaignPlanner = () => {
           <h3 className="text-sm font-semibold text-navy mb-3">Campaign Benchmarks</h3>
           <BentoGrid>
             <MetricCard label="Avg Campaign ROI" value="2.4x" icon={TrendingUp} subtitle="ROAS for spirits campaigns" direction="up" change="+0.3x vs 2024" />
-            <MetricCard label="Avg Budget" value="\u00a350,000" icon={DollarSign} subtitle="UK market mid-tier brand" />
+            <MetricCard label="Avg Budget" value="£50,000" icon={DollarSign} subtitle="UK market mid-tier brand" />
             <MetricCard label="Most Effective Channel" value="On-Trade" icon={Wine} subtitle="For trial generation" />
             <MetricCard label="Cultural Events" value={Object.values(CULTURAL_CALENDARS).flat().length} icon={Calendar} subtitle="Across 8 markets" />
           </BentoGrid>
@@ -624,7 +624,7 @@ const CampaignPlanner = () => {
                       <ul className="space-y-1.5">
                         {occ.campaignIdeas.map((idea, i) => (
                           <li key={i} className="text-xs text-gray-800 flex items-start gap-2">
-                            <span className="text-blue-500 mt-0.5 flex-shrink-0">{'\u2022'}</span>
+                            <span className="text-blue-500 mt-0.5 flex-shrink-0">{'•'}</span>
                             {idea}
                           </li>
                         ))}
@@ -815,7 +815,7 @@ const CampaignPlanner = () => {
     const supply = getSupplyChainData()
     const deliverables = getContentDeliverables()
     const statusColors = { green: 'bg-green-50 border-green-200 text-green-900', amber: 'bg-amber-50 border-amber-200 text-amber-900', red: 'bg-red-50 border-red-200 text-red-900' }
-    const statusIcons = { green: '\u2713', amber: '!', red: '\u00d7' }
+    const statusIcons = { green: '✓', amber: '!', red: '×' }
 
     return (
       <div className="space-y-6">
@@ -841,7 +841,7 @@ const CampaignPlanner = () => {
         </Card>
 
         {/* Raw Materials */}
-        <DrillDown title={`Raw Materials & Logistics ${campaignData.category ? '\u2014 ' + (CATEGORIES.find(c => c.id === campaignData.category)?.label || '') : ''}`} summary={`${supply.materials.length} materials tracked`} defaultOpen>
+        <DrillDown title={`Raw Materials & Logistics ${campaignData.category ? '— ' + (CATEGORIES.find(c => c.id === campaignData.category)?.label || '') : ''}`} summary={`${supply.materials.length} materials tracked`} defaultOpen>
           <div className="space-y-2">
             {supply.materials.map((mat, idx) => (
               <div key={idx} className={`border rounded-lg p-3 ${statusColors[mat.status]}`}>
@@ -892,7 +892,7 @@ const CampaignPlanner = () => {
             )}
           </Card>
         )}
-        <DrillDown title="Full Content Deliverables List" summary={`${deliverables.length} items \u2014 expand for formats, quantities, and timelines`}>
+        <DrillDown title="Full Content Deliverables List" summary={`${deliverables.length} items — expand for formats, quantities, and timelines`}>
           {deliverables.length > 0 ? (
             <div className="space-y-2">
               {deliverables.map((d, idx) => (
@@ -1094,13 +1094,13 @@ const CampaignPlanner = () => {
                         ? (isAwareness
                           ? 'Sufficient for a multi-market awareness push with TV/video and influencer layers.'
                           : isPremium
-                          ? 'Premium launch budget \u2014 room for high-production creative and sampling at scale.'
-                          : 'Full-funnel budget \u2014 supports concurrent trial, volume, and retention mechanics.')
+                          ? 'Premium launch budget — room for high-production creative and sampling at scale.'
+                          : 'Full-funnel budget — supports concurrent trial, volume, and retention mechanics.')
                         : budgetBand === 'mid'
                         ? (isTrial
-                          ? 'Viable for a focused trial campaign \u2014 concentrate on 1-2 high-conversion channels.'
-                          : 'Workable mid-range budget \u2014 prioritise channels that best match your objective.')
-                        : 'Lean budget \u2014 focus on a single channel for maximum concentration and measurability.'
+                          ? 'Viable for a focused trial campaign — concentrate on 1-2 high-conversion channels.'
+                          : 'Workable mid-range budget — prioritise channels that best match your objective.')
+                        : 'Lean budget — focus on a single channel for maximum concentration and measurability.'
                       }
                     </p>
                   </div>
@@ -1121,10 +1121,10 @@ const CampaignPlanner = () => {
                     concHi ? 'text-amber-600' : concMid ? 'text-amber-700' : 'text-emerald-600'
                   }`}>
                     {concHi
-                      ? `Heavy concentration in ${dominantChannelName}. Single-channel dependency increases execution risk \u2014 ensure backup tactics.`
+                      ? `Heavy concentration in ${dominantChannelName}. Single-channel dependency increases execution risk — ensure backup tactics.`
                       : concMid
-                      ? `Moderate ${dominantChannelName} weighting \u2014 healthy lead channel with meaningful diversification.`
-                      : 'Well-diversified channel mix \u2014 reduces single-point-of-failure risk and broadens reach.'}
+                      ? `Moderate ${dominantChannelName} weighting — healthy lead channel with meaningful diversification.`
+                      : 'Well-diversified channel mix — reduces single-point-of-failure risk and broadens reach.'}
                   </p>
                 </div>
 
@@ -1139,7 +1139,7 @@ const CampaignPlanner = () => {
                     : timingRisk === 'medium' ? 'text-amber-700'
                     : 'text-emerald-700'
                   }`}>
-                    Launch: {month || 'not set'}{market ? ` \u00b7 ${market}` : ''}
+                    Launch: {month || 'not set'}{market ? ` · ${market}` : ''}
                   </div>
                   <p className={`text-xs leading-relaxed ${
                     timingRisk === 'high' ? 'text-red-600'
@@ -1147,11 +1147,11 @@ const CampaignPlanner = () => {
                     : 'text-emerald-600'
                   }`}>
                     {dryJan
-                      ? 'January headwind \u2014 alcohol demand dips significantly. Delay launch to Feb or pivot to moderation/premium messaging.'
+                      ? 'January headwind — alcohol demand dips significantly. Delay launch to Feb or pivot to moderation/premium messaging.'
                       : ukSummerPeak
-                      ? 'UK summer peak season \u2014 media costs 20\u201330% higher. Ensure creative is outstanding and brief is locked 6+ weeks ahead.'
+                      ? 'UK summer peak season — media costs 20–30% higher. Ensure creative is outstanding and brief is locked 6+ weeks ahead.'
                       : month
-                      ? 'Timing looks clear of major headwinds. Confirm distributor stock is allocated 8\u201312 weeks before launch.'
+                      ? 'Timing looks clear of major headwinds. Confirm distributor stock is allocated 8–12 weeks before launch.'
                       : 'Set a launch month to receive timing intelligence.'}
                   </p>
                 </div>
@@ -1170,15 +1170,15 @@ const CampaignPlanner = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <p className="font-semibold text-gray-500 uppercase text-micro">Brand</p>
-                <p className="font-bold text-gray-900">{getBrandDisplay() || '\u2014'}</p>
+                <p className="font-bold text-gray-900">{getBrandDisplay() || '—'}</p>
               </div>
               <div>
                 <p className="font-semibold text-gray-500 uppercase text-micro">Objective</p>
-                <p className="font-bold text-gray-900">{objective?.label || '\u2014'}</p>
+                <p className="font-bold text-gray-900">{objective?.label || '—'}</p>
               </div>
               <div>
                 <p className="font-semibold text-gray-500 uppercase text-micro">Market & Timeline</p>
-                <p className="font-bold text-gray-900">{campaignData.market || '\u2014'} | {campaignData.startMonth} \u2013 {campaignData.endMonth}</p>
+                <p className="font-bold text-gray-900">{campaignData.market || '—'} | {campaignData.startMonth} – {campaignData.endMonth}</p>
               </div>
               <div>
                 <p className="font-semibold text-gray-500 uppercase text-micro">Total Budget</p>
@@ -1248,7 +1248,7 @@ const CampaignPlanner = () => {
                 {campaignData.objective === 'awareness'
                   ? `This is a brand-building campaign. Creative should prioritise memorability and brand association over direct response. Aim for high-impact visual storytelling that positions ${getBrandDisplay()} distinctively within ${CATEGORIES.find(c => c.id === campaignData.category)?.label || 'the category'}.`
                   : campaignData.objective === 'trial'
-                  ? 'Focus creative on lowering the trial barrier. Show the serve, make it approachable, and include a clear call-to-action. Sampling and \u201cfirst drink free\u201d mechanics should be central.'
+                  ? 'Focus creative on lowering the trial barrier. Show the serve, make it approachable, and include a clear call-to-action. Sampling and “first drink free” mechanics should be central.'
                   : campaignData.objective === 'premium'
                   ? 'Creative should elevate the brand perception. Use premium production values, aspirational settings, and emphasise craftsmanship/heritage. Avoid price messaging.'
                   : 'Drive urgency and volume. Promotional mechanics, limited-time offers, and clear value propositions should be front and centre in all creative.'
@@ -1330,7 +1330,7 @@ const CampaignPlanner = () => {
         <h3 className="text-sm font-semibold text-navy mb-3">Campaign Benchmarks</h3>
         <div className="grid grid-cols-2 gap-3">
           <MetricCard label="Avg ROI" value="2.4x" icon={TrendingUp} subtitle="Spirits campaigns" direction="up" />
-          <MetricCard label="Avg Budget" value="\u00a350k" icon={DollarSign} subtitle="UK mid-tier" />
+          <MetricCard label="Avg Budget" value="£50k" icon={DollarSign} subtitle="UK mid-tier" />
           <MetricCard label="Best Channel" value="On-Trade" icon={Wine} subtitle="For trial" />
           <MetricCard label="Events" value={Object.values(CULTURAL_CALENDARS).flat().length} icon={Calendar} subtitle="8 markets" />
         </div>
@@ -1473,7 +1473,7 @@ const CampaignPlanner = () => {
             <DollarSign className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
             <div>
               <h3 className="font-display font-bold text-sm text-green-900 mb-1">Step 2: Budget & Timing</h3>
-              <p className="text-xs text-green-700">Set your total budget and date range. We{'\u2019'}ll show the recommended channel split.</p>
+              <p className="text-xs text-green-700">Set your total budget and date range. We{'’'}ll show the recommended channel split.</p>
             </div>
           </div>
         </Card>
@@ -1600,19 +1600,19 @@ const CampaignPlanner = () => {
           <div className="space-y-2.5 text-xs">
             <div className="flex justify-between py-1.5 border-b border-gray-100">
               <span className="text-gray-600">Brand</span>
-              <span className="font-semibold text-gray-900 text-right">{getBrandDisplay() || '\u2014'}</span>
+              <span className="font-semibold text-gray-900 text-right">{getBrandDisplay() || '—'}</span>
             </div>
             <div className="flex justify-between py-1.5 border-b border-gray-100">
               <span className="text-gray-600">Objective</span>
-              <span className="font-semibold text-gray-900">{objective?.label || '\u2014'}</span>
+              <span className="font-semibold text-gray-900">{objective?.label || '—'}</span>
             </div>
             <div className="flex justify-between py-1.5 border-b border-gray-100">
               <span className="text-gray-600">Market</span>
-              <span className="font-semibold text-gray-900">{campaignData.market || '\u2014'}</span>
+              <span className="font-semibold text-gray-900">{campaignData.market || '—'}</span>
             </div>
             <div className="flex justify-between py-1.5 border-b border-gray-100">
               <span className="text-gray-600">Timeline</span>
-              <span className="font-semibold text-gray-900">{campaignData.startMonth} \u2013 {campaignData.endMonth}</span>
+              <span className="font-semibold text-gray-900">{campaignData.startMonth} – {campaignData.endMonth}</span>
             </div>
             <div className="flex justify-between py-1.5">
               <span className="text-gray-600">Total Budget</span>
@@ -1694,7 +1694,7 @@ const CampaignPlanner = () => {
               {deliverables.map((d, idx) => (
                 <div key={idx} className="bg-gray-50 border border-gray-200 rounded-lg p-3">
                   <p className="font-semibold text-xs text-gray-900">{d.type}</p>
-                  <p className="text-xs text-gray-600 mt-0.5">{d.quantity} \u00b7 {d.timeline}</p>
+                  <p className="text-xs text-gray-600 mt-0.5">{d.quantity} · {d.timeline}</p>
                 </div>
               ))}
             </div>
@@ -1734,7 +1734,7 @@ const CampaignPlanner = () => {
       <div className="space-y-6 max-w-7xl mx-auto">
         <PageHeader
           title="Campaign Planner"
-          subtitle="3-step mobile flow \u00b7 Data as of April 2026"
+          subtitle="3-step mobile flow · Data as of April 2026"
           breadcrumbs={[
             { label: 'Command Centre', to: '/' },
             { label: 'Campaign Planner' }
@@ -1874,7 +1874,7 @@ const CampaignPlanner = () => {
 
         {/* Footer */}
         <div className="text-center py-4 text-xs text-gray-500">
-          Campaign Planner \u2022 Liquid Economy Platform \u2022 Palmer Liquid Studios
+          Campaign Planner • Liquid Economy Platform • Palmer Liquid Studios
         </div>
       </div>
     )
@@ -1885,7 +1885,7 @@ const CampaignPlanner = () => {
     <div className="space-y-6 max-w-7xl mx-auto">
       <PageHeader
         title="Campaign Planner"
-        subtitle="5-step wizard to turn market intelligence into actionable campaign plans \u00b7 Data as of April 2026"
+        subtitle="5-step wizard to turn market intelligence into actionable campaign plans · Data as of April 2026"
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Campaign Planner' }
@@ -1952,7 +1952,7 @@ const CampaignPlanner = () => {
 
       {/* Footer */}
       <div className="text-center py-4 text-xs text-gray-500">
-        Campaign Planner \u2022 Liquid Economy Platform \u2022 Palmer Liquid Studios
+        Campaign Planner • Liquid Economy Platform • Palmer Liquid Studios
       </div>
     </div>
   )

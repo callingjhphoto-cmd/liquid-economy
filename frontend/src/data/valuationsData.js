@@ -9,8 +9,8 @@ export const BRAND_VALUATION_MODELS = [
     name: 'Royalty Relief Method',
     description: 'Calculates the brand value based on theoretical royalty rate paid for the right to use the brand.',
     bestFor: 'Most applicable for spirits brands with established licensing history.',
-    formula: 'Brand Value = 5-year avg revenue \u00d7 assumed royalty rate \u00d7 relief factor',
-    example: 'Johnnie Walker: $4.2B revenue \u00d7 12% royalty \u00d7 relief factor',
+    formula: 'Brand Value = 5-year avg revenue × assumed royalty rate × relief factor',
+    example: 'Johnnie Walker: $4.2B revenue × 12% royalty × relief factor',
     pros: 'Widely accepted by IRS, relies on market-based royalty rates',
     cons: 'Requires assumption of hypothetical royalty rate; may undervalue premium brands',
   },
@@ -18,7 +18,7 @@ export const BRAND_VALUATION_MODELS = [
     name: 'Excess Earnings Method',
     description: 'Isolates the earnings generated purely by brand equity, separate from tangible assets.',
     bestFor: 'Brands with strong earnings but uncertain remaining useful life.',
-    formula: 'Brand Value = (excess earnings \u00d7 expected brand life) / discount rate',
+    formula: 'Brand Value = (excess earnings × expected brand life) / discount rate',
     example: 'Hennessy: 3-year avg excess earnings of $850M discounted at 8%',
     pros: 'Directly ties value to brand contribution; transparent logic',
     cons: 'Heavily dependent on accurate earnings separation; assumptions on remaining life',
@@ -45,8 +45,8 @@ export const BRAND_VALUATION_MODELS = [
     name: 'Price Premium Method',
     description: 'Measures the price premium consumers will pay for the branded product vs. unbranded equivalent.',
     bestFor: 'Consumer-facing brands with clear competitive differentiation.',
-    formula: 'Brand Value = (branded price - generic price) \u00d7 volume \u00d7 margin multiple',
-    example: 'Jack Daniel\u2019s: $5 premium per bottle \u00d7 10M bottles/year \u00d7 5x margin factor',
+    formula: 'Brand Value = (branded price - generic price) × volume × margin multiple',
+    example: 'Jack Daniel’s: $5 premium per bottle × 10M bottles/year × 5x margin factor',
     pros: 'Directly reflects consumer willingness-to-pay; intuitive',
     cons: 'Depends on identifying true generic comparator; ignores non-price value',
   },
@@ -62,18 +62,18 @@ export const BRAND_VALUATION_MODELS = [
 ]
 
 export const BRAND_VALUATIONS = [
-  { brand: 'Johnnie Walker', parent: 'Diageo', estimatedValue: '$8.4B', valueNum: 8.4, methodology: 'Royalty Relief', multiple: '4.2x', multipleNum: 4.2, category: 'Scotch Whisky', trend: 'up', yoy: '+5.2%', yoyNum: 5.2, notes: 'World\u2019s largest spirits brand; consistent market dominance' },
+  { brand: 'Johnnie Walker', parent: 'Diageo', estimatedValue: '$8.4B', valueNum: 8.4, methodology: 'Royalty Relief', multiple: '4.2x', multipleNum: 4.2, category: 'Scotch Whisky', trend: 'up', yoy: '+5.2%', yoyNum: 5.2, notes: 'World’s largest spirits brand; consistent market dominance' },
   { brand: 'Hennessy', parent: 'LVMH', estimatedValue: '$7.8B', valueNum: 7.8, methodology: 'DCF', multiple: '5.1x', multipleNum: 5.1, category: 'Cognac', trend: 'up', yoy: '+3.8%', yoyNum: 3.8, notes: 'Luxury positioning sustains premium multiples; strong Asian growth' },
-  { brand: 'Jack Daniel\u2019s', parent: 'Brown-Forman', estimatedValue: '$6.1B', valueNum: 6.1, methodology: 'Royalty Relief', multiple: '4.8x', multipleNum: 4.8, category: 'American Whiskey', trend: 'up', yoy: '+4.1%', yoyNum: 4.1, notes: 'Iconic American brand; steadily growing in key markets' },
+  { brand: 'Jack Daniel’s', parent: 'Brown-Forman', estimatedValue: '$6.1B', valueNum: 6.1, methodology: 'Royalty Relief', multiple: '4.8x', multipleNum: 4.8, category: 'American Whiskey', trend: 'up', yoy: '+4.1%', yoyNum: 4.1, notes: 'Iconic American brand; steadily growing in key markets' },
   { brand: 'Smirnoff', parent: 'Diageo', estimatedValue: '$5.2B', valueNum: 5.2, methodology: 'Market Comparable', multiple: '2.8x', multipleNum: 2.8, category: 'Vodka', trend: 'stable', yoy: '+0.4%', yoyNum: 0.4, notes: 'Mass-market positioning limits multiple; declining in premium markets' },
   { brand: 'Bacardi', parent: 'Bacardi Limited', estimatedValue: '$4.8B', valueNum: 4.8, methodology: 'Excess Earnings', multiple: '3.5x', multipleNum: 3.5, category: 'Rum', trend: 'stable', yoy: '+1.2%', yoyNum: 1.2, notes: 'Diverse portfolio; privately held limits external valuation data' },
   { brand: 'Jameson', parent: 'Pernod Ricard', estimatedValue: '$3.9B', valueNum: 3.9, methodology: 'Royalty Relief', multiple: '4.1x', multipleNum: 4.1, category: 'Irish Whiskey', trend: 'up', yoy: '+7.8%', yoyNum: 7.8, notes: 'Category growth leader; strong global distribution' },
   { brand: 'The Macallan', parent: 'Edrington', estimatedValue: '$3.6B', valueNum: 3.6, methodology: 'DCF', multiple: '6.2x', multipleNum: 6.2, category: 'Single Malt Scotch', trend: 'up', yoy: '+8.9%', yoyNum: 8.9, notes: 'Ultra-premium positioning; investment whisky secondary market strength' },
   { brand: 'Absolut', parent: 'Pernod Ricard', estimatedValue: '$3.5B', valueNum: 3.5, methodology: 'Market Comparable', multiple: '2.2x', multipleNum: 2.2, category: 'Vodka', trend: 'down', yoy: '-2.1%', yoyNum: -2.1, notes: 'Declining in home markets; Asian expansion mixed results' },
-  { brand: 'Jos\u00e9 Cuervo', parent: 'Becle', estimatedValue: '$3.2B', valueNum: 3.2, methodology: 'DCF', multiple: '3.8x', multipleNum: 3.8, category: 'Tequila', trend: 'up', yoy: '+12.4%', yoyNum: 12.4, notes: 'Tequila category momentum; emerging market growth outpacing US' },
+  { brand: 'José Cuervo', parent: 'Becle', estimatedValue: '$3.2B', valueNum: 3.2, methodology: 'DCF', multiple: '3.8x', multipleNum: 3.8, category: 'Tequila', trend: 'up', yoy: '+12.4%', yoyNum: 12.4, notes: 'Tequila category momentum; emerging market growth outpacing US' },
   { brand: 'Tanqueray', parent: 'Diageo', estimatedValue: '$2.8B', valueNum: 2.8, methodology: 'Royalty Relief', multiple: '3.6x', multipleNum: 3.6, category: 'Gin', trend: 'stable', yoy: '+1.8%', yoyNum: 1.8, notes: 'Gin category maturation after growth phase; stable cash generation' },
   { brand: 'Campari', parent: 'Campari Group', estimatedValue: '$2.4B', valueNum: 2.4, methodology: 'Excess Earnings', multiple: '3.2x', multipleNum: 3.2, category: 'Aperitivo', trend: 'up', yoy: '+6.5%', yoyNum: 6.5, notes: 'Category growth from cocktail culture; Italian heritage premium' },
-  { brand: 'Maker\u2019s Mark', parent: 'Beam Suntory', estimatedValue: '$2.1B', valueNum: 2.1, methodology: 'Market Comparable', multiple: '3.9x', multipleNum: 3.9, category: 'Bourbon', trend: 'up', yoy: '+5.3%', yoyNum: 5.3, notes: 'Premium bourbon growth; hand-dipped positioning maintains brand cache' },
+  { brand: 'Maker’s Mark', parent: 'Beam Suntory', estimatedValue: '$2.1B', valueNum: 2.1, methodology: 'Market Comparable', multiple: '3.9x', multipleNum: 3.9, category: 'Bourbon', trend: 'up', yoy: '+5.3%', yoyNum: 5.3, notes: 'Premium bourbon growth; hand-dipped positioning maintains brand cache' },
 ]
 
 export const SECTOR_MULTIPLES = [
@@ -96,7 +96,7 @@ export const MA_VALUATION_BENCHMARKS = [
   { year: 2022, target: 'Baron von Wissell (Premium RTD)', acquirer: 'Monster Beverage', value: '$220M', valueNum: 220, evRevenue: '4.8x', evRevenueNum: 4.8, evEbitda: '16.5x', category: 'RTD/Spirits', premium: '25%', premiumNum: 25 },
   { year: 2021, target: 'Don Julio', acquirer: 'Diageo', value: '$915M', valueNum: 915, evRevenue: '7.4x', evRevenueNum: 7.4, evEbitda: '26.0x', category: 'Premium Tequila', premium: '32%', premiumNum: 32 },
   { year: 2021, target: 'Prichards Double Chocolate Bourbon', acquirer: 'MGP Ingredients', value: '$125M', valueNum: 125, evRevenue: '5.2x', evRevenueNum: 5.2, evEbitda: '18.5x', category: 'Premium Bourbon', premium: '21%', premiumNum: 21 },
-  { year: 2021, target: 'Tequila Pats\u00f3n', acquirer: 'Bacardi', value: '$158M', valueNum: 158, evRevenue: '3.6x', evRevenueNum: 3.6, evEbitda: '13.0x', category: 'Tequila', premium: '17%', premiumNum: 17 },
+  { year: 2021, target: 'Tequila Patsón', acquirer: 'Bacardi', value: '$158M', valueNum: 158, evRevenue: '3.6x', evRevenueNum: 3.6, evEbitda: '13.0x', category: 'Tequila', premium: '17%', premiumNum: 17 },
   { year: 2020, target: 'Whipshots', acquirer: 'Diageo', value: '$45M', valueNum: 45, evRevenue: '2.8x', evRevenueNum: 2.8, evEbitda: '10.0x', category: 'RTD/Cocktails', premium: '15%', premiumNum: 15 },
 ]
 
@@ -141,7 +141,7 @@ export const VALUATION_INSIGHTS = [
 
 export const KEY_ACQUIRERS = [
   { name: 'Diageo', deals: 5, totalSpent: '$3.17B', focus: 'Premium spirits, celebrity brands, tequila', keyBrands: ['Casamigos', 'Don Julio', 'Aviation Gin', 'Proper No. Twelve', 'Whipshots'] },
-  { name: 'Bacardi', deals: 2, totalSpent: '$4.96B', focus: 'Tequila, rum portfolio expansion', keyBrands: ['Patr\u00f3n', 'Tequila Pats\u00f3n'] },
+  { name: 'Bacardi', deals: 2, totalSpent: '$4.96B', focus: 'Tequila, rum portfolio expansion', keyBrands: ['Patrón', 'Tequila Patsón'] },
   { name: 'Molson Coors', deals: 1, totalSpent: '$275M', focus: 'RTD/hard seltzer adjacency', keyBrands: ['Topo Chico Hard Seltzer'] },
   { name: 'Monster Beverage', deals: 1, totalSpent: '$220M', focus: 'Premium RTD spirits', keyBrands: ['Baron von Wissell'] },
   { name: 'MGP Ingredients', deals: 1, totalSpent: '$125M', focus: 'Premium bourbon', keyBrands: ['Prichards Double Chocolate Bourbon'] },
@@ -162,10 +162,10 @@ export const VALUATION_SOURCES = [
 // ── Data Methodology ──
 export const DATA_METHODOLOGY = {
   overview: 'Market size estimates synthesized from IWSR Global Spirits Database, Euromonitor Passport Alcoholic Drinks, and DISCUS public disclosures. Growth rates represent year-over-year value change in USD at constant exchange rates unless otherwise stated.',
-  pricing: 'Pricing data collected from retailer websites (Tesco, Sainsbury\'s, Waitrose, Master of Malt, Total Wine, Drizly, El Corte Ingl\u00e9s) during April 2026. Prices reflect standard retail, not promotional pricing, unless flagged.',
+  pricing: 'Pricing data collected from retailer websites (Tesco, Sainsbury\'s, Waitrose, Master of Malt, Total Wine, Drizly, El Corte Inglés) during April 2026. Prices reflect standard retail, not promotional pricing, unless flagged.',
   sources: [
     { name: 'IWSR Global Spirits Database 2025', description: 'Proprietary database covering 160+ markets with volume and value data by category, price band, and channel.', url: 'https://www.theiwsr.com/global-spirits-report' },
-    { name: 'Euromonitor Passport \u2014 Alcoholic Drinks', description: 'Market sizing, forecasts, and competitive landscape data for spirits, wine, and beer across 100+ countries.', url: 'https://www.euromonitor.com/alcoholic-drinks' },
+    { name: 'Euromonitor Passport — Alcoholic Drinks', description: 'Market sizing, forecasts, and competitive landscape data for spirits, wine, and beer across 100+ countries.', url: 'https://www.euromonitor.com/alcoholic-drinks' },
     { name: 'DISCUS Annual Economic Briefing', description: 'US spirits industry data: shipments, revenue, state-level trends, and category performance from the Distilled Spirits Council.', url: 'https://www.discus.org/economics/research' },
     { name: 'NielsenIQ Off-Trade Panel', description: 'Retail scanner data from off-premise channels (supermarkets, liquor stores) covering sales volume, value, and distribution metrics.', url: 'https://www.nielseniq.com/global/en/insights/' },
     { name: 'The Spirits Business / Drinks International', description: 'Trade publication market intelligence, brand rankings, and industry trend analysis.', url: 'https://www.thespiritsbusiness.com/category/market-data/' },

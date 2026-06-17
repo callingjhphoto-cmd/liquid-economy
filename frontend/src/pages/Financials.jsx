@@ -20,14 +20,14 @@ import {
 
 /* ── Helpers ── */
 const fmtB = (v, cur) => {
-  if (v == null) return '\u2014'
+  if (v == null) return '—'
   if (v >= 1) return `${cur}${v.toFixed(1)}B`
   return `${cur}${(v * 1000).toFixed(0)}M`
 }
 
 /* ── Aggregate Stats ── */
 const totalInventory = FINANCIAL_COMPANIES.reduce((s, c) => s + c.metrics.inventory.totalNum, 0)
-const totalMarketCap = '\u00a3125B+'
+const totalMarketCap = '£125B+'
 const avgDividend = (FINANCIAL_COMPANIES.reduce((s, c) => s + parseFloat(c.metrics.dividendYield), 0) / FINANCIAL_COMPANIES.length).toFixed(1)
 
 /* ══════════════════════════════════════
@@ -202,7 +202,7 @@ function InventoryTrackerChart() {
   return (
     <ChartCard
       title="Global Spirits Inventory Tracker"
-      subtitle="Combined inventory across 5 major public companies (2020\u20132025). The $22B overhang."
+      subtitle="Combined inventory across 5 major public companies (2020–2025). The $22B overhang."
       height={320}
       source="Company annual reports, FT analysis"
       sourceUrl="https://www.ft.com"
@@ -410,7 +410,7 @@ export default function Financials() {
           label="Companies Tracked"
           value={FINANCIAL_COMPANIES.length}
           icon={Building2}
-          subtitle="Diageo, Pernod, Campari, BF, R\u00e9my"
+          subtitle="Diageo, Pernod, Campari, BF, Rémy"
         />
         <MetricCard
           label="Avg Dividend Yield"
@@ -485,7 +485,7 @@ export default function Financials() {
               <li>Pernod Ricard Universal Registration Document</li>
               <li>Campari Group Annual Report & Investor Presentations</li>
               <li>Brown-Forman 10-K and 10-Q SEC Filings</li>
-              <li>R{'\u00e9'}my Cointreau Document de R{'\u00e9'}f{'\u00e9'}rence</li>
+              <li>R{'é'}my Cointreau Document de R{'é'}f{'é'}rence</li>
             </ul>
           </div>
           <div>
@@ -493,8 +493,8 @@ export default function Financials() {
             <ul className="space-y-0.5 list-disc list-inside">
               <li>IWSR Global Spirits Database</li>
               <li>Nielsen IQ Off-Trade Panel Data</li>
-              <li>Financial Times {'\u2014'} Spirits Inventory Analysis</li>
-              <li>Euromonitor International {'\u2014'} Alcoholic Drinks</li>
+              <li>Financial Times {'—'} Spirits Inventory Analysis</li>
+              <li>Euromonitor International {'—'} Alcoholic Drinks</li>
               <li>Company investor presentations & earnings calls</li>
             </ul>
           </div>

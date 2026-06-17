@@ -16,7 +16,7 @@ export default function GuestLockedPage({ profile }) {
         Contact Liquid Creative to unlock the full product.
       </p>
       <a
-        href="mailto:james@huertas.co.uk?subject=Liquid Economy \u2014 Full Access Request"
+        href="mailto:james@huertas.co.uk?subject=Liquid Economy — Full Access Request"
         className="inline-flex items-center gap-2 bg-navy text-white text-sm font-medium px-5 py-2.5 rounded-xl hover:bg-navy/90 transition-colors"
       >
         Request full access from Liquid Creative

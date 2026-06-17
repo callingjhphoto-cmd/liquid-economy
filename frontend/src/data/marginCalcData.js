@@ -10,7 +10,7 @@ export const DATA_LAST_UPDATED = '2026-03-21'
 export const CATEGORY_COGS = {
   tequila: {
     label: 'Tequila & Mezcal',
-    rawMaterial: { name: 'Agave', base: 2.40, unit: '\u00a3' },
+    rawMaterial: { name: 'Agave', base: 2.40, unit: '£' },
     glass: 1.80, closure: 0.60, freight: 3.20, duty: 8.05,
     production: 2.10, overheads: 2.00,
     scenarios: {
@@ -23,7 +23,7 @@ export const CATEGORY_COGS = {
   },
   vodka: {
     label: 'Vodka',
-    rawMaterial: { name: 'Grain/Potato', base: 0.80, unit: '\u00a3' },
+    rawMaterial: { name: 'Grain/Potato', base: 0.80, unit: '£' },
     glass: 1.60, closure: 0.50, freight: 2.80, duty: 8.05,
     production: 1.40, overheads: 1.80,
     scenarios: {
@@ -36,7 +36,7 @@ export const CATEGORY_COGS = {
   },
   gin: {
     label: 'Gin',
-    rawMaterial: { name: 'Botanicals & GNS', base: 1.60, unit: '\u00a3' },
+    rawMaterial: { name: 'Botanicals & GNS', base: 1.60, unit: '£' },
     glass: 2.10, closure: 0.65, freight: 2.60, duty: 8.05,
     production: 1.80, overheads: 1.90,
     scenarios: {
@@ -49,7 +49,7 @@ export const CATEGORY_COGS = {
   },
   whisky: {
     label: 'Whisky',
-    rawMaterial: { name: 'Malt/Grain + Ageing', base: 4.50, unit: '\u00a3' },
+    rawMaterial: { name: 'Malt/Grain + Ageing', base: 4.50, unit: '£' },
     glass: 2.20, closure: 0.80, freight: 3.00, duty: 8.05,
     production: 2.50, overheads: 2.20,
     scenarios: {
@@ -62,7 +62,7 @@ export const CATEGORY_COGS = {
   },
   rum: {
     label: 'Rum',
-    rawMaterial: { name: 'Molasses/Cane', base: 1.20, unit: '\u00a3' },
+    rawMaterial: { name: 'Molasses/Cane', base: 1.20, unit: '£' },
     glass: 1.70, closure: 0.55, freight: 3.40, duty: 8.05,
     production: 1.90, overheads: 1.80,
     scenarios: {
@@ -75,7 +75,7 @@ export const CATEGORY_COGS = {
   },
   cognac: {
     label: 'Cognac & Brandy',
-    rawMaterial: { name: 'Ugni Blanc + Ageing', base: 6.50, unit: '\u00a3' },
+    rawMaterial: { name: 'Ugni Blanc + Ageing', base: 6.50, unit: '£' },
     glass: 2.80, closure: 1.00, freight: 2.40, duty: 8.05,
     production: 3.00, overheads: 2.50,
     scenarios: {
@@ -88,7 +88,7 @@ export const CATEGORY_COGS = {
   },
   champagne: {
     label: 'Champagne & Sparkling',
-    rawMaterial: { name: 'Grapes + M\u00e9thode', base: 5.80, unit: '\u00a3' },
+    rawMaterial: { name: 'Grapes + Méthode', base: 5.80, unit: '£' },
     glass: 2.50, closure: 1.20, freight: 2.80, duty: 3.81,
     production: 2.80, overheads: 2.40,
     scenarios: {
@@ -101,7 +101,7 @@ export const CATEGORY_COGS = {
   },
   wine: {
     label: 'Wine (Still)',
-    rawMaterial: { name: 'Grapes', base: 2.00, unit: '\u00a3' },
+    rawMaterial: { name: 'Grapes', base: 2.00, unit: '£' },
     glass: 1.40, closure: 0.40, freight: 2.20, duty: 2.67,
     production: 1.50, overheads: 1.60,
     scenarios: {
@@ -114,7 +114,7 @@ export const CATEGORY_COGS = {
   },
   beer: {
     label: 'Beer & Craft',
-    rawMaterial: { name: 'Malt/Hops/Yeast', base: 0.40, unit: '\u00a3' },
+    rawMaterial: { name: 'Malt/Hops/Yeast', base: 0.40, unit: '£' },
     glass: 0.35, closure: 0.10, freight: 1.20, duty: 0.54,
     production: 0.60, overheads: 0.50,
     scenarios: {
@@ -127,7 +127,7 @@ export const CATEGORY_COGS = {
   },
   nolo: {
     label: 'No/Low Alcohol',
-    rawMaterial: { name: 'Base + Dealcoholisation', base: 1.80, unit: '\u00a3' },
+    rawMaterial: { name: 'Base + Dealcoholisation', base: 1.80, unit: '£' },
     glass: 1.50, closure: 0.50, freight: 2.40, duty: 0.00,
     production: 2.20, overheads: 1.80,
     scenarios: {
@@ -140,7 +140,7 @@ export const CATEGORY_COGS = {
   },
   rtd: {
     label: 'RTD / Ready-to-Drink',
-    rawMaterial: { name: 'Spirit base + mixer', base: 0.60, unit: '\u00a3' },
+    rawMaterial: { name: 'Spirit base + mixer', base: 0.60, unit: '£' },
     glass: 0.25, closure: 0.08, freight: 1.80, duty: 2.01,
     production: 0.80, overheads: 0.70,
     scenarios: {
@@ -208,10 +208,10 @@ export const COST_ENTRIES = [
 // ── Data Methodology ──
 export const DATA_METHODOLOGY = {
   overview: 'Market size estimates synthesized from IWSR Global Spirits Database, Euromonitor Passport Alcoholic Drinks, and DISCUS public disclosures. Growth rates represent year-over-year value change in USD at constant exchange rates unless otherwise stated.',
-  pricing: 'Pricing data collected from retailer websites (Tesco, Sainsbury\'s, Waitrose, Master of Malt, Total Wine, Drizly, El Corte Ingl\u00e9s) during April 2026. Prices reflect standard retail, not promotional pricing, unless flagged.',
+  pricing: 'Pricing data collected from retailer websites (Tesco, Sainsbury\'s, Waitrose, Master of Malt, Total Wine, Drizly, El Corte Inglés) during April 2026. Prices reflect standard retail, not promotional pricing, unless flagged.',
   sources: [
     { name: 'IWSR Global Spirits Database 2025', description: 'Proprietary database covering 160+ markets with volume and value data by category, price band, and channel.', url: 'https://www.theiwsr.com/global-spirits-report' },
-    { name: 'Euromonitor Passport \u2014 Alcoholic Drinks', description: 'Market sizing, forecasts, and competitive landscape data for spirits, wine, and beer across 100+ countries.', url: 'https://www.euromonitor.com/alcoholic-drinks' },
+    { name: 'Euromonitor Passport — Alcoholic Drinks', description: 'Market sizing, forecasts, and competitive landscape data for spirits, wine, and beer across 100+ countries.', url: 'https://www.euromonitor.com/alcoholic-drinks' },
     { name: 'DISCUS Annual Economic Briefing', description: 'US spirits industry data: shipments, revenue, state-level trends, and category performance from the Distilled Spirits Council.', url: 'https://www.discus.org/economics/research' },
     { name: 'NielsenIQ Off-Trade Panel', description: 'Retail scanner data from off-premise channels (supermarkets, liquor stores) covering sales volume, value, and distribution metrics.', url: 'https://www.nielseniq.com/global/en/insights/' },
     { name: 'The Spirits Business / Drinks International', description: 'Trade publication market intelligence, brand rankings, and industry trend analysis.', url: 'https://www.thespiritsbusiness.com/category/market-data/' },

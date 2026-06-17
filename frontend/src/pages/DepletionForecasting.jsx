@@ -146,7 +146,7 @@ export default function DepletionForecasting() {
               ))}
             </select>
           </div>
-          <InputGroup label="Price Per Case" value={pricePerCase} onChange={setPricePerCase} placeholder="120" suffix="\u00a3" min="1" />
+          <InputGroup label="Price Per Case" value={pricePerCase} onChange={setPricePerCase} placeholder="120" suffix="£" min="1" />
           <InputGroup label="Cases Per Reorder" value={casesPerReorder} onChange={setCasesPerReorder} placeholder="50" suffix="cases" min="1" />
           <InputGroup label="Annual Growth" value={growthRate} onChange={setGrowthRate} placeholder="5" suffix="%" />
         </div>
@@ -161,7 +161,7 @@ export default function DepletionForecasting() {
         </Card>
         <Card className="p-4 text-center">
           <div className="text-xs text-gray-500 mb-1">Annual Revenue</div>
-          <div className="text-xl font-bold text-navy">{'\u00a3'}{annualRevenue.toLocaleString()}</div>
+          <div className="text-xl font-bold text-navy">{'£'}{annualRevenue.toLocaleString()}</div>
           <div className="text-xs text-gray-400">forecast</div>
         </Card>
         <Card className="p-4 text-center">
@@ -186,7 +186,7 @@ export default function DepletionForecasting() {
               <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#9ca3af' }} />
               <YAxis yAxisId="left" tick={{ fontSize: 11, fill: '#9ca3af' }} />
               <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 11, fill: '#9ca3af' }} />
-              <Tooltip formatter={(v, name) => name === 'revenue' ? `\u00a3${v.toLocaleString()}` : v.toLocaleString()} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
+              <Tooltip formatter={(v, name) => name === 'revenue' ? `£${v.toLocaleString()}` : v.toLocaleString()} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
               <Legend wrapperStyle={{ fontSize: 11 }} />
               <Bar yAxisId="left" dataKey="depletions" name="Cases" fill={CHART_COLORS.primary} radius={[4, 4, 0, 0]} />
               <Line yAxisId="right" type="monotone" dataKey="revenue" name="Revenue" stroke={CHART_COLORS.accent} strokeWidth={2} dot={false} />
@@ -252,7 +252,7 @@ export default function DepletionForecasting() {
                 <tr key={i} className="border-b border-gray-50">
                   <td className="py-2 font-medium text-navy">{f.month}</td>
                   <td className="py-2 text-right text-gray-600">{f.depletions.toLocaleString()}</td>
-                  <td className="py-2 text-right text-gray-600">{'\u00a3'}{f.revenue.toLocaleString()}</td>
+                  <td className="py-2 text-right text-gray-600">{'£'}{f.revenue.toLocaleString()}</td>
                   <td className="py-2 text-right">
                     <Badge>{f.reordersNeeded}x {numReorder} cases</Badge>
                   </td>
@@ -264,7 +264,7 @@ export default function DepletionForecasting() {
               <tr className="border-t border-gray-300 font-bold">
                 <td className="py-2 text-navy">Total</td>
                 <td className="py-2 text-right text-navy">{annualDepletions.toLocaleString()}</td>
-                <td className="py-2 text-right text-navy">{'\u00a3'}{annualRevenue.toLocaleString()}</td>
+                <td className="py-2 text-right text-navy">{'£'}{annualRevenue.toLocaleString()}</td>
                 <td className="py-2 text-right text-navy">{totalReorders} reorders</td>
                 <td className="py-2 text-right text-navy">{annualDepletions.toLocaleString()}</td>
               </tr>

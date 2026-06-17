@@ -101,7 +101,7 @@ const OutlookBadge = ({ outlook }) => {
 }
 
 /* ================================================================
-   TIER 1 \u2014 Region Summary Card (clickable \u2192 Tier 2)
+   TIER 1 — Region Summary Card (clickable → Tier 2)
    ================================================================ */
 
 function RegionCard({ region, onClick }) {
@@ -124,7 +124,7 @@ function RegionCard({ region, onClick }) {
         {latest && <OutlookBadge outlook={latest[1].outlook} />}
       </div>
 
-      <p className="text-xs text-gray-500 mb-2">{region.crop} \u2014 {region.country}</p>
+      <p className="text-xs text-gray-500 mb-2">{region.crop} — {region.country}</p>
 
       <div className="h-16 mb-2">
         <ResponsiveContainer width="100%" height="100%">
@@ -156,7 +156,7 @@ function RegionCard({ region, onClick }) {
 }
 
 /* ================================================================
-   TIER 2 \u2014 Region Deep Dive (expanded panel)
+   TIER 2 — Region Deep Dive (expanded panel)
    ================================================================ */
 
 function LiveWeatherPanel({ region }) {
@@ -180,7 +180,7 @@ function LiveWeatherPanel({ region }) {
     <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200 animate-pulse">
       <div className="flex items-center gap-2 mb-3">
         <RefreshCw size={14} className="animate-spin text-blue-500" />
-        <span className="text-xs text-blue-600 font-medium">Loading live weather data from Open-Meteo{'\u2026'}</span>
+        <span className="text-xs text-blue-600 font-medium">Loading live weather data from Open-Meteo{'…'}</span>
       </div>
       <div className="h-40 bg-blue-100 rounded-lg" />
     </Card>
@@ -208,20 +208,20 @@ function LiveWeatherPanel({ region }) {
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <Globe size={14} className="text-blue-600" />
-          <span className="text-xs font-semibold text-blue-800 uppercase tracking-wider">Live Weather {'\u2014'} Last 30 Days</span>
-          <span className="text-xs text-blue-500">{region.lat}\u00b0N, {region.lon}\u00b0E</span>
+          <span className="text-xs font-semibold text-blue-800 uppercase tracking-wider">Live Weather {'—'} Last 30 Days</span>
+          <span className="text-xs text-blue-500">{region.lat}°N, {region.lon}°E</span>
         </div>
         <span className="text-xs text-blue-400">Source: Open-Meteo API (real-time)</span>
       </div>
 
       <BentoGrid>
         <MetricCard label="30-Day Rainfall" value={`${last30Precip}mm`} icon={Droplets} />
-        <MetricCard label="Avg High" value={`${avgMax}\u00b0C`} icon={Thermometer} />
-        <MetricCard label="Avg Low" value={`${avgMin}\u00b0C`} icon={Thermometer} />
+        <MetricCard label="Avg High" value={`${avgMax}°C`} icon={Thermometer} />
+        <MetricCard label="Avg Low" value={`${avgMin}°C`} icon={Thermometer} />
         <MetricCard label="Frost Days (30d)" value={String(frostDays30)} icon={Snowflake} />
       </BentoGrid>
 
-      <div className="h-48 mt-4" role="figure" aria-label="Chart: 30-day weather data \u2014 temperature and rainfall">
+      <div className="h-48 mt-4" role="figure" aria-label="Chart: 30-day weather data — temperature and rainfall">
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart data={chartData} margin={{ top: 5, right: 5, bottom: 5, left: 0 }} accessibilityLayer={true}>
             <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -230,8 +230,8 @@ function LiveWeatherPanel({ region }) {
             <YAxis yAxisId="precip" orientation="right" tick={{ fontSize: 9, fill: '#9ca3af' }} />
             <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
             <Bar yAxisId="precip" dataKey="precip" fill={CHART_COLORS.blue} opacity={0.4} name="Rainfall (mm)" />
-            <Line yAxisId="temp" dataKey="maxTemp" stroke={CHART_COLORS.rose} dot={false} strokeWidth={1.5} name="Max Temp (\u00b0C)" />
-            <Line yAxisId="temp" dataKey="minTemp" stroke={CHART_COLORS.blue} dot={false} strokeWidth={1.5} name="Min Temp (\u00b0C)" />
+            <Line yAxisId="temp" dataKey="maxTemp" stroke={CHART_COLORS.rose} dot={false} strokeWidth={1.5} name="Max Temp (°C)" />
+            <Line yAxisId="temp" dataKey="minTemp" stroke={CHART_COLORS.blue} dot={false} strokeWidth={1.5} name="Min Temp (°C)" />
           </ComposedChart>
         </ResponsiveContainer>
       </div>
@@ -243,7 +243,7 @@ function LiveWeatherPanel({ region }) {
             {Object.entries(comparison).map(([yr, d]) => (
               <div key={yr} className={`rounded-lg p-2 text-center ${parseInt(yr) === new Date().getFullYear() ? 'bg-blue-200/50 ring-1 ring-blue-300' : 'bg-white/60'}`}>
                 <p className="text-xs font-bold text-navy">{yr}</p>
-                <p className="text-xs text-gray-600">{d.avgTemp}\u00b0C avg</p>
+                <p className="text-xs text-gray-600">{d.avgTemp}°C avg</p>
                 <p className="text-xs text-blue-600">{d.totalPrecip}mm rain</p>
                 <p className="text-xs text-gray-500">{d.daysTracked} days</p>
               </div>
@@ -264,7 +264,7 @@ function YieldChart({ region }) {
     <Card>
       <h3 className="font-display text-sm font-semibold text-navy mb-1">10-Year Yield History</h3>
       <p className="text-xs text-gray-500 mb-3">{region.yieldUnit}</p>
-      <div className="h-52" role="figure" aria-label={`Chart: 10-Year Yield History \u2014 ${region.crop}`}>
+      <div className="h-52" role="figure" aria-label={`Chart: 10-Year Yield History — ${region.crop}`}>
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart data={data} margin={{ top: 5, right: 5, bottom: 5, left: 0 }} accessibilityLayer={true}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
@@ -301,13 +301,13 @@ function ClimateChart({ region }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {[
           { key: 'rainfall', label: 'Annual Rainfall (mm)', color: '#3b82f6' },
-          { key: 'avgTemp', label: 'Avg Temperature (\u00b0C)', color: '#ef4444', isLine: true },
+          { key: 'avgTemp', label: 'Avg Temperature (°C)', color: '#ef4444', isLine: true },
           { key: 'frostDays', label: 'Frost Days', color: '#06b6d4' },
           { key: 'sunHours', label: 'Sunshine Hours', color: '#eab308' },
         ].map(m => (
           <div key={m.key}>
             <SectionLabel>{m.label}</SectionLabel>
-            <div className="h-36" role="figure" aria-label={`Chart: ${m.label} \u2014 10-year trend`}>
+            <div className="h-36" role="figure" aria-label={`Chart: ${m.label} — 10-year trend`}>
               <ResponsiveContainer width="100%" height="100%">
                 {m.isLine ? (
                   <LineChart data={data} accessibilityLayer={true}>
@@ -346,7 +346,7 @@ function SeasonDetail({ region, year }) {
         <BentoGrid className="mb-4">
           <MetricCard label="Yield" value={typeof d.yield === 'number' && d.yield > 100 ? d.yield.toLocaleString() : String(d.yield)} subtitle={region.yieldUnit} icon={Sprout} />
           <MetricCard label="Rainfall" value={`${d.rainfall}mm`} subtitle={d.rainfall > 700 ? 'Above avg' : d.rainfall < 500 ? 'Below avg' : 'Normal'} icon={CloudRain} />
-          <MetricCard label="Avg Temp" value={`${d.avgTemp}\u00b0C`} icon={Thermometer} />
+          <MetricCard label="Avg Temp" value={`${d.avgTemp}°C`} icon={Thermometer} />
           <MetricCard label="Sun Hours" value={d.sunHours.toLocaleString()} icon={Sun} />
         </BentoGrid>
       )}
@@ -361,7 +361,7 @@ function SeasonDetail({ region, year }) {
 }
 
 /* ================================================================
-   TIER 2 \u2014 Region Detail Panel
+   TIER 2 — Region Detail Panel
    ================================================================ */
 
 function RegionDetailPanel({ region, onClose }) {
@@ -371,14 +371,14 @@ function RegionDetailPanel({ region, onClose }) {
   return (
     <div className="space-y-4">
       <button onClick={onClose} className="text-xs text-gray-500 hover:text-navy flex items-center gap-1 mb-2">
-        \u2190 Back to all regions
+        ← Back to all regions
       </button>
 
       <div className="flex items-center gap-3">
         <span className="text-3xl">{region.icon}</span>
         <div>
           <h2 className="font-display text-xl font-bold text-navy">{region.name}</h2>
-          <p className="text-sm text-gray-500">{region.crop} \u2014 {region.spirit}</p>
+          <p className="text-sm text-gray-500">{region.crop} — {region.spirit}</p>
         </div>
       </div>
 
@@ -405,7 +405,7 @@ function RegionDetailPanel({ region, onClose }) {
       </DrillDown>
 
       {/* Year Selector + Season Detail */}
-      <DrillDown title="Detailed Season Reports" summary={`${yearKeys.length} years of vintage analysis (${yearKeys[0]}\u2013${yearKeys[yearKeys.length - 1]})`} defaultOpen>
+      <DrillDown title="Detailed Season Reports" summary={`${yearKeys.length} years of vintage analysis (${yearKeys[0]}–${yearKeys[yearKeys.length - 1]})`} defaultOpen>
         <div className="mb-4">
           <TabGroup
             tabs={yearKeys.map(y => ({ key: y, label: String(y) }))}
@@ -418,15 +418,15 @@ function RegionDetailPanel({ region, onClose }) {
       </DrillDown>
 
       {/* Tier 3: Full Data Table */}
-      <DrillDown title="Full Climate Data Table" summary="All metrics across all years \u2014 exportable">
+      <DrillDown title="Full Climate Data Table" summary="All metrics across all years — exportable">
         <DataTable
           columns={[
             { key: 'year', label: 'Year', width: 'w-16' },
-            { key: 'yield', label: `Yield (${region.yieldUnit})`, render: v => v !== null ? (typeof v === 'number' && v > 100 ? v.toLocaleString() : v) : '\u2014' },
-            { key: 'rainfall', label: 'Rainfall (mm)', render: v => v !== null ? v : '\u2014' },
-            { key: 'avgTemp', label: 'Avg Temp (\u00b0C)', render: v => v !== null ? v : '\u2014' },
-            { key: 'frostDays', label: 'Frost Days', render: v => v !== null ? v : '\u2014' },
-            { key: 'sunHours', label: 'Sun Hours', render: v => v !== null ? v?.toLocaleString() : '\u2014' },
+            { key: 'yield', label: `Yield (${region.yieldUnit})`, render: v => v !== null ? (typeof v === 'number' && v > 100 ? v.toLocaleString() : v) : '—' },
+            { key: 'rainfall', label: 'Rainfall (mm)', render: v => v !== null ? v : '—' },
+            { key: 'avgTemp', label: 'Avg Temp (°C)', render: v => v !== null ? v : '—' },
+            { key: 'frostDays', label: 'Frost Days', render: v => v !== null ? v : '—' },
+            { key: 'sunHours', label: 'Sun Hours', render: v => v !== null ? v?.toLocaleString() : '—' },
             { key: 'outlook', label: 'Outlook', render: v => <OutlookBadge outlook={v} /> },
           ]}
           data={Object.entries(region.historical).map(([yr, d]) => ({ year: parseInt(yr), ...d })).sort((a, b) => b.year - a.year)}
@@ -439,7 +439,7 @@ function RegionDetailPanel({ region, onClose }) {
 }
 
 /* ================================================================
-   TIER 1 \u2014 Forward-Looking Signals
+   TIER 1 — Forward-Looking Signals
    ================================================================ */
 
 function ForwardSignals() {
@@ -448,7 +448,7 @@ function ForwardSignals() {
       title="Forward-Looking Yield & Price Signals"
       summary={`${FORWARD_SIGNALS.filter(s => s.risk === 'high').length} high-risk, ${FORWARD_SIGNALS.filter(s => s.risk === 'medium').length} medium-risk signals across 8 regions`}
     >
-      <p className="text-xs text-gray-500 mb-4">Intelligence brief: where climate and agricultural factors may impact spirits pricing over the next 12\u201336 months.</p>
+      <p className="text-xs text-gray-500 mb-4">Intelligence brief: where climate and agricultural factors may impact spirits pricing over the next 12–36 months.</p>
       <div className="space-y-3">
         {FORWARD_SIGNALS.map((s, i) => (
           <div key={i} className={`rounded-lg border p-4 ${s.risk === 'high' ? 'border-red-200 bg-red-50/50' : s.risk === 'medium' ? 'border-amber-200 bg-amber-50/30' : 'border-gray-200 bg-gray-50/30'}`}>
@@ -495,7 +495,7 @@ export default function ClimateYield() {
               <div className="flex items-center gap-2">
                 <span className="text-2xl">{r.icon}</span>
                 <div>
-                  <p className="text-xs text-gray-500">{r.crop} \u2014 {r.spirit}</p>
+                  <p className="text-xs text-gray-500">{r.crop} — {r.spirit}</p>
                   <p className="text-xs text-gray-500">{r.country}</p>
                 </div>
               </div>
@@ -510,7 +510,7 @@ export default function ClimateYield() {
                 <div className="bg-gray-50 rounded-lg p-2.5 text-center">
                   <div className="text-xs text-gray-500 uppercase">YoY Change</div>
                   <div className={`text-sm font-bold ${yieldChange && parseFloat(yieldChange) >= 0 ? 'text-emerald-600' : 'text-red-500'}`}>
-                    {yieldChange ? `${parseFloat(yieldChange) >= 0 ? '+' : ''}${yieldChange}%` : '\u2014'}
+                    {yieldChange ? `${parseFloat(yieldChange) >= 0 ? '+' : ''}${yieldChange}%` : '—'}
                   </div>
                 </div>
               </div>
@@ -576,7 +576,7 @@ export default function ClimateYield() {
   const liSig1 = liHighRiskCount >= 3
     ? { dot: 'bg-red-500', color: 'text-red-600', label: 'Critical Climate Alert', copy: `${liHighRiskCount} high-risk agricultural signals active. Immediate supply chain review recommended across all exposed categories.` }
     : liHighRiskCount >= 2
-    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Elevated Climate Risk', copy: `${liHighRiskCount} high-risk signals active this season. Champagne spring frost (April) and Mediterranean juniper wildfire season (summer) require active monitoring. Confirm 12\u201318\u202fmonth inventory buffers.` }
+    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Elevated Climate Risk', copy: `${liHighRiskCount} high-risk signals active this season. Champagne spring frost (April) and Mediterranean juniper wildfire season (summer) require active monitoring. Confirm 12–18 month inventory buffers.` }
     : liHighRiskCount >= 1
     ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Single Risk In Focus', copy: `${liHighRiskCount} high-risk climate signal active this cycle, plus ${liMediumCount} medium-risk signals in monitoring. Targeted sourcing vigilance recommended.` }
     : { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Low Climate Risk', copy: `No high-risk climate signals flagged across monitored regions. ${liMediumCount} signals in medium-risk monitoring. Business-as-usual sourcing conditions apply.` }
@@ -584,16 +584,16 @@ export default function ClimateYield() {
   const liSig2 = liBearishCount >= 4
     ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Widespread Bearish Pressure', copy: `${liBearishCount} production regions tracking bearish yield outlook. Buyers with concentrated input exposure should review supplier alternatives and consider forward contract positions.` }
     : liBearishCount >= 2
-    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Selective Supply Stress', copy: `${liBearishCount} production regions in bearish territory. Targeted impact on specific categories \u2014 review sourcing strategy for affected inputs.` }
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Selective Supply Stress', copy: `${liBearishCount} production regions in bearish territory. Targeted impact on specific categories — review sourcing strategy for affected inputs.` }
     : { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Broadly Supportive Supply', copy: `Most monitored regions show neutral or bullish yield outlook. Supply conditions broadly supportive across the spirits input portfolio.` }
 
   const liSig3 = liWorstRegion
     ? liWorstRegion.change < -10
-      ? { dot: 'bg-red-500', color: 'text-red-600', label: 'Yield Shock Detected', copy: `${liWorstRegion.name} tracking ${liWorstRegion.change.toFixed(1)}% YoY yield decline \u2014 the steepest in the monitored portfolio. Input cost inflation typically follows within 12\u201318 months.` }
+      ? { dot: 'bg-red-500', color: 'text-red-600', label: 'Yield Shock Detected', copy: `${liWorstRegion.name} tracking ${liWorstRegion.change.toFixed(1)}% YoY yield decline — the steepest in the monitored portfolio. Input cost inflation typically follows within 12–18 months.` }
       : liWorstRegion.change < -5
       ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Yield Contraction', copy: `${liWorstRegion.name} shows the steepest yield decline at ${liWorstRegion.change.toFixed(1)}% YoY. Review sourcing contracts and inventory positions for affected category inputs.` }
       : liWorstRegion.change < 0
-      ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Mild Yield Softness', copy: `${liWorstRegion.name} leads the portfolio with a ${liWorstRegion.change.toFixed(1)}% YoY yield move. Declines are moderate across the board \u2014 no immediate sourcing alarm warranted.` }
+      ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Mild Yield Softness', copy: `${liWorstRegion.name} leads the portfolio with a ${liWorstRegion.change.toFixed(1)}% YoY yield move. Declines are moderate across the board — no immediate sourcing alarm warranted.` }
       : { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Yields Stable or Growing', copy: `All monitored regions tracking neutral or positive yield trajectory. Agave oversupply continues to provide tequila producers a rare input cost advantage.` }
     : { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Yield Data Updating', copy: 'Yield trajectory calculation in progress across the monitored portfolio.' }
 
@@ -601,7 +601,7 @@ export default function ClimateYield() {
     <div className="max-w-7xl mx-auto space-y-6">
       <PageHeader
         title="Climate & Yield Intelligence"
-        subtitle="Agricultural inputs, weather patterns, and forward-looking yield analysis for every major spirits category \u00b7 Data as of April 2026"
+        subtitle="Agricultural inputs, weather patterns, and forward-looking yield analysis for every major spirits category · Data as of April 2026"
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Climate & Yield' }
@@ -618,7 +618,7 @@ export default function ClimateYield() {
                 <SectionLabel>Key Insight</SectionLabel>
                 <h2 className="font-display text-lg text-navy mb-2">2025 Vintage Outlook: Mixed with Two Critical Risks</h2>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Champagne faces another potential frost catastrophe in April, and Mediterranean juniper stands remain structurally threatened by wildfire. Meanwhile, agave oversupply is creating a rare cost advantage for new tequila entrants \u2014 but the seeds of the next shortage (2030\u201332) are being sown now by farmer exits.
+                  Champagne faces another potential frost catastrophe in April, and Mediterranean juniper stands remain structurally threatened by wildfire. Meanwhile, agave oversupply is creating a rare cost advantage for new tequila entrants — but the seeds of the next shortage (2030–32) are being sown now by farmer exits.
                 </p>
               </Card>
             </BentoGrid.Hero>
@@ -641,7 +641,7 @@ export default function ClimateYield() {
             <MetricCard
               label="Data Depth"
               value="10 Years"
-              subtitle="2016\u20132025 + live weather"
+              subtitle="2016–2025 + live weather"
               icon={Calendar}
             />
             <MetricCard
@@ -660,7 +660,7 @@ export default function ClimateYield() {
                 <Zap size={14} className="text-gold" />
               </div>
               <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
-              <span className="text-xs text-gray-400 ml-auto">Climate &amp; Yield Signals \u00b7 2025</span>
+              <span className="text-xs text-gray-400 ml-auto">Climate &amp; Yield Signals · 2025</span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               {[liSig1, liSig2, liSig3].map((sig, i) => (

@@ -66,7 +66,7 @@ function ShowCard({ show, expanded, onToggle }) {
           </div>
           {show.dates['2025'] && show.dates['2026'] && (
             <div className="mt-2 text-xs text-gray-500">
-              <span className="font-medium">2025:</span> {show.dates['2025']} {'\u2022'} <span className="font-medium">2026:</span> {show.dates['2026']}
+              <span className="font-medium">2025:</span> {show.dates['2025']} {'•'} <span className="font-medium">2026:</span> {show.dates['2026']}
             </div>
           )}
         </div>

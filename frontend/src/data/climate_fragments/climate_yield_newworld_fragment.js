@@ -17,7 +17,7 @@ export const NEW_WORLD_WINE_REGIONS = [
     criticalFactors: ['Spring frost on early budbreak', 'Summer rain diluting ripeness', 'Harvest-period weather (Sept-Oct fog risk)', 'Climate warming shifting harvest 3 weeks earlier'],
     yieldUnit: 'tonnes/acre',
     avgYield: 3.2,
-    priceLink: 'Willamette Pinot Noir grapes: $800\u20131200/ton. 2021 heat dome reduced yields 15\u201330%, maintaining quality. Early harvests (now mid-Sept vs late Sept) concentrate sugars but compress harvest window.',
+    priceLink: 'Willamette Pinot Noir grapes: $800–1200/ton. 2021 heat dome reduced yields 15–30%, maintaining quality. Early harvests (now mid-Sept vs late Sept) concentrate sugars but compress harvest window.',
     historical: {
       2006: { yield: 3.1, rainfall: 1240, avgTemp: 8.3, frostDays: 54, sunHours: 1520, season: 'Normal vintage. Good moisture balance. Typical Pinot ripening cycle. European-standard yields.', outlook: 'neutral' },
       2007: { yield: 2.8, rainfall: 1350, avgTemp: 8.0, frostDays: 62, sunHours: 1480, season: 'Wet year. Cool summer delayed ripening. Small berries. Spring frost damage in some parcels.', outlook: 'bearish' },
@@ -34,10 +34,10 @@ export const NEW_WORLD_WINE_REGIONS = [
       2018: { yield: 3.3, rainfall: 980, avgTemp: 8.8, frostDays: 46, sunHours: 1680, season: 'Warm, dry year. No major fires threatening Valley. Early harvest. Good sugar levels, balanced acidity.', outlook: 'bullish' },
       2019: { yield: 3.1, rainfall: 1140, avgTemp: 8.5, frostDays: 50, sunHours: 1620, season: 'Average conditions. Moderate rainfall. Good growing season. Market oversupply from 2018 recoveries.', outlook: 'neutral' },
       2020: { yield: 3.4, rainfall: 1220, avgTemp: 8.7, frostDays: 48, sunHours: 1640, season: 'Excellent. Hot, dry conditions. Grapes ripened fully. COVID altered sales but supply quality excellent. No smoke taint.', outlook: 'bullish' },
-      2021: { yield: 2.4, rainfall: 1260, avgTemp: 8.2, frostDays: 56, sunHours: 1480, season: 'Heat dome June 28 (117\u00b0F Salem). Heat accumulation 29% above normal. Smaller berries, yields down 15\u201330%. Quality exceptional \u2014 concentrated fruit despite stress. Most stressful vintage in 30+ years.', outlook: 'bearish' },
+      2021: { yield: 2.4, rainfall: 1260, avgTemp: 8.2, frostDays: 56, sunHours: 1480, season: 'Heat dome June 28 (117°F Salem). Heat accumulation 29% above normal. Smaller berries, yields down 15–30%. Quality exceptional — concentrated fruit despite stress. Most stressful vintage in 30+ years.', outlook: 'bearish' },
       2022: { yield: 3.1, rainfall: 1000, avgTemp: 8.9, frostDays: 42, sunHours: 1720, season: 'Recovery vintage. Warm, dry conditions. Return to normal yields. Early harvest by new standard (mid-Sept). Quality solid.', outlook: 'neutral' },
       2023: { yield: 3.2, rainfall: 1130, avgTemp: 8.5, frostDays: 50, sunHours: 1600, season: 'Standard vintage. Balanced conditions. Cool nights preserved acidity. Typical growing season cycle.', outlook: 'neutral' },
-      2024: { yield: 3.0, rainfall: 1180, avgTemp: 8.4, frostDays: 52, sunHours: 1580, season: 'Concentration year. Warmer-than-average growing season. Early harvest (Sept 10\u201320 typical now vs Sept 30\u201340 historically). Ripe fruit, good focus.', outlook: 'neutral' },
+      2024: { yield: 3.0, rainfall: 1180, avgTemp: 8.4, frostDays: 52, sunHours: 1580, season: 'Concentration year. Warmer-than-average growing season. Early harvest (Sept 10–20 typical now vs Sept 30–40 historically). Ripe fruit, good focus.', outlook: 'neutral' },
       2025: { yield: null, rainfall: null, avgTemp: null, frostDays: null, sunHours: null, season: 'Dormant. Winter mild (warming trend). Spring frost risk moderate if budburst occurs early. Early warmth could trigger premature break. Key period: April budburst timing.', outlook: 'monitoring' }
     }
   },
@@ -55,7 +55,7 @@ export const NEW_WORLD_WINE_REGIONS = [
     criticalFactors: ['Irrigation water availability (Yakima River basin)', 'Winter freeze damage to vines (<-18°C risk)', 'Extreme daily temperature swings', 'Drought stress during veraison'],
     yieldUnit: 'tonnes/acre',
     avgYield: 4.0,
-    priceLink: 'Columbia Valley Cabernet grapes: $1200\u20132000/ton. Irrigation control (key competitive edge) impacts ripeness quality. Drought years reduce yields 20\u201330% but concentrate flavor. Winter freeze catastrophic (vine loss).',
+    priceLink: 'Columbia Valley Cabernet grapes: $1200–2000/ton. Irrigation control (key competitive edge) impacts ripeness quality. Drought years reduce yields 20–30% but concentrate flavor. Winter freeze catastrophic (vine loss).',
     historical: {
       2006: { yield: 4.1, rainfall: 180, avgTemp: 10.2, frostDays: 120, sunHours: 2500, season: 'Good vintage. Adequate spring/early summer irrigation. Strong heat accumulation. Ripe fruit quality.', outlook: 'bullish' },
       2007: { yield: 3.8, rainfall: 210, avgTemp: 9.9, frostDays: 128, sunHours: 2450, season: 'Cool year. Shorter growing season. Lower yields. Wines less concentrated than 2006.', outlook: 'neutral' },
@@ -72,7 +72,7 @@ export const NEW_WORLD_WINE_REGIONS = [
       2018: { yield: 4.2, rainfall: 140, avgTemp: 10.6, frostDays: 108, sunHours: 2680, season: 'Hot, dry year. Strong heat accumulation. Excellent ripeness. Deficit irrigation controlled vigor. Outstanding quality.', outlook: 'bullish' },
       2019: { yield: 3.9, rainfall: 190, avgTemp: 10.2, frostDays: 120, sunHours: 2560, season: 'Average year. Market oversupply from 2018. Adequate irrigation. Mid-range quality.', outlook: 'neutral' },
       2020: { yield: 4.0, rainfall: 170, avgTemp: 10.3, frostDays: 118, sunHours: 2600, season: 'Good year. Derecho windstorm Aug 2020 (Iowa primary impact, mild WA effect). Harvest mostly unaffected. Quality good.', outlook: 'neutral' },
-      2021: { yield: 2.9, rainfall: 200, avgTemp: 10.1, frostDays: 122, sunHours: 2550, season: 'Heat dome June 28\u201330 (record temps Tri-Cities). Heat accumulation 29% above normal. Berries small, yields down 15\u201330%. Exceptional concentration and ripeness. One of most extreme vintages on record.', outlook: 'bearish' },
+      2021: { yield: 2.9, rainfall: 200, avgTemp: 10.1, frostDays: 122, sunHours: 2550, season: 'Heat dome June 28–30 (record temps Tri-Cities). Heat accumulation 29% above normal. Berries small, yields down 15–30%. Exceptional concentration and ripeness. One of most extreme vintages on record.', outlook: 'bearish' },
       2022: { yield: 3.7, rainfall: 180, avgTemp: 10.5, frostDays: 110, sunHours: 2640, season: 'Drought year. Hot conditions. Smaller berries from stress. Lower yields. Concentrated wines. Market tight on supplies.', outlook: 'neutral' },
       2023: { yield: 3.5, rainfall: 160, avgTemp: 10.4, frostDays: 115, sunHours: 2600, season: 'Continued dryness. Irrigation supply adequate from mountain snowmelt. Cool-warm balance maintained. Below-average yields but quality solid.', outlook: 'neutral' },
       2024: { yield: 4.0, rainfall: 190, avgTemp: 10.2, frostDays: 120, sunHours: 2570, season: 'Return to average conditions. Spring moisture improved. Balanced growing season. Yields recovered. Quality good baseline vintage.', outlook: 'neutral' },
@@ -93,7 +93,7 @@ export const NEW_WORLD_WINE_REGIONS = [
     criticalFactors: ['Spring frost after early budbreak (catastrophic risk)', 'Summer humidity and disease pressure', 'Lake-moderated freeze protection variable by elevation', 'Fall rain near harvest (botrytis risk)'],
     yieldUnit: 'tonnes/ha',
     avgYield: 8.5,
-    priceLink: 'Finger Lakes Riesling grapes: $400\u2013600/ton. Spring frosts (2014 lost 67% European varieties) and recent years\u2019 frost damage cause supply swings. Award-winning Rieslings command premiums when quality years hit (2013, 2015, 2018).',
+    priceLink: 'Finger Lakes Riesling grapes: $400–600/ton. Spring frosts (2014 lost 67% European varieties) and recent years’ frost damage cause supply swings. Award-winning Rieslings command premiums when quality years hit (2013, 2015, 2018).',
     historical: {
       2006: { yield: 8.2, rainfall: 1020, avgTemp: 10.1, frostDays: 140, sunHours: 1720, season: 'Good year. Lake moderation stable. Riesling quality developing. Normal frost risk (April-May).', outlook: 'neutral' },
       2007: { yield: 7.6, rainfall: 1180, avgTemp: 9.8, frostDays: 152, sunHours: 1680, season: 'Wet year. Humidity high, disease pressure managed. Yields moderate. Quality inconsistent.', outlook: 'neutral' },
@@ -102,19 +102,19 @@ export const NEW_WORLD_WINE_REGIONS = [
       2010: { yield: 8.8, rainfall: 920, avgTemp: 10.5, frostDays: 130, sunHours: 1800, season: 'Excellent year. Warm, relatively dry. Early harvest. High acidity, mineral tone in Riesling. Outstanding.', outlook: 'bullish' },
       2011: { yield: 8.1, rainfall: 1100, avgTemp: 10.1, frostDays: 142, sunHours: 1740, season: 'Average year. Normal spring frost risk. Yields mid-range. Quality solid but not exceptional.', outlook: 'neutral' },
       2012: { yield: 7.3, rainfall: 1240, avgTemp: 9.7, frostDays: 156, sunHours: 1660, season: 'Cool, wet year. Frost risk high in April. Some parcels hit. Humidity and disease pressure high. Yields below average.', outlook: 'bearish' },
-      2013: { yield: 9.0, rainfall: 950, avgTemp: 10.6, frostDays: 128, sunHours: 1820, season: 'Excellent vintage. Warm growing season. Low spring frost risk. Abundant yields. Outstanding Riesling quality \u2014 considered one of best Finger Lakes years in recent memory.', outlook: 'bullish' },
+      2013: { yield: 9.0, rainfall: 950, avgTemp: 10.6, frostDays: 128, sunHours: 1820, season: 'Excellent vintage. Warm growing season. Low spring frost risk. Abundant yields. Outstanding Riesling quality — considered one of best Finger Lakes years in recent memory.', outlook: 'bullish' },
       2014: { yield: 3.0, rainfall: 1320, avgTemp: 9.5, frostDays: 165, sunHours: 1620, season: 'Catastrophic spring frost. May frost destroyed up to 67% of European grape varieties in some blocks. Devastating yield loss (90%+ in affected vineyards). Industry trauma. Largest crop loss in modern history. Recovery took years.', outlook: 'bearish' },
       2015: { yield: 8.6, rainfall: 1000, avgTemp: 10.4, frostDays: 135, sunHours: 1780, season: 'Recovery from 2014. Warm spring with no late frost. Excellent ripening conditions. Strong yields and quality. Market relief.', outlook: 'bullish' },
       2016: { yield: 8.2, rainfall: 1080, avgTemp: 10.1, frostDays: 143, sunHours: 1750, season: 'Average year. Moderate frost risk. Mid-range yields. Quality consistent with warm-enough baseline.', outlook: 'neutral' },
       2017: { yield: 8.4, rainfall: 1060, avgTemp: 10.2, frostDays: 141, sunHours: 1760, season: 'Good year. No major spring frosts. Normal disease pressure. Yields strong. Quality above average.', outlook: 'neutral' },
       2018: { yield: 8.7, rainfall: 940, avgTemp: 10.5, frostDays: 132, sunHours: 1800, season: 'Excellent year. Warm, dry (by Finger Lakes standard). Low frost risk. Outstanding Riesling balance.', outlook: 'bullish' },
       2019: { yield: 8.1, rainfall: 1240, avgTemp: 10.0, frostDays: 147, sunHours: 1720, season: 'Wet spring from multiple storms. Flooding in parts of NY. Cool summer. Moderate yields. Quality mixed.', outlook: 'neutral' },
-      2020: { yield: 8.9, rainfall: 1050, avgTemp: 10.4, frostDays: 135, sunHours: 1790, season: 'Excellent. Pristine hot, dry conditions (similar to California pattern). Abundant sunshine. Riesling ripened fully. Outstanding quality. COVID didn\u2019t disrupt harvest.', outlook: 'bullish' },
+      2020: { yield: 8.9, rainfall: 1050, avgTemp: 10.4, frostDays: 135, sunHours: 1790, season: 'Excellent. Pristine hot, dry conditions (similar to California pattern). Abundant sunshine. Riesling ripened fully. Outstanding quality. COVID didn’t disrupt harvest.', outlook: 'bullish' },
       2021: { yield: 6.5, rainfall: 1380, avgTemp: 9.6, frostDays: 160, sunHours: 1640, season: 'Humidity and rain deluge. Late spring frosts in some microclimates. Smaller crops. Disease pressure high. Challenging growing season but survivors made quality wine.', outlook: 'bearish' },
       2022: { yield: 5.8, rainfall: 1150, avgTemp: 10.0, frostDays: 150, sunHours: 1700, season: 'Ripe but scarce. Spring damage left small berries. Low yields across board. Small crop, concentrated fruit. Scarcity premium likely.', outlook: 'bearish' },
       2023: { yield: 8.3, rainfall: 1000, avgTemp: 10.3, frostDays: 138, sunHours: 1770, season: 'Standard vintage. Bright, fresh Riesling character. Good acidity. Hallmark cool-climate style. Normal yields recovered.', outlook: 'neutral' },
       2024: { yield: 8.2, rainfall: 1080, avgTemp: 10.1, frostDays: 143, sunHours: 1750, season: 'Concentration year. Smaller berries from earlier summer stress. Riper flavor intensity. Yields similar to 2023. Quality solid.', outlook: 'neutral' },
-      2025: { yield: null, rainfall: null, avgTemp: null, frostDays: null, sunHours: null, season: 'Dormancy. Winter mild (warming trend). Spring frost risk moderate. April budburst timing critical \u2014 early warmth could expose young growth to late April frost (classic Finger Lakes risk). Monitoring temperatures March\u2013May closely.', outlook: 'monitoring' }
+      2025: { yield: null, rainfall: null, avgTemp: null, frostDays: null, sunHours: null, season: 'Dormancy. Winter mild (warming trend). Spring frost risk moderate. April budburst timing critical — early warmth could expose young growth to late April frost (classic Finger Lakes risk). Monitoring temperatures March–May closely.', outlook: 'monitoring' }
     }
   },
 
@@ -128,10 +128,10 @@ export const NEW_WORLD_WINE_REGIONS = [
     lon: -78.54,
     color: '#800020',
     icon: '\u{1F347}',
-    criticalFactors: ['Spring frost (Mother\u2019s Day frost classic risk)', 'Summer hurricanes and tropical storms', 'Humidity and fungal disease pressure', 'Elevation protection but variable microclimates'],
+    criticalFactors: ['Spring frost (Mother’s Day frost classic risk)', 'Summer hurricanes and tropical storms', 'Humidity and fungal disease pressure', 'Elevation protection but variable microclimates'],
     yieldUnit: 'tonnes/ha',
     avgYield: 7.2,
-    priceLink: 'Virginia Cabernet grapes: $300\u2013500/ton (emerging region pricing). Spring frosts (Mother\u2019s Day 2021 major damage) and hurricane impacts (Ian 2022) create supply swings. Region gaining attention but still developing identity vs established regions.',
+    priceLink: 'Virginia Cabernet grapes: $300–500/ton (emerging region pricing). Spring frosts (Mother’s Day 2021 major damage) and hurricane impacts (Ian 2022) create supply swings. Region gaining attention but still developing identity vs established regions.',
     historical: {
       2006: { yield: 6.8, rainfall: 1100, avgTemp: 12.5, frostDays: 110, sunHours: 2000, season: 'Emerging region. Limited commercial plantings. Boutique producers experimenting. Adequate rainfall. Growing season challenges.', outlook: 'neutral' },
       2007: { yield: 6.5, rainfall: 1180, avgTemp: 12.3, frostDays: 115, sunHours: 1950, season: 'Humid, wet year. Disease pressure on European varieties. Smaller commercial operations.', outlook: 'bearish' },
@@ -147,8 +147,8 @@ export const NEW_WORLD_WINE_REGIONS = [
       2017: { yield: 7.4, rainfall: 1080, avgTemp: 13.1, frostDays: 98, sunHours: 2140, season: 'Good year. No major hurricane impact in Sept-Oct harvest window. Steady yields, improving quality.', outlook: 'neutral' },
       2018: { yield: 7.6, rainfall: 1040, avgTemp: 13.3, frostDays: 96, sunHours: 2180, season: 'Strong vintage. Warm, dry conditions. Cabernet ripened fully. Quality above average.', outlook: 'bullish' },
       2019: { yield: 6.8, rainfall: 1200, avgTemp: 12.9, frostDays: 105, sunHours: 2110, season: 'Moderate year. Adequate rainfall. Normal disease pressure. Mid-range outcomes.', outlook: 'neutral' },
-      2020: { yield: 7.2, rainfall: 1100, avgTemp: 13.1, frostDays: 100, sunHours: 2140, season: 'Good year. COVID didn\u2019t disrupt harvest (outdoor activity). Balanced vintage.', outlook: 'neutral' },
-      2021: { yield: 3.8, rainfall: 1180, avgTemp: 12.6, frostDays: 118, sunHours: 2080, season: 'Mother\u2019s Day frost (mid-May) devastating. Lost 60\u201380% of buds in frost-prone blocks. Significant yield loss. Industry shock.', outlook: 'bearish' },
+      2020: { yield: 7.2, rainfall: 1100, avgTemp: 13.1, frostDays: 100, sunHours: 2140, season: 'Good year. COVID didn’t disrupt harvest (outdoor activity). Balanced vintage.', outlook: 'neutral' },
+      2021: { yield: 3.8, rainfall: 1180, avgTemp: 12.6, frostDays: 118, sunHours: 2080, season: 'Mother’s Day frost (mid-May) devastating. Lost 60–80% of buds in frost-prone blocks. Significant yield loss. Industry shock.', outlook: 'bearish' },
       2022: { yield: 4.2, rainfall: 1320, avgTemp: 12.4, frostDays: 125, sunHours: 2020, season: 'May frosts again, frequent summer storms, Hurricane Ian late September harvest disruption. Wet, challenging year. Yields low. Disease pressure high.', outlook: 'bearish' },
       2023: { yield: 7.0, rainfall: 1050, avgTemp: 13.2, frostDays: 98, sunHours: 2150, season: 'Good recovery. Very good quality despite low yields (frost at budbreak again March-April). Hot summer caused some vine dormancy stress. Above-average ripeness for survivors.', outlook: 'neutral' },
       2024: { yield: 7.3, rainfall: 1100, avgTemp: 13.0, frostDays: 102, sunHours: 2120, season: 'Balanced year. Frost risk lower in spring. Mid-range yields. Consistent with developing region baseline.', outlook: 'neutral' },
@@ -170,7 +170,7 @@ export const NEW_WORLD_WINE_REGIONS = [
     criticalFactors: ['Drought stress reducing Brix accumulation', 'Water availability (limited irrigation rights)', 'Heat waves during veraison (fruit damage)', 'Old vine vigor management (Shiraz 180+ yr vines)'],
     yieldUnit: 'tonnes/ha',
     avgYield: 6.2,
-    priceLink: 'Barossa Shiraz grapes: AUD $1200\u20132500/ton. 2020 drought crisis (2024 driest since 2006, only 190mm rain Sept-Apr) pushed prices up 25\u201335%. Water rights traded separately at premium premiums.',
+    priceLink: 'Barossa Shiraz grapes: AUD $1200–2500/ton. 2020 drought crisis (2024 driest since 2006, only 190mm rain Sept-Apr) pushed prices up 25–35%. Water rights traded separately at premium premiums.',
     historical: {
       2006: { yield: 6.5, rainfall: 450, avgTemp: 22.0, frostDays: 0, sunHours: 2680, season: 'Baseline year. Normal summer drought. Irrigation essential. Shiraz achieving peak ripeness. Strong Australian wine boom.', outlook: 'bullish' },
       2007: { yield: 6.2, rainfall: 480, avgTemp: 21.8, frostDays: 0, sunHours: 2650, season: 'Good vintage. Warm summer. Adequate water supply. Strong international demand.', outlook: 'neutral' },
@@ -190,7 +190,7 @@ export const NEW_WORLD_WINE_REGIONS = [
       2021: { yield: 6.2, rainfall: 480, avgTemp: 22.1, frostDays: 0, sunHours: 2700, season: 'Good growing year. Winter/spring rains adequate. Normal Barossa vintage. Relief after 2020.', outlook: 'neutral' },
       2022: { yield: 5.8, rainfall: 420, avgTemp: 22.8, frostDays: 0, sunHours: 2780, season: 'Drought year. Hot conditions. Smaller berries. Concentrated wines. Yields below trend.', outlook: 'neutral' },
       2023: { yield: 5.6, rainfall: 460, avgTemp: 22.6, frostDays: 0, sunHours: 2750, season: 'Continuing drought stress. Calendar year 326.6mm (74% avg). Yields variable. Quality maintained. Stress continues.', outlook: 'bearish' },
-      2024: { yield: 5.2, rainfall: 302, avgTemp: 23.1, frostDays: 0, sunHours: 2800, season: 'DRIEST GROWING SEASON SINCE 2006. Only 190mm rain Sept-Apr. Yields 80\u201390% normal (variable by site/water access). Exceptional concentration. Shiraz intensity high.', outlook: 'bearish' },
+      2024: { yield: 5.2, rainfall: 302, avgTemp: 23.1, frostDays: 0, sunHours: 2800, season: 'DRIEST GROWING SEASON SINCE 2006. Only 190mm rain Sept-Apr. Yields 80–90% normal (variable by site/water access). Exceptional concentration. Shiraz intensity high.', outlook: 'bearish' },
       2025: { yield: null, rainfall: null, avgTemp: null, frostDays: null, sunHours: null, season: 'Dormancy. Winter/spring rain pattern critical. Current forecasts suggest near-normal rainfall (recovery). Water availability still tightest on continent.', outlook: 'monitoring' }
     }
   },
@@ -209,7 +209,7 @@ export const NEW_WORLD_WINE_REGIONS = [
     criticalFactors: ['Maritime influence variability', 'Spring drought stress', 'Heat stress veraison', 'Downy mildew from wet springs'],
     yieldUnit: 'tonnes/ha',
     avgYield: 5.8,
-    priceLink: 'McLaren Vale Shiraz: AUD \$1000\u20132200/ton. Premium prices for cooler-site fruit (coastal exposure). 2021-2022 booming demand. 2023 yields reduced.',
+    priceLink: 'McLaren Vale Shiraz: AUD \$1000–2200/ton. Premium prices for cooler-site fruit (coastal exposure). 2021-2022 booming demand. 2023 yields reduced.',
     historical: {
       2006: { yield: 5.9, rainfall: 520, avgTemp: 21.5, frostDays: 2, sunHours: 2620, season: 'Good vintage. Maritime influence. Balanced growth.', outlook: 'neutral' },
       2007: { yield: 5.6, rainfall: 580, avgTemp: 21.2, frostDays: 3, sunHours: 2580, season: 'Wetter year. Cooler. Average yields.', outlook: 'neutral' },
@@ -250,7 +250,7 @@ export const NEW_WORLD_WINE_REGIONS = [
     criticalFactors: ['Spring frost on early budbreak', 'Summer drought stress (low rainfall region)', 'Flowering weather (wind/rain reduce set)', 'Autumn cooling (influences ripeness pacing)'],
     yieldUnit: 'tonnes/ha',
     avgYield: 11.5,
-    priceLink: 'Marlborough Sauvignon Blanc grapes: NZD $1200\u20131800/ton. Low rainfall = natural concentration. Drought years (2023-2024) reduce volume but maintain quality. Regional dominance (75%+ NZ production) gives price-setting power.',
+    priceLink: 'Marlborough Sauvignon Blanc grapes: NZD $1200–1800/ton. Low rainfall = natural concentration. Drought years (2023-2024) reduce volume but maintain quality. Regional dominance (75%+ NZ production) gives price-setting power.',
     historical: {
       2006: { yield: 10.8, rainfall: 650, avgTemp: 16.2, frostDays: 35, sunHours: 2400, season: 'Good vintage. Cool maritime climate. Sauvignon Blanc developing reputation. Exports growing.', outlook: 'bullish' },
       2007: { yield: 10.2, rainfall: 720, avgTemp: 15.9, frostDays: 42, sunHours: 2350, season: 'Cool, wetter year. Lower yields. Acid retention excellent.', outlook: 'neutral' },
@@ -269,9 +269,9 @@ export const NEW_WORLD_WINE_REGIONS = [
       2020: { yield: 12.1, rainfall: 590, avgTemp: 16.7, frostDays: 26, sunHours: 2540, season: 'Strong year. Excellent SB ripeness.', outlook: 'bullish' },
       2021: { yield: 8.2, rainfall: 710, avgTemp: 16.0, frostDays: 40, sunHours: 2380, season: 'Low crops, exceptional quality. Flowering challenges. Rain during set. Yet survivors made best wine. La Niña influence.', outlook: 'bearish' },
       2022: { yield: 12.6, rainfall: 620, avgTemp: 16.5, frostDays: 30, sunHours: 2510, season: 'Up from 2021 lows. Long hot, dry weather (El Niño). Strong yields. Nation-wide: 532k tonnes.', outlook: 'bullish' },
-      2023: { yield: 11.8, rainfall: 680, avgTemp: 16.2, frostDays: 35, sunHours: 2450, season: 'Down 6% from 2022 (501k tonnes vs 532k). Cyclone Gabrielle wet effects. Evenly-distributed rain vs 2022\u2019s Feb concentration. Improved balance.', outlook: 'neutral' },
+      2023: { yield: 11.8, rainfall: 680, avgTemp: 16.2, frostDays: 35, sunHours: 2450, season: 'Down 6% from 2022 (501k tonnes vs 532k). Cyclone Gabrielle wet effects. Evenly-distributed rain vs 2022’s Feb concentration. Improved balance.', outlook: 'neutral' },
       2024: { yield: 9.5, rainfall: 540, avgTemp: 16.9, frostDays: 22, sunHours: 2600, season: 'Drought conditions. Ultra-dry summer. Cold nights March (autumnal shift). Low yields, warm days, exceptional concentration potential.', outlook: 'bearish' },
-      2025: { yield: null, rainfall: null, avgTemp: null, frostDays: null, sunHours: null, season: 'Dormancy. Winter/spring rain expected (La Ni\u00f1a weakening). Yields expected to rebound 2025 from 2024 lows. Spring frost risk moderate.', outlook: 'monitoring' }
+      2025: { yield: null, rainfall: null, avgTemp: null, frostDays: null, sunHours: null, season: 'Dormancy. Winter/spring rain expected (La Niña weakening). Yields expected to rebound 2025 from 2024 lows. Spring frost risk moderate.', outlook: 'monitoring' }
     }
   },
 
@@ -289,7 +289,7 @@ export const NEW_WORLD_WINE_REGIONS = [
     criticalFactors: ['Diminished winter rainfall (climate change signal)', 'Spring drought stress', 'Maritime influence variability', 'Late-season rain risk (botrytis)'],
     yieldUnit: 'tonnes/ha',
     avgYield: 6.8,
-    priceLink: 'Stellenbosch Cabernet: ZAR 8000\u201315000/ton (~USD 450\u2013800). 2024 flooding + drought cycle unusual. Vineyard intensity (high-density plantings) affects yields significantly. Water availability tightening.',
+    priceLink: 'Stellenbosch Cabernet: ZAR 8000–15000/ton (~USD 450–800). 2024 flooding + drought cycle unusual. Vineyard intensity (high-density plantings) affects yields significantly. Water availability tightening.',
     historical: {
       2006: { yield: 6.8, rainfall: 580, avgTemp: 17.2, frostDays: 8, sunHours: 2650, season: 'Good vintage. Hot, dry pattern typical. Mediterranean-influenced.', outlook: 'neutral' },
       2007: { yield: 6.4, rainfall: 620, avgTemp: 17.0, frostDays: 10, sunHours: 2620, season: 'Adequate rainfall. Average yields.', outlook: 'neutral' },
@@ -309,7 +309,7 @@ export const NEW_WORLD_WINE_REGIONS = [
       2021: { yield: 6.2, rainfall: 680, avgTemp: 16.9, frostDays: 11, sunHours: 2620, season: 'Wetter year. Cool spring delayed cycle.', outlook: 'neutral' },
       2022: { yield: 7.2, rainfall: 550, avgTemp: 17.5, frostDays: 5, sunHours: 2720, season: 'Exceptional year. Warm, dry, late condensed harvest. Outstanding quality.', outlook: 'bullish' },
       2023: { yield: 5.8, rainfall: 720, avgTemp: 16.8, frostDays: 12, sunHours: 2580, season: 'Small crop (one of smallest last decade). Wet season, late harvest rains disruptive. Whites down vs reds. Quality good despite low volume.', outlook: 'bearish' },
-      2024: { yield: 5.2, rainfall: 420, avgTemp: 17.6, frostDays: 3, sunHours: 2750, season: 'Once-in-200-year floods Sept 2023 (pre-harvest). Spring/summer 2024 dry, warm, windy. Industry-wide 20\u201350% volume drop. Quality exceptional for full-bodied reds.', outlook: 'bearish' },
+      2024: { yield: 5.2, rainfall: 420, avgTemp: 17.6, frostDays: 3, sunHours: 2750, season: 'Once-in-200-year floods Sept 2023 (pre-harvest). Spring/summer 2024 dry, warm, windy. Industry-wide 20–50% volume drop. Quality exceptional for full-bodied reds.', outlook: 'bearish' },
       2025: { yield: null, rainfall: null, avgTemp: null, frostDays: null, sunHours: null, season: 'Dormancy. Winter rainfall pattern critical. Diminished winter rainfall (climate change indicator) ongoing concern.', outlook: 'monitoring' }
     }
   },
@@ -328,7 +328,7 @@ export const NEW_WORLD_WINE_REGIONS = [
     criticalFactors: ['Spring frosts (Oct-Nov critical)', 'Summer drought & hail damage', 'Water availability (Andes snowmelt dependent)', 'Altitude zones (2000m+ frost risk)'],
     yieldUnit: 'tonnes/ha',
     avgYield: 7.8,
-    priceLink: 'Mendoza Malbec grapes: ARS 2000\u20134000/ton (~USD 2\u20134/lb, variable with weather). 2023 historic low yields (since 1960) pushed prices up 40%. 2022-2024 multi-year drought restructured economics.',
+    priceLink: 'Mendoza Malbec grapes: ARS 2000–4000/ton (~USD 2–4/lb, variable with weather). 2023 historic low yields (since 1960) pushed prices up 40%. 2022-2024 multi-year drought restructured economics.',
     historical: {
       2006: { yield: 8.2, rainfall: 420, avgTemp: 22.5, frostDays: 15, sunHours: 2700, season: 'Good vintage. Normal Andean runoff. Strong yields.', outlook: 'bullish' },
       2007: { yield: 7.9, rainfall: 450, avgTemp: 22.3, frostDays: 18, sunHours: 2680, season: 'Average.', outlook: 'neutral' },
@@ -343,13 +343,13 @@ export const NEW_WORLD_WINE_REGIONS = [
       2016: { yield: 7.4, rainfall: 460, avgTemp: 22.1, frostDays: 19, sunHours: 2700, season: 'Frosts again. Short vintage.', outlook: 'bearish' },
       2017: { yield: 7.9, rainfall: 430, avgTemp: 22.4, frostDays: 16, sunHours: 2730, season: 'Frosts ongoing. Shortage cycle building.', outlook: 'neutral' },
       2018: { yield: 8.1, rainfall: 400, avgTemp: 22.6, frostDays: 14, sunHours: 2760, season: 'Improving from frosts. Strong vintage.', outlook: 'bullish' },
-      2019: { yield: 8.3, rainfall: 380, avgTemp: 22.8, frostDays: 12, sunHours: 2790, season: 'Excellent. Shortage peak (pi\u00f1a prices high but for agave). Mendoza benefited from tight supply.', outlook: 'bullish' },
+      2019: { yield: 8.3, rainfall: 380, avgTemp: 22.8, frostDays: 12, sunHours: 2790, season: 'Excellent. Shortage peak (piña prices high but for agave). Mendoza benefited from tight supply.', outlook: 'bullish' },
       2020: { yield: 8.0, rainfall: 420, avgTemp: 22.5, frostDays: 15, sunHours: 2740, season: 'Good conditions. COVID reduced demand but quality good.', outlook: 'neutral' },
       2021: { yield: 8.5, rainfall: 350, avgTemp: 23.0, frostDays: 10, sunHours: 2820, season: 'Exceptional vintage. Drought concentrated flavors. Yields normal after shorts. One of best recent years.', outlook: 'bullish' },
       2022: { yield: 7.8, rainfall: 390, avgTemp: 22.7, frostDays: 13, sunHours: 2760, season: 'Spring frosts Oct-Nov cut yields 3rd consecutive year (frost cycle). Quality very good. Some winemakers call decade-best vintage.', outlook: 'neutral' },
       2023: { yield: 4.2, rainfall: 320, avgTemp: 23.4, frostDays: 8, sunHours: 2860, season: 'LOWEST YIELDS SINCE 1960. Drought + heat catastrophic. Early harvest. Concentrated fruit optimal ripeness. Industry crisis.', outlook: 'bearish' },
       2024: { yield: 5.2, rainfall: 380, avgTemp: 23.1, frostDays: 11, sunHours: 2820, season: 'Erratic weather. Unusual season. Lower-than-expected yields again (2nd consecutive down). But 25% larger than 2023 low base.', outlook: 'bearish' },
-      2025: { yield: null, rainfall: null, avgTemp: null, frostDays: null, sunHours: null, season: 'Dormancy. Spring snowmelt pattern critical (Andes water supply). El Niño weakening may improve moisture. Growers rebuilding confidence after 2022\u20132024 stress.', outlook: 'monitoring' }
+      2025: { yield: null, rainfall: null, avgTemp: null, frostDays: null, sunHours: null, season: 'Dormancy. Spring snowmelt pattern critical (Andes water supply). El Niño weakening may improve moisture. Growers rebuilding confidence after 2022–2024 stress.', outlook: 'monitoring' }
     }
   },
 
@@ -367,7 +367,7 @@ export const NEW_WORLD_WINE_REGIONS = [
     criticalFactors: ['Winter freeze damage to vines (-15 to -25°C risk Dec-Feb)', 'Spring frost (lake moderation variable)', 'Vintage freeze years catastrophic', 'Late-season lake effect ripeness boost'],
     yieldUnit: 'tonnes/ha',
     avgYield: 7.0,
-    priceLink: 'Niagara Riesling grapes: CAD $800\u20131200/ton. 2022-2023 winter damage (2022 deep freeze -22°C) then recovery 2023. 2024-2025 excellent conditions driving quality up.',
+    priceLink: 'Niagara Riesling grapes: CAD $800–1200/ton. 2022-2023 winter damage (2022 deep freeze -22°C) then recovery 2023. 2024-2025 excellent conditions driving quality up.',
     historical: {
       2006: { yield: 6.8, rainfall: 900, avgTemp: 10.2, frostDays: 140, sunHours: 1850, season: 'Good vintage. Lake moderation stable. Riesling quality developing.', outlook: 'neutral' },
       2007: { yield: 6.4, rainfall: 1000, avgTemp: 9.9, frostDays: 152, sunHours: 1800, season: 'Cool, wet year. Humidity. Average yields.', outlook: 'neutral' },
@@ -384,11 +384,11 @@ export const NEW_WORLD_WINE_REGIONS = [
       2018: { yield: 7.3, rainfall: 880, avgTemp: 10.5, frostDays: 135, sunHours: 1950, season: 'Strong. Warm.', outlook: 'bullish' },
       2019: { yield: 6.8, rainfall: 1020, avgTemp: 10.1, frostDays: 147, sunHours: 1880, season: 'Average.', outlook: 'neutral' },
       2020: { yield: 7.4, rainfall: 900, avgTemp: 10.4, frostDays: 137, sunHours: 1920, season: 'Excellent. Hot, dry. COVID logistics OK.', outlook: 'bullish' },
-      2021: { yield: 4.8, rainfall: 1100, avgTemp: 9.7, frostDays: 160, sunHours: 1820, season: 'Winter damage 2020\u20132021 freeze (-15 to -25°C). Vines stressed. Reduced yields. Recovery needed.', outlook: 'bearish' },
+      2021: { yield: 4.8, rainfall: 1100, avgTemp: 9.7, frostDays: 160, sunHours: 1820, season: 'Winter damage 2020–2021 freeze (-15 to -25°C). Vines stressed. Reduced yields. Recovery needed.', outlook: 'bearish' },
       2022: { yield: 3.2, rainfall: 1200, avgTemp: 9.4, frostDays: 168, sunHours: 1760, season: 'CATASTROPHIC FREEZE Dec 2022: -22°C (coldest since 1988). 58% production loss. 99% crop loss in some zones. Multi-year recovery required.', outlook: 'bearish' },
       2023: { yield: 7.2, rainfall: 950, avgTemp: 10.2, frostDays: 143, sunHours: 1890, season: 'Recovery despite winter losses. High yields + quality. Sporadic heatwaves, intermittent rain. Favorable harvest Sept.', outlook: 'bullish' },
       2024: { yield: 7.3, rainfall: 920, avgTemp: 10.4, frostDays: 138, sunHours: 1920, season: 'Warmer-than-average summer (especially intense heat). Exceptional reds expected. Excellent ripeness, balance, structure. Niagara reds particularly promising.', outlook: 'bullish' },
-      2025: { yield: null, rainfall: null, avgTemp: null, frostDays: null, sunHours: null, season: 'Dormancy. Epic drought summer (10\u201312 weeks zero rainfall mid-summer). Historically low humidity. Reduced yields but exceptional concentration. Lake moderation providing cool nights. Balanced acidity. Vintage looking exceptional.', outlook: 'monitoring' }
+      2025: { yield: null, rainfall: null, avgTemp: null, frostDays: null, sunHours: null, season: 'Dormancy. Epic drought summer (10–12 weeks zero rainfall mid-summer). Historically low humidity. Reduced yields but exceptional concentration. Lake moderation providing cool nights. Balanced acidity. Vintage looking exceptional.', outlook: 'monitoring' }
     }
   },
 ]

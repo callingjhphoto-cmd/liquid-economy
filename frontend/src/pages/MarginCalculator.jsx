@@ -20,7 +20,7 @@ import {
 import { CHART_COLORS } from '../data/chartColors'
 
 // ── Helpers ──
-const fmt = (v) => '\u00a3' + v.toFixed(2)
+const fmt = (v) => '£' + v.toFixed(2)
 const pct = (v) => (v * 100).toFixed(1) + '%'
 
 // ── Margin Gauge (donut) ──
@@ -179,7 +179,7 @@ export default function MarginCalculator() {
 
   // Waterfall data for Tier 2 chart
   const waterfallData = costLabels.map(e => ({
-    name: e.label.length > 12 ? e.label.substring(0, 12) + '\u2026' : e.label,
+    name: e.label.length > 12 ? e.label.substring(0, 12) + '…' : e.label,
     cost: parseFloat(computed.costs[e.key].toFixed(2)),
     fill: e.color,
   }))
@@ -266,15 +266,15 @@ export default function MarginCalculator() {
     : computed.margin >= 35
     ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Healthy Margin', copy: `At ${computed.margin.toFixed(1)}%, you are ${computed.margin > benchmarks.avgMargin ? marginAbove + 'pp above' : marginBelow + 'pp below'} the ${cat.label} average (${benchmarks.avgMargin}%). Adequate buffer for commodity volatility at current RRP.` }
     : computed.margin >= 25
-    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Tight Margin', copy: `Your ${computed.margin.toFixed(1)}% is ${marginBelow}pp below the ${cat.label} average (${benchmarks.avgMargin}%). Limited headroom \u2014 review RRP or focus on reducing the highest input cost component.` }
+    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Tight Margin', copy: `Your ${computed.margin.toFixed(1)}% is ${marginBelow}pp below the ${cat.label} average (${benchmarks.avgMargin}%). Limited headroom — review RRP or focus on reducing the highest input cost component.` }
     : { dot: 'bg-red-500', color: 'text-red-600', label: 'Critical Margin', copy: `At ${computed.margin.toFixed(1)}%, you are significantly below the ${cat.label} average (${benchmarks.avgMargin}%). A pricing or cost structure review is required before a viable commercial launch.` }
   const liSig2 = bestScenario.impact > 0
-    ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: `Best Lever: ${bestScenario.label}`, copy: `Activating \u201c${bestScenario.label}\u201d adds +${bestScenario.impact.toFixed(1)}pp, bringing gross margin to ${(computed.baseMargin + bestScenario.impact).toFixed(1)}%. Use Advanced Mode to stack multiple scenarios and model the combined impact.` }
-    : { dot: 'bg-gray-400', color: 'text-gray-500', label: 'No Positive Scenarios', copy: `No available scenario improves this category\u2019s margin at the current RRP. Consider raising the RRP target or exploring direct sourcing to reduce input costs before launch.` }
+    ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: `Best Lever: ${bestScenario.label}`, copy: `Activating “${bestScenario.label}” adds +${bestScenario.impact.toFixed(1)}pp, bringing gross margin to ${(computed.baseMargin + bestScenario.impact).toFixed(1)}%. Use Advanced Mode to stack multiple scenarios and model the combined impact.` }
+    : { dot: 'bg-gray-400', color: 'text-gray-500', label: 'No Positive Scenarios', copy: `No available scenario improves this category’s margin at the current RRP. Consider raising the RRP target or exploring direct sourcing to reduce input costs before launch.` }
   const liSig3 = readinessScore >= 70
     ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Strong Launch Timing', copy: `${cat.label} scores ${readinessScore}/100 on launch readiness. Category growth, COGS trajectory, and geographic opportunity all support a market entry in the next 12 months.` }
     : readinessScore >= 50
-    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Viable with Positioning', copy: `${cat.label} scores ${readinessScore}/100. Conditions are viable but competitive density is elevated \u2014 a clear brand point of difference is essential to justify the price tier.` }
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Viable with Positioning', copy: `${cat.label} scores ${readinessScore}/100. Conditions are viable but competitive density is elevated — a clear brand point of difference is essential to justify the price tier.` }
     : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Challenging Timing', copy: `${cat.label} scores ${readinessScore}/100. Adverse COGS trends or high competitive density make this a difficult launch window. A phased entry with limited SKU focus is recommended.` }
 
   return (
@@ -282,7 +282,7 @@ export default function MarginCalculator() {
       {/* ══════ PAGE HEADER ══════ */}
       <PageHeader
         title="Margin Calculator"
-        subtitle="Model COGS, test scenarios, and benchmark margins across 11 drinks categories \u00b7 Data as of April 2026"
+        subtitle="Model COGS, test scenarios, and benchmark margins across 11 drinks categories · Data as of April 2026"
         breadcrumbs={[{ label: 'Command Centre', to: '/' }, { label: 'Margin Calculator' }]}
       />
       <SubPageNav group="planning" />
@@ -333,7 +333,7 @@ export default function MarginCalculator() {
                 </select>
               </div>
               <div>
-                <label className="text-xs font-medium text-gray-500 block mb-1">Target RRP (\u00a3)</label>
+                <label className="text-xs font-medium text-gray-500 block mb-1">Target RRP (£)</label>
                 <input type="number" value={targetRRP} onChange={e => setTargetRRP(Number(e.target.value))}
                   className="w-full text-xs border border-gray-200 rounded-lg px-3 py-2 bg-white text-navy font-medium focus:ring-2 focus:ring-gold focus:border-transparent"
                   min={0} step={0.5} />
@@ -413,7 +413,7 @@ export default function MarginCalculator() {
           label="Highest Margin Category"
           value={(() => {
             const best = Object.entries(INDUSTRY_BENCHMARKS).reduce((b, [k, v]) => v.avgMargin > (b.margin || 0) ? { key: k, margin: v.avgMargin } : b, {})
-            return CATEGORY_COGS[best.key]?.label || '\u2014'
+            return CATEGORY_COGS[best.key]?.label || '—'
           })()}
           subtitle={(() => {
             const best = Object.entries(INDUSTRY_BENCHMARKS).reduce((b, [k, v]) => v.avgMargin > (b.margin || 0) ? { key: k, margin: v.avgMargin } : b, {})
@@ -431,7 +431,7 @@ export default function MarginCalculator() {
             <Zap size={14} className="text-gold" />
           </div>
           <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
-          <span className="text-xs text-gray-400 ml-auto">Margin Signals \u00b7 {cat.label}</span>
+          <span className="text-xs text-gray-400 ml-auto">Margin Signals · {cat.label}</span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           {[liSig1, liSig2, liSig3].map((sig, i) => (
@@ -453,7 +453,7 @@ export default function MarginCalculator() {
       <div ref={cogsRef}>
       <DrillDown
         title="Full COGS Breakdown & Scenarios"
-        summary={'Adjust costs with what-if scenarios \u2014 ' + Object.keys(cat.scenarios).length + ' available for ' + cat.label}
+        summary={'Adjust costs with what-if scenarios — ' + Object.keys(cat.scenarios).length + ' available for ' + cat.label}
         defaultOpen={true}
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
@@ -508,7 +508,7 @@ export default function MarginCalculator() {
               </div>
               {computed.margin !== computed.baseMargin && (
                 <div className={`text-center text-xs font-medium mt-2 ${computed.margin > computed.baseMargin ? 'text-green-600' : 'text-red-500'}`}>
-                  {computed.margin > computed.baseMargin ? '\u25b2' : '\u25bc'} {(computed.margin - computed.baseMargin).toFixed(1)}pp vs base
+                  {computed.margin > computed.baseMargin ? '▲' : '▼'} {(computed.margin - computed.baseMargin).toFixed(1)}pp vs base
                 </div>
               )}
             </div>
@@ -586,7 +586,7 @@ export default function MarginCalculator() {
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis dataKey="name" tick={{ fontSize: 10, fill: '#9ca3af' }} />
               <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} tickFormatter={v => v + '%'} />
-              <Tooltip formatter={(v, name) => name === 'margin' ? v + '%' : '\u00a3' + v} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
+              <Tooltip formatter={(v, name) => name === 'margin' ? v + '%' : '£' + v} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
               <Bar dataKey="margin" name="Margin %" radius={[4, 4, 0, 0]}>
                 {channelChartData.map((entry, i) => (
                   <Cell key={i} fill={entry.current ? '#C9A96E' : '#1e3a5f'} />
@@ -619,11 +619,11 @@ export default function MarginCalculator() {
         title="Cost Waterfall (Production to Shelf)"
         summary="Visualise how costs stack from raw material to final margin"
       >
-        <ChartCard title={'Cost Waterfall \u2014 ' + cat.label + ' (' + BOTTLE_SIZES[bottleSize].label + ')'} subtitle={'Target RRP: ' + fmt(targetRRP)} height={260}>
+        <ChartCard title={'Cost Waterfall — ' + cat.label + ' (' + BOTTLE_SIZES[bottleSize].label + ')'} subtitle={'Target RRP: ' + fmt(targetRRP)} height={260}>
           <BarChart data={waterfallData} accessibilityLayer={true}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis dataKey="name" tick={{ fontSize: 9, fill: '#9ca3af' }} interval={0} angle={-20} textAnchor="end" height={50} />
-            <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} tickFormatter={v => '\u00a3' + v} />
+            <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} tickFormatter={v => '£' + v} />
             <Tooltip formatter={(v) => fmt(v)} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
             <Bar dataKey="cost" radius={[4, 4, 0, 0]}>
               {waterfallData.map((entry, i) => (
@@ -637,7 +637,7 @@ export default function MarginCalculator() {
       {/* Launch Readiness */}
       <DrillDown
         title="Launch Readiness Scorecard"
-        summary={cat.label + ' \u2014 Score: ' + readinessScore + '/100'}
+        summary={cat.label + ' — Score: ' + readinessScore + '/100'}
       >
         <div className="mb-4">
           <MetricCard
@@ -654,12 +654,12 @@ export default function MarginCalculator() {
               <div className="text-3xl font-bold" style={{ color: readinessColor }}>{readinessScore}</div>
               <div>
                 <div className="text-xs font-medium" style={{ color: readinessColor }}>
-                  {readinessScore >= 70 ? 'Strong launch conditions' : readinessScore >= 50 ? 'Viable with careful positioning' : 'Challenging \u2014 consider timing'}
+                  {readinessScore >= 70 ? 'Strong launch conditions' : readinessScore >= 50 ? 'Viable with careful positioning' : 'Challenging — consider timing'}
                 </div>
                 <div className="text-xs text-gray-500">{cat.label} category readiness</div>
               </div>
             </div>
-            <div className="h-52" role="figure" aria-label={`Chart: Launch Readiness Radar \u2014 ${cat.label}`}>
+            <div className="h-52" role="figure" aria-label={`Chart: Launch Readiness Radar — ${cat.label}`}>
               <ResponsiveContainer width="100%" height="100%">
                 <RadarChart data={radarData} accessibilityLayer={true}>
                   <PolarGrid stroke="#e5e7eb" />
@@ -729,7 +729,7 @@ export default function MarginCalculator() {
               columns={crossCatColumns}
               data={crossCatData}
               searchable
-              searchPlaceholder="Search categories\u2026"
+              searchPlaceholder="Search categories…"
               searchKey="category"
             />
           </div>

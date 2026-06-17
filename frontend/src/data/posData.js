@@ -7,12 +7,12 @@ export const MATERIAL_CATEGORIES = [
   {
     id: 'acrylic',
     name: 'Acrylic & Perspex',
-    icon: '\u2B50',
+    icon: '⭐',
     color: 'from-blue-500 to-cyan-500',
     description: 'LED-lit displays, countertop units, bottle glorifiers, menu holders',
     avgLeadTime: '25-35 days',
     moqRange: '200-500 units',
-    priceRange: '\u00A38-45 per unit',
+    priceRange: '£8-45 per unit',
     keyHub: 'Dongguan & Shenzhen, Guangdong',
     factories: [
       { name: 'Dongguan Jingke Acrylic Products Co.', location: 'Dongguan, Guangdong', founded: 2008, employees: '150+', capabilities: 'CNC cutting, laser engraving, LED integration, UV printing', moq: 200, certifications: ['ISO 9001', 'SGS'], exportMarkets: 'EU, US, Middle East', notableClients: 'Diageo distributor projects, duty-free chains', website: 'alibaba.com/jingke-acrylic' },
@@ -24,12 +24,12 @@ export const MATERIAL_CATEGORIES = [
   {
     id: 'metal',
     name: 'Metal & Wire',
-    icon: '\u2699\uFE0F',
+    icon: '⚙️',
     color: 'from-gray-300 to-gray-400',
     description: 'Floor stands, shelf units, bottle racks, hanging signs, tin displays',
     avgLeadTime: '30-45 days',
     moqRange: '100-300 units',
-    priceRange: '\u00A315-120 per unit',
+    priceRange: '£15-120 per unit',
     keyHub: 'Hangzhou & Ningbo, Zhejiang',
     factories: [
       { name: 'Hangzhou Jinding Metal Display Co.', location: 'Hangzhou, Zhejiang', founded: 2003, employees: '250+', capabilities: 'Powder coating, chrome plating, wire forming, sheet metal, welding', moq: 100, certifications: ['ISO 9001', 'ISO 14001'], exportMarkets: 'EU, US, Middle East', notableClients: 'Major FMCG brands', website: 'jinding-display.com' },
@@ -41,12 +41,12 @@ export const MATERIAL_CATEGORIES = [
   {
     id: 'wood',
     name: 'Wood & Bamboo',
-    icon: '\uD83C\uDF33',
+    icon: '🌳',
     color: 'from-amber-600 to-yellow-700',
     description: 'Barrel displays, wooden crates, shelf talkers, menu boards, premium gift boxes',
     avgLeadTime: '35-50 days',
     moqRange: '100-500 units',
-    priceRange: '\u00A312-80 per unit',
+    priceRange: '£12-80 per unit',
     keyHub: 'Cao County, Shandong & Yiwu, Zhejiang',
     factories: [
       { name: 'Cao County Shengrui Wood Products', location: 'Cao County, Shandong', founded: 2007, employees: '200+', capabilities: 'Barrel-style displays, crates, engraving, staining, branded packaging', moq: 200, certifications: ['FSC', 'ISO 9001'], exportMarkets: 'EU, US, Japan', notableClients: 'Whisky and wine brands', website: 'shengrui-wood.com' },
@@ -57,12 +57,12 @@ export const MATERIAL_CATEGORIES = [
   {
     id: 'led',
     name: 'LED & Digital',
-    icon: '\uD83D\uDCA1',
+    icon: '💡',
     color: 'from-purple-500 to-pink-500',
     description: 'Illuminated displays, digital screens, edge-lit signs, neon-style units, interactive kiosks',
     avgLeadTime: '30-40 days',
     moqRange: '50-200 units',
-    priceRange: '\u00A325-200 per unit',
+    priceRange: '£25-200 per unit',
     keyHub: 'Shenzhen, Guangdong',
     factories: [
       { name: 'Shenzhen Cosun Sign Engineering', location: 'Shenzhen, Guangdong', founded: 2004, employees: '500+', capabilities: 'LED channel letters, edge-lit displays, RGB programmable signs, neon flex', moq: 50, certifications: ['ISO 9001', 'CE', 'RoHS', 'UL'], exportMarkets: 'Global', notableClients: 'Major spirits groups, duty-free operators', website: 'cosun-sign.com' },
@@ -73,12 +73,12 @@ export const MATERIAL_CATEGORIES = [
   {
     id: 'glass',
     name: 'Glass & Crystal',
-    icon: '\uD83E\uDD42',
+    icon: '🥂',
     color: 'from-sky-400 to-blue-500',
     description: 'Branded glassware, decanters, bottle glorifiers, display cases, awards/trophies',
     avgLeadTime: '35-50 days',
     moqRange: '500-2000 units',
-    priceRange: '\u00A33-35 per unit',
+    priceRange: '£3-35 per unit',
     keyHub: 'Shanxi & Anhui provinces',
     factories: [
       { name: 'Shanxi Dahua Glass Co.', location: 'Qixian, Shanxi', founded: 1998, employees: '800+', capabilities: 'Branded tumblers, highballs, coupes, screen printing, gold rimming', moq: 1000, certifications: ['ISO 9001', 'FDA', 'SGS'], exportMarkets: 'Global', notableClients: 'Diageo, Pernod Ricard licensed programs', website: 'dahua-glass.com' },
@@ -89,12 +89,12 @@ export const MATERIAL_CATEGORIES = [
   {
     id: 'paper',
     name: 'Paper & Card',
-    icon: '\uD83D\uDCC4',
+    icon: '📄',
     color: 'from-orange-400 to-red-500',
     description: 'Counter cards, shelf wobblers, dump bins, corrugated displays, tent cards, coasters',
     avgLeadTime: '15-25 days',
     moqRange: '500-5000 units',
-    priceRange: '\u00A30.50-8 per unit',
+    priceRange: '£0.50-8 per unit',
     keyHub: 'Dongguan & Shenzhen, Guangdong',
     factories: [
       { name: 'Dongguan Bohao Packaging', location: 'Dongguan, Guangdong', founded: 2005, employees: '400+', capabilities: 'Corrugated floor displays, dump bins, FSDU, litho lamination, UV varnish', moq: 500, certifications: ['ISO 9001', 'FSC', 'BSCI'], exportMarkets: 'Global', notableClients: 'Major FMCG and spirits brands', website: 'bohao-packaging.com' },
@@ -105,12 +105,12 @@ export const MATERIAL_CATEGORIES = [
   {
     id: 'leather',
     name: 'Leather & Fabric',
-    icon: '\uD83D\uDC5C',
+    icon: '👜',
     color: 'from-rose-700 to-red-800',
     description: 'Menu covers, bar mats, bottle cases, gift packaging, premium display pads',
     avgLeadTime: '30-45 days',
     moqRange: '200-1000 units',
-    priceRange: '\u00A35-50 per unit',
+    priceRange: '£5-50 per unit',
     keyHub: 'Guangzhou & Dongguan, Guangdong',
     factories: [
       { name: 'Guangzhou Boshiho Leather', location: 'Guangzhou, Guangdong', founded: 2009, employees: '150+', capabilities: 'Menu covers, wine carriers, embossed branding, PU and genuine leather', moq: 200, certifications: ['ISO 9001', 'REACH'], exportMarkets: 'EU, US, Middle East', notableClients: 'Hotel chains, premium bars', website: 'boshiho-leather.com' },
@@ -120,12 +120,12 @@ export const MATERIAL_CATEGORIES = [
   {
     id: 'silicone',
     name: 'Silicone & Rubber',
-    icon: '\uD83E\uDDCA',
+    icon: '🧊',
     color: 'from-teal-500 to-green-600',
     description: 'Bar mats, coasters, bottle pourers, ice moulds, branded bar accessories',
     avgLeadTime: '20-30 days',
     moqRange: '500-3000 units',
-    priceRange: '\u00A31-15 per unit',
+    priceRange: '£1-15 per unit',
     keyHub: 'Dongguan & Shenzhen, Guangdong',
     factories: [
       { name: 'Dongguan Invotive Silicone', location: 'Dongguan, Guangdong', founded: 2010, employees: '200+', capabilities: 'Custom bar mats, branded ice moulds, PVC coasters, rubber pourers', moq: 500, certifications: ['ISO 9001', 'FDA', 'LFGB'], exportMarkets: 'Global', notableClients: 'Spirits brands, bar chains', website: 'invotive.com' },
@@ -135,12 +135,12 @@ export const MATERIAL_CATEGORIES = [
   {
     id: 'ceramic',
     name: 'Ceramic & Porcelain',
-    icon: '\uD83C\uDFFA',
+    icon: '🏺',
     color: 'from-indigo-500 to-violet-600',
     description: 'Branded bottles, decanters, pub water jugs, ceramic display pieces, awards',
     avgLeadTime: '40-60 days',
     moqRange: '300-2000 units',
-    priceRange: '\u00A35-40 per unit',
+    priceRange: '£5-40 per unit',
     keyHub: 'Jingdezhen, Jiangxi & Chaozhou, Guangdong',
     factories: [
       { name: 'Jingdezhen Rongshunda Ceramics', location: 'Jingdezhen, Jiangxi', founded: 2000, employees: '250+', capabilities: 'Branded decanters, ceramic bottles, hand-painted designs, gold detailing', moq: 300, certifications: ['ISO 9001', 'SGS'], exportMarkets: 'Global', notableClients: 'Scotch and baijiu brands', website: 'rongshunda-ceramics.com' },
@@ -154,21 +154,21 @@ export const POS_COMPANIES = [
   { name: 'Keystone Display Group', hq: 'US', speciality: 'Retail displays, floor stands, end caps', clients: 'Brown-Forman, Beam Suntory, Constellation', model: 'US design, China manufacturing', website: 'keystonedisplaygroup.com', size: 'Large', yearFounded: 1996 },
   { name: 'Ideal Sign & Display', hq: 'UK', speciality: 'LED signs, illuminated displays, menu boards', clients: 'Heineken, AB InBev, Molson Coors', model: 'Direct manufacturing + import', website: 'idealsignanddisplay.co.uk', size: 'Medium', yearFounded: 1989 },
   { name: 'MRM Global', hq: 'UK', speciality: 'Multi-channel POS, experiential, digital', clients: 'Pernod Ricard, LVMH', model: 'Full service agency + production', website: 'mrmglobal.com', size: 'Large', yearFounded: 2001 },
-  { name: 'POPAI / Shop! Association', hq: 'US/Global', speciality: 'Industry body, standards, awards, sourcing network', clients: 'N/A \u2014 industry association', model: 'Membership network', website: 'shopassociation.org', size: 'Association', yearFounded: 1936 },
+  { name: 'POPAI / Shop! Association', hq: 'US/Global', speciality: 'Industry body, standards, awards, sourcing network', clients: 'N/A — industry association', model: 'Membership network', website: 'shopassociation.org', size: 'Association', yearFounded: 1936 },
   { name: 'Bridgewater Studio', hq: 'US', speciality: 'Experiential displays, immersive retail environments', clients: 'Hennessy, Johnnie Walker', model: 'Full creative + fabrication', website: 'bridgewaterstudio.net', size: 'Medium', yearFounded: 2012 },
-  { name: 'Array Marketing', hq: 'Canada', speciality: 'Cosmetics & spirits POS, permanents, semi-permanents', clients: 'Est\u00e9e Lauder, spirits brands via distributor', model: 'Design + Asian supply chain', website: 'arraymarketing.com', size: 'Large', yearFounded: 1983 },
+  { name: 'Array Marketing', hq: 'Canada', speciality: 'Cosmetics & spirits POS, permanents, semi-permanents', clients: 'Estée Lauder, spirits brands via distributor', model: 'Design + Asian supply chain', website: 'arraymarketing.com', size: 'Large', yearFounded: 1983 },
   { name: 'Havilinas', hq: 'UK', speciality: 'Bespoke spirits POS, brand activations', clients: 'Independent and mid-size brands', model: 'Design broker + China sourcing', website: 'havilinas.com', size: 'Small', yearFounded: 2015 },
   { name: 'InStore Group', hq: 'Sweden', speciality: 'In-store communication, shelf systems, digital screens', clients: 'Absolut, Pernod Ricard Nordic', model: 'European + Asian manufacturing', website: 'instoregroup.com', size: 'Large', yearFounded: 1999 },
   { name: 'Display Italia', hq: 'Italy', speciality: 'Premium wine & spirits displays, wooden and metal units', clients: 'Italian wine houses, grappa brands', model: 'European craftsmanship + some Asian sourcing', website: 'displayitalia.com', size: 'Medium', yearFounded: 2004 }
 ]
 
 export const TRADE_PLATFORMS = [
-  { name: 'Alibaba', url: 'alibaba.com', type: 'B2B Marketplace', bestFor: 'Finding factories, comparing MOQs, initial sourcing', tips: 'Use "Trade Assurance" for payment protection. Search "spirits display" or "wine POS stand"', risk: 'Medium \u2014 verify Gold Suppliers, request samples before bulk orders' },
-  { name: 'Made-in-China.com', url: 'made-in-china.com', type: 'B2B Marketplace', bestFor: 'Alternative to Alibaba with strong manufacturer verification', tips: 'More manufacturer-focused than Alibaba. Good for direct factory contact', risk: 'Medium \u2014 similar verification needed as Alibaba' },
-  { name: 'Global Sources', url: 'globalsources.com', type: 'B2B Marketplace + Trade Shows', bestFor: 'Verified manufacturers, trade show connections', tips: 'Hong Kong trade shows in April and October. Premium listing means verified', risk: 'Low-Medium \u2014 better verification than Alibaba' },
-  { name: 'Canton Fair (Online)', url: 'cantonfair.org.cn', type: 'Trade Exhibition', bestFor: 'Largest trade fair in China, direct factory meetings', tips: 'Phase 2 covers household goods/displays. Held April and October in Guangzhou', risk: 'Low \u2014 government-backed, serious manufacturers' },
-  { name: '1688.com', url: '1688.com', type: 'Domestic B2B (Chinese)', bestFor: 'Lowest prices, domestic Chinese market rates', tips: 'Alibaba\'s domestic platform. Prices 20-40% lower. Needs Chinese agent or translator', risk: 'Medium-High \u2014 less English support, needs local partner' },
-  { name: 'HKTDC Sourcing', url: 'hktdc.com', type: 'Hong Kong Trade Body', bestFor: 'Premium sourcing, verified HK-based trading companies', tips: 'Hong Kong companies often manage mainland factories. Good quality control', risk: 'Low \u2014 HK trade body verification' }
+  { name: 'Alibaba', url: 'alibaba.com', type: 'B2B Marketplace', bestFor: 'Finding factories, comparing MOQs, initial sourcing', tips: 'Use "Trade Assurance" for payment protection. Search "spirits display" or "wine POS stand"', risk: 'Medium — verify Gold Suppliers, request samples before bulk orders' },
+  { name: 'Made-in-China.com', url: 'made-in-china.com', type: 'B2B Marketplace', bestFor: 'Alternative to Alibaba with strong manufacturer verification', tips: 'More manufacturer-focused than Alibaba. Good for direct factory contact', risk: 'Medium — similar verification needed as Alibaba' },
+  { name: 'Global Sources', url: 'globalsources.com', type: 'B2B Marketplace + Trade Shows', bestFor: 'Verified manufacturers, trade show connections', tips: 'Hong Kong trade shows in April and October. Premium listing means verified', risk: 'Low-Medium — better verification than Alibaba' },
+  { name: 'Canton Fair (Online)', url: 'cantonfair.org.cn', type: 'Trade Exhibition', bestFor: 'Largest trade fair in China, direct factory meetings', tips: 'Phase 2 covers household goods/displays. Held April and October in Guangzhou', risk: 'Low — government-backed, serious manufacturers' },
+  { name: '1688.com', url: '1688.com', type: 'Domestic B2B (Chinese)', bestFor: 'Lowest prices, domestic Chinese market rates', tips: 'Alibaba\'s domestic platform. Prices 20-40% lower. Needs Chinese agent or translator', risk: 'Medium-High — less English support, needs local partner' },
+  { name: 'HKTDC Sourcing', url: 'hktdc.com', type: 'Hong Kong Trade Body', bestFor: 'Premium sourcing, verified HK-based trading companies', tips: 'Hong Kong companies often manage mainland factories. Good quality control', risk: 'Low — HK trade body verification' }
 ]
 
 export const DISRUPTION_STRATEGIES = [
@@ -224,9 +224,9 @@ export const DISRUPTION_STRATEGIES = [
     problem: 'Traditional POS is expensive to produce, ship, and store. Much of it gets damaged in transit or never deployed. The industry wastes an estimated 30-40% of POS materials produced. Meanwhile, digital signage costs are falling rapidly.',
     strategy: 'Build a digital POS offering that combines low-cost hardware (tablets, LED screens, e-ink displays) with a SaaS content management platform. Brands update displays remotely, eliminating waste and enabling real-time marketing.',
     tactics: [
-      'Partner with Shenzhen screen manufacturers for branded tablet displays at \u00A330-50/unit',
+      'Partner with Shenzhen screen manufacturers for branded tablet displays at £30-50/unit',
       'Build a simple CMS where brands upload and schedule promotional content',
-      'Offer subscription model: \u00A315/month per display vs \u00A3200+ for physical POS replacement',
+      'Offer subscription model: £15/month per display vs £200+ for physical POS replacement',
       'Include analytics: impressions, dwell time, A/B testing of creative',
       'Provide hybrid kits: digital screen + physical stand combining both approaches'
     ],
@@ -239,71 +239,71 @@ export const CLIENT_SEGMENTS = [
     segment: 'Startup Brands',
     iconName: 'Lightbulb',
     color: 'bg-emerald-500',
-    budget: '\u00A32,000 - \u00A310,000',
+    budget: '£2,000 - £10,000',
     needs: 'First POS kit: counter displays, shelf talkers, bar mats, branded glassware',
     painPoints: ['No POS experience or supplier contacts', 'Cannot meet factory MOQs alone', 'Cash-constrained, need flexible payment', 'Don\'t know what works in different channels'],
-    solution: 'Starter POS Package \u2014 curated kit of 5-7 essential items sourced collectively. Includes design templates, factory coordination, and deployment guide.',
+    solution: 'Starter POS Package — curated kit of 5-7 essential items sourced collectively. Includes design templates, factory coordination, and deployment guide.',
     packages: [
-      { name: 'Launch Kit', price: '\u00A32,500', includes: '500 coasters, 200 counter cards, 50 bar mats, 100 shelf talkers' },
-      { name: 'Premium Launch', price: '\u00A35,000', includes: 'Launch Kit + 50 acrylic glorifiers, 200 branded glasses' },
-      { name: 'Full Activation', price: '\u00A310,000', includes: 'Premium Launch + 10 LED backbar units, 50 wooden display crates' }
+      { name: 'Launch Kit', price: '£2,500', includes: '500 coasters, 200 counter cards, 50 bar mats, 100 shelf talkers' },
+      { name: 'Premium Launch', price: '£5,000', includes: 'Launch Kit + 50 acrylic glorifiers, 200 branded glasses' },
+      { name: 'Full Activation', price: '£10,000', includes: 'Premium Launch + 10 LED backbar units, 50 wooden display crates' }
     ]
   },
   {
     segment: 'Independent Distillers',
     iconName: 'Factory',
     color: 'bg-blue-500',
-    budget: '\u00A310,000 - \u00A350,000',
+    budget: '£10,000 - £50,000',
     needs: 'Seasonal campaigns, on-trade activations, off-trade shelf presence, export market POS',
     painPoints: ['Overpaying intermediaries by 40-60%', 'Slow turnaround from current suppliers', 'No visibility on factory costs', 'Inconsistent quality across orders'],
-    solution: 'Direct Sourcing Service \u2014 factory-direct procurement with transparent pricing, quality inspection, and consolidated shipping.',
+    solution: 'Direct Sourcing Service — factory-direct procurement with transparent pricing, quality inspection, and consolidated shipping.',
     packages: [
-      { name: 'Seasonal Campaign', price: '\u00A38,000-15,000', includes: 'Custom POS suite for one campaign: glorifiers, counter units, branded glassware' },
-      { name: 'Annual POS Program', price: '\u00A325,000-40,000', includes: '4 seasonal refreshes, permanent back-bar units, ongoing replenishment' },
-      { name: 'Export Market Kit', price: '\u00A312,000-20,000', includes: 'Travel retail displays, duty-free glorifiers, multilingual POS materials' }
+      { name: 'Seasonal Campaign', price: '£8,000-15,000', includes: 'Custom POS suite for one campaign: glorifiers, counter units, branded glassware' },
+      { name: 'Annual POS Program', price: '£25,000-40,000', includes: '4 seasonal refreshes, permanent back-bar units, ongoing replenishment' },
+      { name: 'Export Market Kit', price: '£12,000-20,000', includes: 'Travel retail displays, duty-free glorifiers, multilingual POS materials' }
     ]
   },
   {
     segment: 'Mid-Size Brands',
     iconName: 'TrendingUp',
     color: 'bg-purple-500',
-    budget: '\u00A350,000 - \u00A3250,000',
+    budget: '£50,000 - £250,000',
     needs: 'Multi-market POS rollout, digital integration, premium displays for key accounts, trade show materials',
     painPoints: ['Locked into expensive agency contracts', 'Cannot justify cost of in-house POS team', 'Need consistency across markets', 'Agencies not responsive enough for fast-moving opportunities'],
-    solution: 'Managed POS Partnership \u2014 act as outsourced POS department with factory relationships, design capability, and logistics management.',
+    solution: 'Managed POS Partnership — act as outsourced POS department with factory relationships, design capability, and logistics management.',
     packages: [
-      { name: 'Managed Service', price: '\u00A360,000-120,000/year', includes: 'Dedicated account manager, quarterly POS refreshes, factory management, QC inspections' },
-      { name: 'Innovation Sprint', price: '\u00A315,000-30,000', includes: 'Rapid prototyping of new POS concepts, 3 design rounds, sample production in 3 weeks' },
-      { name: 'Digital + Physical', price: '\u00A380,000-150,000/year', includes: 'Hybrid program: digital screens + physical POS, CMS platform, analytics dashboard' }
+      { name: 'Managed Service', price: '£60,000-120,000/year', includes: 'Dedicated account manager, quarterly POS refreshes, factory management, QC inspections' },
+      { name: 'Innovation Sprint', price: '£15,000-30,000', includes: 'Rapid prototyping of new POS concepts, 3 design rounds, sample production in 3 weeks' },
+      { name: 'Digital + Physical', price: '£80,000-150,000/year', includes: 'Hybrid program: digital screens + physical POS, CMS platform, analytics dashboard' }
     ]
   },
   {
     segment: 'Large Groups',
     iconName: 'Building2',
     color: 'bg-navy',
-    budget: '\u00A3250,000+',
+    budget: '£250,000+',
     needs: 'Supplementary POS for innovation brands, limited editions, regional activations outside master contracts',
     painPoints: ['Master POS contracts don\'t cover everything', 'Innovation brands need faster turnaround', 'Regional markets need localised POS', 'Procurement teams focused on cost, not creativity'],
-    solution: 'Innovation POS Partner \u2014 agile supplement to master POS contracts, handling the work that large agencies won\'t prioritise.',
+    solution: 'Innovation POS Partner — agile supplement to master POS contracts, handling the work that large agencies won\'t prioritise.',
     packages: [
       { name: 'Innovation Brand Support', price: 'Project-based', includes: 'Full POS development for new brand launches, from design to deployment' },
-      { name: 'Limited Edition Specialist', price: '\u00A320,000-50,000 per edition', includes: 'Rapid-turnaround POS for limited releases, 3-week factory-to-market' },
-      { name: 'Regional Activation', price: '\u00A330,000-80,000', includes: 'Market-specific POS for individual countries or regions, localised design and production' }
+      { name: 'Limited Edition Specialist', price: '£20,000-50,000 per edition', includes: 'Rapid-turnaround POS for limited releases, 3-week factory-to-market' },
+      { name: 'Regional Activation', price: '£30,000-80,000', includes: 'Market-specific POS for individual countries or regions, localised design and production' }
     ]
   }
 ]
 
 export const COST_BENCHMARKS = [
-  { item: 'Acrylic Bottle Glorifier (LED-lit)', factoryDirect: '\u00A38-15', intermediary: '\u00A325-45', retail: '\u00A340-80', markup: '200-400%' },
-  { item: 'Metal Floor Stand (powder coated)', factoryDirect: '\u00A325-50', intermediary: '\u00A370-120', retail: '\u00A3100-200', markup: '180-300%' },
-  { item: 'Wooden Barrel Display Crate', factoryDirect: '\u00A312-25', intermediary: '\u00A335-60', retail: '\u00A350-90', markup: '190-260%' },
-  { item: 'Branded Rocks Glass (screen printed)', factoryDirect: '\u00A31.50-3', intermediary: '\u00A34-8', retail: '\u00A36-15', markup: '170-400%' },
-  { item: 'Silicone Bar Mat (full colour)', factoryDirect: '\u00A32-5', intermediary: '\u00A38-15', retail: '\u00A312-25', markup: '300-400%' },
-  { item: 'Corrugated FSDU (floor standing)', factoryDirect: '\u00A35-12', intermediary: '\u00A318-30', retail: '\u00A325-50', markup: '260-320%' },
-  { item: 'LED Edge-Lit Sign (A3 size)', factoryDirect: '\u00A315-30', intermediary: '\u00A345-80', retail: '\u00A370-120', markup: '200-300%' },
-  { item: 'Leather Menu Cover (debossed)', factoryDirect: '\u00A35-12', intermediary: '\u00A318-30', retail: '\u00A325-50', markup: '260-320%' },
-  { item: 'Ceramic Water Jug (branded)', factoryDirect: '\u00A34-8', intermediary: '\u00A312-22', retail: '\u00A318-35', markup: '200-340%' },
-  { item: 'Counter Card Display (die-cut)', factoryDirect: '\u00A30.80-2', intermediary: '\u00A33-6', retail: '\u00A35-10', markup: '275-400%' }
+  { item: 'Acrylic Bottle Glorifier (LED-lit)', factoryDirect: '£8-15', intermediary: '£25-45', retail: '£40-80', markup: '200-400%' },
+  { item: 'Metal Floor Stand (powder coated)', factoryDirect: '£25-50', intermediary: '£70-120', retail: '£100-200', markup: '180-300%' },
+  { item: 'Wooden Barrel Display Crate', factoryDirect: '£12-25', intermediary: '£35-60', retail: '£50-90', markup: '190-260%' },
+  { item: 'Branded Rocks Glass (screen printed)', factoryDirect: '£1.50-3', intermediary: '£4-8', retail: '£6-15', markup: '170-400%' },
+  { item: 'Silicone Bar Mat (full colour)', factoryDirect: '£2-5', intermediary: '£8-15', retail: '£12-25', markup: '300-400%' },
+  { item: 'Corrugated FSDU (floor standing)', factoryDirect: '£5-12', intermediary: '£18-30', retail: '£25-50', markup: '260-320%' },
+  { item: 'LED Edge-Lit Sign (A3 size)', factoryDirect: '£15-30', intermediary: '£45-80', retail: '£70-120', markup: '200-300%' },
+  { item: 'Leather Menu Cover (debossed)', factoryDirect: '£5-12', intermediary: '£18-30', retail: '£25-50', markup: '260-320%' },
+  { item: 'Ceramic Water Jug (branded)', factoryDirect: '£4-8', intermediary: '£12-22', retail: '£18-35', markup: '200-340%' },
+  { item: 'Counter Card Display (die-cut)', factoryDirect: '£0.80-2', intermediary: '£3-6', retail: '£5-10', markup: '275-400%' }
 ]
 
 export const POS_TABS = [
@@ -318,10 +318,10 @@ export const POS_TABS = [
 // ── Data Methodology ──
 export const DATA_METHODOLOGY = {
   overview: 'Market size estimates synthesized from IWSR Global Spirits Database, Euromonitor Passport Alcoholic Drinks, and DISCUS public disclosures. Growth rates represent year-over-year value change in USD at constant exchange rates unless otherwise stated.',
-  pricing: 'Pricing data collected from retailer websites (Tesco, Sainsbury\'s, Waitrose, Master of Malt, Total Wine, Drizly, El Corte Ingl\u00e9s) during April 2026. Prices reflect standard retail, not promotional pricing, unless flagged.',
+  pricing: 'Pricing data collected from retailer websites (Tesco, Sainsbury\'s, Waitrose, Master of Malt, Total Wine, Drizly, El Corte Inglés) during April 2026. Prices reflect standard retail, not promotional pricing, unless flagged.',
   sources: [
     { name: 'IWSR Global Spirits Database 2025', description: 'Proprietary database covering 160+ markets with volume and value data by category, price band, and channel.', url: 'https://www.theiwsr.com/global-spirits-report' },
-    { name: 'Euromonitor Passport \u2014 Alcoholic Drinks', description: 'Market sizing, forecasts, and competitive landscape data for spirits, wine, and beer across 100+ countries.', url: 'https://www.euromonitor.com/alcoholic-drinks' },
+    { name: 'Euromonitor Passport — Alcoholic Drinks', description: 'Market sizing, forecasts, and competitive landscape data for spirits, wine, and beer across 100+ countries.', url: 'https://www.euromonitor.com/alcoholic-drinks' },
     { name: 'DISCUS Annual Economic Briefing', description: 'US spirits industry data: shipments, revenue, state-level trends, and category performance from the Distilled Spirits Council.', url: 'https://www.discus.org/economics/research' },
     { name: 'NielsenIQ Off-Trade Panel', description: 'Retail scanner data from off-premise channels (supermarkets, liquor stores) covering sales volume, value, and distribution metrics.', url: 'https://www.nielseniq.com/global/en/insights/' },
     { name: 'The Spirits Business / Drinks International', description: 'Trade publication market intelligence, brand rankings, and industry trend analysis.', url: 'https://www.thespiritsbusiness.com/category/market-data/' },

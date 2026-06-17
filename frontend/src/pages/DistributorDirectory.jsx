@@ -22,7 +22,7 @@ function DistributorCard({ d, expanded, onToggle }) {
               <span className="text-xs text-gray-500">({d.parentCompany})</span>
             )}
           </div>
-          <div className="text-xs text-gray-500 mt-0.5">{d.speciality} {'\u2022'} {d.region}</div>
+          <div className="text-xs text-gray-500 mt-0.5">{d.speciality} {'•'} {d.region}</div>
           <div className="flex flex-wrap gap-1 mt-1.5">
             {d.categories.slice(0, 5).map(c => (
               <span key={c} className="text-xs bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">{c}</span>
@@ -50,8 +50,8 @@ function DistributorCard({ d, expanded, onToggle }) {
             <div>
               <div className="text-xs font-semibold text-navy mb-1">Channels</div>
               <div className="text-xs text-gray-600">
-                {d.onTrade && <span className="mr-2">On-Trade {'\u2713'}</span>}
-                {d.offTrade && <span>Off-Trade {'\u2713'}</span>}
+                {d.onTrade && <span className="mr-2">On-Trade {'✓'}</span>}
+                {d.offTrade && <span>Off-Trade {'✓'}</span>}
               </div>
             </div>
           </div>

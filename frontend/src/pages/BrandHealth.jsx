@@ -97,7 +97,7 @@ export default function BrandHealth() {
                   className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${selectedBrand === b.id ? 'bg-navy/5 text-navy font-medium' : 'text-gray-600 hover:bg-gray-50'}`}
                 >
                   <div className="font-medium">{b.name}</div>
-                  <div className="text-xs text-gray-400">{b.category} {'\u2022'} {b.parent}</div>
+                  <div className="text-xs text-gray-400">{b.category} {'•'} {b.parent}</div>
                 </button>
               ))}
             </div>
@@ -114,7 +114,7 @@ export default function BrandHealth() {
               </div>
               <div>
                 <h2 className="text-lg font-bold text-navy">{brand.name}</h2>
-                <p className="text-sm text-gray-500">{brand.parent} {'\u2022'} {brand.category.charAt(0).toUpperCase() + brand.category.slice(1)}</p>
+                <p className="text-sm text-gray-500">{brand.parent} {'•'} {brand.category.charAt(0).toUpperCase() + brand.category.slice(1)}</p>
               </div>
             </div>
           </Card>
@@ -151,7 +151,7 @@ export default function BrandHealth() {
                     <Zap size={14} className="text-gold" />
                   </div>
                   <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
-                  <span className="text-xs text-gray-400 ml-auto">Brand Signal {'\u00b7'} {brand.name}</span>
+                  <span className="text-xs text-gray-400 ml-auto">Brand Signal {'·'} {brand.name}</span>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                   {[liSig1, liSig2, liSig3].map((sig, i) => (
@@ -171,7 +171,7 @@ export default function BrandHealth() {
           {/* Line chart */}
           <Card className="p-4">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-sm font-bold text-navy">{chartLabels[chartMetric]} \u2014 12 Month Trend</h3>
+              <h3 className="text-sm font-bold text-navy">{chartLabels[chartMetric]} — 12 Month Trend</h3>
               <div className="flex gap-1">
                 {Object.entries(chartLabels).map(([key, label]) => (
                   <button

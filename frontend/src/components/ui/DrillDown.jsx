@@ -3,8 +3,8 @@ import { ChevronDown } from 'lucide-react'
 import { Card } from './Card'
 
 /**
- * DrillDown — expandable panel for Tier 1 \u2192 Tier 2 progressive disclosure.
- * Uses CSS grid-rows trick for smooth height animation (0fr \u2192 1fr).
+ * DrillDown — expandable panel for Tier 1 → Tier 2 progressive disclosure.
+ * Uses CSS grid-rows trick for smooth height animation (0fr → 1fr).
  *
  * Props:
  *   title       — section heading

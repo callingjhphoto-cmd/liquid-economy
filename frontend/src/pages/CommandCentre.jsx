@@ -64,7 +64,7 @@ function HeroMarketCard() {
             <span className="text-label text-gray-500 uppercase tracking-wider">Global Spirits Market
               <MethodologyTooltip text="Distilled spirits market size, excluding beer, wine & cider. Source: IWSR 2025." />
             </span>
-            <p className="text-micro text-gray-500">Distilled spirits excl. beer, wine & cider \u00b7 IWSR 2025</p>
+            <p className="text-micro text-gray-500">Distilled spirits excl. beer, wine & cider · IWSR 2025</p>
           </div>
         </div>
 
@@ -350,7 +350,7 @@ function PriceAlertsSummary() {
 
   return (
     <div>
-      <SectionHeader size="md" subtitle={`${alerts.length} alerts \u00b7 ${opportunities.length} opportunities`}>
+      <SectionHeader size="md" subtitle={`${alerts.length} alerts · ${opportunities.length} opportunities`}>
         Price Alerts
       </SectionHeader>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -364,7 +364,7 @@ function PriceAlertsSummary() {
                   <div className="flex-1 min-w-0">
                     <span className={`text-micro font-bold uppercase px-1.5 py-0.5 rounded-full ${sev.bg} ${sev.text}`}>{sev.label}</span>
                     <div className="text-xs font-semibold text-navy mt-1 group-hover:text-gold transition-colors">{alert.product}</div>
-                    <div className="text-xs text-gray-500">{alert.category} \u00b7 {alert.channel}</div>
+                    <div className="text-xs text-gray-500">{alert.category} · {alert.channel}</div>
                   </div>
                   <div className="text-right flex-shrink-0 ml-2">
                     <div className="text-sm font-bold text-navy">{alert.pricePoint}</div>
@@ -843,7 +843,7 @@ export default function CommandCentre() {
       <div className="space-y-6">
         <PageHeader
           title="Command Centre"
-          subtitle="Loading intelligence\u2026"
+          subtitle="Loading intelligence…"
         />
         <BentoGrid>
           <BentoGrid.Hero><SkeletonCard className="h-40" /></BentoGrid.Hero>
@@ -864,7 +864,7 @@ export default function CommandCentre() {
       {/* ── Page Header ── */}
       <PageHeader
         title="Command Centre"
-        subtitle={`Global beverage alcohol intelligence ${'\u2014'} real-time market monitoring`}
+        subtitle={`Global beverage alcohol intelligence ${'—'} real-time market monitoring`}
         action={
           <div className="text-right space-y-1">
             <DataFreshness date="April 2026" source="IWSR, Euromonitor, Industry" />
@@ -898,7 +898,7 @@ export default function CommandCentre() {
 
           <DrillDown
             title="Category Performance"
-            summary={`${CATEGORY_SNAPSHOT.length} categories tracked \u2014 ${CATEGORY_SNAPSHOT.filter(c => c.dir === 'up').length} growing`}
+            summary={`${CATEGORY_SNAPSHOT.length} categories tracked — ${CATEGORY_SNAPSHOT.filter(c => c.dir === 'up').length} growing`}
             defaultOpen={true}
           >
             <CategoryPerformance />
@@ -913,7 +913,7 @@ export default function CommandCentre() {
 
           <DrillDown
             title="Price Alerts"
-            summary={`${PRICE_ALERTS.filter(a => a.severity === 'alert').length} alerts \u00b7 ${PRICE_ALERTS.filter(a => a.severity === 'opportunity').length} opportunities`}
+            summary={`${PRICE_ALERTS.filter(a => a.severity === 'alert').length} alerts · ${PRICE_ALERTS.filter(a => a.severity === 'opportunity').length} opportunities`}
           >
             <PriceAlertsSummary />
           </DrillDown>

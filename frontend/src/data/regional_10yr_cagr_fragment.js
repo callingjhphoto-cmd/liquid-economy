@@ -10,7 +10,7 @@
 export const REGIONAL_PULSE_EXTENDED = [
   {
     region: 'North America',
-    flag: '\ud83c\uddfa\ud83c\uddf8',
+    flag: '🇺🇸',
     value: '$98B',        // 2025 current
     growth: '+2.8%',      // 2024-2025 YoY
     cagr10: '+3.1%',      // 2016-2025 10-year
@@ -41,7 +41,7 @@ export const REGIONAL_PULSE_EXTENDED = [
 
   {
     region: 'Europe',
-    flag: '\ud83c\uddea\ud83c\uddfa',
+    flag: '🇪🇺',
     value: '$142B',       // 2025 current
     growth: '+0.9%',      // 2024-2025 YoY
     cagr10: '+0.9%',      // 2016-2025 10-year
@@ -73,7 +73,7 @@ export const REGIONAL_PULSE_EXTENDED = [
 
   {
     region: 'Asia-Pacific',
-    flag: '\ud83c\uddef\ud83c\uddf5',
+    flag: '🇯🇵',
     value: '$210B',       // 2025 current
     growth: '+4.1%',      // 2024-2025 YoY
     cagr10: '+4.9%',      // 2016-2025 10-year
@@ -106,7 +106,7 @@ export const REGIONAL_PULSE_EXTENDED = [
 
   {
     region: 'Latin America',
-    flag: '\ud83c\udde7\ud83c\uddf7',
+    flag: '🇧🇷',
     value: '$52B',        // 2025 current
     growth: '+3.5%',      // 2024-2025 YoY
     cagr10: '+4.5%',      // 2016-2025 10-year
@@ -139,7 +139,7 @@ export const REGIONAL_PULSE_EXTENDED = [
 
   {
     region: 'Middle East & Africa',
-    flag: '\ud83c\udde6\ud83c\uddea',
+    flag: '🇦🇪',
     value: '$18B',        // 2025 current
     growth: '+5.2%',      // 2024-2025 YoY
     cagr10: '+7.5%',      // 2016-2025 10-year (highest CAGR)

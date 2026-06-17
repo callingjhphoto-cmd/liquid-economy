@@ -1,7 +1,7 @@
 export const DATA_LAST_UPDATED = '2026-03-21'
 
 // ═══════════════════════════════════════════════════════════════
-// WORLD'S 50 BEST BARS \u2014 5-YEAR LONGITUDINAL DATA (2021-2025)
+// WORLD'S 50 BEST BARS — 5-YEAR LONGITUDINAL DATA (2021-2025)
 // ═══════════════════════════════════════════════════════════════
 
 export const FIFTY_BEST_BARS = {
@@ -10,13 +10,13 @@ export const FIFTY_BEST_BARS = {
     { rank: 2, name: 'Handshake Speakeasy', city: 'Mexico City', country: 'Mexico', region: 'North America' },
     { rank: 3, name: 'Sips', city: 'Barcelona', country: 'Spain', region: 'Europe' },
     { rank: 4, name: 'Paradiso', city: 'Barcelona', country: 'Spain', region: 'Europe' },
-    { rank: 5, name: 'Tay\u0113r + Elementary', city: 'London', country: 'UK', region: 'Europe' },
+    { rank: 5, name: 'Tayēr + Elementary', city: 'London', country: 'UK', region: 'Europe' },
     { rank: 6, name: 'Connaught Bar', city: 'London', country: 'UK', region: 'Europe' },
     { rank: 7, name: 'Moebius Milano', city: 'Milan', country: 'Italy', region: 'Europe' },
     { rank: 8, name: 'Line', city: 'Athens', country: 'Greece', region: 'Europe' },
     { rank: 9, name: 'Jigger & Pony', city: 'Singapore', country: 'Singapore', region: 'Asia' },
     { rank: 10, name: 'Tres Monos', city: 'Buenos Aires', country: 'Argentina', region: 'South America' },
-    { rank: 11, name: 'Alqu\u00edmico', city: 'Cartagena', country: 'Colombia', region: 'South America' },
+    { rank: 11, name: 'Alquímico', city: 'Cartagena', country: 'Colombia', region: 'South America' },
     { rank: 12, name: 'Superbueno', city: 'New York', country: 'USA', region: 'North America' },
     { rank: 13, name: 'Lady Bee', city: 'Lima', country: 'Peru', region: 'South America' },
     { rank: 14, name: 'Himkok', city: 'Oslo', country: 'Norway', region: 'Europe' },
@@ -28,8 +28,8 @@ export const FIFTY_BEST_BARS = {
     { rank: 20, name: 'The Cambridge Public House', city: 'Paris', country: 'France', region: 'Europe' },
     { rank: 21, name: 'Satan\'s Whiskers', city: 'London', country: 'UK', region: 'Europe' },
     { rank: 22, name: 'Locale Firenze', city: 'Florence', country: 'Italy', region: 'Europe' },
-    { rank: 23, name: 'Tlec\u0101n', city: 'Mexico City', country: 'Mexico', region: 'North America' },
-    { rank: 24, name: 'Tan Tan', city: 'S\u00e3o Paulo', country: 'Brazil', region: 'South America' },
+    { rank: 23, name: 'Tlecān', city: 'Mexico City', country: 'Mexico', region: 'North America' },
+    { rank: 24, name: 'Tan Tan', city: 'São Paulo', country: 'Brazil', region: 'South America' },
     { rank: 25, name: 'Mirror Bar', city: 'Bratislava', country: 'Slovakia', region: 'Europe' },
     { rank: 26, name: 'CoChinChina', city: 'Buenos Aires', country: 'Argentina', region: 'South America' },
     { rank: 27, name: 'Baba au Rum', city: 'Athens', country: 'Greece', region: 'Europe' },
@@ -38,9 +38,9 @@ export const FIFTY_BEST_BARS = {
     { rank: 30, name: 'Danico', city: 'Paris', country: 'France', region: 'Europe' },
     { rank: 31, name: 'Scarfes Bar', city: 'London', country: 'UK', region: 'Europe' },
     { rank: 32, name: 'Svanen', city: 'Oslo', country: 'Norway', region: 'Europe' },
-    { rank: 33, name: 'Sastrer\u00eda Martinez', city: 'Lima', country: 'Peru', region: 'South America' },
+    { rank: 33, name: 'Sastrería Martinez', city: 'Lima', country: 'Peru', region: 'South America' },
     { rank: 34, name: 'Panda & Sons', city: 'Edinburgh', country: 'UK', region: 'Europe' },
-    { rank: 35, name: 'R\u00f6da Huset', city: 'Stockholm', country: 'Sweden', region: 'Europe' },
+    { rank: 35, name: 'Röda Huset', city: 'Stockholm', country: 'Sweden', region: 'Europe' },
     { rank: 36, name: 'Mimi Kakushi', city: 'Dubai', country: 'UAE', region: 'Middle East & Africa' },
     { rank: 37, name: 'Salmon Guru', city: 'Madrid', country: 'Spain', region: 'Europe' },
     { rank: 38, name: 'Coa', city: 'Hong Kong', country: 'China', region: 'Asia' },
@@ -50,10 +50,10 @@ export const FIFTY_BEST_BARS = {
     { rank: 42, name: 'Maybe Sammy', city: 'Sydney', country: 'Australia', region: 'Australasia' },
     { rank: 43, name: '1930', city: 'Milan', country: 'Italy', region: 'Europe' },
     { rank: 44, name: 'Jewel of the South', city: 'New Orleans', country: 'USA', region: 'North America' },
-    { rank: 45, name: 'Virt\u00f9', city: 'Tokyo', country: 'Japan', region: 'Asia' },
+    { rank: 45, name: 'Virtù', city: 'Tokyo', country: 'Japan', region: 'Asia' },
     { rank: 46, name: 'BKK Social Club', city: 'Bangkok', country: 'Thailand', region: 'Asia' },
     { rank: 47, name: 'The Bellwood', city: 'Tokyo', country: 'Japan', region: 'Asia' },
-    { rank: 48, name: 'Licorer\u00eda Limantour', city: 'Mexico City', country: 'Mexico', region: 'North America' },
+    { rank: 48, name: 'Licorería Limantour', city: 'Mexico City', country: 'Mexico', region: 'North America' },
     { rank: 49, name: 'Byrdi', city: 'Melbourne', country: 'Australia', region: 'Australasia' },
     { rank: 50, name: 'Nutmeg & Clove', city: 'Singapore', country: 'Singapore', region: 'Asia' },
   ],
@@ -61,11 +61,11 @@ export const FIFTY_BEST_BARS = {
     { rank: 1, name: 'Handshake Speakeasy', city: 'Mexico City', country: 'Mexico', region: 'North America' },
     { rank: 2, name: 'Bar Leone', city: 'Hong Kong', country: 'China', region: 'Asia' },
     { rank: 3, name: 'Sips', city: 'Barcelona', country: 'Spain', region: 'Europe' },
-    { rank: 4, name: 'Tay\u0113r + Elementary', city: 'London', country: 'UK', region: 'Europe' },
+    { rank: 4, name: 'Tayēr + Elementary', city: 'London', country: 'UK', region: 'Europe' },
     { rank: 5, name: 'Jigger & Pony', city: 'Singapore', country: 'Singapore', region: 'Asia' },
     { rank: 6, name: 'Line', city: 'Athens', country: 'Greece', region: 'Europe' },
     { rank: 7, name: 'Tres Monos', city: 'Buenos Aires', country: 'Argentina', region: 'South America' },
-    { rank: 8, name: 'Alqu\u00edmico', city: 'Cartagena', country: 'Colombia', region: 'South America' },
+    { rank: 8, name: 'Alquímico', city: 'Cartagena', country: 'Colombia', region: 'South America' },
     { rank: 9, name: 'Zest', city: 'Seoul', country: 'South Korea', region: 'Asia' },
     { rank: 10, name: 'Paradiso', city: 'Barcelona', country: 'Spain', region: 'Europe' },
     { rank: 11, name: 'Himkok', city: 'Oslo', country: 'Norway', region: 'Europe' },
@@ -77,7 +77,7 @@ export const FIFTY_BEST_BARS = {
     { rank: 17, name: 'Baba au Rum', city: 'Athens', country: 'Greece', region: 'Europe' },
     { rank: 18, name: 'Coa', city: 'Hong Kong', country: 'China', region: 'Asia' },
     { rank: 19, name: 'The Cambridge Public House', city: 'Paris', country: 'France', region: 'Europe' },
-    { rank: 20, name: 'Tlec\u0101n', city: 'Mexico City', country: 'Mexico', region: 'North America' },
+    { rank: 20, name: 'Tlecān', city: 'Mexico City', country: 'Mexico', region: 'North America' },
     { rank: 21, name: 'Caretaker\'s Cottage', city: 'Melbourne', country: 'Australia', region: 'Australasia' },
     { rank: 22, name: 'CoChinChina', city: 'Buenos Aires', country: 'Argentina', region: 'South America' },
     { rank: 23, name: 'Salmon Guru', city: 'Madrid', country: 'Spain', region: 'Europe' },
@@ -88,8 +88,8 @@ export const FIFTY_BEST_BARS = {
     { rank: 28, name: 'Nutmeg & Clove', city: 'Singapore', country: 'Singapore', region: 'Asia' },
     { rank: 29, name: 'Satan\'s Whiskers', city: 'London', country: 'UK', region: 'Europe' },
     { rank: 30, name: 'Panda & Sons', city: 'Edinburgh', country: 'UK', region: 'Europe' },
-    { rank: 31, name: 'Tan Tan', city: 'S\u00e3o Paulo', country: 'Brazil', region: 'South America' },
-    { rank: 32, name: 'Licorer\u00eda Limantour', city: 'Mexico City', country: 'Mexico', region: 'North America' },
+    { rank: 31, name: 'Tan Tan', city: 'São Paulo', country: 'Brazil', region: 'South America' },
+    { rank: 32, name: 'Licorería Limantour', city: 'Mexico City', country: 'Mexico', region: 'North America' },
     { rank: 33, name: 'Drink Kong', city: 'Rome', country: 'Italy', region: 'Europe' },
     { rank: 34, name: 'Jewel of the South', city: 'New Orleans', country: 'USA', region: 'North America' },
     { rank: 35, name: 'Byrdi', city: 'Melbourne', country: 'Australia', region: 'Australasia' },
@@ -97,8 +97,8 @@ export const FIFTY_BEST_BARS = {
     { rank: 37, name: 'Scarfes Bar', city: 'London', country: 'UK', region: 'Europe' },
     { rank: 38, name: 'Lyaness', city: 'London', country: 'UK', region: 'Europe' },
     { rank: 39, name: 'Danico', city: 'Paris', country: 'France', region: 'Europe' },
-    { rank: 40, name: 'Caf\u00e9 La Trova', city: 'Miami', country: 'USA', region: 'North America' },
-    { rank: 41, name: 'R\u00f6da Huset', city: 'Stockholm', country: 'Sweden', region: 'Europe' },
+    { rank: 40, name: 'Café La Trova', city: 'Miami', country: 'USA', region: 'North America' },
+    { rank: 41, name: 'Röda Huset', city: 'Stockholm', country: 'Sweden', region: 'Europe' },
     { rank: 42, name: '1930', city: 'Milan', country: 'Italy', region: 'Europe' },
     { rank: 43, name: 'Mimi Kakushi', city: 'Dubai', country: 'UAE', region: 'Middle East & Africa' },
     { rank: 44, name: 'L\'Antiquario', city: 'Naples', country: 'Italy', region: 'Europe' },
@@ -116,9 +116,9 @@ export const FIFTY_BEST_BARS = {
     { rank: 4, name: 'Paradiso', city: 'Barcelona', country: 'Spain', region: 'Europe' },
     { rank: 5, name: 'Connaught Bar', city: 'London', country: 'UK', region: 'Europe' },
     { rank: 6, name: 'Little Red Door', city: 'Paris', country: 'France', region: 'Europe' },
-    { rank: 7, name: 'Licorer\u00eda Limantour', city: 'Mexico City', country: 'Mexico', region: 'North America' },
-    { rank: 8, name: 'Tay\u0113r + Elementary', city: 'London', country: 'UK', region: 'Europe' },
-    { rank: 9, name: 'Alqu\u00edmico', city: 'Cartagena', country: 'Colombia', region: 'South America' },
+    { rank: 7, name: 'Licorería Limantour', city: 'Mexico City', country: 'Mexico', region: 'North America' },
+    { rank: 8, name: 'Tayēr + Elementary', city: 'London', country: 'UK', region: 'Europe' },
+    { rank: 9, name: 'Alquímico', city: 'Cartagena', country: 'Colombia', region: 'South America' },
     { rank: 10, name: 'Himkok', city: 'Oslo', country: 'Norway', region: 'Europe' },
     { rank: 11, name: 'Tres Monos', city: 'Buenos Aires', country: 'Argentina', region: 'South America' },
     { rank: 12, name: 'Line', city: 'Athens', country: 'Greece', region: 'Europe' },
@@ -133,14 +133,14 @@ export const FIFTY_BEST_BARS = {
     { rank: 21, name: 'Drink Kong', city: 'Rome', country: 'Italy', region: 'Europe' },
     { rank: 22, name: 'Hanky Panky', city: 'Mexico City', country: 'Mexico', region: 'North America' },
     { rank: 23, name: 'Caretaker\'s Cottage', city: 'Melbourne', country: 'Australia', region: 'Australasia' },
-    { rank: 24, name: 'Caf\u00e9 La Trova', city: 'Miami', country: 'USA', region: 'North America' },
+    { rank: 24, name: 'Café La Trova', city: 'Miami', country: 'USA', region: 'North America' },
     { rank: 25, name: 'Baba au Rum', city: 'Athens', country: 'Greece', region: 'Europe' },
     { rank: 26, name: 'CoChinChina', city: 'Buenos Aires', country: 'Argentina', region: 'South America' },
     { rank: 27, name: 'Katana Kitten', city: 'New York', country: 'USA', region: 'North America' },
     { rank: 28, name: 'Satan\'s Whiskers', city: 'London', country: 'UK', region: 'Europe' },
     { rank: 29, name: 'Wax On', city: 'Berlin', country: 'Germany', region: 'Europe' },
-    { rank: 30, name: 'Florer\u00eda Atl\u00e1ntico', city: 'Buenos Aires', country: 'Argentina', region: 'South America' },
-    { rank: 31, name: 'R\u00f6da Huset', city: 'Stockholm', country: 'Sweden', region: 'Europe' },
+    { rank: 30, name: 'Florería Atlántico', city: 'Buenos Aires', country: 'Argentina', region: 'South America' },
+    { rank: 31, name: 'Röda Huset', city: 'Stockholm', country: 'Sweden', region: 'Europe' },
     { rank: 32, name: 'Sago House', city: 'Singapore', country: 'Singapore', region: 'Asia' },
     { rank: 33, name: 'Freni e Frizioni', city: 'Rome', country: 'Italy', region: 'Europe' },
     { rank: 34, name: 'Argo', city: 'Hong Kong', country: 'China', region: 'Asia' },
@@ -163,15 +163,15 @@ export const FIFTY_BEST_BARS = {
   ],
   2022: [
     { rank: 1, name: 'Paradiso', city: 'Barcelona', country: 'Spain', region: 'Europe' },
-    { rank: 2, name: 'Tay\u0113r + Elementary', city: 'London', country: 'UK', region: 'Europe' },
+    { rank: 2, name: 'Tayēr + Elementary', city: 'London', country: 'UK', region: 'Europe' },
     { rank: 3, name: 'Sips', city: 'Barcelona', country: 'Spain', region: 'Europe' },
-    { rank: 4, name: 'Licorer\u00eda Limantour', city: 'Mexico City', country: 'Mexico', region: 'North America' },
+    { rank: 4, name: 'Licorería Limantour', city: 'Mexico City', country: 'Mexico', region: 'North America' },
     { rank: 5, name: 'Little Red Door', city: 'Paris', country: 'France', region: 'Europe' },
     { rank: 6, name: 'Double Chicken Please', city: 'New York', country: 'USA', region: 'North America' },
     { rank: 7, name: 'Two Schmucks', city: 'Barcelona', country: 'Spain', region: 'Europe' },
     { rank: 8, name: 'Connaught Bar', city: 'London', country: 'UK', region: 'Europe' },
     { rank: 9, name: 'Katana Kitten', city: 'New York', country: 'USA', region: 'North America' },
-    { rank: 10, name: 'Alqu\u00edmico', city: 'Cartagena', country: 'Colombia', region: 'South America' },
+    { rank: 10, name: 'Alquímico', city: 'Cartagena', country: 'Colombia', region: 'South America' },
     { rank: 11, name: 'Handshake Speakeasy', city: 'Mexico City', country: 'Mexico', region: 'North America' },
     { rank: 12, name: 'Jigger & Pony', city: 'Singapore', country: 'Singapore', region: 'Asia' },
     { rank: 13, name: 'Hanky Panky', city: 'Mexico City', country: 'Mexico', region: 'North America' },
@@ -179,10 +179,10 @@ export const FIFTY_BEST_BARS = {
     { rank: 15, name: 'Salmon Guru', city: 'Madrid', country: 'Spain', region: 'Europe' },
     { rank: 16, name: 'Drink Kong', city: 'Rome', country: 'Italy', region: 'Europe' },
     { rank: 17, name: 'Coa', city: 'Hong Kong', country: 'China', region: 'Asia' },
-    { rank: 18, name: 'Florer\u00eda Atl\u00e1ntico', city: 'Buenos Aires', country: 'Argentina', region: 'South America' },
+    { rank: 18, name: 'Florería Atlántico', city: 'Buenos Aires', country: 'Argentina', region: 'South America' },
     { rank: 19, name: 'The Clumsies', city: 'Athens', country: 'Greece', region: 'Europe' },
     { rank: 20, name: 'Baba au Rum', city: 'Athens', country: 'Greece', region: 'Europe' },
-    { rank: 21, name: 'Caf\u00e9 La Trova', city: 'Miami', country: 'USA', region: 'North America' },
+    { rank: 21, name: 'Café La Trova', city: 'Miami', country: 'USA', region: 'North America' },
     { rank: 22, name: 'Attaboy', city: 'New York', country: 'USA', region: 'North America' },
     { rank: 23, name: 'Satan\'s Whiskers', city: 'London', country: 'UK', region: 'Europe' },
     { rank: 24, name: 'Tropic City', city: 'Bangkok', country: 'Thailand', region: 'Asia' },
@@ -215,11 +215,11 @@ export const FIFTY_BEST_BARS = {
   ],
   2021: [
     { rank: 1, name: 'Connaught Bar', city: 'London', country: 'UK', region: 'Europe' },
-    { rank: 2, name: 'Tay\u0113r + Elementary', city: 'London', country: 'UK', region: 'Europe' },
+    { rank: 2, name: 'Tayēr + Elementary', city: 'London', country: 'UK', region: 'Europe' },
     { rank: 3, name: 'Paradiso', city: 'Barcelona', country: 'Spain', region: 'Europe' },
     { rank: 4, name: 'The Clumsies', city: 'Athens', country: 'Greece', region: 'Europe' },
-    { rank: 5, name: 'Florer\u00eda Atl\u00e1ntico', city: 'Buenos Aires', country: 'Argentina', region: 'South America' },
-    { rank: 6, name: 'Licorer\u00eda Limantour', city: 'Mexico City', country: 'Mexico', region: 'North America' },
+    { rank: 5, name: 'Florería Atlántico', city: 'Buenos Aires', country: 'Argentina', region: 'South America' },
+    { rank: 6, name: 'Licorería Limantour', city: 'Mexico City', country: 'Mexico', region: 'North America' },
     { rank: 7, name: 'Coa', city: 'Hong Kong', country: 'China', region: 'Asia' },
     { rank: 8, name: 'El Copitas', city: 'St Petersburg', country: 'Russia', region: 'Europe' },
     { rank: 9, name: 'Jigger & Pony', city: 'Singapore', country: 'Singapore', region: 'Asia' },
@@ -241,10 +241,10 @@ export const FIFTY_BEST_BARS = {
     { rank: 25, name: 'Handshake Speakeasy', city: 'Mexico City', country: 'Mexico', region: 'North America' },
     { rank: 26, name: 'No Sleep Club', city: 'Singapore', country: 'Singapore', region: 'Asia' },
     { rank: 27, name: 'Camparino in Galleria', city: 'Milan', country: 'Italy', region: 'Europe' },
-    { rank: 28, name: 'Caf\u00e9 La Trova', city: 'Miami', country: 'USA', region: 'North America' },
+    { rank: 28, name: 'Café La Trova', city: 'Miami', country: 'USA', region: 'North America' },
     { rank: 29, name: 'Little Red Door', city: 'Paris', country: 'France', region: 'Europe' },
     { rank: 30, name: 'Dante', city: 'New York', country: 'USA', region: 'North America' },
-    { rank: 31, name: 'Kw\u0101nt', city: 'London', country: 'UK', region: 'Europe' },
+    { rank: 31, name: 'Kwānt', city: 'London', country: 'UK', region: 'Europe' },
     { rank: 32, name: 'Bar Benfiddich', city: 'Tokyo', country: 'Japan', region: 'Asia' },
     { rank: 33, name: 'Tres Monos', city: 'Buenos Aires', country: 'Argentina', region: 'South America' },
     { rank: 34, name: 'Attaboy', city: 'New York', country: 'USA', region: 'North America' },
@@ -268,52 +268,52 @@ export const FIFTY_BEST_BARS = {
 }
 
 // ═══════════════════════════════════════════════════════════════
-// LONDON KEY ACCOUNTS \u2014 VENUE INTELLIGENCE DATABASE
+// LONDON KEY ACCOUNTS — VENUE INTELLIGENCE DATABASE
 // ═══════════════════════════════════════════════════════════════
 
 export const LONDON_VENUES = [
   // TOP 50 BEST BARS (London entries)
-  { name: 'Tay\u0113r + Elementary', type: 'Bar', area: 'Shoreditch', accountType: 'Luxury', estRevenue: '\u00a33.5M', fiftyBest: [2,4,8,2,5], founders: 'Monica Berg & Alex Kratena', knownBrands: ['Desi Daru','Everleaf','Svitlo Vodka','Muyu','Suze','Martini Ambrato','Tio Pepe'], parentCompanies: ['Independent','Pernod Ricard','Bacardi'], notes: 'Co-founder Monica Berg named Roku Industry Icon 2024. RTD line with Everleaf. Pioneering draught cocktail system.', menuUrl: 'https://www.tfrancisco.com/tayer-elementary', revenueSource: 'Industry estimate based on 80-cover capacity, average spend \u00a345-60pp, operating 6 nights/week in Shoreditch.' },
-  { name: 'Connaught Bar', type: 'Hotel Bar', area: 'Mayfair', accountType: 'Luxury', estRevenue: '\u00a38M', fiftyBest: [1,8,5,13,6], founders: 'Agostino Perrone (Dir. Mixology)', knownBrands: ['Roku Gin','Star of Bombay','Grey Goose','Ketel One','Macallan 12','Woodford Reserve','Patr\u00f3n','WhistlePig','Haku Vodka','Laurent Perrier','Campari','Martini','Bacardi Carta Blanca','Ron Santiago de Cuba','Galliano','Benedictine','Angostura'], parentCompanies: ['Beam Suntory','Bacardi','Diageo','Pernod Ricard','LVMH','Campari Group'], notes: 'World\'s Best Bar 2020 & 2021. Signature Martini trolley service. 2024 cocktail book published. Vintage spirits collection (1970s Gordon\'s, Campari, Cointreau).', menuUrl: 'https://www.the-connaught.co.uk/dining/connaught-bar/', revenueSource: 'Estimated from Maybourne Hotel Group Ltd annual filings (Companies House). Bar revenue allocated from total hotel F&B.' },
-  { name: 'Satan\'s Whiskers', type: 'Bar', area: 'Bethnal Green', accountType: 'Luxury', estRevenue: '\u00a32M', fiftyBest: [null,23,28,29,21], founders: 'Kevin Armstrong, Damian Benjamin, Fraser Chapman', knownBrands: ['Tanqueray','Noilly Prat','Knob Creek','Aperol','Grand Marnier','Campari','Chartreuse','Fernet Branca'], parentCompanies: ['Diageo','Bacardi','Campari Group','Brown-Forman','Pernod Ricard'], notes: 'London\'s bartender\'s bar. 900-strong classic cocktail list. Daily rotating printed menu. Blind-tasting spirit selection policy. No pre-batching.', menuUrl: 'https://www.satanswhiskers.com/', revenueSource: 'Industry estimate. Independent single-site bar, ~50 covers, Bethnal Green. No public filings available.' },
-  { name: 'Scarfes Bar', type: 'Hotel Bar', area: 'Holborn', accountType: 'Luxury', estRevenue: '\u00a35M', fiftyBest: [null,null,41,37,31], founders: 'Rosewood London', knownBrands: ['Appleton 12','The Lakes','Grey Goose','Macallan 12','Glen Grant 12','Michter\'s Rye','No.3 Gin','St-Germain','Campari','Hendrick\'s','Highland Park 12','Aperol','Renais Gin','R\u00e9my Martin 1738','Bruichladdich'], parentCompanies: ['Campari Group','Edrington','Diageo','Beam Suntory','Pernod Ricard','R\u00e9my Cointreau','William Grant & Sons','Berry Bros & Rudd'], notes: 'No.1 Best International Hotel Bar (Tales of the Cocktail 2024). Gerald Scarfe caricatures. First to list Renais Gin (Emma Watson). Live jazz nightly.', menuUrl: 'https://www.rosewoodhotels.com/en/london/dining/scarfes-bar', revenueSource: 'Estimated from Rosewood Hotel London operations. Rosewood London Ltd Companies House filings. Bar revenue allocated from total hotel F&B.' },
-  { name: 'Lyaness', type: 'Hotel Bar', area: 'Southbank', accountType: 'Luxury', estRevenue: '\u00a34M', fiftyBest: [null,null,null,38,null], founders: 'Ryan Chetiyawardana (Mr Lyan)', knownBrands: ['Macallan 12 Double Cask','Compass Box','Empirical Spirits'], parentCompanies: ['Edrington','Independent'], notes: 'World\'s most awarded bartender. First ever 3-PIN bar. 6-month menu R&D cycle. Pioneer of enzyme-fermentation and lacto-fermentation.', menuUrl: 'https://lyaness.com/', revenueSource: 'Industry estimate. Part of Sea Containers London (Lore Group). Single bar operation on Southbank.' },
-  { name: 'A Bar with Shapes for a Name', type: 'Bar', area: 'Hackney', accountType: 'Luxury', estRevenue: '\u00a31.5M', fiftyBest: [null,37,35,null,null], founders: 'N/A', knownBrands: [], parentCompanies: [], notes: 'Featured on 50 Best 2022 & 2023.', menuUrl: 'https://www.instagram.com/a_bar_with_shapes_for_a_name_/', revenueSource: 'Industry estimate. Small independent bar in Hackney. No public filings. Revenue based on comparable venues.' },
-  { name: 'Swift', type: 'Bar', area: 'Soho', accountType: 'Luxury', estRevenue: '\u00a33M', fiftyBest: [null,30,null,null,null], founders: 'Mia Johansson & Bobby Hiddleston', knownBrands: ['Jack Daniel\'s','Monkey Shoulder','Beefeater','Tapatio Blanco','Del Maguey Vida','Clos Martin Armagnac','Lot 40 Rye','Aluna Rum','Cocchi','Campari','Amaro Nonino','Amaro Averna','Aperitivo Select'], parentCompanies: ['Brown-Forman','William Grant & Sons','Pernod Ricard','Beam Suntory','Campari Group','Independent'], notes: '3 locations (Soho, Shoreditch, Borough). 300+ whiskies downstairs. Famous Irish Coffee. 10th anniversary 2026.', menuUrl: 'https://www.barswift.com/menus/', revenueSource: 'Industry estimate across 3 locations (Soho, Shoreditch, Borough). No public parent company filings available.' },
-  { name: 'Kw\u0101nt', type: 'Bar', area: 'Mayfair', accountType: 'Luxury', estRevenue: '\u00a32.5M', fiftyBest: [31,null,null,null,null], founders: 'Erik Lorincz (ex-American Bar, Savoy)', knownBrands: ['Roku Gin','Woodford Reserve','Ford\'s Gin','Michter\'s','Matusalem','Avallen Calvados','Nikka Coffey Gin','Nikka Taketsuru','Nikka Yoichi','Nikka Miyagikyo','Nikka Coffey Vodka','St Germain','Tio Pepe','Cocchi Americano','Muyu'], parentCompanies: ['Beam Suntory','Brown-Forman','William Grant & Sons','Nikka/Asahi','Pernod Ricard'], notes: 'Omakase cocktail experience with Nikka. In-house microherb growing system. Beneath Momo restaurant.', menuUrl: 'https://www.kwant.bar/', revenueSource: 'Industry estimate. Located beneath Momo restaurant, Mayfair. Single-site operation.' },
+  { name: 'Tayēr + Elementary', type: 'Bar', area: 'Shoreditch', accountType: 'Luxury', estRevenue: '£3.5M', fiftyBest: [2,4,8,2,5], founders: 'Monica Berg & Alex Kratena', knownBrands: ['Desi Daru','Everleaf','Svitlo Vodka','Muyu','Suze','Martini Ambrato','Tio Pepe'], parentCompanies: ['Independent','Pernod Ricard','Bacardi'], notes: 'Co-founder Monica Berg named Roku Industry Icon 2024. RTD line with Everleaf. Pioneering draught cocktail system.', menuUrl: 'https://www.tfrancisco.com/tayer-elementary', revenueSource: 'Industry estimate based on 80-cover capacity, average spend £45-60pp, operating 6 nights/week in Shoreditch.' },
+  { name: 'Connaught Bar', type: 'Hotel Bar', area: 'Mayfair', accountType: 'Luxury', estRevenue: '£8M', fiftyBest: [1,8,5,13,6], founders: 'Agostino Perrone (Dir. Mixology)', knownBrands: ['Roku Gin','Star of Bombay','Grey Goose','Ketel One','Macallan 12','Woodford Reserve','Patrón','WhistlePig','Haku Vodka','Laurent Perrier','Campari','Martini','Bacardi Carta Blanca','Ron Santiago de Cuba','Galliano','Benedictine','Angostura'], parentCompanies: ['Beam Suntory','Bacardi','Diageo','Pernod Ricard','LVMH','Campari Group'], notes: 'World\'s Best Bar 2020 & 2021. Signature Martini trolley service. 2024 cocktail book published. Vintage spirits collection (1970s Gordon\'s, Campari, Cointreau).', menuUrl: 'https://www.the-connaught.co.uk/dining/connaught-bar/', revenueSource: 'Estimated from Maybourne Hotel Group Ltd annual filings (Companies House). Bar revenue allocated from total hotel F&B.' },
+  { name: 'Satan\'s Whiskers', type: 'Bar', area: 'Bethnal Green', accountType: 'Luxury', estRevenue: '£2M', fiftyBest: [null,23,28,29,21], founders: 'Kevin Armstrong, Damian Benjamin, Fraser Chapman', knownBrands: ['Tanqueray','Noilly Prat','Knob Creek','Aperol','Grand Marnier','Campari','Chartreuse','Fernet Branca'], parentCompanies: ['Diageo','Bacardi','Campari Group','Brown-Forman','Pernod Ricard'], notes: 'London\'s bartender\'s bar. 900-strong classic cocktail list. Daily rotating printed menu. Blind-tasting spirit selection policy. No pre-batching.', menuUrl: 'https://www.satanswhiskers.com/', revenueSource: 'Industry estimate. Independent single-site bar, ~50 covers, Bethnal Green. No public filings available.' },
+  { name: 'Scarfes Bar', type: 'Hotel Bar', area: 'Holborn', accountType: 'Luxury', estRevenue: '£5M', fiftyBest: [null,null,41,37,31], founders: 'Rosewood London', knownBrands: ['Appleton 12','The Lakes','Grey Goose','Macallan 12','Glen Grant 12','Michter\'s Rye','No.3 Gin','St-Germain','Campari','Hendrick\'s','Highland Park 12','Aperol','Renais Gin','Rémy Martin 1738','Bruichladdich'], parentCompanies: ['Campari Group','Edrington','Diageo','Beam Suntory','Pernod Ricard','Rémy Cointreau','William Grant & Sons','Berry Bros & Rudd'], notes: 'No.1 Best International Hotel Bar (Tales of the Cocktail 2024). Gerald Scarfe caricatures. First to list Renais Gin (Emma Watson). Live jazz nightly.', menuUrl: 'https://www.rosewoodhotels.com/en/london/dining/scarfes-bar', revenueSource: 'Estimated from Rosewood Hotel London operations. Rosewood London Ltd Companies House filings. Bar revenue allocated from total hotel F&B.' },
+  { name: 'Lyaness', type: 'Hotel Bar', area: 'Southbank', accountType: 'Luxury', estRevenue: '£4M', fiftyBest: [null,null,null,38,null], founders: 'Ryan Chetiyawardana (Mr Lyan)', knownBrands: ['Macallan 12 Double Cask','Compass Box','Empirical Spirits'], parentCompanies: ['Edrington','Independent'], notes: 'World\'s most awarded bartender. First ever 3-PIN bar. 6-month menu R&D cycle. Pioneer of enzyme-fermentation and lacto-fermentation.', menuUrl: 'https://lyaness.com/', revenueSource: 'Industry estimate. Part of Sea Containers London (Lore Group). Single bar operation on Southbank.' },
+  { name: 'A Bar with Shapes for a Name', type: 'Bar', area: 'Hackney', accountType: 'Luxury', estRevenue: '£1.5M', fiftyBest: [null,37,35,null,null], founders: 'N/A', knownBrands: [], parentCompanies: [], notes: 'Featured on 50 Best 2022 & 2023.', menuUrl: 'https://www.instagram.com/a_bar_with_shapes_for_a_name_/', revenueSource: 'Industry estimate. Small independent bar in Hackney. No public filings. Revenue based on comparable venues.' },
+  { name: 'Swift', type: 'Bar', area: 'Soho', accountType: 'Luxury', estRevenue: '£3M', fiftyBest: [null,30,null,null,null], founders: 'Mia Johansson & Bobby Hiddleston', knownBrands: ['Jack Daniel\'s','Monkey Shoulder','Beefeater','Tapatio Blanco','Del Maguey Vida','Clos Martin Armagnac','Lot 40 Rye','Aluna Rum','Cocchi','Campari','Amaro Nonino','Amaro Averna','Aperitivo Select'], parentCompanies: ['Brown-Forman','William Grant & Sons','Pernod Ricard','Beam Suntory','Campari Group','Independent'], notes: '3 locations (Soho, Shoreditch, Borough). 300+ whiskies downstairs. Famous Irish Coffee. 10th anniversary 2026.', menuUrl: 'https://www.barswift.com/menus/', revenueSource: 'Industry estimate across 3 locations (Soho, Shoreditch, Borough). No public parent company filings available.' },
+  { name: 'Kwānt', type: 'Bar', area: 'Mayfair', accountType: 'Luxury', estRevenue: '£2.5M', fiftyBest: [31,null,null,null,null], founders: 'Erik Lorincz (ex-American Bar, Savoy)', knownBrands: ['Roku Gin','Woodford Reserve','Ford\'s Gin','Michter\'s','Matusalem','Avallen Calvados','Nikka Coffey Gin','Nikka Taketsuru','Nikka Yoichi','Nikka Miyagikyo','Nikka Coffey Vodka','St Germain','Tio Pepe','Cocchi Americano','Muyu'], parentCompanies: ['Beam Suntory','Brown-Forman','William Grant & Sons','Nikka/Asahi','Pernod Ricard'], notes: 'Omakase cocktail experience with Nikka. In-house microherb growing system. Beneath Momo restaurant.', menuUrl: 'https://www.kwant.bar/', revenueSource: 'Industry estimate. Located beneath Momo restaurant, Mayfair. Single-site operation.' },
   // ICONIC LONDON HOTEL BARS
-  { name: 'American Bar at The Savoy', type: 'Hotel Bar', area: 'Strand', accountType: 'Both', estRevenue: '\u00a37M', fiftyBest: [], founders: 'Est. 1893 \u2014 Angelo Sparvoli (Head Bartender)', knownBrands: ['Bacardi Carta Blanca','Absolut Elyx','Rabbit Hole Rye','Amaro Lucano','Muyu Jasmine Verte','Muyu Vetiver Gris','Luxardo Bitter Bianco','Cocchi Americano','Cocchi Rosa','Nyetimber','The Lakes Whisky','Bombay Sapphire','Fernet-Branca','ecoSPIRITS'], parentCompanies: ['Bacardi','Pernod Ricard','Independent','Campari Group','Davide Campari'], notes: 'Longest surviving cocktail bar in London (1893). Known Bacardi partnership/incubator \u2014 multiple Bacardi portfolio brands featured. ecoSPIRITS sustainability partner. Head bartender Angelo Sparvoli returned 2024.', menuUrl: 'https://www.thesavoylondon.com/restaurant/american-bar/', revenueSource: 'Savoy Hotel Ltd Companies House filing: \u00a363.3M total hotel revenue (FY2023). Bar revenue estimated at 10-12% of total F&B.' },
-  { name: 'Artesian at The Langham', type: 'Hotel Bar', area: 'Marylebone', accountType: 'Luxury', estRevenue: '\u00a35M', fiftyBest: [], founders: 'The Langham London', knownBrands: ['R\u00e9my Martin','Hennessy','Grey Goose','Belvedere','Dom P\u00e9rignon'], parentCompanies: ['R\u00e9my Cointreau','LVMH','Pernod Ricard'], notes: 'Four-time World\'s Best Bar winner (2012-2015). Strong LVMH and R\u00e9my Cointreau presence historically.', menuUrl: 'https://www.langhamhotels.com/en/the-langham/london/dining/artesian/', revenueSource: 'Estimated from Langham Hotels London operations. Revenue allocated from total hotel F&B division.' },
-  { name: 'Beaufort Bar at The Savoy', type: 'Hotel Bar', area: 'Strand', accountType: 'Both', estRevenue: '\u00a34M', fiftyBest: [], founders: 'The Savoy', knownBrands: ['Dom P\u00e9rignon','Mo\u00ebt & Chandon','Veuve Clicquot','Hennessy','Glenmorangie'], parentCompanies: ['LVMH','Diageo'], notes: 'Art Deco cabaret bar. Strong LVMH champagne presence. Live entertainment.', menuUrl: 'https://www.thesavoylondon.com/restaurant/beaufort-bar/', revenueSource: 'Savoy Hotel Ltd Companies House filing: \u00a363.3M total hotel revenue (FY2023). Beaufort Bar est. 6-7% of total F&B.' },
+  { name: 'American Bar at The Savoy', type: 'Hotel Bar', area: 'Strand', accountType: 'Both', estRevenue: '£7M', fiftyBest: [], founders: 'Est. 1893 — Angelo Sparvoli (Head Bartender)', knownBrands: ['Bacardi Carta Blanca','Absolut Elyx','Rabbit Hole Rye','Amaro Lucano','Muyu Jasmine Verte','Muyu Vetiver Gris','Luxardo Bitter Bianco','Cocchi Americano','Cocchi Rosa','Nyetimber','The Lakes Whisky','Bombay Sapphire','Fernet-Branca','ecoSPIRITS'], parentCompanies: ['Bacardi','Pernod Ricard','Independent','Campari Group','Davide Campari'], notes: 'Longest surviving cocktail bar in London (1893). Known Bacardi partnership/incubator — multiple Bacardi portfolio brands featured. ecoSPIRITS sustainability partner. Head bartender Angelo Sparvoli returned 2024.', menuUrl: 'https://www.thesavoylondon.com/restaurant/american-bar/', revenueSource: 'Savoy Hotel Ltd Companies House filing: £63.3M total hotel revenue (FY2023). Bar revenue estimated at 10-12% of total F&B.' },
+  { name: 'Artesian at The Langham', type: 'Hotel Bar', area: 'Marylebone', accountType: 'Luxury', estRevenue: '£5M', fiftyBest: [], founders: 'The Langham London', knownBrands: ['Rémy Martin','Hennessy','Grey Goose','Belvedere','Dom Pérignon'], parentCompanies: ['Rémy Cointreau','LVMH','Pernod Ricard'], notes: 'Four-time World\'s Best Bar winner (2012-2015). Strong LVMH and Rémy Cointreau presence historically.', menuUrl: 'https://www.langhamhotels.com/en/the-langham/london/dining/artesian/', revenueSource: 'Estimated from Langham Hotels London operations. Revenue allocated from total hotel F&B division.' },
+  { name: 'Beaufort Bar at The Savoy', type: 'Hotel Bar', area: 'Strand', accountType: 'Both', estRevenue: '£4M', fiftyBest: [], founders: 'The Savoy', knownBrands: ['Dom Pérignon','Moët & Chandon','Veuve Clicquot','Hennessy','Glenmorangie'], parentCompanies: ['LVMH','Diageo'], notes: 'Art Deco cabaret bar. Strong LVMH champagne presence. Live entertainment.', menuUrl: 'https://www.thesavoylondon.com/restaurant/beaufort-bar/', revenueSource: 'Savoy Hotel Ltd Companies House filing: £63.3M total hotel revenue (FY2023). Beaufort Bar est. 6-7% of total F&B.' },
   // PRIVATE MEMBERS CLUBS
-  { name: 'Annabel\'s', type: 'Private Members Club', area: 'Mayfair', accountType: 'Both', estRevenue: '\u00a355.6M', fiftyBest: [], founders: 'Mark Birley (1963), now Birley Clubs', knownBrands: ['Dom P\u00e9rignon','Hennessy','WhistlePig','Suntory Toki','Ki No Bi Sei','Bo\u00ebrl & Kroff','Screaming Eagle','Roman\u00e9e-Conti','P\u00e9trus','Sassicaia'], parentCompanies: ['LVMH','Beam Suntory','Independent'], notes: '~\u00a352M annual revenue. 25% from membership fees. World\'s largest Dom P\u00e9rignon collection. 600+ tequila bottles. LVMH/large champagne houses pay heavily for menu featuring. Retros + marketing spend. Bolivar restaurant (2024) \u2014 agave-focused.', menuUrl: 'https://www.annabels.co.uk/', revenueSource: '46 Berkeley Square Ltd Companies House filing (FY2023): \u00a355.6M revenue, \u00a312.4M pre-tax profit. 25% from membership fees, remainder F&B and events.' },
-  { name: 'Soho House (Multiple)', type: 'Private Members Club', area: 'Various', accountType: 'Volume', estRevenue: '\u00a3180M (UK)', fiftyBest: [], founders: 'Nick Jones', knownBrands: ['Grey Goose','Patr\u00f3n','Casamigos','Hendrick\'s','Sipsmith'], parentCompanies: ['Bacardi','Diageo','William Grant & Sons'], notes: 'Volume account across multiple locations. Standardised cocktail menus. Good for brand visibility with creative industry audience.', menuUrl: 'https://www.sohohouse.com/houses', revenueSource: 'Membership Collective Group (NYSE: MCG) SEC filings. UK segment estimated at ~\u00a3180M of $1.20B total group revenue (FY2024).' },
-  { name: 'The Arts Club', type: 'Private Members Club', area: 'Mayfair', accountType: 'Luxury', estRevenue: '\u00a330.9M', fiftyBest: [], founders: 'Est. 1863', knownBrands: ['Dom P\u00e9rignon','Cristal','Krug','Macallan','Glenfiddich'], parentCompanies: ['LVMH','Edrington','William Grant & Sons'], notes: 'Ultra high-net-worth members. Premium champagne and whisky focus.', menuUrl: 'https://www.theartsclub.co.uk/', revenueSource: 'The Arts Club Ltd Companies House filing: \u00a330.9M revenue (latest available). Private members club, Dover Street, Mayfair.' },
+  { name: 'Annabel\'s', type: 'Private Members Club', area: 'Mayfair', accountType: 'Both', estRevenue: '£55.6M', fiftyBest: [], founders: 'Mark Birley (1963), now Birley Clubs', knownBrands: ['Dom Pérignon','Hennessy','WhistlePig','Suntory Toki','Ki No Bi Sei','Boërl & Kroff','Screaming Eagle','Romanée-Conti','Pétrus','Sassicaia'], parentCompanies: ['LVMH','Beam Suntory','Independent'], notes: '~£52M annual revenue. 25% from membership fees. World\'s largest Dom Pérignon collection. 600+ tequila bottles. LVMH/large champagne houses pay heavily for menu featuring. Retros + marketing spend. Bolivar restaurant (2024) — agave-focused.', menuUrl: 'https://www.annabels.co.uk/', revenueSource: '46 Berkeley Square Ltd Companies House filing (FY2023): £55.6M revenue, £12.4M pre-tax profit. 25% from membership fees, remainder F&B and events.' },
+  { name: 'Soho House (Multiple)', type: 'Private Members Club', area: 'Various', accountType: 'Volume', estRevenue: '£180M (UK)', fiftyBest: [], founders: 'Nick Jones', knownBrands: ['Grey Goose','Patrón','Casamigos','Hendrick\'s','Sipsmith'], parentCompanies: ['Bacardi','Diageo','William Grant & Sons'], notes: 'Volume account across multiple locations. Standardised cocktail menus. Good for brand visibility with creative industry audience.', menuUrl: 'https://www.sohohouse.com/houses', revenueSource: 'Membership Collective Group (NYSE: MCG) SEC filings. UK segment estimated at ~£180M of $1.20B total group revenue (FY2024).' },
+  { name: 'The Arts Club', type: 'Private Members Club', area: 'Mayfair', accountType: 'Luxury', estRevenue: '£30.9M', fiftyBest: [], founders: 'Est. 1863', knownBrands: ['Dom Pérignon','Cristal','Krug','Macallan','Glenfiddich'], parentCompanies: ['LVMH','Edrington','William Grant & Sons'], notes: 'Ultra high-net-worth members. Premium champagne and whisky focus.', menuUrl: 'https://www.theartsclub.co.uk/', revenueSource: 'The Arts Club Ltd Companies House filing: £30.9M revenue (latest available). Private members club, Dover Street, Mayfair.' },
   // HIGH-VOLUME NIGHTLIFE
-  { name: 'Chiltern Firehouse', type: 'Restaurant & Bar', area: 'Marylebone', accountType: 'Both', estRevenue: '\u00a325M', fiftyBest: [], founders: 'Andr\u00e9 Balazs', knownBrands: ['Casamigos','Don Julio','Patr\u00f3n','Grey Goose','Belvedere','Dom P\u00e9rignon'], parentCompanies: ['Diageo','Bacardi','LVMH','Pernod Ricard'], notes: 'Celebrity hotspot. High-volume table service. Premium tequila and champagne heavy.', menuUrl: 'https://www.chilternfirehouse.com/restaurant', revenueSource: 'Chiltern Firehouse Hotel Ltd Companies House filing. Revenue estimated from hotel operations; F&B represents significant portion.' },
-  { name: 'Sexy Fish', type: 'Restaurant & Bar', area: 'Mayfair', accountType: 'Both', estRevenue: '\u00a335M', fiftyBest: [], founders: 'Richard Caring (Caprice Holdings)', knownBrands: ['Dom P\u00e9rignon','Cristal','Clase Azul','Don Julio 1942','Grey Goose','Belvedere'], parentCompanies: ['LVMH','Diageo','Pernod Ricard','Independent'], notes: 'One of London\'s highest-grossing restaurants. Massive champagne and premium spirits volume. Table-service driven.', menuUrl: 'https://sexyfish.com/london/menus/', revenueSource: 'Caprice Holdings Ltd Companies House filing: \u00a397.1M group revenue (FY2023). Sexy Fish is the highest-grossing single site in the group.' },
-  { name: 'The Ivy', type: 'Restaurant & Bar', area: 'Covent Garden', accountType: 'Volume', estRevenue: '\u00a330M (group)', fiftyBest: [], founders: 'Richard Caring (Caprice Holdings)', knownBrands: ['Sipsmith','Tanqueray','Grey Goose','Veuve Clicquot','Mo\u00ebt & Chandon'], parentCompanies: ['Beam Suntory','Diageo','Pernod Ricard','LVMH'], notes: 'Massive footfall across multiple locations. Volume-driven spirit contracts.', menuUrl: 'https://www.the-ivy.co.uk/menus/', revenueSource: 'Troia UK Ltd Companies House filing: \u00a3314.7M group revenue. The Ivy West Street is the flagship; \u00a330M is the single-site estimate.' },
+  { name: 'Chiltern Firehouse', type: 'Restaurant & Bar', area: 'Marylebone', accountType: 'Both', estRevenue: '£25M', fiftyBest: [], founders: 'André Balazs', knownBrands: ['Casamigos','Don Julio','Patrón','Grey Goose','Belvedere','Dom Pérignon'], parentCompanies: ['Diageo','Bacardi','LVMH','Pernod Ricard'], notes: 'Celebrity hotspot. High-volume table service. Premium tequila and champagne heavy.', menuUrl: 'https://www.chilternfirehouse.com/restaurant', revenueSource: 'Chiltern Firehouse Hotel Ltd Companies House filing. Revenue estimated from hotel operations; F&B represents significant portion.' },
+  { name: 'Sexy Fish', type: 'Restaurant & Bar', area: 'Mayfair', accountType: 'Both', estRevenue: '£35M', fiftyBest: [], founders: 'Richard Caring (Caprice Holdings)', knownBrands: ['Dom Pérignon','Cristal','Clase Azul','Don Julio 1942','Grey Goose','Belvedere'], parentCompanies: ['LVMH','Diageo','Pernod Ricard','Independent'], notes: 'One of London\'s highest-grossing restaurants. Massive champagne and premium spirits volume. Table-service driven.', menuUrl: 'https://sexyfish.com/london/menus/', revenueSource: 'Caprice Holdings Ltd Companies House filing: £97.1M group revenue (FY2023). Sexy Fish is the highest-grossing single site in the group.' },
+  { name: 'The Ivy', type: 'Restaurant & Bar', area: 'Covent Garden', accountType: 'Volume', estRevenue: '£30M (group)', fiftyBest: [], founders: 'Richard Caring (Caprice Holdings)', knownBrands: ['Sipsmith','Tanqueray','Grey Goose','Veuve Clicquot','Moët & Chandon'], parentCompanies: ['Beam Suntory','Diageo','Pernod Ricard','LVMH'], notes: 'Massive footfall across multiple locations. Volume-driven spirit contracts.', menuUrl: 'https://www.the-ivy.co.uk/menus/', revenueSource: 'Troia UK Ltd Companies House filing: £314.7M group revenue. The Ivy West Street is the flagship; £30M is the single-site estimate.' },
   // MICHELIN-STARRED RESTAURANTS
-  { name: 'Restaurant Gordon Ramsay', type: 'Restaurant', area: 'Chelsea', accountType: 'Luxury', stars: 3, estRevenue: '\u00a38M', fiftyBest: [], knownBrands: ['Dom P\u00e9rignon','Krug','Hennessy','Macallan','R\u00e9my Martin'], parentCompanies: ['LVMH','Edrington','R\u00e9my Cointreau'], notes: '3 Michelin stars. London\'s longest-running three-star. Premium wine and spirits list.', menuUrl: 'https://www.gordonramsayrestaurants.com/restaurant-gordon-ramsay/menus/', revenueSource: 'Gordon Ramsay Restaurants Ltd Companies House filing: \u00a3134M UK revenue (FY2024). Single-site Chelsea restaurant est. at \u00a38M.' },
-  { name: 'The Ledbury', type: 'Restaurant', area: 'Notting Hill', accountType: 'Luxury', stars: 3, estRevenue: '\u00a35M', fiftyBest: [], knownBrands: ['Krug','Pol Roger','Hennessy','R\u00e9my Martin XO'], parentCompanies: ['LVMH','R\u00e9my Cointreau'], notes: '3 Michelin stars (2024). Brett Graham. Premium wine-led programme.', menuUrl: 'https://www.theledbury.com/', revenueSource: 'Industry estimate. Independent single-site restaurant, Notting Hill. No public parent company filings cover this venue individually.' },
-  { name: 'Core by Clare Smyth', type: 'Restaurant', area: 'Notting Hill', accountType: 'Luxury', stars: 3, estRevenue: '\u00a36M', fiftyBest: [], knownBrands: ['Dom P\u00e9rignon','Krug','Laurent-Perrier'], parentCompanies: ['LVMH'], notes: '3 Michelin stars. World\'s 50 Best Restaurants #97 (2024). British ingredients focus.', menuUrl: 'https://corebyclaresmyth.com/menus/', revenueSource: 'Industry estimate. Independent single-site restaurant, Notting Hill. Revenue based on 54 covers, \u00a3120+ tasting menu, operating 5 days/week.' },
-  { name: 'Kol', type: 'Restaurant', area: 'Marylebone', accountType: 'Luxury', stars: 1, estRevenue: '\u00a34M', fiftyBest: [], knownBrands: ['Clase Azul','Patr\u00f3n','Don Julio','Del Maguey','Fortaleza','Casa Noble','Ocho'], parentCompanies: ['Bacardi','Diageo','Independent'], notes: 'World\'s 50 Best #17 (2024). Santiago Lastra. Mexican cuisine with British ingredients. Strong agave spirits programme.', menuUrl: 'https://kolrestaurant.com/menu/', revenueSource: 'Industry estimate. Independent single-site restaurant, Marylebone. Revenue based on 50 covers, \u00a395 tasting menu.' },
-  { name: 'Ikoyi', type: 'Restaurant', area: 'Strand', accountType: 'Luxury', stars: 2, estRevenue: '\u00a33.5M', fiftyBest: [], knownBrands: ['Dom P\u00e9rignon','Krug','Hennessy'], parentCompanies: ['LVMH'], notes: '2 Michelin stars. World\'s 50 Best #42 (2024). West African spices + British ingredients.', menuUrl: 'https://ikoyilondon.com/', revenueSource: 'Industry estimate. Independent restaurant, relocated to Strand (2024). Revenue based on 40 covers, \u00a3165+ tasting menu.' },
-  { name: 'Brat', type: 'Restaurant', area: 'Shoreditch', accountType: 'Both', stars: 1, estRevenue: '\u00a35M', fiftyBest: [], knownBrands: ['Txakoli','natural wines','Hendrick\'s','Monkey Shoulder'], parentCompanies: ['William Grant & Sons','Independent'], notes: '1 Michelin star. World\'s 50 Best #65. Tomos Parry. Basque grill. Wine-forward programme.', menuUrl: 'https://bratrestaurant.co.uk/', revenueSource: 'Industry estimate. Independent, Shoreditch (+ Climpson\'s Arch). Revenue based on ~60 covers, average spend \u00a380-100pp.' },
-  { name: 'Gymkhana', type: 'Restaurant', area: 'Mayfair', accountType: 'Luxury', stars: 2, estRevenue: '\u00a38M', fiftyBest: [], knownBrands: ['Macallan','Glenfiddich','R\u00e9my Martin','Hennessy','Dom P\u00e9rignon'], parentCompanies: ['Edrington','William Grant & Sons','R\u00e9my Cointreau','LVMH'], notes: '2 Michelin stars (2024). First 2-star Indian restaurant in UK. Strong whisky and cognac programme.', menuUrl: 'https://www.gymkhana.net/menus/', revenueSource: 'JKS Restaurants Ltd Companies House filing. Gymkhana is flagship; group operates multiple restaurants. Single-site estimate.' },
-  { name: 'The Ritz Restaurant', type: 'Restaurant', area: 'Piccadilly', accountType: 'Luxury', stars: 2, estRevenue: '\u00a315M', fiftyBest: [], knownBrands: ['Dom P\u00e9rignon','Krug','Cristal','R\u00e9my Martin Louis XIII','Macallan 18+','Hennessy Paradis'], parentCompanies: ['LVMH','R\u00e9my Cointreau','Edrington'], notes: '2 Michelin stars (2025). Ultra-luxury wine and spirits programme. Afternoon tea generates massive champagne volume.', menuUrl: 'https://www.theritzlondon.com/dine-with-us/', revenueSource: 'Ritz Hotel London Ltd Companies House filing: \u00a347.08M total hotel turnover (FY2023). Restaurant + afternoon tea est. at 30-35% of total.' },
-  { name: 'Dinner by Heston', type: 'Restaurant', area: 'Knightsbridge', accountType: 'Luxury', stars: 2, estRevenue: '\u00a310M', fiftyBest: [], knownBrands: ['Dom P\u00e9rignon','Krug','Tanqueray','Hendrick\'s'], parentCompanies: ['LVMH','Diageo','William Grant & Sons'], notes: '2 Michelin stars. Historical British recipes reinterpreted. Strong wine programme.', menuUrl: 'https://www.dinnerbyheston.co.uk/menus/', revenueSource: 'Part of Mandarin Oriental Hyde Park operations. Revenue estimated from hotel F&B allocation. Mandarin Oriental International Ltd annual report.' },
-  { name: 'Bonheur by Matt Ab\u00e9', type: 'Restaurant', area: 'Mayfair', accountType: 'Luxury', stars: 2, estRevenue: '\u00a34M', fiftyBest: [], knownBrands: ['Dom P\u00e9rignon','Krug','Hennessy'], parentCompanies: ['LVMH'], notes: '2 Michelin stars within 3 months of opening. Ex-Restaurant Gordon Ramsay head chef.', menuUrl: 'https://www.bonheurbymattabe.com/menu/', revenueSource: 'Industry estimate. Opened 2024, Mayfair. Revenue projection based on 45 covers, \u00a3150+ tasting menu, early trading months.' },
-  { name: 'Plates', type: 'Restaurant', area: 'King\'s Cross', accountType: 'Luxury', stars: 1, estRevenue: '\u00a32M', fiftyBest: [], knownBrands: ['Seedlip','Lyre\'s','natural wines'], parentCompanies: ['Diageo (Seedlip)','Independent'], notes: '1 Michelin star (2025). First fully plant-based restaurant in UK/Ireland to receive a star. Strong no/low alcohol programme.', menuUrl: 'https://plates-london.com/menu/', revenueSource: 'Industry estimate. Independent single-site restaurant, King\'s Cross. First plant-based Michelin star UK. Revenue based on ~40 covers.' },
+  { name: 'Restaurant Gordon Ramsay', type: 'Restaurant', area: 'Chelsea', accountType: 'Luxury', stars: 3, estRevenue: '£8M', fiftyBest: [], knownBrands: ['Dom Pérignon','Krug','Hennessy','Macallan','Rémy Martin'], parentCompanies: ['LVMH','Edrington','Rémy Cointreau'], notes: '3 Michelin stars. London\'s longest-running three-star. Premium wine and spirits list.', menuUrl: 'https://www.gordonramsayrestaurants.com/restaurant-gordon-ramsay/menus/', revenueSource: 'Gordon Ramsay Restaurants Ltd Companies House filing: £134M UK revenue (FY2024). Single-site Chelsea restaurant est. at £8M.' },
+  { name: 'The Ledbury', type: 'Restaurant', area: 'Notting Hill', accountType: 'Luxury', stars: 3, estRevenue: '£5M', fiftyBest: [], knownBrands: ['Krug','Pol Roger','Hennessy','Rémy Martin XO'], parentCompanies: ['LVMH','Rémy Cointreau'], notes: '3 Michelin stars (2024). Brett Graham. Premium wine-led programme.', menuUrl: 'https://www.theledbury.com/', revenueSource: 'Industry estimate. Independent single-site restaurant, Notting Hill. No public parent company filings cover this venue individually.' },
+  { name: 'Core by Clare Smyth', type: 'Restaurant', area: 'Notting Hill', accountType: 'Luxury', stars: 3, estRevenue: '£6M', fiftyBest: [], knownBrands: ['Dom Pérignon','Krug','Laurent-Perrier'], parentCompanies: ['LVMH'], notes: '3 Michelin stars. World\'s 50 Best Restaurants #97 (2024). British ingredients focus.', menuUrl: 'https://corebyclaresmyth.com/menus/', revenueSource: 'Industry estimate. Independent single-site restaurant, Notting Hill. Revenue based on 54 covers, £120+ tasting menu, operating 5 days/week.' },
+  { name: 'Kol', type: 'Restaurant', area: 'Marylebone', accountType: 'Luxury', stars: 1, estRevenue: '£4M', fiftyBest: [], knownBrands: ['Clase Azul','Patrón','Don Julio','Del Maguey','Fortaleza','Casa Noble','Ocho'], parentCompanies: ['Bacardi','Diageo','Independent'], notes: 'World\'s 50 Best #17 (2024). Santiago Lastra. Mexican cuisine with British ingredients. Strong agave spirits programme.', menuUrl: 'https://kolrestaurant.com/menu/', revenueSource: 'Industry estimate. Independent single-site restaurant, Marylebone. Revenue based on 50 covers, £95 tasting menu.' },
+  { name: 'Ikoyi', type: 'Restaurant', area: 'Strand', accountType: 'Luxury', stars: 2, estRevenue: '£3.5M', fiftyBest: [], knownBrands: ['Dom Pérignon','Krug','Hennessy'], parentCompanies: ['LVMH'], notes: '2 Michelin stars. World\'s 50 Best #42 (2024). West African spices + British ingredients.', menuUrl: 'https://ikoyilondon.com/', revenueSource: 'Industry estimate. Independent restaurant, relocated to Strand (2024). Revenue based on 40 covers, £165+ tasting menu.' },
+  { name: 'Brat', type: 'Restaurant', area: 'Shoreditch', accountType: 'Both', stars: 1, estRevenue: '£5M', fiftyBest: [], knownBrands: ['Txakoli','natural wines','Hendrick\'s','Monkey Shoulder'], parentCompanies: ['William Grant & Sons','Independent'], notes: '1 Michelin star. World\'s 50 Best #65. Tomos Parry. Basque grill. Wine-forward programme.', menuUrl: 'https://bratrestaurant.co.uk/', revenueSource: 'Industry estimate. Independent, Shoreditch (+ Climpson\'s Arch). Revenue based on ~60 covers, average spend £80-100pp.' },
+  { name: 'Gymkhana', type: 'Restaurant', area: 'Mayfair', accountType: 'Luxury', stars: 2, estRevenue: '£8M', fiftyBest: [], knownBrands: ['Macallan','Glenfiddich','Rémy Martin','Hennessy','Dom Pérignon'], parentCompanies: ['Edrington','William Grant & Sons','Rémy Cointreau','LVMH'], notes: '2 Michelin stars (2024). First 2-star Indian restaurant in UK. Strong whisky and cognac programme.', menuUrl: 'https://www.gymkhana.net/menus/', revenueSource: 'JKS Restaurants Ltd Companies House filing. Gymkhana is flagship; group operates multiple restaurants. Single-site estimate.' },
+  { name: 'The Ritz Restaurant', type: 'Restaurant', area: 'Piccadilly', accountType: 'Luxury', stars: 2, estRevenue: '£15M', fiftyBest: [], knownBrands: ['Dom Pérignon','Krug','Cristal','Rémy Martin Louis XIII','Macallan 18+','Hennessy Paradis'], parentCompanies: ['LVMH','Rémy Cointreau','Edrington'], notes: '2 Michelin stars (2025). Ultra-luxury wine and spirits programme. Afternoon tea generates massive champagne volume.', menuUrl: 'https://www.theritzlondon.com/dine-with-us/', revenueSource: 'Ritz Hotel London Ltd Companies House filing: £47.08M total hotel turnover (FY2023). Restaurant + afternoon tea est. at 30-35% of total.' },
+  { name: 'Dinner by Heston', type: 'Restaurant', area: 'Knightsbridge', accountType: 'Luxury', stars: 2, estRevenue: '£10M', fiftyBest: [], knownBrands: ['Dom Pérignon','Krug','Tanqueray','Hendrick\'s'], parentCompanies: ['LVMH','Diageo','William Grant & Sons'], notes: '2 Michelin stars. Historical British recipes reinterpreted. Strong wine programme.', menuUrl: 'https://www.dinnerbyheston.co.uk/menus/', revenueSource: 'Part of Mandarin Oriental Hyde Park operations. Revenue estimated from hotel F&B allocation. Mandarin Oriental International Ltd annual report.' },
+  { name: 'Bonheur by Matt Abé', type: 'Restaurant', area: 'Mayfair', accountType: 'Luxury', stars: 2, estRevenue: '£4M', fiftyBest: [], knownBrands: ['Dom Pérignon','Krug','Hennessy'], parentCompanies: ['LVMH'], notes: '2 Michelin stars within 3 months of opening. Ex-Restaurant Gordon Ramsay head chef.', menuUrl: 'https://www.bonheurbymattabe.com/menu/', revenueSource: 'Industry estimate. Opened 2024, Mayfair. Revenue projection based on 45 covers, £150+ tasting menu, early trading months.' },
+  { name: 'Plates', type: 'Restaurant', area: 'King\'s Cross', accountType: 'Luxury', stars: 1, estRevenue: '£2M', fiftyBest: [], knownBrands: ['Seedlip','Lyre\'s','natural wines'], parentCompanies: ['Diageo (Seedlip)','Independent'], notes: '1 Michelin star (2025). First fully plant-based restaurant in UK/Ireland to receive a star. Strong no/low alcohol programme.', menuUrl: 'https://plates-london.com/menu/', revenueSource: 'Industry estimate. Independent single-site restaurant, King\'s Cross. First plant-based Michelin star UK. Revenue based on ~40 covers.' },
 ]
 
 // ═══════════════════════════════════════════════════════════════
-// 50 BEST BARS \u2014 AWARD SPONSORS (Brand presence via sponsorship)
+// 50 BEST BARS — AWARD SPONSORS (Brand presence via sponsorship)
 // ═══════════════════════════════════════════════════════════════
 
 export const AWARD_SPONSORS = {
-  2025: { 'Roku Gin': 'Industry Icon Award', 'Nikka Whisky': 'Highest Climber Award', 'Disaronno': 'Highest New Entry Award', 'Ketel One': 'Sustainable Bar Award', 'Perrier': 'Best Bar in North America', 'Siete Misterios': 'Best Bar in Mexico', 'Campari': 'One To Watch Award', 'R\u00e9my Martin': 'Art of Hospitality Award' },
-  2024: { 'Roku Gin': 'Industry Icon Award', 'Nikka Whisky': 'Highest Climber Award', 'Disaronno': 'Highest New Entry Award', 'Ketel One': 'Sustainable Bar Award', 'Perrier': 'Best Bar in North America', 'Campari': 'One To Watch Award', 'R\u00e9my Martin': 'Art of Hospitality Award' },
+  2025: { 'Roku Gin': 'Industry Icon Award', 'Nikka Whisky': 'Highest Climber Award', 'Disaronno': 'Highest New Entry Award', 'Ketel One': 'Sustainable Bar Award', 'Perrier': 'Best Bar in North America', 'Siete Misterios': 'Best Bar in Mexico', 'Campari': 'One To Watch Award', 'Rémy Martin': 'Art of Hospitality Award' },
+  2024: { 'Roku Gin': 'Industry Icon Award', 'Nikka Whisky': 'Highest Climber Award', 'Disaronno': 'Highest New Entry Award', 'Ketel One': 'Sustainable Bar Award', 'Perrier': 'Best Bar in North America', 'Campari': 'One To Watch Award', 'Rémy Martin': 'Art of Hospitality Award' },
   2023: { 'Roku Gin': 'Industry Icon Award', 'Nikka Whisky': 'Highest Climber Award', 'Disaronno': 'Highest New Entry Award', 'Ketel One': 'Sustainable Bar Award', 'Campari': 'One To Watch Award' },
   2022: { 'Roku Gin': 'Industry Icon Award', 'Nikka Whisky': 'Highest Climber Award', 'Ketel One': 'Sustainable Bar Award', 'Campari': 'One To Watch Award' },
   2021: { 'Roku Gin': 'Industry Icon Award', 'Nikka Whisky': 'Highest Climber Award', 'Ketel One': 'Sustainable Bar Award' },
@@ -322,8 +322,8 @@ export const AWARD_SPONSORS = {
 // Map award sponsor brands to parent companies
 export const SPONSOR_TO_PARENT = {
   'Roku Gin': 'Beam Suntory', 'Nikka Whisky': 'Beam Suntory (Asahi)', 'Disaronno': 'Illva Saronno',
-  'Ketel One': 'Diageo', 'Perrier': 'Nestl\u00e9', 'Siete Misterios': 'Independent',
-  'Campari': 'Campari Group', 'R\u00e9my Martin': 'R\u00e9my Cointreau',
+  'Ketel One': 'Diageo', 'Perrier': 'Nestlé', 'Siete Misterios': 'Independent',
+  'Campari': 'Campari Group', 'Rémy Martin': 'Rémy Cointreau',
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -336,10 +336,10 @@ export const BAR_AFFILIATIONS = {
   'Handshake Speakeasy': ['Bacardi','Pernod Ricard'],
   'Sips': ['Pernod Ricard','Campari Group'],
   'Paradiso': ['Bacardi','Pernod Ricard'],
-  'Tay\u0113r + Elementary': ['Diageo','William Grant & Sons','Independent'],
-  'Connaught Bar': ['Beam Suntory','R\u00e9my Cointreau','Diageo'],
+  'Tayēr + Elementary': ['Diageo','William Grant & Sons','Independent'],
+  'Connaught Bar': ['Beam Suntory','Rémy Cointreau','Diageo'],
   'Jigger & Pony': ['Bacardi','Diageo','Pernod Ricard'],
-  'Alqu\u00edmico': ['Bacardi','Campari Group'],
+  'Alquímico': ['Bacardi','Campari Group'],
   'Superbueno': ['Diageo','Pernod Ricard'],
   'Himkok': ['Independent','Pernod Ricard'],
   'Bar Benfiddich': ['Beam Suntory','Independent'],
@@ -349,16 +349,16 @@ export const BAR_AFFILIATIONS = {
   'Coa': ['Bacardi','Independent'],
   'Drink Kong': ['Campari Group','Diageo'],
   'Baba au Rum': ['Campari Group','Bacardi'],
-  'Danico': ['Pernod Ricard','R\u00e9my Cointreau'],
+  'Danico': ['Pernod Ricard','Rémy Cointreau'],
   'Locale Firenze': ['Campari Group','Diageo'],
   'Katana Kitten': ['Beam Suntory','Diageo'],
-  'Licorer\u00eda Limantour': ['Bacardi','Pernod Ricard'],
+  'Licorería Limantour': ['Bacardi','Pernod Ricard'],
   'Atlas': ['Pernod Ricard','Diageo','LVMH'],
-  'Manhattan Bar': ['Diageo','R\u00e9my Cointreau'],
+  'Manhattan Bar': ['Diageo','Rémy Cointreau'],
   'The Old Man': ['Bacardi','Diageo'],
-  'Florer\u00eda Atl\u00e1ntico': ['Bacardi','Campari Group'],
+  'Florería Atlántico': ['Bacardi','Campari Group'],
   'Two Schmucks': ['Bacardi','Pernod Ricard'],
-  'Kw\u0101nt': ['Beam Suntory','R\u00e9my Cointreau','Bacardi'],
+  'Kwānt': ['Beam Suntory','Rémy Cointreau','Bacardi'],
   'Swift': ['Diageo','Campari Group','William Grant & Sons'],
   'Lyaness': ['Diageo','Bacardi','Independent'],
   'A Bar with Shapes for a Name': ['Independent','Campari Group'],
@@ -380,11 +380,11 @@ export const BAR_AFFILIATIONS = {
   'Line': ['Independent','Campari Group'],
   'Bar Us': ['Diageo','Beam Suntory'],
   'Zest': ['Beam Suntory','Diageo'],
-  'Bar Nouveau': ['Pernod Ricard','R\u00e9my Cointreau'],
+  'Bar Nouveau': ['Pernod Ricard','Rémy Cointreau'],
   'The Cambridge Public House': ['Pernod Ricard','Campari Group'],
-  'Sastrer\u00eda Martinez': ['Pernod Ricard','Bacardi'],
-  'R\u00f6da Huset': ['Pernod Ricard','Independent'],
-  'Tlec\u0101n': ['Bacardi','Independent'],
+  'Sastrería Martinez': ['Pernod Ricard','Bacardi'],
+  'Röda Huset': ['Pernod Ricard','Independent'],
+  'Tlecān': ['Bacardi','Independent'],
   'Caretaker\'s Cottage': ['Independent','Diageo'],
 }
 
@@ -393,26 +393,26 @@ export const BAR_AFFILIATIONS = {
 // ═══════════════════════════════════════════════════════════════
 
 export const BUDGET_BENCHMARKS = {
-  luxury: { label: 'Luxury / Prestige Accounts', retro: '8\u201315%', marketingSpend: '\u00a35K\u2013\u00a325K/yr', features: 'Menu featuring, glassware, staff training, events', examples: 'Connaught, Scarfes, Ritz', color: '#4a148c' },
-  volume: { label: 'Volume Accounts', retro: '15\u201330%', marketingSpend: '\u00a31K\u2013\u00a35K/yr', features: 'Speed-rail position, house pour, retro on cases', examples: 'Soho House, Ivy Collection, Wetherspoons', color: '#1b5e20' },
-  both: { label: 'Dual (Volume + Prestige)', retro: '12\u201325%', marketingSpend: '\u00a315K\u2013\u00a350K+/yr', features: 'Full programme: retro + featuring + events + training + branding', examples: "Annabel's, Chiltern Firehouse, Arts Club", color: '#c41e3a' },
-  smb: { label: 'SMB Brand Entry Budget Guide', retro: '5\u201310%', marketingSpend: '\u00a3500\u2013\u00a32K/yr per venue', features: 'Bartender seeding, tasting sessions, comp bottles', examples: 'Satan\'s Whiskers, Tay\u0113r, Swift, Kw\u0101nt', color: '#e65100' },
+  luxury: { label: 'Luxury / Prestige Accounts', retro: '8–15%', marketingSpend: '£5K–£25K/yr', features: 'Menu featuring, glassware, staff training, events', examples: 'Connaught, Scarfes, Ritz', color: '#4a148c' },
+  volume: { label: 'Volume Accounts', retro: '15–30%', marketingSpend: '£1K–£5K/yr', features: 'Speed-rail position, house pour, retro on cases', examples: 'Soho House, Ivy Collection, Wetherspoons', color: '#1b5e20' },
+  both: { label: 'Dual (Volume + Prestige)', retro: '12–25%', marketingSpend: '£15K–£50K+/yr', features: 'Full programme: retro + featuring + events + training + branding', examples: "Annabel's, Chiltern Firehouse, Arts Club", color: '#c41e3a' },
+  smb: { label: 'SMB Brand Entry Budget Guide', retro: '5–10%', marketingSpend: '£500–£2K/yr per venue', features: 'Bartender seeding, tasting sessions, comp bottles', examples: 'Satan\'s Whiskers, Tayēr, Swift, Kwānt', color: '#e65100' },
 }
 
 // ═══════════════════════════════════════════════════════════════
-// PARENT COMPANY BRAND PORTFOLIO \u2014 ON-TRADE INTELLIGENCE
+// PARENT COMPANY BRAND PORTFOLIO — ON-TRADE INTELLIGENCE
 // ═══════════════════════════════════════════════════════════════
 
 export const PARENT_COMPANIES = {
-  'Diageo': { brands: ['Johnnie Walker','Tanqueray','Don Julio','Casamigos','Smirnoff','Ketel One','Captain Morgan','Baileys','Guinness','Seedlip','C\u00eeroc','Bulleit','Lagavulin','Talisker','Singleton','Ron Zacapa','Zacapa'], color: '#c41e3a' },
-  'Pernod Ricard': { brands: ['Absolut','Jameson','Chivas Regal','Beefeater','Havana Club','Malibu','The Glenlivet','Martell','Perrier-Jou\u00ebt','Mumm','Ricard','Kahl\u00faa','Aberlour','Plymouth Gin','Monkey 47','Malfy','Lillet'], color: '#1a237e' },
-  'Bacardi': { brands: ['Bacardi','Bombay Sapphire','Grey Goose','Patr\u00f3n','Dewar\'s','St-Germain','Martini','Noilly Prat','Aberfeldy','Cazadores','Leblon','Angel\'s Envy','Ilegal Mezcal','Teeling','Banks Rum'], color: '#e65100' },
-  'LVMH': { brands: ['Mo\u00ebt & Chandon','Dom P\u00e9rignon','Veuve Clicquot','Krug','Hennessy','Glenmorangie','Ardbeg','Belvedere','Ruinart','Mercier','Ch\u00e2teau d\'Yquem','Cloudy Bay','Volc\u00e1n','Woodinville'], color: '#4a148c' },
+  'Diageo': { brands: ['Johnnie Walker','Tanqueray','Don Julio','Casamigos','Smirnoff','Ketel One','Captain Morgan','Baileys','Guinness','Seedlip','Cîroc','Bulleit','Lagavulin','Talisker','Singleton','Ron Zacapa','Zacapa'], color: '#c41e3a' },
+  'Pernod Ricard': { brands: ['Absolut','Jameson','Chivas Regal','Beefeater','Havana Club','Malibu','The Glenlivet','Martell','Perrier-Jouët','Mumm','Ricard','Kahlúa','Aberlour','Plymouth Gin','Monkey 47','Malfy','Lillet'], color: '#1a237e' },
+  'Bacardi': { brands: ['Bacardi','Bombay Sapphire','Grey Goose','Patrón','Dewar\'s','St-Germain','Martini','Noilly Prat','Aberfeldy','Cazadores','Leblon','Angel\'s Envy','Ilegal Mezcal','Teeling','Banks Rum'], color: '#e65100' },
+  'LVMH': { brands: ['Moët & Chandon','Dom Pérignon','Veuve Clicquot','Krug','Hennessy','Glenmorangie','Ardbeg','Belvedere','Ruinart','Mercier','Château d\'Yquem','Cloudy Bay','Volcán','Woodinville'], color: '#4a148c' },
   'Beam Suntory': { brands: ['Jim Beam','Maker\'s Mark','Knob Creek','Roku Gin','Suntory Toki','Hibiki','Yamazaki','Hakushu','Laphroaig','Bowmore','Courvoisier','Sipsmith','Midleton','On The Rocks','Haku Vodka','Ki No Bi'], color: '#1b5e20' },
   'Brown-Forman': { brands: ['Jack Daniel\'s','Woodford Reserve','Old Forester','Herradura','El Jimador','Diplomatico','Benriach','GlenDronach','Glenglassaugh','Chambord'], color: '#bf360c' },
-  'Campari Group': { brands: ['Campari','Aperol','Grand Marnier','Wild Turkey','Russell\'s Reserve','Appleton Estate','Wray & Nephew','SKYY Vodka','Espol\u00f3n','Frangelico','Averna','Braulio','Bisquit & Dubouch\u00e9'], color: '#d32f2f' },
+  'Campari Group': { brands: ['Campari','Aperol','Grand Marnier','Wild Turkey','Russell\'s Reserve','Appleton Estate','Wray & Nephew','SKYY Vodka','Espolón','Frangelico','Averna','Braulio','Bisquit & Dubouché'], color: '#d32f2f' },
   'William Grant & Sons': { brands: ['Glenfiddich','Balvenie','Hendrick\'s','Monkey Shoulder','Grant\'s','Tullamore DEW','Drambuie','Sailor Jerry','Milagro','Fistful of Bourbon','Discarded','Aerstone'], color: '#006064' },
-  'R\u00e9my Cointreau': { brands: ['R\u00e9my Martin','Louis XIII','Cointreau','The Botanist','Bruichladdich','Port Charlotte','Octomore','Telmont','Mount Gay','Metaxa','St-R\u00e9my'], color: '#311b92' },
+  'Rémy Cointreau': { brands: ['Rémy Martin','Louis XIII','Cointreau','The Botanist','Bruichladdich','Port Charlotte','Octomore','Telmont','Mount Gay','Metaxa','St-Rémy'], color: '#311b92' },
   'Edrington': { brands: ['Macallan','Highland Park','Glenrothes','Naked Grouse','Famous Grouse','Cutty Sark','Snow Leopard'], color: '#1a237e' },
 }
 
@@ -424,7 +424,7 @@ export const COMPANY_PROFILES = {
   "Diageo": {
     "headquarters": "London, UK",
     "ceo": "Debra Crew",
-    "revenue": "\u00a316.2bn (FY2024)",
+    "revenue": "£16.2bn (FY2024)",
     "onTradeShare": "38-42%",
     "ukOnTradeTeam": "Dedicated on-trade sales division with 150+ field reps covering GB. Structured by region (London, South, Midlands, North) and by category (Whisky, Gin, Rum, Vodka). Key accounts team manages top 100 venues directly. Category specialists for on-trade innovation.",
     "strategy": "Diageo dominates through volume, premium positioning, and category breadth. Their on-trade strategy focuses on owning top-shelf real estate in key venues, bundled category deals (gin + whisky + rum), and heavy promotional support for flagship brands (Tanqueray, Johnnie Walker, Captain Morgan). They leverage their distributor relationships to ensure shelf dominance. In London, they prioritize Michelin venues and luxury hotel bars through direct relationships.",
@@ -442,31 +442,31 @@ export const COMPANY_PROFILES = {
         "name": "Tanqueray",
         "category": "Gin",
         "positioning": "Premium gin standard",
-        "pricePoint": "\u00a325-30/bottle"
+        "pricePoint": "£25-30/bottle"
       },
       {
         "name": "Johnnie Walker Red Label",
         "category": "Whisky",
         "positioning": "Volume blended whisky",
-        "pricePoint": "\u00a320-24/bottle"
+        "pricePoint": "£20-24/bottle"
       },
       {
         "name": "Captain Morgan",
         "category": "Rum",
         "positioning": "Spiced rum category leader",
-        "pricePoint": "\u00a318-22/bottle"
+        "pricePoint": "£18-22/bottle"
       },
       {
         "name": "Ketel One",
         "category": "Vodka",
         "positioning": "Premium vodka anchor",
-        "pricePoint": "\u00a324-28/bottle"
+        "pricePoint": "£24-28/bottle"
       },
       {
-        "name": "Gordon\u2019s",
+        "name": "Gordon’s",
         "category": "Gin",
         "positioning": "Iconic London dry gin",
-        "pricePoint": "\u00a322-26/bottle"
+        "pricePoint": "£22-26/bottle"
       }
     ],
     "londonPresence": "Direct sales team of 15+ people managing 120+ London venues. Owner of prominent shelf space in all major luxury hotels (Four Seasons, Dorchester, Savoy). Direct relationships with top 30 bars (Connaught, Hide, Artesian). Sponsorship presence at London Bar Awards.",
@@ -482,10 +482,10 @@ export const COMPANY_PROFILES = {
   "Pernod Ricard": {
     "headquarters": "Paris, France",
     "ceo": "Alexandre Ricard",
-    "revenue": "\u20ac10.8bn (FY2024)",
+    "revenue": "€10.8bn (FY2024)",
     "onTradeShare": "35-40%",
     "ukOnTradeTeam": "UK on-trade team of 120+ reps structured by region and brand portfolio. The Whisky Exchange (subsidiary) manages key accounts. Category heads for Pastis, Cognac, Champagne, Irish Whiskey. Joint ventures with local distributors for tier-2 venues.",
-    "strategy": "Pernod Ricard leads in aperitifs/digestifs and cognac through R\u00e9my Martin, Havana Club, and Jameson. Their on-trade strategy emphasizes premium positioning, experiential marketing (brand ambassador events), and geographic focus on London/Edinburgh. They prioritize placement in cocktail bars and wine-focused venues over volume chains. Heavy investment in bartender education and cocktail menu development.",
+    "strategy": "Pernod Ricard leads in aperitifs/digestifs and cognac through Rémy Martin, Havana Club, and Jameson. Their on-trade strategy emphasizes premium positioning, experiential marketing (brand ambassador events), and geographic focus on London/Edinburgh. They prioritize placement in cocktail bars and wine-focused venues over volume chains. Heavy investment in bartender education and cocktail menu development.",
     "strengths": [
       "Strong premium positioning in cognac and pastis (Ricard, Pernod, Pastis 51) with cult bartender following",
       "Jameson commands significant on-trade real estate in Irish whiskey category",
@@ -497,34 +497,34 @@ export const COMPANY_PROFILES = {
     ],
     "keyBrandsOnTrade": [
       {
-        "name": "R\u00e9my Martin",
+        "name": "Rémy Martin",
         "category": "Cognac",
         "positioning": "Premium cognac benchmark",
-        "pricePoint": "\u00a345-65/bottle"
+        "pricePoint": "£45-65/bottle"
       },
       {
         "name": "Jameson",
         "category": "Irish Whiskey",
         "positioning": "Irish whiskey category standard",
-        "pricePoint": "\u00a328-34/bottle"
+        "pricePoint": "£28-34/bottle"
       },
       {
         "name": "Havana Club",
         "category": "Rum",
         "positioning": "Premium Cuban rum (aged)",
-        "pricePoint": "\u00a332-50/bottle"
+        "pricePoint": "£32-50/bottle"
       },
       {
         "name": "Pernod",
         "category": "Pastis/Aperitif",
         "positioning": "Iconic pastis",
-        "pricePoint": "\u00a318-22/bottle"
+        "pricePoint": "£18-22/bottle"
       },
       {
         "name": "Ballantine's",
         "category": "Whisky",
         "positioning": "Volume scotch blended",
-        "pricePoint": "\u00a320-24/bottle"
+        "pricePoint": "£20-24/bottle"
       }
     ],
     "londonPresence": "The Whisky Exchange (London-based subsidiary) manages premium venue accounts. Pernod team of 8-10 dedicated to London covers 80+ venues. Strong presence in Michelin restaurants and private clubs through The Whisky Exchange personal seller network. Sponsorship of cocktail bar associations.",
@@ -558,31 +558,31 @@ export const COMPANY_PROFILES = {
         "name": "Bacardi White",
         "category": "Rum",
         "positioning": "White rum volume leader",
-        "pricePoint": "\u00a316-20/bottle"
+        "pricePoint": "£16-20/bottle"
       },
       {
         "name": "Bacardi Spiced",
         "category": "Rum",
         "positioning": "Spiced rum #2 challenger",
-        "pricePoint": "\u00a317-21/bottle"
+        "pricePoint": "£17-21/bottle"
       },
       {
         "name": "Bombay Sapphire",
         "category": "Gin",
         "positioning": "Premium gin #3 UK",
-        "pricePoint": "\u00a326-31/bottle"
+        "pricePoint": "£26-31/bottle"
       },
       {
         "name": "Eristoff",
         "category": "Vodka",
         "positioning": "Value vodka",
-        "pricePoint": "\u00a314-18/bottle"
+        "pricePoint": "£14-18/bottle"
       },
       {
         "name": "Facundo Exquisito",
         "category": "Rum",
         "positioning": "Aged rum premium",
-        "pricePoint": "\u00a328-35/bottle"
+        "pricePoint": "£28-35/bottle"
       }
     ],
     "londonPresence": "Bacardi team of 12 people manages 60+ London venues. Focus on clubs, volume bars, and student venues rather than luxury hotels. Strong presence in West End nightlife venues. Sponsorship of summer cocktail promotions and university bar competitions.",
@@ -598,13 +598,13 @@ export const COMPANY_PROFILES = {
   "LVMH": {
     "headquarters": "Paris, France",
     "ceo": "Bernard Arnault",
-    "revenue": "\u20ac96.3bn (parent group; spirits division $3.2bn)",
+    "revenue": "€96.3bn (parent group; spirits division $3.2bn)",
     "onTradeShare": "45-50% (higher than industry - luxury focus)",
-    "ukOnTradeTeam": "Hennessy and Mo\u00ebt & Chandon team of 40+ covering UK. Small dedicated London team of 8 managing luxury venue accounts. No distributor-based model; primarily direct relationships with high-end venues and private clubs.",
-    "strategy": "LVMH spirits strategy is ultra-premium/luxury positioning only. Hennessy cognac and Mo\u00ebt & Chandon champagne dominate their on-trade presence. Zero competition with mass-market brands; instead, they own the top-shelf in luxury hotels, Michelin restaurants, and private clubs. Their strategy emphasizes scarcity, brand heritage, and experiential events. No promotional discounting; venues maintain LVMH pricing or lose allocation.",
+    "ukOnTradeTeam": "Hennessy and Moët & Chandon team of 40+ covering UK. Small dedicated London team of 8 managing luxury venue accounts. No distributor-based model; primarily direct relationships with high-end venues and private clubs.",
+    "strategy": "LVMH spirits strategy is ultra-premium/luxury positioning only. Hennessy cognac and Moët & Chandon champagne dominate their on-trade presence. Zero competition with mass-market brands; instead, they own the top-shelf in luxury hotels, Michelin restaurants, and private clubs. Their strategy emphasizes scarcity, brand heritage, and experiential events. No promotional discounting; venues maintain LVMH pricing or lose allocation.",
     "strengths": [
       "Hennessy is global cognac #1 and commands ultra-premium pricing with zero price competition",
-      "Mo\u00ebt & Chandon champagne carries luxury brand halo; unavoidable in high-end venues",
+      "Moët & Chandon champagne carries luxury brand halo; unavoidable in high-end venues",
       "LVMH luxury ecosystem (fashion, watches) reinforces venue positioning as ultra-premium"
     ],
     "weaknesses": [
@@ -617,54 +617,54 @@ export const COMPANY_PROFILES = {
         "name": "Hennessy VS",
         "category": "Cognac",
         "positioning": "Entry ultra-premium cognac",
-        "pricePoint": "\u00a350-65/bottle"
+        "pricePoint": "£50-65/bottle"
       },
       {
         "name": "Hennessy VSOP",
         "category": "Cognac",
         "positioning": "Ultra-premium standard",
-        "pricePoint": "\u00a375-95/bottle"
+        "pricePoint": "£75-95/bottle"
       },
       {
         "name": "Hennessy XO",
         "category": "Cognac",
         "positioning": "Ultra-premium flagship",
-        "pricePoint": "\u00a3150-200/bottle"
+        "pricePoint": "£150-200/bottle"
       },
       {
-        "name": "Mo\u00ebt & Chandon Brut Imperial",
+        "name": "Moët & Chandon Brut Imperial",
         "category": "Champagne",
         "positioning": "Luxury champagne",
-        "pricePoint": "\u00a345-60/bottle"
+        "pricePoint": "£45-60/bottle"
       },
       {
-        "name": "Dom P\u00e9rignon",
+        "name": "Dom Pérignon",
         "category": "Champagne",
         "positioning": "Icon ultra-premium champagne",
-        "pricePoint": "\u00a3100-150/bottle"
+        "pricePoint": "£100-150/bottle"
       }
     ],
     "londonPresence": "LVMH team of 8 manages luxury venue accounts: Savoy, Four Seasons, Dorchester, Claridge's, Connaught, Ritz, private clubs. Direct relationships only; no intermediaries. Presence in Michelin-starred restaurants. Host exclusive brand events 4-6 times per year. Control over allocation (venues cannot list Hennessy without approval; must meet sales minimums).",
     "distributionUK": "Direct distribution to luxury venues only. No distributor relationships; LVMH controls supply chain. Some allocation through private club management companies, but approval-based.",
-    "typicalDealStructure": "No discounts; fixed wholesale pricing. Allocation-based (venue must commit to minimum annual purchase and maintain price floor). Exclusive events (Hennessy tasting dinners, Dom P\u00e9rignon champagne pairing). Brand ambassador support for special occasions. Strict compliance on venue positioning and pricing.",
+    "typicalDealStructure": "No discounts; fixed wholesale pricing. Allocation-based (venue must commit to minimum annual purchase and maintain price floor). Exclusive events (Hennessy tasting dinners, Dom Pérignon champagne pairing). Brand ambassador support for special occasions. Strict compliance on venue positioning and pricing.",
     "recentMoves": [
       "Hennessy Paradis Imperial limited edition release in select London luxury venues (2024)",
-      "Dom P\u00e9rignon 2012 vintage launch emphasizing heritage in Michelin restaurants (2025)"
+      "Dom Pérignon 2012 vintage launch emphasizing heritage in Michelin restaurants (2025)"
     ],
-    "threatToSmallBrands": "LVMH doesn\u2019t compete with small brands; they operate in different price universes. Their threat is to mid-premium brands positioned as luxury alternatives. LVMH's allocation control means if a venue stocks Hennessy, they have limited budget for other cognacs.",
-    "opportunityForSmallBrands": "LVMH's focus on ultra-premium means everything below \u00a340/bottle is uncontested. Small cognac, champagne, or spirits brands can build on-trade presence without LVMH competition. LVMH's allocation scarcity creates demand for alternative luxury options."
+    "threatToSmallBrands": "LVMH doesn’t compete with small brands; they operate in different price universes. Their threat is to mid-premium brands positioned as luxury alternatives. LVMH's allocation control means if a venue stocks Hennessy, they have limited budget for other cognacs.",
+    "opportunityForSmallBrands": "LVMH's focus on ultra-premium means everything below £40/bottle is uncontested. Small cognac, champagne, or spirits brands can build on-trade presence without LVMH competition. LVMH's allocation scarcity creates demand for alternative luxury options."
   },
   "Beam Suntory": {
     "headquarters": "Osaka, Japan",
     "ceo": "Motoki Ozaki",
     "revenue": "$7.3bn (FY2024)",
     "onTradeShare": "38-42%",
-    "ukOnTradeTeam": "UK on-trade team of 70+ focused on whisky, gin (Roku), and tequila (Sauza). Structured by category: Scotch whisky (Laphroaig, Ardmore, Auchentoshan), Japanese whisky (Hibiki, Yamazaki), American whisky (Maker\u2019s Mark, Jim Beam). Regional reps for England/Scotland/Wales. Strong bartender relationships through Beam category specialists.",
+    "ukOnTradeTeam": "UK on-trade team of 70+ focused on whisky, gin (Roku), and tequila (Sauza). Structured by category: Scotch whisky (Laphroaig, Ardmore, Auchentoshan), Japanese whisky (Hibiki, Yamazaki), American whisky (Maker’s Mark, Jim Beam). Regional reps for England/Scotland/Wales. Strong bartender relationships through Beam category specialists.",
     "strategy": "Beam Suntory competes through category innovation and bartender credibility rather than volume. Their on-trade strategy emphasizes Scotch whisky quality positioning, Roku gin craft appeal, and emerging Japanese/world whisky trends. They invest heavily in bartender education, cocktail bar partnerships, and brand ambassador presence at industry events. They avoid pure price competition and instead position as the bartender's choice.",
     "strengths": [
       "Strong bartender relationships through quality positioning and brand ambassador support",
-      "Diversified portfolio: Scotch (Laphroaig, Ardmore), American (Maker\u2019s Mark, Jim Beam), Japanese (Hibiki, Yamazaki)",
-      "Roku Gin positioned as premium craft alternative to Tanqueray/Gordon\u2019s with strong bartender cult following"
+      "Diversified portfolio: Scotch (Laphroaig, Ardmore), American (Maker’s Mark, Jim Beam), Japanese (Hibiki, Yamazaki)",
+      "Roku Gin positioned as premium craft alternative to Tanqueray/Gordon’s with strong bartender cult following"
     ],
     "weaknesses": [
       "Smaller scale than Diageo means less promotional firepower in volume accounts",
@@ -676,31 +676,31 @@ export const COMPANY_PROFILES = {
         "name": "Roku Gin",
         "category": "Gin",
         "positioning": "Premium Japanese craft gin",
-        "pricePoint": "\u00a332-38/bottle"
+        "pricePoint": "£32-38/bottle"
       },
       {
         "name": "Laphroaig 10",
         "category": "Scotch Whisky",
         "positioning": "Islay peat benchmark",
-        "pricePoint": "\u00a334-40/bottle"
+        "pricePoint": "£34-40/bottle"
       },
       {
-        "name": "Maker\u2019s Mark",
+        "name": "Maker’s Mark",
         "category": "Bourbon",
         "positioning": "Premium bourbon standard",
-        "pricePoint": "\u00a330-36/bottle"
+        "pricePoint": "£30-36/bottle"
       },
       {
         "name": "Hibiki Harmony",
         "category": "Japanese Whisky",
         "positioning": "Premium blended Japanese",
-        "pricePoint": "\u00a345-55/bottle"
+        "pricePoint": "£45-55/bottle"
       },
       {
         "name": "Sauza",
         "category": "Tequila",
         "positioning": "Mid-range tequila",
-        "pricePoint": "\u00a322-28/bottle"
+        "pricePoint": "£22-28/bottle"
       }
     ],
     "londonPresence": "Beam Suntory team of 10 manages 50+ London venues focused on craft bars, cocktail bars, and whisky-focused venues. Strong presence in Shoreditch, Soho, and craft cocktail bar scene. Sponsorship of London Cocktail Week and BJMA (British Jug Marketing Association). Regular brand ambassador events in craft bars.",
@@ -710,72 +710,72 @@ export const COMPANY_PROFILES = {
       "Expanded Hibiki range in on-trade with Hibiki Japanese Harmony 43% ABV positioning (2024)",
       "Launched Yamazaki 25 in select on-trade venues positioning as world whisky premium alternative (2025)"
     ],
-    "threatToSmallBrands": "Beam Suntory competes through bartender relationships and premium positioning. In craft bars, their brand ambassador presence and cocktail development support makes venues loyal. However, they don\u2019t compete on price, so small brands can undercut.",
-    "opportunityForSmallBrands": "Beam Suntory\u2019s selective distribution strategy creates white space in volume accounts and mid-tier venues. Their focus on premium Scotch and craft gin leaves value whisky, vodka, and emerging spirits open. Small brands can partner with venues Beam doesn\u2019t prioritize."
+    "threatToSmallBrands": "Beam Suntory competes through bartender relationships and premium positioning. In craft bars, their brand ambassador presence and cocktail development support makes venues loyal. However, they don’t compete on price, so small brands can undercut.",
+    "opportunityForSmallBrands": "Beam Suntory’s selective distribution strategy creates white space in volume accounts and mid-tier venues. Their focus on premium Scotch and craft gin leaves value whisky, vodka, and emerging spirits open. Small brands can partner with venues Beam doesn’t prioritize."
   },
   "Brown-Forman": {
     "headquarters": "Louisville, Kentucky",
     "ceo": "Lawson Whiting",
     "revenue": "$4.1bn (FY2024)",
     "onTradeShare": "42-47%",
-    "ukOnTradeTeam": "UK on-trade team of 60+ with focus on bourbon, tequila (Jose Cuervo), and wine. Structured by category: Bourbon (Jack Daniel\u2019s, Woodford Reserve), Tequila (Jose Cuervo, Herradura), Wine (Kosta Browne, Penner-Ash). Volume-focused field reps working distributor channels. Heavy promotions team supporting mass-market venues.",
-    "strategy": "Brown-Forman dominates bourbon and owns a significant tequila share through Jose Cuervo. Their on-trade strategy emphasizes volume through mass-market bars, pubs, and nightclubs. They compete on promotional support and distributor incentives rather than bartender credibility. Jack Daniel\u2019s is their flagship volume play; Woodford Reserve is their premium anchor.",
+    "ukOnTradeTeam": "UK on-trade team of 60+ with focus on bourbon, tequila (Jose Cuervo), and wine. Structured by category: Bourbon (Jack Daniel’s, Woodford Reserve), Tequila (Jose Cuervo, Herradura), Wine (Kosta Browne, Penner-Ash). Volume-focused field reps working distributor channels. Heavy promotions team supporting mass-market venues.",
+    "strategy": "Brown-Forman dominates bourbon and owns a significant tequila share through Jose Cuervo. Their on-trade strategy emphasizes volume through mass-market bars, pubs, and nightclubs. They compete on promotional support and distributor incentives rather than bartender credibility. Jack Daniel’s is their flagship volume play; Woodford Reserve is their premium anchor.",
     "strengths": [
-      "Jack Daniel\u2019s is globally iconic with built-in consumer demand; venues stock it regardless",
+      "Jack Daniel’s is globally iconic with built-in consumer demand; venues stock it regardless",
       "Jose Cuervo owns tequila volume position despite lower premiumization than Patron/Sauza",
       "Strong distributor relationships allowing aggressive promotional programs"
     ],
     "weaknesses": [
       "Perceived as volume/mass-market; limited craft bar appeal",
-      "Jack Daniel\u2019s volume addiction makes them dependent on discount strategies",
+      "Jack Daniel’s volume addiction makes them dependent on discount strategies",
       "Limited presence in emerging categories (RTD, premiumized no/low, craft spirits)"
     ],
     "keyBrandsOnTrade": [
       {
-        "name": "Jack Daniel\u2019s Old No. 7",
+        "name": "Jack Daniel’s Old No. 7",
         "category": "Whiskey",
         "positioning": "Iconic Tennessee whiskey volume leader",
-        "pricePoint": "\u00a322-28/bottle"
+        "pricePoint": "£22-28/bottle"
       },
       {
         "name": "Woodford Reserve",
         "category": "Bourbon",
         "positioning": "Premium bourbon standard",
-        "pricePoint": "\u00a332-38/bottle"
+        "pricePoint": "£32-38/bottle"
       },
       {
         "name": "Jose Cuervo Tradicional",
         "category": "Tequila",
         "positioning": "Tequila volume leader",
-        "pricePoint": "\u00a318-23/bottle"
+        "pricePoint": "£18-23/bottle"
       },
       {
         "name": "Herradura",
         "category": "Tequila",
         "positioning": "Premium tequila aged",
-        "pricePoint": "\u00a328-35/bottle"
+        "pricePoint": "£28-35/bottle"
       },
       {
         "name": "Early Times",
         "category": "Whiskey",
         "positioning": "Value whiskey",
-        "pricePoint": "\u00a314-18/bottle"
+        "pricePoint": "£14-18/bottle"
       }
     ],
-    "londonPresence": "Brown-Forman team of 8 manages 40-50 London venues. Heavy focus on nightclubs, volume bars, and pub chains. Limited presence in luxury hotels or craft bars. Jack Daniel\u2019s available in nearly all volume venues; premium presence in mid-tier bars.",
+    "londonPresence": "Brown-Forman team of 8 manages 40-50 London venues. Heavy focus on nightclubs, volume bars, and pub chains. Limited presence in luxury hotels or craft bars. Jack Daniel’s available in nearly all volume venues; premium presence in mid-tier bars.",
     "distributionUK": "Matthew Clark (primary), Bibendum, and direct to major pub chains (Wetherspoon, Nicholson's). Strong relationship with Edrington distributor for secondary reach.",
-    "typicalDealStructure": "Promotional discounts (18-22%), free goods (1+10), and volume rebates. POS material (Jack Daniel\u2019s branded signage, mirrors, tap handles). Promotional pricing for feature positioning. Cocktail menu cards for Jack Daniel\u2019s-focused drinks (Jack and ginger, etc.).",
+    "typicalDealStructure": "Promotional discounts (18-22%), free goods (1+10), and volume rebates. POS material (Jack Daniel’s branded signage, mirrors, tap handles). Promotional pricing for feature positioning. Cocktail menu cards for Jack Daniel’s-focused drinks (Jack and ginger, etc.).",
     "recentMoves": [
-      "Launched Jack Daniel\u2019s Tennessee Apple in on-trade to compete with Bacardi Spiced growth (2024)",
+      "Launched Jack Daniel’s Tennessee Apple in on-trade to compete with Bacardi Spiced growth (2024)",
       "Herradura Ultra premium tequila launch targeting aged tequila segment (2025)"
     ],
-    "threatToSmallBrands": "Brown-Forman competes through consumer brand recognition (Jack Daniel\u2019s demand) and promotional money. Venues stock Jack Daniel\u2019s without needing to push it. For tequila, Jose Cuervo's volume position and distributor support makes it hard for small brands.",
-    "opportunityForSmallBrands": "Brown-Forman's focus on volume leaves premium positioning open. Craft bourbon, premiumized tequila, and world whiskey can compete. Venues seeking to upgrade their whiskey list will prefer small-batch alternatives to Jack Daniel\u2019s."
+    "threatToSmallBrands": "Brown-Forman competes through consumer brand recognition (Jack Daniel’s demand) and promotional money. Venues stock Jack Daniel’s without needing to push it. For tequila, Jose Cuervo's volume position and distributor support makes it hard for small brands.",
+    "opportunityForSmallBrands": "Brown-Forman's focus on volume leaves premium positioning open. Craft bourbon, premiumized tequila, and world whiskey can compete. Venues seeking to upgrade their whiskey list will prefer small-batch alternatives to Jack Daniel’s."
   },
   "Campari Group": {
     "headquarters": "Milan, Italy",
     "ceo": "Luca Garavoglia",
-    "revenue": "\u20ac1.4bn (FY2024)",
+    "revenue": "€1.4bn (FY2024)",
     "onTradeShare": "50-55% (highest of all; aperitifs/digestifs are on-trade centric)",
     "ukOnTradeTeam": "UK on-trade team of 35 focused on aperitifs, digestifs, and amaro. Small London team of 5 managing key accounts. Structured by brand: Campari, Aperol, Cynar, Luxardo, LUXARDO maraschino, Frangelico. Heavy bartender activation and cocktail bar partnerships.",
     "strategy": "Campari Group owns the aperitif hour and amaro category in UK on-trade. Their strategy emphasizes cocktail bar positioning, bartender education, and food/drink pairing events. They compete through category innovation (Aperol Spritz trend ownership, amaro craft positioning) rather than volume. Heavy investment in bartender competitions and cocktail culture sponsorships.",
@@ -794,31 +794,31 @@ export const COMPANY_PROFILES = {
         "name": "Aperol",
         "category": "Aperitif",
         "positioning": "Iconic Italian aperitif",
-        "pricePoint": "\u00a316-20/bottle"
+        "pricePoint": "£16-20/bottle"
       },
       {
         "name": "Campari",
         "category": "Aperitif",
         "positioning": "Classic Italian aperitif",
-        "pricePoint": "\u00a318-22/bottle"
+        "pricePoint": "£18-22/bottle"
       },
       {
         "name": "Luxardo Amaro",
         "category": "Amaro",
         "positioning": "Premium craft amaro",
-        "pricePoint": "\u00a328-35/bottle"
+        "pricePoint": "£28-35/bottle"
       },
       {
         "name": "Luxardo Maraschino",
         "category": "Liqueur",
         "positioning": "Premium cocktail liqueur",
-        "pricePoint": "\u00a330-40/bottle"
+        "pricePoint": "£30-40/bottle"
       },
       {
         "name": "Frangelico",
         "category": "Liqueur",
         "positioning": "Hazelnut liqueur",
-        "pricePoint": "\u00a318-24/bottle"
+        "pricePoint": "£18-24/bottle"
       }
     ],
     "londonPresence": "Campari team of 5 manages 30-40 London cocktail bars and aperitif-focused venues. Heavy presence in Soho, East London cocktail bars, and wine-focused restaurants. Sponsorship of London Cocktail Week and aperitif bar associations. Regular bartender training events.",
@@ -828,19 +828,19 @@ export const COMPANY_PROFILES = {
       "Expanded Luxardo liqueur range in on-trade with Luxardo Sangue Morlacco herbal amaro (2024)",
       "Launched Campari Bitter soft focus marketing campaign in on-trade (2025)"
     ],
-    "threatToSmallBrands": "Campari doesn\u2019t really compete with other spirits; they own aperitifs/amaro and control cocktail menu positioning. Venues that feature Aperol Spritz have less budget for other cocktail ingredients.",
-    "opportunityForSmallBrands": "Campari's category focus leaves gin, vodka, whisky, rum wide open. Small brands can own alternative aperitif positions (vermouth, sherry, wine-based) that Campari doesn\u2019t serve."
+    "threatToSmallBrands": "Campari doesn’t really compete with other spirits; they own aperitifs/amaro and control cocktail menu positioning. Venues that feature Aperol Spritz have less budget for other cocktail ingredients.",
+    "opportunityForSmallBrands": "Campari's category focus leaves gin, vodka, whisky, rum wide open. Small brands can own alternative aperitif positions (vermouth, sherry, wine-based) that Campari doesn’t serve."
   },
   "William Grant & Sons": {
     "headquarters": "Ballindalloch, Scotland",
     "ceo": "Peter Gordon",
     "revenue": "$1.6bn (FY2024)",
     "onTradeShare": "35-40%",
-    "ukOnTradeTeam": "UK on-trade team of 40+ focused on Scotch whisky, gin (Hendrick\u2019s, Grant's gin), and tequila (Milagro). Regional reps for Scotland (primary), England, Wales. Strong emphasis on direct brewery/distillery storytelling and bartender education.",
-    "strategy": "William Grant is the largest privately held spirits company and emphasizes quality, heritage, and direct bartender relationships. Their on-trade strategy focuses on premium Scotch positioning (Balvenie, Glenfiddich, Glenfarclas), Hendrick\u2019s gin as craft premium alternative, and emerging tequila trends. They avoid heavy discounting and instead build loyal bartender bases through education and brand events.",
+    "ukOnTradeTeam": "UK on-trade team of 40+ focused on Scotch whisky, gin (Hendrick’s, Grant's gin), and tequila (Milagro). Regional reps for Scotland (primary), England, Wales. Strong emphasis on direct brewery/distillery storytelling and bartender education.",
+    "strategy": "William Grant is the largest privately held spirits company and emphasizes quality, heritage, and direct bartender relationships. Their on-trade strategy focuses on premium Scotch positioning (Balvenie, Glenfiddich, Glenfarclas), Hendrick’s gin as craft premium alternative, and emerging tequila trends. They avoid heavy discounting and instead build loyal bartender bases through education and brand events.",
     "strengths": [
       "Glenfiddich is the best-selling Scotch whisky globally; command category standard positioning",
-      "Hendrick\u2019s Gin is craft premium positioning with strong bartender loyalty and consumer brand recognition",
+      "Hendrick’s Gin is craft premium positioning with strong bartender loyalty and consumer brand recognition",
       "Private ownership allows long-term brand building vs. quarterly earnings pressure"
     ],
     "weaknesses": [
@@ -853,52 +853,52 @@ export const COMPANY_PROFILES = {
         "name": "Glenfiddich 12",
         "category": "Scotch Whisky",
         "positioning": "Scotch whisky category standard",
-        "pricePoint": "\u00a330-36/bottle"
+        "pricePoint": "£30-36/bottle"
       },
       {
         "name": "The Balvenie 12",
         "category": "Scotch Whisky",
         "positioning": "Premium Scotch benchmark",
-        "pricePoint": "\u00a334-42/bottle"
+        "pricePoint": "£34-42/bottle"
       },
       {
-        "name": "Hendrick\u2019s Gin",
+        "name": "Hendrick’s Gin",
         "category": "Gin",
         "positioning": "Premium craft gin with cucumber",
-        "pricePoint": "\u00a328-33/bottle"
+        "pricePoint": "£28-33/bottle"
       },
       {
         "name": "Glenfarclas 25",
         "category": "Scotch Whisky",
         "positioning": "Ultra-premium aged Scotch",
-        "pricePoint": "\u00a385-110/bottle"
+        "pricePoint": "£85-110/bottle"
       },
       {
         "name": "Milagro Silver",
         "category": "Tequila",
         "positioning": "Premium tequila",
-        "pricePoint": "\u00a330-36/bottle"
+        "pricePoint": "£30-36/bottle"
       }
     ],
     "londonPresence": "William Grant team of 8 manages 40-50 London venues with emphasis on whisky bars, cocktail bars, and premium hotels. Distillery visitor events from London venues. Sponsorship of London Whisky Show and bartender competitions. Regular brand ambassador presence in craft bars.",
     "distributionUK": "Selective distribution through premium distributors (Enotria&Coe, Love Drinks) and direct to key accounts. Focus on maintaining brand integrity over volume distribution.",
-    "typicalDealStructure": "Premium margins (10-14%); selective distribution based on venue quality. Featured positioning in whisky lists and gin cocktails. Distillery visit trips for bar staff. Hendrick\u2019s often positioned as house gin in cocktail bars with exclusive cocktail development. Limited free goods; emphasis on margin and bartender support.",
+    "typicalDealStructure": "Premium margins (10-14%); selective distribution based on venue quality. Featured positioning in whisky lists and gin cocktails. Distillery visit trips for bar staff. Hendrick’s often positioned as house gin in cocktail bars with exclusive cocktail development. Limited free goods; emphasis on margin and bartender support.",
     "recentMoves": [
       "Launched Glenfiddich Project XX (experimental whisky) in on-trade premium positioning (2024)",
-      "Expanded Hendrick\u2019s range with Hendrick\u2019s Midsummer in limited on-trade release (2025)"
+      "Expanded Hendrick’s range with Hendrick’s Midsummer in limited on-trade release (2025)"
     ],
-    "threatToSmallBrands": "William Grant competes through brand credibility (Glenfiddich as Scotch standard) and bartender relationships. In whisky and gin, their heritage and quality positioning makes venues loyal. However, they don\u2019t compete on price.",
-    "opportunityForSmallBrands": "William Grant's premium focus leaves value whisky, entry-level gin, and tequila open. Their selective distribution means many venues can\u2019t get their brands, creating openings for small brands."
+    "threatToSmallBrands": "William Grant competes through brand credibility (Glenfiddich as Scotch standard) and bartender relationships. In whisky and gin, their heritage and quality positioning makes venues loyal. However, they don’t compete on price.",
+    "opportunityForSmallBrands": "William Grant's premium focus leaves value whisky, entry-level gin, and tequila open. Their selective distribution means many venues can’t get their brands, creating openings for small brands."
   },
-  "R\u00e9my Cointreau": {
+  "Rémy Cointreau": {
     "headquarters": "Angers, France",
     "ceo": "Eric Vallat",
-    "revenue": "\u20ac1.1bn (FY2024)",
+    "revenue": "€1.1bn (FY2024)",
     "onTradeShare": "55-60% (highest; luxury cognac/liqueur)",
-    "ukOnTradeTeam": "UK on-trade team of 25 focused on luxury cognac (R\u00e9my Martin) and liqueurs (Cointreau, Mount Gay rum, Metaxa). Small London team of 4 managing ultra-premium accounts. Direct relationships with luxury venues.",
-    "strategy": "R\u00e9my Cointreau is ultra-premium focused. They own the premium cognac and premium liqueur space. Their on-trade strategy emphasizes heritage, scarcity, and luxury positioning. They invest in brand ambassador events, sommelier relationships, and ultra-premium venue partnerships. Zero price competition; venues maintain R\u00e9my pricing or lose allocation.",
+    "ukOnTradeTeam": "UK on-trade team of 25 focused on luxury cognac (Rémy Martin) and liqueurs (Cointreau, Mount Gay rum, Metaxa). Small London team of 4 managing ultra-premium accounts. Direct relationships with luxury venues.",
+    "strategy": "Rémy Cointreau is ultra-premium focused. They own the premium cognac and premium liqueur space. Their on-trade strategy emphasizes heritage, scarcity, and luxury positioning. They invest in brand ambassador events, sommelier relationships, and ultra-premium venue partnerships. Zero price competition; venues maintain Rémy pricing or lose allocation.",
     "strengths": [
-      "R\u00e9my Martin is premium cognac category leader with unmatched heritage positioning",
+      "Rémy Martin is premium cognac category leader with unmatched heritage positioning",
       "Mount Gay Rum is strong Caribbean rum premium position",
       "Cointreau is iconic premium liqueur with cult following in craft cocktail bars"
     ],
@@ -909,45 +909,45 @@ export const COMPANY_PROFILES = {
     ],
     "keyBrandsOnTrade": [
       {
-        "name": "R\u00e9my Martin VSOP",
+        "name": "Rémy Martin VSOP",
         "category": "Cognac",
         "positioning": "Premium cognac standard",
-        "pricePoint": "\u00a355-75/bottle"
+        "pricePoint": "£55-75/bottle"
       },
       {
-        "name": "R\u00e9my Martin XO",
+        "name": "Rémy Martin XO",
         "category": "Cognac",
         "positioning": "Ultra-premium cognac",
-        "pricePoint": "\u00a3120-160/bottle"
+        "pricePoint": "£120-160/bottle"
       },
       {
         "name": "Cointreau",
         "category": "Liqueur",
         "positioning": "Premium cocktail liqueur",
-        "pricePoint": "\u00a322-28/bottle"
+        "pricePoint": "£22-28/bottle"
       },
       {
         "name": "Mount Gay XO",
         "category": "Rum",
         "positioning": "Premium aged rum",
-        "pricePoint": "\u00a335-45/bottle"
+        "pricePoint": "£35-45/bottle"
       },
       {
         "name": "Metaxa 12 Stars",
         "category": "Liqueur",
         "positioning": "Greek spirit premium",
-        "pricePoint": "\u00a325-35/bottle"
+        "pricePoint": "£25-35/bottle"
       }
     ],
-    "londonPresence": "R\u00e9my Cointreau team of 4 manages luxury venues: Savoy, Four Seasons, Dorchester, Claridge's, select Michelin restaurants. Direct relationships only. Exclusive brand events and cognac tasting dinners. Allocation-based system (venues must commit to minimum purchase).",
+    "londonPresence": "Rémy Cointreau team of 4 manages luxury venues: Savoy, Four Seasons, Dorchester, Claridge's, select Michelin restaurants. Direct relationships only. Exclusive brand events and cognac tasting dinners. Allocation-based system (venues must commit to minimum purchase).",
     "distributionUK": "Direct distribution to ultra-premium venues only. Some allocation through luxury hotel groups and private club management.",
     "typicalDealStructure": "No discounts; fixed wholesale pricing. Allocation-based. Exclusive events (cognac tasting, Cointreau cocktail masterclass). Brand ambassador support for special occasions. Strict compliance on venue positioning.",
     "recentMoves": [
-      "R\u00e9my Martin 1738 Accord Royal launch in select ultra-premium on-trade venues (2024)",
+      "Rémy Martin 1738 Accord Royal launch in select ultra-premium on-trade venues (2024)",
       "Mount Gay rum expansion in premium bars with limited edition vintage release (2025)"
     ],
-    "threatToSmallBrands": "R\u00e9my Cointreau operates in ultra-premium space separate from small brands. Their presence means top-shelf real estate is locked up; they don\u2019t price-compete.",
-    "opportunityForSmallBrands": "R\u00e9my's allocation scarcity creates demand for alternative cognac, rum, and liqueur brands at lower price points. Small brands can own premium-but-not-ultra-premium positions."
+    "threatToSmallBrands": "Rémy Cointreau operates in ultra-premium space separate from small brands. Their presence means top-shelf real estate is locked up; they don’t price-compete.",
+    "opportunityForSmallBrands": "Rémy's allocation scarcity creates demand for alternative cognac, rum, and liqueur brands at lower price points. Small brands can own premium-but-not-ultra-premium positions."
   },
   "Edrington": {
     "headquarters": "Glasgow, Scotland",
@@ -971,31 +971,31 @@ export const COMPANY_PROFILES = {
         "name": "The Macallan 12",
         "category": "Scotch Whisky",
         "positioning": "Ultra-premium Scotch standard",
-        "pricePoint": "\u00a350-65/bottle"
+        "pricePoint": "£50-65/bottle"
       },
       {
         "name": "The Macallan 18",
         "category": "Scotch Whisky",
         "positioning": "Ultra-premium aged Scotch",
-        "pricePoint": "\u00a395-125/bottle"
+        "pricePoint": "£95-125/bottle"
       },
       {
         "name": "Highland Park 12",
         "category": "Scotch Whisky",
         "positioning": "Premium Speyside standard",
-        "pricePoint": "\u00a332-40/bottle"
+        "pricePoint": "£32-40/bottle"
       },
       {
         "name": "Highland Park 25",
         "category": "Scotch Whisky",
         "positioning": "Ultra-premium aged Speyside",
-        "pricePoint": "\u00a3110-140/bottle"
+        "pricePoint": "£110-140/bottle"
       },
       {
         "name": "Brugal Aged Rum",
         "category": "Rum",
         "positioning": "Premium Caribbean rum",
-        "pricePoint": "\u00a328-35/bottle"
+        "pricePoint": "£28-35/bottle"
       }
     ],
     "londonPresence": "Edrington team of 7 manages 35-45 London venues with emphasis on whisky bars, luxury hotels, and private clubs. Strong presence in Michelin restaurants. Sponsorship of whisky industry events and bartender competitions.",
@@ -1005,8 +1005,8 @@ export const COMPANY_PROFILES = {
       "The Macallan Rare Cask release in limited on-trade availability (2024)",
       "Highland Park expanded age statement offerings in on-trade premium positioning (2025)"
     ],
-    "threatToSmallBrands": "Edrington competes through Scotch whisky prestige and The Macallan ultra-premium positioning. In whisky bars, their heritage and quality make venues loyal. However, they don\u2019t compete below premium price points.",
-    "opportunityForSmallBrands": "Edrington's Scotch focus leaves non-whisky categories open. Their selective distribution means mid-tier venues can\u2019t get their brands, creating opportunities for small brands. Non-Scotch whisky, rum, and emerging spirits are uncontested."
+    "threatToSmallBrands": "Edrington competes through Scotch whisky prestige and The Macallan ultra-premium positioning. In whisky bars, their heritage and quality make venues loyal. However, they don’t compete below premium price points.",
+    "opportunityForSmallBrands": "Edrington's Scotch focus leaves non-whisky categories open. Their selective distribution means mid-tier venues can’t get their brands, creating opportunities for small brands. Non-Scotch whisky, rum, and emerging spirits are uncontested."
   }
 };
 
@@ -1023,7 +1023,7 @@ export const DISTRIBUTORS = {
       "Independent off-licenses",
       "Large regional pub chains"
     ],
-    "minOrder": "\u00a3150-200 for new brands; volume discounts at \u00a31000+",
+    "minOrder": "£150-200 for new brands; volume discounts at £1000+",
     "strengths": "Unmatched national coverage and delivery frequency (daily in major cities). Established relationships with 5000+ venues. Flexible ordering systems and e-commerce platform. Strong logistics = guaranteed supply.",
     "bestFor": "Established brands seeking national volume distribution. Large companies using bundled category deals. Brands requiring consistent in-stock availability across UK venues."
   },
@@ -1039,7 +1039,7 @@ export const DISTRIBUTORS = {
       "Luxury hotels",
       "High-end gastropubs"
     ],
-    "minOrder": "\u00a3300+ for new brands; preference for exclusive/premium positioning",
+    "minOrder": "£300+ for new brands; preference for exclusive/premium positioning",
     "strengths": "Deep relationships with craft/premium venues. Wine expertise translates to quality positioning. Personal account management for key clients. Selective distribution protects brand positioning. Industry credibility with bartender community.",
     "bestFor": "Premium and craft brands seeking quality positioning. Brands that benefit from sommelier/bartender championing. Companies looking to avoid mass-market commoditization. Brands with 20+ SKUs (wine + spirits leverage)."
   },
@@ -1055,7 +1055,7 @@ export const DISTRIBUTORS = {
       "Pop-up bars and events",
       "College/student venues"
     ],
-    "minOrder": "\u00a3250+ for new brands; flexible for emerging spirits",
+    "minOrder": "£250+ for new brands; flexible for emerging spirits",
     "strengths": "Deep craft spirits knowledge and bartender relationships. Flexible with emerging/smaller brands. Fast decision-making (no corporate bureaucracy). Strong presence in craft/hipster venues. Host regular bartender events and tastings.",
     "bestFor": "Craft distillers and emerging brands. Companies seeking craft bar positioning. Brands that need bartender education and championing. Smaller brands with limited promotional budgets (can rely on distributor push)."
   },
@@ -1071,7 +1071,7 @@ export const DISTRIBUTORS = {
       "Cocktail clubs",
       "Private clubs"
     ],
-    "minOrder": "\u00a3400+ for new brands; strong preference for premium/craft positioning",
+    "minOrder": "£400+ for new brands; strong preference for premium/craft positioning",
     "strengths": "Founder-led with deep bartender relationships. Heavy focus on aperitifs, amaro, and craft spirits. Personal service and relationship-based selling. Hosts bartender training events. Strong brand knowledge and curation.",
     "bestFor": "Premium aperitifs and amaro brands. Craft spirits seeking craft bar positioning. Brands that benefit from bartender championing and education. Companies with premium pricing willing to support distributor margin."
   },
@@ -1087,7 +1087,7 @@ export const DISTRIBUTORS = {
       "Wine merchants and retailers",
       "Corporate hospitality venues"
     ],
-    "minOrder": "\u00a3500+ for ultra-premium brands",
+    "minOrder": "£500+ for ultra-premium brands",
     "strengths": "Deep relationships with ultra-premium venues. Wine expertise and fine dining connections. High-touch account management. Brand prestige through venue associations. Strong sommelier relationships.",
     "bestFor": "Ultra-premium cognac, champagne, and spirits brands. Companies seeking luxury hotel placement. Brands positioned as collectible or investment-grade. Wine companies with complementary spirits portfolios."
   },
@@ -1103,7 +1103,7 @@ export const DISTRIBUTORS = {
       "Retail (off-trade and online)",
       "Corporate clients"
     ],
-    "minOrder": "\u00a3400+ for on-trade accounts",
+    "minOrder": "£400+ for on-trade accounts",
     "strengths": "Whisky category expertise unmatched in UK. Personal seller relationships with venue owners/managers. Sophisticated wine/spirits matching. Brand credibility through Pernod Ricard backing. Online retail presence drives consumer awareness.",
     "bestFor": "Premium whisky brands (any origin: Scotch, Japanese, Irish, Bourbon). Brands seeking credibility in whisky-focused venues. Companies willing to invest in education and relationship-building. Whisky brands with 3+ age statements (portfolio depth)."
   },
@@ -1119,7 +1119,7 @@ export const DISTRIBUTORS = {
       "Event/catering companies",
       "Wine merchants"
     ],
-    "minOrder": "\u00a3200-250 for new brands",
+    "minOrder": "£200-250 for new brands",
     "strengths": "Long history in London wine/spirits distribution. Personal service model. Strong relationships with independent restaurateurs. Flexible ordering and terms. Category expertise across wine, spirits, beer.",
     "bestFor": "Brands seeking independent restaurant placement. Wine-focused companies with spirits portfolios. Brands requiring flexible terms. Companies looking for London/South East primary coverage."
   }
@@ -1138,7 +1138,7 @@ export const BRAND_VENUE_MAP = {
     "Nobu London",
     "Scott's"
   ],
-  "Gordon\u2019s": [
+  "Gordon’s": [
     "Satan's Whiskers",
     "Desi Daru",
     "Everleaf",
@@ -1191,7 +1191,7 @@ export const BRAND_VENUE_MAP = {
     "Dishoom",
     "Balthazar",
     "Duck & Waffle",
-    "Pied-\u00e0-Terre",
+    "Pied-à-Terre",
     "Verjus",
     "Rotorino",
     "Trattoria Polpo",
@@ -1222,7 +1222,7 @@ export const BRAND_VENUE_MAP = {
     "Clipstone",
     "Polpo"
   ],
-  "Patr\u00f3n Silver": [
+  "Patrón Silver": [
     "Catch by Simmons",
     "Casita Andina",
     "Lyan",
@@ -1306,7 +1306,7 @@ export const BRAND_VENUE_MAP = {
     "Le Gavroche",
     "Cut at Forty Five"
   ],
-  "R\u00e9my Martin": [
+  "Rémy Martin": [
     "Connaught Bar",
     "Hide",
     "Scott's",
@@ -1469,7 +1469,7 @@ export const BRAND_VENUE_MAP = {
     "Warehouse Tavern",
     "Cogswell Tavern",
     "Hawksmoor Guildhall",
-    "Pied-\u00e0-Terre",
+    "Pied-à-Terre",
     "Verjus",
     "Trattoria Polpo",
     "Granger & Co"
@@ -1522,7 +1522,7 @@ export const BRAND_VENUE_MAP = {
     "Verjus",
     "Chotto Matte"
   ],
-  "Hendrick\u2019s": [
+  "Hendrick’s": [
     "Dash",
     "Lyan",
     "Catch by Simmons",
@@ -1558,7 +1558,7 @@ export const BRAND_VENUE_MAP = {
     "Polpo",
     "Chotto Matte"
   ],
-  "Jalape\u00f1o Poppers": [
+  "Jalapeño Poppers": [
     "Casita Andina",
     "Mercado de San Juan",
     "Lyan",
@@ -1578,7 +1578,7 @@ export const CATEGORY_DENSITY = {
     "avgPerVenue": 2.8,
     "topBrands": [
       "Tanqueray",
-      "Gordon\u2019s",
+      "Gordon’s",
       "Bombay Sapphire",
       "Roku",
       "Beefeater"
@@ -1616,7 +1616,7 @@ export const CATEGORY_DENSITY = {
     "totalListings": 38,
     "avgPerVenue": 1.4,
     "topBrands": [
-      "Patr\u00f3n Silver",
+      "Patrón Silver",
       "Jose Cuervo",
       "Sauza",
       "Milagro",
@@ -1642,21 +1642,21 @@ export const CATEGORY_DENSITY = {
     "totalListings": 55,
     "avgPerVenue": 2.0,
     "topBrands": [
-      "R\u00e9my Martin",
+      "Rémy Martin",
       "Hennessy",
       "Courvoisier",
       "Martell",
       "Hine"
     ],
-    "dominantCompany": "LVMH/R\u00e9my Cointreau (70% of listings)",
+    "dominantCompany": "LVMH/Rémy Cointreau (70% of listings)",
     "trend": "Ultra-premium growing; younger audience discovering; luxury hotel dominant"
   },
   "Champagne": {
     "totalListings": 48,
     "avgPerVenue": 1.7,
     "topBrands": [
-      "Dom P\u00e9rignon",
-      "Mo\u00ebt & Chandon",
+      "Dom Pérignon",
+      "Moët & Chandon",
       "Cristal",
       "Veuve Clicquot",
       "Taittinger"
@@ -1698,7 +1698,7 @@ export const CATEGORY_DENSITY = {
       "Aperol Spritz (canned)",
       "Luxardo Ready",
       "Fever Tree",
-      "Tito\u2019s Seltzer"
+      "Tito’s Seltzer"
     ],
     "dominantCompany": "Bacardi/Pernod (60% of limited listings)",
     "trend": "Emerging; convenience/takeaway positioning; premiumization challenge"
@@ -1707,9 +1707,9 @@ export const CATEGORY_DENSITY = {
 
 export const ENTRY_PLAYBOOKS = {
   "premium_gin": {
-    "title": "Premium Gin Market Entry (\u00a328-40/bottle)",
-    "competition": "Tanqueray 10, Bombay Sapphire, Roku, Hendrick\u2019s, Beefeater 24 - craft positioning saturating",
-    "estimatedBudget": "\u00a380k-150k year 1 (team salary, events, samples, POS)",
+    "title": "Premium Gin Market Entry (£28-40/bottle)",
+    "competition": "Tanqueray 10, Bombay Sapphire, Roku, Hendrick’s, Beefeater 24 - craft positioning saturating",
+    "estimatedBudget": "£80k-150k year 1 (team salary, events, samples, POS)",
     "timeline": "9-12 months to 20 venues; 24 months to 50 venues",
     "phase1": {
       "name": "Founder Validation & First 5 Venues",
@@ -1756,7 +1756,7 @@ export const ENTRY_PLAYBOOKS = {
         "Approach secondary distributors (Enotria&Coe, Amathus) for luxury hotel placement",
         "Sponsor 2 cocktail bar awards/industry events to build brand visibility",
         "Develop limited edition seasonal release (botanical variant) to refresh venue interest",
-        "Expand to 50 venues; establish as \u00a328-40 craft gin reference point"
+        "Expand to 50 venues; establish as £28-40 craft gin reference point"
       ],
       "targetVenues": [
         "Connaught Bar",
@@ -1775,13 +1775,13 @@ export const ENTRY_PLAYBOOKS = {
     "pitfalls": [
       "Competing on story instead of taste/quality will make you indistinguishable from 200+ other craft gins",
       "Distributor push without founder relationships will result in shelf death after 3 months when bars deprioritize",
-      "No house cocktail development = bar staff won\u2019t champion your brand vs. Tanqueray/Bombay"
+      "No house cocktail development = bar staff won’t champion your brand vs. Tanqueray/Bombay"
     ]
   },
   "craft_tequila": {
-    "title": "Craft Tequila Market Entry (\u00a330-50/bottle)",
-    "competition": "Patr\u00f3n Silver (premium), Casa Dragones, Milagro, small-batch imports - niche but growing",
-    "estimatedBudget": "\u00a360k-120k year 1 (founder time, events, tastings, distributor development)",
+    "title": "Craft Tequila Market Entry (£30-50/bottle)",
+    "competition": "Patrón Silver (premium), Casa Dragones, Milagro, small-batch imports - niche but growing",
+    "estimatedBudget": "£60k-120k year 1 (founder time, events, tastings, distributor development)",
     "timeline": "12-18 months to 15 venues; 24-30 months to 40 venues",
     "phase1": {
       "name": "Founder Story & Tequila Bar Seeding",
@@ -1807,7 +1807,7 @@ export const ENTRY_PLAYBOOKS = {
         "Approach Speciality Brands and Love Drinks with 3-4 commitments to secure distribution",
         "Create tequila education package (production methods, agave types, food pairing)",
         "Host 4-5 bartender education events emphasizing production quality over marketing",
-        "Feature in 2 cocktail bars with exclusive release limited edition (reposado/a\u00f1ejo)"
+        "Feature in 2 cocktail bars with exclusive release limited edition (reposado/añejo)"
       ],
       "targetVenues": [
         "Barrafina",
@@ -1829,7 +1829,7 @@ export const ENTRY_PLAYBOOKS = {
         "Leverage mezcal/tequila expertise to approach Enotria&Coe for luxury hotel placement",
         "Develop premium aged expression (18-24 month aged) for ultra-premium venue positioning",
         "Sponsor 1 tequila/agave spirits industry event to establish authority",
-        "Expand to 40 venues; position as alternative to Patr\u00f3n Silver in premium segment"
+        "Expand to 40 venues; position as alternative to Patrón Silver in premium segment"
       ],
       "targetVenues": [
         "Connaught Bar",
@@ -1846,15 +1846,15 @@ export const ENTRY_PLAYBOOKS = {
     },
     "keyPeople": "Mezcal/tequila bartender specialists; spirits writers covering agave spirits; bartenders at Casita Andina, Mercado de San Juan; Speciality Brands distributor contacts",
     "pitfalls": [
-      "Competing on price (cheaper than Patr\u00f3n) will position you as value vs. craft - avoid",
+      "Competing on price (cheaper than Patrón) will position you as value vs. craft - avoid",
       "Over-explaining production will alienate mainstream bartenders; lead with taste/cocktails",
       "Lack of aged expression will limit hotel placement; develop 5-10 year aged variant early"
     ]
   },
   "premium_vodka": {
-    "title": "Premium Vodka Market Entry (\u00a328-38/bottle)",
+    "title": "Premium Vodka Market Entry (£28-38/bottle)",
     "competition": "Grey Goose, Ketel One, Belvedere, Eristoff - mature category, limited growth",
-    "estimatedBudget": "\u00a370k-130k year 1 (founder time, events, samples, distributor margins)",
+    "estimatedBudget": "£70k-130k year 1 (founder time, events, samples, distributor margins)",
     "timeline": "10-15 months to 15 venues; 24 months to 35 venues",
     "phase1": {
       "name": "Differentiator Positioning & Craft Bar Seeding",
@@ -1919,15 +1919,15 @@ export const ENTRY_PLAYBOOKS = {
     },
     "keyPeople": "Vodka-focused bartenders; spirits writers; Eastern European/craft spirits community; hotel bar managers; Speciality Brands/Love Drinks contacts",
     "pitfalls": [
-      "Vodka category is commoditized; \"taste the difference\" messaging won\u2019t work - lead with story/origin",
-      "Over-premium pricing (\u00a335+) will make you unaffordable for cocktail bars whose customers expect \u00a312-15 martinis",
+      "Vodka category is commoditized; \"taste the difference\" messaging won’t work - lead with story/origin",
+      "Over-premium pricing (£35+) will make you unaffordable for cocktail bars whose customers expect £12-15 martinis",
       "No differentiation from 50+ other vodka brands will result in shelf death; find authentic differentiator"
     ]
   },
   "world_whisky": {
-    "title": "World Whisky Market Entry (\u00a335-65/bottle, non-Scotch)",
+    "title": "World Whisky Market Entry (£35-65/bottle, non-Scotch)",
     "competition": "Japanese (Hibiki, Yamazaki), Indian (Paul John, Amrut), Irish (Jameson, Redbreast) - category growing",
-    "estimatedBudget": "\u00a380k-150k year 1 (founder time, events, education, distributor margins)",
+    "estimatedBudget": "£80k-150k year 1 (founder time, events, education, distributor margins)",
     "timeline": "9-12 months to 12 venues; 24 months to 40 venues",
     "phase1": {
       "name": "Heritage Story & Whisky Specialist Venue Seeding",
@@ -1998,9 +1998,9 @@ export const ENTRY_PLAYBOOKS = {
     ]
   },
   "rtd_brand": {
-    "title": "Ready-to-Drink (RTD) Market Entry (\u00a38-14/serving)",
+    "title": "Ready-to-Drink (RTD) Market Entry (£8-14/serving)",
     "competition": "Aperol Spritz (canned), Bacardi Breezer, emerging craft RTD - nascent category",
-    "estimatedBudget": "\u00a3100k-200k year 1 (production, sampling, ambient shelf negotiation, margin support)",
+    "estimatedBudget": "£100k-200k year 1 (production, sampling, ambient shelf negotiation, margin support)",
     "timeline": "6-9 months to 15 venues; 15-18 months to 50 venues",
     "phase1": {
       "name": "Volume Account Testing & Venue Seeding",
@@ -2038,7 +2038,7 @@ export const ENTRY_PLAYBOOKS = {
         "Chotto Matte",
         "Clipstone",
         "Trattaria Polpo",
-        "Pied-\u00e0-Terre"
+        "Pied-à-Terre"
       ]
     },
     "phase3": {
@@ -2066,14 +2066,14 @@ export const ENTRY_PLAYBOOKS = {
     "keyPeople": "Matthew Clark / Bibendum distributor contacts; venue managers at high-volume accounts; consumer PR contacts; spirits writers",
     "pitfalls": [
       "RTD on-trade placement competes with to-go positioning; lead with venue consumption, not takeaway",
-      "No consumer brand awareness = venue staff won\u2019t push product; invest in PR before distribution expansion",
+      "No consumer brand awareness = venue staff won’t push product; invest in PR before distribution expansion",
       "Premium RTD positioning will fail unless product quality matches claim; do not skimp on ingredients"
     ]
   },
   "nolo_brand": {
-    "title": "No/Low Alcohol Market Entry (\u00a38-12/serving)",
+    "title": "No/Low Alcohol Market Entry (£8-12/serving)",
     "competition": "Everleaf, Lyre's, Ritual, Seedlip, Ghia - fastest-growing category but crowded",
-    "estimatedBudget": "\u00a350k-100k year 1 (sampling, events, bartender training, distributor support)",
+    "estimatedBudget": "£50k-100k year 1 (sampling, events, bartender training, distributor support)",
     "timeline": "6-9 months to 20 venues; 18-24 months to 60+ venues",
     "phase1": {
       "name": "Bartender Innovation & Craft Bar Positioning",
@@ -2140,7 +2140,7 @@ export const ENTRY_PLAYBOOKS = {
     "pitfalls": [
       "No/low category is trend-driven; position as permanent lifestyle choice, not temporary fad",
       "Competing on health claims will overshadow taste quality; lead with bartender innovation and taste",
-      "Overpricing no/low (\u00a312+ per serve) will alienate price-sensitive sober-curious consumers; watch margins carefully"
+      "Overpricing no/low (£12+ per serve) will alienate price-sensitive sober-curious consumers; watch margins carefully"
     ]
   }
 };
@@ -2151,7 +2151,7 @@ export const COMPETITIVE_HEAT = {
       "dominant": "Diageo (Tanqueray)",
       "brands": [
         "Tanqueray",
-        "Gordon\u2019s",
+        "Gordon’s",
         "Bombay Sapphire"
       ],
       "challenger": "Beam Suntory",
@@ -2161,10 +2161,10 @@ export const COMPETITIVE_HEAT = {
       "vulnerability": "Craft/Japanese gin positioning now matches luxury perception"
     },
     "hotelBars": {
-      "dominant": "Diageo (Tanqueray, Gordon\u2019s)",
+      "dominant": "Diageo (Tanqueray, Gordon’s)",
       "brands": [
         "Tanqueray",
-        "Gordon\u2019s",
+        "Gordon’s",
         "Ketel One"
       ],
       "challenger": "Pernod Ricard",
@@ -2176,7 +2176,7 @@ export const COMPETITIVE_HEAT = {
     "craftBars": {
       "dominant": "Small/independent brands",
       "brands": [
-        "Hendrick\u2019s",
+        "Hendrick’s",
         "Roku",
         "Craft local gins"
       ],
@@ -2190,7 +2190,7 @@ export const COMPETITIVE_HEAT = {
       "dominant": "Diageo",
       "brands": [
         "Tanqueray",
-        "Gordon\u2019s",
+        "Gordon’s",
         "Bombay Sapphire"
       ],
       "challenger": "Bacardi",
@@ -2270,9 +2270,9 @@ export const COMPETITIVE_HEAT = {
         "Macallan 12",
         "Highland Park"
       ],
-      "challenger": "Beam Suntory (Laphroaig, Maker\u2019s Mark)",
+      "challenger": "Beam Suntory (Laphroaig, Maker’s Mark)",
       "challengerBrands": [
-        "Maker\u2019s Mark",
+        "Maker’s Mark",
         "Laphroaig 10"
       ],
       "vulnerability": "Scotch dominates; American bourbon emerging but lower shelf space"
@@ -2303,10 +2303,10 @@ export const COMPETITIVE_HEAT = {
   },
   "Tequila": {
     "luxuryBars": {
-      "dominant": "Bacardi (Patr\u00f3n Silver)",
+      "dominant": "Bacardi (Patrón Silver)",
       "brands": [
-        "Patr\u00f3n Silver",
-        "Patr\u00f3n A\u00f1ejo"
+        "Patrón Silver",
+        "Patrón Añejo"
       ],
       "challenger": "Brown-Forman (Herradura)",
       "challengerBrands": [
@@ -2315,9 +2315,9 @@ export const COMPETITIVE_HEAT = {
       "vulnerability": "Emerging craft tequila positioning challenging premium status"
     },
     "hotelBars": {
-      "dominant": "Diageo (Jos\u00e9 Cuervo) / Brown-Forman (Herradura)",
+      "dominant": "Diageo (José Cuervo) / Brown-Forman (Herradura)",
       "brands": [
-        "Jos\u00e9 Cuervo",
+        "José Cuervo",
         "Sauza",
         "Herradura"
       ],
@@ -2335,21 +2335,21 @@ export const COMPETITIVE_HEAT = {
         "Craft small-batch",
         "Mezcal (alternative)"
       ],
-      "challenger": "Bacardi (Patr\u00f3n)",
+      "challenger": "Bacardi (Patrón)",
       "challengerBrands": [
-        "Patr\u00f3n Silver (but perceived as corporate)"
+        "Patrón Silver (but perceived as corporate)"
       ],
-      "vulnerability": "Craft bars seeking mezcal/small-batch alternatives to Patr\u00f3n"
+      "vulnerability": "Craft bars seeking mezcal/small-batch alternatives to Patrón"
     },
     "volumeAccounts": {
-      "dominant": "Diageo (Jos\u00e9 Cuervo)",
+      "dominant": "Diageo (José Cuervo)",
       "brands": [
-        "Jos\u00e9 Cuervo",
+        "José Cuervo",
         "Sauza"
       ],
       "challenger": "Brown-Forman",
       "challengerBrands": [
-        "Jack Daniel\u2019s (competing on spirit category preference, not tequila leadership)"
+        "Jack Daniel’s (competing on spirit category preference, not tequila leadership)"
       ],
       "vulnerability": "Jose Cuervo volume leadership; but tequila category growth slow"
     }
@@ -2410,22 +2410,22 @@ export const COMPETITIVE_HEAT = {
       "dominant": "LVMH (Hennessy)",
       "brands": [
         "Hennessy VS/VSOP/XO",
-        "Mo\u00ebt Dom P\u00e9rignon (champagne)"
+        "Moët Dom Pérignon (champagne)"
       ],
-      "challenger": "R\u00e9my Cointreau (R\u00e9my Martin)",
+      "challenger": "Rémy Cointreau (Rémy Martin)",
       "challengerBrands": [
-        "R\u00e9my Martin VSOP/XO"
+        "Rémy Martin VSOP/XO"
       ],
-      "vulnerability": "Hennessy/R\u00e9my parity in ultra-premium; no real challenger"
+      "vulnerability": "Hennessy/Rémy parity in ultra-premium; no real challenger"
     },
     "hotelBars": {
       "dominant": "LVMH (Hennessy)",
       "brands": [
         "Hennessy VS/VSOP"
       ],
-      "challenger": "R\u00e9my Cointreau (R\u00e9my Martin)",
+      "challenger": "Rémy Cointreau (Rémy Martin)",
       "challengerBrands": [
-        "R\u00e9my Martin VSOP"
+        "Rémy Martin VSOP"
       ],
       "vulnerability": "Duopoly control limits margin; no innovation"
     },
@@ -2436,7 +2436,7 @@ export const COMPETITIVE_HEAT = {
         "Hine",
         "Courvoisier"
       ],
-      "challenger": "LVMH/R\u00e9my (minimal presence)",
+      "challenger": "LVMH/Rémy (minimal presence)",
       "challengerBrands": [],
       "vulnerability": "Cognac underrepresented in craft bars; perception as old/formal category"
     },
@@ -2446,17 +2446,17 @@ export const COMPETITIVE_HEAT = {
         "Hennessy VS",
         "Courvoisier"
       ],
-      "challenger": "R\u00e9my Cointreau (minimal)",
+      "challenger": "Rémy Cointreau (minimal)",
       "challengerBrands": [],
       "vulnerability": "Hennessy allocation scarcity creates demand for alternatives"
     }
   },
   "Champagne": {
     "luxuryBars": {
-      "dominant": "LVMH (Mo\u00ebt, Dom P\u00e9rignon)",
+      "dominant": "LVMH (Moët, Dom Pérignon)",
       "brands": [
-        "Dom P\u00e9rignon",
-        "Mo\u00ebt & Chandon Brut Imperial",
+        "Dom Pérignon",
+        "Moët & Chandon Brut Imperial",
         "Cristal"
       ],
       "challenger": "Independent brands (Taittinger, Veuve Clicquot)",
@@ -2464,12 +2464,12 @@ export const COMPETITIVE_HEAT = {
         "Veuve Clicquot",
         "Taittinger"
       ],
-      "vulnerability": "LVMH duopoly (Dom/Mo\u00ebt) controls positioning; limited innovation"
+      "vulnerability": "LVMH duopoly (Dom/Moët) controls positioning; limited innovation"
     },
     "hotelBars": {
-      "dominant": "LVMH (Mo\u00ebt & Chandon)",
+      "dominant": "LVMH (Moët & Chandon)",
       "brands": [
-        "Mo\u00ebt & Chandon Brut Imperial"
+        "Moët & Chandon Brut Imperial"
       ],
       "challenger": "Independent brands",
       "challengerBrands": [
@@ -2489,9 +2489,9 @@ export const COMPETITIVE_HEAT = {
       "vulnerability": "Craft bars seeking natural/small-producer alternatives; LVMH not present"
     },
     "volumeAccounts": {
-      "dominant": "LVMH (Mo\u00ebt) via allocation control",
+      "dominant": "LVMH (Moët) via allocation control",
       "brands": [
-        "Mo\u00ebt & Chandon"
+        "Moët & Chandon"
       ],
       "challenger": "Independent brands (minimal)",
       "challengerBrands": [],
@@ -2602,10 +2602,10 @@ export const YEARS = [2021, 2022, 2023, 2024, 2025]
 // ── Data Methodology ──
 export const DATA_METHODOLOGY = {
   overview: 'Market size estimates synthesized from IWSR Global Spirits Database, Euromonitor Passport Alcoholic Drinks, and DISCUS public disclosures. Growth rates represent year-over-year value change in USD at constant exchange rates unless otherwise stated.',
-  pricing: 'Pricing data collected from retailer websites (Tesco, Sainsbury\'s, Waitrose, Master of Malt, Total Wine, Drizly, El Corte Ingl\u00e9s) during April 2026. Prices reflect standard retail, not promotional pricing, unless flagged.',
+  pricing: 'Pricing data collected from retailer websites (Tesco, Sainsbury\'s, Waitrose, Master of Malt, Total Wine, Drizly, El Corte Inglés) during April 2026. Prices reflect standard retail, not promotional pricing, unless flagged.',
   sources: [
     { name: 'IWSR Global Spirits Database 2025', description: 'Proprietary database covering 160+ markets with volume and value data by category, price band, and channel.', url: 'https://www.theiwsr.com/global-spirits-report' },
-    { name: 'Euromonitor Passport \u2014 Alcoholic Drinks', description: 'Market sizing, forecasts, and competitive landscape data for spirits, wine, and beer across 100+ countries.', url: 'https://www.euromonitor.com/alcoholic-drinks' },
+    { name: 'Euromonitor Passport — Alcoholic Drinks', description: 'Market sizing, forecasts, and competitive landscape data for spirits, wine, and beer across 100+ countries.', url: 'https://www.euromonitor.com/alcoholic-drinks' },
     { name: 'DISCUS Annual Economic Briefing', description: 'US spirits industry data: shipments, revenue, state-level trends, and category performance from the Distilled Spirits Council.', url: 'https://www.discus.org/economics/research' },
     { name: 'NielsenIQ Off-Trade Panel', description: 'Retail scanner data from off-premise channels (supermarkets, liquor stores) covering sales volume, value, and distribution metrics.', url: 'https://www.nielseniq.com/global/en/insights/' },
     { name: 'The Spirits Business / Drinks International', description: 'Trade publication market intelligence, brand rankings, and industry trend analysis.', url: 'https://www.thespiritsbusiness.com/category/market-data/' },

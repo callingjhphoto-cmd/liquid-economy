@@ -125,7 +125,7 @@ export const cocktailDetails = {
       glass: 'Rocks glass (old fashioned) -- Nick & Nora for "up" serve',
       garnish: 'Wide orange peel -- expressed and draped',
       difficulty: 2,
-      serveTemp: 'Well-chilled (~2\u00b0C)',
+      serveTemp: 'Well-chilled (~2°C)',
     },
     commercial: {
       priceHome: [8, 12],
@@ -882,7 +882,7 @@ export const cocktailDetails = {
       glass: 'Nick & Nora or classic V-shaped martini glass -- must be frozen or chilled',
       garnish: 'Lemon twist (expressed and discarded or draped) or olive',
       difficulty: 2,
-      serveTemp: 'As cold as possible -- sub 2\u00b0C ideal',
+      serveTemp: 'As cold as possible -- sub 2°C ideal',
     },
     commercial: {
       priceHome: [8, 14],
@@ -1201,7 +1201,7 @@ export const cocktailDetails = {
     diRank: null,
     diffordsRank: 2,
     trendState: 'fast-rising',
-    created: '2008, Hamburg -- J\u00f6rg Meyer at Le Lion',
+    created: '2008, Hamburg -- Jörg Meyer at Le Lion',
     oneLiner: "Difford's #2 globally. The herbaceous, culinary-driven smash that brought craft gin to a mass consumer audience.",
     methodology: 'Category-level demographic data from spirits_03_gin.md (IWSR-cited). Per-cocktail channel split, market share and volume trend are not currently underwritten by per-cocktail IWSR data -- represented qualitatively here.',
     demographics: {
@@ -1338,8 +1338,8 @@ export const cocktailDetails = {
         ageRange: '28-42',
         income: 'Mid to upper',
         occasion: 'Craft cocktail bar, tasting flight',
-        adjacents: ['Negroni', 'Old Fashioned', 'Vieux Carr\u00e9'],
-        description: 'Building their whisky cocktail vocabulary. Manhattan sits between the Old Fashioned (entry) and the Vieux Carr\u00e9 (complex). Appreciates the vermouth dimension.',
+        adjacents: ['Negroni', 'Old Fashioned', 'Vieux Carré'],
+        description: 'Building their whisky cocktail vocabulary. Manhattan sits between the Old Fashioned (entry) and the Vieux Carré (complex). Appreciates the vermouth dimension.',
       },
     ],
     flavour: {
@@ -1382,7 +1382,7 @@ export const cocktailDetails = {
   // -- VIEUX CARRE -------------------------------------------------------------
   'vieux-carre': {
     slug: 'vieux-carre',
-    name: 'Vieux Carr\u00e9',
+    name: 'Vieux Carré',
     baseSpirit: 'Rye / Cognac',
     type: 'Classic',
     diRank: null,
@@ -1401,7 +1401,7 @@ export const cocktailDetails = {
       ],
       gender: [
         { segment: 'Male', label: 'Strongly male', note: 'Highest income concentration of any cocktail on the list -- mirrors male-dominant premium whisky and Cognac categories. [WHI]' },
-        { segment: 'Female', label: 'Minority', note: 'Growing as craft bar culture broadens Vieux Carr\u00e9 audience.' },
+        { segment: 'Female', label: 'Minority', note: 'Growing as craft bar culture broadens Vieux Carré audience.' },
       ],
       income: [
         { bracket: 'Highest on list', label: 'Very high income index', note: 'A knowledge-gating drink. Strongly affluent, connoisseur self-selection. Luxury hotel bar and members club primary venue. [WHI]' },
@@ -1431,7 +1431,7 @@ export const cocktailDetails = {
         income: 'Upper-mid',
         occasion: 'World-class craft cocktail bar',
         adjacents: ['Negroni', 'Manhattan', 'Last Word'],
-        description: "Working through the Difford's Top 10. Chose Vieux Carr\u00e9 specifically because it was #3 and they hadn't tried it. Becoming a regular order.",
+        description: "Working through the Difford's Top 10. Chose Vieux Carré specifically because it was #3 and they hadn't tried it. Becoming a regular order.",
       },
     ],
     flavour: {
@@ -1443,7 +1443,7 @@ export const cocktailDetails = {
         { item: 'Rye whiskey', qty: '22ml', brand: 'Sazerac Rye or Rittenhouse' },
         { item: 'Cognac', qty: '22ml', brand: 'Courvoisier VS or Pierre Ferrand Ambre' },
         { item: 'Sweet vermouth', qty: '22ml', brand: 'Carpano Antica Formula' },
-        { item: 'B\u00e9n\u00e9dictine', qty: '7ml', brand: null },
+        { item: 'Bénédictine', qty: '7ml', brand: null },
         { item: 'Angostura bitters', qty: '1 dash', brand: null },
         { item: "Peychaud's bitters", qty: '1 dash', brand: null },
       ],
@@ -1621,7 +1621,7 @@ export const cocktailDetails = {
         ageRange: '35-55',
         income: 'High',
         occasion: 'Members club, intimate bar',
-        adjacents: ['Negroni', 'Vieux Carr\u00e9', 'Corpse Reviver #2'],
+        adjacents: ['Negroni', 'Vieux Carré', 'Corpse Reviver #2'],
         description: 'Drawn to the mathematical purity of equal-parts cocktails. Philosophically committed to the Prohibition-era minimalism. Drinks Chartreuse neat on occasion.',
       },
     ],
@@ -1800,7 +1800,7 @@ export const cocktailDetails = {
         income: 'Mid',
         occasion: 'Mexican restaurant, cocktail bar, outdoor event',
         adjacents: ['Margarita', 'Paloma', "Tommy's Margarita"],
-        description: 'Grew up with tequila as the aspirational spirit. Finds a plain Margarita almost too simple now. The spicy jalape\u00f1o or habanero twist is their personalisation of the base template.',
+        description: 'Grew up with tequila as the aspirational spirit. Finds a plain Margarita almost too simple now. The spicy jalapeño or habanero twist is their personalisation of the base template.',
       },
       {
         illustrative: true,
@@ -1809,7 +1809,7 @@ export const cocktailDetails = {
         income: 'Mid to upper',
         occasion: 'Any setting',
         adjacents: ['Mezcal Negroni', 'Spicy Paloma', "Tommy's Margarita"],
-        description: 'Orders spicy versions of everything. Values the physiological heat response. Particular about chilli variety and knows the difference between jalape\u00f1o heat and habanero heat.',
+        description: 'Orders spicy versions of everything. Values the physiological heat response. Particular about chilli variety and knows the difference between jalapeño heat and habanero heat.',
       },
     ],
     flavour: {
@@ -1821,12 +1821,12 @@ export const cocktailDetails = {
         { item: 'Blanco tequila', qty: '50ml', brand: 'Patron Silver or Fortaleza Blanco' },
         { item: 'Fresh lime juice', qty: '25ml', brand: null },
         { item: 'Agave syrup', qty: '12ml', brand: null },
-        { item: 'Jalape\u00f1o slices', qty: '3-4 slices', brand: 'Fresh, deseeded for medium heat' },
+        { item: 'Jalapeño slices', qty: '3-4 slices', brand: 'Fresh, deseeded for medium heat' },
         { item: 'Orange bitters', qty: '1 dash', brand: "Regan's or Angostura Orange" },
       ],
-      method: 'Muddle jalape\u00f1o with agave syrup. Add tequila, lime and bitters. Shake hard with ice. Double-strain to remove solids. Adjust heat to preference by muddling time.',
+      method: 'Muddle jalapeño with agave syrup. Add tequila, lime and bitters. Shake hard with ice. Double-strain to remove solids. Adjust heat to preference by muddling time.',
       glass: 'Rocks glass over large cube or coupe',
-      garnish: 'Dehydrated jalape\u00f1o wheel or fresh slice, salt/tajin rim optional',
+      garnish: 'Dehydrated jalapeño wheel or fresh slice, salt/tajin rim optional',
       difficulty: 2,
       serveTemp: 'Cold, served down or up',
     },
@@ -2033,7 +2033,7 @@ export const cocktailDetails = {
       { slug: 'whiskey-sour', name: 'Whiskey Sour' },
       { slug: 'negroni', name: 'Negroni' },
     ],
-    aggregateProfile: 'Premium whisky drinker but with more accessible entry point than Manhattan or Vieux Carr\u00e9. Honey-ginger structure recruits non-whisky drinkers. Event application: Scotch-forward luxury programmes, whisky distillery partnerships, Scottish/UK-themed events.',
+    aggregateProfile: 'Premium whisky drinker but with more accessible entry point than Manhattan or Vieux Carré. Honey-ginger structure recruits non-whisky drinkers. Event application: Scotch-forward luxury programmes, whisky distillery partnerships, Scottish/UK-themed events.',
     sources: [
       { label: "Difford's Guide Top 100 Cocktails 2025 (#21)", url: 'https://www.diffordsguide.com' },
       { label: 'SWA Scotch Whisky Export Report 2025', url: 'https://www.scotch-whisky.org.uk' },

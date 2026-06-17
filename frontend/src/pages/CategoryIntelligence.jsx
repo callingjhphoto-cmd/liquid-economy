@@ -334,7 +334,7 @@ function MarketTrendChart({ catKey }) {
   return (
     <ChartCard
       title="5-Year Market Trend"
-      subtitle="Market size ($B) \u00b7 2021\u20132025"
+      subtitle="Market size ($B) · 2021–2025"
       source="IWSR / Euromonitor"
       tableData={data}
       tableColumns={[
@@ -376,7 +376,7 @@ function ChannelChart({ catKey }) {
   return (
     <ChartCard
       title="Channel Distribution"
-      subtitle="% share by channel \u00b7 2021\u20132025"
+      subtitle="% share by channel · 2021–2025"
       source="IWSR"
       tableData={data}
       tableColumns={[
@@ -469,8 +469,8 @@ function CategoryCard({ cat, year, isHero, onClick }) {
         </div>
       </div>
       <div className="px-4 sm:px-5 py-2.5 flex items-center justify-between">
-        <span className="text-xs text-gray-500 whitespace-nowrap">{yd.topMarkets.length} markets {'\u00b7'} {brandCount} brands {'\u00b7'} {yd.trends.length} trends</span>
-        <span className="text-xs font-semibold text-gold group-hover:underline flex-shrink-0 ml-2">Explore {'\u2192'}</span>
+        <span className="text-xs text-gray-500 whitespace-nowrap">{yd.topMarkets.length} markets {'·'} {brandCount} brands {'·'} {yd.trends.length} trends</span>
+        <span className="text-xs font-semibold text-gold group-hover:underline flex-shrink-0 ml-2">Explore {'→'}</span>
       </div>
     </button>
   )
@@ -514,7 +514,7 @@ function DemoTable({ rows, columns }) {
             <tr key={ri} className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
               {columns.map((col, ci) => (
                 <td key={ci} className="py-2 pr-3 text-gray-700 align-top leading-snug">
-                  {col.render ? col.render(row[col.key], row) : (row[col.key] ?? '\u2014')}
+                  {col.render ? col.render(row[col.key], row) : (row[col.key] ?? '—')}
                   {col.key === 'notes' && row.estimatedSources ? <EstimatedBadge /> : null}
                 </td>
               ))}
@@ -651,7 +651,7 @@ function DemographicsPanel({ categoryKey }) {
           <div className="mt-3 space-y-1.5">
             {demographics.occasion.map((occ, i) => (
               <div key={i} className="flex items-start gap-2">
-                <span className="text-blue-500 mt-0.5 shrink-0">\u25b6</span>
+                <span className="text-blue-500 mt-0.5 shrink-0">▶</span>
                 <div>
                   <span className="text-xs font-semibold text-gray-800">{occ.name}: </span>
                   <span className="text-xs text-gray-600">{occ.notes}</span>
@@ -683,7 +683,7 @@ function DemographicsPanel({ categoryKey }) {
       {/* Key Trends */}
       {keyTrends && keyTrends.length > 0 && (
         <Card>
-          <SectionLabel>Key Trends (2024\u20132026)</SectionLabel>
+          <SectionLabel>Key Trends (2024–2026)</SectionLabel>
           <div className="space-y-2">
             {keyTrends.map((t, i) => (
               <div key={i} className="flex items-start gap-2.5 py-2 border-b border-gray-50 last:border-0 last:py-0">
@@ -727,16 +727,16 @@ function CategoryIntelligenceCard({ yd, cat, year }) {
   let growthColor, growthLabel, growthCopy
   if (growthNum >= 8) {
     growthColor = 'emerald'; growthLabel = 'Strong growth window'
-    growthCopy = `${yd.growth} YoY \u2014 category outpacing the broader market. Accelerate distribution build and SKU launch timing to capture expanding shelf space.`
+    growthCopy = `${yd.growth} YoY — category outpacing the broader market. Accelerate distribution build and SKU launch timing to capture expanding shelf space.`
   } else if (growthNum >= 4) {
     growthColor = 'blue'; growthLabel = 'Sustainable growth phase'
-    growthCopy = `${yd.growth} YoY \u2014 healthy mid-single-digit expansion. Focus on account share capture and premium mix shift rather than raw volume.`
+    growthCopy = `${yd.growth} YoY — healthy mid-single-digit expansion. Focus on account share capture and premium mix shift rather than raw volume.`
   } else if (growthNum >= 1) {
     growthColor = 'amber'; growthLabel = 'Growth normalising'
-    growthCopy = `${yd.growth} YoY \u2014 category cooling from peak. Shift strategy toward margin optimisation and key-account defence over new-door pursuit.`
+    growthCopy = `${yd.growth} YoY — category cooling from peak. Shift strategy toward margin optimisation and key-account defence over new-door pursuit.`
   } else {
     growthColor = 'red'; growthLabel = 'Volume contraction'
-    growthCopy = `${yd.growth} YoY \u2014 category in decline. Defend priority accounts, tighten promotional spend, and accelerate premium mix shift to offset volume loss.`
+    growthCopy = `${yd.growth} YoY — category in decline. Defend priority accounts, tighten promotional spend, and accelerate premium mix shift to offset volume loss.`
   }
 
   // Signal 2: Channel concentration
@@ -747,13 +747,13 @@ function CategoryIntelligenceCard({ yd, cat, year }) {
   let chanColor, chanLabel, chanCopy
   if (dominantPct >= 55) {
     chanColor = 'amber'; chanLabel = 'Channel concentration risk'
-    chanCopy = `${dominantName} accounts for ${dominantPct}% of volume \u2014 single-channel dependency. Diversify activation spend into under-penetrated channels to reduce exposure.`
+    chanCopy = `${dominantName} accounts for ${dominantPct}% of volume — single-channel dependency. Diversify activation spend into under-penetrated channels to reduce exposure.`
   } else if (dominantPct >= 45) {
     chanColor = 'blue'; chanLabel = 'Moderate channel weighting'
-    chanCopy = `${dominantName} leads at ${dominantPct}% \u2014 manageable concentration. Secondary channels (e-commerce, travel retail) offer incremental volume without cannibalisation.`
+    chanCopy = `${dominantName} leads at ${dominantPct}% — manageable concentration. Secondary channels (e-commerce, travel retail) offer incremental volume without cannibalisation.`
   } else {
     chanColor = 'emerald'; chanLabel = 'Well-diversified channel mix'
-    chanCopy = `No single channel exceeds 45% share \u2014 balanced distribution across on-trade, off-trade, and emerging channels. Strong structural resilience to trade disruption.`
+    chanCopy = `No single channel exceeds 45% share — balanced distribution across on-trade, off-trade, and emerging channels. Strong structural resilience to trade disruption.`
   }
 
   // Signal 3: Gross margin environment (only when tradeKPIs available)
@@ -762,16 +762,16 @@ function CategoryIntelligenceCard({ yd, cat, year }) {
     const m = kpis.grossMarginPct
     if (m >= 60) {
       marginColor = 'emerald'; marginLabel = 'Premium margin environment'
-      marginCopy = `${m}% gross margin \u2014 industry-leading profitability. Category economics support investment in brand-building and premium activation programmes.`
+      marginCopy = `${m}% gross margin — industry-leading profitability. Category economics support investment in brand-building and premium activation programmes.`
     } else if (m >= 50) {
       marginColor = 'blue'; marginLabel = 'Solid margin profile'
-      marginCopy = `${m}% gross margin \u2014 competitive profitability. Standard trade terms and promotional investment are sustainable at current price points.`
+      marginCopy = `${m}% gross margin — competitive profitability. Standard trade terms and promotional investment are sustainable at current price points.`
     } else if (m >= 40) {
       marginColor = 'amber'; marginLabel = 'Margin pressure zone'
-      marginCopy = `${m}% gross margin \u2014 below-category average. Review promotional mechanics and consider premiumisation to protect brand economics.`
+      marginCopy = `${m}% gross margin — below-category average. Review promotional mechanics and consider premiumisation to protect brand economics.`
     } else {
       marginColor = 'red'; marginLabel = 'Margin compression'
-      marginCopy = `${m}% gross margin \u2014 structurally challenged. Renegotiate trade terms, reduce promotional depth, and exit lowest-margin accounts.`
+      marginCopy = `${m}% gross margin — structurally challenged. Renegotiate trade terms, reduce promotional depth, and exit lowest-margin accounts.`
     }
   }
 
@@ -793,7 +793,7 @@ function CategoryIntelligenceCard({ yd, cat, year }) {
       <div className="flex items-center gap-2 mb-4">
         <Zap size={16} className="text-gold" />
         <span className="text-sm font-bold text-navy">Liquid Intelligence</span>
-        <span className="ml-auto text-xs text-gray-400 font-medium">{cat.label} \u00b7 {year}</span>
+        <span className="ml-auto text-xs text-gray-400 font-medium">{cat.label} · {year}</span>
       </div>
       <div className="space-y-3">
         {signals.map((s, i) => {
@@ -857,7 +857,7 @@ function CategoryDetail({ cat, year, onBack }) {
 
   const fullDataTableRows = YEARS.map(y => {
     const d = cat.yearData[y]
-    if (!d) return { year: y, marketSize: '\u2014', growth: '\u2014', volume: '\u2014', onTrade: 0, offTrade: 0, eCommerce: 0, travelRetail: 0 }
+    if (!d) return { year: y, marketSize: '—', growth: '—', volume: '—', onTrade: 0, offTrade: 0, eCommerce: 0, travelRetail: 0 }
     return {
       year: y,
       marketSize: d.marketSize,
@@ -923,7 +923,7 @@ function CategoryDetail({ cat, year, onBack }) {
             />
             <MetricCard
               label="Market Leader"
-              value={yd.report?.topPerformer || '\u2014'}
+              value={yd.report?.topPerformer || '—'}
               subtitle={`${year} top performer`}
               icon={Award}
             />
@@ -950,7 +950,7 @@ function CategoryDetail({ cat, year, onBack }) {
               </div>
               <button onClick={() => setActiveTab('markets')}
                 className="mt-3 text-xs font-semibold text-gold hover:underline">
-                View all {yd.topMarkets.length} markets \u2192
+                View all {yd.topMarkets.length} markets →
               </button>
             </Card>
             <Card>
@@ -1023,7 +1023,7 @@ function CategoryDetail({ cat, year, onBack }) {
               </Card>
 
               {/* Full Data Table */}
-              <SectionHeader size="sm">Historical Data (2021\u20132025)</SectionHeader>
+              <SectionHeader size="sm">Historical Data (2021–2025)</SectionHeader>
               <DataTable
                 columns={fullDataTableColumns}
                 data={fullDataTableRows}
@@ -1135,7 +1135,7 @@ export default function CategoryIntelligence() {
   if (loading) {
     return (
       <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto space-y-6">
-        <PageHeader title="Category Intelligence" subtitle="Loading categories\u2026" />
+        <PageHeader title="Category Intelligence" subtitle="Loading categories…" />
         <BentoGrid>
           <BentoGrid.Hero><SkeletonCard className="h-40" /></BentoGrid.Hero>
           <SkeletonCard />
@@ -1162,7 +1162,7 @@ export default function CategoryIntelligence() {
           </button>
           <PageHeader
             title="Category Intelligence"
-            subtitle={`${active.label} \u00b7 ${selectedYear}`}
+            subtitle={`${active.label} · ${selectedYear}`}
             action={<YearSelector activeYear={selectedYear} onChange={handleYearChange} />}
           />
         </div>
@@ -1202,7 +1202,7 @@ export default function CategoryIntelligence() {
       {/* Page Header */}
       <PageHeader
         title="Category Intelligence"
-        subtitle={`${agg.categoryCount} categories \u00b7 2021\u20132025 \u00b7 Deep market analysis for brand managers \u00b7 Data as of April 2026`}
+        subtitle={`${agg.categoryCount} categories · 2021–2025 · Deep market analysis for brand managers · Data as of April 2026`}
         action={<YearSelector activeYear={selectedYear} onChange={handleYearChange} />}
       />
       <SubPageNav group="intelligence" />
@@ -1221,7 +1221,7 @@ export default function CategoryIntelligence() {
         />
         <MetricCard
           label="Fastest Growing"
-          value={agg.fastestGrowth.cat?.label || '\u2014'}
+          value={agg.fastestGrowth.cat?.label || '—'}
           change={agg.fastestGrowth.label}
           direction="up"
           subtitle={`${selectedYear} YoY growth leader`}
@@ -1229,7 +1229,7 @@ export default function CategoryIntelligence() {
         />
         <MetricCard
           label="Largest Category"
-          value={agg.largestCat.cat?.label || '\u2014'}
+          value={agg.largestCat.cat?.label || '—'}
           subtitle={`$${agg.largestCat.size.toFixed(0)}B market value`}
           icon={Award}
           onClick={() => agg.largestCat.cat && handleSelectCategory(agg.largestCat.cat.key)}
@@ -1243,7 +1243,7 @@ export default function CategoryIntelligence() {
         />
       </div>
 
-      {/* Tier 1: Category Bento Grid \u2014 F-pattern (largest first) */}
+      {/* Tier 1: Category Bento Grid — F-pattern (largest first) */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
         {sorted.map((cat, i) => (
           <CategoryCard
@@ -1258,7 +1258,7 @@ export default function CategoryIntelligence() {
 
       {/* Footer source note */}
       <div className="mt-8 text-center">
-        <p className="text-xs text-gray-500">Data sourced from IWSR, Euromonitor, DISCUS, OIV, and trade publications \u00b7 Updated quarterly</p>
+        <p className="text-xs text-gray-500">Data sourced from IWSR, Euromonitor, DISCUS, OIV, and trade publications · Updated quarterly</p>
       </div>
 
       {/* Mobile BottomSheet for category detail */}

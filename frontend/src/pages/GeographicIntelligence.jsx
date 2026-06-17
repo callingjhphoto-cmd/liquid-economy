@@ -88,7 +88,7 @@ const liSig1 = highGrowthCount >= 6
   ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Strong Global Tailwind', copy: `${highGrowthCount} of ${totalMarkets} tracked markets growing >5% YoY. Broad-based expansion signals a favourable export and activation window across all major regions.` }
   : highGrowthCount >= 4
   ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Selective Momentum', copy: `${highGrowthCount} high-growth markets identified. Concentrate portfolio activation in leading performers to maximise return on market investment.` }
-  : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Concentrated Opportunities', copy: `Growth is narrowly concentrated. Focus on ${fastestGrowing ? fastestGrowing.name : 'leading markets'} and other outliers \u2014 broad multi-market activation is premature this cycle.` }
+  : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Concentrated Opportunities', copy: `Growth is narrowly concentrated. Focus on ${fastestGrowing ? fastestGrowing.name : 'leading markets'} and other outliers — broad multi-market activation is premature this cycle.` }
 
 const liSig2 = ecomLeader && ecomLeader.pct >= 30
   ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Digital Disruption Critical', copy: `${ecomLeader.region.name} leads at ${ecomLeader.pct}% e-commerce share. Digital-first distribution strategy now essential for full-market penetration in key growth regions.` }
@@ -107,10 +107,10 @@ const liSig3 = negativeRegCount >= 5
    TIER 1 — Region Card (Bento Grid)
    ════════════════════════════════════════════ */
 function RegionCardTier1({ region, data, onClick, isHighlighted }) {
-  const marketSize = data && data.kpis && data.kpis[0] ? data.kpis[0].value : '\u2014'
+  const marketSize = data && data.kpis && data.kpis[0] ? data.kpis[0].value : '—'
   const growth = data && data.kpis && data.kpis[0] ? data.kpis[0].change : 0
   const isGrowing = growth > 0
-  const topBrand = data && data.topBrands ? data.topBrands[0] : '\u2014'
+  const topBrand = data && data.topBrands ? data.topBrands[0] : '—'
   const topCategory = data && data.kpis && data.kpis[2] ? data.kpis[2].label : ''
 
   return (
@@ -143,7 +143,7 @@ function RegionCardTier1({ region, data, onClick, isHighlighted }) {
         <span>Top: {topBrand}</span>
         {data && data.channels && (
           <>
-            <span>{'\u00b7'}</span>
+            <span>{'·'}</span>
             <span>E-com: {data.channels.eCommerce}%</span>
           </>
         )}
@@ -641,7 +641,7 @@ export default function GeographicIntelligence() {
   if (loading) {
     return (
       <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto space-y-6">
-        <PageHeader title="Geographic Intelligence" subtitle="Loading markets\u2026" />
+        <PageHeader title="Geographic Intelligence" subtitle="Loading markets…" />
         <BentoGrid>
           <BentoGrid.Hero><SkeletonCard className="h-40" /></BentoGrid.Hero>
           <SkeletonCard />
@@ -661,7 +661,7 @@ export default function GeographicIntelligence() {
       {/* Page Header */}
       <PageHeader
         title="Geographic Intelligence"
-        subtitle={`${totalMarkets} markets tracked \u00b7 Global spirits market insights \u00b7 Data as of April 2026`}
+        subtitle={`${totalMarkets} markets tracked · Global spirits market insights · Data as of April 2026`}
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Geographic Intelligence' },
@@ -686,7 +686,7 @@ export default function GeographicIntelligence() {
         </BentoGrid.Hero>
         <MetricCard
           label="Fastest Growing"
-          value={fastestGrowing ? `+${REGION_DATA[fastestGrowing.key].kpis[0].change}%` : '\u2014'}
+          value={fastestGrowing ? `+${REGION_DATA[fastestGrowing.key].kpis[0].change}%` : '—'}
           subtitle={fastestGrowing ? fastestGrowing.name : ''}
           icon={TrendingUp}
           direction="up"
@@ -694,13 +694,13 @@ export default function GeographicIntelligence() {
         />
         <MetricCard
           label="Largest Market"
-          value={largestByValue ? REGION_DATA[largestByValue.key].kpis[0].value : '\u2014'}
+          value={largestByValue ? REGION_DATA[largestByValue.key].kpis[0].value : '—'}
           subtitle={largestByValue ? largestByValue.name : ''}
           icon={BarChart3}
         />
         <MetricCard
           label="E-Commerce Leader"
-          value={ecomLeader ? `${ecomLeader.pct}%` : '\u2014'}
+          value={ecomLeader ? `${ecomLeader.pct}%` : '—'}
           subtitle={ecomLeader ? ecomLeader.region.name : ''}
           icon={Globe}
           direction="up"
@@ -718,7 +718,7 @@ export default function GeographicIntelligence() {
         <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
         <input
           type="text"
-          placeholder="Search markets\u2026"
+          placeholder="Search markets…"
           value={searchTerm}
           onChange={e => setSearchTerm(e.target.value)}
           className="w-full pl-11 pr-4 py-3 text-sm border border-gray-200 rounded-xl bg-white focus:outline-none focus:border-navy/30 focus:shadow-sm transition-all"
@@ -740,7 +740,7 @@ export default function GeographicIntelligence() {
             <Zap size={14} className="text-gold" />
           </div>
           <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
-          <span className="text-xs text-gray-400 ml-auto">Geographic Signals \u00b7 2025</span>
+          <span className="text-xs text-gray-400 ml-auto">Geographic Signals · 2025</span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           {[liSig1, liSig2, liSig3].map((sig, i) => (

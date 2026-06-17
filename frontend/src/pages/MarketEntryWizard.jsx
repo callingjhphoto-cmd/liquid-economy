@@ -103,7 +103,7 @@ function Playbook({ category, market }) {
   const competitors = COMPETITOR_LANDSCAPE[market]?.[category] || COMPETITOR_LANDSCAPE['uk']?.[category] || {}
   const costs = COST_BREAKDOWN_WIZARD
   const marketCosts = costs.estimates[market] || costs.estimates['uk']
-  const currency = costs.currency[market] || '\u00a3'
+  const currency = costs.currency[market] || '£'
   const totalCost = marketCosts.reduce((a, b) => a + b, 0)
   const marketName = TARGET_MARKETS_WIZARD.find(m => m.id === market)?.name || market
   const catName = SPIRIT_CATEGORIES_WIZARD.find(c => c.id === category)?.label || category
@@ -116,14 +116,14 @@ function Playbook({ category, market }) {
   return (
     <div>
       <div className="mb-6">
-        <h2 className="text-lg font-bold text-navy">{catName} {'\u2192'} {marketName}</h2>
+        <h2 className="text-lg font-bold text-navy">{catName} {'→'} {marketName}</h2>
         <p className="text-sm text-gray-500">Your complete market entry playbook</p>
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
         <Card className="p-3 text-center">
           <div className="text-xs text-gray-500 mb-1">Timeline</div>
-          <div className="text-sm font-bold text-navy">{reg.timeline || '3\u20136 months'}</div>
+          <div className="text-sm font-bold text-navy">{reg.timeline || '3–6 months'}</div>
         </Card>
         <Card className="p-3 text-center">
           <div className="text-xs text-gray-500 mb-1">Est. Cost</div>

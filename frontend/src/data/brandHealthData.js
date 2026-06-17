@@ -1,13 +1,13 @@
 // Brand Health Monitor — mock tracking data for demonstration
 
 export const TRACKABLE_BRANDS = [
-  { id: 'patron', name: 'Patr\u00f3n', category: 'tequila', parent: 'Bacardi' },
-  { id: 'hendricks', name: 'Hendrick\u2019s', category: 'gin', parent: 'William Grant & Sons' },
+  { id: 'patron', name: 'Patrón', category: 'tequila', parent: 'Bacardi' },
+  { id: 'hendricks', name: 'Hendrick’s', category: 'gin', parent: 'William Grant & Sons' },
   { id: 'johnnie-walker', name: 'Johnnie Walker', category: 'whisky', parent: 'Diageo' },
   { id: 'bacardi', name: 'Bacardi', category: 'rum', parent: 'Bacardi Limited' },
   { id: 'grey-goose', name: 'Grey Goose', category: 'vodka', parent: 'Bacardi' },
   { id: 'hennessy', name: 'Hennessy', category: 'cognac', parent: 'LVMH' },
-  { id: 'moet', name: 'Mo\u00ebt & Chandon', category: 'champagne', parent: 'LVMH' },
+  { id: 'moet', name: 'Moët & Chandon', category: 'champagne', parent: 'LVMH' },
   { id: 'seedlip', name: 'Seedlip', category: 'nolo', parent: 'Diageo' },
   { id: 'white-claw', name: 'White Claw', category: 'rtd', parent: 'Mark Anthony Brands' },
   { id: 'barefoot', name: 'Barefoot', category: 'wine', parent: 'E. & J. Gallo' },
@@ -15,7 +15,7 @@ export const TRACKABLE_BRANDS = [
   { id: 'don-julio', name: 'Don Julio', category: 'tequila', parent: 'Diageo' },
   { id: 'tanqueray', name: 'Tanqueray', category: 'gin', parent: 'Diageo' },
   { id: 'absolut', name: 'Absolut', category: 'vodka', parent: 'Pernod Ricard' },
-  { id: 'jack-daniels', name: 'Jack Daniel\u2019s', category: 'whisky', parent: 'Brown-Forman' },
+  { id: 'jack-daniels', name: 'Jack Daniel’s', category: 'whisky', parent: 'Brown-Forman' },
 ]
 
 // Generate 12-month mock data for each brand

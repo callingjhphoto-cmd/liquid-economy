@@ -72,7 +72,7 @@ export default function PitchGenerator() {
           <li>Complex regulatory landscapes across target markets</li>
           <li>Distribution gatekeepers favouring established brands</li>
           <li>High marketing costs with uncertain ROI</li>
-          <li>Limited access to market intelligence (IWSR reports cost \u00a310,000+)</li>
+          <li>Limited access to market intelligence (IWSR reports cost £10,000+)</li>
         </ul>
         <p className="font-medium text-navy">New brands need a smarter approach to compete with the giants.</p>
       </div>,
@@ -111,10 +111,10 @@ export default function PitchGenerator() {
 
       // Product
       <div key="product" className="space-y-2 text-sm text-gray-700">
-        <p><strong>{name}</strong> is positioned at {'\u00a3'}{numRRP.toFixed(0)} RRP in the {targetMarket} market, targeting the premium segment.</p>
+        <p><strong>{name}</strong> is positioned at {'£'}{numRRP.toFixed(0)} RRP in the {targetMarket} market, targeting the premium segment.</p>
         <div className="p-3 bg-gray-50 rounded-lg">
           <div className="text-xs font-semibold text-navy mb-1">Positioning</div>
-          <p>At {'\u00a3'}{numRRP.toFixed(0)}, {name} sits in the premium tier, competing with established brands while offering clear differentiation through [your unique proposition].</p>
+          <p>At {'£'}{numRRP.toFixed(0)}, {name} sits in the premium tier, competing with established brands while offering clear differentiation through [your unique proposition].</p>
         </div>
         <p className="italic text-gray-500">[Add: your liquid story, production method, unique ingredients, provenance narrative, packaging innovation]</p>
       </div>,
@@ -175,15 +175,15 @@ export default function PitchGenerator() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div className="text-center">
               <div className="text-xs text-gray-500">Year 1</div>
-              <div className="text-lg font-bold text-navy">{'\u00a3'}{yearlyRevenue.year1.toLocaleString()}</div>
+              <div className="text-lg font-bold text-navy">{'£'}{yearlyRevenue.year1.toLocaleString()}</div>
             </div>
             <div className="text-center">
               <div className="text-xs text-gray-500">Year 2</div>
-              <div className="text-lg font-bold text-navy">{'\u00a3'}{yearlyRevenue.year2.toLocaleString()}</div>
+              <div className="text-lg font-bold text-navy">{'£'}{yearlyRevenue.year2.toLocaleString()}</div>
             </div>
             <div className="text-center">
               <div className="text-xs text-gray-500">Year 3</div>
-              <div className="text-lg font-bold text-navy">{'\u00a3'}{yearlyRevenue.year3.toLocaleString()}</div>
+              <div className="text-lg font-bold text-navy">{'£'}{yearlyRevenue.year3.toLocaleString()}</div>
             </div>
           </div>
         </div>
@@ -209,15 +209,15 @@ export default function PitchGenerator() {
         <p className="italic text-gray-500">[Add your team members:]</p>
         <div className="space-y-2">
           <div className="p-3 bg-gray-50 rounded-lg">
-            <div className="font-medium text-navy">[Founder/CEO] {'\u2014'} [Background]</div>
+            <div className="font-medium text-navy">[Founder/CEO] {'—'} [Background]</div>
             <div className="text-xs text-gray-500">[Previous experience, industry connections, relevant skills]</div>
           </div>
           <div className="p-3 bg-gray-50 rounded-lg">
-            <div className="font-medium text-navy">[Co-Founder/COO] {'\u2014'} [Background]</div>
+            <div className="font-medium text-navy">[Co-Founder/COO] {'—'} [Background]</div>
             <div className="text-xs text-gray-500">[Operations, supply chain, distribution experience]</div>
           </div>
           <div className="p-3 bg-gray-50 rounded-lg">
-            <div className="font-medium text-navy">[Advisor] {'\u2014'} [Background]</div>
+            <div className="font-medium text-navy">[Advisor] {'—'} [Background]</div>
             <div className="text-xs text-gray-500">[Industry veteran, investor connections, brand-building track record]</div>
           </div>
         </div>
@@ -238,7 +238,7 @@ export default function PitchGenerator() {
             </div>
           </div>
           <div className="mt-2 text-xs text-gray-500">
-            <span className="font-medium">Stage:</span> {funding.stage} {'\u2022'} <span className="font-medium">Typical investors:</span> {funding.typical}
+            <span className="font-medium">Stage:</span> {funding.stage} {'•'} <span className="font-medium">Typical investors:</span> {funding.typical}
           </div>
         </div>
         <p className="italic text-gray-500">[Customise: your specific ask amount, use of funds breakdown, investor proposition]</p>
@@ -251,7 +251,7 @@ export default function PitchGenerator() {
   }, [brandName, category, targetMarket, numRRP, scenario, fundingStage, distModel, catData, finTemplate, funding, dist, yearlyRevenue])
 
   const handleCopy = () => {
-    const text = `${brandName || '[Your Brand]'} \u2014 Investor Pitch Outline\n\nCategory: ${category}\nMarket: ${targetMarket}\nRRP: \u00a3${numRRP}\nMarket Size: ${catData.globalMarketSize}\nCAGR: ${catData.cagr}\n\n${PITCH_SECTIONS.map((s, i) => `${i + 1}. ${s.title}`).join('\n')}\n\nGenerated by Liquid Economy Intelligence Platform`
+    const text = `${brandName || '[Your Brand]'} — Investor Pitch Outline\n\nCategory: ${category}\nMarket: ${targetMarket}\nRRP: £${numRRP}\nMarket Size: ${catData.globalMarketSize}\nCAGR: ${catData.cagr}\n\n${PITCH_SECTIONS.map((s, i) => `${i + 1}. ${s.title}`).join('\n')}\n\nGenerated by Liquid Economy Intelligence Platform`
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
@@ -286,7 +286,7 @@ export default function PitchGenerator() {
             <input type="text" value={targetMarket} onChange={e => setTargetMarket(e.target.value)} placeholder="UK" className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm" />
           </div>
           <div>
-            <label className="block text-xs font-semibold text-navy mb-1">RRP (\u00a3)</label>
+            <label className="block text-xs font-semibold text-navy mb-1">RRP (£)</label>
             <input type="number" value={rrp} onChange={e => setRrp(e.target.value)} placeholder="35" className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm" />
           </div>
           <div>

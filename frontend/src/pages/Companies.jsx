@@ -16,7 +16,7 @@ import { CHART_COLORS } from '../data/chartColors'
 
 /* ── Helpers ── */
 const fmt = (n) => {
-  if (n == null) return '\u2014'
+  if (n == null) return '—'
   if (typeof n === 'string') return n
   if (n >= 1000) return `$${(n / 1).toFixed(1)}B`
   if (n >= 1) return `$${n.toFixed(1)}B`
@@ -88,7 +88,7 @@ const allRegions = [...new Set(COMPANIES.map(c => {
 const revenueRanges = [
   { value: 'all', label: 'All Revenue' },
   { value: '0-5', label: 'Under $5B' },
-  { value: '5-20', label: '$5B \u2013 $20B' },
+  { value: '5-20', label: '$5B – $20B' },
   { value: '20+', label: '$20B+' },
 ]
 
@@ -145,11 +145,11 @@ function CompanyCardTier1({ company, onClick, isHighlighted }) {
 
       <div className="flex items-center gap-3 text-xs text-gray-500">
         <span>{brandCount} brands</span>
-        <span>{'\u00b7'}</span>
+        <span>{'·'}</span>
         <span>{categoryCount} categories</span>
         {company.employees && (
           <>
-            <span>{'\u00b7'}</span>
+            <span>{'·'}</span>
             <span>{company.employees}</span>
           </>
         )}
@@ -342,7 +342,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
                         {brand.trend}
                       </Badge>
                     </div>
-                    <div className="text-xs text-gray-500 mb-1">{brand.position} \u00b7 {brand.marketShare}</div>
+                    <div className="text-xs text-gray-500 mb-1">{brand.position} · {brand.marketShare}</div>
                     <p className="text-xs text-gray-600 leading-relaxed">{brand.latest}</p>
                   </div>
                 ))}
@@ -455,7 +455,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
           )}
           {company.maTimeline && (
             <>
-              <span>{'\u00b7'}</span>
+              <span>{'·'}</span>
               <span>{company.maTimeline.length} M&A events</span>
             </>
           )}
@@ -498,12 +498,12 @@ function CompanyTier3({ company, onClose }) {
 
   const finColumns = [
     { key: 'year', label: 'Year', sortable: true, width: 'w-16' },
-    { key: 'revenue', label: 'Revenue ($B)', sortable: true, align: 'right', render: (v) => v ? `$${v}B` : '\u2014' },
-    { key: 'operatingMargin', label: 'Op. Margin', sortable: true, align: 'right', render: (v) => v ? `${v}%` : '\u2014' },
-    { key: 'netIncome', label: 'Net Income ($B)', sortable: true, align: 'right', render: (v) => v ? `$${v}B` : '\u2014' },
-    { key: 'ebitda', label: 'EBITDA ($B)', sortable: true, align: 'right', render: (v) => v ? `$${v}B` : '\u2014' },
-    { key: 'eps', label: 'EPS', sortable: true, align: 'right', render: (v) => v != null ? (typeof v === 'number' ? `$${v}` : v) : '\u2014' },
-    { key: 'roic', label: 'ROIC', sortable: true, align: 'right', render: (v) => v ? `${v}%` : '\u2014' },
+    { key: 'revenue', label: 'Revenue ($B)', sortable: true, align: 'right', render: (v) => v ? `$${v}B` : '—' },
+    { key: 'operatingMargin', label: 'Op. Margin', sortable: true, align: 'right', render: (v) => v ? `${v}%` : '—' },
+    { key: 'netIncome', label: 'Net Income ($B)', sortable: true, align: 'right', render: (v) => v ? `$${v}B` : '—' },
+    { key: 'ebitda', label: 'EBITDA ($B)', sortable: true, align: 'right', render: (v) => v ? `$${v}B` : '—' },
+    { key: 'eps', label: 'EPS', sortable: true, align: 'right', render: (v) => v != null ? (typeof v === 'number' ? `$${v}` : v) : '—' },
+    { key: 'roic', label: 'ROIC', sortable: true, align: 'right', render: (v) => v ? `${v}%` : '—' },
   ]
 
   const finData = years.map(y => ({ year: y, ...financials[y] }))
@@ -527,7 +527,7 @@ function CompanyTier3({ company, onClose }) {
             </div>
             <div>
               <h2 className="font-display text-lg text-navy">{company.name}</h2>
-              <div className="text-xs text-gray-500">{company.hq} \u00b7 {company.revenue} \u00b7 Est. {company.founded}</div>
+              <div className="text-xs text-gray-500">{company.hq} · {company.revenue} · Est. {company.founded}</div>
             </div>
           </div>
           <button onClick={onClose} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-600 hover:text-gray-700 transition-colors touch-manipulation">
@@ -593,7 +593,7 @@ function CompanyTier3({ company, onClose }) {
                   columns={maColumns}
                   data={company.maTimeline}
                   searchable
-                  searchPlaceholder="Search M&A history\u2026"
+                  searchPlaceholder="Search M&A history…"
                   searchKey="deal"
                   compact
                   exportable
@@ -713,7 +713,7 @@ function CompanyTier3({ company, onClose }) {
    ════════════════════════════════════════════ */
 function WhiteSpaceSection() {
   return (
-    <DrillDown title="Category White Space Analysis" summary="Where the major companies are NOT competing \u2014 your biggest opportunities">
+    <DrillDown title="Category White Space Analysis" summary="Where the major companies are NOT competing — your biggest opportunities">
       <div className="space-y-2">
         {Object.entries(WHITE_SPACE).map(([cat, info]) => (
           <div key={cat} className="bg-white rounded-lg p-3 border border-gray-100 hover:border-emerald-200 transition-colors">
@@ -860,7 +860,7 @@ export default function Companies() {
   return (
     loading ? (
       <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto space-y-6">
-        <PageHeader title="Competitive Intelligence" subtitle="Loading companies\u2026" />
+        <PageHeader title="Competitive Intelligence" subtitle="Loading companies…" />
         <BentoGrid>
           <BentoGrid.Hero><SkeletonCard className="h-40" /></BentoGrid.Hero>
           <SkeletonCard />
@@ -877,7 +877,7 @@ export default function Companies() {
       {/* Page Header */}
       <PageHeader
         title="Competitive Intelligence"
-        subtitle={`${totalCompanies} companies tracked \u00b7 $${totalRevenue.toFixed(0)}B+ combined revenue \u00b7 Data as of April 2026`}
+        subtitle={`${totalCompanies} companies tracked · $${totalRevenue.toFixed(0)}B+ combined revenue · Data as of April 2026`}
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Companies' },
@@ -892,7 +892,7 @@ export default function Companies() {
           <MetricCard
             label="Companies Tracked"
             value={String(totalCompanies)}
-            subtitle={`$${totalRevenue.toFixed(0)}B+ combined revenue \u00b7 Data as of April 2026`}
+            subtitle={`$${totalRevenue.toFixed(0)}B+ combined revenue · Data as of April 2026`}
             icon={Building2}
             sparkData={COMPANIES.slice(0, 5).map((c, i) => ({ v: parseRevenue(c.revenue) }))}
           />
@@ -906,7 +906,7 @@ export default function Companies() {
         />
         <MetricCard
           label="Highest Growth"
-          value={highestGrowth ? highestGrowth.revenueGrowth : '\u2014'}
+          value={highestGrowth ? highestGrowth.revenueGrowth : '—'}
           subtitle={highestGrowth ? highestGrowth.name : ''}
           icon={TrendingUp}
           direction="up"
@@ -914,7 +914,7 @@ export default function Companies() {
         />
         <MetricCard
           label="Most Acquisitive"
-          value={mostMACompany ? `${mostMACompany.maTimeline.filter(m => m.type === 'acquisition').length} deals` : '\u2014'}
+          value={mostMACompany ? `${mostMACompany.maTimeline.filter(m => m.type === 'acquisition').length} deals` : '—'}
           subtitle={mostMACompany ? mostMACompany.name : ''}
           icon={Briefcase}
           onClick={() => mostMACompany && handleCardClick(mostMACompany)}
@@ -933,7 +933,7 @@ export default function Companies() {
         <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
         <input
           type="text"
-          placeholder="Search companies, brands, or headquarters\u2026"
+          placeholder="Search companies, brands, or headquarters…"
           value={searchTerm}
           onChange={e => setSearchTerm(e.target.value)}
           className="w-full pl-11 pr-4 py-3 text-sm border border-gray-200 rounded-xl bg-white focus:outline-none focus:border-navy/30 focus:shadow-sm transition-all"

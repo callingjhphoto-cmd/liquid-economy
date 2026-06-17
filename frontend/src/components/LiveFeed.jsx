@@ -1,5 +1,5 @@
 /**
- * LiveFeed \u2014 Real-time intelligence feed
+ * LiveFeed — Real-time intelligence feed
  *
  * Information-dense but visually integrated with the white/navy/gold
  * design system used across the rest of the dashboard.
@@ -59,7 +59,7 @@ function ConnectionBadge({ connected, mode, clientCount }) {
         <span className="text-green-700 font-medium">
           LIVE{mode === 'sse' ? '' : ' (polling)'}
         </span>
-        {clientCount > 1 && <span className="text-gray-500">{'\u00b7'} {clientCount} viewers</span>}
+        {clientCount > 1 && <span className="text-gray-500">{'·'} {clientCount} viewers</span>}
       </div>
     )
   }
@@ -67,14 +67,14 @@ function ConnectionBadge({ connected, mode, clientCount }) {
     return (
       <div className="flex items-center gap-1.5 text-xs text-gray-500">
         <WifiOff size={10} />
-        <span>Offline {'\u2014'} backend not connected</span>
+        <span>Offline {'—'} backend not connected</span>
       </div>
     )
   }
   return (
     <div className="flex items-center gap-1.5 text-xs text-gray-500">
       <WifiOff size={10} />
-      <span>Connecting{'\u2026'}</span>
+      <span>Connecting{'…'}</span>
     </div>
   )
 }
@@ -229,7 +229,7 @@ export default function LiveFeed({ maxItems = 30, compact = false }) {
           <div className="py-10 text-center">
             <Radio size={20} className="text-gray-300 mx-auto mb-2" />
             <p className="text-xs text-gray-500">
-              {connected ? 'No intelligence items match filters' : mode === 'offline' ? 'Live feed requires backend deployment' : 'Connecting to live feed\u2026'}
+              {connected ? 'No intelligence items match filters' : mode === 'offline' ? 'Live feed requires backend deployment' : 'Connecting to live feed…'}
             </p>
           </div>
         ) : (

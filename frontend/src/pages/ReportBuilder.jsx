@@ -71,7 +71,7 @@ export default function ReportBuilder() {
       {/* ══════ PAGE HEADER ══════ */}
       <PageHeader
         title="Report Builder"
-        subtitle="Build custom intelligence reports from templates, data sources, and dashboard widgets \u00b7 Data as of April 2026"
+        subtitle="Build custom intelligence reports from templates, data sources, and dashboard widgets · Data as of April 2026"
         breadcrumbs={[{ label: 'Command Centre', to: '/' }, { label: 'Report Builder' }]}
       />
       <SubPageNav group="reports" />
@@ -85,11 +85,11 @@ export default function ReportBuilder() {
           <h2 className="font-display text-lg text-navy mb-2">Request a Custom Report</h2>
           <p className="text-sm text-gray-500 max-w-md mb-1">
             Select a template below and configure your parameters. Our team will produce a bespoke
-            intelligence report \u2014 category entry analysis, competitive landscape, pricing benchmarks,
-            and go-to-market recommendations \u2014 delivered within 5 business days.
+            intelligence report — category entry analysis, competitive landscape, pricing benchmarks,
+            and go-to-market recommendations — delivered within 5 business days.
           </p>
           <p className="text-xs text-gray-500 mb-6">
-            Typical reports: 20\u201340 pages. Starting from \u00a32,500.
+            Typical reports: 20–40 pages. Starting from £2,500.
           </p>
           <a
             href="mailto:callingjhphoto@gmail.com?subject=Liquid%20Economy%20%E2%80%94%20Custom%20Report%20Request&body=Hi%2C%0A%0AI%27d%20like%20to%20request%20a%20custom%20intelligence%20report.%0A%0ATemplate%3A%20%5Be.g.%20Category%20Entry%20Report%5D%0ACategories%3A%20%5Be.g.%20Gin%2C%20Tequila%5D%0AMarkets%3A%20%5Be.g.%20UK%2C%20US%5D%0ABrief%3A%20%5BDescribe%20your%20specific%20question%20or%20objective%5D%0A%0AThanks"
@@ -98,7 +98,7 @@ export default function ReportBuilder() {
             <Mail size={16} />
             Request a Custom Report
           </a>
-          <p className="text-xs text-gray-500 mt-3">callingjhphoto@gmail.com {'\u00b7'} Response within 24 hours</p>
+          <p className="text-xs text-gray-500 mt-3">callingjhphoto@gmail.com {'·'} Response within 24 hours</p>
         </div>
       </AccentCard>
 
@@ -219,7 +219,7 @@ export default function ReportBuilder() {
                 <p className="text-xs text-gray-500 leading-relaxed">{template.description}</p>
                 <div className="flex items-center gap-3 mt-3 pt-2 border-t border-gray-50">
                   <span className="text-xs text-gray-500">{template.sections.length} sections</span>
-                  <span className="text-xs text-gray-500">{'\u2022'}</span>
+                  <span className="text-xs text-gray-500">{'•'}</span>
                   <span className="text-xs text-gray-500">~{template.estimatedPages} pages</span>
                   {isActive && (
                     <span className="ml-auto text-xs font-semibold text-gold flex items-center gap-0.5">
@@ -252,7 +252,7 @@ export default function ReportBuilder() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
               <div className="bg-gray-50 rounded-lg p-2.5">
                 <div className="text-xs text-gray-500">Template</div>
-                <div className="text-xs font-semibold text-navy">{activeTemplate?.label || '\u2014'}</div>
+                <div className="text-xs font-semibold text-navy">{activeTemplate?.label || '—'}</div>
               </div>
               <div className="bg-gray-50 rounded-lg p-2.5">
                 <div className="text-xs text-gray-500">Sections</div>

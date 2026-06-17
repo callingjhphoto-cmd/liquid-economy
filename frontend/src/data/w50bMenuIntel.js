@@ -206,7 +206,7 @@ const SCRAPED_W50B_RECORDS = [
     source_type: 'scraped-official-website',
   },
   {
-    bar: 'Tay\u0113r + Elementary',
+    bar: 'Tayēr + Elementary',
     year: 2024,
     city: 'London',
     country: 'UK',
@@ -253,7 +253,7 @@ export const spiritedAwards = [
   { year: 2025, category: 'World\'s Best Spirits Selection', winner: 'Atlas', country: 'Singapore' },
   { year: 2025, category: 'World\'s Best Hotel Bar', winner: 'Bar Leone', country: 'Hong Kong' },
   { year: 2024, category: 'World\'s Best Spirits Selection', winner: 'Jigger & Pony', country: 'Singapore' },
-  { year: 2024, category: 'World\'s Best Restaurant Bar', winner: 'Licorer\u00eda Limantour', country: 'Mexico' },
+  { year: 2024, category: 'World\'s Best Restaurant Bar', winner: 'Licorería Limantour', country: 'Mexico' },
 ]
 
 // ---------------------------------------------------------------------------

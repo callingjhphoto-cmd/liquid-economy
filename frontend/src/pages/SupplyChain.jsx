@@ -69,13 +69,13 @@ export default function SupplyChain() {
   const liCompressionPp = 4.1
 
   const liSig1 = criticalCount >= 5
-    ? { dot: 'bg-red-500', color: 'text-red-600', label: 'Acute Input Pressure', copy: `${criticalCount} commodities tracking \u226515% YoY inflation. Immediate pricing review recommended. Highest exposure: ${highestRisk.label} at ${highestRisk.change}.` }
+    ? { dot: 'bg-red-500', color: 'text-red-600', label: 'Acute Input Pressure', copy: `${criticalCount} commodities tracking ≥15% YoY inflation. Immediate pricing review recommended. Highest exposure: ${highestRisk.label} at ${highestRisk.change}.` }
     : criticalCount >= 2
-    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Elevated Input Costs', copy: `${criticalCount} commodities in critical range (\u226515% YoY). Monitor COGS buffer and review supplier contracts. Highest risk: ${highestRisk.label} at ${highestRisk.change}.` }
-    : { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Contained Pressure', copy: `Critical commodity alerts are limited. ${highCount} inputs in elevated range (8\u201314% YoY). Standard monitoring protocols apply.` }
+    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Elevated Input Costs', copy: `${criticalCount} commodities in critical range (≥15% YoY). Monitor COGS buffer and review supplier contracts. Highest risk: ${highestRisk.label} at ${highestRisk.change}.` }
+    : { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Contained Pressure', copy: `Critical commodity alerts are limited. ${highCount} inputs in elevated range (8–14% YoY). Standard monitoring protocols apply.` }
 
   const liSig2 = liCompressionPp >= 4
-    ? { dot: 'bg-red-500', color: 'text-red-600', label: 'Significant Margin Squeeze', copy: `Input costs rising ${liPressureIndex}% vs ${liRetailRise}% average retail pass-through. Estimated \u22124.1pp gross margin compression in 2025. Price uplift and cost recovery strategies are material.` }
+    ? { dot: 'bg-red-500', color: 'text-red-600', label: 'Significant Margin Squeeze', copy: `Input costs rising ${liPressureIndex}% vs ${liRetailRise}% average retail pass-through. Estimated −4.1pp gross margin compression in 2025. Price uplift and cost recovery strategies are material.` }
     : liCompressionPp >= 2
     ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Moderate Margin Pressure', copy: `Input cost inflation (${liPressureIndex}%) partially offset by ${liRetailRise}% retail price increases. Monitor gross margin buffers closely.` }
     : { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Manageable Spread', copy: `Input cost rise (${liPressureIndex}%) broadly matched by retail price increases (${liRetailRise}%). Margin resilience intact.` }
@@ -84,7 +84,7 @@ export default function SupplyChain() {
     ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Meaningful Offset Available', copy: `${fallingCount} tracked commodities declining, providing partial COGS relief. Agave and rum categories best positioned to capture input deflation this cycle.` }
     : fallingCount >= 3
     ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Partial Relief', copy: `${fallingCount} commodities show falling prices, offering limited offset against broader inflation. Prioritise agave and grain sourcing windows.` }
-    : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Minimal Commodity Relief', copy: `Only ${fallingCount} tracked commodities are declining. Input inflation is broad-based \u2014 no significant commodity-level offset available this cycle.` }
+    : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Minimal Commodity Relief', copy: `Only ${fallingCount} tracked commodities are declining. Input inflation is broad-based — no significant commodity-level offset available this cycle.` }
 
   // Sorted & filtered commodity keys
   const sortedKeys = useMemo(() => {
@@ -151,7 +151,7 @@ export default function SupplyChain() {
   if (loading) {
     return (
       <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto space-y-6">
-        <PageHeader title="Supply Chain & COGS Matrix" subtitle="Loading supply chain data\u2026" />
+        <PageHeader title="Supply Chain & COGS Matrix" subtitle="Loading supply chain data…" />
         <BentoGrid>
           <BentoGrid.Hero><SkeletonCard className="h-40" /></BentoGrid.Hero>
           <SkeletonCard />
@@ -168,7 +168,7 @@ export default function SupplyChain() {
     <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto space-y-6">
       <PageHeader
         title="Supply Chain & COGS Matrix"
-        subtitle={`${totalCommodities} commodities tracked \u00b7 ${Object.keys(CATEGORY_COGS).length} category breakdowns \u00b7 2025 data`}
+        subtitle={`${totalCommodities} commodities tracked · ${Object.keys(CATEGORY_COGS).length} category breakdowns · 2025 data`}
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Supply Chain' },
@@ -223,7 +223,7 @@ export default function SupplyChain() {
             <p className="text-label text-gray-500">Critical Alerts</p>
           </div>
           <p className="text-xl sm:text-2xl font-bold text-red-600">{criticalCount}</p>
-          <p className="text-xs text-gray-500">{'\u2265'}15% YoY change</p>
+          <p className="text-xs text-gray-500">{'≥'}15% YoY change</p>
         </Card>
 
         <Card hover onClick={() => {}}>
@@ -252,7 +252,7 @@ export default function SupplyChain() {
             <Zap size={14} className="text-gold" />
           </div>
           <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
-          <span className="text-xs text-gray-400 ml-auto">Supply Chain Signals \u00b7 2025</span>
+          <span className="text-xs text-gray-400 ml-auto">Supply Chain Signals · 2025</span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           {[liSig1, liSig2, liSig3].map((sig, i) => (
@@ -292,7 +292,7 @@ export default function SupplyChain() {
               </div>
               <p className="text-xs text-gray-500 mb-1">{stage.summary}</p>
               <p className="text-sm font-bold text-navy">{stage.kpi}</p>
-              <p className="text-xs text-gray-500 mt-1">Click to explore {'\u2192'}</p>
+              <p className="text-xs text-gray-500 mt-1">Click to explore {'→'}</p>
             </Card>
           )
         })}
@@ -303,7 +303,7 @@ export default function SupplyChain() {
       {/* --- Input Costs Heatmap --- */}
       <DrillDown
         title="Commodity Input Costs"
-        summary={`${totalCommodities} commodities \u00b7 ${criticalCount} critical \u00b7 ${highCount} high alert`}
+        summary={`${totalCommodities} commodities · ${criticalCount} critical · ${highCount} high alert`}
         defaultOpen={expandedStage === 'sourcing'}
       >
         <div className="space-y-4">
@@ -354,7 +354,7 @@ export default function SupplyChain() {
                           <p className="text-xs text-gray-600 leading-relaxed">{data.description}</p>
                           <div className="flex items-center gap-2 text-xs text-gray-500">
                             <span>Source: {data.source}</span>
-                            <span>{'\u00b7'}</span>
+                            <span>{'·'}</span>
                             <span>Updated: {data.updated}</span>
                           </div>
                           {data.relevantCategories && (
@@ -471,7 +471,7 @@ export default function SupplyChain() {
               columns={commodityTableColumns}
               data={commodityTableData}
               searchable
-              searchPlaceholder="Search commodities\u2026"
+              searchPlaceholder="Search commodities…"
               searchKey="label"
               exportable
             />
@@ -482,7 +482,7 @@ export default function SupplyChain() {
       {/* --- Category COGS Breakdown --- */}
       <DrillDown
         title="Category COGS Breakdown"
-        summary={`${Object.keys(CATEGORY_COGS).length} categories \u00b7 Cost structure analysis \u00b7 Key input trends`}
+        summary={`${Object.keys(CATEGORY_COGS).length} categories · Cost structure analysis · Key input trends`}
         defaultOpen={expandedStage === 'production'}
       >
         <div className="space-y-4">
@@ -507,7 +507,7 @@ export default function SupplyChain() {
                       <span className="text-xs text-gray-500">{data.keyInput}</span>
                       {data.inputTrend === 'rising' && <TrendingUp className="w-3 h-3 text-red-500" />}
                       {data.inputTrend === 'falling' && <TrendingDown className="w-3 h-3 text-green-500" />}
-                      {data.inputTrend === 'stable' && <span className="text-xs font-bold text-gray-500">{'\u2014'}</span>}
+                      {data.inputTrend === 'stable' && <span className="text-xs font-bold text-gray-500">{'—'}</span>}
                     </div>
                   </div>
                   {/* Stacked bar */}
@@ -537,7 +537,7 @@ export default function SupplyChain() {
       {/* --- Suppliers --- */}
       <DrillDown
         title="Supplier Intelligence"
-        summary={`${GLASS_SUPPLIERS.length + CLOSURE_SUPPLIERS.length + LABEL_SUPPLIERS.length} suppliers \u00b7 Glass, closures, labels`}
+        summary={`${GLASS_SUPPLIERS.length + CLOSURE_SUPPLIERS.length + LABEL_SUPPLIERS.length} suppliers · Glass, closures, labels`}
         defaultOpen={expandedStage === 'packaging'}
       >
         <div className="space-y-6">
@@ -569,7 +569,7 @@ export default function SupplyChain() {
               {CLOSURE_SUPPLIERS.map(s => (
                 <Card key={s.name} padding="p-3">
                   <h5 className="font-semibold text-xs text-navy">{s.name}</h5>
-                  <p className="text-xs text-gray-500 mb-1">{s.hq} \u00b7 {s.marketShare}% market share</p>
+                  <p className="text-xs text-gray-500 mb-1">{s.hq} · {s.marketShare}% market share</p>
                   <div className="space-y-0.5 text-xs text-gray-600">
                     <div><strong>Product:</strong> {s.product}</div>
                     <div><strong>Lead time:</strong> {s.leadTime}</div>
@@ -603,10 +603,10 @@ export default function SupplyChain() {
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
             <h4 className="text-xs font-semibold text-navy mb-1.5">Supplier Notes for Startups</h4>
             <ul className="text-xs text-gray-600 space-y-0.5">
-              <li>{'\u2022'} <strong>Glass:</strong> Min orders 100k units typical. Premium (Saverglass) 50k at premium pricing. Lead times 12-20 weeks.</li>
-              <li>{'\u2022'} <strong>Closures:</strong> Cork has ~3% defect rate. Synthetic/screw dominates modern wine. Multi-year contracts save 5-10%.</li>
-              <li>{'\u2022'} <strong>Labels:</strong> Digital printing offers short runs (5k) at 3-4 week turnaround. Gravure more efficient at 10k+.</li>
-              <li>{'\u2022'} <strong>Freight:</strong> Drewry WCI now 3,421 (+110%). Lock annual contracts now. Asia-Europe 4-6 weeks.</li>
+              <li>{'•'} <strong>Glass:</strong> Min orders 100k units typical. Premium (Saverglass) 50k at premium pricing. Lead times 12-20 weeks.</li>
+              <li>{'•'} <strong>Closures:</strong> Cork has ~3% defect rate. Synthetic/screw dominates modern wine. Multi-year contracts save 5-10%.</li>
+              <li>{'•'} <strong>Labels:</strong> Digital printing offers short runs (5k) at 3-4 week turnaround. Gravure more efficient at 10k+.</li>
+              <li>{'•'} <strong>Freight:</strong> Drewry WCI now 3,421 (+110%). Lock annual contracts now. Asia-Europe 4-6 weeks.</li>
             </ul>
           </div>
         </div>
@@ -615,7 +615,7 @@ export default function SupplyChain() {
       {/* --- Margin Alerts --- */}
       <DrillDown
         title="Net Revenue Management Alerts"
-        summary={`${MARGIN_ALERTS.length} active alerts \u00b7 ${MARGIN_ALERTS.filter(a => a.severity === 'high').length} high severity`}
+        summary={`${MARGIN_ALERTS.length} active alerts · ${MARGIN_ALERTS.filter(a => a.severity === 'high').length} high severity`}
       >
         <div className="space-y-4">
           {/* Alert summary */}
@@ -672,7 +672,7 @@ export default function SupplyChain() {
               columns={marginColumns}
               data={MARGIN_ALERTS}
               searchable
-              searchPlaceholder="Search brands\u2026"
+              searchPlaceholder="Search brands…"
               searchKey="brand"
               exportable
             />
@@ -683,7 +683,7 @@ export default function SupplyChain() {
       {/* --- Disruption & Risk Scenarios --- */}
       <DrillDown
         title="Disruption Scenarios & Risk Monitor"
-        summary={`${DISRUPTION_SCENARIOS.length} scenarios \u00b7 ${CURRENCY_PAIRS.length} currency pairs \u00b7 ${CLIMATE_RISKS.length} climate risks`}
+        summary={`${DISRUPTION_SCENARIOS.length} scenarios · ${CURRENCY_PAIRS.length} currency pairs · ${CLIMATE_RISKS.length} climate risks`}
         defaultOpen={expandedStage === 'logistics'}
       >
         <div className="space-y-6">

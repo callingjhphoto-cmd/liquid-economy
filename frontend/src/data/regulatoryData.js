@@ -11,13 +11,13 @@ export const LABELLING_REQUIREMENTS = {
     deadline: 'Current requirements in force. EU-alignment labelling TBC 2027.',
   },
   us: {
-    mandatory: ['Brand name', 'Class/type designation', 'ABV (% alcohol by volume)', 'Net contents', 'Name and address of bottler/importer', 'Country of origin', 'Government health warning (Surgeon General\u2019s)', 'FD&C colour additives (if used)'],
+    mandatory: ['Brand name', 'Class/type designation', 'ABV (% alcohol by volume)', 'Net contents', 'Name and address of bottler/importer', 'Country of origin', 'Government health warning (Surgeon General’s)', 'FD&C colour additives (if used)'],
     upcoming: ['Serving facts panel (TTB proposed rule)', 'Allergen declarations (TTB proposed)', 'Digital/QR label options under review'],
     format: 'English required. TTB-specific format. COLA approval needed for every label.',
-    deadline: 'Serving facts rule expected 2027. COLA processing: 4\u20136 months.',
+    deadline: 'Serving facts rule expected 2027. COLA processing: 4–6 months.',
   },
   spain: {
-    mandatory: ['Product denomination', 'ABV', 'Volume', 'Country of origin', 'Importer name and address', 'Lot number', 'Allergens', 'Denominaci\u00f3n de Origen (where applicable)'],
+    mandatory: ['Product denomination', 'ABV', 'Volume', 'Country of origin', 'Importer name and address', 'Lot number', 'Allergens', 'Denominación de Origen (where applicable)'],
     upcoming: ['Full ingredient listing (EU Regulation, from June 2026)', 'Calorie/nutritional information (June 2026)', 'Digital labelling via QR code (accepted from 2026)'],
     format: 'Spanish language mandatory. EU regulation 1169/2011 format.',
     deadline: 'June 2026 for ingredient/calorie labelling.',
@@ -25,7 +25,7 @@ export const LABELLING_REQUIREMENTS = {
   france: {
     mandatory: ['Product name', 'ABV', 'Volume', 'Country of origin', 'Bottler/importer details', 'Allergens', 'Pregnancy pictogram ("Femme enceinte")', 'CRD fiscal capsule', 'Lot number'],
     upcoming: ['Full ingredient listing (June 2026)', 'Calorie/nutritional information (June 2026)', 'Recycling/Triman logo'],
-    format: 'French language mandatory. Loi \u00c9vin health messaging compliance.',
+    format: 'French language mandatory. Loi Évin health messaging compliance.',
     deadline: 'June 2026 for EU-wide ingredient/calorie labelling.',
   },
   germany: {
@@ -68,29 +68,29 @@ export const LABELLING_REQUIREMENTS = {
 
 export const IMPORT_PROCESS_STEPS = {
   uk: [
-    { step: 1, title: 'AWRS Registration', duration: '45 days', cost: '\u00a3free (HMRC)', detail: 'Register with HMRC under Alcohol Wholesaler Registration Scheme.' },
-    { step: 2, title: 'Excise Warehouse Approval', duration: '30\u201360 days', cost: '\u00a35,000\u2013\u00a310,000 (bond)', detail: 'Approve bonded warehouse or use existing approved facility.' },
-    { step: 3, title: 'Label Compliance', duration: '2\u20134 weeks', cost: '\u00a31,000\u2013\u00a33,000', detail: 'Review labels against UK requirements. Engage compliance consultant.' },
-    { step: 4, title: 'Customs Registration', duration: '5\u201310 days', cost: 'Free', detail: 'Register for EORI number and customs declarations.' },
-    { step: 5, title: 'First Shipment', duration: '2\u20136 weeks (EU) / 6\u201312 weeks (non-EU)', cost: 'Variable', detail: 'Ship to bonded warehouse. Clear customs. Pay duty on release.' },
+    { step: 1, title: 'AWRS Registration', duration: '45 days', cost: '£free (HMRC)', detail: 'Register with HMRC under Alcohol Wholesaler Registration Scheme.' },
+    { step: 2, title: 'Excise Warehouse Approval', duration: '30–60 days', cost: '£5,000–£10,000 (bond)', detail: 'Approve bonded warehouse or use existing approved facility.' },
+    { step: 3, title: 'Label Compliance', duration: '2–4 weeks', cost: '£1,000–£3,000', detail: 'Review labels against UK requirements. Engage compliance consultant.' },
+    { step: 4, title: 'Customs Registration', duration: '5–10 days', cost: 'Free', detail: 'Register for EORI number and customs declarations.' },
+    { step: 5, title: 'First Shipment', duration: '2–6 weeks (EU) / 6–12 weeks (non-EU)', cost: 'Variable', detail: 'Ship to bonded warehouse. Clear customs. Pay duty on release.' },
   ],
   us: [
-    { step: 1, title: 'TTB Basic Permit', duration: '2\u20134 months', cost: '$0 (application free)', detail: 'Apply for Importer\u2019s Basic Permit from TTB.' },
-    { step: 2, title: 'COLA Application', duration: '4\u20136 months', cost: '$0 (but label redesign may cost $2,000+)', detail: 'Certificate of Label Approval for each product expression.' },
-    { step: 3, title: 'State Licences', duration: '1\u20133 months per state', cost: '$500\u2013$5,000 per state', detail: 'Apply for distribution licence in each target state.' },
-    { step: 4, title: 'Distributor Agreement', duration: '1\u20132 months', cost: 'N/A (terms negotiation)', detail: 'Secure distribution partnership. Three-tier system mandatory.' },
-    { step: 5, title: 'FDA Registration', duration: '1\u20132 weeks', cost: 'Free', detail: 'Register foreign facility with FDA if producing outside US.' },
+    { step: 1, title: 'TTB Basic Permit', duration: '2–4 months', cost: '$0 (application free)', detail: 'Apply for Importer’s Basic Permit from TTB.' },
+    { step: 2, title: 'COLA Application', duration: '4–6 months', cost: '$0 (but label redesign may cost $2,000+)', detail: 'Certificate of Label Approval for each product expression.' },
+    { step: 3, title: 'State Licences', duration: '1–3 months per state', cost: '$500–$5,000 per state', detail: 'Apply for distribution licence in each target state.' },
+    { step: 4, title: 'Distributor Agreement', duration: '1–2 months', cost: 'N/A (terms negotiation)', detail: 'Secure distribution partnership. Three-tier system mandatory.' },
+    { step: 5, title: 'FDA Registration', duration: '1–2 weeks', cost: 'Free', detail: 'Register foreign facility with FDA if producing outside US.' },
   ],
   spain: [
-    { step: 1, title: 'Excise Registration', duration: '2\u20134 weeks', cost: '\u20ac500\u2013\u20ac1,000 (admin)', detail: 'Register with Agencia Tributaria for excise obligations.' },
-    { step: 2, title: 'Label Review', duration: '1\u20132 weeks', cost: '\u20ac500\u2013\u20ac1,500', detail: 'Ensure EU Reg 1169/2011 compliance. Spanish language check.' },
-    { step: 3, title: 'Distributor Selection', duration: '2\u20138 weeks', cost: 'N/A', detail: 'Select and agree terms with Spanish distributor.' },
-    { step: 4, title: 'Customs Clearance', duration: '1\u20132 weeks (EU) / 3\u20134 weeks (non-EU)', cost: 'Variable', detail: 'Clear goods through Spanish customs. Pay applicable duties.' },
+    { step: 1, title: 'Excise Registration', duration: '2–4 weeks', cost: '€500–€1,000 (admin)', detail: 'Register with Agencia Tributaria for excise obligations.' },
+    { step: 2, title: 'Label Review', duration: '1–2 weeks', cost: '€500–€1,500', detail: 'Ensure EU Reg 1169/2011 compliance. Spanish language check.' },
+    { step: 3, title: 'Distributor Selection', duration: '2–8 weeks', cost: 'N/A', detail: 'Select and agree terms with Spanish distributor.' },
+    { step: 4, title: 'Customs Clearance', duration: '1–2 weeks (EU) / 3–4 weeks (non-EU)', cost: 'Variable', detail: 'Clear goods through Spanish customs. Pay applicable duties.' },
   ],
   france: [
-    { step: 1, title: 'D\u00e9claration Pr\u00e9alable', duration: '2\u20134 weeks', cost: '\u20ac500 (admin)', detail: 'Professional declaration for alcohol wholesale/distribution.' },
-    { step: 2, title: 'CRD Fiscal Capsule', duration: '3\u20136 weeks', cost: '\u20ac0.02\u20130.05/bottle', detail: 'Order Capsule Repr\u00e9sentative de Droit from approved supplier.' },
-    { step: 3, title: 'Label Compliance', duration: '2\u20134 weeks', cost: '\u20ac1,000\u2013\u20ac3,000', detail: 'French language, pregnancy pictogram, Loi \u00c9vin compliance.' },
-    { step: 4, title: 'Customs & Excise', duration: '1\u20132 weeks', cost: 'Variable (excise rates apply)', detail: 'Clear customs. Pay excise duty. EMCS documentation.' },
+    { step: 1, title: 'Déclaration Préalable', duration: '2–4 weeks', cost: '€500 (admin)', detail: 'Professional declaration for alcohol wholesale/distribution.' },
+    { step: 2, title: 'CRD Fiscal Capsule', duration: '3–6 weeks', cost: '€0.02–0.05/bottle', detail: 'Order Capsule Représentative de Droit from approved supplier.' },
+    { step: 3, title: 'Label Compliance', duration: '2–4 weeks', cost: '€1,000–€3,000', detail: 'French language, pregnancy pictogram, Loi Évin compliance.' },
+    { step: 4, title: 'Customs & Excise', duration: '1–2 weeks', cost: 'Variable (excise rates apply)', detail: 'Clear customs. Pay excise duty. EMCS documentation.' },
   ],
 }

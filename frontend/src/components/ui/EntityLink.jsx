@@ -17,7 +17,7 @@ const ENTITY_ROUTES = {
  * Usage:
  *   <EntityLink type="category" id="tequila" label="Tequila" />
  *   <EntityLink type="company" id="diageo" label="Diageo" context={{ tab: 'brands' }} />
- *   <EntityLink type="brand" id="patron" label="Patr\u00f3n" context={{ category: 'tequila' }} />
+ *   <EntityLink type="brand" id="patron" label="Patrón" context={{ category: 'tequila' }} />
  */
 export function EntityLink({ type, id, label, context = {}, className = '' }) {
   if (!ENTITY_ROUTES[type]) {

@@ -15,7 +15,7 @@ const CAPABILITIES = [
   {
     icon: Target,
     title: 'Brand Strategy',
-    description: 'Price positioning, competitor monitoring, brand health tracking, and pitch generation \u2014 everything a new-to-market brand needs to compete.',
+    description: 'Price positioning, competitor monitoring, brand health tracking, and pitch generation — everything a new-to-market brand needs to compete.',
   },
   {
     icon: Briefcase,

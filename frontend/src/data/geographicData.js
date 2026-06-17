@@ -615,10 +615,10 @@ export const REGION_DATA = {
     ],
     importExport: {
       topImports: [
-        { country: 'Scotland', value: '¥\u0034\u0035\u0042', share: '42%' },
-        { country: 'United States', value: '¥\u0034\u0030\u0042', share: '28%' },
-        { country: 'France', value: '¥\u0032\u0035\u0042', share: '18%' },
-        { country: 'Ireland', value: '¥\u0031\u0030\u0042', share: '12%' },
+        { country: 'Scotland', value: '£\u0034\u0035\u0042', share: '42%' },
+        { country: 'United States', value: '£\u0034\u0030\u0042', share: '28%' },
+        { country: 'France', value: '£\u0032\u0035\u0042', share: '18%' },
+        { country: 'Ireland', value: '£\u0031\u0030\u0042', share: '12%' },
       ],
       topExports: [
         { country: 'South Korea', value: 'KRW 9.2B', share: '34%' },

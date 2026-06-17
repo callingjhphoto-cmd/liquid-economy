@@ -8,9 +8,9 @@
     @apply text-body text-gray-700 antialiased;
   }
 
-  /* Editorial heading hierarchy — Georgia serif for display headings */
+  /* Editorial heading hierarchy — Lora serif for display headings (self-hosted via /fonts/) */
   h1, h2 {
-    font-family: Georgia, serif;
+    font-family: 'Lora', Georgia, serif;
   }
 
   h1 {

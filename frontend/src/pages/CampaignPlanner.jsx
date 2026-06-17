@@ -1874,7 +1874,7 @@ const CampaignPlanner = () => {
 
         {/* Footer */}
         <div className="text-center py-4 text-xs text-gray-500">
-          Campaign Planner • Liquid Economy Platform • Palmer Liquid Studios
+          Campaign Planner • Liquid Economy Platform
         </div>
       </div>
     )
@@ -1952,7 +1952,7 @@ const CampaignPlanner = () => {
 
       {/* Footer */}
       <div className="text-center py-4 text-xs text-gray-500">
-        Campaign Planner • Liquid Economy Platform • Palmer Liquid Studios
+        Campaign Planner • Liquid Economy Platform
       </div>
     </div>
   )

@@ -84,7 +84,7 @@ export default function ChatPanel({ isOpen, onClose }) {
           {messages.length === 0 && (
             <div className="h-full flex items-center justify-center text-center text-gray-500">
               <div>
-                <p className="text-sm font-medium mb-2">Palmer Liquid Studios Intelligence Analyst</p>
+                <p className="text-sm font-medium mb-2">Liquid Economy Intelligence Analyst</p>
                 <p className="text-xs">Ask questions about market data, valuations, arbitrage signals, or brand pricing</p>
               </div>
             </div>

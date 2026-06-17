@@ -14,7 +14,7 @@ export default {
         bento: '12px',
       },
       fontFamily: {
-        display: ["Georgia", "serif"],
+        display: ["Lora", "Georgia", "serif"],
         body: ["Inter", "system-ui", "sans-serif"],
       },
       fontSize: {

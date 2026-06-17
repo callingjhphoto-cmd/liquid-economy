@@ -666,7 +666,7 @@ export default function POSIntelligence() {
 
       {/* Footer */}
       <div className="text-center py-4 text-xs text-gray-500">
-        POS Manufacturing Intelligence • Liquid Economy Platform • Palmer Liquid Studios • Data compiled from trade directories, manufacturer listings, and industry research
+        POS Manufacturing Intelligence • Liquid Economy Platform • Data compiled from trade directories, manufacturer listings, and industry research
       </div>
 
       {/* Mobile BottomSheet for factory detail */}

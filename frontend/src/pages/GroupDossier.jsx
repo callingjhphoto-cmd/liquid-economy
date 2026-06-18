@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams, useLocation, Link } from 'react-router-dom'
 import { DOSSIER_MANIFEST, getDossierEntry } from '../data/dossiers/index.js'
 import { DossierLayout } from '../components/dossier/DossierLayout'
-import { LeftOnTheTable } from '../components/dossier/LeftOnTheTable'
+import { MarkdownSection } from '../components/dossier/MarkdownSection'
 import { ArrowRight } from 'lucide-react'
 
 /**
  * GroupDossier  -  /group/:slug
- * Renders group-level dossier. Shows brand roster as cross-link chips.
+ * Renders group-level dossier with full section content.
+ * Dynamically imports content/${slug}.js emitted by build-dossiers.mjs.
  */
 export default function GroupDossier() {
   const { slug } = useParams()
@@ -16,11 +17,23 @@ export default function GroupDossier() {
 
   const entry = getDossierEntry(slug)
 
+  const [sections, setSections] = useState(null)
+  const [loadError, setLoadError] = useState(false)
+
+  useEffect(() => {
+    setSections(null)
+    setLoadError(false)
+    if (!entry) return
+    import(`../data/dossiers/content/${slug}.js`)
+      .then(mod => setSections(mod.SECTIONS || []))
+      .catch(() => setLoadError(true))
+  }, [slug, entry])
+
   if (!entry) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-16 text-center">
         <p className="font-display text-section text-navy mb-3">Group not found</p>
-        <p className="text-body text-gray-500 mb-6">No dossier exists for "{slug}" yet.</p>
+        <p className="text-body text-gray-500 mb-6">No dossier exists for &quot;{slug}&quot; yet.</p>
         <Link to="/companies" className="text-editorial hover:text-navy underline">Browse all companies</Link>
       </div>
     )
@@ -28,7 +41,7 @@ export default function GroupDossier() {
 
   const displayName = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
 
-  // Brands in this group (from manifest)
+  // Brands in this group
   const groupBrands = DOSSIER_MANIFEST.filter(e => e.type === 'brand' && e.group === slug)
 
   const breadcrumbs = [
@@ -38,18 +51,26 @@ export default function GroupDossier() {
     { label: displayName },
   ]
 
-  // Cross-links: group brands as chips
   const crossLinks = groupBrands.map(b => ({
     slug: b.slug,
     label: b.slug.split('_').slice(1).join(' ').split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
     type: 'brand',
   }))
 
+  const SKIP_TITLES = /document metadata/i
+  const renderableSections = sections
+    ? sections.filter((s, i) => {
+        if (i === 0 && s.level === 1) return false
+        if (SKIP_TITLES.test(s.title)) return false
+        return true
+      })
+    : []
+
   return (
     <DossierLayout
       entry={entry}
       title={displayName}
-      subtitle={`Group dossier  -  ${entry.synthesisVerifiedSourceCount} verified sources`}
+      subtitle={`Group dossier — ${entry.synthesisVerifiedSourceCount} verified sources`}
       breadcrumbs={breadcrumbs}
       crossLinks={crossLinks}
       relatedTools={[
@@ -58,7 +79,7 @@ export default function GroupDossier() {
       ]}
       isColdNav={isColdNav}
     >
-      {/* Group brand roster */}
+      {/* Brand roster */}
       {groupBrands.length > 0 && (
         <div className="mb-8">
           <p className="text-label text-gray-400 uppercase tracking-wider mb-3">Brand roster</p>
@@ -88,6 +109,34 @@ export default function GroupDossier() {
               )
             })}
           </div>
+        </div>
+      )}
+
+      {/* Full dossier sections */}
+      {loadError && (
+        <div className="mb-6 p-4 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-800">
+          Content could not be loaded. Run <code>npm run build-dossiers</code> to regenerate.
+        </div>
+      )}
+
+      {sections && renderableSections.length > 0 && (
+        <div className="space-y-0 mb-8">
+          {renderableSections.map((section, i) => {
+            const combinedMd = `${'#'.repeat(section.level)} ${section.title}\n${section.content}`
+            return (
+              <div key={i} className={section.level === 2 ? 'pt-6 first:pt-0' : ''}>
+                <MarkdownSection content={combinedMd} />
+              </div>
+            )
+          })}
+        </div>
+      )}
+
+      {!sections && !loadError && (
+        <div className="space-y-4 mb-8">
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="h-4 bg-gray-100 rounded animate-pulse" style={{ width: `${70 + (i % 3) * 10}%` }} />
+          ))}
         </div>
       )}
     </DossierLayout>

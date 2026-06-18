@@ -16,13 +16,14 @@
  *   - EntityLink resolution gate: UNRESOLVED count must be 0 for demo
  */
 
-import { readFileSync, writeFileSync, readdirSync } from 'node:fs'
+import { readFileSync, writeFileSync, readdirSync, mkdirSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const DOSSIERS_DIR = '/Users/jameshuertas/Documents/Claude/memory/projects/liquid/spirits'
 const OUTPUT_DIR = join(__dirname, '../src/data/dossiers')
+const CONTENT_DIR = join(OUTPUT_DIR, 'content')
 const REPORT_PATH = join(OUTPUT_DIR, 'dossierReport.json')
 const INDEX_PATH = join(OUTPUT_DIR, 'index.js')
 
@@ -579,6 +580,32 @@ async function main() {
       brandIdToDossierSlug[bareId] = compoundSlug
     }
   }
+
+  // ─── EMIT content/ files (one per dossier, full sections array) ────────────
+  mkdirSync(CONTENT_DIR, { recursive: true })
+
+  for (const entry of manifest) {
+    // Re-read the file to get full sections
+    const rawContent = readFileSync(join(DOSSIERS_DIR, entry.filename), 'utf-8')
+    const truncated = truncateAtEnd(rawContent)
+    const sections = extractSections(truncated)
+
+    // Serialize sections safely for JS template literal output
+    const sectionsJson = JSON.stringify(
+      sections.map(s => ({
+        level: s.level,
+        title: s.title,
+        content: s.content,
+      }))
+    )
+
+    const contentFile = `// AUTO-GENERATED — DO NOT EDIT. Regenerate: node scripts/build-dossiers.mjs
+// Dossier: ${entry.slug} | Type: ${entry.type}
+export const SECTIONS = ${sectionsJson}
+`
+    writeFileSync(join(CONTENT_DIR, `${entry.slug}.js`), contentFile, 'utf-8')
+  }
+  console.log(`\nWrote ${manifest.length} content files to ${CONTENT_DIR}`)
 
   // Slim manifest for index.js (no full content)
   const slimManifest = manifest.map(entry => {

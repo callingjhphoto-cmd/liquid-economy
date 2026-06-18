@@ -873,6 +873,31 @@ export default function CommandCentre() {
         }
       />
 
+      {/* ── Positioning line + demo CTAs (spec B.1) ── */}
+      <div className="flex flex-col lg:flex-row lg:items-center gap-4 py-4 px-5 bg-navy/5 rounded-xl border border-navy/10">
+        <div className="flex-1">
+          <p className="font-display text-body-lg text-navy leading-snug">
+            Market intelligence for premium drinks brands &mdash; here&apos;s what the majors left on the table.
+          </p>
+        </div>
+        <div className="flex flex-col sm:flex-row lg:flex-row items-start sm:items-center gap-3 shrink-0">
+          <Link
+            to="/walk-in/campari-group"
+            className="inline-flex items-center gap-2 bg-navy text-white text-sm font-semibold px-4 py-2.5 rounded-lg hover:bg-navy-light transition-colors whitespace-nowrap"
+          >
+            Walk into a brand
+            <span className="opacity-70">&rarr;</span>
+          </Link>
+          <Link
+            to="/brand/campari-group_aperol"
+            className="inline-flex items-center gap-2 border border-navy/25 text-navy text-sm font-medium px-4 py-2.5 rounded-lg hover:bg-navy/5 transition-colors whitespace-nowrap"
+          >
+            See a sample dossier
+            <span className="opacity-50">&rarr;</span>
+          </Link>
+        </div>
+      </div>
+
       {/* ══════════════════════════════════════════════════════
           TIER 1 — Executive Dashboard Bento Grid
           F-pattern: Hero top-left, KPIs right + below

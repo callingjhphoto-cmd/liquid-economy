@@ -45,6 +45,7 @@ const BrandDossier = lazy(() => import('./pages/BrandDossier'))
 const GroupDossier = lazy(() => import('./pages/GroupDossier'))
 const WalkIn = lazy(() => import('./pages/WalkIn'))
 const DossierProposal = lazy(() => import('./pages/DossierProposal'))
+const MarketingDossier = lazy(() => import('./pages/MarketingDossier'))
 
 /* Route metadata for breadcrumbs */
 const routeMeta = {
@@ -525,11 +526,12 @@ function Layout({ onLogout }) {
               <Route path="/p/khorus-cocktails" element={<Navigate to="/p/chorus-cocktails" replace />} />
               <Route path="/p/chorus-cocktails/cocktail/:cocktailSlug" element={<CocktailDetail />} />
               <Route path="/p/:slug" element={<ProfileRoute />} />
-              {/* Dossier spine — Group, Brand, Walk-in, Proposal */}
+              {/* Dossier spine — Group, Brand, Walk-in, Proposal, Marketing */}
               <Route path="/group/:slug" element={<GroupDossier />} />
               <Route path="/brand/:slug" element={<BrandDossier />} />
               <Route path="/walk-in/:slug" element={<WalkIn />} />
               <Route path="/proposal/:slug" element={<DossierProposal />} />
+              <Route path="/marketing" element={<MarketingDossier />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
             )}

@@ -1,0 +1,1 @@
+const e={primary:"#1B2A4A",accent:"#C9A96E",blue:"#2563EB",teal:"#0D9488",amber:"#D97706",rose:"#E11D48",violet:"#7C3AED",emerald:"#059669"},a=[e.primary,e.accent,e.blue,e.teal,e.amber,e.rose,e.violet,e.emerald],r={onTrade:"#1B2A4A",offTrade:"#C9A96E",eCommerce:"#2563EB",travelRetail:"#7C3AED"};export{e as C,a,r as b};

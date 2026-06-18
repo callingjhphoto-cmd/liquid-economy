@@ -1,0 +1,1 @@
+function o(a){const r={TopCocktails:"Top Cocktails",FlavourRadar:"Flavours",LuxuryVenues:"Venues",Presentation:"Theatre",TrendArc:"Trend Arc",CategorySnapshot:"Category",CompetitorWatch:"Competitors",MarketIntel:"Markets",DemographicsLens:"Demographics",OpportunityRadar:"Radar"};return a.map((e,t)=>({id:`module-${t}`,label:r[e.type]||e.type}))}export{o as buildNav};

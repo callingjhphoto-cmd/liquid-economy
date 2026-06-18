@@ -1,6 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, Link, Navigate, useLocation, useParams } from 'react-router-dom'
-import { LayoutDashboard, TrendingUp, DollarSign, Building2, LogOut, Menu, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag, Crosshair, ChevronDown, ChevronRight, Target, Loader2, Search, BarChart3, Calculator, MoreHorizontal, Rocket, Activity, Calendar, Eye, ShieldAlert, Crown, Compass, Lock } from 'lucide-react'
+import { LayoutDashboard, TrendingUp, DollarSign, Building2, LogOut, Menu, FileText, Package, Globe, Wine, MapPin, CloudRain, ShoppingBag, Crosshair, ChevronDown, ChevronRight, Target, Loader2, Search, BarChart3, Calculator, MoreHorizontal, Rocket, Activity, Calendar, Eye, ShieldAlert, Crown, Compass, Lock, FileStack } from 'lucide-react'
 import { useLiveData } from './context/LiveDataContext'
 import { api, getToken, setToken, clearToken } from './lib/api'
 // ChatPanel disabled — backend not deployed; gated as "Coming Soon"
@@ -46,10 +46,13 @@ const GroupDossier = lazy(() => import('./pages/GroupDossier'))
 const WalkIn = lazy(() => import('./pages/WalkIn'))
 const DossierProposal = lazy(() => import('./pages/DossierProposal'))
 const MarketingDossier = lazy(() => import('./pages/MarketingDossier'))
+const CategoryDossier = lazy(() => import('./pages/CategoryDossier'))
+const DossiersIndex = lazy(() => import('./pages/DossiersIndex'))
 
 /* Route metadata for breadcrumbs */
 const routeMeta = {
   '/': { label: 'Dashboard', group: 'Intelligence' },
+  '/dossiers': { label: 'Dossiers', group: 'Intelligence' },
   '/categories': { label: 'Categories', group: 'Intelligence' },
   '/companies': { label: 'Companies', group: 'Intelligence' },
   '/pricing': { label: 'Pricing', group: 'Intelligence' },
@@ -142,7 +145,7 @@ function BottomTabBar() {
 
   const tabs = [
     { to: '/', icon: LayoutDashboard, label: 'Dashboard', match: ['/'] },
-    { to: '/categories', icon: BarChart3, label: 'Intelligence', match: ['/categories', '/companies', '/pricing', '/venues', '/geographic', '/price-positioning', '/brand-health', '/competitors'] },
+    { to: '/categories', icon: BarChart3, label: 'Intelligence', match: ['/dossiers', '/categories', '/companies', '/pricing', '/venues', '/geographic', '/price-positioning', '/brand-health', '/competitors'] },
     { to: '/supply-chain', icon: Rocket, label: 'Planning', match: ['/supply-chain', '/scenario', '/margin', '/campaigns', '/market-entry', '/distributors', '/depletions'] },
     { to: '/reports', icon: FileText, label: 'Reports', match: ['/reports', '/valuations', '/financials', '/pitch-generator'] },
     { to: '/climate', icon: MoreHorizontal, label: 'Tools', match: ['/climate', '/pos', '/trade-shows', '/regulatory', '/contact'] },
@@ -378,6 +381,7 @@ function Layout({ onLogout }) {
             {/* Intelligence — core data pages */}
             <NavGroup title="Intelligence">
               <NavItem to="/" icon={LayoutDashboard} label="Dashboard" />
+              <NavItem to="/dossiers" icon={FileStack} label="Dossiers" />
               <NavItem to="/marketing" icon={TrendingUp} label="Thesis" />
               <NavItem to="/categories" icon={Wine} label="Categories" />
               <NavItem to="/companies" icon={Building2} label="Companies" />
@@ -499,7 +503,9 @@ function Layout({ onLogout }) {
               <Route path="/climate" element={<ClimateYield />} />
               <Route path="/supply-chain" element={<SupplyChain />} />
               <Route path="/geographic" element={<GeographicIntelligence />} />
+              <Route path="/dossiers" element={<DossiersIndex />} />
               <Route path="/categories" element={<CategoryIntelligence />} />
+              <Route path="/category/:slug/dossier" element={<CategoryDossier />} />
               <Route path="/category/:categoryId" element={<CategoryRedirect />} />
               <Route path="/venues" element={<VenueIntelligence />} />
               <Route path="/valuations" element={<Valuations />} />

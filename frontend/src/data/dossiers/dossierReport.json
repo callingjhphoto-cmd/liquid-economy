@@ -1,0 +1,274 @@
+{
+  "generatedAt": "2026-06-18T08:46:38.690Z",
+  "totalDossiers": 78,
+  "byType": {
+    "brand": 63,
+    "group": 6,
+    "category": 8,
+    "marketing": 1
+  },
+  "flagshipBrands": [
+    "campari-group_aperol"
+  ],
+  "dossierTiers": {
+    "flagship": 1,
+    "standard": 77
+  },
+  "synthesis": {
+    "withSynthesis": 52,
+    "withoutSynthesis": 26,
+    "noSynthesisFiles": [
+      "bacardi_bacardi-rum",
+      "bacardi_william-lawson-s",
+      "diageo_buchanan-s",
+      "diageo_bulleit",
+      "diageo_captain-morgan",
+      "diageo_don-julio",
+      "diageo_guinness",
+      "diageo_johnnie-walker",
+      "diageo_tanqueray",
+      "lvmh-moet-hennessy_ardbeg",
+      "lvmh-moet-hennessy_moet-chandon",
+      "pernod-ricard_absolut",
+      "pernod-ricard_beefeater",
+      "pernod-ricard_malibu",
+      "pernod-ricard_martell",
+      "pernod-ricard_monkey-47",
+      "pernod-ricard_the-glenlivet",
+      "bacardi",
+      "brown-forman",
+      "diageo",
+      "lvmh-moet-hennessy",
+      "pernod-ricard",
+      "the-global-bourbon-whiskey-market",
+      "the-global-irish-whiskey-market",
+      "the-global-japanese-whisky-market",
+      "the-global-scotch-whisky-market"
+    ]
+  },
+  "entityLinkResolution": {
+    "UNRESOLVED_COUNT": 0,
+    "DEMO_BLOCKING_GATE_PASSED": true,
+    "results": [
+      {
+        "type": "company",
+        "id": "campari-group",
+        "source": "VenueIntelligence:787",
+        "expectedRoute": "/group/campari-group",
+        "resolvedSlug": "campari-group",
+        "route": "/group/campari-group",
+        "status": "DOSSIER_ROUTED"
+      },
+      {
+        "type": "company",
+        "id": "campari-group",
+        "source": "SupplyChain:647",
+        "expectedRoute": "/group/campari-group",
+        "resolvedSlug": "campari-group",
+        "route": "/group/campari-group",
+        "status": "DOSSIER_ROUTED"
+      },
+      {
+        "type": "company",
+        "id": "campari-group",
+        "source": "Companies:188",
+        "expectedRoute": "/group/campari-group",
+        "resolvedSlug": "campari-group",
+        "route": "/group/campari-group",
+        "status": "DOSSIER_ROUTED"
+      },
+      {
+        "type": "brand",
+        "id": "aperol",
+        "source": "Companies:337",
+        "expectedRoute": "/brand/campari-group_aperol",
+        "resolvedSlug": "campari-group_aperol",
+        "route": "/brand/campari-group_aperol",
+        "status": "DOSSIER_ROUTED"
+      },
+      {
+        "type": "brand",
+        "id": "aperol",
+        "source": "CategoryIntelligence:182",
+        "expectedRoute": "/brand/campari-group_aperol",
+        "resolvedSlug": "campari-group_aperol",
+        "route": "/brand/campari-group_aperol",
+        "status": "DOSSIER_ROUTED"
+      },
+      {
+        "type": "category",
+        "id": "rum",
+        "source": "EntityLink",
+        "expectedRoute": "/category/rum/dossier",
+        "resolvedSlug": "the-global-rum-market",
+        "route": "/category/rum/dossier",
+        "status": "DOSSIER_ROUTED"
+      },
+      {
+        "type": "category",
+        "id": "tequila",
+        "source": "EntityLink",
+        "expectedRoute": "/category/tequila/dossier",
+        "resolvedSlug": "the-global-tequila-market",
+        "route": "/category/tequila/dossier",
+        "status": "DOSSIER_ROUTED"
+      },
+      {
+        "type": "brand",
+        "id": "patron",
+        "source": "EntityLink",
+        "expectedRoute": "/brand/bacardi_patron",
+        "resolvedSlug": "bacardi_patron",
+        "route": "/brand/bacardi_patron",
+        "status": "DOSSIER_ROUTED"
+      },
+      {
+        "type": "brand",
+        "id": "grey-goose",
+        "source": "EntityLink",
+        "expectedRoute": "/brand/bacardi_grey-goose",
+        "resolvedSlug": "bacardi_grey-goose",
+        "route": "/brand/bacardi_grey-goose",
+        "status": "DOSSIER_ROUTED"
+      }
+    ]
+  },
+  "errors": [
+    {
+      "filename": "ARCHITECTURE_v6.md",
+      "issue": "unrecognised-convention"
+    }
+  ],
+  "warnings": [
+    {
+      "slug": "bacardi_bacardi-rum",
+      "issue": "no-synthesis",
+      "filename": "BRAND_bacardi_bacardi-rum_10x.md"
+    },
+    {
+      "slug": "bacardi_william-lawson-s",
+      "issue": "no-synthesis",
+      "filename": "BRAND_bacardi_william-lawson-s_10x.md"
+    },
+    {
+      "slug": "diageo_buchanan-s",
+      "issue": "no-synthesis",
+      "filename": "BRAND_diageo_buchanan-s_10x.md"
+    },
+    {
+      "slug": "diageo_bulleit",
+      "issue": "no-synthesis",
+      "filename": "BRAND_diageo_bulleit_10x.md"
+    },
+    {
+      "slug": "diageo_captain-morgan",
+      "issue": "no-synthesis",
+      "filename": "BRAND_diageo_captain-morgan_10x.md"
+    },
+    {
+      "slug": "diageo_don-julio",
+      "issue": "no-synthesis",
+      "filename": "BRAND_diageo_don-julio_10x.md"
+    },
+    {
+      "slug": "diageo_guinness",
+      "issue": "no-synthesis",
+      "filename": "BRAND_diageo_guinness_10x.md"
+    },
+    {
+      "slug": "diageo_johnnie-walker",
+      "issue": "no-synthesis",
+      "filename": "BRAND_diageo_johnnie-walker_10x.md"
+    },
+    {
+      "slug": "diageo_tanqueray",
+      "issue": "no-synthesis",
+      "filename": "BRAND_diageo_tanqueray_10x.md"
+    },
+    {
+      "slug": "lvmh-moet-hennessy_ardbeg",
+      "issue": "no-synthesis",
+      "filename": "BRAND_lvmh-moet-hennessy_ardbeg_10x.md"
+    },
+    {
+      "slug": "lvmh-moet-hennessy_moet-chandon",
+      "issue": "no-synthesis",
+      "filename": "BRAND_lvmh-moet-hennessy_moet-chandon_10x.md"
+    },
+    {
+      "slug": "pernod-ricard_absolut",
+      "issue": "no-synthesis",
+      "filename": "BRAND_pernod-ricard_absolut_10x.md"
+    },
+    {
+      "slug": "pernod-ricard_beefeater",
+      "issue": "no-synthesis",
+      "filename": "BRAND_pernod-ricard_beefeater_10x.md"
+    },
+    {
+      "slug": "pernod-ricard_malibu",
+      "issue": "no-synthesis",
+      "filename": "BRAND_pernod-ricard_malibu_10x.md"
+    },
+    {
+      "slug": "pernod-ricard_martell",
+      "issue": "no-synthesis",
+      "filename": "BRAND_pernod-ricard_martell_10x.md"
+    },
+    {
+      "slug": "pernod-ricard_monkey-47",
+      "issue": "no-synthesis",
+      "filename": "BRAND_pernod-ricard_monkey-47_10x.md"
+    },
+    {
+      "slug": "pernod-ricard_the-glenlivet",
+      "issue": "no-synthesis",
+      "filename": "BRAND_pernod-ricard_the-glenlivet_10x.md"
+    },
+    {
+      "slug": "bacardi",
+      "issue": "no-synthesis",
+      "filename": "GROUP_bacardi_Dossier_10x.md"
+    },
+    {
+      "slug": "brown-forman",
+      "issue": "no-synthesis",
+      "filename": "GROUP_brown-forman_Dossier_10x.md"
+    },
+    {
+      "slug": "diageo",
+      "issue": "no-synthesis",
+      "filename": "GROUP_diageo_Dossier_10x.md"
+    },
+    {
+      "slug": "lvmh-moet-hennessy",
+      "issue": "no-synthesis",
+      "filename": "GROUP_lvmh-moet-hennessy_Dossier_10x.md"
+    },
+    {
+      "slug": "pernod-ricard",
+      "issue": "no-synthesis",
+      "filename": "GROUP_pernod-ricard_Dossier_10x.md"
+    },
+    {
+      "slug": "the-global-bourbon-whiskey-market",
+      "issue": "no-synthesis",
+      "filename": "the-global-bourbon-whiskey-market_Dossier_10x.md"
+    },
+    {
+      "slug": "the-global-irish-whiskey-market",
+      "issue": "no-synthesis",
+      "filename": "the-global-irish-whiskey-market_Dossier_10x.md"
+    },
+    {
+      "slug": "the-global-japanese-whisky-market",
+      "issue": "no-synthesis",
+      "filename": "the-global-japanese-whisky-market_Dossier_10x.md"
+    },
+    {
+      "slug": "the-global-scotch-whisky-market",
+      "issue": "no-synthesis",
+      "filename": "the-global-scotch-whisky-market_Dossier_10x.md"
+    }
+  ]
+}

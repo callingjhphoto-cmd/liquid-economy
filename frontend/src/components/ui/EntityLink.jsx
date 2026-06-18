@@ -1,52 +1,48 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
-const ENTITY_ROUTES = {
-  category: '/categories',
-  'category-detail': '/category',
-  company: '/companies',
-  brand: '/pricing',
-  venue: '/venues',
-  market: '/geographic',
-}
+import { resolveEntityLink } from '../../data/dossiers/index.js'
 
 /**
  * EntityLink — cross-page navigation component for entity references.
- * Renders a react-router Link with appropriate route and query params.
+ * Now routes through the dossier resolver first; falls back cleanly to legacy routes.
  *
  * Usage:
  *   <EntityLink type="category" id="tequila" label="Tequila" />
- *   <EntityLink type="company" id="diageo" label="Diageo" context={{ tab: 'brands' }} />
- *   <EntityLink type="brand" id="patron" label="Patrón" context={{ category: 'tequila' }} />
+ *   <EntityLink type="company" id="campari-group" label="Campari Group" />
+ *   <EntityLink type="brand" id="aperol" label="Aperol" />
+ *
+ * Resolution priority:
+ *   1. resolveEntityLink(type, id) from dossier index → dossier route if built
+ *   2. Clean fallback to legacy query-param route (/ pricing, /companies, /categories)
  */
 export function EntityLink({ type, id, label, context = {}, className = '' }) {
-  if (!ENTITY_ROUTES[type]) {
-    if (process.env.NODE_ENV !== 'production') {
-      console.warn(`EntityLink: unknown type "${type}"`)
-    }
-    return <span className={className}>{label}</span>
-  }
+  const { route, status } = resolveEntityLink(type, id)
 
-  // category-detail uses path params
-  if (type === 'category-detail') {
+  const linkClass = `text-editorial hover:text-navy underline decoration-editorial/30 hover:decoration-editorial transition-colors ${className}`
+
+  // If resolved to a dossier route, use path-based Link
+  if (status === 'dossier') {
     return (
-      <Link
-        to={`${ENTITY_ROUTES[type]}/${id}`}
-        className={`text-editorial hover:text-navy underline decoration-editorial/30 hover:decoration-editorial transition-colors ${className}`}
-      >
+      <Link to={route} className={linkClass}>
         {label}
       </Link>
     )
   }
 
-  // Everything else uses query params
-  const params = new URLSearchParams({ [type]: id, ...context })
+  // Legacy fallback: query-param route
+  // If there's additional context, merge into the query string
+  if (Object.keys(context).length > 0) {
+    const base = route.includes('?') ? route + '&' : route + '?'
+    const params = new URLSearchParams(context)
+    return (
+      <Link to={`${base}${params.toString()}`} className={linkClass}>
+        {label}
+      </Link>
+    )
+  }
 
   return (
-    <Link
-      to={`${ENTITY_ROUTES[type]}?${params.toString()}`}
-      className={`text-editorial hover:text-navy underline decoration-editorial/30 hover:decoration-editorial transition-colors ${className}`}
-    >
+    <Link to={route} className={linkClass}>
       {label}
     </Link>
   )

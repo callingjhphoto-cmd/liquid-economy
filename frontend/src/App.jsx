@@ -41,6 +41,10 @@ const ProfileChorusCocktails = lazy(() => import('./pages/ProfileChorusCocktails
 const ClientProfile = lazy(() => import('./pages/ClientProfile'))
 const ProfilesIndex = lazy(() => import('./pages/ProfilesIndex'))
 const CocktailDetail = lazy(() => import('./pages/CocktailDetail'))
+const BrandDossier = lazy(() => import('./pages/BrandDossier'))
+const GroupDossier = lazy(() => import('./pages/GroupDossier'))
+const WalkIn = lazy(() => import('./pages/WalkIn'))
+const DossierProposal = lazy(() => import('./pages/DossierProposal'))
 
 /* Route metadata for breadcrumbs */
 const routeMeta = {
@@ -70,6 +74,7 @@ const routeMeta = {
   '/pitch-generator': { label: 'Pitch Generator', group: 'Reports' },
   '/contact': { label: 'Contact', group: 'Tools' },
   '/profiles': { label: 'Client Profiles', group: 'Reports' },
+  '/marketing': { label: 'Marketing Thesis', group: 'Intelligence' },
 }
 
 function FocusManager() {
@@ -372,6 +377,7 @@ function Layout({ onLogout }) {
             {/* Intelligence — core data pages */}
             <NavGroup title="Intelligence">
               <NavItem to="/" icon={LayoutDashboard} label="Dashboard" />
+              <NavItem to="/marketing" icon={TrendingUp} label="Thesis" />
               <NavItem to="/categories" icon={Wine} label="Categories" />
               <NavItem to="/companies" icon={Building2} label="Companies" />
               <NavItem to="/pricing" icon={DollarSign} label="Pricing" />
@@ -519,6 +525,11 @@ function Layout({ onLogout }) {
               <Route path="/p/khorus-cocktails" element={<Navigate to="/p/chorus-cocktails" replace />} />
               <Route path="/p/chorus-cocktails/cocktail/:cocktailSlug" element={<CocktailDetail />} />
               <Route path="/p/:slug" element={<ProfileRoute />} />
+              {/* Dossier spine — Group, Brand, Walk-in, Proposal */}
+              <Route path="/group/:slug" element={<GroupDossier />} />
+              <Route path="/brand/:slug" element={<BrandDossier />} />
+              <Route path="/walk-in/:slug" element={<WalkIn />} />
+              <Route path="/proposal/:slug" element={<DossierProposal />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
             )}

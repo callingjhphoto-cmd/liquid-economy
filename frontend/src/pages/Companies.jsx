@@ -72,6 +72,70 @@ const mostMACompany = [...COMPANIES].sort((a, b) =>
   (a.maTimeline ? a.maTimeline.filter(m => m.type === 'acquisition').length : 0)
 )[0]
 
+/* ── Liquid Intelligence derived values ── */
+const liGrowingCount = COMPANIES.filter(c => c.revenueGrowth && !String(c.revenueGrowth).startsWith('-')).length
+const liGrowingPct = Math.round((liGrowingCount / COMPANIES.length) * 100)
+const liAvgMargin = parseFloat(avgMargin)
+const liRecentAcqCount = COMPANIES.reduce((s, c) =>
+  s + (c.maTimeline ? c.maTimeline.filter(m => m.type === 'acquisition' && m.year >= 2024).length : 0), 0
+)
+const liRecentAcqNames = COMPANIES
+  .filter(c => c.maTimeline?.some(m => m.type === 'acquisition' && m.year >= 2024))
+  .map(c => c.name)
+  .slice(0, 2)
+
+/* ── Liquid Intelligence card for Companies page ── */
+function CompaniesLiCard() {
+  const growthSignal = liGrowingPct >= 75
+    ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'BROAD SECTOR GROWTH', copy: `${liGrowingCount} of ${COMPANIES.length} tracked companies growing — expansion window open across the premium spirits landscape.` }
+    : liGrowingPct >= 50
+    ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'BIFURCATED GROWTH', copy: `${liGrowingCount} of ${COMPANIES.length} companies growing — market diverging between volume leaders and premium challengers.` }
+    : liGrowingPct >= 25
+    ? { color: 'text-amber-600', dot: 'bg-amber-500', label: 'GROWTH DIVERGENCE', copy: `Only ${liGrowingCount} of ${COMPANIES.length} companies growing — selective portfolio pruning and cost discipline now critical for independents.` }
+    : { color: 'text-red-600', dot: 'bg-red-500', label: 'BROAD CONTRACTION', copy: 'Fewer than a quarter of tracked majors growing — category-level headwinds dominant.' }
+
+  const marginSignal = liAvgMargin >= 28
+    ? { color: 'text-emerald-600', dot: 'bg-emerald-500', label: 'PREMIUM MARGIN ENVIRONMENT', copy: `${liAvgMargin}% sector average operating margin — pricing power intact. Premiumisation thesis still supported by financials.` }
+    : liAvgMargin >= 22
+    ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'HEALTHY MARGIN BASE', copy: `${liAvgMargin}% average operating margin — room for brand investment and selective M&A at current multiples.` }
+    : liAvgMargin >= 15
+    ? { color: 'text-amber-600', dot: 'bg-amber-500', label: 'MARGIN COMPRESSION', copy: `${liAvgMargin}% average operating margin — cost structure and pricing discipline critical for mid-tier players.` }
+    : { color: 'text-red-600', dot: 'bg-red-500', label: 'COMPRESSED MARGINS', copy: `${liAvgMargin}% sector average — further consolidation likely as scale becomes a survival requirement.` }
+
+  const maSignal = liRecentAcqCount >= 4
+    ? { color: 'text-emerald-600', dot: 'bg-emerald-500', label: 'ACTIVE CONSOLIDATION WINDOW', copy: `${liRecentAcqCount} acquisitions logged since 2024 — highest-deal cycle in recent history signals accelerating portfolio concentration.` }
+    : liRecentAcqCount >= 2
+    ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'SELECTIVE DEAL PACE', copy: `${liRecentAcqCount} acquisitions since 2024${liRecentAcqNames.length ? ` — ${liRecentAcqNames.join(' and ')} among active acquirers` : ''}. Targets in premium RTD, craft spirits, and adjacent categories.` }
+    : liRecentAcqCount === 1
+    ? { color: 'text-amber-600', dot: 'bg-amber-500', label: 'QUIET DEAL ENVIRONMENT', copy: 'Only 1 acquisition completed since 2024 — majors deploying capital cautiously; window for challenger brand positioning.' }
+    : { color: 'text-amber-600', dot: 'bg-amber-500', label: 'M&A PAUSE', copy: 'No acquisitions completed since 2024 — majors in hold posture; organic portfolio development and divestiture more likely near-term.' }
+
+  const signals = [growthSignal, marginSignal, maSignal]
+  const signalLabels = ['Revenue Growth Distribution', 'Sector Margin Environment', 'Recent M&A Activity']
+
+  return (
+    <div className="border border-gold/30 rounded-xl bg-gradient-to-r from-amber-50/60 to-white p-4 mb-6">
+      <div className="flex items-center gap-2 mb-3">
+        <Zap size={14} className="text-gold" />
+        <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
+        <span className="text-xs text-gray-400 ml-auto">Competitive signals</span>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        {signals.map((sig, i) => (
+          <div key={i} className="bg-white rounded-lg p-3 border border-gray-100">
+            <div className="flex items-center gap-1.5 mb-1.5">
+              <span className={`w-2 h-2 rounded-full shrink-0 ${sig.dot}`} />
+              <span className={`text-[10px] font-bold uppercase tracking-wider ${sig.color}`}>{sig.label}</span>
+            </div>
+            <p className="text-[11px] text-gray-500 leading-snug">{signalLabels[i]}</p>
+            <p className="text-xs text-gray-700 leading-snug mt-1">{sig.copy}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 /* ── Category & HQ filter options ── */
 const allCategories = [...new Set(COMPANIES.flatMap(c =>
   c.categoryPresence ? Object.keys(c.categoryPresence) : []
@@ -927,6 +991,9 @@ export default function Companies() {
           direction="up"
         />
       </BentoGrid>
+
+      {/* Liquid Intelligence signals */}
+      <CompaniesLiCard />
 
       {/* Search bar — prominent */}
       <div className="relative mb-4">

@@ -1,3 +1,21 @@
+# Overnight Build Log — 30 June 2026
+
+## Session summary
+
+**Shipped:** Companies (Competitive Intelligence) — Liquid Intelligence signals card (build clean)
+
+1. **Audit pass.** Scanned all 37 pages for Liquid Intelligence signal cards. Confirmed clean on 19 pages (ScenarioModeling, Valuations, CampaignPlanner, CategoryIntelligence, VenueIntelligence, BrandHealth, ClimateYield, Financials, DepletionForecasting, MarketOverview, GeographicIntelligence, MarginCalculator, POSIntelligence, SupplyChain, PricePositioning, CommandCentre, PitchGenerator, TradeShows, MarketEntryWizard). Identified Companies.jsx as highest-impact remaining page — 14 tracked companies, $300B+ combined revenue, rich M&A timeline and financial data.
+
+2. **Companies.jsx — Liquid Intelligence signals card.** Three signals computed at module level from existing `COMPANIES` static data (no state, no re-computation on render): (1) Growth Distribution — `liGrowingCount` (11 of 14 companies have positive revenueGrowth): ≥75% blue "Broad Sector Growth" (current, 79%) / 50–74% blue "Bifurcated Growth" / 25–49% amber "Growth Divergence" / <25% amber "Broad Contraction"; (2) Sector Margin Environment — `liAvgMargin` (derived from existing `avgMargin` = 26.8%): ≥28% emerald "Premium Margin Environment" / 22–28% blue "Healthy Margin Base" (current) / 15–22% amber "Margin Compression" / <15% red; (3) Recent M&A Activity — `liRecentAcqCount` (acquisitions with year ≥ 2024 across all maTimelines, e.g. LVMH Château Galoupet 2025): ≥4 emerald "Active Consolidation Window" / 2–3 blue "Selective Deal Pace" / 1 amber / 0 amber "M&A Pause". Dynamic acquirer names interpolated in Signal 3 copy.
+
+3. **Card placement.** Inserted between the 5-stat BentoGrid hero (Companies Tracked, Avg Margin, Highest Growth, Most Acquisitive, White Space Categories) and the search bar — immediately contextualising the headline stats with interpretation before the user drills into individual company cards.
+
+4. **No data hallucination.** All signal thresholds are pure numeric comparisons on live computed values. Signal 3 acquirer names derive from `c.maTimeline?.some(m => m.type === 'acquisition' && m.year >= 2024)` — no hard-coded brand copy.
+
+5. **Build:** `vite build` ✓ — 0 errors, 0 warnings. Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 24 April 2026
 
 ## Session summary

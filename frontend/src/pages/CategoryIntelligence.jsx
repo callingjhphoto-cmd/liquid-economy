@@ -651,7 +651,7 @@ function DemographicsPanel({ categoryKey }) {
           <div className="mt-3 space-y-1.5">
             {demographics.occasion.map((occ, i) => (
               <div key={i} className="flex items-start gap-2">
-                <span className="text-blue-500 mt-0.5 shrink-0">▶</span>
+                <span className="text-blue-500 mt-0.5 shrink-0">{'▶'}</span>
                 <div>
                   <span className="text-xs font-semibold text-gray-800">{occ.name}: </span>
                   <span className="text-xs text-gray-600">{occ.notes}</span>
@@ -683,7 +683,7 @@ function DemographicsPanel({ categoryKey }) {
       {/* Key Trends */}
       {keyTrends && keyTrends.length > 0 && (
         <Card>
-          <SectionLabel>Key Trends (2024–2026)</SectionLabel>
+          <SectionLabel>Key Trends (2024{'–'}2026)</SectionLabel>
           <div className="space-y-2">
             {keyTrends.map((t, i) => (
               <div key={i} className="flex items-start gap-2.5 py-2 border-b border-gray-50 last:border-0 last:py-0">
@@ -793,7 +793,7 @@ function CategoryIntelligenceCard({ yd, cat, year }) {
       <div className="flex items-center gap-2 mb-4">
         <Zap size={16} className="text-gold" />
         <span className="text-sm font-bold text-navy">Liquid Intelligence</span>
-        <span className="ml-auto text-xs text-gray-400 font-medium">{cat.label} · {year}</span>
+        <span className="ml-auto text-xs text-gray-400 font-medium">{cat.label} {'·'} {year}</span>
       </div>
       <div className="space-y-3">
         {signals.map((s, i) => {
@@ -968,7 +968,7 @@ function CategoryDetail({ cat, year, onBack }) {
                   <span className="px-1.5 py-0.5 bg-orange-100 text-orange-700 text-micro font-bold rounded uppercase tracking-wider">Est.</span>
                 )}
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3">
                 <div className="bg-gray-50 rounded-lg p-2.5">
                   <div className="text-xs text-gray-500">ACV Distribution</div>
                   <div className="text-sm font-bold text-navy">{yd.tradeKPIs.acvDistribution}%</div>
@@ -1023,7 +1023,7 @@ function CategoryDetail({ cat, year, onBack }) {
               </Card>
 
               {/* Full Data Table */}
-              <SectionHeader size="sm">Historical Data (2021–2025)</SectionHeader>
+              <SectionHeader size="sm">Historical Data (2021{'–'}2025)</SectionHeader>
               <DataTable
                 columns={fullDataTableColumns}
                 data={fullDataTableRows}
@@ -1142,7 +1142,7 @@ export default function CategoryIntelligence() {
           <SkeletonCard />
           <SkeletonCard />
         </BentoGrid>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
           {Array.from({ length: 8 }).map((_, i) => <SkeletonCard key={i} />)}
         </div>
       </div>

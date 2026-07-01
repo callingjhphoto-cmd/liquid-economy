@@ -364,7 +364,7 @@ function PriceAlertsSummary() {
                   <div className="flex-1 min-w-0">
                     <span className={`text-micro font-bold uppercase px-1.5 py-0.5 rounded-full ${sev.bg} ${sev.text}`}>{sev.label}</span>
                     <div className="text-xs font-semibold text-navy mt-1 group-hover:text-gold transition-colors">{alert.product}</div>
-                    <div className="text-xs text-gray-500">{alert.category} · {alert.channel}</div>
+                    <div className="text-xs text-gray-500">{alert.category} {'·'} {alert.channel}</div>
                   </div>
                   <div className="text-right flex-shrink-0 ml-2">
                     <div className="text-sm font-bold text-navy">{alert.pricePoint}</div>
@@ -619,7 +619,7 @@ function DeepDiveCTAs() {
   return (
     <div>
       <SectionHeader size="md" subtitle="Navigate to detailed intelligence">Explore Platform</SectionHeader>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3">
         {ctas.map((cta, i) => (
           <Link key={i} to={cta.to} className="no-underline">
             <div className="bg-white rounded-xl border border-gray-100 p-4 hover:shadow-md hover:border-gold/30 transition-all text-center group h-full flex flex-col items-center justify-center">

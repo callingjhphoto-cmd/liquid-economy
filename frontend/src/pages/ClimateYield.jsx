@@ -124,7 +124,7 @@ function RegionCard({ region, onClick }) {
         {latest && <OutlookBadge outlook={latest[1].outlook} />}
       </div>
 
-      <p className="text-xs text-gray-500 mb-2">{region.crop} — {region.country}</p>
+      <p className="text-xs text-gray-500 mb-2">{region.crop} {'—'} {region.country}</p>
 
       <div className="h-16 mb-2">
         <ResponsiveContainer width="100%" height="100%">
@@ -209,7 +209,7 @@ function LiveWeatherPanel({ region }) {
         <div className="flex items-center gap-2">
           <Globe size={14} className="text-blue-600" />
           <span className="text-xs font-semibold text-blue-800 uppercase tracking-wider">Live Weather {'—'} Last 30 Days</span>
-          <span className="text-xs text-blue-500">{region.lat}°N, {region.lon}°E</span>
+          <span className="text-xs text-blue-500">{region.lat}{'°N'}, {region.lon}{'°E'}</span>
         </div>
         <span className="text-xs text-blue-400">Source: Open-Meteo API (real-time)</span>
       </div>
@@ -243,7 +243,7 @@ function LiveWeatherPanel({ region }) {
             {Object.entries(comparison).map(([yr, d]) => (
               <div key={yr} className={`rounded-lg p-2 text-center ${parseInt(yr) === new Date().getFullYear() ? 'bg-blue-200/50 ring-1 ring-blue-300' : 'bg-white/60'}`}>
                 <p className="text-xs font-bold text-navy">{yr}</p>
-                <p className="text-xs text-gray-600">{d.avgTemp}°C avg</p>
+                <p className="text-xs text-gray-600">{d.avgTemp}{'°C'} avg</p>
                 <p className="text-xs text-blue-600">{d.totalPrecip}mm rain</p>
                 <p className="text-xs text-gray-500">{d.daysTracked} days</p>
               </div>
@@ -378,7 +378,7 @@ function RegionDetailPanel({ region, onClose }) {
         <span className="text-3xl">{region.icon}</span>
         <div>
           <h2 className="font-display text-xl font-bold text-navy">{region.name}</h2>
-          <p className="text-sm text-gray-500">{region.crop} — {region.spirit}</p>
+          <p className="text-sm text-gray-500">{region.crop} {'—'} {region.spirit}</p>
         </div>
       </div>
 
@@ -495,7 +495,7 @@ export default function ClimateYield() {
               <div className="flex items-center gap-2">
                 <span className="text-2xl">{r.icon}</span>
                 <div>
-                  <p className="text-xs text-gray-500">{r.crop} — {r.spirit}</p>
+                  <p className="text-xs text-gray-500">{r.crop} {'—'} {r.spirit}</p>
                   <p className="text-xs text-gray-500">{r.country}</p>
                 </div>
               </div>

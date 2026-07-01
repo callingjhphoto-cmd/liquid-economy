@@ -369,7 +369,7 @@ export default function ProfileChorusCocktails() {
                 <span className="text-label text-gray-500 uppercase tracking-wider">Client Intelligence</span>
               </div>
               <h1 className="text-page font-display text-navy mt-1">
-                {profileMeta.clientName} — {profileMeta.profileTitle}
+                {profileMeta.clientName} {'—'} {profileMeta.profileTitle}
               </h1>
               <p className="text-caption text-gray-600 mt-1">{profileMeta.subtitle}</p>
             </div>
@@ -413,7 +413,7 @@ export default function ProfileChorusCocktails() {
             Sources: {profileMeta.sourcedFrom}
           </p>
           <p className="text-caption text-gray-500 mt-2">
-            Prepared by Liquid Economy · {profileMeta.lastUpdated} ·{' '}
+            Prepared by Liquid Economy {'·'} {profileMeta.lastUpdated} {'·'}{' '}
             <a href={`mailto:${profileMeta.contactEmail}`} className="underline hover:text-navy">
               {profileMeta.contactEmail}
             </a>

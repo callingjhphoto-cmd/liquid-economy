@@ -444,7 +444,7 @@ export default function POSIntelligence() {
             <Zap size={14} className="text-gold" />
           </div>
           <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
-          <span className="text-xs text-gray-400 ml-auto">POS Supply Chain Signals · 2026</span>
+          <span className="text-xs text-gray-400 ml-auto">POS Supply Chain Signals {'·'} 2026</span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           {[liSig1POS, liSig2POS, liSig3POS].map((sig, i) => (
@@ -550,7 +550,7 @@ export default function POSIntelligence() {
                 <div className="space-y-1.5 text-sm">
                   <div className="flex items-center gap-2 text-gray-500">
                     <Globe size={12} />
-                    <span>{company.hq} • Est. {company.yearFounded}</span>
+                    <span>{company.hq} {'•'} Est. {company.yearFounded}</span>
                   </div>
                   <p className="text-gray-600">{company.speciality}</p>
                   <div>

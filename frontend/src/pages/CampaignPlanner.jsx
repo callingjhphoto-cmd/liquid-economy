@@ -1178,7 +1178,7 @@ const CampaignPlanner = () => {
               </div>
               <div>
                 <p className="font-semibold text-gray-500 uppercase text-micro">Market & Timeline</p>
-                <p className="font-bold text-gray-900">{campaignData.market || '—'} | {campaignData.startMonth} – {campaignData.endMonth}</p>
+                <p className="font-bold text-gray-900">{campaignData.market || '—'} | {campaignData.startMonth} {'–'} {campaignData.endMonth}</p>
               </div>
               <div>
                 <p className="font-semibold text-gray-500 uppercase text-micro">Total Budget</p>
@@ -1612,7 +1612,7 @@ const CampaignPlanner = () => {
             </div>
             <div className="flex justify-between py-1.5 border-b border-gray-100">
               <span className="text-gray-600">Timeline</span>
-              <span className="font-semibold text-gray-900">{campaignData.startMonth} – {campaignData.endMonth}</span>
+              <span className="font-semibold text-gray-900">{campaignData.startMonth} {'–'} {campaignData.endMonth}</span>
             </div>
             <div className="flex justify-between py-1.5">
               <span className="text-gray-600">Total Budget</span>
@@ -1694,7 +1694,7 @@ const CampaignPlanner = () => {
               {deliverables.map((d, idx) => (
                 <div key={idx} className="bg-gray-50 border border-gray-200 rounded-lg p-3">
                   <p className="font-semibold text-xs text-gray-900">{d.type}</p>
-                  <p className="text-xs text-gray-600 mt-0.5">{d.quantity} · {d.timeline}</p>
+                  <p className="text-xs text-gray-600 mt-0.5">{d.quantity} {'·'} {d.timeline}</p>
                 </div>
               ))}
             </div>

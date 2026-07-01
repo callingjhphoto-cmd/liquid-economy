@@ -131,7 +131,7 @@ export default function MarketOverview() {
             <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mt-1">
               <h1 className="text-3xl sm:text-5xl font-display font-bold text-navy">{totalValue}</h1>
               <span className="text-lg font-semibold text-emerald-600">{totalGrowth} YoY</span>
-              <span className="text-sm text-gray-500">· {cagr10} 10-yr CAGR</span>
+              <span className="text-sm text-gray-500">{'·'} {cagr10} 10-yr CAGR</span>
             </div>
             <p className="text-sm text-gray-600 mt-2 max-w-2xl">
               Market includes spirits ($635B), beer ($880B), wine ($330B), NoLo ($31B), and RTD ($40B).

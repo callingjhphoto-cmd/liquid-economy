@@ -171,7 +171,7 @@ export default function BrandHealth() {
           {/* Line chart */}
           <Card className="p-4">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-sm font-bold text-navy">{chartLabels[chartMetric]} — 12 Month Trend</h3>
+              <h3 className="text-sm font-bold text-navy">{chartLabels[chartMetric]} {'—'} 12 Month Trend</h3>
               <div className="flex gap-1">
                 {Object.entries(chartLabels).map(([key, label]) => (
                   <button

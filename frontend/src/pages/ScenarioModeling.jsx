@@ -498,7 +498,7 @@ export default function ScenarioModeling() {
                       return (
                         <Card key={mId} padding="p-3">
                           <p className="text-xs font-semibold text-navy mb-0.5">{m.flag} {m.label}</p>
-                          <p className="text-xs text-gray-500 mb-2">Pop: {m.pop} · Market: {m.spiritsMarket}</p>
+                          <p className="text-xs text-gray-500 mb-2">Pop: {m.pop} {'·'} Market: {m.spiritsMarket}</p>
                           <div className="space-y-1.5">
                             {channelData.map((c, j) => (
                               <div key={j}>
@@ -1059,7 +1059,7 @@ function RegionAnalysis({ regions, expanded, setExpanded }) {
           >
             <div>
               <p className="text-xs font-semibold text-navy text-left">{region.name}</p>
-              <p className="text-xs text-gray-500">Pop: {region.pop} · Avg spend: {region.avgSpend}/head</p>
+              <p className="text-xs text-gray-500">Pop: {region.pop} {'·'} Avg spend: {region.avgSpend}/head</p>
             </div>
             <div className="flex items-center gap-3">
               <div className="text-right">

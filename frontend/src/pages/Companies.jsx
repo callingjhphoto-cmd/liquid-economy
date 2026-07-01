@@ -406,7 +406,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
                         {brand.trend}
                       </Badge>
                     </div>
-                    <div className="text-xs text-gray-500 mb-1">{brand.position} · {brand.marketShare}</div>
+                    <div className="text-xs text-gray-500 mb-1">{brand.position} {'·'} {brand.marketShare}</div>
                     <p className="text-xs text-gray-600 leading-relaxed">{brand.latest}</p>
                   </div>
                 ))}
@@ -591,7 +591,7 @@ function CompanyTier3({ company, onClose }) {
             </div>
             <div>
               <h2 className="font-display text-lg text-navy">{company.name}</h2>
-              <div className="text-xs text-gray-500">{company.hq} · {company.revenue} · Est. {company.founded}</div>
+              <div className="text-xs text-gray-500">{company.hq} {'·'} {company.revenue} {'·'} Est. {company.founded}</div>
             </div>
           </div>
           <button onClick={onClose} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-600 hover:text-gray-700 transition-colors touch-manipulation">

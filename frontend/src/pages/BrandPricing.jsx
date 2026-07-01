@@ -536,7 +536,7 @@ function FullPriceTable({ onClose }) {
         <div className="flex items-center justify-between mb-4">
           <div>
             <h2 className="font-display text-lg font-semibold text-navy">Full Brand Pricing Table</h2>
-            <p className="text-xs text-gray-500">{tableData.length} expressions · {TOTAL_MARKETS} markets · {TOTAL_RETAILERS} retailers</p>
+            <p className="text-xs text-gray-500">{tableData.length} expressions {'·'} {TOTAL_MARKETS} markets {'·'} {TOTAL_RETAILERS} retailers</p>
           </div>
           <div className="flex items-center gap-2">
             <button
@@ -595,7 +595,7 @@ function FullPriceTable({ onClose }) {
             <AlertCircle size={12} className="text-gray-500 mt-0.5 flex-shrink-0" />
             <p className="text-xs text-gray-500 leading-relaxed">
               Prices represent recommended retail prices (RRP). Bottle sizes vary by market: UK and EU use 70cl (700ml); US and Middle East use 750ml.
-              UK prices in GBP (£), EU in EUR (€), US and ME in USD ($). Market averages calculated from available retailer prices.
+              UK prices in GBP ({'£'}), EU in EUR ({'€'}), US and ME in USD ($). Market averages calculated from available retailer prices.
               EU average aggregates Spain, France, Germany, Italy, and Netherlands. Prices updated via automated scraping.
             </p>
           </div>
@@ -861,7 +861,7 @@ export default function BrandPricing() {
             <div>
               <p className="text-xs font-medium text-navy">Real-Time Pricing Monitor</p>
               <p className="text-xs text-gray-500">
-                Prices sourced from {TOTAL_RETAILERS} retailers across {TOTAL_MARKETS} markets. Seed data — live scraping every 3 days.
+                Prices sourced from {TOTAL_RETAILERS} retailers across {TOTAL_MARKETS} markets. Seed data {'—'} live scraping every 3 days.
               </p>
             </div>
           </div>
@@ -884,7 +884,7 @@ export default function BrandPricing() {
               <span className="text-sm">{cfg.flag}</span>
               <div>
                 <p className="font-medium">{cfg.label}</p>
-                <p className="text-gray-500">{(RETAILERS[key] || []).length} retailers · {cfg.bottleSize} · {cfg.currency}</p>
+                <p className="text-gray-500">{(RETAILERS[key] || []).length} retailers {'·'} {cfg.bottleSize} {'·'} {cfg.currency}</p>
               </div>
             </div>
           ))}

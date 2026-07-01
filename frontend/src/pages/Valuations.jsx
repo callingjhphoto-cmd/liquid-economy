@@ -312,7 +312,7 @@ export default function Valuations() {
                 <div className="flex items-start justify-between mb-2">
                   <div>
                     <p className="text-sm font-semibold text-navy">{b.brand}</p>
-                    <p className="text-xs text-gray-500">{b.parent} · {b.category}</p>
+                    <p className="text-xs text-gray-500">{b.parent} {'·'} {b.category}</p>
                   </div>
                   {b.trend === 'up' ? (
                     <TrendingUp size={14} className="text-emerald-500" />

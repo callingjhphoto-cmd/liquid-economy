@@ -569,7 +569,7 @@ export default function SupplyChain() {
               {CLOSURE_SUPPLIERS.map(s => (
                 <Card key={s.name} padding="p-3">
                   <h5 className="font-semibold text-xs text-navy">{s.name}</h5>
-                  <p className="text-xs text-gray-500 mb-1">{s.hq} · {s.marketShare}% market share</p>
+                  <p className="text-xs text-gray-500 mb-1">{s.hq} {'·'} {s.marketShare}% market share</p>
                   <div className="space-y-0.5 text-xs text-gray-600">
                     <div><strong>Product:</strong> {s.product}</div>
                     <div><strong>Lead time:</strong> {s.leadTime}</div>

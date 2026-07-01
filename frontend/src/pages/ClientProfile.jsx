@@ -922,7 +922,7 @@ export default function ClientProfile({ profile, slug }) {
             Sources: {profile.meta?.sourcedFrom}
           </p>
           <p className="text-caption text-gray-500 mt-2">
-            Prepared by Liquid Economy · {profile.meta?.lastUpdated} ·{' '}
+            Prepared by Liquid Economy {'·'} {profile.meta?.lastUpdated} {'·'}{' '}
             <a href={`mailto:${profile.meta?.contactEmail}`} className="underline hover:text-navy">
               {profile.meta?.contactEmail}
             </a>

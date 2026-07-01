@@ -602,7 +602,8 @@ export default function VenueIntelligence() {
               <Card>
                 <h4 className="text-sm font-semibold text-navy mb-1">Perennial Bars {'—'} Appeared 4+ Years</h4>
                 <p className="text-xs text-gray-500 mb-3">Key accounts for brand partnerships</p>
-                <div className="space-y-1.5 max-h-72 overflow-y-auto">
+                <div className="max-h-72 overflow-y-auto overflow-x-auto">
+                  <div className="min-w-[480px]">
                   {perennialBars.map(bar => (
                     <div key={bar.name} className="flex items-center gap-3 py-1.5 border-b border-gray-50 last:border-0">
                       <div className="w-36 font-medium text-xs text-navy truncate">{bar.name}</div>
@@ -619,6 +620,7 @@ export default function VenueIntelligence() {
                       </div>
                     </div>
                   ))}
+                  </div>
                 </div>
               </Card>
 

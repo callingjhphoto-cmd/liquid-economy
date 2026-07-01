@@ -1,3 +1,23 @@
+# Overnight Build Log — 1 July 2026
+
+## Session summary
+
+**Shipped:** Mobile responsiveness fixes (4 layout bugs) + JSX text node unicode sweep (25 violations across 17 files). Build clean.
+
+1. **Repo hygiene.** Two commits from the 30 June session were stranded in detached HEAD (feat(Companies) LI card + overnight log). Cherry-picked both onto main before starting new work.
+
+2. **Mobile — HIGH severity: VenueIntelligence perennial bars overflow.** The "Perennial Bars — Appeared 4+ Years" list rendered a fixed-width flex row (~514px: w-36 name + w-20 city + badge + 5×w-10 rank cells) inside a container with only `overflow-y-auto` — no horizontal scroll. At any viewport narrower than ~520px the content silently overflowed. Fixed by adding `overflow-x-auto` to the container and wrapping the inner rows in `min-w-[480px]` to make scroll intent explicit.
+
+3. **Mobile — Medium: CommandCentre DeepDiveCTAs grid.** The "Explore Platform" CTA grid used `grid-cols-2 sm:grid-cols-3 lg:grid-cols-6`. At 375px each tile was ~133px, too narrow for CTA labels like "Geographic Intelligence" (23 chars at 12px). Changed to `grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6` — single-column on mobile, readable at every breakpoint.
+
+4. **Mobile — Low: CategoryIntelligence Trade KPI grid + skeleton.** The Trade KPIs panel (`grid-cols-2 sm:grid-cols-3 lg:grid-cols-6`) and the loading skeleton (`grid-cols-2 sm:grid-cols-3 lg:grid-cols-4`) both started at 2 columns. Changed both to `grid-cols-1` base — stacks cleanly on 375px. xl: prefix added at the top breakpoint to preserve the 6/4 column density on large screens.
+
+5. **Unicode sweep — 25 JSX text node violations fixed across 17 files.** Scanned all 38 page files for literal non-ASCII characters in JSX text nodes (between `>` / `}` boundaries outside expression braces). Replaced: `·` (middle dot), `—` (em dash), `–` (en dash), `€` (euro), `£` (pound), `°C`/`°N`/`°E` (degree sequences), `•` (bullet), `▶` (play triangle) with `{'·'}`, `{'—'}`, `{'–'}`, `{'€'}`, `{'£'}`, `{'°C'}`, `{'•'}`, `{'▶'}` expression escapes. Files: BrandHealth, BrandPricing, CampaignPlanner, CategoryIntelligence, ClientProfile, ClimateYield, CommandCentre, Companies, MarginCalculator, MarketOverview, POSIntelligence, PricePositioning, ProfileChorusCocktails, ScenarioModeling, SupplyChain, Valuations, VenueIntelligence.
+
+6. **Build:** `vite build` ✓ — 0 errors, 0 warnings. Rebased onto remote main (prior cherry-picks skipped cleanly). Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 30 June 2026
 
 ## Session summary

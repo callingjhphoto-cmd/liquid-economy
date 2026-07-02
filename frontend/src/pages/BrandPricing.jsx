@@ -6,7 +6,7 @@ import {
   ChevronDown, ChevronUp, DollarSign, Globe,
   Store, Package, ExternalLink, AlertCircle,
   Eye, BarChart3, Download, ArrowRight, X,
-  Edit3, RefreshCw
+  Edit3, RefreshCw, Zap
 } from 'lucide-react'
 import {
   PageHeader, Card, AccentCard, MetricCard, BentoGrid, DataTable,
@@ -87,6 +87,61 @@ const PRICING = BRAND_DATABASE.map(item => {
 const ALL_CATEGORIES = [...new Set(PRICING.map(p => p.category))]
 const TOTAL_RETAILERS = Object.values(RETAILERS).flat().length
 const TOTAL_MARKETS = Object.keys(MARKET_CONFIG).length
+
+// ── Liquid Intelligence precomputes ──
+const _liDiffs = PRICING.map(p => p.differential).filter(d => d > 0)
+const liAvgDiff = _liDiffs.length > 0 ? Math.round(_liDiffs.reduce((a, b) => a + b, 0) / _liDiffs.length) : 0
+const liHighEndCount = PRICING.filter(p => ['Ultra Premium', 'Prestige'].includes(p.segment)).length
+const liHighEndPct = Math.round(liHighEndCount / PRICING.length * 100)
+const liTopDiffBrand = [...PRICING].sort((a, b) => (b.differential || 0) - (a.differential || 0))[0]
+const liFullMktCount = PRICING.filter(p => p.usa && p.uk && p.eu).length
+const liFullMktPct = Math.round(liFullMktCount / PRICING.length * 100)
+
+// ── Liquid Intelligence card ──
+function BrandPricingLiCard() {
+  const arbSignal = liAvgDiff >= 30
+    ? { color: 'text-amber-600', dot: 'bg-amber-500', label: 'HIGH ARBITRAGE RISK', copy: `${liAvgDiff} average cross-market spread — parallel import risk elevated. ${liTopDiffBrand ? `${liTopDiffBrand.brand} ${liTopDiffBrand.expression} shows the widest gap at $${liTopDiffBrand.differential}.` : ''} Monitor key account pricing closely.` }
+    : liAvgDiff >= 15
+    ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'MODERATE PRICE VARIANCE', copy: `$${liAvgDiff} average cross-market spread — manageable, but regional pricing policies should be reviewed annually to prevent grey market leakage.` }
+    : { color: 'text-emerald-600', dot: 'bg-emerald-500', label: 'STABLE CROSS-MARKET PRICING', copy: `$${liAvgDiff} average cross-market spread — pricing parity largely maintained across markets. Strong distributor alignment indicated.` }
+
+  const premiumSignal = liHighEndPct >= 25
+    ? { color: 'text-emerald-600', dot: 'bg-emerald-500', label: 'STRONG PREMIUM MIX', copy: `${liHighEndPct}% of tracked expressions (${liHighEndCount} brands) sit in Ultra Premium or Prestige tiers — premiumisation thesis well supported in this dataset.` }
+    : liHighEndPct >= 15
+    ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'BALANCED PORTFOLIO', copy: `${liHighEndPct}% premium-and-above expressions — healthy blend of volume and value-led brands. Room to grow the prestige tier.` }
+    : { color: 'text-amber-600', dot: 'bg-amber-500', label: 'VOLUME-LED CATEGORY', copy: `${liHighEndPct}% premium-tier expressions — dataset skews toward mainstream price points. Prestige positioning commands scarcity premium in this environment.` }
+
+  const globalSignal = liFullMktPct >= 60
+    ? { color: 'text-emerald-600', dot: 'bg-emerald-500', label: 'GLOBAL PRICING COVERAGE', copy: `${liFullMktPct}% of tracked expressions (${liFullMktCount} brands) priced across US, UK, and EU — strong global visibility for export brand benchmarking.` }
+    : liFullMktPct >= 35
+    ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'MULTI-MARKET COVERAGE', copy: `${liFullMktPct}% of expressions tracked across all key markets. Regional gaps exist — particularly in Middle East coverage for super-premium spirits.` }
+    : { color: 'text-amber-600', dot: 'bg-amber-500', label: 'MARKET COVERAGE GAPS', copy: `${liFullMktPct}% of expressions fully priced across major markets — significant data gaps. Cross-market comparison limited for less-distributed brands.` }
+
+  const signals = [arbSignal, premiumSignal, globalSignal]
+  const signalLabels = ['Market Arbitrage Risk', 'Portfolio Premium Density', 'Global Market Coverage']
+
+  return (
+    <div className="border border-gold/30 rounded-xl bg-gradient-to-r from-amber-50/60 to-white p-4">
+      <div className="flex items-center gap-2 mb-3">
+        <Zap size={14} className="text-gold" />
+        <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
+        <span className="text-xs text-gray-400 ml-auto">Pricing signals</span>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        {signals.map((sig, i) => (
+          <div key={i} className="bg-white rounded-lg p-3 border border-gray-100">
+            <div className="flex items-center gap-1.5 mb-1.5">
+              <span className={`w-2 h-2 rounded-full shrink-0 ${sig.dot}`} />
+              <span className={`text-[10px] font-bold uppercase tracking-wider ${sig.color}`}>{sig.label}</span>
+            </div>
+            <p className="text-[11px] text-gray-500 leading-snug">{signalLabels[i]}</p>
+            <p className="text-xs text-gray-700 leading-snug mt-1">{sig.copy}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 // ── Helper: get tier for a segment ──
 function getSegmentTier(segment) {
@@ -789,6 +844,8 @@ export default function BrandPricing() {
           </div>
         </AccentCard>
       )}
+
+      <BrandPricingLiCard />
 
       {/* ── TIER 1/2: Click-replace navigation (Option B) ── */}
       {!expandedCategory && !showFullTable && (

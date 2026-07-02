@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {
   Eye, Globe, DollarSign, Rocket, Building2, Megaphone,
-  ChevronDown, AlertTriangle, Target, Bell
+  ChevronDown, AlertTriangle, Target, Bell, Zap
 } from 'lucide-react'
 import {
   Card, PageHeader, SubPageNav, Badge, DataFreshness
@@ -84,6 +84,37 @@ export default function CompetitorMonitor() {
 
   const moveTypes = [...new Set(allMoves.map(m => m.type))]
 
+  // Liquid Intelligence signals (reactive to selectedCategory)
+  const liHighMoves = allMoves.filter(m => m.impact === 'high').length
+  const liPricingMoves = allMoves.filter(m => m.type === 'Pricing').length
+  const liParentCounts = {}
+  ;(data?.brands || []).forEach(b => { liParentCounts[b.parent] = (liParentCounts[b.parent] || 0) + 1 })
+  const liSortedParents = Object.entries(liParentCounts).sort(([, a], [, b]) => b - a)
+  const liTopParent = liSortedParents[0]
+  const liTopParentPct = liTopParent ? Math.round(liTopParent[1] / (data?.brands?.length || 1) * 100) : 0
+  const liTopParentName = liTopParent ? liTopParent[0] : ''
+
+  const activitySignal = liHighMoves >= 3
+    ? { color: 'text-red-600', dot: 'bg-red-500', label: 'ELEVATED COMPETITOR ACTIVITY', copy: `${liHighMoves} high-impact moves in this category — accelerated competitive response required. Review distribution agreements and on-trade activations.` }
+    : liHighMoves >= 1
+    ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'NORMAL ACTIVITY', copy: `${liHighMoves} high-impact move${liHighMoves > 1 ? 's' : ''} tracked in this category. Monitor closely but no immediate escalation required.` }
+    : { color: 'text-emerald-600', dot: 'bg-emerald-500', label: 'QUIET COMPETITIVE PERIOD', copy: 'No high-impact competitor moves recorded recently. Window open for proactive market-share capture without reactive competition.' }
+
+  const pricingSignal = liPricingMoves >= 2
+    ? { color: 'text-amber-600', dot: 'bg-amber-500', label: 'PRICING WAR RISK', copy: `${liPricingMoves} pricing moves active — category entering a promotional cycle. Hold RRP and lead on value story rather than matching discounts.` }
+    : liPricingMoves === 1
+    ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'ACTIVE PRICING MOVE', copy: '1 competitor repricing tracked. Assess impact on your relative price position before next trade review.' }
+    : { color: 'text-emerald-600', dot: 'bg-emerald-500', label: 'PRICE STABILITY', copy: 'No competitor pricing changes logged. Category price architecture intact — maintain current positioning.' }
+
+  const concentrationSignal = liTopParentPct >= 40
+    ? { color: 'text-amber-600', dot: 'bg-amber-500', label: 'HIGH CORPORATE CONCENTRATION', copy: `${liTopParentName} controls ${liTopParentPct}% of tracked brands in this category — distribution and on-trade access heavily influenced by one group.` }
+    : liTopParentPct >= 25
+    ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'MODERATE CONCENTRATION', copy: `${liTopParentName} leads with ${liTopParentPct}% of category brands. Competitive but one group has meaningful shelf and listing influence.` }
+    : { color: 'text-emerald-600', dot: 'bg-emerald-500', label: 'FRAGMENTED MARKET', copy: `No single group controls more than ${liTopParentPct}% of tracked brands — level playing field for independent challenger brand positioning.` }
+
+  const liSignals = [activitySignal, pricingSignal, concentrationSignal]
+  const liLabels = ['Alert Activity Level', 'Pricing Pressure', 'Market Concentration']
+
   return (
     <div className="max-w-7xl mx-auto">
       <SubPageNav group="intelligence" />
@@ -93,6 +124,27 @@ export default function CompetitorMonitor() {
         icon={<Eye size={20} />}
       />
       <DataFreshness date="April 2026" source="IWSR, press releases, distributor intelligence" />
+
+      {/* Liquid Intelligence signals */}
+      <div className="border border-gold/30 rounded-xl bg-gradient-to-r from-amber-50/60 to-white p-4">
+        <div className="flex items-center gap-2 mb-3">
+          <Zap size={14} className="text-gold" />
+          <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
+          <span className="text-xs text-gray-400 ml-auto">{selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)} competitive signals</span>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {liSignals.map((sig, i) => (
+            <div key={i} className="bg-white rounded-lg p-3 border border-gray-100">
+              <div className="flex items-center gap-1.5 mb-1.5">
+                <span className={`w-2 h-2 rounded-full shrink-0 ${sig.dot}`} />
+                <span className={`text-[10px] font-bold uppercase tracking-wider ${sig.color}`}>{sig.label}</span>
+              </div>
+              <p className="text-[11px] text-gray-500 leading-snug">{liLabels[i]}</p>
+              <p className="text-xs text-gray-700 leading-snug mt-1">{sig.copy}</p>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* Category selector */}
       <Card className="p-4 mb-6">

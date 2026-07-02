@@ -1,3 +1,21 @@
+# Overnight Build Log — 2 July 2026
+
+## Session summary
+
+**Shipped:** Liquid Intelligence cards on BrandPricing + CompetitorMonitor (build clean, 2820 modules, 0 errors).
+
+1. **BrandPricing.jsx — Liquid Intelligence card.** Added `Zap` to lucide imports. Three signals computed at module level from the `PRICING` derived dataset (no state, no re-render cost): (1) Market Arbitrage Risk — `liAvgDiff` (avg cross-market price spread across all expressions): ≥$30 amber "High Arbitrage Risk" with top-differential brand named dynamically / ≥$15 blue "Moderate Price Variance" / <$15 emerald "Stable Cross-Market Pricing"; (2) Portfolio Premium Density — `liHighEndPct` (% expressions in Ultra Premium or Prestige tiers): ≥25% emerald "Strong Premium Mix" / ≥15% blue "Balanced Portfolio" / <15% amber "Volume-Led Category"; (3) Global Market Coverage — `liFullMktPct` (% expressions priced in US, UK, and EU): ≥60% emerald / ≥35% blue / <35% amber. Card placed after the AccentCard premium-index callout, before the category grid.
+
+2. **CompetitorMonitor.jsx — Liquid Intelligence card (reactive).** Added `Zap` to lucide imports. Three signals computed in the component body, updating on every `selectedCategory` change: (1) Alert Activity Level — `liHighMoves` (count of high-impact competitor moves in category): ≥3 red "Elevated Activity" / ≥1 blue "Normal" / 0 emerald "Quiet"; (2) Pricing Pressure — `liPricingMoves` (count of Pricing-type moves): ≥2 amber "Pricing War Risk" / 1 blue "Active Pricing Move" / 0 emerald "Price Stability"; (3) Market Concentration — `liTopParentPct` (% of tracked brands owned by the leading parent company): ≥40% amber "High Corporate Concentration" / ≥25% blue "Moderate" / <25% emerald "Fragmented". Subtitle updates to reflect the current category name. Card placed after DataFreshness badge, before the category selector.
+
+3. **No data hallucination.** All six signals are pure numeric comparisons on computed values. CompetitorMonitor signal 3 parent company name dynamically interpolated from `liTopParentName` (first entry in sorted parent count object) — no hard-coded brand references.
+
+4. **LI card count.** BrandPricing and CompetitorMonitor are now the 17th and 18th pages with Liquid Intelligence cards out of 38 total pages. Remaining high-impact pages without LI cards: MarketEntryWizard, TradeShows, RegulatoryCompliance, ReportBuilder, DistributorDirectory.
+
+5. **Build:** `vite build` ✓ — 0 errors, 0 warnings, 2820 modules. Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 1 July 2026
 
 ## Session summary

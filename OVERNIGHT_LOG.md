@@ -1,3 +1,21 @@
+# Overnight Build Log — 3 July 2026
+
+## Session summary
+
+**Shipped:** Mobile grid collapse sweep — 14 grid layout fixes across 9 pages + 2 unicode fixes (build clean, 0 errors).
+
+1. **Repo hygiene.** Six commits from the 30 June–2 July sessions were stranded in detached HEAD; cherry-picked all 6 onto main before starting new work. Ran full scan (23 page files, specialist scan agent) to get a definitive list of mobile responsiveness issues.
+
+2. **Mobile grid sweep — 14 fixes across 9 pages.** All grids that started at `grid-cols-2` with no `grid-cols-1` base class now stack to a single column at ≤639px: **Financials** (hero KPI grid had no `sm:` at all — jumped straight from 2 to `lg:grid-cols-4`; plus company accordion quick-metrics and expanded Key Metrics 6-col); **DepletionForecasting** (6-input Forecast Parameters form + 4-metric KPI row); **BrandHealth** (4-metric MetricBox row); **RegulatoryCompliance** (market header KPI row — Timeline/Cost/Age/Tax); **MarginCalculator** (4-select quick-input form + channel detail comparison grid); **GeographicIntelligence** (region slide-over Quick KPIs header + KPIs tab grid); **SupplyChain** (pipeline segment legend); **ClimateYield** (Year-to-Date comparison year grid); **PitchGenerator** (6-input pitch configuration form). 7 instances that appeared bare were confirmed intentional (hero stat pairs, scenario best/worst comparison, BottomSheet content) and left untouched.
+
+3. **Unicode fixes (2).** Scan of the newer dossier/profile pages added in the 4 July dossier build revealed 2 JSX text node violations: `ProfilesIndex.jsx` footer middle dot (`·` → `{'·'}`); `MarketingDossier.jsx` lede em dash (`—` → `{'—'}`). All other non-ASCII in newer pages confirmed to be in JS template literals or JSX attribute strings — correct.
+
+4. **Stranded commits.** The 6 cherry-picked commits (Companies LI, mobile+unicode sweep, 30 June/1 July logs, BrandPricing+CompetitorMonitor LI, 2 July log) rebased cleanly as skips (already in remote history). Tonight's single commit pushed successfully after rebase.
+
+5. **Build:** `vite build` ✓ — 0 errors, 0 warnings. Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 2 July 2026
 
 ## Session summary

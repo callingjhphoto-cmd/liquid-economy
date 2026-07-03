@@ -310,7 +310,7 @@ export default function MarginCalculator() {
               </button>
             </div>
             {/* Quick inputs */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-4">
               <div>
                 <label className="text-xs font-medium text-gray-500 block mb-1">Category</label>
                 <select value={category} onChange={e => handleCategoryChange(e.target.value)}
@@ -597,7 +597,7 @@ export default function MarginCalculator() {
         </div>
 
         {/* Channel detail table */}
-        <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
           {CHANNELS.map(ch => {
             const cm = computed.channelMargins[ch]
             const isActive = ch === channel

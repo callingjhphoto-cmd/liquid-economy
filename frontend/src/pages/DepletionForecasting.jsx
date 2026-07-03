@@ -131,7 +131,7 @@ export default function DepletionForecasting() {
       {/* Inputs */}
       <Card className="p-6 mb-6">
         <h3 className="text-sm font-bold text-navy mb-4">Forecast Parameters</h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           <InputGroup label="Distribution Points" value={distPoints} onChange={setDistPoints} placeholder="150" suffix="outlets" min="1" />
           <InputGroup label="Rate of Sale" value={rateOfSale} onChange={setRateOfSale} placeholder="2.5" suffix="cases/mo" min="0.1" />
           <div>
@@ -153,7 +153,7 @@ export default function DepletionForecasting() {
       </Card>
 
       {/* Key metrics */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-6">
         <Card className="p-4 text-center">
           <div className="text-xs text-gray-500 mb-1">Annual Depletions</div>
           <div className="text-xl font-bold text-navy">{annualDepletions.toLocaleString()}</div>

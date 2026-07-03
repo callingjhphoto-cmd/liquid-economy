@@ -62,7 +62,7 @@ export default function RegulatoryCompliance() {
       </Card>
 
       {/* Market header */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-6">
         <Card className="p-3 text-center">
           <div className="text-xs text-gray-500 mb-1">Timeline</div>
           <div className="text-sm font-bold text-navy">{reg.timeline || 'N/A'}</div>

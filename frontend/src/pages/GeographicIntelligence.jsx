@@ -196,7 +196,7 @@ function RegionTier2({ region, data, onClose, onViewFull }) {
 
         {/* Quick KPIs row */}
         {data.kpis && (
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4">
             {data.kpis.slice(0, 3).map((kpi, i) => (
               <div key={i} className="bg-gray-50 rounded-lg p-2.5 text-center">
                 <div className="text-xs text-gray-500 uppercase tracking-wide">{kpi.label}</div>
@@ -235,7 +235,7 @@ function RegionTier2({ region, data, onClose, onViewFull }) {
         {/* KPIs / Overview */}
         {section === 'kpis' && data.kpis && (
           <div className="space-y-4">
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
               {data.kpis.map((kpi, i) => (
                 <div key={i} className="bg-white rounded-lg border border-gray-100 p-2.5">
                   <div className="text-xs text-gray-500 uppercase tracking-wide mb-0.5">{kpi.label}</div>

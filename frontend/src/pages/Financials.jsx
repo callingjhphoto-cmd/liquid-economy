@@ -66,7 +66,7 @@ function CompanyCard({ company, isExpanded, onToggle }) {
         </div>
 
         {/* Quick metrics row */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
           <div>
             <span className="text-label text-gray-500 uppercase tracking-wide block">Stock Price</span>
             <span className="text-sm font-bold text-navy">{company.stockPrice}</span>
@@ -122,7 +122,7 @@ function CompanyCard({ company, isExpanded, onToggle }) {
           {/* Key Metrics Grid */}
           <div>
             <SectionHeader size="sm">Key Metrics</SectionHeader>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
               <MetricMini label="Revenue (Last 4)" value={company.quarterlyRevenue.map(q => `${q.period}: ${fmtB(q.value, company.currency)}`).join(' | ')} wide />
               <MetricMini label="Inventory (Total)" value={m.inventory.total} />
               <MetricMini label="Ageing Stock" value={m.inventory.ageing} />
@@ -397,7 +397,7 @@ export default function Financials() {
       <DataFreshness date="April 2026" source="Yahoo Finance, SEC EDGAR, company filings" />
 
       {/* ── Hero Metrics ── */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <MetricCard
           label="Combined Inventory"
           value={`$${totalInventory.toFixed(1)}B`}

@@ -239,7 +239,7 @@ function LiveWeatherPanel({ region }) {
       {comparison && (
         <div className="mt-4 pt-3 border-t border-blue-200">
           <SectionLabel>Year-to-Date Comparison</SectionLabel>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
             {Object.entries(comparison).map(([yr, d]) => (
               <div key={yr} className={`rounded-lg p-2 text-center ${parseInt(yr) === new Date().getFullYear() ? 'bg-blue-200/50 ring-1 ring-blue-300' : 'bg-white/60'}`}>
                 <p className="text-xs font-bold text-navy">{yr}</p>

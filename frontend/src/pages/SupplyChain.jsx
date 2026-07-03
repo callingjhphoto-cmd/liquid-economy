@@ -516,7 +516,7 @@ export default function SupplyChain() {
                       <div key={i} style={{ width: `${s.value}%`, backgroundColor: s.color }} title={`${s.label}: ${s.value}%`} />
                     ))}
                   </div>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 text-xs">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-1 text-xs">
                     {segments.map((seg, i) => (
                       <div key={i} className="flex items-center gap-0.5">
                         <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: seg.color }} />

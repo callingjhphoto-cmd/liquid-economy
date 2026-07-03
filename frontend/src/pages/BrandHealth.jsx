@@ -120,7 +120,7 @@ export default function BrandHealth() {
           </Card>
 
           {/* Key metrics */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
             <MetricBox label="Total Mentions" value={data.totalMentions} subValue="12-month total" trend={data.trendDirection} />
             <MetricBox label="Avg Sentiment" value={`${data.avgSentiment}/100`} subValue={data.avgSentiment >= 80 ? 'Very Positive' : 'Positive'} trend={data.avgSentiment >= 80 ? 'up' : 'stable'} />
             <MetricBox label="Share of Voice" value={`${data.shareOfVoice}%`} subValue="vs category" trend={data.shareOfVoice >= 25 ? 'up' : 'stable'} />

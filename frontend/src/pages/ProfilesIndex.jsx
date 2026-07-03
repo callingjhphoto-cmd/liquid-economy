@@ -114,7 +114,7 @@ export default function ProfilesIndex() {
       </div>
 
       <div className="mt-10 border-t border-gray-200 pt-6 text-center">
-        <p className="text-caption text-gray-400">Powered by Liquid Agency · Drinks Industry Intelligence</p>
+        <p className="text-caption text-gray-400">Powered by Liquid Agency {'·'} Drinks Industry Intelligence</p>
       </div>
     </div>
   )

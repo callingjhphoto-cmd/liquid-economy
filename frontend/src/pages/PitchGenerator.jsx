@@ -270,7 +270,7 @@ export default function PitchGenerator() {
       {/* Inputs */}
       <Card className="p-6 mb-6">
         <h3 className="text-sm font-bold text-navy mb-4">Configure Your Pitch</h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           <div>
             <label className="block text-xs font-semibold text-navy mb-1">Brand Name</label>
             <input type="text" value={brandName} onChange={e => setBrandName(e.target.value)} placeholder="Your Brand" className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm" />

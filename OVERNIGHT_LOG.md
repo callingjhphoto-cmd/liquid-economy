@@ -1,3 +1,21 @@
+# Overnight Build Log — 4 July 2026
+
+## Session summary
+
+**Shipped:** Full JSX unicode sweep — 22 text-node violations fixed across 13 pages (build clean, 0 errors).
+
+1. **Scanner built and run.** Wrote a precise JSX text-node scanner that distinguishes chars directly between `>` and `<` tags from chars safely inside `{...}` expressions or JS strings. Found 22 violations across 13 page files: middle dots, em dashes, en dashes, pound signs, arrows, right single quotes, and a macron-e.
+
+2. **22 violations fixed across 13 files.** CategoryIntelligence, ClientProfile, ClimateYield, CommandCentre, CompetitorMonitor, GeographicIntelligence, MarginCalculator, POSIntelligence, PitchGenerator, ProfileChorusCocktails, ScenarioModeling, SupplyChain, VenueIntelligence. Used HTML entities (`&middot;`, `&mdash;`, `&ndash;`, `&pound;`, `&rarr;`, `&rsquo;`, `&#x113;`) where chars appear directly in JSX text; used existing `{'char'}` expression pattern for mid-string currency symbols.
+
+3. **Smart-quote delimiter bug caught and fixed.** The Edit tool auto-converted ASCII apostrophes in my JSX expressions to U+2018/U+2019 curly quotes. Esbuild rejects non-ASCII JS string delimiters. Python script detected and replaced 5 broken `{U+2018charU+2018}` patterns with `&rsquo;` / `&mdash;` HTML entities. VenueIntelligence lines 678 and 1157–1161 were the worst-affected.
+
+4. **Zero violations remaining.** Re-scan confirmed 0 JSX text node violations across all 38 page files. Build: `vite build` ✓ — 0 errors, 0 warnings.
+
+5. **Pushed to main.** Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 3 July 2026
 
 ## Session summary

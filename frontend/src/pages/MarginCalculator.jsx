@@ -333,7 +333,7 @@ export default function MarginCalculator() {
                 </select>
               </div>
               <div>
-                <label className="text-xs font-medium text-gray-500 block mb-1">Target RRP (£)</label>
+                <label className="text-xs font-medium text-gray-500 block mb-1">Target RRP ({'£'})</label>
                 <input type="number" value={targetRRP} onChange={e => setTargetRRP(Number(e.target.value))}
                   className="w-full text-xs border border-gray-200 rounded-lg px-3 py-2 bg-white text-navy font-medium focus:ring-2 focus:ring-gold focus:border-transparent"
                   min={0} step={0.5} />

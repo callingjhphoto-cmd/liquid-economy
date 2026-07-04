@@ -1258,7 +1258,7 @@ export default function CategoryIntelligence() {
 
       {/* Footer source note */}
       <div className="mt-8 text-center">
-        <p className="text-xs text-gray-500">Data sourced from IWSR, Euromonitor, DISCUS, OIV, and trade publications · Updated quarterly</p>
+        <p className="text-xs text-gray-500">Data sourced from IWSR, Euromonitor, DISCUS, OIV, and trade publications {'·'} Updated quarterly</p>
       </div>
 
       {/* Mobile BottomSheet for category detail */}

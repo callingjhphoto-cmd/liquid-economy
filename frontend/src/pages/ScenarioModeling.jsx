@@ -307,7 +307,7 @@ export default function ScenarioModeling() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 <Card padding="p-3">
                   <p className="text-micro font-semibold text-gray-500 uppercase mb-1">Duty Basis</p>
-                  <p className="text-xs text-gray-700">UK spirits duty: £28.74/litre of pure alcohol (2025 rates). RTD duty calculated at 5% ABV unless specified.</p>
+                  <p className="text-xs text-gray-700">UK spirits duty: {'£'}28.74/litre of pure alcohol (2025 rates). RTD duty calculated at 5% ABV unless specified.</p>
                 </Card>
                 <Card padding="p-3">
                   <p className="text-micro font-semibold text-gray-500 uppercase mb-1">Cost Models</p>

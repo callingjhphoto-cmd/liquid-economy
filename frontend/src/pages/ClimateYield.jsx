@@ -448,7 +448,7 @@ function ForwardSignals() {
       title="Forward-Looking Yield & Price Signals"
       summary={`${FORWARD_SIGNALS.filter(s => s.risk === 'high').length} high-risk, ${FORWARD_SIGNALS.filter(s => s.risk === 'medium').length} medium-risk signals across 8 regions`}
     >
-      <p className="text-xs text-gray-500 mb-4">Intelligence brief: where climate and agricultural factors may impact spirits pricing over the next 12–36 months.</p>
+      <p className="text-xs text-gray-500 mb-4">Intelligence brief: where climate and agricultural factors may impact spirits pricing over the next 12{'–'}36 months.</p>
       <div className="space-y-3">
         {FORWARD_SIGNALS.map((s, i) => (
           <div key={i} className={`rounded-lg border p-4 ${s.risk === 'high' ? 'border-red-200 bg-red-50/50' : s.risk === 'medium' ? 'border-amber-200 bg-amber-50/30' : 'border-gray-200 bg-gray-50/30'}`}>
@@ -660,7 +660,7 @@ export default function ClimateYield() {
                 <Zap size={14} className="text-gold" />
               </div>
               <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
-              <span className="text-xs text-gray-400 ml-auto">Climate &amp; Yield Signals · 2025</span>
+              <span className="text-xs text-gray-400 ml-auto">Climate &amp; Yield Signals {'·'} 2025</span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               {[liSig1, liSig2, liSig3].map((sig, i) => (

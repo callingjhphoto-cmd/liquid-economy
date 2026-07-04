@@ -631,7 +631,7 @@ export default function POSIntelligence() {
               <AlertTriangle size={20} className="text-amber-500 flex-shrink-0 mt-0.5" />
               <div>
                 <h3 className="font-bold text-amber-800 mb-1">Key Insight: The Markup Structure</h3>
-                <p className="text-sm text-amber-700">POS intermediaries typically apply a 2.5-4x markup over factory-gate pricing. A branded acrylic glorifier that costs £10 from the factory in Dongguan reaches the brand at £35-45 via an intermediary, and £60-80 if sourced through a full-service POS agency. This markup structure is only possible because brands lack direct factory access. By providing transparent pricing benchmarks and direct sourcing capability, we collapse the intermediary margin and deliver significant savings to brands of all sizes.</p>
+                <p className="text-sm text-amber-700">POS intermediaries typically apply a 2.5-4x markup over factory-gate pricing. A branded acrylic glorifier that costs {'£'}10 from the factory in Dongguan reaches the brand at {'£'}35-45 via an intermediary, and {'£'}60-80 if sourced through a full-service POS agency. This markup structure is only possible because brands lack direct factory access. By providing transparent pricing benchmarks and direct sourcing capability, we collapse the intermediary margin and deliver significant savings to brands of all sizes.</p>
               </div>
             </div>
           </Card>

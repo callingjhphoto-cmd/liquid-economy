@@ -224,7 +224,7 @@ export default function CompetitorMonitor() {
       </div>
 
       <div className="mt-6 p-3 bg-blue-50 border border-blue-200 rounded-lg text-xs text-blue-800">
-        <strong>Intelligence sourced</strong> from public press releases, trade press, and regulatory filings — April 2026.{' '}
+        <strong>Intelligence sourced</strong> from public press releases, trade press, and regulatory filings {'—'} April 2026.{' '}
         <a href="mailto:callingjhphoto@gmail.com?subject=Liquid%20Economy%20%E2%80%94%20Competitor%20Monitor%20Live%20Data" className="underline font-medium">Contact us for real-time monitoring</a>
       </div>
     </div>

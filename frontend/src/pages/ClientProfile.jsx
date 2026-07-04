@@ -812,7 +812,7 @@ function SourcesMethodologySection({ profile }) {
               )
             })}
           </div>
-          <p className="text-caption text-gray-500 mt-3">Internal research reports are available to Chorus stakeholders on request — <a href="mailto:callingjhphoto@gmail.com?subject=Chorus%20%E2%80%94%20Source%20Request" className="text-editorial hover:text-navy underline">request access</a>.</p>
+          <p className="text-caption text-gray-500 mt-3">Internal research reports are available to Chorus stakeholders on request {'—'} <a href="mailto:callingjhphoto@gmail.com?subject=Chorus%20%E2%80%94%20Source%20Request" className="text-editorial hover:text-navy underline">request access</a>.</p>
         </div>
       )}
 
@@ -822,7 +822,7 @@ function SourcesMethodologySection({ profile }) {
           <li><span className="font-semibold text-navy">Rank-based data</span> (DI / Difford's) is direct placement in each source's most recent annual list.</li>
           <li><span className="font-semibold text-navy">"Move" deltas</span> (e.g. +19 from #23 in 2022) are year-over-year list position changes computed from the named source's historical rankings.</li>
           <li><span className="font-semibold text-navy">Growth signals</span> on flavour families are headline figures from Bacardi Cocktail Trends Report and are qualitative unless marked with a specific percentage.</li>
-          <li><span className="font-semibold text-navy">Pricing bands</span> combine on-menu capture (venue websites, press) with operator interview triangulation — converted to GBP/USD/AED at April 2026 rates.</li>
+          <li><span className="font-semibold text-navy">Pricing bands</span> combine on-menu capture (venue websites, press) with operator interview triangulation {'—'} converted to GBP/USD/AED at April 2026 rates.</li>
           <li><span className="font-semibold text-navy">Unverified figures</span> are marked "TBD" rather than estimated.</li>
         </ul>
       </Card>
@@ -932,7 +932,7 @@ export default function ClientProfile({ profile, slug }) {
             {' · '}
             <Link to="/" className="hover:text-navy transition-colors no-underline">Liquid Economy dashboard</Link>
           </p>
-          <p className="text-caption text-gray-400 mt-3">Powered by Liquid Agency · Drinks Industry Intelligence</p>
+          <p className="text-caption text-gray-400 mt-3">Powered by Liquid Agency {'·'} Drinks Industry Intelligence</p>
         </footer>
       </div>
     </div>

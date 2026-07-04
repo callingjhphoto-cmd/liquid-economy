@@ -64,7 +64,7 @@ function HeroMarketCard() {
             <span className="text-label text-gray-500 uppercase tracking-wider">Global Spirits Market
               <MethodologyTooltip text="Distilled spirits market size, excluding beer, wine & cider. Source: IWSR 2025." />
             </span>
-            <p className="text-micro text-gray-500">Distilled spirits excl. beer, wine & cider · IWSR 2025</p>
+            <p className="text-micro text-gray-500">Distilled spirits excl. beer, wine &amp; cider {'·'} IWSR 2025</p>
           </div>
         </div>
 

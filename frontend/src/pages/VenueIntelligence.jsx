@@ -322,7 +322,7 @@ export default function VenueIntelligence() {
             </div>
             {venue.fiftyBest && venue.fiftyBest.some(r => r) && (
               <div>
-                <p className="text-micro font-semibold text-gray-500 uppercase mb-1">50 Best Rankings (2021→2025)</p>
+                <p className="text-micro font-semibold text-gray-500 uppercase mb-1">50 Best Rankings (2021{'→'}2025)</p>
                 <div className="flex gap-1.5 flex-wrap">
                   {YEARS.map((y, idx) => (
                     <span key={y} className={`px-1.5 py-0.5 rounded text-micro ${venue.fiftyBest[idx] ? (venue.fiftyBest[idx] <= 10 ? 'bg-green-100 text-green-700 font-bold' : 'bg-blue-100 text-blue-700') : 'bg-gray-100 text-gray-500'}`}>
@@ -675,7 +675,7 @@ export default function VenueIntelligence() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-gray-600">
                 <div><span className="font-bold text-purple-600">Luxury:</span> Notoriety-driven, marketing spend, menu placement</div>
                 <div><span className="font-bold text-green-600">Volume:</span> High-throughput, retros, aggressive pricing</div>
-                <div><span className="font-bold text-amber-600">Both:</span> Rare — high volume AND prestige (e.g. Annabel’s)</div>
+                <div><span className="font-bold text-amber-600">Both:</span> Rare &mdash; high volume AND prestige (e.g. Annabel&rsquo;s)</div>
               </div>
 
               {/* Venue cards */}
@@ -1154,11 +1154,11 @@ export default function VenueIntelligence() {
                   <div className="space-y-2">
                     <div>
                       <h5 className="font-semibold text-navy">Entry Strategy {'—'} Luxury Accounts</h5>
-                      <p>Target independent-minded bars like Satan’s Whiskers, Tayēr + Elementary, and Lyaness. These venues select on quality, not corporate spend.</p>
+                      <p>Target independent-minded bars like Satan&rsquo;s Whiskers, Tay&#x113;r + Elementary, and Lyaness. These venues select on quality, not corporate spend.</p>
                     </div>
                     <div>
                       <h5 className="font-semibold text-navy">Visibility {'—'} 50 Best Bars</h5>
-                      <p>Perennial bars (Tayēr, Connaught, Jigger & Pony, Paradiso) offer global bartender community visibility through long-term partnerships.</p>
+                      <p>Perennial bars (Tay{'ē'}r, Connaught, Jigger &amp; Pony, Paradiso) offer global bartender community visibility through long-term partnerships.</p>
                     </div>
                   </div>
                   <div className="space-y-2">
@@ -1232,7 +1232,7 @@ function VenueCard({ venue, index, expanded, onToggle }) {
         <div className="border-t border-gray-100 mt-3 pt-3 space-y-2.5">
           {venue.fiftyBest && venue.fiftyBest.some(r => r) && (
             <div>
-              <p className="text-micro font-semibold text-gray-500 uppercase mb-1">50 Best Rankings (2021→2025)</p>
+              <p className="text-micro font-semibold text-gray-500 uppercase mb-1">50 Best Rankings (2021{'→'}2025)</p>
               <div className="flex gap-1.5">
                 {YEARS.map((y, idx) => (
                   <span key={y} className={`px-1.5 py-0.5 rounded text-micro ${venue.fiftyBest[idx] ? (venue.fiftyBest[idx] <= 10 ? 'bg-green-100 text-green-700 font-bold' : 'bg-blue-100 text-blue-700') : 'bg-gray-100 text-gray-500'}`}>

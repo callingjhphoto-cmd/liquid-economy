@@ -72,7 +72,7 @@ export default function PitchGenerator() {
           <li>Complex regulatory landscapes across target markets</li>
           <li>Distribution gatekeepers favouring established brands</li>
           <li>High marketing costs with uncertain ROI</li>
-          <li>Limited access to market intelligence (IWSR reports cost £10,000+)</li>
+          <li>Limited access to market intelligence (IWSR reports cost {'£'}10,000+)</li>
         </ul>
         <p className="font-medium text-navy">New brands need a smarter approach to compete with the giants.</p>
       </div>,
@@ -286,7 +286,7 @@ export default function PitchGenerator() {
             <input type="text" value={targetMarket} onChange={e => setTargetMarket(e.target.value)} placeholder="UK" className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm" />
           </div>
           <div>
-            <label className="block text-xs font-semibold text-navy mb-1">RRP (£)</label>
+            <label className="block text-xs font-semibold text-navy mb-1">RRP ({'£'})</label>
             <input type="number" value={rrp} onChange={e => setRrp(e.target.value)} placeholder="35" className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm" />
           </div>
           <div>

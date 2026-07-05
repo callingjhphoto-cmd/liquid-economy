@@ -1,3 +1,21 @@
+# Overnight Build Log — 5 July 2026
+
+## Session summary
+
+**Shipped:** CategoryIntelligence data quality fixes + chart axis label improvements across 3 pages (build clean, 0 errors).
+
+1. **5 growthDir data bugs fixed in categoryData.js.** Gin (2023, 2024, 2025) and Whisky (2024, 2025) had `growthDir: 'down'` but positive growth values (+1.2% to +4.1%). The MetricCard component uses `direction` to render green/red arrows — these were showing red trend-down arrows for categories that are actually still growing. Fixed all 5 to `growthDir: 'up'`.
+
+2. **BrandHealth YAxis formatter added.** The chart switches between 3 metrics (Social Mentions in thousands, Search Trend Index 0-100, Review Sentiment 0-100%) but had a bare YAxis with no formatter. Added dynamic `tickFormatter` and tooltip `formatter` keyed on `chartMetric`: social mentions → `45K` format, sentiment → `82%` format, search index → plain number. Also added `accessibilityLayer`.
+
+3. **DepletionForecasting dual-axis chart improved.** Left axis (Cases) and right axis (Revenue £) were unformatted. Added `tickFormatter` to both axes: cases → `1K` short form, revenue → `£10K` short form. Second cumulative chart also got a K-formatter and `accessibilityLayer` prop.
+
+4. **SupplyChain expanded commodity chart improved.** Tooltip showed raw float values with no units. Added unit-aware `formatter` to the Tooltip and `tickFormatter` to the YAxis (shows unit suffix when unit is ≤8 chars, e.g. `68 €/t`, `2112 pts`, `4.82 $/bu`). Tooltip now labels the metric by name.
+
+5. **Full data quality audit passed.** All 11 categories × 5 years (55 year-blocks) confirmed complete. All 250 W50B entries (50 × 5 years) confirmed. All 28 London venue profiles confirmed. Channel share sums verified at ~100% across all categories/years. No new unicode violations in JSX text nodes.
+
+---
+
 # Overnight Build Log — 4 July 2026
 
 ## Session summary

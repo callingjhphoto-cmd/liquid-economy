@@ -426,8 +426,8 @@ export default function SupplyChain() {
                             </defs>
                             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                             <XAxis dataKey="date" tick={{ fontSize: 10, fill: '#9ca3af' }} tickLine={false} axisLine={false} />
-                            <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} tickLine={false} axisLine={false} width={50} domain={['auto', 'auto']} />
-                            <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
+                            <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} tickLine={false} axisLine={false} width={54} domain={['auto', 'auto']} tickFormatter={v => data.unit && data.unit.length <= 8 ? `${v} ${data.unit}` : String(v)} />
+                            <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} formatter={v => [`${v}${data.unit ? ' ' + data.unit : ''}`, data.label]} />
                             <Area type="monotone" dataKey="value" stroke={CHART_COLORS.primary} strokeWidth={2} fill="url(#expandGrad)" dot={{ fill: CHART_COLORS.primary, r: 3, strokeWidth: 1, stroke: '#fff' }} />
                           </AreaChart>
                         </ChartCard>

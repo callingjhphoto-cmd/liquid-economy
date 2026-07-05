@@ -1033,7 +1033,7 @@ export const CATEGORIES = [
       2025: {
         marketSize: '$14.2B',
         growth: '+1.2%',
-        growthDir: 'down',
+        growthDir: 'up',
         volumeCases: '83M',
         topMarkets: [
           {
@@ -1148,7 +1148,7 @@ export const CATEGORIES = [
       2024: {
         marketSize: '$14.0B',
         growth: '+2.4%',
-        growthDir: 'down',
+        growthDir: 'up',
         volumeCases: '82M',
         topMarkets: [
           {
@@ -1263,7 +1263,7 @@ export const CATEGORIES = [
       2023: {
         marketSize: '$13.6B',
         growth: '+4.1%',
-        growthDir: 'down',
+        growthDir: 'up',
         volumeCases: '80M',
         topMarkets: [
           {
@@ -1618,7 +1618,7 @@ export const CATEGORIES = [
       2025: {
         marketSize: '$68.5B',
         growth: '+2.8%',
-        growthDir: 'down',
+        growthDir: 'up',
         volumeCases: '425M',
         topMarkets: [
           {
@@ -1737,7 +1737,7 @@ export const CATEGORIES = [
       2024: {
         marketSize: '$66.5B',
         growth: '+3.2%',
-        growthDir: 'down',
+        growthDir: 'up',
         volumeCases: '412M',
         topMarkets: [
           {

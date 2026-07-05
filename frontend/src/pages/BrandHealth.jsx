@@ -185,11 +185,20 @@ export default function BrandHealth() {
               </div>
             </div>
             <ResponsiveContainer width="100%" height={250}>
-              <LineChart data={data[chartMetric]}>
+              <LineChart data={data[chartMetric]} accessibilityLayer>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#9ca3af' }} />
-                <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} />
-                <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
+                <YAxis
+                  tick={{ fontSize: 11, fill: '#9ca3af' }}
+                  tickFormatter={v => chartMetric === 'socialMentions' ? `${Math.round(v / 1000)}K` : chartMetric === 'reviewSentiment' ? `${v}%` : String(v)}
+                  width={40}
+                />
+                <Tooltip
+                  contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
+                  labelStyle={{ color: '#f1f5f9' }}
+                  itemStyle={{ color: '#f1f5f9' }}
+                  formatter={v => chartMetric === 'socialMentions' ? [`${v.toLocaleString()}`, chartLabels[chartMetric]] : chartMetric === 'reviewSentiment' ? [`${v}%`, chartLabels[chartMetric]] : [v, chartLabels[chartMetric]]}
+                />
                 <Line type="monotone" dataKey="value" stroke={CHART_COLORS.primary} strokeWidth={2} dot={{ r: 3 }} />
               </LineChart>
             </ResponsiveContainer>

@@ -1,3 +1,23 @@
+# Overnight Build Log — 7 July 2026
+
+## Session summary
+
+**Shipped:** Liquid Intelligence cards on 5 remaining pages — TradeShows, RegulatoryCompliance, DistributorDirectory, MarketEntryWizard, ReportBuilder (build clean, 2820 modules, 0 errors).
+
+1. **TradeShows.jsx — LI card (static, module-level).** 3 signals computed from the full `TRADE_SHOWS` dataset: H2 Event Density (count of shows with month ≥ 7), ROI Tier (count of "Very High" ROI events), Category Breadth (unique categories across `mustAttendFor`). Card placed between DataFreshness badge and the List/Calendar view controls. Subtitle shows total event count ("N global events analysed").
+
+2. **RegulatoryCompliance.jsx — LI card (reactive to `selectedMarket`).** 3 signals that update on every market switch: Import Process Complexity (importSteps.length — ≤3 emerald/≤5 blue/>5 amber), Labelling Change Risk (labelling.upcoming.length — 0 emerald/≤2 blue/>2 amber), Market Entry Timeline (parsed integer from reg.timeline — ≤3mo emerald/≤6mo blue/>6mo amber). Card placed between the market selector buttons and the 4-stat KPI grid. Added `Zap` to lucide imports.
+
+3. **DistributorDirectory.jsx — LI card (static, module-level).** 3 signals from the full `DISTRIBUTORS` dataset: Global Market Access (unique country count — ≥8 emerald), Independent Availability (% with parentCompany === 'Independent' — ≥40% emerald), Dual-Channel Flexibility (% with both onTrade && offTrade — ≥60% emerald). Card placed between DataFreshness and Filters card. Added `Zap` to lucide imports.
+
+4. **MarketEntryWizard.jsx — LI card (reactive, inside Playbook component).** 3 signals computed from the existing Playbook variables: Entry Cost Band (totalCost ≥50k amber / ≥20k blue / <20k emerald), Regulatory Timeline (parsed from reg.timeline), Competitor Intensity (leader + challengers count). Card placed between the 4-stat playbook KPI grid and the PlaybookSection accordion. Subtitle shows "catName → marketName signals". Updates live when user changes category or market selection in steps 1/2.
+
+5. **ReportBuilder.jsx — LI card (static, module-level).** 3 signals computed from the report platform's own config arrays: Template Library (REPORT_TEMPLATES.length — 4 templates → blue "Solid Template Range"), Data Source Depth (DATA_SOURCES.length — 6 sources → emerald "Multi-Source Triangulation"), Intelligence Scope (AVAILABLE_CATEGORIES.length × AVAILABLE_MARKETS.length = 154 intersections → emerald "Broad Intelligence Scope"). Card placed between the AccentCard CTA and the BentoGrid hero section. Added `Zap` to lucide imports.
+
+6. **LI card count now 23/38 pages.** All 5 non-dossier tool pages are now covered. Remaining pages without LI cards are dossier/profile pages (BrandDossier, CategoryDossier, GroupDossier, MarketingDossier, DossierProposal, DossiersIndex, ProfileChorusCocktails, ProfilesIndex, CocktailDetail, ClientProfile, WalkIn, GuestLockedPage, SubscriptionTiers) which are content/auth pages where an intelligence signal card is not applicable.
+
+---
+
 # Overnight Build Log — 5 July 2026
 
 ## Session summary

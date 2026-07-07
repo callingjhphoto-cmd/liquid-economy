@@ -113,6 +113,30 @@ function Playbook({ category, market }) {
     value: marketCosts[i],
   }))
 
+  // LI signals from Playbook data
+  const liTimelineMonths = reg.timeline
+    ? parseInt(reg.timeline.match(/(\d+)/)?.[1] || '6', 10)
+    : 6
+  const liCompCount = (competitors.leader ? 1 : 0) + (competitors.challengers ? competitors.challengers.length : 0)
+
+  const liCostSignal = totalCost >= 50000
+    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'SIGNIFICANT INVESTMENT', copy: `Estimated ${currency}${totalCost.toLocaleString()} to establish in ${marketName}. Build a 12-month capital plan before committing — allow 20% contingency for regulatory delays.` }
+    : totalCost >= 20000
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'MODERATE ENTRY COST', copy: `${currency}${totalCost.toLocaleString()} estimated — achievable for a well-capitalised brand. Phased spend across compliance, logistics, and activation reduces cashflow risk.` }
+    : { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'ACCESSIBLE ENTRY POINT', copy: `${currency}${totalCost.toLocaleString()} estimated — one of the lower-cost entry paths. Low upfront barrier makes this a strong first export market for emerging brands.` }
+
+  const liTimelineSignal = liTimelineMonths <= 3
+    ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'FAST-TRACK MARKET', copy: `${reg.timeline || '1–3 months'} to clear approvals — first shipment possible within a single quarter of application. Prioritise this market for near-term revenue.` }
+    : liTimelineMonths <= 6
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'STANDARD TIMELINE', copy: `${reg.timeline || '3–6 months'} approval window. Start compliance work 6 months ahead of target launch date to avoid back-to-back delays.` }
+    : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'EXTENDED TIMELINE', copy: `${reg.timeline || '6+ months'} to full market access. Plan 9–12 months from first application to first shipment. Run label, permit, and distributor processes in parallel.` }
+
+  const liCompSignal = liCompCount >= 6
+    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'CROWDED COMPETITIVE FIELD', copy: `${liCompCount} established players in ${catName} in ${marketName}. Differentiation on origin story, provenance, or format is essential — premium positioning is table stakes.` }
+    : liCompCount >= 3
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'MODERATE COMPETITION', copy: `${liCompCount} key brands already active. Market is competitive but not saturated — a clear positioning and strong on-trade seeding strategy will carve space.` }
+    : { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'EMERGING OPPORTUNITY', copy: `${liCompCount || 'Minimal'} major ${catName} brands tracked in ${marketName} — limited established competition creates a window for early-mover brand equity building.` }
+
   return (
     <div>
       <div className="mb-6">
@@ -137,6 +161,31 @@ function Playbook({ category, market }) {
           <div className="text-xs text-gray-500 mb-1">Distributors</div>
           <div className="text-sm font-bold text-navy">{distributors.length} listed</div>
         </Card>
+      </div>
+
+      {/* Liquid Intelligence */}
+      <div className="border border-gold/30 rounded-xl bg-gradient-to-r from-amber-50/60 to-white p-4 mb-4">
+        <div className="flex items-center gap-2 mb-3">
+          <Zap size={14} className="text-gold" />
+          <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
+          <span className="text-xs text-gray-400 ml-auto">{catName} {'→'} {marketName} signals</span>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {[
+            { sig: liCostSignal, header: 'Entry Cost Band' },
+            { sig: liTimelineSignal, header: 'Regulatory Timeline' },
+            { sig: liCompSignal, header: 'Competitor Intensity' },
+          ].map(({ sig, header }, i) => (
+            <div key={i} className="bg-white rounded-lg p-3 border border-gray-100">
+              <div className="flex items-center gap-1.5 mb-1.5">
+                <span className={`w-2 h-2 rounded-full shrink-0 ${sig.dot}`} />
+                <span className={`text-[10px] font-bold uppercase tracking-wider ${sig.color}`}>{sig.label}</span>
+              </div>
+              <p className="text-[11px] text-gray-500 leading-snug">{header}</p>
+              <p className="text-xs text-gray-700 leading-snug mt-1">{sig.copy}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="space-y-4">

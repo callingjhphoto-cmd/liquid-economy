@@ -7,6 +7,30 @@ import {
 } from '../components/ui'
 import { TRADE_SHOWS, MONTHS } from '../data/tradeShowData'
 
+// LI signals — computed from full TRADE_SHOWS dataset at module level
+const liH2Count = TRADE_SHOWS.filter(s => s.month >= 7).length
+const liVeryHighROI = TRADE_SHOWS.filter(s => s.roiEstimate && s.roiEstimate.startsWith('Very High')).length
+const liCatSet = new Set(TRADE_SHOWS.flatMap(s => s.mustAttendFor))
+const liCatCount = liCatSet.size
+
+const liH2Signal = liH2Count >= 6
+  ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'ACTIVE H2 CALENDAR', copy: `${liH2Count} events from July onwards — strong second-half pipeline for brand activations, new market launches, and distributor relationship-building.` }
+  : liH2Count >= 4
+  ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'MODERATE H2 DENSITY', copy: `${liH2Count} events in the second half of the year. Selective attendance strategy recommended — prioritise by market and ROI tier.` }
+  : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'LIGHT H2 CALENDAR', copy: `Only ${liH2Count} events from July onwards. Front-load activation and distributor meetings into H1 shows; supplementary digital engagement for H2.` }
+
+const liROISignal = liVeryHighROI >= 4
+  ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'MULTIPLE TOP-TIER EVENTS', copy: `${liVeryHighROI} events rated Very High ROI — strong return potential across the calendar. Budget for all four to maximise brand visibility and listing velocity.` }
+  : liVeryHighROI >= 2
+  ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'STRONG ROI OPTIONS', copy: `${liVeryHighROI} Very High ROI events identified. Anchor your spend here and supplement with targeted category shows to extend reach.` }
+  : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'LIMITED TOP-ROI SHOWS', copy: `${liVeryHighROI} Very High ROI event${liVeryHighROI === 1 ? '' : 's'} in the calendar. Evaluate High ROI events carefully — cost-per-contact metrics become critical at this density.` }
+
+const liCatSignal = liCatCount >= 10
+  ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'FULL CATEGORY REPRESENTATION', copy: `${liCatCount} spirit categories covered across the event calendar — every major drinks segment has at least one dedicated or relevant show.` }
+  : liCatCount >= 7
+  ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'BROAD CATEGORY COVERAGE', copy: `${liCatCount} categories represented. Core spirits, wine, and champagne all covered. Niche categories may need supplementary outreach beyond the calendar.` }
+  : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'SPECIALIST FOCUS', copy: `${liCatCount} categories on the calendar. Curated but narrow — check that your specific category has a dedicated event before committing budget.` }
+
 function ShowCard({ show, expanded, onToggle }) {
   return (
     <div className="border border-gray-200 rounded-xl overflow-hidden hover:border-gray-300 transition-colors">
@@ -107,6 +131,31 @@ export default function TradeShows() {
         icon={<Calendar size={20} />}
       />
       <DataFreshness date="April 2026" source="Event organisers, WSWA, Vinexpo, Prowein, Tales of the Cocktail" />
+
+      {/* Liquid Intelligence */}
+      <div className="border border-gold/30 rounded-xl bg-gradient-to-r from-amber-50/60 to-white p-4 mb-4">
+        <div className="flex items-center gap-2 mb-3">
+          <Zap size={14} className="text-gold" />
+          <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
+          <span className="text-xs text-gray-400 ml-auto">{TRADE_SHOWS.length} global events analysed</span>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {[
+            { sig: liH2Signal, header: 'H2 Event Density' },
+            { sig: liROISignal, header: 'ROI Tier' },
+            { sig: liCatSignal, header: 'Category Breadth' },
+          ].map(({ sig, header }, i) => (
+            <div key={i} className="bg-white rounded-lg p-3 border border-gray-100">
+              <div className="flex items-center gap-1.5 mb-1.5">
+                <span className={`w-2 h-2 rounded-full shrink-0 ${sig.dot}`} />
+                <span className={`text-[10px] font-bold uppercase tracking-wider ${sig.color}`}>{sig.label}</span>
+              </div>
+              <p className="text-[11px] text-gray-500 leading-snug">{header}</p>
+              <p className="text-xs text-gray-700 leading-snug mt-1">{sig.copy}</p>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* Controls */}
       <Card className="p-4 mb-6">

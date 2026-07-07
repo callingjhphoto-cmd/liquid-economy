@@ -2,12 +2,35 @@ import React, { useState } from 'react'
 import {
   FileText, Check, BarChart3, Globe, TrendingUp, DollarSign,
   Package, AlertTriangle, Target, Calendar, Briefcase,
-  Eye, Users, Layers, X, Mail
+  Eye, Users, Layers, X, Mail, Zap
 } from 'lucide-react'
 import {
   REPORT_TEMPLATES, AVAILABLE_CATEGORIES, AVAILABLE_MARKETS,
   METRIC_OPTIONS, DATA_SOURCES, DASHBOARD_WIDGETS
 } from '../data/reportBuilderData'
+
+// LI signals — computed from report builder configuration options at module level
+const liTemplateCount = REPORT_TEMPLATES.length
+const liSourceCount = DATA_SOURCES.length
+const liIntelScope = AVAILABLE_CATEGORIES.length * AVAILABLE_MARKETS.length
+
+const liTemplateSignal = liTemplateCount >= 6
+  ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'COMPREHENSIVE LIBRARY', copy: `${liTemplateCount} report templates covering market overview, category deep-dive, competitor analysis, pricing, and market entry. Every major intelligence need is mapped to a format.` }
+  : liTemplateCount >= 4
+  ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'SOLID TEMPLATE RANGE', copy: `${liTemplateCount} templates available — the core intelligence report types are covered. Request a custom brief for niche category or frontier-market scenarios outside the template set.` }
+  : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'TEMPLATE LIBRARY GROWING', copy: `${liTemplateCount} templates currently available. New formats are added regularly — if your specific use case isn't listed, submit a custom report request for a bespoke brief.` }
+
+const liSourceSignal = liSourceCount >= 5
+  ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'MULTI-SOURCE TRIANGULATION', copy: `${liSourceCount} independent data sources — IWSR, Euromonitor, NielsenIQ, CGA, and more. Cross-source triangulation is the industry standard for high-confidence market sizing.` }
+  : liSourceCount >= 3
+  ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'SOLID DATA FOUNDATION', copy: `${liSourceCount} primary data sources underpin all reports. IWSR and Euromonitor provide global market coverage; NielsenIQ and CGA add retail and on-trade precision.` }
+  : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'LIMITED DATA SOURCES', copy: `${liSourceCount} sources available. Single-source data carries methodology risk — validate key metrics against secondary sources before making strategic decisions.` }
+
+const liScopeSignal = liIntelScope >= 100
+  ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'BROAD INTELLIGENCE SCOPE', copy: `${AVAILABLE_CATEGORIES.length} categories across ${AVAILABLE_MARKETS.length} markets — ${liIntelScope} configurable intelligence intersections. Any major drinks brand can find its specific market-category profile in the platform.` }
+  : liIntelScope >= 50
+  ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'GOOD COVERAGE', copy: `${AVAILABLE_CATEGORIES.length} categories and ${AVAILABLE_MARKETS.length} markets configurable. Covers all priority markets for Western spirits brands; frontier markets may require supplementary research.` }
+  : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'FOCUSED SCOPE', copy: `${liIntelScope} category-market configurations available. Focused on core markets — contact for coverage in non-listed territories.` }
 import {
   Card, AccentCard, MetricCard, PageHeader, BentoGrid, DrillDown,
   Badge, SubPageNav, BottomSheet
@@ -101,6 +124,31 @@ export default function ReportBuilder() {
           <p className="text-xs text-gray-500 mt-3">callingjhphoto@gmail.com {'·'} Response within 24 hours</p>
         </div>
       </AccentCard>
+
+      {/* Liquid Intelligence */}
+      <div className="border border-gold/30 rounded-xl bg-gradient-to-r from-amber-50/60 to-white p-4">
+        <div className="flex items-center gap-2 mb-3">
+          <Zap size={14} className="text-gold" />
+          <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
+          <span className="text-xs text-gray-400 ml-auto">Report platform signals</span>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {[
+            { sig: liTemplateSignal, header: 'Template Library' },
+            { sig: liSourceSignal, header: 'Data Source Depth' },
+            { sig: liScopeSignal, header: 'Intelligence Scope' },
+          ].map(({ sig, header }, i) => (
+            <div key={i} className="bg-white rounded-lg p-3 border border-gray-100">
+              <div className="flex items-center gap-1.5 mb-1.5">
+                <span className={`w-2 h-2 rounded-full shrink-0 ${sig.dot}`} />
+                <span className={`text-[10px] font-bold uppercase tracking-wider ${sig.color}`}>{sig.label}</span>
+              </div>
+              <p className="text-[11px] text-gray-500 leading-snug">{header}</p>
+              <p className="text-xs text-gray-700 leading-snug mt-1">{sig.copy}</p>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* ══════ TIER 1: HERO + TEMPLATE CARDS ══════ */}
       <BentoGrid>

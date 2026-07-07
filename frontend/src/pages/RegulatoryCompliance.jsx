@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {
   ShieldAlert, Globe, ChevronDown, Check, Clock,
-  DollarSign, FileText, AlertTriangle, Package, Tag
+  DollarSign, FileText, AlertTriangle, Package, Tag, Zap
 } from 'lucide-react'
 import {
   Card, PageHeader, SubPageNav, DataFreshness
@@ -35,6 +35,31 @@ export default function RegulatoryCompliance() {
   const labelling = LABELLING_REQUIREMENTS[selectedMarket] || {}
   const importSteps = IMPORT_PROCESS_STEPS[selectedMarket] || []
 
+  // LI signals — reactive to selectedMarket
+  const liStepCount = importSteps.length
+  const liUpcomingCount = labelling.upcoming ? labelling.upcoming.length : 0
+  const liTimelineMonths = reg.timeline
+    ? parseInt(reg.timeline.match(/(\d+)/)?.[1] || '6', 10)
+    : 6
+
+  const liComplexitySignal = liStepCount <= 3
+    ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'STREAMLINED PROCESS', copy: `${liStepCount} import steps — one of the simpler compliance pathways. Lean teams can manage in-house; broker optional.` }
+    : liStepCount <= 5
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'STANDARD COMPLEXITY', copy: `${liStepCount} steps to clear import approval. Engage a local compliance agent to manage excise, label, and customs concurrently.` }
+    : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'HIGH COMPLIANCE BURDEN', copy: `${liStepCount} distinct import steps — this market demands specialist local counsel. Budget an additional 2–3 months for approval cycles.` }
+
+  const liLabelSignal = liUpcomingCount === 0
+    ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'STABLE REQUIREMENTS', copy: 'No upcoming labelling changes flagged. Current label artwork is future-proof for the near term — no reprint risk.' }
+    : liUpcomingCount <= 2
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'MINOR UPDATES INCOMING', copy: `${liUpcomingCount} upcoming labelling change${liUpcomingCount > 1 ? 's' : ''} — low disruption but plan for artwork revisions before the next print run.` }
+    : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'SIGNIFICANT LABEL OVERHAUL', copy: `${liUpcomingCount} upcoming changes including EU-wide ingredient and calorie labelling from June 2026. New artwork mandatory — build label redesign into your launch timeline.` }
+
+  const liTimelineSignal = liTimelineMonths <= 3
+    ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'FAST-TRACK MARKET', copy: `${reg.timeline || '1–3 months'} to approve. Among the fastest-entry markets — achievable within one quarter from application to first shipment.` }
+    : liTimelineMonths <= 6
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'STANDARD TIMELINE', copy: `${reg.timeline || '3–6 months'} estimated. Allow one full quarter of pre-launch compliance work. Engage local counsel in month one.` }
+    : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'EXTENDED TIMELINE', copy: `${reg.timeline || '6+ months'} to full approval. Start regulatory groundwork well ahead of commercial launch — permits, COLAs, and licences run in parallel but queue behind each other.` }
+
   return (
     <div className="max-w-7xl mx-auto">
       <SubPageNav group="tools" />
@@ -60,6 +85,31 @@ export default function RegulatoryCompliance() {
           ))}
         </div>
       </Card>
+
+      {/* Liquid Intelligence */}
+      <div className="border border-gold/30 rounded-xl bg-gradient-to-r from-amber-50/60 to-white p-4 mb-4">
+        <div className="flex items-center gap-2 mb-3">
+          <Zap size={14} className="text-gold" />
+          <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
+          <span className="text-xs text-gray-400 ml-auto">{market ? `${market.flag} ${market.name}` : 'Market'} compliance signals</span>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {[
+            { sig: liComplexitySignal, header: 'Import Process Complexity' },
+            { sig: liLabelSignal, header: 'Labelling Change Risk' },
+            { sig: liTimelineSignal, header: 'Market Entry Timeline' },
+          ].map(({ sig, header }, i) => (
+            <div key={i} className="bg-white rounded-lg p-3 border border-gray-100">
+              <div className="flex items-center gap-1.5 mb-1.5">
+                <span className={`w-2 h-2 rounded-full shrink-0 ${sig.dot}`} />
+                <span className={`text-[10px] font-bold uppercase tracking-wider ${sig.color}`}>{sig.label}</span>
+              </div>
+              <p className="text-[11px] text-gray-500 leading-snug">{header}</p>
+              <p className="text-xs text-gray-700 leading-snug mt-1">{sig.copy}</p>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* Market header */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-6">

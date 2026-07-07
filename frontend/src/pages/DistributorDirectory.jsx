@@ -1,11 +1,36 @@
 import React, { useState, useMemo } from 'react'
 import {
-  Building2, Search, ChevronDown
+  Building2, Search, ChevronDown, Zap
 } from 'lucide-react'
 import {
   Card, PageHeader, SubPageNav, Badge, DataFreshness
 } from '../components/ui'
 import { DISTRIBUTORS, COUNTRIES, ALL_CATEGORIES } from '../data/distributorData'
+
+// LI signals — computed from full DISTRIBUTORS dataset at module level
+const liMarketCount = new Set(DISTRIBUTORS.map(d => d.country)).size
+const liIndepCount = DISTRIBUTORS.filter(d => d.parentCompany === 'Independent').length
+const liIndepPct = Math.round(liIndepCount / DISTRIBUTORS.length * 100)
+const liDualChCount = DISTRIBUTORS.filter(d => d.onTrade && d.offTrade).length
+const liDualChPct = Math.round(liDualChCount / DISTRIBUTORS.length * 100)
+
+const liMarketSignal = liMarketCount >= 8
+  ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'WIDE GLOBAL REACH', copy: `${liMarketCount} markets covered — strong options across North America, Europe, APAC, Middle East, and LatAm. Multi-market launch feasible from day one.` }
+  : liMarketCount >= 5
+  ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'SOLID REGIONAL COVERAGE', copy: `${liMarketCount} markets represented. Core priority markets well-served; frontier and emerging markets will need supplementary partner identification.` }
+  : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'LIMITED COVERAGE', copy: `${liMarketCount} markets listed. Directory is focused on primary markets — validate distributor landscape independently before committing to any unlisted territory.` }
+
+const liIndepSignal = liIndepPct >= 40
+  ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'STRONG INDEPENDENT OPTIONS', copy: `${liIndepPct}% of listed distributors are independently owned — healthy choice of partners not beholden to a single supplier's category priorities.` }
+  : liIndepPct >= 20
+  ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'MIXED LANDSCAPE', copy: `${liIndepPct}% independents, ${100 - liIndepPct}% corporate-owned. Evaluate whether a corporate parent's existing portfolio conflicts with your brand before signing.` }
+  : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'CORPORATE-DOMINATED CHANNEL', copy: `Only ${liIndepPct}% independently owned. Most distributors are subsidiaries of major drinks groups — expect category conflicts and volume-minimum requirements to be significant.` }
+
+const liDualChSignal = liDualChPct >= 60
+  ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'FULL-CHANNEL FLEXIBILITY', copy: `${liDualChPct}% of distributors cover both on- and off-trade — most partners can support a full launch strategy without needing separate route-to-market for each channel.` }
+  : liDualChPct >= 40
+  ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'GOOD CHANNEL MIX', copy: `${liDualChPct}% dual-channel. Some distributors are channel-specialist — clarify on-trade vs off-trade focus in early conversations to match your go-to-market.` }
+  : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'CHANNEL FRAGMENTATION RISK', copy: `${liDualChPct}% dual-channel. Many listed distributors are single-channel — budget for two separate partner relationships if you need both on- and off-trade in a single market.` }
 
 function DistributorCard({ d, expanded, onToggle }) {
   return (
@@ -98,6 +123,31 @@ export default function DistributorDirectory() {
         subtitle={`${DISTRIBUTORS.length} distributors across ${COUNTRIES.length} markets`}
         icon={<Building2 size={20} />}
       />
+
+      {/* Liquid Intelligence */}
+      <div className="border border-gold/30 rounded-xl bg-gradient-to-r from-amber-50/60 to-white p-4 mb-4">
+        <div className="flex items-center gap-2 mb-3">
+          <Zap size={14} className="text-gold" />
+          <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
+          <span className="text-xs text-gray-400 ml-auto">{DISTRIBUTORS.length} distributors analysed</span>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {[
+            { sig: liMarketSignal, header: 'Global Market Access' },
+            { sig: liIndepSignal, header: 'Independent Availability' },
+            { sig: liDualChSignal, header: 'Dual-Channel Flexibility' },
+          ].map(({ sig, header }, i) => (
+            <div key={i} className="bg-white rounded-lg p-3 border border-gray-100">
+              <div className="flex items-center gap-1.5 mb-1.5">
+                <span className={`w-2 h-2 rounded-full shrink-0 ${sig.dot}`} />
+                <span className={`text-[10px] font-bold uppercase tracking-wider ${sig.color}`}>{sig.label}</span>
+              </div>
+              <p className="text-[11px] text-gray-500 leading-snug">{header}</p>
+              <p className="text-xs text-gray-700 leading-snug mt-1">{sig.copy}</p>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* Filters */}
       <Card className="p-4 mb-6">

@@ -12,7 +12,7 @@ export function TabGroup({ tabs, active, onChange, size = 'md', className = '' }
   }
 
   return (
-    <div className={`inline-flex items-center gap-1 bg-gray-100 rounded-lg p-1 overflow-x-auto whitespace-nowrap ${className}`}>
+    <div className={`flex items-center gap-1 bg-gray-100 rounded-lg p-1 overflow-x-auto whitespace-nowrap ${className}`}>
       {tabs.map(tab => {
         const key = typeof tab === 'object' ? tab.key : tab
         const label = typeof tab === 'object' ? tab.label : tab

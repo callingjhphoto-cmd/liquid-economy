@@ -65,7 +65,7 @@ function MarketSelect({ selected, onSelect }) {
     <div>
       <h2 className="text-lg font-bold text-navy mb-1">Select Your Target Market</h2>
       <p className="text-sm text-gray-500 mb-4">Where do you want to sell?</p>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-3">
         {TARGET_MARKETS_WIZARD.map(m => (
           <button
             key={m.id}

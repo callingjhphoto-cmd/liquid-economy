@@ -1,3 +1,21 @@
+# Overnight Build Log — 8 July 2026
+
+## Session summary
+
+**Shipped:** Mobile responsiveness final sweep — full audit of all 15 pages at 375px; 2 genuine issues found and fixed (build clean, 0 errors).
+
+1. **Full mobile audit across all 15 pages.** Ran parallel audit agents across all major product pages (CommandCentre, CategoryIntelligence, VenueIntelligence, BrandPricing, Companies, MarketEntryWizard, TradeShows, CompetitorMonitor, POSIntelligence, PricePositioning, ReportBuilder, DistributorDirectory, Financials, ScenarioModeling, MarketOverview). Only 2 genuine issues found — all prior mobile fixes from previous sessions confirmed intact.
+
+2. **TabGroup.jsx — `inline-flex` &rarr; `flex` (global fix).** The shared `TabGroup` component used `inline-flex` on its outer container. An `inline-flex` element sizes to `max-content` width, so its own `overflow-x-auto` had nothing to clip against — the tab bar simply overflowed the viewport. The fix changes the container to `flex` (block-level), which constrains it to its parent's width and allows `overflow-x-auto` to correctly activate horizontal scrolling. Affects all TabGroup usages: CategoryIntelligence (5-tab detail nav), POSIntelligence (6-tab nav), ClimateYield (year selector). BrandPricing already had a `flex overflow-x-auto` parent wrapper — unaffected.
+
+3. **MarketEntryWizard.jsx — market selector grid fix.** Step 1 market selection used `grid-cols-2` as base with no `grid-cols-1` fallback. At 375px inside a `p-6` card, each button was ~150px wide — too narrow for country names like "United Kingdom" and the flag + name + region layout. Changed to `grid-cols-1 sm:grid-cols-3 lg:grid-cols-5` so buttons stack single-column on mobile.
+
+4. **13 pages confirmed clean.** TradeShows, CompetitorMonitor, PricePositioning, ReportBuilder, DistributorDirectory, Financials, ScenarioModeling, MarketOverview, CommandCentre, VenueIntelligence, BrandPricing, Companies, and others all confirmed mobile-safe at 375px. All grids start at `grid-cols-1`, all tables are wrapped in `overflow-x-auto`, all large text sizes carry `sm:` prefixes.
+
+5. **Build:** `vite build` &#x2713; &mdash; 0 errors, 0 warnings. Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 7 July 2026
 
 ## Session summary

@@ -345,8 +345,8 @@ function MarketTrendChart({ catKey }) {
     >
       <AreaChart data={data} accessibilityLayer={true}>
         <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-        <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#9CA3AF' }} />
-        <YAxis tick={{ fontSize: 11, fill: '#9CA3AF' }} tickFormatter={v => `$${v}B`} width={55} />
+        <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#9ca3af' }} />
+        <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => `$${v}B`} width={55} />
         <Tooltip
           formatter={(val) => [`$${val.toFixed(1)}B`, 'Market Size']}
           contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
@@ -389,8 +389,8 @@ function ChannelChart({ catKey }) {
     >
       <BarChart data={data} accessibilityLayer={true}>
         <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-        <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#9CA3AF' }} />
-        <YAxis tick={{ fontSize: 11, fill: '#9CA3AF' }} tickFormatter={v => `${v}%`} width={45} />
+        <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#9ca3af' }} />
+        <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => `${v}%`} width={45} />
         <Tooltip
           formatter={(val, name) => {
             const labels = { onTrade: 'On-Trade', offTrade: 'Off-Trade', eCommerce: 'E-Commerce', travelRetail: 'Travel Retail' }

@@ -24,6 +24,7 @@ import {
   EntityLink,
   BottomSheet,
   SubPageNav,
+  DataFreshness,
 } from '../components/ui'
 import { CHART_COLORS } from '../data/chartColors'
 
@@ -608,6 +609,7 @@ export default function ClimateYield() {
         ]}
       />
       <SubPageNav group="tools" />
+      <DataFreshness date="April 2026" source="Open-Meteo API, CIVC, CRT, AHDB, USDA; live weather from Open-Meteo" />
 
       {!selectedRegion ? (
         <>

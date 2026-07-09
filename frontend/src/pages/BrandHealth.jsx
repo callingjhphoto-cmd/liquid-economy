@@ -8,7 +8,7 @@ import {
   CartesianGrid, BarChart, Bar, Cell, PieChart, Pie
 } from 'recharts'
 import {
-  Card, PageHeader, SubPageNav, Badge, SectionHeader
+  Card, PageHeader, SubPageNav, Badge, SectionHeader, DataFreshness
 } from '../components/ui'
 import { TRACKABLE_BRANDS, BRAND_HEALTH_DATA, DEFAULT_BRAND_DATA } from '../data/brandHealthData'
 import { CHART_COLORS, CATEGORICAL } from '../data/chartColors'
@@ -69,6 +69,7 @@ export default function BrandHealth() {
   return (
     <div className="max-w-7xl mx-auto">
       <SubPageNav group="intelligence" />
+      <DataFreshness date="April 2026" source="Social media analytics, search trend indices, review platform aggregation" />
       <PageHeader
         title="Brand Health Monitor"
         subtitle="Track brand performance across social, search, and reviews"

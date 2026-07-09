@@ -308,7 +308,7 @@ export default function PricePositioning() {
                   <div key={i}>
                     <div className="flex items-center justify-between mb-1">
                       <span className={`text-xs font-medium ${isActive ? 'text-navy' : 'text-gray-500'}`}>{t.name}</span>
-                      <span className="text-xs text-gray-400">{selectedMarket?.currency}{t.min}–{selectedMarket?.currency}{t.max}</span>
+                      <span className="text-xs text-gray-400">{selectedMarket?.currency}{t.min}{'–'}{selectedMarket?.currency}{t.max}</span>
                     </div>
                     <div className="relative h-6 bg-gray-100 rounded-full overflow-hidden">
                       <div
@@ -381,7 +381,7 @@ export default function PricePositioning() {
               {benchmarks?.tiers.map((t, i) => (
                 <tr key={i} className={`border-b border-gray-100 ${tier && t.name === tier.name && !tier.position ? 'bg-navy/5' : ''}`}>
                   <td className="py-2 font-medium text-navy">{t.name}</td>
-                  <td className="py-2 text-gray-600">{selectedMarket?.currency}{t.min}–{selectedMarket?.currency}{t.max}</td>
+                  <td className="py-2 text-gray-600">{selectedMarket?.currency}{t.min}{'–'}{selectedMarket?.currency}{t.max}</td>
                   <td className="py-2 text-gray-600">{t.brands.join(', ')}</td>
                 </tr>
               ))}

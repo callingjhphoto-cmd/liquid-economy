@@ -935,7 +935,7 @@ function CostWaterfall({ costs }) {
         </Card>
         <Card padding="p-3" className="text-center">
           <p className="text-xs text-gray-500">RRP Range</p>
-          <p className="text-lg font-bold text-gold">{'£'}{costs.rrp_low}–£{costs.rrp_high}</p>
+          <p className="text-lg font-bold text-gold">{'£'}{costs.rrp_low}{'–'}{'£'}{costs.rrp_high}</p>
         </Card>
         <Card padding="p-3" className="text-center">
           <p className="text-xs text-gray-500">Gross Margin</p>

@@ -1,3 +1,25 @@
+# Overnight Build Log — 9 July 2026
+
+## Session summary
+
+**Shipped:** 3 JSX unicode violations fixed + axis tick normalisation + DataFreshness on BrandHealth &amp; ClimateYield (build clean, 2820 modules, 0 errors).
+
+1. **ScenarioModeling.jsx:938 — en-dash + pound in JSX text fixed.** The RRP Range card rendered `{'£'}{costs.rrp_low}–£{costs.rrp_high}`. Both the `–` (U+2013) and the second `£` (U+00A3) sat directly in JSX text position between expression delimiters — not inside `{}` braces. Fixed to `{'£'}{costs.rrp_low}{'–'}{'£'}{costs.rrp_high}`.
+
+2. **PricePositioning.jsx:311 + 384 — en-dash in JSX text fixed.** Two tier-range spans displayed `{currency}{t.min}–{currency}{t.max}` where the `–` was bare JSX text between two expression pairs. Both instances fixed to `{'–'}`. Applies to the sliding tier visualisation and the comparison table.
+
+3. **CategoryIntelligence.jsx — axis tick fill normalised (4 instances).** Two charts (Market Size AreaChart and Channel Mix BarChart) used `fill: '#9CA3AF'` (uppercase hex) on both XAxis and YAxis tick props. Every other file in the codebase uses `'#9ca3af'` (lowercase). Normalised all 4 to `'#9ca3af'` — visually identical, now consistent.
+
+4. **BrandHealth.jsx — DataFreshness badge added.** Pages that display time-stamped intelligence data should carry the DataFreshness badge so users know the data provenance. BrandHealth was the highest-profile intelligence page still missing it. Added `<DataFreshness date="April 2026" source="Social media analytics, search trend indices, review platform aggregation" />` after SubPageNav. Added `DataFreshness` to the UI import block.
+
+5. **ClimateYield.jsx — DataFreshness badge added.** ClimateYield mixes static historical yield data (April 2026 vintage) with live Open-Meteo API weather. Added badge after SubPageNav with `date="April 2026"` and source string listing Open-Meteo, CIVC, CRT, AHDB, USDA. Added `DataFreshness` to the UI import block.
+
+6. **Full scan run.** Parallel scan agent confirmed: all 16 Recharts Tooltip components carry `itemStyle={{ color: '#f1f5f9' }}` correctly; no missing axis tick fills on any other page; no rendering issues on newer pages (SubscriptionTiers/WalkIn/GuestLockedPage/DossiersIndex/dossier pages). 250 W50B entries confirmed across all 5 years; 28 LONDON_VENUES profiles confirmed; all 9 `growthDir: 'down'` entries in categoryData.js verified to have genuinely negative growth values.
+
+7. **Build:** `vite build` &#x2713; &mdash; 2820 modules, 0 errors, 0 warnings. Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 8 July 2026
 
 ## Session summary

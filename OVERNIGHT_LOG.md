@@ -1,3 +1,21 @@
+# Overnight Build Log — 10 July 2026
+
+## Session summary
+
+**Shipped:** DataFreshness badges on 4 tool pages + accessibilityLayer on 4 charts (build clean, 0 errors).
+
+1. **6 stranded commits recovered.** July 7-9 overnight sessions had committed in detached HEAD — 6 commits (LI cards, mobile fixes, unicode/axis fixes) never reached origin/main. Cherry-picked all 6 onto main before tonight's work: `c37a7e7 d381486 0f988d9 bf25ff3 5d79137 f01b2ef`.
+
+2. **DataFreshness badges — 4 tool pages.** ScenarioModeling, ReportBuilder, MarketEntryWizard, and PitchGenerator each received a `<DataFreshness date="April 2026" source="..." />` badge after SubPageNav. Hardcoded "Data as of April 2026" strings removed from the two PageHeader subtitles that carried them.
+
+3. **accessibilityLayer — 4 chart instances.** MarketOverview hero AreaChart + regional sparkline AreaChart, MarketEntryWizard cost breakdown BarChart, and CocktailDetail flavour profile RadarChart all received the `accessibilityLayer` prop for keyboard navigation and ARIA compliance.
+
+4. **flagshipConfig.js unicode normalise.** `après-ski` escape sequence converted to literal `après-ski` UTF-8 glyph by normalize_unicode_escapes.py — cosmetic, keeps JS strings consistent with the rest of the codebase.
+
+5. **Build:** `vite build` &#x2713; &mdash; 0 errors, 0 warnings. Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 9 July 2026
 
 ## Session summary

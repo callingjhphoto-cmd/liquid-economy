@@ -41,7 +41,7 @@ export const FLAGSHIP_CONFIG = {
       },
       {
         headline: 'Winter occasions locked at <10% annual volume despite 3-year campaign',
-        body: "Aperolidays, apr\u00e8s-ski, Coachella activations are not breaking through narrative inertia. \"Fireside aperitivo,\" \"weeknight wind-down,\" \"post-gym recovery\" remain ritual-less across Northern Hemisphere markets.",
+        body: "Aperolidays, après-ski, Coachella activations are not breaking through narrative inertia. \"Fireside aperitivo,\" \"weeknight wind-down,\" \"post-gym recovery\" remain ritual-less across Northern Hemisphere markets.",
         dollarChip: 'USD 70-105M',
         dollarUnit: 'annual uplift at full channel penetration',
         derivationBasis: 'Seasonality data from Campari 2024 annual report + +10-15% off-season volume potential modelled against EUR 704M base',

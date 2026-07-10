@@ -263,7 +263,7 @@ function FlavourModule({ flavour }) {
         <Card padding="p-5">
           <p className="text-caption text-gray-400 mb-3 italic">Bartender-calibrated estimate -- not instrument-measured</p>
           <ResponsiveContainer width="100%" height={260}>
-            <RadarChart data={radarData} cx="50%" cy="50%" outerRadius={90}>
+            <RadarChart data={radarData} cx="50%" cy="50%" outerRadius={90} accessibilityLayer>
               <PolarGrid stroke="#e2e8f0" />
               <PolarAngleAxis dataKey="axis" tick={{ fontSize: 11, fill: '#475569' }} />
               <PolarRadiusAxis angle={30} domain={[0, 10]} tick={{ fontSize: 9, fill: '#94a3b8' }} tickCount={3} />

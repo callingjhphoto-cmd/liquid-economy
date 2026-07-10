@@ -141,7 +141,7 @@ export default function MarketOverview() {
           {globalTrend.length > 0 && (
             <div className="w-full sm:w-64 h-20">
               <ResponsiveContainer width="100%" height="100%">
-                <AreaChart data={globalTrend} margin={{ top: 5, right: 5, bottom: 5, left: 5 }}>
+                <AreaChart data={globalTrend} margin={{ top: 5, right: 5, bottom: 5, left: 5 }} accessibilityLayer>
                   <XAxis dataKey="year" tick={{ fontSize: 10, fill: '#9ca3af' }} />
                   <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} formatter={(v) => [`$${v}B`, 'Drinks']} />
                   <Area type="monotone" dataKey="v" stroke="#C9A96E" strokeWidth={2} fill="#C9A96E22" dot={false} />
@@ -231,7 +231,7 @@ export default function MarketOverview() {
                 </div>
                 <div className="w-full h-10 mt-2">
                   <ResponsiveContainer width="100%" height="100%">
-                    <AreaChart data={trendData} margin={{ top: 2, right: 2, bottom: 2, left: 2 }}>
+                    <AreaChart data={trendData} margin={{ top: 2, right: 2, bottom: 2, left: 2 }} accessibilityLayer>
                       <Area type="monotone" dataKey="v" stroke={isUp ? '#22c55e' : '#ef4444'} strokeWidth={1.5} fill={isUp ? '#22c55e15' : '#ef444415'} dot={false} />
                     </AreaChart>
                   </ResponsiveContainer>

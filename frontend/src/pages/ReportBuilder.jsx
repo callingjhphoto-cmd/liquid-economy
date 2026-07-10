@@ -33,7 +33,7 @@ const liScopeSignal = liIntelScope >= 100
   : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'FOCUSED SCOPE', copy: `${liIntelScope} category-market configurations available. Focused on core markets — contact for coverage in non-listed territories.` }
 import {
   Card, AccentCard, MetricCard, PageHeader, BentoGrid, DrillDown,
-  Badge, SubPageNav, BottomSheet
+  Badge, SubPageNav, BottomSheet, DataFreshness
 } from '../components/ui'
 
 // Icon resolver for data-driven widget rendering
@@ -94,10 +94,11 @@ export default function ReportBuilder() {
       {/* ══════ PAGE HEADER ══════ */}
       <PageHeader
         title="Report Builder"
-        subtitle="Build custom intelligence reports from templates, data sources, and dashboard widgets · Data as of April 2026"
+        subtitle="Build custom intelligence reports from templates, data sources, and dashboard widgets"
         breadcrumbs={[{ label: 'Command Centre', to: '/' }, { label: 'Report Builder' }]}
       />
       <SubPageNav group="reports" />
+      <DataFreshness date="April 2026" source="IWSR, Euromonitor, NielsenIQ, CGA, DISCUS" />
 
       {/* ══════ REQUEST A CUSTOM REPORT CTA ══════ */}
       <AccentCard>

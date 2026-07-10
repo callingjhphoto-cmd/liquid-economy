@@ -11,7 +11,7 @@ import {
 import {
   Card, MetricCard, PageHeader, BentoGrid, DataTable, ChartCard,
   DrillDown, Badge, SectionHeader, SourceList,
-  BottomSheet, SubPageNav, ErrorBoundary
+  BottomSheet, SubPageNav, ErrorBoundary, DataFreshness
 } from '../components/ui'
 import {
   PRODUCT_CATEGORIES, TARGET_MARKETS, MANUFACTURING_ORIGINS,
@@ -153,7 +153,7 @@ export default function ScenarioModeling() {
     <div className="space-y-6 max-w-7xl mx-auto">
       <PageHeader
         title="Scenario Modeling"
-        subtitle="Go-to-market planning, unit economics, campaign intelligence & financial modeling · Data as of April 2026"
+        subtitle="Go-to-market planning, unit economics, campaign intelligence & financial modeling"
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Scenarios' },
@@ -170,6 +170,7 @@ export default function ScenarioModeling() {
         }
       />
       <SubPageNav group="planning" />
+      <DataFreshness date="April 2026" source="IWSR, Euromonitor, NielsenIQ, company filings, UK HMRC" />
 
       {/* ═════ TIER 1: OVERVIEW (DEFAULT) ═════ */}
       {mode === 'overview' && (

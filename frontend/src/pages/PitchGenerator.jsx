@@ -5,7 +5,7 @@ import {
   Download, Copy, Check, Banknote, BarChart3
 } from 'lucide-react'
 import {
-  Card, PageHeader, SubPageNav, Badge, SectionHeader
+  Card, PageHeader, SubPageNav, Badge, SectionHeader, DataFreshness
 } from '../components/ui'
 import {
   PITCH_SECTIONS, CATEGORY_MARKET_DATA, FINANCIAL_TEMPLATES,
@@ -261,6 +261,7 @@ export default function PitchGenerator() {
   return (
     <div className="max-w-7xl mx-auto">
       <SubPageNav group="reports" />
+      <DataFreshness date="April 2026" source="IWSR, Euromonitor, Rabobank, DISCUS, NielsenIQ" />
       <PageHeader
         title="Investor Pitch Generator"
         subtitle="Auto-generate a pitch deck outline from platform data"

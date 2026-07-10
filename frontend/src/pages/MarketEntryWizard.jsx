@@ -8,7 +8,7 @@ import {
   BarChart, Bar, ResponsiveContainer, XAxis, YAxis, Tooltip, Cell, CartesianGrid
 } from 'recharts'
 import {
-  Card, PageHeader, SubPageNav, SectionHeader, Badge
+  Card, PageHeader, SubPageNav, SectionHeader, Badge, DataFreshness
 } from '../components/ui'
 import {
   TARGET_MARKETS_WIZARD, SPIRIT_CATEGORIES_WIZARD, MARKET_REGULATIONS,
@@ -311,7 +311,7 @@ function Playbook({ category, market }) {
         <PlaybookSection title="Estimated Costs" icon={DollarSign}>
           <div className="mb-4">
             <ResponsiveContainer width="100%" height={250}>
-              <BarChart data={costChartData} layout="vertical" margin={{ left: 10, right: 20, top: 5, bottom: 5 }}>
+              <BarChart data={costChartData} layout="vertical" margin={{ left: 10, right: 20, top: 5, bottom: 5 }} accessibilityLayer>
                 <CartesianGrid strokeDasharray="3 3" horizontal={false} />
                 <XAxis type="number" tickFormatter={v => `${currency}${(v/1000).toFixed(0)}k`} tick={{ fontSize: 11, fill: '#9ca3af' }} />
                 <YAxis type="category" dataKey="name" width={130} tick={{ fontSize: 10, fill: '#9ca3af' }} />
@@ -351,6 +351,7 @@ export default function MarketEntryWizard() {
   return (
     <div className="max-w-7xl mx-auto">
       <SubPageNav group="planning" />
+      <DataFreshness date="April 2026" source="WSTA, HMRC, IWSR, Euromonitor, market entry regulatory filings" />
       <PageHeader
         title="Market Entry Wizard"
         subtitle="Step-by-step playbook for entering new markets"

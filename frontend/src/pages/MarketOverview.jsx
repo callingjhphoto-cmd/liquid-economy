@@ -206,7 +206,7 @@ export default function MarketOverview() {
 
       {/* Regional pulse with 10yr CAGR */}
       <SectionHeader size="lg" subtitle="Regional share of global drinks market · 10-year compound annual growth (2016-2025)">
-        Regional Breakdown — 10 Year Trend
+        Regional Breakdown {'—'} 10 Year Trend
       </SectionHeader>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">

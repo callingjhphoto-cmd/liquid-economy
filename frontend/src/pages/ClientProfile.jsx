@@ -841,7 +841,7 @@ function ProfileNotFound({ slug }) {
         <p className="text-body text-gray-500 mb-6">No profile registered for &ldquo;{slug}&rdquo;</p>
         <div className="flex gap-4 justify-center">
           <Link to="/profiles" className="text-body text-editorial hover:text-navy no-underline">
-            View all profiles →
+            View all profiles {'→'}
           </Link>
           <Link to="/" className="text-body text-gray-500 hover:text-navy no-underline">
             Back to dashboard

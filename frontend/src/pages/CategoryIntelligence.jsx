@@ -950,7 +950,7 @@ function CategoryDetail({ cat, year, onBack }) {
               </div>
               <button onClick={() => setActiveTab('markets')}
                 className="mt-3 text-xs font-semibold text-gold hover:underline">
-                View all {yd.topMarkets.length} markets →
+                View all {yd.topMarkets.length} markets {'→'}
               </button>
             </Card>
             <Card>

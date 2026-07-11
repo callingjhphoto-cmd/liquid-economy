@@ -8,7 +8,7 @@ import {
 } from 'lucide-react'
 import {
   PageHeader, MetricCard, Card, Section, BentoGrid, DrillDown,
-  BottomSheet, SubPageNav, ErrorBoundary
+  BottomSheet, SubPageNav, ErrorBoundary, DataFreshness
 } from '../components/ui'
 import {
   BRANDS_BY_CATEGORY, CATEGORIES, SEGMENTS, BASE_SPIRITS,
@@ -1734,13 +1734,14 @@ const CampaignPlanner = () => {
       <div className="space-y-6 max-w-7xl mx-auto">
         <PageHeader
           title="Campaign Planner"
-          subtitle="3-step mobile flow · Data as of April 2026"
+          subtitle="3-step mobile flow"
           breadcrumbs={[
             { label: 'Command Centre', to: '/' },
             { label: 'Campaign Planner' }
           ]}
         />
         <SubPageNav group="planning" />
+        <DataFreshness date="April 2026" source="IWSR, NielsenIQ, CGA, trade press" />
 
         {/* Mobile Step Indicator */}
         {mobileStep > 0 && (
@@ -1874,7 +1875,7 @@ const CampaignPlanner = () => {
 
         {/* Footer */}
         <div className="text-center py-4 text-xs text-gray-500">
-          Campaign Planner • Liquid Economy Platform
+          Campaign Planner {'•'} Liquid Economy Platform
         </div>
       </div>
     )
@@ -1885,13 +1886,14 @@ const CampaignPlanner = () => {
     <div className="space-y-6 max-w-7xl mx-auto">
       <PageHeader
         title="Campaign Planner"
-        subtitle="5-step wizard to turn market intelligence into actionable campaign plans · Data as of April 2026"
+        subtitle="5-step wizard to turn market intelligence into actionable campaign plans"
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Campaign Planner' }
         ]}
       />
       <SubPageNav group="planning" />
+      <DataFreshness date="April 2026" source="IWSR, NielsenIQ, CGA, trade press" />
 
       {/* Step Indicator (only show when in wizard) */}
       {currentStep > 0 && (

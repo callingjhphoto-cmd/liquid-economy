@@ -8,7 +8,7 @@ import {
   Tooltip, CartesianGrid, Legend, ComposedChart, Area
 } from 'recharts'
 import {
-  Card, PageHeader, SubPageNav, Badge
+  Card, PageHeader, SubPageNav, Badge, DataFreshness
 } from '../components/ui'
 import { CHART_COLORS } from '../data/chartColors'
 
@@ -122,6 +122,7 @@ export default function DepletionForecasting() {
   return (
     <div className="max-w-7xl mx-auto">
       <SubPageNav group="planning" />
+      <DataFreshness date="April 2026" source="Trade distributor data, IWSR depletion benchmarks" />
       <PageHeader
         title="Depletion Forecasting"
         subtitle="Project annual depletions, revenue, and reorder schedules"

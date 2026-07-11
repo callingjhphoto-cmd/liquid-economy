@@ -185,7 +185,7 @@ export default function ScenarioModeling() {
                     <p className="text-2xl font-bold text-navy">Plan Your Market Entry</p>
                     <p className="text-xs text-gray-500 mt-2 max-w-md">
                       Model unit economics, assess go-to-market risks, compare manufacturing origins,
-                      and plan regional activation campaigns — all from the perspective of a new-to-market brand.
+                      and plan regional activation campaigns {'—'} all from the perspective of a new-to-market brand.
                     </p>
                   </div>
                   <div className="p-3 rounded-xl bg-gold/10">

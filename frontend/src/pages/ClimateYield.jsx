@@ -372,7 +372,7 @@ function RegionDetailPanel({ region, onClose }) {
   return (
     <div className="space-y-4">
       <button onClick={onClose} className="text-xs text-gray-500 hover:text-navy flex items-center gap-1 mb-2">
-        ← Back to all regions
+        {'←'} Back to all regions
       </button>
 
       <div className="flex items-center gap-3">
@@ -620,7 +620,7 @@ export default function ClimateYield() {
                 <SectionLabel>Key Insight</SectionLabel>
                 <h2 className="font-display text-lg text-navy mb-2">2025 Vintage Outlook: Mixed with Two Critical Risks</h2>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Champagne faces another potential frost catastrophe in April, and Mediterranean juniper stands remain structurally threatened by wildfire. Meanwhile, agave oversupply is creating a rare cost advantage for new tequila entrants — but the seeds of the next shortage (2030–32) are being sown now by farmer exits.
+                  Champagne faces another potential frost catastrophe in April, and Mediterranean juniper stands remain structurally threatened by wildfire. Meanwhile, agave oversupply is creating a rare cost advantage for new tequila entrants {'—'} but the seeds of the next shortage (2030{'–'}32) are being sown now by farmer exits.
                 </p>
               </Card>
             </BentoGrid.Hero>

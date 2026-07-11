@@ -1,3 +1,21 @@
+# Overnight Build Log — 11 July 2026
+
+## Session summary
+
+**Shipped:** 11 JSX unicode violations fixed across 6 files + DataFreshness badges on CampaignPlanner & DepletionForecasting + 2 stranded July 10 commits recovered (build clean, 0 errors).
+
+1. **2 stranded commits recovered.** The July 10 overnight session committed in detached HEAD — 2 commits (DataFreshness on ScenarioModeling/ReportBuilder/MarketEntryWizard/PitchGenerator + accessibilityLayer on 4 charts) never reached origin/main. Cherry-picked both onto main before tonight's work.
+
+2. **11 JSX unicode violations fixed across 6 files.** Full re-scan found violations introduced since the July 4 sweep. Files and fixes: ClimateYield.jsx:375 (`←` back button) and ClimateYield.jsx:623 (`—` and `–` in vintage paragraph); CampaignPlanner.jsx:1877+1955 (`•` in footer, both mobile and desktop renders); POSIntelligence.jsx:669 (`•` ×2 in footer); ClientProfile.jsx:844 (`→` in link); CategoryIntelligence.jsx:953 (`→` after JSX expression); MarketOverview.jsx:209 (`—` in SectionHeader children); ReportBuilder.jsx:112-113 (`—` ×2 in paragraph); ReportBuilder.jsx:116 (`–` and `£` in pricing note); ScenarioModeling.jsx:188 (`—` in wizard intro). Post-fix scan confirmed zero violations across all 38 page files.
+
+3. **DataFreshness on CampaignPlanner.** Added `<DataFreshness date="April 2026" source="IWSR, NielsenIQ, CGA, trade press" />` after SubPageNav in both the mobile render (line ~1743) and the desktop render (line ~1895). Removed the now-redundant "Data as of April 2026" text that was embedded in both PageHeader subtitle props. Import added to the ui destructure.
+
+4. **DataFreshness on DepletionForecasting.** Added `<DataFreshness date="April 2026" source="Trade distributor data, IWSR depletion benchmarks" />` after SubPageNav at line 124. Import added. DepletionForecasting had no date reference at all before this — now consistent with all other tool pages.
+
+5. **Build:** `vite build` &#x2713; — 0 errors, 0 warnings. Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 10 July 2026
 
 ## Session summary

@@ -60,6 +60,35 @@ export default function PitchGenerator() {
     }
   }, [numRRP, finTemplate])
 
+  // Liquid Intelligence signals — reactive to category, fundingStage, scenario
+  const liSignals = useMemo(() => {
+    const cagrNum = parseFloat((catData.cagr || '0').replace('%', '')) || 0
+    const catLabel = category.charAt(0).toUpperCase() + category.slice(1)
+    const grossMarginPct = Math.round(finTemplate.grossMargin * 100)
+
+    const momentum = cagrNum >= 8
+      ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'EXPLOSIVE GROWTH', copy: `${catLabel} is growing at ${catData.cagr} CAGR — investor appetite for this category is at peak. Lead with market size and category tailwinds; the macro story almost writes itself.` }
+      : cagrNum >= 4
+      ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'STEADY EXPANSION', copy: `${catLabel} at ${catData.cagr} CAGR is a proven growth market, not a speculative bet. Investors want clear differentiation and path to category leadership rather than macro alone.` }
+      : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'MATURE CATEGORY', copy: `${catLabel} at ${catData.cagr} CAGR means the market is established, not exploding. Your differentiation story and gross margin must carry the pitch — category tailwind alone won’t close the round.` }
+
+    const stageSignal = fundingStage === 'preSeed'
+      ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'CONCEPT STAGE', copy: `Pre-seed investors fund people, not products. Lead with founder credentials and market insight. Revenue not expected — evidence of consumer demand (surveys, letters of intent) is your strongest asset.` }
+      : fundingStage === 'seed'
+      ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'VALIDATION STAGE', copy: `Seed investors want proof-of-market-fit: first sales, key account wins, and a repeatable acquisition cost. Your opening three pitch slides should answer “why now, why you, why this category.”` }
+      : fundingStage === 'seriesA'
+      ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'SCALING PHASE', copy: `Series A investors expect proven PMF, positive gross margin, and a clear distribution roadmap. Unit economics and path to profitability must appear in the financials slide. Show the machine, not just the vision.` }
+      : { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'GROWTH & EXIT STAGE', copy: `Series B investors are buying a category leadership story and a credible exit path. Lead with international expansion potential, M&A comparables, and strategic acquirer interest. Financial rigour is assumed.` }
+
+    const marginSignal = grossMarginPct >= 55
+      ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'STRONG MARGIN PROFILE', copy: `${grossMarginPct}% gross margin in the ${scenario} scenario is above-sector average. Highlight in your financials slide — premium spirits investors benchmark 50–55% as the floor for a credible premium brand.` }
+      : grossMarginPct >= 45
+      ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'VIABLE MARGINS', copy: `${grossMarginPct}% gross margin meets the minimum threshold for a serious spirits investor conversation. Verify your RRP and channel mix are optimal — moving to hybrid or DTC model can add 5–10pts.` }
+      : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'MARGIN PRESSURE', copy: `${grossMarginPct}% gross margin is below the premium-spirits benchmark. Consider revising RRP upward or shifting distribution mix before presenting financials — this number will be the first flag investors raise.` }
+
+    return [momentum, stageSignal, marginSignal]
+  }, [catData, category, fundingStage, scenario, finTemplate])
+
   const pitchContent = useMemo(() => {
     const name = brandName || '[Your Brand]'
     const catLabel = category.charAt(0).toUpperCase() + category.slice(1)
@@ -323,6 +352,33 @@ export default function PitchGenerator() {
           </div>
         </div>
       </Card>
+
+      {/* Liquid Intelligence */}
+      <div className="border border-gold/30 rounded-xl bg-gradient-to-r from-amber-50/60 to-white p-4 mb-4">
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-7 h-7 rounded-lg bg-gold/10 flex items-center justify-center">
+            <Zap size={14} className="text-gold" />
+          </div>
+          <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
+          <span className="text-xs text-gray-400 ml-auto">Pitch signals {'·'} {category.charAt(0).toUpperCase() + category.slice(1)} {'·'} {fundingStage.replace(/([A-Z])/g, ' $1').trim()}</span>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          {[
+            { sig: liSignals[0], header: 'Category Market Momentum' },
+            { sig: liSignals[1], header: 'Funding Stage Readiness' },
+            { sig: liSignals[2], header: 'Gross Margin Health' },
+          ].map(({ sig, header }, i) => (
+            <div key={i} className="bg-white/70 rounded-lg p-3 border border-gold/10">
+              <div className="flex items-center gap-1.5 mb-1.5">
+                <div className={`w-2 h-2 rounded-full flex-shrink-0 ${sig.dot}`} />
+                <span className={`text-xs font-bold uppercase tracking-wide ${sig.color}`}>{sig.label}</span>
+              </div>
+              <p className="text-[11px] text-gray-500 font-medium mb-1">{header}</p>
+              <p className="text-xs text-gray-600 leading-relaxed">{sig.copy}</p>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* Copy button */}
       <div className="flex justify-end mb-4">

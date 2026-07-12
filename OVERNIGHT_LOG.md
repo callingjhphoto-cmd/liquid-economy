@@ -1,3 +1,25 @@
+# Overnight Build Log — 12 July 2026
+
+## Session summary
+
+**Shipped:** Liquid Intelligence panel added to PitchGenerator — the last tool page missing the standard 3-signal LI card. All existing commits recovered and pushed to main (build clean, 0 errors).
+
+1. **Reactive LI panel on PitchGenerator.** Three `useMemo` signals tied to user inputs:
+   - **Category Market Momentum** — CAGR parsed from `CATEGORY_MARKET_DATA[category].cagr`; ≥8% emerald / 4-7.9% blue / <4% amber with category-specific investor copy.
+   - **Funding Stage Readiness** — four tiers (preSeed / seed / seriesA / seriesB) each with different guidance on what the deck must prove at that stage.
+   - **Gross Margin Health** — from `FINANCIAL_TEMPLATES[scenario].grossMargin`; ≥55% emerald / 45-54% blue / <45% amber with RRP/channel-mix advice.
+   Panel renders between the inputs card and the Copy Outline button; updates live on every input change.
+
+2. **Data quality audits — confirmed clean.** CategoryIntelligence: 55/55 year-data blocks present (11 cats × 5 years), all 6 required fields (marketSize, growthDir, volumeCases, brands, channels) at exactly 55 occurrences each. VenueIntelligence: 28 LONDON_VENUES, 250 FIFTY_BEST_BARS entries (5 yrs × 50 bars). BrandPricing: 260 expressions in BRAND_DATABASE. All chart Tooltip `itemStyle` confirmed `#f1f5f9` (white on dark). All chart components have `accessibilityLayer`.
+
+3. **Detached-HEAD recovery.** Local HEAD was detached; fast-forwarded main onto the 11-commit chain from prior sessions then pushed. Push delta: `d36c77e → 4e5e2b4` (one new commit). Railway auto-deploy triggered.
+
+4. **Builds clean.** `./node_modules/.bin/vite build` — 0 errors, 0 warnings, 2443+ modules.
+
+5. **Pages without LI now at 0 for non-dossier/utility pages.** All 25 data/tool pages now carry the gold Liquid Intelligence panel. Dossier and utility pages (BrandDossier, ClientProfile, etc.) are intentionally excluded.
+
+---
+
 # Overnight Build Log — 11 July 2026
 
 ## Session summary

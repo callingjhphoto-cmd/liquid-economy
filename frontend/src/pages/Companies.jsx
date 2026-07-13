@@ -270,7 +270,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
         <p className="text-xs text-gray-600 leading-relaxed mt-3">{company.description}</p>
 
         {/* Quick metrics row */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-4">
           {fin2025 && (
             <>
               <div className="bg-gray-50 rounded-lg p-2.5 text-center">
@@ -875,17 +875,13 @@ export default function Companies() {
   }, [searchTerm, filterCategory, filterRegion, filterRevenue])
 
   const handleCardClick = useCallback((company) => {
-    const slug = slugify(company.name)
-    if (expandedCompany === slug) {
-      setExpandedCompany(null)
-    } else {
-      setExpandedCompany(slug)
-    }
-    // On mobile, use bottom sheet
     if (window.innerWidth < 1024) {
       setMobileSheet(company)
+    } else {
+      const slug = slugify(company.name)
+      setExpandedCompany(prev => prev === slug ? null : slug)
     }
-  }, [expandedCompany])
+  }, [])
 
   const handleClearFilters = useCallback(() => {
     setFilterCategory('all')

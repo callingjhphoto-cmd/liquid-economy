@@ -1,3 +1,21 @@
+# Overnight Build Log — 13 July 2026
+
+## Session summary
+
+**Shipped:** 3 rendering/logic bugs fixed + dead code stripped (GeographicIntelligence, Companies, ReportBuilder — build clean, 0 errors).
+
+1. **GeographicIntelligence.jsx:97 — invisible LI signal dot fixed.** `liSig2` third branch used `bg-navy-500` — a non-existent Tailwind class (`navy` is a flat custom token, not a palette scale). The "Traditional Channels Dominant" signal dot rendered transparent. Fixed to `bg-navy`.
+
+2. **Companies.jsx — `handleCardClick` double-fire on mobile fixed.** The handler set `expandedCompany` unconditionally then also set `mobileSheet` on `window.innerWidth < 1024`. On mobile, `CompanyTier2` rendered inline (behind the BottomSheet) causing ghost layout and a visible flash on sheet dismiss. Fixed to strict `if/else`: mobile → `mobileSheet` only; desktop → `expandedCompany` functional updater (dep array cleared to `[]`).
+
+3. **Companies.jsx:273 — `CompanyTier2` metrics grid mobile fix.** `grid-cols-2 sm:grid-cols-4` &#x2192; `grid-cols-1 sm:grid-cols-2 lg:grid-cols-4` so Op.&#x202F;Margin/Net&#x202F;Income/Mkt&#x202F;Cap/Stock&#x202F;YTD stacks on mobile.
+
+4. **ReportBuilder.jsx — import ordering + dead code.** `import { Card, AccentCard&#x2026; }` was placed after 20+ lines of module-level consts (invalid ESM ordering). Moved to before the LI-signal block. `METRIC_OPTIONS` removed from data import (never referenced). 6 dead `useState` vars and 5 dead handlers (`toggleCategory`, `toggleMarket`, `toggleMetric`, `toggleSource`, `addWidgetToReport`) stripped — all were from an unfinished config-panel feature never wired to JSX.
+
+5. **Build:** `vite build` &#x2713; &#x2014; 0 errors, 0 warnings. Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 12 July 2026
 
 ## Session summary

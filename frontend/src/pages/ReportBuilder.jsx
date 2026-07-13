@@ -6,8 +6,12 @@ import {
 } from 'lucide-react'
 import {
   REPORT_TEMPLATES, AVAILABLE_CATEGORIES, AVAILABLE_MARKETS,
-  METRIC_OPTIONS, DATA_SOURCES, DASHBOARD_WIDGETS
+  DATA_SOURCES, DASHBOARD_WIDGETS
 } from '../data/reportBuilderData'
+import {
+  Card, AccentCard, MetricCard, PageHeader, BentoGrid, DrillDown,
+  Badge, SubPageNav, BottomSheet, DataFreshness
+} from '../components/ui'
 
 // LI signals — computed from report builder configuration options at module level
 const liTemplateCount = REPORT_TEMPLATES.length
@@ -31,11 +35,6 @@ const liScopeSignal = liIntelScope >= 100
   : liIntelScope >= 50
   ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'GOOD COVERAGE', copy: `${AVAILABLE_CATEGORIES.length} categories and ${AVAILABLE_MARKETS.length} markets configurable. Covers all priority markets for Western spirits brands; frontier markets may require supplementary research.` }
   : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'FOCUSED SCOPE', copy: `${liIntelScope} category-market configurations available. Focused on core markets — contact for coverage in non-listed territories.` }
-import {
-  Card, AccentCard, MetricCard, PageHeader, BentoGrid, DrillDown,
-  Badge, SubPageNav, BottomSheet, DataFreshness
-} from '../components/ui'
-
 // Icon resolver for data-driven widget rendering
 const ICON_MAP = {
   BarChart3, Globe, TrendingUp, DollarSign, Package, AlertTriangle,
@@ -47,44 +46,8 @@ const resolveIcon = (name) => ICON_MAP[name] || FileText
 // MAIN COMPONENT
 // ══════════════════════════════════════════
 export default function ReportBuilder() {
-  // ── State ──
   const [selectedTemplate, setSelectedTemplate] = useState(null)
   const [mobileDetail, setMobileDetail] = useState(null)
-
-  // Config state (Tier 2)
-  const [selectedCategories, setSelectedCategories] = useState([])
-  const [selectedMarkets, setSelectedMarkets] = useState([])
-  const [selectedMetrics, setSelectedMetrics] = useState([])
-  const [selectedSources, setSelectedSources] = useState(['iwsr', 'euromonitor'])
-  const [dateRange, setDateRange] = useState({ from: '2021', to: '2025' })
-
-  // Widget selection
-  const [selectedWidgets, setSelectedWidgets] = useState([])
-  const [widgetCopied, setWidgetCopied] = useState(null)
-
-  const toggleCategory = (key) => {
-    setSelectedCategories(prev => prev.includes(key) ? prev.filter(k => k !== key) : [...prev, key])
-  }
-
-  const toggleMarket = (key) => {
-    setSelectedMarkets(prev => prev.includes(key) ? prev.filter(k => k !== key) : [...prev, key])
-  }
-
-  const toggleMetric = (key) => {
-    setSelectedMetrics(prev => prev.includes(key) ? prev.filter(k => k !== key) : [...prev, key])
-  }
-
-  const toggleSource = (key) => {
-    setSelectedSources(prev => prev.includes(key) ? prev.filter(k => k !== key) : [...prev, key])
-  }
-
-  const addWidgetToReport = (widget) => {
-    if (!selectedWidgets.includes(widget.id)) {
-      setSelectedWidgets(prev => [...prev, widget.id])
-    }
-    setWidgetCopied(widget.id)
-    setTimeout(() => setWidgetCopied(null), 1500)
-  }
 
   // Selected template object
   const activeTemplate = REPORT_TEMPLATES.find(t => t.id === selectedTemplate)

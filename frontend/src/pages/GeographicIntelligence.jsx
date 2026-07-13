@@ -94,7 +94,7 @@ const liSig2 = ecomLeader && ecomLeader.pct >= 30
   ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Digital Disruption Critical', copy: `${ecomLeader.region.name} leads at ${ecomLeader.pct}% e-commerce share. Digital-first distribution strategy now essential for full-market penetration in key growth regions.` }
   : ecomLeader && ecomLeader.pct >= 15
   ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Digital Adoption Accelerating', copy: `${ecomLeader.region.name} driving digital channel at ${ecomLeader.pct}%. Build DTC capability ahead of mainstream channel disruption in mid-tier markets.` }
-  : { dot: 'bg-navy-500', color: 'text-navy', label: 'Traditional Channels Dominant', copy: `E-commerce peaks at ${ecomLeader ? ecomLeader.pct : 0}% (${ecomLeader ? ecomLeader.region.name : 'top market'}). On-trade and off-trade remain primary; digital is supplementary.` }
+  : { dot: 'bg-navy', color: 'text-navy', label: 'Traditional Channels Dominant', copy: `E-commerce peaks at ${ecomLeader ? ecomLeader.pct : 0}% (${ecomLeader ? ecomLeader.region.name : 'top market'}). On-trade and off-trade remain primary; digital is supplementary.` }
 
 const liSig3 = negativeRegCount >= 5
   ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Elevated Compliance Burden', copy: `${negativeRegCount} of ${totalMarkets} markets face adverse regulatory changes. Compliance cost increases and distribution complexity require active management across portfolio.` }

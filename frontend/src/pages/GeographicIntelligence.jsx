@@ -475,11 +475,11 @@ function RegionTier3({ region, data, onClose }) {
             <div className="space-y-6">
               <div>
                 <SectionHeader size="md">Top Imports</SectionHeader>
-                <DataTable columns={tradeColumns} data={data.importExport.topImports} compact exportable className="mt-2" />
+                <DataTable columns={tradeColumns} data={data.importExport.topImports || []} compact exportable className="mt-2" />
               </div>
               <div>
                 <SectionHeader size="md">Top Exports</SectionHeader>
-                <DataTable columns={tradeColumns} data={data.importExport.topExports} compact exportable className="mt-2" />
+                <DataTable columns={tradeColumns} data={data.importExport.topExports || []} compact exportable className="mt-2" />
               </div>
             </div>
           )}
@@ -499,14 +499,14 @@ function RegionTier3({ region, data, onClose }) {
                 </div>
                 <div className="bg-gray-50 rounded-lg p-3">
                   <div className="text-xs text-gray-500 uppercase mb-1">Barriers</div>
-                  <div className="text-xs text-gray-600 leading-relaxed">{data.marketEntry.barriers.split(' - ')[0]}</div>
+                  <div className="text-xs text-gray-600 leading-relaxed">{data.marketEntry.barriers?.split(' - ')[0]}</div>
                 </div>
               </div>
 
               <div>
                 <SectionHeader size="sm">Key Partners</SectionHeader>
                 <div className="flex flex-wrap gap-1.5 mt-1">
-                  {data.marketEntry.keyPartners.map((p, i) => (
+                  {(data.marketEntry.keyPartners || []).map((p, i) => (
                     <Badge key={i} variant="navy" size="sm">{p}</Badge>
                   ))}
                 </div>

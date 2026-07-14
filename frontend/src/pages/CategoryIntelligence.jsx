@@ -394,7 +394,7 @@ function ChannelChart({ catKey }) {
         <Tooltip
           formatter={(val, name) => {
             const labels = { onTrade: 'On-Trade', offTrade: 'Off-Trade', eCommerce: 'E-Commerce', travelRetail: 'Travel Retail' }
-            return [`${val}%`, labels[name] || name]
+            return [val != null ? `${val}%` : '—', labels[name] || name]
           }}
           contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
           labelStyle={{ color: '#f1f5f9' }}
@@ -416,7 +416,7 @@ function CategoryCard({ cat, year, isHero, onClick }) {
   if (!yd) return null
 
   const gradient = HERO_GRADIENTS[cat.key] || 'from-gray-50 to-gray-100'
-  const brandCount = (yd.brands.highEnd?.length || 0) + (yd.brands.midTier?.length || 0) + (yd.brands.value?.length || 0)
+  const brandCount = (yd.brands?.highEnd?.length || 0) + (yd.brands?.midTier?.length || 0) + (yd.brands?.value?.length || 0)
 
   // Sparkline data across years
   const sparkData = YEARS.map(y => {
@@ -566,7 +566,7 @@ function DemographicsPanel({ categoryKey }) {
       )}
 
       {/* Age demographics */}
-      {demographics.age && demographics.age.length > 0 && (
+      {demographics?.age && demographics.age.length > 0 && (
         <Card>
           <SectionLabel>Age Demographics</SectionLabel>
           <DemoTable
@@ -581,7 +581,7 @@ function DemographicsPanel({ categoryKey }) {
       )}
 
       {/* Gender demographics */}
-      {demographics.gender && demographics.gender.length > 0 && (
+      {demographics?.gender && demographics.gender.length > 0 && (
         <Card>
           <SectionLabel>Gender Split</SectionLabel>
           <div className="space-y-3">
@@ -605,7 +605,7 @@ function DemographicsPanel({ categoryKey }) {
       )}
 
       {/* Income */}
-      {demographics.income && demographics.income.length > 0 && (
+      {demographics?.income && demographics.income.length > 0 && (
         <Card>
           <SectionLabel>Income Profile</SectionLabel>
           <div className="space-y-2.5">
@@ -620,7 +620,7 @@ function DemographicsPanel({ categoryKey }) {
       )}
 
       {/* Region */}
-      {demographics.region && demographics.region.length > 0 && (
+      {demographics?.region && demographics.region.length > 0 && (
         <Card>
           <SectionLabel>Regional Intelligence</SectionLabel>
           <DemoTable
@@ -635,7 +635,7 @@ function DemographicsPanel({ categoryKey }) {
       )}
 
       {/* Occasions */}
-      {demographics.occasion && demographics.occasion.length > 0 && (
+      {demographics?.occasion && demographics.occasion.length > 0 && (
         <Card>
           <SectionLabel>Consumption Occasions</SectionLabel>
           <div className="flex flex-wrap gap-2">
@@ -831,7 +831,7 @@ function CategoryDetail({ cat, year, onBack }) {
     </Card>
   )
 
-  const brandCount = (yd.brands.highEnd?.length || 0) + (yd.brands.midTier?.length || 0) + (yd.brands.value?.length || 0)
+  const brandCount = (yd.brands?.highEnd?.length || 0) + (yd.brands?.midTier?.length || 0) + (yd.brands?.value?.length || 0)
 
   const hasDemographics = !!getCategoryDemographics(cat.key)
 
@@ -863,10 +863,10 @@ function CategoryDetail({ cat, year, onBack }) {
       marketSize: d.marketSize,
       growth: d.growth,
       volume: d.volumeCases,
-      onTrade: d.channels.onTrade,
-      offTrade: d.channels.offTrade,
-      eCommerce: d.channels.eCommerce,
-      travelRetail: d.channels.travelRetail,
+      onTrade: d.channels?.onTrade ?? 0,
+      offTrade: d.channels?.offTrade ?? 0,
+      eCommerce: d.channels?.eCommerce ?? 0,
+      travelRetail: d.channels?.travelRetail ?? 0,
     }
   }).reverse()
 

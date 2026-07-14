@@ -16,20 +16,21 @@ import { CHART_COLORS } from '../data/chartColors'
 
 // ===== SPARKLINE =====
 
-function Sparkline({ data, positive }) {
+function Sparkline({ data, positive, uid }) {
   const entries = Object.entries(data).sort(([a], [b]) => a.localeCompare(b))
   const chartData = entries.map(([date, value]) => ({ date: date.slice(5), value }))
   const color = positive ? '#16a34a' : '#dc2626'
+  const gradId = `sg_${uid}`
   return (
     <ResponsiveContainer width={100} height={28}>
       <AreaChart data={chartData} margin={{ top: 2, right: 2, bottom: 2, left: 2 }} accessibilityLayer={true}>
         <defs>
-          <linearGradient id={`sg_${positive ? 'g' : 'r'}`} x1="0" y1="0" x2="0" y2="1">
+          <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor={color} stopOpacity={0.3} />
             <stop offset="100%" stopColor={color} stopOpacity={0.05} />
           </linearGradient>
         </defs>
-        <Area type="monotone" dataKey="value" stroke={color} strokeWidth={1.5} fill={`url(#sg_${positive ? 'g' : 'r'})`} dot={false} isAnimationActive={false} />
+        <Area type="monotone" dataKey="value" stroke={color} strokeWidth={1.5} fill={`url(#${gradId})`} dot={false} isAnimationActive={false} />
       </AreaChart>
     </ResponsiveContainer>
   )
@@ -397,7 +398,7 @@ export default function SupplyChain() {
                         {changeNum > 0 ? <TrendingUp className="w-3 h-3" /> : changeNum < 0 ? <TrendingDown className="w-3 h-3" /> : null}
                         {data.change}
                       </span>
-                      {data.historicalData && <Sparkline data={data.historicalData} positive={changeNum <= 0} />}
+                      {data.historicalData && <Sparkline data={data.historicalData} positive={changeNum <= 0} uid={key} />}
                       <span className="text-xs text-gray-500 hidden sm:inline">{data.updated}</span>
                       {isExpanded ? <ChevronUp className="w-4 h-4 text-gray-500" /> : <ChevronDown className="w-4 h-4 text-gray-500" />}
                     </div>
@@ -407,6 +408,7 @@ export default function SupplyChain() {
                     <div className="mt-3 pt-3 border-t border-gray-100">
                       <p className="text-xs text-gray-600 leading-relaxed mb-3">{data.description}</p>
                       <div className="flex flex-col sm:flex-row sm:items-end gap-3 sm:gap-6">
+                        {data.historicalData && (
                         <ChartCard
                           title="12-Month Trend"
                           height={120}
@@ -419,7 +421,7 @@ export default function SupplyChain() {
                         >
                           <AreaChart data={Object.entries(data.historicalData).sort(([a], [b]) => a.localeCompare(b)).map(([d, v]) => ({ date: d.slice(5), value: v }))} accessibilityLayer={true}>
                             <defs>
-                              <linearGradient id="expandGrad" x1="0" y1="0" x2="0" y2="1">
+                              <linearGradient id={`eg_${key}`} x1="0" y1="0" x2="0" y2="1">
                                 <stop offset="0%" stopColor="#1B2A4A" stopOpacity={0.18} />
                                 <stop offset="100%" stopColor="#1B2A4A" stopOpacity={0.02} />
                               </linearGradient>
@@ -428,9 +430,10 @@ export default function SupplyChain() {
                             <XAxis dataKey="date" tick={{ fontSize: 10, fill: '#9ca3af' }} tickLine={false} axisLine={false} />
                             <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} tickLine={false} axisLine={false} width={54} domain={['auto', 'auto']} tickFormatter={v => data.unit && data.unit.length <= 8 ? `${v} ${data.unit}` : String(v)} />
                             <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} formatter={v => [`${v}${data.unit ? ' ' + data.unit : ''}`, data.label]} />
-                            <Area type="monotone" dataKey="value" stroke={CHART_COLORS.primary} strokeWidth={2} fill="url(#expandGrad)" dot={{ fill: CHART_COLORS.primary, r: 3, strokeWidth: 1, stroke: '#fff' }} />
+                            <Area type="monotone" dataKey="value" stroke={CHART_COLORS.primary} strokeWidth={2} fill={`url(#eg_${key})`} dot={{ fill: CHART_COLORS.primary, r: 3, strokeWidth: 1, stroke: '#fff' }} />
                           </AreaChart>
                         </ChartCard>
+                      )}
                         <div className="sm:text-right space-y-1.5 sm:min-w-[140px]">
                           {data.sourceUrl && (
                             <a href={data.sourceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-medium text-blue-600 hover:text-blue-800">

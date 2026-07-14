@@ -1,3 +1,21 @@
+# Overnight Build Log — 14 July 2026
+
+## Session summary
+
+**Shipped:** 9 null-guard and SVG gradient rendering bugs fixed across SupplyChain, GeographicIntelligence, and CategoryIntelligence (build clean, 0 errors, pushed to main).
+
+1. **SupplyChain.jsx — duplicate SVG gradient IDs (Firefox rendering bug).** All commodity sparklines shared two gradient IDs (`sg_g` / `sg_r`). In Firefox, `url(#id)` is document-scoped — later SVGs stole fills from earlier ones and area fills vanished on filter-pill changes. Fixed by adding `uid` prop to `Sparkline`, computing `gradId = \`sg_${uid}\`` and using it for both `id=` and `fill=`. Call site passes `uid={key}` (the commodity key). Also promoted the expanded chart's `expandGrad` ID to `eg_${key}` for the same reason.
+
+2. **SupplyChain.jsx — `data.historicalData` unguarded in expanded ChartCard.** The row-header correctly guarded with `{data.historicalData && <Sparkline …/>}` but the expanded section called `Object.entries(data.historicalData)` unconditionally — crash if any commodity lacked historical data. Wrapped the entire `<ChartCard>` block with `{data.historicalData && (…)}`.
+
+3. **GeographicIntelligence.jsx — `barriers.split()` on undefined.** Line 502 called `.split()` without optional chaining; fixed to `data.marketEntry.barriers?.split(' - ')[0]`. `keyPartners.map()` on potentially absent array fixed to `(data.marketEntry.keyPartners || []).map(…)`. DataTable `topImports` and `topExports` props now fall back to `[]` when the sub-arrays are absent.
+
+4. **CategoryIntelligence.jsx — demographics null-guard (5 lines).** `demographics.age/.gender/.income/.region/.occasion` accessed without guarding `demographics` itself being null (returned by `getCategoryDemographics` for categories without demographic data). Fixed all 5 with `demographics?.age`, etc. `yd.brands?.highEnd?.length` — existing optional chaining on sub-keys didn't guard `yd.brands` itself; fixed in both `CategoryCard` and detail view. `d.channels?.onTrade ?? 0` — same pattern for `fullDataTableRows`. ChannelChart tooltip formatter returned `"undefined%"` when `yd.channels` was absent; fixed to guard `val != null`.
+
+5. **Build:** `vite build` ✓ — 0 errors, 0 warnings (10.28s). Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 13 July 2026
 
 ## Session summary

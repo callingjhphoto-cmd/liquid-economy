@@ -1,3 +1,25 @@
+# Overnight Build Log — 15 July 2026
+
+## Session summary
+
+**Shipped:** 5 null-guard crash fixes across Companies, GeographicIntelligence, SupplyChain + Vite manualChunks expanded with 5 large data files for better code splitting (build clean, 0 errors, pushed to main).
+
+1. **Companies.jsx:977 — `maTimeline` null guard.** `mostMACompany.maTimeline.filter()` assumed `maTimeline` always exists. If any company sorts to [0] without `maTimeline` (possible when all acquisition counts tie at 0), the BentoGrid hero crashes on page load. Fixed to `(mostMACompany.maTimeline || []).filter(...)`.
+
+2. **Companies.jsx:345 — `info.position?.includes()` optional chaining.** `info.position.includes('Leader')` ran unconditionally on every `categoryPresence` entry. If any entry has `position: undefined`, the Overview tab of that company's expanded panel crashes. Fixed all four `.includes()` calls to use optional chaining `?.includes()`.
+
+3. **GeographicIntelligence.jsx:689 — `kpis[0].change` render-site guard.** Module-level IIFE already validated `data.kpis && data.kpis[0]` before setting `fastestGrowing`, but the MetricCard render site re-accessed `REGION_DATA[key].kpis[0].change` bare — crashing if the key is absent from REGION_DATA or kpis is empty at render time. Fixed with `?.kpis?.[0]?.change ?? '—'` optional chaining + nullish coalescing.
+
+4. **GeographicIntelligence.jsx:697 — `kpis[0].value` render-site guard.** Same pattern as above for `largestByValue`. Fixed with `?.kpis?.[0]?.value ?? '—'`.
+
+5. **SupplyChain.jsx:59 — `d.change.startsWith('-')` type guard.** Called inside the component body on every render. If any `COGS_DATA` entry has a non-string `change` field (numeric or undefined), every render crashes with `TypeError: d.change.startsWith is not a function`. Fixed with `typeof d.change === 'string' && d.change.startsWith('-')` type guard.
+
+6. **vite.config.js — 5 large data files added to manualChunks.** `companyData` (149 KB), `cocktailDetails` (116 KB), `geographicData` (60 KB), `spiritsDemographicsData` (56 KB), and `climateYieldData` (48 KB) were bundled into the main app chunk — loaded on every page visit regardless of route. Added all 5 to `manualChunks`, each as a separate lazy-loaded chunk. Build confirms: `data-companies` (130 KB), `data-cocktails` (92 KB), `data-climate` (230 KB) now separate.
+
+7. **Build:** `vite build` &#x2713; — 0 errors, 0 warnings (14.71s). Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 14 July 2026
 
 ## Session summary

@@ -342,7 +342,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
                     <div key={cat} className="flex items-center justify-between bg-white rounded-lg p-2.5 border border-gray-100">
                       <div className="flex items-center gap-2 min-w-0">
                         <EntityLink type="category" id={cat.toLowerCase().replace(/\s+/g, '-')} label={cat} className="text-xs font-medium truncate" />
-                        <Badge variant={info.position.includes('Leader') || info.position.includes('#1') || info.position.includes('Dominant') ? 'green' : info.position.includes('Growing') ? 'gold' : 'default'} size="sm">
+                        <Badge variant={info.position?.includes('Leader') || info.position?.includes('#1') || info.position?.includes('Dominant') ? 'green' : info.position?.includes('Growing') ? 'gold' : 'default'} size="sm">
                           {info.position}
                         </Badge>
                       </div>
@@ -974,7 +974,7 @@ export default function Companies() {
         />
         <MetricCard
           label="Most Acquisitive"
-          value={mostMACompany ? `${mostMACompany.maTimeline.filter(m => m.type === 'acquisition').length} deals` : '—'}
+          value={mostMACompany ? `${(mostMACompany.maTimeline || []).filter(m => m.type === 'acquisition').length} deals` : '—'}
           subtitle={mostMACompany ? mostMACompany.name : ''}
           icon={Briefcase}
           onClick={() => mostMACompany && handleCardClick(mostMACompany)}

@@ -686,7 +686,7 @@ export default function GeographicIntelligence() {
         </BentoGrid.Hero>
         <MetricCard
           label="Fastest Growing"
-          value={fastestGrowing ? `+${REGION_DATA[fastestGrowing.key].kpis[0].change}%` : '—'}
+          value={fastestGrowing ? `+${REGION_DATA[fastestGrowing.key]?.kpis?.[0]?.change ?? '—'}%` : '—'}
           subtitle={fastestGrowing ? fastestGrowing.name : ''}
           icon={TrendingUp}
           direction="up"
@@ -694,7 +694,7 @@ export default function GeographicIntelligence() {
         />
         <MetricCard
           label="Largest Market"
-          value={largestByValue ? REGION_DATA[largestByValue.key].kpis[0].value : '—'}
+          value={largestByValue ? (REGION_DATA[largestByValue.key]?.kpis?.[0]?.value ?? '—') : '—'}
           subtitle={largestByValue ? largestByValue.name : ''}
           icon={BarChart3}
         />

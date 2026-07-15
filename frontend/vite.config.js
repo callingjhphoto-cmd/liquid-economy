@@ -19,6 +19,11 @@ export default defineConfig({
           if (id.includes('/data/brandData')) return 'data-brands'
           if (id.includes('/data/campaignData')) return 'data-campaigns'
           if (id.includes('/data/venueData')) return 'data-venues'
+          if (id.includes('/data/companyData')) return 'data-companies'
+          if (id.includes('/data/cocktailDetails')) return 'data-cocktails'
+          if (id.includes('/data/geographicData')) return 'data-geographic'
+          if (id.includes('/data/spiritsDemographicsData')) return 'data-demographics'
+          if (id.includes('/data/climateYieldData')) return 'data-climate'
         }
       }
     }

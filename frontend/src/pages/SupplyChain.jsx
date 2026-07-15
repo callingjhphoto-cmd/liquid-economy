@@ -56,7 +56,7 @@ export default function SupplyChain() {
   const totalCommodities = Object.keys(COGS_DATA).length
   const criticalCount = Object.values(COGS_DATA).filter(d => Math.abs(parseChange(d.change)) >= 15).length
   const highCount = Object.values(COGS_DATA).filter(d => { const a = Math.abs(parseChange(d.change)); return a >= 8 && a < 15 }).length
-  const fallingCount = Object.values(COGS_DATA).filter(d => d.change.startsWith('-')).length
+  const fallingCount = Object.values(COGS_DATA).filter(d => typeof d.change === 'string' && d.change.startsWith('-')).length
   const highestRisk = useMemo(() => {
     return Object.values(COGS_DATA).reduce((max, d) => {
       const v = Math.abs(parseChange(d.change))

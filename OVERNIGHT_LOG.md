@@ -1,3 +1,23 @@
+# Overnight Build Log — 16 July 2026
+
+## Session summary
+
+**Shipped:** 15 null-guard and dead-import bugs fixed across 5 pages (build clean, 0 errors, pushed to main).
+
+1. **TradeShows.jsx — 5 fixes: unguarded `mustAttendFor` array throughout the file.** The ShowCard component called `show.mustAttendFor.slice()`, `.length`, and `.map()` directly, and the `allCategories` memo called `.forEach()` unconditionally, and the `filtered` memo called `.includes()` — all crashing if any show record lacks the field. Fixed all four JSX call sites and both memo expressions with `(s.mustAttendFor || [])` fallbacks. Also tightened the module-level ROI signal check to `typeof s.roiEstimate === 'string'` before calling `.startsWith()`.
+
+2. **DistributorDirectory.jsx — 4 fixes: search filter `.toLowerCase()` and `d.categories` array unguarded.** Typing a single character in the search box crashes with `TypeError` if any distributor has `name`, `speciality`, or `keyBrands` as `null`/`undefined`. Fixed with `?? ''` null-coalescing. `d.categories.slice/length/includes` in both the card render and the filter memo unguarded — crashes when category filter active. Fixed with `(d.categories || [])`.
+
+3. **Valuations.jsx — 4 fixes: empty-array sort, undefined property reads, division by zero.** `[...BRAND_VALUATIONS].sort()[0]` and `[...MA_VALUATION_BENCHMARKS].sort()[0]` return `undefined` if the data arrays are ever empty; then five JSX MetricCard render sites access `.brand`, `.target`, `.estimatedValue` unconditionally — immediate crash. Added `?? null` at derivation and `?.` / `?? '—'` at render. `avgMultiple` and `avgMaPremium` divided by `.length` without a zero-length guard, rendering "NaN" in the hero card; added `array.length ? ... : '—'` guards.
+
+4. **Financials.jsx — 5 fixes: module-level crash, last-element access, and two more unguarded property reads.** `totalInventory` reduce accessed `c.metrics.inventory.totalNum` with no optional chaining — a module-load-time crash on any company with incomplete `metrics`; fixed to `c.metrics?.inventory?.totalNum ?? 0`. `COMBINED_INVENTORY.at(-1)` and `AGGREGATE_DEPLETION_GAP.at(-1).gap` without empty-array guards; fixed with `?? { total: 0, dangerZone: 18 }` and `?.gap ?? 0`. `company.quarterlyRevenue.map()` (both in MetricMini and BarChart `data` prop) without null guard — crashes when expanding a company card; fixed with `?? []`. `m.volumeSplit.volume` in the Volume vs Value MetricMini unguarded; fixed with a ternary.
+
+5. **BrandHealth.jsx — dead recharts imports removed.** `BarChart`, `Bar`, `Cell`, `PieChart`, `Pie` were imported from recharts but never rendered — pure dead code contributing needlessly to the bundle. Removed all five.
+
+6. **Build:** `vite build` &#x2713; — 0 errors, 0 warnings (12.56s). Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 15 July 2026
 
 ## Session summary

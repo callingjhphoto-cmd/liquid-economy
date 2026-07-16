@@ -14,7 +14,11 @@
 
 5. **BrandHealth.jsx — dead recharts imports removed.** `BarChart`, `Bar`, `Cell`, `PieChart`, `Pie` were imported from recharts but never rendered — pure dead code contributing needlessly to the bundle. Removed all five.
 
-6. **Build:** `vite build` &#x2713; — 0 errors, 0 warnings (12.56s). Pushed to main; Railway auto-deploy triggered.
+6. **Dead recharts imports purged from 6 files (second pass).** After fixing BrandHealth in the first pass, a deeper scan found dead recharts component imports in 5 more pages: `BarChart/Bar/Cell` in SupplyChain (uses only AreaChart); `LineChart/BarChart` in DepletionForecasting (uses ComposedChart children only); `LineChart/Line/ResponsiveContainer` in Valuations (bare BarChart blocks at fixed size); `LineChart/AreaChart` in Financials (uses ComposedChart + BarChart); `ResponsiveContainer` in BrandPricing (fixed-size charts). Removing dead imports reduces parse time and improves tree-shaking clarity.
+
+7. **MarginCalculator.jsx — 4 null guards added.** `INDUSTRY_BENCHMARKS[category]` fell back to `undefined` if a future category was added to `CATEGORY_COGS` without a matching benchmarks entry — crashing at lines 199-202. Fixed with `?? INDUSTRY_BENCHMARKS.overview ?? {}`. `LAUNCH_READINESS[category]` had identical gap, crashing `readinessScore` computation and `radarData` render. Fixed with `?? {}` and a `readiness.categoryGrowth != null` guard. `readiness.risks.map()` and `readiness.opportunities.map()` guarded with `(readiness.risks || [])`.
+
+8. **Build (second):** `vite build` &#x2713; — 0 errors, 0 warnings (11.04s). Pushed to main; Railway auto-deploy triggered.
 
 ---
 

@@ -1,7 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react'
 import {
-  BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
-  ResponsiveContainer, Cell
+  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Cell
 } from 'recharts'
 import {
   TrendingUp, TrendingDown, DollarSign, Scale, Building2, Layers,

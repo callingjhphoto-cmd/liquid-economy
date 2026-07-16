@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react'
-import { AreaChart, Area, BarChart, Bar, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid, Cell } from 'recharts'
+import { AreaChart, Area, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts'
 import { Package, Factory, Truck, AlertTriangle, TrendingUp, TrendingDown, ExternalLink, DollarSign, Globe, Shield, Droplets, ChevronDown, ChevronUp, ArrowUpDown, Zap } from 'lucide-react'
 import {
   PageHeader, Card, MetricCard, BentoGrid, DrillDown, DataTable,

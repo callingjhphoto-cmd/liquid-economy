@@ -4,7 +4,7 @@ import {
   ChevronRight, Zap, AlertTriangle, RefreshCw
 } from 'lucide-react'
 import {
-  LineChart, Line, BarChart, Bar, ResponsiveContainer, XAxis, YAxis,
+  Line, Bar, ResponsiveContainer, XAxis, YAxis,
   Tooltip, CartesianGrid, Legend, ComposedChart, Area
 } from 'recharts'
 import {

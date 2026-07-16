@@ -92,7 +92,7 @@ export default function MarginCalculator() {
 
   const cat = CATEGORY_COGS[category]
   const sizeFactor = BOTTLE_SIZES[bottleSize].factor
-  const benchmarks = INDUSTRY_BENCHMARKS[category]
+  const benchmarks = INDUSTRY_BENCHMARKS[category] ?? INDUSTRY_BENCHMARKS.overview ?? {}
 
   const handleCategoryChange = (newCat) => {
     setCategory(newCat)
@@ -203,8 +203,10 @@ export default function MarginCalculator() {
   ]
 
   // Launch readiness radar
-  const readiness = LAUNCH_READINESS[category]
-  const readinessScore = Math.round((readiness.categoryGrowth + readiness.cogsTrend + readiness.competitiveDensity + readiness.geographicOpportunity + readiness.posAvailability) / 5)
+  const readiness = LAUNCH_READINESS[category] ?? {}
+  const readinessScore = readiness.categoryGrowth != null
+    ? Math.round((readiness.categoryGrowth + readiness.cogsTrend + readiness.competitiveDensity + readiness.geographicOpportunity + readiness.posAvailability) / 5)
+    : 0
   const readinessColor = readinessScore >= 70 ? '#22c55e' : readinessScore >= 50 ? '#C9A96E' : '#ef4444'
   const radarData = [
     { metric: 'Growth', value: readiness.categoryGrowth },
@@ -673,13 +675,13 @@ export default function MarginCalculator() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <div className="text-xs font-semibold text-red-500 mb-2 flex items-center gap-1"><AlertTriangle size={10} /> Key Risks</div>
-              {readiness.risks.map((r, i) => (
+              {(readiness.risks || []).map((r, i) => (
                 <div key={i} className="text-xs text-gray-600 py-1.5 border-l-2 border-red-200 pl-2 mb-1">{r}</div>
               ))}
             </div>
             <div>
               <div className="text-xs font-semibold text-green-600 mb-2 flex items-center gap-1"><Zap size={10} /> Key Opportunities</div>
-              {readiness.opportunities.map((o, i) => (
+              {(readiness.opportunities || []).map((o, i) => (
                 <div key={i} className="text-xs text-gray-600 py-1.5 border-l-2 border-green-200 pl-2 mb-1">{o}</div>
               ))}
             </div>

@@ -49,10 +49,10 @@ function DistributorCard({ d, expanded, onToggle }) {
           </div>
           <div className="text-xs text-gray-500 mt-0.5">{d.speciality} {'•'} {d.region}</div>
           <div className="flex flex-wrap gap-1 mt-1.5">
-            {d.categories.slice(0, 5).map(c => (
+            {(d.categories || []).slice(0, 5).map(c => (
               <span key={c} className="text-xs bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">{c}</span>
             ))}
-            {d.categories.length > 5 && <span className="text-xs text-gray-400">+{d.categories.length - 5}</span>}
+            {(d.categories || []).length > 5 && <span className="text-xs text-gray-400">+{(d.categories || []).length - 5}</span>}
           </div>
         </div>
         <ChevronDown size={14} className={`text-gray-400 transition-transform mt-1 ${expanded ? '' : '-rotate-90'}`} />
@@ -102,11 +102,11 @@ export default function DistributorDirectory() {
   const filtered = useMemo(() => {
     return DISTRIBUTORS.filter(d => {
       const matchSearch = search === '' ||
-        d.name.toLowerCase().includes(search.toLowerCase()) ||
-        d.speciality.toLowerCase().includes(search.toLowerCase()) ||
-        (Array.isArray(d.keyBrands) ? d.keyBrands.join(' ') : d.keyBrands).toLowerCase().includes(search.toLowerCase())
+        (d.name ?? '').toLowerCase().includes(search.toLowerCase()) ||
+        (d.speciality ?? '').toLowerCase().includes(search.toLowerCase()) ||
+        (Array.isArray(d.keyBrands) ? d.keyBrands.join(' ') : (d.keyBrands ?? '')).toLowerCase().includes(search.toLowerCase())
       const matchCountry = countryFilter === 'all' || d.country === countryFilter
-      const matchCategory = categoryFilter === 'all' || d.categories.includes(categoryFilter)
+      const matchCategory = categoryFilter === 'all' || (d.categories || []).includes(categoryFilter)
       const matchChannel = channelFilter === 'all' ||
         (channelFilter === 'on-trade' && d.onTrade) ||
         (channelFilter === 'off-trade' && d.offTrade)

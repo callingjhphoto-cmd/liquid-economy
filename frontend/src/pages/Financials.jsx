@@ -26,7 +26,7 @@ const fmtB = (v, cur) => {
 }
 
 /* ── Aggregate Stats ── */
-const totalInventory = FINANCIAL_COMPANIES.reduce((s, c) => s + c.metrics.inventory.totalNum, 0)
+const totalInventory = FINANCIAL_COMPANIES.reduce((s, c) => s + (c.metrics?.inventory?.totalNum ?? 0), 0)
 const totalMarketCap = '£125B+'
 const avgDividend = (FINANCIAL_COMPANIES.reduce((s, c) => s + parseFloat(c.metrics.dividendYield), 0) / FINANCIAL_COMPANIES.length).toFixed(1)
 
@@ -123,13 +123,13 @@ function CompanyCard({ company, isExpanded, onToggle }) {
           <div>
             <SectionHeader size="sm">Key Metrics</SectionHeader>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-              <MetricMini label="Revenue (Last 4)" value={company.quarterlyRevenue.map(q => `${q.period}: ${fmtB(q.value, company.currency)}`).join(' | ')} wide />
+              <MetricMini label="Revenue (Last 4)" value={(company.quarterlyRevenue ?? []).map(q => `${q.period}: ${fmtB(q.value, company.currency)}`).join(' | ')} wide />
               <MetricMini label="Inventory (Total)" value={m.inventory.total} />
               <MetricMini label="Ageing Stock" value={m.inventory.ageing} />
               <MetricMini label="Finished Goods" value={m.inventory.finishedGoods} />
               <MetricMini
                 label="Volume vs Value"
-                value={`Vol ${m.volumeSplit.volume > 0 ? '+' : ''}${m.volumeSplit.volume}% / Val +${m.volumeSplit.value}%`}
+                value={m.volumeSplit ? `Vol ${m.volumeSplit.volume > 0 ? '+' : ''}${m.volumeSplit.volume}% / Val +${m.volumeSplit.value}%` : '—'}
               />
               <MetricMini label="Net Debt" value={m.netDebt} />
               <MetricMini label="Net Debt/EBITDA" value={m.netDebtToEbitda} />
@@ -142,7 +142,7 @@ function CompanyCard({ company, isExpanded, onToggle }) {
             <SectionHeader size="sm">Revenue Trend</SectionHeader>
             <div className="h-48">
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={company.quarterlyRevenue} accessibilityLayer>
+                <BarChart data={company.quarterlyRevenue ?? []} accessibilityLayer>
                   <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                   <XAxis dataKey="period" tick={{ fontSize: 11, fill: '#9ca3af' }} />
                   <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => `${company.currency}${v}B`} />
@@ -341,11 +341,11 @@ export default function Financials() {
   }
 
   // Liquid Intelligence signals — computed from static module-level data
-  const liInv = COMBINED_INVENTORY[COMBINED_INVENTORY.length - 1]
+  const liInv = COMBINED_INVENTORY.at(-1) ?? { total: 0, dangerZone: 18 }
   const liOverhang = (liInv.total - liInv.dangerZone).toFixed(1)
   const liGrowingCount = FINANCIAL_COMPANIES.filter(c => c.metrics.organicGrowthDir === 'up').length
   const liDecliningCount = FINANCIAL_COMPANIES.length - liGrowingCount
-  const liLatestGap = AGGREGATE_DEPLETION_GAP[AGGREGATE_DEPLETION_GAP.length - 1].gap
+  const liLatestGap = AGGREGATE_DEPLETION_GAP.at(-1)?.gap ?? 0
   const liPeakGap = Math.max(...AGGREGATE_DEPLETION_GAP.map(d => d.gap))
 
   const liSig1 = liInv.total >= 20

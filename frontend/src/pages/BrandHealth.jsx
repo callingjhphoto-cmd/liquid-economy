@@ -5,7 +5,7 @@ import {
 } from 'lucide-react'
 import {
   LineChart, Line, ResponsiveContainer, XAxis, YAxis, Tooltip,
-  CartesianGrid, BarChart, Bar, Cell, PieChart, Pie
+  CartesianGrid
 } from 'recharts'
 import {
   Card, PageHeader, SubPageNav, Badge, SectionHeader, DataFreshness

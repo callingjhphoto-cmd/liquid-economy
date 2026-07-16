@@ -24,12 +24,12 @@ const COLORS = CATEGORICAL
 
 /* ── Derived metrics ── */
 const totalBrandValue = BRAND_VALUATIONS.reduce((s, b) => s + b.valueNum, 0)
-const avgMultiple = (BRAND_VALUATIONS.reduce((s, b) => s + b.multipleNum, 0) / BRAND_VALUATIONS.length).toFixed(1)
-const highestBrand = [...BRAND_VALUATIONS].sort((a, b) => b.valueNum - a.valueNum)[0]
-const biggestDeal = [...MA_VALUATION_BENCHMARKS].sort((a, b) => b.valueNum - a.valueNum)[0]
+const avgMultiple = BRAND_VALUATIONS.length ? (BRAND_VALUATIONS.reduce((s, b) => s + b.multipleNum, 0) / BRAND_VALUATIONS.length).toFixed(1) : '—'
+const highestBrand = [...BRAND_VALUATIONS].sort((a, b) => b.valueNum - a.valueNum)[0] ?? null
+const biggestDeal = [...MA_VALUATION_BENCHMARKS].sort((a, b) => b.valueNum - a.valueNum)[0] ?? null
 const totalMaDeals = MA_VALUATION_BENCHMARKS.length
-const avgMaPremium = (MA_VALUATION_BENCHMARKS.reduce((s, d) => s + d.premiumNum, 0) / totalMaDeals).toFixed(0)
-const highestYoy = [...BRAND_VALUATIONS].sort((a, b) => b.yoyNum - a.yoyNum)[0]
+const avgMaPremium = totalMaDeals ? (MA_VALUATION_BENCHMARKS.reduce((s, d) => s + d.premiumNum, 0) / totalMaDeals).toFixed(0) : '—'
+const highestYoy = [...BRAND_VALUATIONS].sort((a, b) => b.yoyNum - a.yoyNum)[0] ?? null
 
 /* ── Chart data: sector multiples comparison ── */
 const sectorChartData = SECTOR_MULTIPLES.map(s => ({
@@ -150,24 +150,24 @@ export default function Valuations() {
         {/* KPI cards */}
         <MetricCard
           label="Highest Valued"
-          value={highestBrand.brand}
-          subtitle={`${highestBrand.estimatedValue} · ${highestBrand.category}`}
+          value={highestBrand?.brand ?? '—'}
+          subtitle={highestBrand ? `${highestBrand.estimatedValue} · ${highestBrand.category}` : ''}
           icon={Target}
-          change={highestBrand.yoy}
+          change={highestBrand?.yoy}
           direction="up"
         />
         <MetricCard
           label="Biggest Deal"
-          value={biggestDeal.target}
-          subtitle={`${biggestDeal.value} · ${biggestDeal.category} · ${biggestDeal.year}`}
+          value={biggestDeal?.target ?? '—'}
+          subtitle={biggestDeal ? `${biggestDeal.value} · ${biggestDeal.category} · ${biggestDeal.year}` : ''}
           icon={Briefcase}
         />
         <MetricCard
           label="Fastest Growing"
-          value={highestYoy.brand}
-          subtitle={`${highestYoy.category} · ${highestYoy.estimatedValue}`}
+          value={highestYoy?.brand ?? '—'}
+          subtitle={highestYoy ? `${highestYoy.category} · ${highestYoy.estimatedValue}` : ''}
           icon={TrendingUp}
-          change={highestYoy.yoy}
+          change={highestYoy?.yoy}
           direction="up"
         />
         <MetricCard

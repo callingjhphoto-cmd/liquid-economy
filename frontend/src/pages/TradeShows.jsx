@@ -9,8 +9,8 @@ import { TRADE_SHOWS, MONTHS } from '../data/tradeShowData'
 
 // LI signals — computed from full TRADE_SHOWS dataset at module level
 const liH2Count = TRADE_SHOWS.filter(s => s.month >= 7).length
-const liVeryHighROI = TRADE_SHOWS.filter(s => s.roiEstimate && s.roiEstimate.startsWith('Very High')).length
-const liCatSet = new Set(TRADE_SHOWS.flatMap(s => s.mustAttendFor))
+const liVeryHighROI = TRADE_SHOWS.filter(s => typeof s.roiEstimate === 'string' && s.roiEstimate.startsWith('Very High')).length
+const liCatSet = new Set(TRADE_SHOWS.flatMap(s => s.mustAttendFor || []))
 const liCatCount = liCatSet.size
 
 const liH2Signal = liH2Count >= 6
@@ -48,10 +48,10 @@ function ShowCard({ show, expanded, onToggle }) {
             <span className="flex items-center gap-1"><Calendar size={10} /> {show.dates['2026'] || show.dates['2025']}</span>
           </div>
           <div className="flex flex-wrap gap-1 mt-1.5">
-            {show.mustAttendFor.slice(0, 4).map(c => (
+            {(show.mustAttendFor || []).slice(0, 4).map(c => (
               <span key={c} className="text-xs bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">{c}</span>
             ))}
-            {show.mustAttendFor.length > 4 && <span className="text-xs text-gray-400">+{show.mustAttendFor.length - 4}</span>}
+            {(show.mustAttendFor || []).length > 4 && <span className="text-xs text-gray-400">+{(show.mustAttendFor || []).length - 4}</span>}
           </div>
         </div>
         <ChevronDown size={14} className={`text-gray-400 transition-transform mt-1 ${expanded ? '' : '-rotate-90'}`} />
@@ -106,13 +106,13 @@ export default function TradeShows() {
 
   const allCategories = useMemo(() => {
     const cats = new Set()
-    TRADE_SHOWS.forEach(s => s.mustAttendFor.forEach(c => cats.add(c)))
+    TRADE_SHOWS.forEach(s => (s.mustAttendFor || []).forEach(c => cats.add(c)))
     return [...cats].sort()
   }, [])
 
   const filtered = useMemo(() => {
     if (categoryFilter === 'all') return TRADE_SHOWS
-    return TRADE_SHOWS.filter(s => s.mustAttendFor.includes(categoryFilter) || s.mustAttendFor.includes('all') || s.mustAttendFor.includes('all spirits'))
+    return TRADE_SHOWS.filter(s => (s.mustAttendFor || []).includes(categoryFilter) || (s.mustAttendFor || []).includes('all') || (s.mustAttendFor || []).includes('all spirits'))
   }, [categoryFilter])
 
   const calendarData = useMemo(() => {
@@ -214,7 +214,7 @@ export default function TradeShows() {
                       <div className="text-xs text-gray-500 mb-1">{show.location}</div>
                       <div className="text-xs text-gray-500">{show.dates['2026'] || show.dates['2025']}</div>
                       <div className="flex flex-wrap gap-1 mt-2">
-                        {show.mustAttendFor.slice(0, 3).map(c => (
+                        {(show.mustAttendFor || []).slice(0, 3).map(c => (
                           <span key={c} className="text-xs bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">{c}</span>
                         ))}
                       </div>

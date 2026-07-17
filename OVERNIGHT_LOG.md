@@ -1,3 +1,23 @@
+# Overnight Build Log — 17 July 2026
+
+## Session summary
+
+**Shipped:** 14 null-guard and unicode bugs fixed across 5 pages (build clean, 0 errors, pushed to main).
+
+1. **CocktailDetail.jsx — 5 fixes.** `flavour.radar[key]` accessed without guarding `flavour.radar` itself (2 sites: radarData memo and flavour-bar render); if any cocktail has `flavour` without a `radar` sub-object the page crashes. Fixed both to `(flavour.radar?.[key]) || 0`. `recipe.ingredients.map()` had no null guard — if any recipe object lacks the ingredients array, the RecipeModule crashes on open; fixed to `(recipe.ingredients || []).map(...)`. `commercial.priceHome[0]` and `commercial.priceOnTrade[0]` accessed without optional chaining — if either array is absent on an incomplete record, renders throw; fixed both to `?.[0]` / `?.[1]`.
+
+2. **ProfileChorusCocktails.jsx — 6 fixes.** `f.trend.replace(...)` in the flavour-family badge label (line 122) has no null guard — if any flavour family entry has `trend: null`, the Module2 render crashes; fixed to `(f.trend || '').replace(...)`. Three `presentationTheatre` sub-array accesses (`iceProgramme`, `glassware`, `theatreFormats`) had direct `.map()` calls with no `|| []` guard — if the data import is missing any of those arrays, the whole Module4 crashes; fixed all three. `era.dominantCocktails.slice(0,5).map()` unguarded in Module5 (ClientProfile's TrendArcModule already uses `|| []` here; this page did not); fixed. `twentyYearArc.surprisingFindings.map()` unguarded — direct access on a nested import property with no fallback; fixed to `(twentyYearArc.surprisingFindings || []).map(...)`.
+
+3. **ClientProfile.jsx — 3 fixes.** `trendVariant(t)` default parameter `t = ''` only fires when the argument is `undefined`, not when it's `null` — so `null.includes(...)` was still reachable; fixed by localising `const s = t || ''` and using `s` for all `.includes()` calls. `f.trend.replace(...)` in FlavourRadarModule badges (line 247) had the same null-vs-undefined gap; fixed to `(f.trend || '').replace(...)`. `m.type.toLowerCase()` in ModuleTabs and the main module render loop (lines 729, 901) — if any profile data entry is missing the `type` field, `undefined.toLowerCase()` throws; fixed both to `(m.type || '').toLowerCase()`.
+
+4. **CampaignPlanner.jsx — 1 fix.** Footer text `Campaign Planner • Liquid Economy Platform` had a literal U+2022 bullet directly in a JSX text node. Fixed to `{'•'}` expression.
+
+5. **PricePositioning.jsx — 4 fixes.** Three JSX text nodes contained literal U+2013 en-dashes between JSX expressions: the tier-range span (`{tier.min}–{selectedMarket}`) and two recommendation paragraphs (on-trade price range, off-trade margin range including `35–45%`). All four fixed to `{'–'}` expression wraps.
+
+6. **Build:** `vite build` &#x2713; — 0 errors, 0 warnings (12.40s). Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 16 July 2026
 
 ## Session summary

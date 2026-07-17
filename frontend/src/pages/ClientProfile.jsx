@@ -72,10 +72,11 @@ function ModuleSources({ keys = [], registry = {} }) {
 // ---- Tone mapping (maps free-form profile data to shared Badge variants) ----
 
 const trendVariant = (t = '') => {
-  if (t === 'rising' || t === 'fast-rising' || t.includes('rising') || t.includes('+')) return 'green'
-  if (t === 'stable-dominant' || t === 'dominant' || t === 'dominant-consumer' || t === 'leading' || t.includes('dominant')) return 'blue'
-  if (t === 'fatigue' || t === 'decline' || t.includes('decline') || t.includes('caution') || t.includes('−')) return 'red'
-  if (t.includes('watch')) return 'orange'
+  const s = t || ''
+  if (s === 'rising' || s === 'fast-rising' || s.includes('rising') || s.includes('+')) return 'green'
+  if (s === 'stable-dominant' || s === 'dominant' || s === 'dominant-consumer' || s === 'leading' || s.includes('dominant')) return 'blue'
+  if (s === 'fatigue' || s === 'decline' || s.includes('decline') || s.includes('caution') || s.includes('−')) return 'red'
+  if (s.includes('watch')) return 'orange'
   if (t === 'resurgent' || t === 'established-growing') return 'gold'
   return 'default'
 }
@@ -244,7 +245,7 @@ function FlavourRadarModule({ data, profile }) {
                 <span className="font-semibold text-navy">{f.name}</span>
               </div>
               <Badge variant={trendVariant(f.trend)}>
-                {f.trend.replace('-', ' ').replace(/^\w/, c => c.toUpperCase())}
+                {(f.trend || '').replace('-', ' ').replace(/^\w/, c => c.toUpperCase())}
               </Badge>
             </div>
             {f.growthSignal && (
@@ -726,7 +727,7 @@ function ModuleTabs({ modules }) {
     <div className="overflow-x-auto whitespace-nowrap mb-6 -mx-4 px-4 lg:mx-0 lg:px-0">
       <div className="flex gap-2">
         {modules.map((m, i) => {
-          const id = `module-${m.type.toLowerCase().replace(/([A-Z])/g, '-$1').replace(/^-/, '').toLowerCase()}`
+          const id = `module-${(m.type || '').toLowerCase().replace(/([A-Z])/g, '-$1').replace(/^-/, '').toLowerCase()}`
           return (
             <button
               key={i}
@@ -898,7 +899,7 @@ export default function ClientProfile({ profile, slug }) {
 
       <div className="space-y-10">
         {modules.map((mod, i) => {
-          const id = `module-${mod.type.toLowerCase().replace(/([A-Z])/g, '-$1').replace(/^-/, '').toLowerCase()}`
+          const id = `module-${(mod.type || '').toLowerCase().replace(/([A-Z])/g, '-$1').replace(/^-/, '').toLowerCase()}`
           const ModuleComponent = MODULE_REGISTRY[mod.type]
           if (!ModuleComponent) {
             return (

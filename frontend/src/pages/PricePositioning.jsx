@@ -272,7 +272,7 @@ export default function PricePositioning() {
                 </h3>
                 <p className="text-sm text-gray-500">
                   {selectedMarket?.currency}{numPrice.toFixed(2)} positions you in the {tier.name.toLowerCase()} segment
-                  ({selectedMarket?.currency}{tier.min}–{selectedMarket?.currency}{tier.max})
+                  ({selectedMarket?.currency}{tier.min}{'–'}{selectedMarket?.currency}{tier.max})
                 </p>
               </div>
             </div>
@@ -351,13 +351,13 @@ export default function PricePositioning() {
                 <TrendingUp size={14} className="text-navy mt-0.5 flex-shrink-0" />
                 <span className="text-sm text-gray-700">
                   Average on-trade pour price: {selectedMarket?.currency}{benchmarks.avgOnTrade.toFixed(2)}.
-                  At {selectedMarket?.currency}{numPrice.toFixed(2)} RRP, your on-trade price should be approximately {selectedMarket?.currency}{(numPrice * 0.3).toFixed(2)}–{selectedMarket?.currency}{(numPrice * 0.4).toFixed(2)} per serve to maintain standard margins.
+                  At {selectedMarket?.currency}{numPrice.toFixed(2)} RRP, your on-trade price should be approximately {selectedMarket?.currency}{(numPrice * 0.3).toFixed(2)}{'–'}{selectedMarket?.currency}{(numPrice * 0.4).toFixed(2)} per serve to maintain standard margins.
                 </span>
               </div>
               <div className="p-3 bg-gray-50 rounded-lg flex gap-2">
                 <Target size={14} className="text-navy mt-0.5 flex-shrink-0" />
                 <span className="text-sm text-gray-700">
-                  Off-trade margin at this price: approximately {selectedMarket?.currency}{(numPrice * 0.35).toFixed(2)}–{selectedMarket?.currency}{(numPrice * 0.45).toFixed(2)} per unit (35–45% gross margin after duty and distribution).
+                  Off-trade margin at this price: approximately {selectedMarket?.currency}{(numPrice * 0.35).toFixed(2)}{'–'}{selectedMarket?.currency}{(numPrice * 0.45).toFixed(2)} per unit (35{'–'}45% gross margin after duty and distribution).
                 </span>
               </div>
             </div>

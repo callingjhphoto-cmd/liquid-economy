@@ -119,7 +119,7 @@ const Module2 = () => (
               <span className="font-semibold text-navy">{f.name}</span>
             </div>
             <Badge
-              label={f.trend.replace('-', ' ').replace(/^\w/, c => c.toUpperCase())}
+              label={(f.trend || '').replace('-', ' ').replace(/^\w/, c => c.toUpperCase())}
               colour={trendColour(f.trend)}
             />
           </div>
@@ -196,7 +196,7 @@ const Module4 = () => (
       <Card>
         <h3 className="text-subsection font-display text-navy mb-3">Ice Programme</h3>
         <div className="space-y-3">
-          {presentationTheatre.iceProgramme.map((ice, i) => (
+          {(presentationTheatre.iceProgramme || []).map((ice, i) => (
             <div key={i} className="border-b border-gray-100 pb-3 last:border-0 last:pb-0">
               <p className="text-body font-semibold text-navy">{ice.format}</p>
               <p className="text-caption text-gray-600 mt-0.5">{ice.specialist}</p>
@@ -211,7 +211,7 @@ const Module4 = () => (
       <Card>
         <h3 className="text-subsection font-display text-navy mb-3">Glassware Hierarchy</h3>
         <div className="space-y-3">
-          {presentationTheatre.glassware.map((g, i) => (
+          {(presentationTheatre.glassware || []).map((g, i) => (
             <div key={i} className="border-b border-gray-100 pb-3 last:border-0 last:pb-0">
               <div className="flex items-start justify-between">
                 <p className="text-body font-semibold text-navy">{g.name}</p>
@@ -228,7 +228,7 @@ const Module4 = () => (
       <Card>
         <h3 className="text-subsection font-display text-navy mb-3">Activation Formats</h3>
         <div className="space-y-3">
-          {presentationTheatre.theatreFormats.map((t, i) => (
+          {(presentationTheatre.theatreFormats || []).map((t, i) => (
             <div key={i} className="border-b border-gray-100 pb-3 last:border-0 last:pb-0">
               <p className="text-body font-semibold text-navy">{t.name}</p>
               <p className="text-caption text-gray-600 mt-0.5 leading-relaxed">{t.description}</p>
@@ -264,7 +264,7 @@ const Module5 = () => (
           <div className="mb-3">
             <p className="text-caption font-semibold text-gray-600 mb-1.5">Dominant cocktails</p>
             <div className="flex flex-wrap gap-1">
-              {era.dominantCocktails.slice(0, 5).map((c) => (
+              {(era.dominantCocktails || []).slice(0, 5).map((c) => (
                 <span key={c} className="text-caption bg-surface border border-gray-200 text-gray-700 px-2 py-0.5 rounded-full">{c}</span>
               ))}
             </div>
@@ -283,7 +283,7 @@ const Module5 = () => (
     <div className="mb-3">
       <h3 className="text-subsection font-display text-navy mb-3">Three Surprising Findings</h3>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {twentyYearArc.surprisingFindings.map((f) => (
+        {(twentyYearArc.surprisingFindings || []).map((f) => (
           <Card key={f.id} style={{ borderLeftColor: f.colour, borderLeftWidth: '3px' }}>
             <p className="text-body font-semibold mb-2" style={{ color: f.colour }}>{f.headline}</p>
             <p className="text-caption text-gray-700 leading-relaxed">{f.detail}</p>

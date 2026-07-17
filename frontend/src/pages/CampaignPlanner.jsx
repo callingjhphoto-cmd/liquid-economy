@@ -1954,7 +1954,7 @@ const CampaignPlanner = () => {
 
       {/* Footer */}
       <div className="text-center py-4 text-xs text-gray-500">
-        Campaign Planner • Liquid Economy Platform
+        Campaign Planner {'•'} Liquid Economy Platform
       </div>
     </div>
   )

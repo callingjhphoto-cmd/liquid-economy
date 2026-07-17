@@ -252,7 +252,7 @@ function PersonasModule({ personas }) {
 function FlavourModule({ flavour }) {
   const radarData = FLAVOUR_KEYS.map((key) => ({
     axis: key.charAt(0).toUpperCase() + key.slice(1),
-    value: flavour.radar[key] || 0,
+    value: (flavour.radar?.[key]) || 0,
   }))
   return (
     <section>
@@ -294,7 +294,7 @@ function FlavourModule({ flavour }) {
           </div>
           <div className="mt-5 space-y-2">
             {FLAVOUR_KEYS.map((key) => {
-              const val = flavour.radar[key] || 0
+              const val = (flavour.radar?.[key]) || 0
               return (
                 <div key={key} className="flex items-center gap-3">
                   <span className="text-label text-gray-500 w-16 capitalize">{key}</span>
@@ -341,7 +341,7 @@ function RecipeModule({ recipe }) {
             <div>
               <p className="text-label text-gray-500 uppercase tracking-wider mb-2">Ingredients</p>
               <div className="space-y-2">
-                {recipe.ingredients.map((ing, i) => (
+                {(recipe.ingredients || []).map((ing, i) => (
                   <div key={i} className="flex items-start justify-between gap-2 py-1.5 border-b border-gray-50 last:border-0">
                     <div>
                       <span className="text-body font-medium text-navy">{ing.item}</span>
@@ -389,11 +389,11 @@ function CommercialModule({ commercial }) {
           <div className="space-y-3">
             <div className="flex items-center justify-between py-2 border-b border-gray-100">
               <span className="text-caption text-gray-600">At home (ingredients)</span>
-              <span className="text-body font-semibold text-navy">&pound;{commercial.priceHome[0]} &ndash; &pound;{commercial.priceHome[1]}</span>
+              <span className="text-body font-semibold text-navy">&pound;{commercial.priceHome?.[0]} &ndash; &pound;{commercial.priceHome?.[1]}</span>
             </div>
             <div className="flex items-center justify-between py-2 border-b border-gray-100">
               <span className="text-caption text-gray-600">On-trade (bar)</span>
-              <span className="text-body font-semibold text-navy">&pound;{commercial.priceOnTrade[0]} &ndash; &pound;{commercial.priceOnTrade[1]}</span>
+              <span className="text-body font-semibold text-navy">&pound;{commercial.priceOnTrade?.[0]} &ndash; &pound;{commercial.priceOnTrade?.[1]}</span>
             </div>
             {commercial.priceOnTradeLuxury && (
               <div className="flex items-center justify-between py-2">

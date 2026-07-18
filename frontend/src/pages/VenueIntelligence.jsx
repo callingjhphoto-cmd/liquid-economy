@@ -263,8 +263,8 @@ export default function VenueIntelligence() {
     return LONDON_VENUES.filter(v => {
       const q = venueSearch.toLowerCase()
       const matchSearch = !q ||
-        v.name.toLowerCase().includes(q) ||
-        v.area.toLowerCase().includes(q) ||
+        (v.name || '').toLowerCase().includes(q) ||
+        (v.area || '').toLowerCase().includes(q) ||
         (v.knownBrands || []).some(b => b.toLowerCase().includes(q))
       const matchAccount = accountFilter === 'All' || v.accountType === accountFilter
       return matchSearch && matchAccount

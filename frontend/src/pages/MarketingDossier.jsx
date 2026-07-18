@@ -62,7 +62,7 @@ export default function MarketingDossier() {
     <DossierLayout
       entry={displayEntry}
       title="Alcohol Marketing Thesis"
-      subtitle="How success is proven — and the campaigns that delivered it"
+      subtitle={"How success is proven — and the campaigns that delivered it"}
       breadcrumbs={breadcrumbs}
       crossLinks={crossLinks}
       relatedTools={[

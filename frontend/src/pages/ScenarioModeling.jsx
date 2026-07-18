@@ -285,7 +285,7 @@ export default function ScenarioModeling() {
                     </div>
                     <div className="bg-gray-50 rounded-lg p-3">
                       <p className="text-xs text-gray-500 uppercase">Markets</p>
-                      <p className="text-sm font-bold text-navy">{sheetTemplate.defaults.markets?.join(', ').toUpperCase()}</p>
+                      <p className="text-sm font-bold text-navy">{(sheetTemplate.defaults.markets?.join(', ') || '').toUpperCase()}</p>
                     </div>
                   </div>
                 )}

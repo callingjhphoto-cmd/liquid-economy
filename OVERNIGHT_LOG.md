@@ -1,3 +1,21 @@
+# Overnight Build Log — 18 July 2026
+
+## Session summary
+
+**Shipped:** 4 null-guard and unicode fixes across 4 pages (build clean, 0 errors, pushed to main). Also recovered and verified 6 prior sessions' commits that had been stranded in detached HEAD but had already been pushed to origin — all are confirmed on main.
+
+1. **ScenarioModeling.jsx:288** — `sheetTemplate.defaults.markets?.join(', ').toUpperCase()`: if `markets` is undefined, optional chaining returns `undefined` and then `.toUpperCase()` throws a TypeError on the mobile bottom sheet. Fixed to `(sheetTemplate.defaults.markets?.join(', ') || '').toUpperCase()`.
+
+2. **VenueIntelligence.jsx:265-267** — `v.name.toLowerCase()` and `v.area.toLowerCase()` in `filteredVenues` useMemo called without null guard. If any LONDON_VENUES entry has name or area as null/undefined, typing in the venue search box crashes the page. Fixed both to `(v.name || '').toLowerCase()` / `(v.area || '').toLowerCase()`.
+
+3. **MarketingDossier.jsx:65** — `subtitle="How success is proven — and the campaigns that delivered it"` contained a bare U+2014 em dash in a JSX attribute string value. Fixed to JSX expression: `subtitle={"How success is proven — and the campaigns that delivered it"}`.
+
+4. **DossiersIndex.jsx:189** — `placeholder="Search brands, groups or categories…"` contained a bare U+2026 horizontal ellipsis in an HTML placeholder attribute. Fixed to ASCII triple dot `...`.
+
+5. **Build:** `vite build` ✓ — 0 errors, 0 warnings (19.23s). Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 17 July 2026
 
 ## Session summary

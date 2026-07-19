@@ -112,17 +112,17 @@ function KpiSummaryCards() {
   const navigate = useNavigate()
 
   // Derive KPIs from data
-  const fastestGrowing = [...CATEGORY_SNAPSHOT].sort((a, b) => {
+  const fastestGrowing = ([...CATEGORY_SNAPSHOT].sort((a, b) => {
     const ag = parseFloat(a.growth)
     const bg = parseFloat(b.growth)
     return bg - ag
-  })[0]
+  })[0]) ?? {}
 
-  const fastestRegion = [...REGIONAL_PULSE].sort((a, b) => {
+  const fastestRegion = ([...REGIONAL_PULSE].sort((a, b) => {
     const ag = parseFloat(a.growth)
     const bg = parseFloat(b.growth)
     return bg - ag
-  })[0]
+  })[0]) ?? {}
 
   const kpis = [
     {

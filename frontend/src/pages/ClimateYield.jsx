@@ -194,8 +194,10 @@ function LiveWeatherPanel({ region }) {
   )
 
   const last30Precip = weather.precip.reduce((a, b) => a + (b || 0), 0).toFixed(0)
-  const avgMax = (weather.maxTemp.filter(t => t !== null).reduce((a, b) => a + b, 0) / weather.maxTemp.filter(t => t !== null).length).toFixed(1)
-  const avgMin = (weather.minTemp.filter(t => t !== null).reduce((a, b) => a + b, 0) / weather.minTemp.filter(t => t !== null).length).toFixed(1)
+  const maxTemps = weather.maxTemp.filter(t => t !== null)
+  const minTemps = weather.minTemp.filter(t => t !== null)
+  const avgMax = (maxTemps.length ? maxTemps.reduce((a, b) => a + b, 0) / maxTemps.length : 0).toFixed(1)
+  const avgMin = (minTemps.length ? minTemps.reduce((a, b) => a + b, 0) / minTemps.length : 0).toFixed(1)
   const frostDays30 = weather.minTemp.filter(t => t !== null && t < 0).length
   const chartData = weather.dates.map((d, i) => ({
     date: d.slice(5),
@@ -222,7 +224,7 @@ function LiveWeatherPanel({ region }) {
         <MetricCard label="Frost Days (30d)" value={String(frostDays30)} icon={Snowflake} />
       </BentoGrid>
 
-      <div className="h-48 mt-4" role="figure" aria-label="Chart: 30-day weather data — temperature and rainfall">
+      <div className="h-48 mt-4" role="figure" aria-label={"Chart: 30-day weather data — temperature and rainfall"}>
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart data={chartData} margin={{ top: 5, right: 5, bottom: 5, left: 0 }} accessibilityLayer={true}>
             <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -348,7 +350,7 @@ function SeasonDetail({ region, year }) {
           <MetricCard label="Yield" value={typeof d.yield === 'number' && d.yield > 100 ? d.yield.toLocaleString() : String(d.yield)} subtitle={region.yieldUnit} icon={Sprout} />
           <MetricCard label="Rainfall" value={`${d.rainfall}mm`} subtitle={d.rainfall > 700 ? 'Above avg' : d.rainfall < 500 ? 'Below avg' : 'Normal'} icon={CloudRain} />
           <MetricCard label="Avg Temp" value={`${d.avgTemp}°C`} icon={Thermometer} />
-          <MetricCard label="Sun Hours" value={d.sunHours.toLocaleString()} icon={Sun} />
+          <MetricCard label="Sun Hours" value={d.sunHours != null ? d.sunHours.toLocaleString() : '—'} icon={Sun} />
         </BentoGrid>
       )}
       <div className="bg-gray-50 rounded-lg p-4">

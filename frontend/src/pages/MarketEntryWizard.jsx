@@ -102,7 +102,7 @@ function Playbook({ category, market }) {
   const pricing = PRICING_STRATEGY[market] || {}
   const competitors = COMPETITOR_LANDSCAPE[market]?.[category] || COMPETITOR_LANDSCAPE['uk']?.[category] || {}
   const costs = COST_BREAKDOWN_WIZARD
-  const marketCosts = costs.estimates[market] || costs.estimates['uk']
+  const marketCosts = costs.estimates[market] || costs.estimates['uk'] || []
   const currency = costs.currency[market] || '£'
   const totalCost = marketCosts.reduce((a, b) => a + b, 0)
   const marketName = TARGET_MARKETS_WIZARD.find(m => m.id === market)?.name || market
@@ -216,7 +216,7 @@ function Playbook({ category, market }) {
                   <div className="font-semibold text-sm text-navy">{d.name}</div>
                   <Badge>{d.minOrder} min</Badge>
                 </div>
-                <div className="text-xs text-gray-500 mb-1">{d.categories.join(', ')}</div>
+                <div className="text-xs text-gray-500 mb-1">{(d.categories || []).join(', ')}</div>
                 <div className="text-xs text-gray-600 mb-1"><span className="font-medium">Terms:</span> {d.terms}</div>
                 <div className="text-xs text-gray-600 mb-1"><span className="font-medium">Key brands:</span> {d.keyBrands}</div>
                 <div className="text-xs text-gray-500">{d.notes}</div>

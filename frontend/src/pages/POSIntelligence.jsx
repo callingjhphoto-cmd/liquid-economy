@@ -355,9 +355,9 @@ export default function POSIntelligence() {
 
   const filteredCompanies = useMemo(() =>
     POS_COMPANIES.filter(c =>
-      c.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      c.speciality.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      c.hq.toLowerCase().includes(searchTerm.toLowerCase())
+      (c.name || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (c.speciality || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (c.hq || '').toLowerCase().includes(searchTerm.toLowerCase())
     ),
     [searchTerm]
   )

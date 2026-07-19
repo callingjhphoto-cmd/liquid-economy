@@ -115,7 +115,7 @@ export default function MarketOverview() {
     <div className="space-y-6 max-w-7xl mx-auto">
       <PageHeader
         title={<span className="inline-flex items-center">Global Drinks Market</span>}
-        subtitle="Total addressable market across all drinks categories — spirits, beer, wine, NoLo, RTD"
+        subtitle={"Total addressable market across all drinks categories — spirits, beer, wine, NoLo, RTD"}
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Market Overview' },
@@ -205,7 +205,7 @@ export default function MarketOverview() {
       </div>
 
       {/* Regional pulse with 10yr CAGR */}
-      <SectionHeader size="lg" subtitle="Regional share of global drinks market · 10-year compound annual growth (2016-2025)">
+      <SectionHeader size="lg" subtitle={"Regional share of global drinks market · 10-year compound annual growth (2016-2025)"}>
         Regional Breakdown {'—'} 10 Year Trend
       </SectionHeader>
 

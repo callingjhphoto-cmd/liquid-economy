@@ -637,7 +637,7 @@ function FullPriceTable({ onClose }) {
           columns={columns}
           data={tableData}
           searchable
-          searchPlaceholder="Search brand, expression, or company…"
+          searchPlaceholder="Search brand, expression, or company..."
           searchKey="brand"
           emptyMessage="No brands match your filters."
           compact
@@ -765,7 +765,7 @@ export default function BrandPricing() {
   if (loading) {
     return (
       <div className="space-y-6">
-        <PageHeader title="Brand Pricing Monitor" subtitle="Loading pricing data…" />
+        <PageHeader title="Brand Pricing Monitor" subtitle="Loading pricing data..." />
         <BentoGrid>
           <SkeletonCard />
           <SkeletonCard />

@@ -641,7 +641,7 @@ export default function GeographicIntelligence() {
   if (loading) {
     return (
       <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto space-y-6">
-        <PageHeader title="Geographic Intelligence" subtitle="Loading markets…" />
+        <PageHeader title="Geographic Intelligence" subtitle="Loading markets..." />
         <BentoGrid>
           <BentoGrid.Hero><SkeletonCard className="h-40" /></BentoGrid.Hero>
           <SkeletonCard />
@@ -718,7 +718,7 @@ export default function GeographicIntelligence() {
         <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
         <input
           type="text"
-          placeholder="Search markets…"
+          placeholder="Search markets..."
           value={searchTerm}
           onChange={e => setSearchTerm(e.target.value)}
           className="w-full pl-11 pr-4 py-3 text-sm border border-gray-200 rounded-xl bg-white focus:outline-none focus:border-navy/30 focus:shadow-sm transition-all"

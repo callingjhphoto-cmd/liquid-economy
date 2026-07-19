@@ -379,7 +379,7 @@ export default function POSIntelligence() {
   if (loading) {
     return (
       <div className="space-y-6">
-        <PageHeader title="POS Manufacturing Intelligence" subtitle="Loading data…" />
+        <PageHeader title="POS Manufacturing Intelligence" subtitle="Loading data..." />
         <BentoGrid>
           <SkeletonCard />
           <SkeletonCard />
@@ -397,7 +397,7 @@ export default function POSIntelligence() {
       {/* ─── TIER 1: Hero + KPIs ─────────────────────────────────────────── */}
       <PageHeader
         title="POS Manufacturing Intelligence"
-        subtitle="Factory directory, sourcing strategy & market disruption for spirits POS · Data as of April 2026"
+        subtitle={"Factory directory, sourcing strategy & market disruption for spirits POS · Data as of April 2026"}
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'POS Intelligence' }

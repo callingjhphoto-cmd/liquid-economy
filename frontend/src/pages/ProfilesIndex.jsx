@@ -52,7 +52,7 @@ export default function ProfilesIndex() {
     <div className="max-w-7xl mx-auto">
       <PageHeader
         title="Client Profiles"
-        subtitle="Each profile is a personalised lens over Liquid Economy’s full category intelligence. Curated for a specific client, archetype, and scope — linking through to the underlying data at every point."
+        subtitle={"Each profile is a personalised lens over Liquid Economy’s full category intelligence. Curated for a specific client, archetype, and scope — linking through to the underlying data at every point."}
         breadcrumbs={[
           { label: 'Dashboard', to: '/' },
           { label: 'Client Profiles' },

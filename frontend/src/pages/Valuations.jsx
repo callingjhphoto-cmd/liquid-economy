@@ -83,7 +83,7 @@ export default function Valuations() {
   if (loading) {
     return (
       <div className="space-y-6">
-        <PageHeader title="Valuations & M&A Intelligence" subtitle="Loading valuation data…" />
+        <PageHeader title="Valuations & M&A Intelligence" subtitle="Loading valuation data..." />
         <BentoGrid>
           <BentoGrid.Hero><SkeletonCard className="h-40" /></BentoGrid.Hero>
           <SkeletonCard />
@@ -102,7 +102,7 @@ export default function Valuations() {
     <div className="space-y-6 max-w-7xl mx-auto">
       <PageHeader
         title="Valuations & M&A Intelligence"
-        subtitle="Brand valuations, sector multiples, deal benchmarks, and methodology analysis · Data as of April 2026"
+        subtitle={"Brand valuations, sector multiples, deal benchmarks, and methodology analysis · Data as of April 2026"}
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Valuations' },

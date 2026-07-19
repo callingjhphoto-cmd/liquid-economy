@@ -202,7 +202,7 @@ function InventoryTrackerChart() {
   return (
     <ChartCard
       title="Global Spirits Inventory Tracker"
-      subtitle="Combined inventory across 5 major public companies (2020–2025). The $22B overhang."
+      subtitle={"Combined inventory across 5 major public companies (2020–2025). The $22B overhang."}
       height={320}
       source="Company annual reports, FT analysis"
       sourceUrl="https://www.ft.com"

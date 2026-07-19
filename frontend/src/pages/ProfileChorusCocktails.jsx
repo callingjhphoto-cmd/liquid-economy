@@ -51,7 +51,7 @@ const Module1 = () => {
   return (
     <section id="top20">
       <SectionHeader
-        title="Top 20 Cocktails — Global Ranking 2024–2026"
+        title={"Top 20 Cocktails — Global Ranking 2024–2026"}
         sub="Sources: Drinks International World’s 50 Best Bars Brand Report · Difford’s Guide (700k+ monthly searches) · IWSR"
       />
       <Card className="overflow-x-auto p-0">
@@ -107,7 +107,7 @@ const Module1 = () => {
 const Module2 = () => (
   <section id="flavours">
     <SectionHeader
-      title="Flavour Families — 2025–2026 Intelligence"
+      title={"Flavour Families — 2025–2026 Intelligence"}
       sub="Sources: Bacardi Cocktail Trends Report · Tales of the Cocktail 2025 · W50B menu analysis"
     />
     <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
@@ -249,7 +249,7 @@ const Module4 = () => (
 const Module5 = () => (
   <section id="trend-arc">
     <SectionHeader
-      title="20-Year Cocktail Trend Arc — 2006–2026"
+      title={"20-Year Cocktail Trend Arc — 2006–2026"}
       sub="Six eras of luxury on-premise evolution · Source: Drinks International, Difford’s Guide, IWSR, World’s 50 Best Bars, Tales of the Cocktail, CGA by NIQ"
     />
 

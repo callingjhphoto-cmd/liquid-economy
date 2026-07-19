@@ -152,7 +152,7 @@ export default function SupplyChain() {
   if (loading) {
     return (
       <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto space-y-6">
-        <PageHeader title="Supply Chain & COGS Matrix" subtitle="Loading supply chain data…" />
+        <PageHeader title="Supply Chain & COGS Matrix" subtitle="Loading supply chain data..." />
         <BentoGrid>
           <BentoGrid.Hero><SkeletonCard className="h-40" /></BentoGrid.Hero>
           <SkeletonCard />

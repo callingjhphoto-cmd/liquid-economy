@@ -602,7 +602,7 @@ export default function ClimateYield() {
     <div className="max-w-7xl mx-auto space-y-6">
       <PageHeader
         title="Climate & Yield Intelligence"
-        subtitle="Agricultural inputs, weather patterns, and forward-looking yield analysis for every major spirits category · Data as of April 2026"
+        subtitle={"Agricultural inputs, weather patterns, and forward-looking yield analysis for every major spirits category · Data as of April 2026"}
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Climate & Yield' }
@@ -643,7 +643,7 @@ export default function ClimateYield() {
             <MetricCard
               label="Data Depth"
               value="10 Years"
-              subtitle="2016–2025 + live weather"
+              subtitle={"2016–2025 + live weather"}
               icon={Calendar}
             />
             <MetricCard

@@ -334,7 +334,7 @@ function MarketTrendChart({ catKey }) {
   return (
     <ChartCard
       title="5-Year Market Trend"
-      subtitle="Market size ($B) · 2021–2025"
+      subtitle={"Market size ($B) · 2021–2025"}
       source="IWSR / Euromonitor"
       tableData={data}
       tableColumns={[
@@ -376,7 +376,7 @@ function ChannelChart({ catKey }) {
   return (
     <ChartCard
       title="Channel Distribution"
-      subtitle="% share by channel · 2021–2025"
+      subtitle={"% share by channel · 2021–2025"}
       source="IWSR"
       tableData={data}
       tableColumns={[
@@ -1135,7 +1135,7 @@ export default function CategoryIntelligence() {
   if (loading) {
     return (
       <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto space-y-6">
-        <PageHeader title="Category Intelligence" subtitle="Loading categories…" />
+        <PageHeader title="Category Intelligence" subtitle="Loading categories..." />
         <BentoGrid>
           <BentoGrid.Hero><SkeletonCard className="h-40" /></BentoGrid.Hero>
           <SkeletonCard />

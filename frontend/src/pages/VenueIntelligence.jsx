@@ -363,7 +363,7 @@ export default function VenueIntelligence() {
   if (loading) {
     return (
       <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto space-y-6">
-        <PageHeader title="Venue & On-Trade Intelligence" subtitle="Loading venue data…" />
+        <PageHeader title="Venue & On-Trade Intelligence" subtitle="Loading venue data..." />
         <BentoGrid>
           <BentoGrid.Hero><SkeletonCard className="h-40" /></BentoGrid.Hero>
           <SkeletonCard />
@@ -396,7 +396,7 @@ export default function VenueIntelligence() {
         <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
         <input
           type="text"
-          placeholder="Search venues, areas, brands, or companies…"
+          placeholder="Search venues, areas, brands, or companies..."
           value={venueSearch}
           onChange={e => setVenueSearch(e.target.value)}
           className="w-full pl-12 pr-4 py-3.5 bg-white border border-gray-200 rounded-xl text-sm shadow-sm focus:ring-2 focus:ring-navy/20 focus:border-navy transition-all"
@@ -912,7 +912,7 @@ export default function VenueIntelligence() {
           {/* --- Longitudinal Trends --- */}
           <ErrorBoundary message="Longitudinal trends failed to load.">
           <DrillDown
-            title="Longitudinal Trends (2021–2025)"
+            title={"Longitudinal Trends (2021–2025)"}
             summary="Regional shifts, city dominance heatmap, geographic trends"
           >
             <div className="space-y-6">
@@ -998,7 +998,7 @@ export default function VenueIntelligence() {
 
               {/* Corporate vs Independent + Penetration charts */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <ChartCard title="Corporate vs Independent (2021–2025)" height={250}>
+                <ChartCard title={"Corporate vs Independent (2021–2025)"} height={250}>
                   <BarChart data={independentVsCorporate} accessibilityLayer={true}>
                     <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#9ca3af' }} />
                     <YAxis domain={[0, 50]} tick={{ fontSize: 11, fill: '#9ca3af' }} />

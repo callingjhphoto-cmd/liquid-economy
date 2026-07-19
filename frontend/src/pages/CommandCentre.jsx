@@ -735,7 +735,7 @@ function InsightBriefing({ briefing, onClose, triggerRef }) {
             </div>
           </div>
           <div className="flex items-center gap-1">
-            <button onClick={() => { navigator.clipboard.writeText(`${briefing.title}\n\n${briefing.summary}\n\n${briefing.keyPoints.join('\n')}\n\n${briefing.actionable}`) }} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-600 hover:text-navy transition-colors touch-manipulation" title="Copy to clipboard" aria-label="Copy briefing to clipboard">
+            <button onClick={() => { navigator.clipboard.writeText(`${briefing.title}\n\n${briefing.summary}\n\n${(briefing.keyPoints || []).join('\n')}\n\n${briefing.actionable}`) }} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-600 hover:text-navy transition-colors touch-manipulation" title="Copy to clipboard" aria-label="Copy briefing to clipboard">
               <Copy size={14} />
             </button>
             <button ref={closeRef} onClick={handleClose} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-600 hover:text-navy transition-colors touch-manipulation" aria-label="Close briefing panel">
@@ -754,7 +754,7 @@ function InsightBriefing({ briefing, onClose, triggerRef }) {
               Key Intelligence Points
             </h4>
             <div className="space-y-2">
-              {briefing.keyPoints.map((point, i) => (
+              {(briefing.keyPoints || []).map((point, i) => (
                 <div key={i} className="flex gap-2 text-xs text-gray-700 bg-gray-50 rounded-lg p-3">
                   <span className="text-gold font-bold mt-0.5">{i + 1}.</span>
                   <span className="leading-relaxed">{point}</span>
@@ -772,7 +772,7 @@ function InsightBriefing({ briefing, onClose, triggerRef }) {
           <div>
             <h4 className="text-micro font-bold text-gray-500 uppercase tracking-wide mb-1.5">Sources</h4>
             <div className="flex flex-wrap gap-1.5">
-              {briefing.sources.map((src, i) => (
+              {(briefing.sources || []).map((src, i) => (
                 <span key={i} className="text-micro bg-gray-100 text-gray-600 px-2 py-1 rounded-full">{src}</span>
               ))}
             </div>
@@ -813,7 +813,7 @@ export default function CommandCentre() {
             <div>
               <p className="text-xs font-bold text-navy mb-1.5">Key Intelligence Points</p>
               <div className="space-y-1.5">
-                {briefing.keyPoints.map((point, i) => (
+                {(briefing.keyPoints || []).map((point, i) => (
                   <div key={i} className="flex gap-2 text-xs text-gray-700 bg-gray-50 rounded-lg p-2.5">
                     <span className="text-gold font-bold">{i + 1}.</span>
                     <span className="leading-relaxed">{point}</span>
@@ -826,7 +826,7 @@ export default function CommandCentre() {
               <p className="text-xs text-navy leading-relaxed">{briefing.actionable}</p>
             </div>
             <div className="flex flex-wrap gap-1">
-              {briefing.sources.map((src, i) => (
+              {(briefing.sources || []).map((src, i) => (
                 <span key={i} className="text-micro bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{src}</span>
               ))}
             </div>
@@ -843,7 +843,7 @@ export default function CommandCentre() {
       <div className="space-y-6">
         <PageHeader
           title="Command Centre"
-          subtitle="Loading intelligence…"
+          subtitle="Loading intelligence..."
         />
         <BentoGrid>
           <BentoGrid.Hero><SkeletonCard className="h-40" /></BentoGrid.Hero>

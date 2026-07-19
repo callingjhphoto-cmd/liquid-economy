@@ -156,8 +156,8 @@ function TopCocktailsModule({ data, profile }) {
   return (
     <section id="module-top-cocktails">
       <ModuleHeader
-        title="Top 20 Cocktails — Global Ranking 2024–2026"
-        subtitle="Elite on-premise ranking + consumer search intent — two independent panels cross-referenced"
+        title={"Top 20 Cocktails — Global Ranking 2024–2026"}
+        subtitle={"Elite on-premise ranking + consumer search intent — two independent panels cross-referenced"}
         linkTo="/categories?category=cocktails"
       />
       <ModuleSources keys={data.sourceKeys} registry={registry} />
@@ -231,7 +231,7 @@ function FlavourRadarModule({ data, profile }) {
   return (
     <section id="module-flavour-radar">
       <ModuleHeader
-        title="Flavour Families — 2025–2026 Intelligence"
+        title={"Flavour Families — 2025–2026 Intelligence"}
         subtitle="Seven families ranked by growth signal and luxury-event applicability"
         linkTo="/categories"
       />
@@ -401,7 +401,7 @@ function TrendArcModule({ data, profile }) {
   return (
     <section id="module-trend-arc">
       <ModuleHeader
-        title="20-Year Cocktail Trend Arc — 2006–2026"
+        title={"20-Year Cocktail Trend Arc — 2006–2026"}
         subtitle="Six eras of luxury on-premise evolution"
         linkTo="/categories"
       />
@@ -492,7 +492,7 @@ function CompetitorWatchModule({ data }) {
     <section id="module-competitor-watch">
       <ModuleHeader
         title="Competitor Watch"
-        subtitle="Brand-level positioning and threat signals · Volume data gap flagged"
+        subtitle={"Brand-level positioning and threat signals · Volume data gap flagged"}
         linkTo="/competitors"
       />
       {data.note && (
@@ -666,7 +666,7 @@ function OpportunityRadarModule({ data, profile }) {
     <section id="module-opportunity-radar">
       <ModuleHeader
         title="Opportunity Radar"
-        subtitle="Commercial narratives — signal, adjacency, demographic, product, brief, and media reallocation"
+        subtitle={"Commercial narratives — signal, adjacency, demographic, product, brief, and media reallocation"}
       />
       <ModuleSources keys={data.sourceKeys} registry={registry} />
       <div className="space-y-4">

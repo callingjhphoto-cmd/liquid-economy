@@ -1,3 +1,22 @@
+# Overnight Build Log — 19 July 2026
+
+## Session summary
+
+**Shipped:** 35 unicode violations + 5 null-guard fixes across 16 pages (build clean, 0 errors, pushed to main).
+
+1. **Unicode violations — ellipsis (…) → ASCII (...) in loading-state attribute strings (13 fixes across 9 files).**
+   `BrandPricing.jsx:640,768` (searchPlaceholder and subtitle); `CategoryIntelligence.jsx:1138` (subtitle); `CommandCentre.jsx:846` (subtitle); `Companies.jsx:923,999` (subtitle and placeholder); `GeographicIntelligence.jsx:644,721` (subtitle and placeholder); `POSIntelligence.jsx:382` (subtitle); `SupplyChain.jsx:155` (subtitle); `Valuations.jsx:86` (subtitle); `VenueIntelligence.jsx:366,399` (subtitle and placeholder). All bare U+2026 ellipsis in JSX attribute strings replaced with ASCII triple-dot.
+
+2. **Unicode violations — em-dash (—), en-dash (–), middle-dot (·) in JSX attribute strings (22 fixes across 11 files).**
+   These JSX string attributes contained literal U+2014/U+2013/U+00B7 chars. All converted to JSX expression form `={"..."}`: `CategoryIntelligence.jsx:337,379` (ChartCard subtitles with · and –); `ClientProfile.jsx:159,160,234,404,495,669` (ModuleHeader title/subtitle with —, –, ·); `ClimateYield.jsx:605,646` (PageHeader subtitle with · and MetricCard subtitle with –); `Financials.jsx:205` (ChartCard subtitle with –); `MarginCalculator.jsx:287` (PageHeader subtitle with ·); `MarketOverview.jsx:118,208` (PageHeader subtitle with — and SectionHeader subtitle with ·); `POSIntelligence.jsx:400` (PageHeader subtitle with ·); `ProfileChorusCocktails.jsx:54,110,252` (SectionHeader titles with — and –); `ProfilesIndex.jsx:55` (PageHeader subtitle with —); `Valuations.jsx:105` (PageHeader subtitle with ·); `VenueIntelligence.jsx:915,1001` (DrillDown title and ChartCard title with –).
+
+3. **Null-guard fixes — CommandCentre.jsx:738,757,775,816,829 (5 fixes).**
+   `InsightBriefing` component called `briefing.keyPoints.join('\n')` in clipboard handler and `briefing.keyPoints.map(...)` in both the desktop slide-out panel and the mobile BottomSheet render — if any `INSIGHT_BRIEFINGS` entry lacked the `keyPoints` array, opening a briefing would crash. Similarly `briefing.sources.map(...)` in both render paths. Fixed all five call sites with `(briefing.keyPoints || [])` and `(briefing.sources || [])` fallbacks.
+
+4. **Build:** `vite build` ✓ — 0 errors, 0 warnings (12.74s). Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 18 July 2026
 
 ## Session summary

@@ -2,7 +2,7 @@
 
 ## Session summary
 
-**Shipped:** 35 unicode violations + 5 null-guard fixes across 16 pages (build clean, 0 errors, pushed to main).
+**Shipped:** 42 unicode violations + 12 null-guard fixes across 19 pages (2 builds clean, 0 errors, pushed to main).
 
 1. **Unicode violations — ellipsis (…) → ASCII (...) in loading-state attribute strings (13 fixes across 9 files).**
    `BrandPricing.jsx:640,768` (searchPlaceholder and subtitle); `CategoryIntelligence.jsx:1138` (subtitle); `CommandCentre.jsx:846` (subtitle); `Companies.jsx:923,999` (subtitle and placeholder); `GeographicIntelligence.jsx:644,721` (subtitle and placeholder); `POSIntelligence.jsx:382` (subtitle); `SupplyChain.jsx:155` (subtitle); `Valuations.jsx:86` (subtitle); `VenueIntelligence.jsx:366,399` (subtitle and placeholder). All bare U+2026 ellipsis in JSX attribute strings replaced with ASCII triple-dot.
@@ -13,7 +13,10 @@
 3. **Null-guard fixes — CommandCentre.jsx:738,757,775,816,829 (5 fixes).**
    `InsightBriefing` component called `briefing.keyPoints.join('\n')` in clipboard handler and `briefing.keyPoints.map(...)` in both the desktop slide-out panel and the mobile BottomSheet render — if any `INSIGHT_BRIEFINGS` entry lacked the `keyPoints` array, opening a briefing would crash. Similarly `briefing.sources.map(...)` in both render paths. Fixed all five call sites with `(briefing.keyPoints || [])` and `(briefing.sources || [])` fallbacks.
 
-4. **Build:** `vite build` ✓ — 0 errors, 0 warnings (12.74s). Pushed to main; Railway auto-deploy triggered.
+4. **Second pass — 7 more bugs from scan-agent findings (ClimateYield, POSIntelligence, MarketEntryWizard, CommandCentre).**
+   `ClimateYield.jsx:225` aria-label em dash wrapped in `{""}`; `ClimateYield.jsx:197-198` division-by-zero in `avgMax`/`avgMin` (all-null Open-Meteo response) fixed by caching filtered arrays and guarding; `ClimateYield.jsx:351` `d.sunHours.toLocaleString()` null guard added; `POSIntelligence.jsx:358-360` `c.name/speciality/hq.toLowerCase()` in `filteredCompanies` useMemo guarded with `(c.field || '')`; `MarketEntryWizard.jsx:105` `marketCosts` terminal `|| []` fallback before `.reduce()`; `MarketEntryWizard.jsx:219` `d.categories.join()` guarded; `CommandCentre.jsx:115-125` `fastestGrowing`/`fastestRegion` sort `[0]` result guarded with `?? {}`.
+
+5. **Build (second):** `vite build` ✓ — 0 errors, 0 warnings (13.83s). Pushed to main; Railway auto-deploy triggered.
 
 ---
 

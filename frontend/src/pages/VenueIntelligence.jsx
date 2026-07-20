@@ -640,7 +640,7 @@ export default function VenueIntelligence() {
                   columns={fiftyBestColumns}
                   data={FIFTY_BEST_BARS[selectedYear] || []}
                   searchable
-                  searchPlaceholder="Search bars…"
+                  searchPlaceholder="Search bars..."
                   searchKey="name"
                   compact
                   exportable
@@ -701,7 +701,7 @@ export default function VenueIntelligence() {
                   columns={venueTableColumns}
                   data={LONDON_VENUES}
                   searchable
-                  searchPlaceholder="Search venues…"
+                  searchPlaceholder="Search venues..."
                   searchKey="name"
                   compact
                   exportable

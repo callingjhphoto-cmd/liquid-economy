@@ -755,7 +755,7 @@ export default function ScenarioModeling() {
                   ]}
                   data={UK_REGIONS}
                   searchable
-                  searchPlaceholder="Search cities…"
+                  searchPlaceholder="Search cities..."
                   searchKey="name"
                 />
               </DrillDown>

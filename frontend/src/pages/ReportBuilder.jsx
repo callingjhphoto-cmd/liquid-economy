@@ -185,7 +185,7 @@ export default function ReportBuilder() {
                           <div className="grid grid-cols-2 gap-3">
                             <div className="bg-gray-50 rounded-lg p-2.5">
                               <div className="text-xs text-gray-500">Sections</div>
-                              <div className="text-xs font-semibold text-navy">{template.sections.length}</div>
+                              <div className="text-xs font-semibold text-navy">{(template.sections || []).length}</div>
                             </div>
                             <div className="bg-gray-50 rounded-lg p-2.5">
                               <div className="text-xs text-gray-500">Est. Pages</div>
@@ -195,7 +195,7 @@ export default function ReportBuilder() {
                           <div>
                             <div className="text-xs text-gray-500 mb-2">Report structure:</div>
                             <div className="flex flex-wrap gap-1.5">
-                              {template.sections.map((section, i) => (
+                              {(template.sections || []).map((section, i) => (
                                 <span key={i} className="px-2 py-1 bg-white border border-gray-100 rounded text-micro text-navy font-medium">
                                   {i + 1}. {section}
                                 </span>
@@ -230,7 +230,7 @@ export default function ReportBuilder() {
                 </div>
                 <p className="text-xs text-gray-500 leading-relaxed">{template.description}</p>
                 <div className="flex items-center gap-3 mt-3 pt-2 border-t border-gray-50">
-                  <span className="text-xs text-gray-500">{template.sections.length} sections</span>
+                  <span className="text-xs text-gray-500">{(template.sections || []).length} sections</span>
                   <span className="text-xs text-gray-500">{'•'}</span>
                   <span className="text-xs text-gray-500">~{template.estimatedPages} pages</span>
                   {isActive && (
@@ -268,7 +268,7 @@ export default function ReportBuilder() {
               </div>
               <div className="bg-gray-50 rounded-lg p-2.5">
                 <div className="text-xs text-gray-500">Sections</div>
-                <div className="text-xs font-semibold text-navy">{activeTemplate?.sections.length || 0}</div>
+                <div className="text-xs font-semibold text-navy">{activeTemplate?.sections?.length || 0}</div>
               </div>
               <div className="bg-gray-50 rounded-lg p-2.5">
                 <div className="text-xs text-gray-500">Categories Available</div>
@@ -283,7 +283,7 @@ export default function ReportBuilder() {
             {/* Section list */}
             <div className="text-xs text-gray-500 mb-2">Report structure:</div>
             <div className="flex flex-wrap gap-1.5">
-              {activeTemplate?.sections.map((section, i) => (
+              {activeTemplate?.sections?.map((section, i) => (
                 <span key={i} className="px-2 py-1 bg-white border border-gray-100 rounded text-micro text-navy font-medium">
                   {i + 1}. {section}
                 </span>

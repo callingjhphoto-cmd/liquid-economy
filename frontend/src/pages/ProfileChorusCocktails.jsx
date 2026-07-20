@@ -52,7 +52,7 @@ const Module1 = () => {
     <section id="top20">
       <SectionHeader
         title={"Top 20 Cocktails — Global Ranking 2024–2026"}
-        sub="Sources: Drinks International World’s 50 Best Bars Brand Report · Difford’s Guide (700k+ monthly searches) · IWSR"
+        sub={"Sources: Drinks International World’s 50 Best Bars Brand Report · Difford’s Guide (700k+ monthly searches) · IWSR"}
       />
       <Card className="overflow-x-auto p-0">
         <table className="w-full text-body">
@@ -108,7 +108,7 @@ const Module2 = () => (
   <section id="flavours">
     <SectionHeader
       title={"Flavour Families — 2025–2026 Intelligence"}
-      sub="Sources: Bacardi Cocktail Trends Report · Tales of the Cocktail 2025 · W50B menu analysis"
+      sub={"Sources: Bacardi Cocktail Trends Report · Tales of the Cocktail 2025 · W50B menu analysis"}
     />
     <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
       {flavourFamilies.map((f) => (
@@ -250,7 +250,7 @@ const Module5 = () => (
   <section id="trend-arc">
     <SectionHeader
       title={"20-Year Cocktail Trend Arc — 2006–2026"}
-      sub="Six eras of luxury on-premise evolution · Source: Drinks International, Difford’s Guide, IWSR, World’s 50 Best Bars, Tales of the Cocktail, CGA by NIQ"
+      sub={"Six eras of luxury on-premise evolution · Source: Drinks International, Difford’s Guide, IWSR, World’s 50 Best Bars, Tales of the Cocktail, CGA by NIQ"}
     />
 
     {/* Era timeline cards */}
@@ -302,7 +302,7 @@ const Module6 = () => (
   <section id="opportunity-radar">
     <SectionHeader
       title="Opportunity Radar"
-      sub="Three actionable signals — each with migration path, product, brief, and reallocation logic"
+      sub={"Three actionable signals — each with migration path, product, brief, and reallocation logic"}
     />
     <div className="space-y-4">
       {opportunityRadar.map((o) => (

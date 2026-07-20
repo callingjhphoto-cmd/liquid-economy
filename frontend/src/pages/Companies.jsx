@@ -58,10 +58,12 @@ const OPP_VARIANTS = { Highest: 'green', High: 'blue', Moderate: 'orange' }
 /* ── Derived Stats ── */
 const totalCompanies = COMPANIES.length
 const totalRevenue = COMPANIES.reduce((s, c) => s + parseRevenue(c.revenue), 0)
-const avgMargin = (COMPANIES.reduce((s, c) => {
-  const f = c.financials && c.financials['2025']
-  return s + (f ? f.operatingMargin : 0)
-}, 0) / COMPANIES.length).toFixed(1)
+const avgMargin = COMPANIES.length
+  ? (COMPANIES.reduce((s, c) => {
+      const f = c.financials && c.financials['2025']
+      return s + (f ? f.operatingMargin : 0)
+    }, 0) / COMPANIES.length).toFixed(1)
+  : '0.0'
 const highestGrowth = [...COMPANIES].sort((a, b) => {
   const ag = parseFloat(String(a.revenueGrowth).replace(/[^-\d.]/g, '')) || 0
   const bg = parseFloat(String(b.revenueGrowth).replace(/[^-\d.]/g, '')) || 0
@@ -74,7 +76,7 @@ const mostMACompany = [...COMPANIES].sort((a, b) =>
 
 /* ── Liquid Intelligence derived values ── */
 const liGrowingCount = COMPANIES.filter(c => c.revenueGrowth && !String(c.revenueGrowth).startsWith('-')).length
-const liGrowingPct = Math.round((liGrowingCount / COMPANIES.length) * 100)
+const liGrowingPct = COMPANIES.length ? Math.round((liGrowingCount / COMPANIES.length) * 100) : 0
 const liAvgMargin = parseFloat(avgMargin)
 const liRecentAcqCount = COMPANIES.reduce((s, c) =>
   s + (c.maTimeline ? c.maTimeline.filter(m => m.type === 'acquisition' && m.year >= 2024).length : 0), 0
@@ -553,7 +555,7 @@ function CompanyTier3({ company, onClose }) {
 
   const financials = company.financials || {}
   const years = Object.keys(financials).sort()
-  const chartData = years.map(y => ({
+  const chartData = years.filter(y => financials[y]).map(y => ({
     year: y,
     revenue: financials[y].revenue,
     margin: financials[y].operatingMargin,
@@ -657,7 +659,7 @@ function CompanyTier3({ company, onClose }) {
                   columns={maColumns}
                   data={company.maTimeline}
                   searchable
-                  searchPlaceholder="Search M&A history…"
+                  searchPlaceholder="Search M&A history..."
                   searchKey="deal"
                   compact
                   exportable

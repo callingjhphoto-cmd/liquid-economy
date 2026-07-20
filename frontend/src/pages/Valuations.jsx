@@ -377,7 +377,7 @@ export default function Valuations() {
             ]}
             data={filteredDeals}
             searchable
-            searchPlaceholder="Search deals…"
+            searchPlaceholder="Search deals..."
             searchKey="target"
             compact
             exportable
@@ -496,7 +496,7 @@ function FullBrandTable() {
       ]}
       data={BRAND_VALUATIONS}
       searchable
-      searchPlaceholder="Search brands…"
+      searchPlaceholder="Search brands..."
       searchKey="brand"
       exportable
     />

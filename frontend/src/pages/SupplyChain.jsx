@@ -474,7 +474,7 @@ export default function SupplyChain() {
               columns={commodityTableColumns}
               data={commodityTableData}
               searchable
-              searchPlaceholder="Search commodities…"
+              searchPlaceholder="Search commodities..."
               searchKey="label"
               exportable
             />
@@ -558,7 +558,7 @@ export default function SupplyChain() {
                     <div><strong>Lead time:</strong> {s.leadTime}</div>
                     <div><strong>Min order:</strong> {s.minimumOrder}</div>
                     <div><strong>Capacity:</strong> {s.capacity}</div>
-                    <div><strong>Key clients:</strong> {s.keyClients.join(', ')}</div>
+                    <div><strong>Key clients:</strong> {(s.keyClients || []).join(', ')}</div>
                   </div>
                 </Card>
               ))}
@@ -675,7 +675,7 @@ export default function SupplyChain() {
               columns={marginColumns}
               data={MARGIN_ALERTS}
               searchable
-              searchPlaceholder="Search brands…"
+              searchPlaceholder="Search brands..."
               searchKey="brand"
               exportable
             />

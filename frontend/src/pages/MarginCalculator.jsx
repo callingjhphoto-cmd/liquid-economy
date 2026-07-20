@@ -731,7 +731,7 @@ export default function MarginCalculator() {
               columns={crossCatColumns}
               data={crossCatData}
               searchable
-              searchPlaceholder="Search categories…"
+              searchPlaceholder="Search categories..."
               searchKey="category"
             />
           </div>

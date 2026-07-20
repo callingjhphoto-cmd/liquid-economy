@@ -110,7 +110,7 @@ function RegionCardTier1({ region, data, onClick, isHighlighted }) {
   const marketSize = data && data.kpis && data.kpis[0] ? data.kpis[0].value : '—'
   const growth = data && data.kpis && data.kpis[0] ? data.kpis[0].change : 0
   const isGrowing = growth > 0
-  const topBrand = data && data.topBrands ? data.topBrands[0] : '—'
+  const topBrand = data?.topBrands?.[0] || '—'
   const topCategory = data && data.kpis && data.kpis[2] ? data.kpis[2].label : ''
 
   return (
@@ -202,7 +202,7 @@ function RegionTier2({ region, data, onClose, onViewFull }) {
                 <div className="text-xs text-gray-500 uppercase tracking-wide">{kpi.label}</div>
                 <div className="text-sm font-bold text-navy tabular-nums">{kpi.value}</div>
                 <div className={`text-xs font-medium ${kpi.changeDir === 'up' ? 'text-emerald-600' : 'text-red-500'}`}>
-                  {kpi.change > 0 ? '+' : ''}{kpi.change}%
+                  {kpi.change != null ? `${kpi.change > 0 ? '+' : ''}${kpi.change}%` : '—'}
                 </div>
               </div>
             ))}
@@ -625,8 +625,8 @@ export default function GeographicIntelligence() {
     if (!searchTerm) return REGIONS
     const q = searchTerm.toLowerCase()
     return REGIONS.filter(r =>
-      r.name.toLowerCase().includes(q) ||
-      r.summary.toLowerCase().includes(q)
+      (r.name || '').toLowerCase().includes(q) ||
+      (r.summary || '').toLowerCase().includes(q)
     )
   }, [searchTerm])
 

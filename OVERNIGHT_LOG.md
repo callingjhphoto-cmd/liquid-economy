@@ -1,3 +1,25 @@
+# Overnight Build Log — 20 July 2026
+
+## Session summary
+
+**Shipped:** 14 unicode violations + 9 null-guard crash fixes across 10 pages (build clean, 0 errors, pushed to main).
+
+1. **Unicode violations — 10 searchPlaceholder ellipsis in JSX attrs (10 fixes across 7 files).**
+   `Companies.jsx:660` (searchPlaceholder "Search M&A history..."); `MarginCalculator.jsx:734` (searchPlaceholder "Search categories..."); `ScenarioModeling.jsx:758` (searchPlaceholder "Search cities..."); `SupplyChain.jsx:477,678` (searchPlaceholders "Search commodities...", "Search brands..."); `Valuations.jsx:380,499` (searchPlaceholders "Search deals...", "Search brands..."); `VenueIntelligence.jsx:643,704` (searchPlaceholders "Search bars...", "Search venues..."). All bare U+2026 ellipsis in JSX attribute string values replaced with ASCII triple-dot.
+
+2. **Unicode violations — GuestLockedPage.jsx:19 em-dash in mailto subject → hyphen.**
+   `href="mailto:james@huertas.co.uk?subject=Liquid Economy — Full Access Request"` contained a bare U+2014 em-dash which can cause mailto URL encoding issues across email clients. Replaced with ASCII hyphen.
+
+3. **Unicode violations — ProfileChorusCocktails.jsx: 4 sub= attrs with · and — converted to JSX expressions.**
+   Module 1 (Top 20 table), Module 2 (Flavour Families), Module 5 (Trend Arc), and Module 6 (Opportunity Radar) all had `sub="... · ... — ..."` as plain JSX attribute strings. Converted all four to JSX expression form `sub={"..."}`.
+
+4. **Null-guard crash fixes — 9 confirmed crash sites across 4 files.**
+   `SupplyChain.jsx:561` — `s.keyClients.join()` without guard (crashes supplier list on any supplier missing `keyClients`); fixed `(s.keyClients || []).join()`. `GeographicIntelligence.jsx:627-629` — `r.name.toLowerCase()` / `r.summary.toLowerCase()` in search filter useMemo (crashes on any keystroke if any REGIONS entry has null name/summary); fixed with `(r.name || '').toLowerCase()`. `GeographicIntelligence.jsx:204` — `kpi.change` null renders "null%" in every KPI tile; fixed to `kpi.change != null ? ... : '—'`. `GeographicIntelligence.jsx:113` — `data.topBrands[0]` on empty array renders undefined; fixed to `data?.topBrands?.[0] || '—'`. `ReportBuilder.jsx:188,198,233` — `template.sections.length`/`.map()` without guard (crashes template card render and mobile list); fixed with `(template.sections || [])`. `ReportBuilder.jsx:271,286` — `activeTemplate?.sections.length`/`.map()` with `?.` guarding only the outer object, not `.sections`; fixed to `activeTemplate?.sections?.length` / `activeTemplate?.sections?.map()`. `Companies.jsx:556-560` — `financials[y].revenue` accessed without guarding against null year values; fixed by filtering `years.filter(y => financials[y])`. `Companies.jsx:61-64,77` — division by `COMPANIES.length` (avgMargin, liGrowingPct) without zero-length guard → NaN; fixed with ternary guards.
+
+5. **Build:** `vite build` ✓ — 0 errors, 0 warnings (10.03s). Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 19 July 2026
 
 ## Session summary

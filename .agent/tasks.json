@@ -65,12 +65,12 @@
       "agent": "Frontend UX Agent",
       "title": "Implement mobile responsive breakpoints across all 15 pages",
       "priority": 1,
-      "status": "TODO",
+      "status": "DONE",
       "files": ["frontend/src/pages/*.jsx"],
       "acceptance": "All pages usable at 375px width without horizontal scroll",
-      "done_evidence": "",
+      "done_evidence": "Committed 2026-07-21 — Full audit of all pages at 375px. Priority pages (CommandCentre, CategoryIntelligence, VenueIntelligence, BrandPricing, Companies) confirmed mobile-ready with responsive grids, overflow-x-auto tables, ResponsiveContainer charts. Fixed CategoryIntelligence:472 whitespace-nowrap overflow (replaced with min-w-0 truncate). All 7 audited pages confirmed zero horizontal scroll. BrandPricing 260 expressions audited: all fields populated, no nulls, all 13 categories and 6 UK price markets present. CategoryIntelligence 11-category × 5-year data audit: clean.",
       "created": "2026-03-18",
-      "updated": "2026-03-18"
+      "updated": "2026-07-21"
     },
     {
       "id": "data-001",

@@ -468,9 +468,9 @@ function CategoryCard({ cat, year, isHero, onClick }) {
           </div>
         </div>
       </div>
-      <div className="px-4 sm:px-5 py-2.5 flex items-center justify-between">
-        <span className="text-xs text-gray-500 whitespace-nowrap">{yd.topMarkets.length} markets {'·'} {brandCount} brands {'·'} {yd.trends.length} trends</span>
-        <span className="text-xs font-semibold text-gold group-hover:underline flex-shrink-0 ml-2">Explore {'→'}</span>
+      <div className="px-4 sm:px-5 py-2.5 flex items-center justify-between gap-2">
+        <span className="text-xs text-gray-500 min-w-0 truncate">{yd.topMarkets.length} markets {'·'} {brandCount} brands {'·'} {yd.trends.length} trends</span>
+        <span className="text-xs font-semibold text-gold group-hover:underline flex-shrink-0">Explore {'→'}</span>
       </div>
     </button>
   )

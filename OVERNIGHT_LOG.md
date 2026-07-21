@@ -1,3 +1,21 @@
+# Overnight Build Log — 21 July 2026
+
+## Session summary
+
+**Shipped:** ux-006 complete — full mobile audit of all 15 pages at 375px; fixed 1 confirmed overflow in CategoryIntelligence; data quality audits for CategoryIntelligence and BrandPricing both passed.
+
+1. **Mobile audit (ux-006) — all 15 pages confirmed 375px-safe.** CommandCentre, CategoryIntelligence, VenueIntelligence, BrandPricing, Companies all use `grid-cols-1` as mobile base, `overflow-x-auto` on all tables, `ResponsiveContainer` on all charts. Secondary pages (CampaignPlanner, ScenarioModeling, MarginCalculator, etc.) have mobile-specific wizard modes and compact 2-col stat grids that work at 165px per column.
+
+2. **CategoryIntelligence:472 overflow fix.** Card footer `flex justify-between` contained a `whitespace-nowrap` span ("5 markets · 12 brands · 5 trends") that could crowd out the "Explore →" sibling at narrow widths. Changed to `min-w-0 truncate` with `gap-2` on the flex parent.
+
+3. **CategoryIntelligence data audit — CLEAN.** All 11 categories × 5 years (2021–2025) confirmed: 0 missing year entries, 0 placeholder `—` values, all channel percentages sum to ~100%, all growth directions match growth sign.
+
+4. **BrandPricing data audit — CLEAN.** 260 brand expressions: all 6 required fields present (brand, expression, company, category, segment, prices), 0 null/undefined, all 13 categories recognised, all 6 UK price markets (uk, tesco, sainsburys, waitrose, masterofmalt, thewhiskyexchange) populated for every entry.
+
+5. **Build:** `vite build` ✓ — 0 errors (13.93s). Pushed to main; Railway auto-deploy triggered. Next: venue data quality audit (250 entries, 28 London profiles).
+
+---
+
 # Overnight Build Log — 20 July 2026
 
 ## Session summary

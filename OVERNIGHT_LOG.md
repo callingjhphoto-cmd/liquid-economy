@@ -1,3 +1,21 @@
+# Overnight Build Log — 22 July 2026
+
+## Session summary
+
+**Shipped:** VenueIntelligence data audit complete — all 28 London profiles now have 7 required fields; FIFTY_BEST_BARS 250 entries confirmed clean.
+
+1. **VenueIntelligence data audit — 28 London profiles completed.** All 28 `LONDON_VENUES` entries were missing 4 required CRM fields: `capacity`, `covers_weekly`, `buyer_name`, `phone`. Added all 4 fields to every entry. Capacity values derived from `revenueSource` text where explicitly stated (Tayēr: 80, Satan's Whiskers: 50, Core by Clare Smyth: 54, Kol: 50, Ikoyi: 40, Bonheur: 45) or set to type-appropriate estimates (Hotel Bar luxury 65–100, Private Members Club 180–600, Restaurant fine dining 40–120). `covers_weekly` calculated from capacity × sessions/week. `buyer_name` uses the named founder/key person for independent venues (Monica Berg, Agostino Perrone, etc.) and role titles for corporate/hotel venues ("Spirits Buyer, Rosewood London", "Head Sommelier, The Ritz", etc.). `phone` set uniformly to `'Enquire via venue'` — fabricating direct lines for 28 real London venues would violate the zero-hallucination rule.
+
+2. **FIFTY_BEST_BARS — 250 entries confirmed clean.** All 5 years × 50 bars confirmed: rank, name, city, country, region all present for all 250 entries. No missing year entries.
+
+3. **Known data quality issue flagged (not fixed): 2024 rank 50 duplicate.** Bar '1930' (Milan, Italy) appears at both rank 42 and rank 50 in the 2024 list. Rank 42 is correct per the actual World's 50 Best Bars 2024 list. The correct rank 50 bar for 2024 is unknown to this agent without verified source access — replacing with a guess would violate the zero-hallucination rule. Flagged for manual correction.
+
+4. **Script cleanup.** A first-pass script incorrectly inserted `capacity/covers_weekly/buyer_name/phone` into FIFTY_BEST_BARS entries (which share bar names with LONDON_VENUES). Cleaned up all wrongly-modified entries before final commit.
+
+5. **Build:** `vite build` ✓ — 0 errors, 2820 modules (12.93s). Pushed to main; Railway auto-deploy triggered. Next: any remaining rendering or unicode issues; 2024 W50B rank 50 correction when source available.
+
+---
+
 # Overnight Build Log — 21 July 2026
 
 ## Session summary

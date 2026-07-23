@@ -1,3 +1,21 @@
+# Overnight Build Log — 23 July 2026
+
+## Session summary
+
+**Shipped:** 2024 World's 50 Best Bars data corrected — 12 wrong entries (ranks 38–50) replaced with verified data from official W50B and VinePair sources. Build clean, pushed to main.
+
+1. **Root cause identified: ranks 38–49 were all wrong, not just rank 42.** The previous session flagged rank 42 as a duplicate of 1930 (rank 50) and assumed rank 42 was correct. Cross-referencing the official theworlds50best.com announcement and VinePair's 2024 list revealed the opposite: rank 50 (1930, Milan) was the only correct entry in ranks 38–50. Ranks 38–49 were entirely replaced with bars from other years (Lyaness, Café La Trova, Katana Kitten, Carnaval, Baltra Bar, Galaxy Bar, Wax On, L'Antiquario, Mimi Kakushi, Danico (at wrong rank), Röda Huset (at wrong rank), and a duplicate of 1930 at rank 42).
+
+2. **12 entries corrected (all verified against two independent sources).** New correct data: 38 Moebius Milano (Milan, Italy), 39 Bar Nouveau (Paris, France), 40 Mimi Kakushi (Dubai, UAE), 41 Bar Us (Bangkok, Thailand), 42 Virtù (Tokyo, Japan), 43 Atlas (Singapore), 44 La Sala de Laura (Bogotá, Colombia), 45 Röda Huset (Stockholm, Sweden), 46 Florería Atlántico (Buenos Aires, Argentina), 47 Analogue Initiative (Singapore), 48 El Gallo Altanero (Guadalajara, Mexico), 49 Danico (Paris, France). Rank 50 (1930, Milan) was already correct and was left unchanged.
+
+3. **Ranks 1–37 confirmed correct.** VinePair confirmed ranks 35–37 (Byrdi, Locale Firenze, Scarfes Bar) and the official site confirmed ranks 45–50, bookending the corrected range. Top 34 match known 2024 results (Handshake Speakeasy #1, Bar Leone #2, Sips #3 etc.).
+
+4. **Unicode scan run — 0 real violations.** Scanner flagged 7 false positives: all were `£`, `…`, `—` characters inside JavaScript string/template literals after `>` comparison/arrow operators — not JSX text nodes. No actual violations.
+
+5. **Build:** `vite build` ✓ — 0 errors, 2820 modules (16.71s). Pushed to main; Railway auto-deploy triggered. `next_task.md` can now be cleared or set to next priority.
+
+---
+
 # Overnight Build Log — 22 July 2026
 
 ## Session summary

@@ -921,7 +921,7 @@ export default function VenueIntelligence() {
                   <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#9ca3af' }} />
                   <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} />
                   <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
-                  <Legend />
+                  <Legend wrapperStyle={{ fontSize: 11 }} />
                   <Line type="monotone" dataKey="Europe" stroke={CATEGORICAL[0]} strokeWidth={2} dot={{ r: 4 }} />
                   <Line type="monotone" dataKey="Asia" stroke={CATEGORICAL[1]} strokeWidth={2} dot={{ r: 4 }} />
                   <Line type="monotone" dataKey="North America" stroke={CATEGORICAL[2]} strokeWidth={2} dot={{ r: 4 }} />
@@ -1003,7 +1003,7 @@ export default function VenueIntelligence() {
                     <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#9ca3af' }} />
                     <YAxis domain={[0, 50]} tick={{ fontSize: 11, fill: '#9ca3af' }} />
                     <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
-                    <Legend />
+                    <Legend wrapperStyle={{ fontSize: 11 }} />
                     <Bar dataKey="Corporate-Backed" stackId="a" fill={CHART_COLORS.primary} radius={[4, 4, 0, 0]} />
                     <Bar dataKey="Independent" stackId="a" fill={CHART_COLORS.emerald} radius={[4, 4, 0, 0]} />
                   </BarChart>
@@ -1014,7 +1014,7 @@ export default function VenueIntelligence() {
                     <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#9ca3af' }} />
                     <YAxis tickFormatter={v => `${v}%`} tick={{ fontSize: 11, fill: '#9ca3af' }} />
                     <Tooltip formatter={(val) => [`${val}%`]} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
-                    <Legend />
+                    <Legend wrapperStyle={{ fontSize: 11 }} />
                     {overallDominance.slice(0, 5).map(d => (
                       <Line key={d.name} type="monotone" dataKey={d.name} stroke={d.color} strokeWidth={2} dot={{ r: 3 }} />
                     ))}

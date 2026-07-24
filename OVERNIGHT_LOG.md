@@ -1,3 +1,19 @@
+# Overnight Build Log — 24 July 2026
+
+## Session summary
+
+**Shipped:** VenueIntelligence Legend styling fixed on 3 charts; W50B 2021-2023 data verified structurally and against public sources.
+
+1. **Legend `wrapperStyle` added to 3 charts in VenueIntelligence.jsx.** Three `<Legend />` components in VenueIntelligence were missing `wrapperStyle={{ fontSize: 11 }}`, causing oversized legend text inconsistent with the rest of the dashboard. Fixed at: "Regional Representation in 50 Best Bars" LineChart (line 924), "Corporate vs Independent (2021-2025)" BarChart (line 1006), and "Top 5 Penetration Trend (%)" LineChart (line 1017). All three now match the standard styling used throughout the platform.
+
+2. **W50B 2021-2023 data verification — structural check clean, top-3 confirmed.** All 3 years: exactly 50 entries, no duplicate bar names within any year. Top-3 cross-checked against Wikipedia (the only accessible public source — official theworlds50best.com historical list URLs return 404): 2021 (#1 Connaught Bar, #2 Tayēr + Elementary, #3 Paradiso), 2022 (#1 Paradiso, #2 Tayēr + Elementary, #3 Sips), 2023 (#1 Sips, #2 Double Chicken Please, #3 Handshake Speakeasy) — all match. Full 50-entry verification blocked (official site historical pages inaccessible). Zero changes made to 2021-2023 data under the zero-hallucination rule.
+
+3. **No rendering issues found on SupplyChain, Geographic, Companies, or Reports pages** — all confirmed clean in prior sessions (20-22 July). No new issues detected this session.
+
+4. **Build:** `vite build` ✓ — 0 errors, 0 warnings (12.25s). Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 23 July 2026
 
 ## Session summary

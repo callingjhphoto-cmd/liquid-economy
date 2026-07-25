@@ -919,7 +919,7 @@ export default function VenueIntelligence() {
               <ChartCard title="Regional Representation in 50 Best Bars" height={300}>
                 <LineChart data={regionalTrend} accessibilityLayer={true}>
                   <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#9ca3af' }} />
-                  <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} />
+                  <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => String(v)} label={{ value: '# Bars', angle: -90, position: 'insideLeft', fontSize: 9, fill: '#9ca3af', dx: -2 }} width={42} />
                   <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
                   <Legend wrapperStyle={{ fontSize: 11 }} />
                   <Line type="monotone" dataKey="Europe" stroke={CATEGORICAL[0]} strokeWidth={2} dot={{ r: 4 }} />
@@ -1001,7 +1001,7 @@ export default function VenueIntelligence() {
                 <ChartCard title={"Corporate vs Independent (2021–2025)"} height={250}>
                   <BarChart data={independentVsCorporate} accessibilityLayer={true}>
                     <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#9ca3af' }} />
-                    <YAxis domain={[0, 50]} tick={{ fontSize: 11, fill: '#9ca3af' }} />
+                    <YAxis domain={[0, 50]} tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => String(v)} label={{ value: '# Bars', angle: -90, position: 'insideLeft', fontSize: 9, fill: '#9ca3af', dx: -2 }} width={42} />
                     <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
                     <Legend wrapperStyle={{ fontSize: 11 }} />
                     <Bar dataKey="Corporate-Backed" stackId="a" fill={CHART_COLORS.primary} radius={[4, 4, 0, 0]} />

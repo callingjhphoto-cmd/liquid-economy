@@ -293,7 +293,7 @@ function DepletionShipmentChart() {
       <ComposedChart data={gapData} accessibilityLayer>
         <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
         <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#9ca3af' }} />
-        <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} domain={[85, 125]} />
+        <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} domain={[85, 125]} tickFormatter={v => String(v)} label={{ value: 'Index (2020=100)', angle: -90, position: 'insideLeft', fontSize: 8, fill: '#9ca3af', dx: 8 }} width={55} />
         <Tooltip
           contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
           labelStyle={{ color: '#f1f5f9' }}

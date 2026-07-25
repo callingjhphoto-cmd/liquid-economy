@@ -229,8 +229,8 @@ function LiveWeatherPanel({ region }) {
           <ComposedChart data={chartData} margin={{ top: 5, right: 5, bottom: 5, left: 0 }} accessibilityLayer={true}>
             <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
             <XAxis dataKey="date" tick={{ fontSize: 9, fill: '#9ca3af' }} interval={4} />
-            <YAxis yAxisId="temp" tick={{ fontSize: 9, fill: '#9ca3af' }} domain={['auto', 'auto']} />
-            <YAxis yAxisId="precip" orientation="right" tick={{ fontSize: 9, fill: '#9ca3af' }} />
+            <YAxis yAxisId="temp" tick={{ fontSize: 9, fill: '#9ca3af' }} domain={['auto', 'auto']} tickFormatter={v => `${v}°C`} />
+            <YAxis yAxisId="precip" orientation="right" tick={{ fontSize: 9, fill: '#9ca3af' }} tickFormatter={v => `${v}mm`} />
             <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
             <Bar yAxisId="precip" dataKey="precip" fill={CHART_COLORS.blue} opacity={0.4} name="Rainfall (mm)" />
             <Line yAxisId="temp" dataKey="maxTemp" stroke={CHART_COLORS.rose} dot={false} strokeWidth={1.5} name="Max Temp (°C)" />

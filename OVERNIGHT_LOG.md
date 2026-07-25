@@ -1,3 +1,23 @@
+# Overnight Build Log — 25 July 2026
+
+## Session summary
+
+**Shipped:** Chart axis unit labels added to 4 pages — ClimateYield, VenueIntelligence, Financials, Companies.
+
+1. **ClimateYield.jsx** — Dual-axis weather chart: left YAxis (temperature) now has `tickFormatter={v => \`${v}°C\`}`; right YAxis (precipitation) now has `tickFormatter={v => \`${v}mm\`}`. Users can read units directly from the axis ticks without hovering.
+
+2. **VenueIntelligence.jsx** — Two charts updated: "Regional Representation in 50 Best Bars" LineChart and "Corporate vs Independent (2021–2025)" BarChart both now show `# Bars` label on the Y axis (`label={{ value: '# Bars', angle: -90, position: 'insideLeft' }}`). Context was inferable before, now explicit.
+
+3. **Financials.jsx** — Depletion vs Shipment Gap chart YAxis (domain 85–125) now has `label={{ value: 'Index (2020=100)', angle: -90 }}` and `width={55}` to prevent clipping. The indexed scale was previously explained only in the card subtitle.
+
+4. **Companies.jsx** — 5-Year Financial Trend chart title updated from "5-Year Financial Trend" to "5-Year Financial Trend (Revenue $B · Margin %)" since two series with different units share one Y axis and a unit label on the axis itself would be misleading.
+
+5. **Audit findings — all clean:** BrandPricing (260 entries, 214 expected null prices), CategoryIntelligence (11 × 5 years), all tooltip styling, euro/unicode chars, cross-page links, GlobalSearch implementation, ScenarioModeling interpretation text — all confirmed clean this session.
+
+6. **Build:** `vite build` ✓ — 0 errors (14.71s). Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 24 July 2026
 
 ## Session summary

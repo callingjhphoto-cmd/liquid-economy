@@ -1,3 +1,19 @@
+# Overnight Build Log — 26 July 2026
+
+## Session summary
+
+**Shipped:** 14 fixes across 13 files — unicode violations (pages + components), a data rendering bug in CategoryIntelligence, and 3 null-guard crash fixes in dossier pages.
+
+1. **Unicode violations — 11 fixes across 9 files.** JSX prop strings and text nodes with literal non-ASCII characters replaced with expression form `={...}` or ASCII equivalents: `CampaignPlanner.jsx` (2× `value="£..."` → `value={"£..."}`); `ScenarioModeling.jsx` (`subtitle="£15K to £350K"` → expression); `DepletionForecasting.jsx` (`suffix="£"` → expression); `ClimateYield.jsx` (Recharts `<Line name="Max Temp (°C)">` props + DrillDown `summary=` attr); `Companies.jsx` (middle-dot in SectionHeader JSX text child + DrillDown `summary=` attr); `ChatPanel.jsx` (bullet `•` in `<li>` JSX text → `{'•'}`); `GlobalSearch.jsx` (placeholder ellipsis `…` → ASCII `...`); `DataTable.jsx` (default `searchPlaceholder` ellipsis → ASCII `...`); `W50BMenuIntelModule.jsx` (middle-dot in JSX text + em-dash in `subtitle=` attr).
+
+2. **CategoryIntelligence data bug — 3 growthDir entries fixed.** Vodka (2024, `+0.8%`), Beer (2024, `+0.5%`), and Beer (2025, `+0.2%`) all had `growthDir: 'flat'` in `categoryData.js`. The MetricCard component only supports `'up'` and `'down'` — it renders `'flat'` as `isUp=false`, showing a red down-trend arrow for categories with genuinely positive growth. All 3 changed to `growthDir: 'up'`.
+
+3. **Dossier null-guard fixes — 3 crash sites fixed.** `MarkdownSection.jsx` — `content.trim()` crashes when a caller passes `content={null}` (JS default `= ''` only protects against `undefined`); fixed to `content?.trim()`. `GroupDossier.jsx` — `entry.synthesisVerifiedSourceCount` renders as `"undefined verified sources"` when the field is absent; fixed with `?? 0`. `BrandDossier.jsx` — if `slug` contains no `_`, `parts.slice(1)` is `[]` and `brandPart` silently becomes empty string; fixed with `parts.length > 1 ? ... : parts[0]` fallback.
+
+4. **Build:** `vite build` ✓ — 0 errors (13.48s). Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 25 July 2026
 
 ## Session summary

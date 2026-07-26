@@ -147,7 +147,7 @@ export default function DepletionForecasting() {
               ))}
             </select>
           </div>
-          <InputGroup label="Price Per Case" value={pricePerCase} onChange={setPricePerCase} placeholder="120" suffix="£" min="1" />
+          <InputGroup label="Price Per Case" value={pricePerCase} onChange={setPricePerCase} placeholder="120" suffix={"£"} min="1" />
           <InputGroup label="Cases Per Reorder" value={casesPerReorder} onChange={setCasesPerReorder} placeholder="50" suffix="cases" min="1" />
           <InputGroup label="Annual Growth" value={growthRate} onChange={setGrowthRate} placeholder="5" suffix="%" />
         </div>

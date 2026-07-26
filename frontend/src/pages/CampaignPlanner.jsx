@@ -339,7 +339,7 @@ const CampaignPlanner = () => {
           <h3 className="text-sm font-semibold text-navy mb-3">Campaign Benchmarks</h3>
           <BentoGrid>
             <MetricCard label="Avg Campaign ROI" value="2.4x" icon={TrendingUp} subtitle="ROAS for spirits campaigns" direction="up" change="+0.3x vs 2024" />
-            <MetricCard label="Avg Budget" value="£50,000" icon={DollarSign} subtitle="UK market mid-tier brand" />
+            <MetricCard label="Avg Budget" value={"£50,000"} icon={DollarSign} subtitle="UK market mid-tier brand" />
             <MetricCard label="Most Effective Channel" value="On-Trade" icon={Wine} subtitle="For trial generation" />
             <MetricCard label="Cultural Events" value={Object.values(CULTURAL_CALENDARS).flat().length} icon={Calendar} subtitle="Across 8 markets" />
           </BentoGrid>
@@ -1330,7 +1330,7 @@ const CampaignPlanner = () => {
         <h3 className="text-sm font-semibold text-navy mb-3">Campaign Benchmarks</h3>
         <div className="grid grid-cols-2 gap-3">
           <MetricCard label="Avg ROI" value="2.4x" icon={TrendingUp} subtitle="Spirits campaigns" direction="up" />
-          <MetricCard label="Avg Budget" value="£50k" icon={DollarSign} subtitle="UK mid-tier" />
+          <MetricCard label="Avg Budget" value={"£50k"} icon={DollarSign} subtitle="UK mid-tier" />
           <MetricCard label="Best Channel" value="On-Trade" icon={Wine} subtitle="For trial" />
           <MetricCard label="Events" value={Object.values(CULTURAL_CALENDARS).flat().length} icon={Calendar} subtitle="8 markets" />
         </div>

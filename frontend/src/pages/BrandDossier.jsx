@@ -46,7 +46,7 @@ export default function BrandDossier() {
 
   // Human-readable names from slug (group_brand)
   const parts = slug.split('_')
-  const brandPart = parts.slice(1).join(' ').split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+  const brandPart = parts.length > 1 ? parts.slice(1).join(' ').split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') : parts[0]
   const groupPart = parts[0].split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
 
   const breadcrumbs = [

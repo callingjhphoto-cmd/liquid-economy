@@ -233,8 +233,8 @@ function LiveWeatherPanel({ region }) {
             <YAxis yAxisId="precip" orientation="right" tick={{ fontSize: 9, fill: '#9ca3af' }} tickFormatter={v => `${v}mm`} />
             <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
             <Bar yAxisId="precip" dataKey="precip" fill={CHART_COLORS.blue} opacity={0.4} name="Rainfall (mm)" />
-            <Line yAxisId="temp" dataKey="maxTemp" stroke={CHART_COLORS.rose} dot={false} strokeWidth={1.5} name="Max Temp (°C)" />
-            <Line yAxisId="temp" dataKey="minTemp" stroke={CHART_COLORS.blue} dot={false} strokeWidth={1.5} name="Min Temp (°C)" />
+            <Line yAxisId="temp" dataKey="maxTemp" stroke={CHART_COLORS.rose} dot={false} strokeWidth={1.5} name={"Max Temp (°C)"} />
+            <Line yAxisId="temp" dataKey="minTemp" stroke={CHART_COLORS.blue} dot={false} strokeWidth={1.5} name={"Min Temp (°C)"} />
           </ComposedChart>
         </ResponsiveContainer>
       </div>
@@ -421,7 +421,7 @@ function RegionDetailPanel({ region, onClose }) {
       </DrillDown>
 
       {/* Tier 3: Full Data Table */}
-      <DrillDown title="Full Climate Data Table" summary="All metrics across all years — exportable">
+      <DrillDown title="Full Climate Data Table" summary={"All metrics across all years — exportable"}>
         <DataTable
           columns={[
             { key: 'year', label: 'Year', width: 'w-16' },

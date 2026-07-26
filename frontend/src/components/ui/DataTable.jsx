@@ -21,7 +21,7 @@ export function DataTable({
   columns,
   data,
   searchable = false,
-  searchPlaceholder = 'Search…',
+  searchPlaceholder = 'Search...',
   searchKey,
   emptyMessage = 'No data available',
   compact = false,

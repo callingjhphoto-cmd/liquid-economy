@@ -174,7 +174,7 @@ function CocktailCard({ record }) {
       </div>
       <h4 className="text-body font-display text-navy leading-tight mb-0.5">{record.cocktail}</h4>
       <p className="text-caption text-gray-500 mb-2">
-        {record.bar} · {record.city}
+        {record.bar} {'·'} {record.city}
       </p>
       <div className="flex flex-wrap gap-1 mb-3">
         {(record.flavour_tags || []).slice(0, 3).map((tag) => (
@@ -267,7 +267,7 @@ export default function W50BMenuIntelModule({ data, profile }) {
     <section id="module-w50-b-menu-intel">
       <SectionHeader
         size="lg"
-        subtitle="17 years of flagship-bar menu data — spirit usage, flavour evolution, and signature cocktails from W50B-ranked venues (2009-2026)"
+        subtitle={"17 years of flagship-bar menu data — spirit usage, flavour evolution, and signature cocktails from W50B-ranked venues (2009-2026)"}
       >
         World&#x2019;s 50 Best Bars &#x2014; Menu Intelligence
       </SectionHeader>

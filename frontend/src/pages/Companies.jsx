@@ -625,7 +625,7 @@ function CompanyTier3({ company, onClose }) {
             <div className="space-y-6">
               {chartData.length > 0 && (
                 <div>
-                  <SectionHeader size="md">5-Year Financial Trend (Revenue $B · Margin %)</SectionHeader>
+                  <SectionHeader size="md">{'5-Year Financial Trend (Revenue $B · Margin %)'}</SectionHeader>
                   <div className="h-56 mt-3" role="figure" aria-label="Chart: 5-Year Financial Trend">
                     <ResponsiveContainer width="100%" height="100%">
                       <LineChart data={chartData} accessibilityLayer={true}>
@@ -779,7 +779,7 @@ function CompanyTier3({ company, onClose }) {
    ════════════════════════════════════════════ */
 function WhiteSpaceSection() {
   return (
-    <DrillDown title="Category White Space Analysis" summary="Where the major companies are NOT competing — your biggest opportunities">
+    <DrillDown title="Category White Space Analysis" summary={"Where the major companies are NOT competing — your biggest opportunities"}>
       <div className="space-y-2">
         {Object.entries(WHITE_SPACE).map(([cat, info]) => (
           <div key={cat} className="bg-white rounded-lg p-3 border border-gray-100 hover:border-emerald-200 transition-colors">

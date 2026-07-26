@@ -263,7 +263,7 @@ export default function GlobalSearch({ isOpen, onClose }) {
             value={query}
             onChange={e => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Search categories, brands, venues, companies…"
+            placeholder="Search categories, brands, venues, companies..."
             className="flex-1 text-sm text-gray-900 placeholder-gray-400 outline-none bg-transparent"
             autoComplete="off"
             spellCheck="false"

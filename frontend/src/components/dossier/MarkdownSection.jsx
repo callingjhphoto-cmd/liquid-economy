@@ -19,7 +19,7 @@ function MarkdownFallback({ prose }) {
  * Applies Tailwind prose styling via className overrides.
  */
 export function MarkdownSection({ content = '', className = '' }) {
-  if (!content.trim()) return null
+  if (!content?.trim()) return null
 
   return (
     <div className={`prose prose-sm max-w-none ${className}`}>

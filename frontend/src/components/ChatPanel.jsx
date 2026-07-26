@@ -111,7 +111,7 @@ export default function ChatPanel({ isOpen, onClose }) {
                     <ul className="text-xs space-y-1 mt-1">
                       {message.sources.map((source, i) => (
                         <li key={i} className={message.role === 'user' ? 'text-white/60' : 'text-navy/60'}>
-                          • {source}
+                          {'•'} {source}
                         </li>
                       ))}
                     </ul>

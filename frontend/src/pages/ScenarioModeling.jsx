@@ -711,7 +711,7 @@ export default function ScenarioModeling() {
                 <MetricCard
                   label="Budget Tiers"
                   value={`${CAMPAIGN_BUDGET_TIERS.length}`}
-                  subtitle="£15K to £350K"
+                  subtitle={"£15K to £350K"}
                   icon={DollarSign}
                 />
               </BentoGrid>

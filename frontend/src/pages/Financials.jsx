@@ -410,7 +410,7 @@ export default function Financials() {
           label="Companies Tracked"
           value={FINANCIAL_COMPANIES.length}
           icon={Building2}
-          subtitle="Diageo, Pernod, Campari, BF, Rémy"
+          subtitle={"Diageo, Pernod, Campari, BF, Rémy"}
         />
         <MetricCard
           label="Avg Dividend Yield"

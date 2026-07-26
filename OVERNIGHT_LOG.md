@@ -1,3 +1,19 @@
+# Overnight Build Log — 27 July 2026
+
+## Session summary
+
+**Shipped:** 1 fix — unicode violation in Financials.jsx subtitle prop.
+
+1. **Financials.jsx:413 unicode fix.** `subtitle="Diageo, Pernod, Campari, BF, Rémy"` had a literal `é` in a JSX prop string attribute. Fixed to expression form: `subtitle={"Diageo, Pernod, Campari, BF, Rémy"}`.
+
+2. **Comprehensive audit of all unreviewed pages — all clean.** BrandHealth, CompetitorMonitor, CommandCentre, DistributorDirectory, RegulatoryCompliance, TradeShows, MarginCalculator, POSIntelligence, GeographicIntelligence, SupplyChain, CocktailDetail, CategoryDossier, WalkIn, ScenarioModeling, Valuations, and ReportBuilder all confirmed clean. No additional unicode violations, null-guard issues, or data bugs found.
+
+3. **W50B 2025 data verified.** Top 3 confirmed: Bar Leone #1 (Hong Kong), Handshake Speakeasy #2 (Mexico City), Sips #3 (Barcelona). Consistent with all cross-references in the codebase.
+
+4. **Build:** `vite build` ✓ — 0 errors (12.35s). Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 26 July 2026
 
 ## Session summary

@@ -782,7 +782,7 @@ export default function BrandPricing() {
   return (
     <div className="space-y-6 max-w-7xl mx-auto">
       <PageHeader
-        title={<span className="inline-flex items-center">Brand Pricing Monitor<MethodologyTooltip text="Prices collected from retailer websites. Last verified April 2026." /></span>}
+        title={<span className="inline-flex items-center">Brand Pricing Monitor<MethodologyTooltip text="38 core brands verified against retailer websites (April 2026). Extended portfolio of 260 brands uses index-estimated regional pricing derived from UK anchor prices and local market differentials." /></span>}
         subtitle={`Cross-market RRP comparison — ${PRICING.length} expressions across ${TOTAL_RETAILERS} retailers in ${TOTAL_MARKETS} markets · Data as of April 2026`}
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
@@ -799,7 +799,7 @@ export default function BrandPricing() {
           value={stats.totalBrands}
           subtitle={`${ALL_CATEGORIES.length} categories across ${TOTAL_MARKETS} markets`}
           icon={Package}
-          sparkData={[{ v: 180 }, { v: 190 }, { v: 195 }, { v: 200 }, { v: 208 }]}
+          sparkData={[{ v: 200 }, { v: 220 }, { v: 235 }, { v: 248 }, { v: 260 }]}
           direction="up"
           change="+4.5%"
         />

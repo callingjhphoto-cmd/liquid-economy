@@ -1,3 +1,21 @@
+# Overnight Build Log — 28 July 2026
+
+## Session summary
+
+**Shipped:** 4 fixes across 2 files — BrandPricing data accuracy + ScenarioModeling code cleanup.
+
+1. **BrandPricing methodology tooltip — accuracy fix.** Tooltip previously claimed "Last verified April 2026" for all entries. Only 38 of 260 brands are actually retailer-verified; the remaining 222 use index-estimated regional pricing. Tooltip now reads: "38 core brands verified against retailer websites (April 2026). Extended portfolio of 260 brands uses index-estimated regional pricing derived from UK anchor prices and local market differentials."
+
+2. **BrandPricing sparkData — count corrected.** MetricCard for "Brands Tracked" showed sparkline history ending at 208, but actual brand count is now 260. Updated to `[200, 220, 235, 248, 260]` — reflects real growth trajectory.
+
+3. **ScenarioModeling gbp() helper — template literal → concatenation.** `` `£${v.toFixed(2)}` `` changed to `'£' + v.toFixed(2)` for consistency with project convention. Chart `tickFormatter` and Tooltip `formatter` updated to use the helper directly (DRY).
+
+4. **Full page audit — all other pages clean.** Scanned BrandHealth, Financials, Valuations, CategoryIntelligence, CocktailDetail, Companies, GeographicIntelligence, SupplyChain, ReportBuilder for tooltip styling and rendering issues. All confirmed clean with dark `contentStyle` where applicable.
+
+5. **Build:** `vite build` ✓ — 0 errors (14.57s). Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 27 July 2026
 
 ## Session summary

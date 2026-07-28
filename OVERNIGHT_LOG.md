@@ -1,3 +1,27 @@
+# Overnight Build Log — 29 July 2026
+
+## Session summary
+
+**Shipped:** 3 fixes across 3 files — 2 JSX attribute string unicode violations + 1 null-guard fix in POSIntelligence search filter.
+
+1. **BrandPricing.jsx:793 — `é` in JSX attr string fixed.** `source="Retailer websites: ... El Corte Inglés ..."` had a literal U+00E9 (`é`) directly inside a JSX attribute string (double-quote delimited). Fixed to expression form: `source={"Retailer websites: ... El Corte Inglés ..."}`. Matches project convention: any non-ASCII in a JSX prop must use `={...}` expression syntax.
+
+2. **VenueIntelligence.jsx:392 — right single quotes in JSX attr string fixed.** `source="World's 50 Best Bars, Imbibe, Difford's Guide, venue intel"` had two U+2019 (`'`) right single quotes in a JSX attribute string. Fixed to expression form: `source={"World's 50 Best Bars, Imbibe, Difford's Guide, venue intel"}`. These were the only two non-ASCII violations remaining in the entire src tree.
+
+3. **POSIntelligence.jsx:350-351 — null guard inconsistency fixed.** `filteredCategories` useMemo used unguarded `c.name.toLowerCase()` and `c.description.toLowerCase()` on MATERIAL_CATEGORIES items. The `filteredCompanies` useMemo 6 lines below already used `(c.name || '').toLowerCase()`. Added `(c.name || '')` and `(c.description || '')` guards to `filteredCategories` for consistency and defensive safety.
+
+4. **Full audit — all pages and data confirmed clean:**
+   - CategoryIntelligence: 55 year-blocks (11 × 5 years) — 0 direction mismatches. 3 "extreme growth" values flagged by scanner (+32% Champagne 2021, +28% RTD 2022, +42% RTD 2021) all verified historically accurate (COVID rebound / hard seltzer boom).
+   - BrandPricing: 260 entries confirmed — all required fields present. 2 double-quoted brand names (`Jack Daniel's`, `Blanton's`) and 1 double-quoted expression (`Distiller's Select`) are intentional (contain right single quotes).
+   - accessibilityLayer: 100% coverage across all 15 charted pages (AreaChart, BarChart, LineChart, ComposedChart).
+   - DataFreshness: all 25 intelligence pages confirmed.
+   - Recharts Tooltip: all confirmed dark-styled (contentStyle or custom dark renderer).
+   - TradeShows, RegulatoryCompliance, DistributorDirectory, CompetitorMonitor: all null guards confirmed clean.
+
+5. **Build:** `vite build` ✓ — 0 errors (18.67s). Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 28 July 2026
 
 ## Session summary

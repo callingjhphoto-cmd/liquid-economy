@@ -347,8 +347,8 @@ export default function POSIntelligence() {
   const filteredCategories = useMemo(() =>
     MATERIAL_CATEGORIES.filter(c =>
       (materialFilter === 'all' || c.id === materialFilter) &&
-      (c.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-       c.description.toLowerCase().includes(searchTerm.toLowerCase()))
+      ((c.name || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+       (c.description || '').toLowerCase().includes(searchTerm.toLowerCase()))
     ),
     [materialFilter, searchTerm]
   )

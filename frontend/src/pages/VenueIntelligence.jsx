@@ -389,7 +389,7 @@ export default function VenueIntelligence() {
         action={<YearSelector activeYear={selectedYear} onChange={setSelectedYear} years={YEARS} />}
       />
       <SubPageNav group="intelligence" />
-      <DataFreshness date="April 2026" source="World’s 50 Best Bars, Imbibe, Difford’s Guide, venue intel" />
+      <DataFreshness date="April 2026" source={"World’s 50 Best Bars, Imbibe, Difford’s Guide, venue intel"} />
 
       {/* ═══════ SEARCH BAR (Search-First UX) ═══════ */}
       <div className="relative">

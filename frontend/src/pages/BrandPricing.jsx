@@ -790,7 +790,7 @@ export default function BrandPricing() {
         ]}
       />
       <SubPageNav group="intelligence" />
-      <DataFreshness date="April 2026" source="Retailer websites: Tesco, Waitrose, Total Wine, El Corte Inglés, Gall &amp; Gall" />
+      <DataFreshness date="April 2026" source={"Retailer websites: Tesco, Waitrose, Total Wine, El Corte Inglés, Gall & Gall"} />
 
       {/* ── TIER 1: Executive Metrics ── */}
       <BentoGrid>

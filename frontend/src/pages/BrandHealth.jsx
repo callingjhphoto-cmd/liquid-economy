@@ -101,6 +101,12 @@ export default function BrandHealth() {
                   <div className="text-xs text-gray-400">{b.category} {'•'} {b.parent}</div>
                 </button>
               ))}
+              {filteredBrands.length === 0 && (
+                <div className="py-6 text-center">
+                  <Search size={20} className="mx-auto text-gray-300 mb-1" />
+                  <div className="text-xs text-gray-400">No brands match your search</div>
+                </div>
+              )}
             </div>
           </Card>
         </div>

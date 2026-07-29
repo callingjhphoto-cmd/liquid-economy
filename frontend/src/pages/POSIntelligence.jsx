@@ -503,6 +503,12 @@ export default function POSIntelligence() {
           {filteredCategories.map(cat => (
             <MaterialSection key={cat.id} category={cat} onFactoryTap={handleFactoryTap} />
           ))}
+          {filteredCategories.length === 0 && (
+            <Card className="p-8 text-center">
+              <Search size={24} className="mx-auto text-gray-300 mb-2" />
+              <div className="text-sm text-gray-500">No material categories match your search</div>
+            </Card>
+          )}
 
           {/* Tier 3: Full DataTable */}
           <div className="pt-2">
@@ -565,6 +571,12 @@ export default function POSIntelligence() {
               </Card>
             ))}
           </div>
+          {filteredCompanies.length === 0 && (
+            <Card className="p-8 text-center">
+              <Search size={24} className="mx-auto text-gray-300 mb-2" />
+              <div className="text-sm text-gray-500">No companies match your search</div>
+            </Card>
+          )}
         </div>
       )}
 

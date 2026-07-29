@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react'
 import {
-  Calendar, MapPin, ChevronDown, Zap
+  Calendar, MapPin, ChevronDown, Zap, Search
 } from 'lucide-react'
 import {
   Card, PageHeader, SubPageNav, Badge, DataFreshness
@@ -195,6 +195,12 @@ export default function TradeShows() {
               onToggle={() => setExpandedIdx(expandedIdx === i ? null : i)}
             />
           ))}
+          {filtered.length === 0 && (
+            <Card className="p-8 text-center">
+              <Search size={24} className="mx-auto text-gray-300 mb-2" />
+              <div className="text-sm text-gray-500">No events match this category filter</div>
+            </Card>
+          )}
         </div>
       ) : (
         <div className="space-y-4">

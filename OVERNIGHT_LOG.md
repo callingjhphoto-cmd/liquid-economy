@@ -1,3 +1,21 @@
+# Overnight Build Log — 29 July 2026 (run 2)
+
+## Session summary
+
+**Shipped:** Empty-state messages added to 3 pages — TradeShows, BrandHealth, POSIntelligence.
+
+1. **TradeShows.jsx — empty state in list view.** When a category filter returns 0 matching events, the list view showed a blank area with no explanation. Added a Search icon + "No events match this category filter" card. Also added `Search` to the lucide import block. Calendar view was unaffected (it always shows 12 months, hiding empty months with a divider line — already correct UX).
+
+2. **BrandHealth.jsx — empty state in brand selector sidebar.** When a search query matches 0 brands, the scrollable brand list showed nothing. Added a Search icon + "No brands match your search" state inside the list container. Users can now see immediately that their query returned 0 results rather than assuming the list failed to load.
+
+3. **POSIntelligence.jsx — empty states in Factory Directory and POS Companies tabs.** Two separately-searched lists: the factory directory (filtered by material category + searchTerm) and the companies tab (filtered by searchTerm on name/speciality/hq). Both were silently blank on 0 results. Added a Search icon + descriptive message to each: "No material categories match your search" and "No companies match your search".
+
+4. **Audit — all other search-filtered pages confirmed clean.** CompetitorMonitor (`filteredMoves.length === 0` card), GeographicIntelligence (`filtered.length === 0` card), DistributorDirectory (`filtered.length === 0` card), DossiersIndex (`visibleCount === 0` empty state), VenueIntelligence (shows count "0 venues matching 'X'") — all already handle the zero-result state. BrandPricing tier view uses `brands.length > 0 &&` per-tier, backed by a DataTable with `emptyMessage` for the full table view — no gap. TradeShows calendar view correctly shows empty months with a divider line (no card needed).
+
+5. **Build:** `vite build` ✓ — 0 errors, 0 warnings (18.48s). Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 29 July 2026
 
 ## Session summary

@@ -73,6 +73,7 @@ export default function ChatPanel({ isOpen, onClose }) {
           <h2 className="font-display text-lg text-navy">Intelligence Analyst</h2>
           <button
             onClick={onClose}
+            aria-label="Close panel"
             className="p-1 hover:bg-gray-100 rounded-lg transition-colors text-gray-600 hover:text-gray-700"
           >
             <X size={20} />

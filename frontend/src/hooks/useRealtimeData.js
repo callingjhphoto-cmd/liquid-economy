@@ -122,7 +122,6 @@ export default function useRealtimeData() {
         setMode('sse')
         setClientCount(data.clientCount || 1)
         reconnectDelay.current = RECONNECT_BASE_MS
-        console.log('[Live] SSE connected', data)
       })
 
       es.addEventListener('feed-snapshot', (e) => {

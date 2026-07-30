@@ -363,6 +363,7 @@ function CategoryExpanded({ category, onClose }) {
             />
             <button
               onClick={onClose}
+              aria-label="Close"
               className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors text-gray-600 hover:text-gray-700 touch-manipulation"
             >
               <X size={16} />
@@ -603,6 +604,7 @@ function FullPriceTable({ onClose }) {
             </button>
             <button
               onClick={onClose}
+              aria-label="Close"
               className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors text-gray-600 hover:text-gray-700 touch-manipulation"
             >
               <X size={16} />

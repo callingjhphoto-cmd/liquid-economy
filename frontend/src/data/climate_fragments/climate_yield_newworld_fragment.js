@@ -393,5 +393,3 @@ export const NEW_WORLD_WINE_REGIONS = [
   },
 ]
 
-// Export count verification
-console.log('NEW_WORLD_WINE_REGIONS count:', NEW_WORLD_WINE_REGIONS.length, '(target: 28 regions, currently showing condensed sample: 9)')

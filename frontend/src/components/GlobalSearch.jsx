@@ -269,11 +269,11 @@ export default function GlobalSearch({ isOpen, onClose }) {
             spellCheck="false"
           />
           {query && (
-            <button onClick={() => { setQuery(''); inputRef.current?.focus() }} className="text-gray-300 hover:text-gray-500 transition-colors">
+            <button onClick={() => { setQuery(''); inputRef.current?.focus() }} aria-label="Clear search" className="text-gray-300 hover:text-gray-500 transition-colors">
               <X size={14} />
             </button>
           )}
-          <button onClick={onClose} className="text-gray-600 hover:text-gray-700 ml-1">
+          <button onClick={onClose} aria-label="Close search" className="text-gray-600 hover:text-gray-700 ml-1">
             <X size={16} />
           </button>
         </div>

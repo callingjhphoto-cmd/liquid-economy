@@ -265,7 +265,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
               </div>
             </div>
           </div>
-          <button onClick={onClose} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-600 hover:text-gray-700 transition-colors touch-manipulation">
+          <button onClick={onClose} aria-label="Close" className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-600 hover:text-gray-700 transition-colors touch-manipulation">
             <X size={16} />
           </button>
         </div>
@@ -596,7 +596,7 @@ function CompanyTier3({ company, onClose }) {
               <div className="text-xs text-gray-500">{company.hq} {'·'} {company.revenue} {'·'} Est. {company.founded}</div>
             </div>
           </div>
-          <button onClick={onClose} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-600 hover:text-gray-700 transition-colors touch-manipulation">
+          <button onClick={onClose} aria-label="Close" className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-600 hover:text-gray-700 transition-colors touch-manipulation">
             <X size={18} />
           </button>
         </div>
@@ -1006,6 +1006,7 @@ export default function Companies() {
         {searchTerm && (
           <button
             onClick={() => setSearchTerm('')}
+            aria-label="Clear search"
             className="absolute right-2 top-1/2 -translate-y-1/2 p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-full hover:bg-gray-100 text-gray-600 touch-manipulation"
           >
             <X size={14} />

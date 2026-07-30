@@ -173,6 +173,7 @@ export default function LiveFeed({ maxItems = 30, compact = false }) {
             )}
             <button
               onClick={() => setShowFilters(!showFilters)}
+              aria-label={showFilters ? 'Hide filters' : 'Show filters'}
               className={`p-1 rounded transition-colors ${showFilters ? 'bg-navy/10 text-navy' : 'text-gray-600 hover:text-gray-700'}`}
             >
               <Filter size={11} />

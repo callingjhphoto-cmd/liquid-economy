@@ -189,7 +189,7 @@ function RegionTier2({ region, data, onClose, onViewFull }) {
               <p className="text-xs text-gray-500 mt-0.5">{region.trajectory}</p>
             </div>
           </div>
-          <button onClick={onClose} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-600 hover:text-gray-700 transition-colors touch-manipulation">
+          <button onClick={onClose} aria-label="Close" className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-600 hover:text-gray-700 transition-colors touch-manipulation">
             <X size={16} />
           </button>
         </div>
@@ -423,7 +423,7 @@ function RegionTier3({ region, data, onClose }) {
               <div className="text-xs text-gray-500">{region.source}</div>
             </div>
           </div>
-          <button onClick={onClose} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-600 hover:text-gray-700 transition-colors touch-manipulation">
+          <button onClick={onClose} aria-label="Close" className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-600 hover:text-gray-700 transition-colors touch-manipulation">
             <X size={18} />
           </button>
         </div>
@@ -726,6 +726,7 @@ export default function GeographicIntelligence() {
         {searchTerm && (
           <button
             onClick={() => setSearchTerm('')}
+            aria-label="Clear search"
             className="absolute right-2 top-1/2 -translate-y-1/2 p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-full hover:bg-gray-100 text-gray-600 touch-manipulation"
           >
             <X size={14} />

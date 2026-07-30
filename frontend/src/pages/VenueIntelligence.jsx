@@ -402,7 +402,7 @@ export default function VenueIntelligence() {
           className="w-full pl-12 pr-4 py-3.5 bg-white border border-gray-200 rounded-xl text-sm shadow-sm focus:ring-2 focus:ring-navy/20 focus:border-navy transition-all"
         />
         {venueSearch && (
-          <button onClick={() => setVenueSearch('')} className="absolute right-2 top-1/2 -translate-y-1/2 p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-gray-600 hover:text-gray-700 touch-manipulation">
+          <button onClick={() => setVenueSearch('')} aria-label="Clear search" className="absolute right-2 top-1/2 -translate-y-1/2 p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-gray-600 hover:text-gray-700 touch-manipulation">
             <X size={16} />
           </button>
         )}

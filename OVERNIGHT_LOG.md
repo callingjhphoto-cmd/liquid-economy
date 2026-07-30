@@ -1,3 +1,23 @@
+# Overnight Build Log — 30 July 2026
+
+## Session summary
+
+**Shipped:** 12 accessibility fixes (aria-label on icon-only buttons) + 2 debug console.log removals across 9 files. Build clean, pushed to main. 15 previously-stranded commits also forwarded to origin/main.
+
+1. **aria-label audit — 12 icon-only buttons fixed across 7 files.** Screen readers had no way to announce the purpose of close and clear-search buttons that contain only an icon. All fixed with appropriate labels: close buttons get `aria-label="Close"` / `aria-label="Close panel"` / `aria-label="Close search"`; clear-search buttons get `aria-label="Clear search"`; the LiveFeed filter toggle gets a dynamic `aria-label` that switches between `"Show filters"` / `"Hide filters"` based on state. Files fixed: `BrandPricing.jsx` (2× close), `Companies.jsx` (2× close + 1× clear search), `GeographicIntelligence.jsx` (2× close + 1× clear search), `VenueIntelligence.jsx` (1× clear search), `GlobalSearch.jsx` (1× clear search + 1× close), `ChatPanel.jsx` (1× close), `LiveFeed.jsx` (1× filter toggle).
+
+2. **climate_yield_newworld_fragment.js — module-level console.log removed.** `console.log('NEW_WORLD_WINE_REGIONS count: 10 ...')` was development-era validation code left at module scope. It fired on every ClimateYield page load, polluting the browser console in production. Removed. The fragment is already integrated into `climateYieldData.js` via `...NEW_WORLD_WINE_REGIONS` spread.
+
+3. **useRealtimeData.js — SSE debug log removed.** `console.log('[Live] SSE connected', data)` was a debug trace for the Server-Sent Events connection lifecycle. Removed. The `console.warn('[Live] SSE error...')` on reconnect failure was left — that one is useful for diagnosing production connection issues.
+
+4. **15 stranded commits forwarded to origin/main.** Local HEAD was detached at `9fb8f5d` (29 July run 2, empty-state fixes), 15 commits ahead of `origin/main` (which was at the 21 July venue audit). Reset `main` branch to the detached HEAD chain and pushed. All 15 commits (July 23 W50B data fix through July 29 empty-state messages) are now on origin and Railway auto-deploy triggered.
+
+5. **Full accessibility scan.** Checked all 38 page files and key components for icon-only interactive elements without accessible labels. The 12 confirmed fixes above are the complete set — remaining `X` icons in VenueIntelligence are decorative inline icons inside `<p>` tags (not buttons). ChartCard, MethodologyTooltip, DrillDown, and CommandCentre close button already had `aria-label` in place from prior sessions.
+
+6. **Build:** `vite build` ✓ — 0 errors, 0 warnings (19.10s). Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 29 July 2026 (run 2)
 
 ## Session summary

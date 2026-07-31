@@ -1,3 +1,19 @@
+# Overnight Build Log — 31 July 2026
+
+## Session summary
+
+**Shipped:** 2 fixes across 2 files — Companies.jsx dual-axis chart + supplyChainData.js EUR→€ unit consistency.
+
+1. **Companies.jsx — 5-Year Financial Trend chart: dual Y-axes.** The existing chart plotted Revenue ($B) and Op. Margin (%) on the same unlabeled Y-axis. For large companies (Diageo $20B revenue) this was misleading since margin % (24–29%) and revenue ($B) overlap in value range but are semantically different scales. Fixed by adding a left YAxis (`$${v}B` formatter) for revenue and a right YAxis (`${v}%` formatter) for margin, with `yAxisId` on each `<Line>`, and a `<Legend>` component. Added `Legend` to the recharts import. This is the canonical Recharts dual-axis pattern, already used in `DepletionForecasting.jsx` and `ClimateYield.jsx`.
+
+2. **supplyChainData.js — Barley `EUR/t` → `€/t`, Natural Gas `EUR/MWh` → `€/MWh`.** Two commodity units used ISO codes instead of the euro symbol. All other European inputs already use `€` (champagne grapes `€/kg`, oak barrels `€/barrel`, carbon `€/t CO2e`, ethanol `€/L`). YAxis tickFormatter length check (`data.unit.length <= 8`) still passes for both values.
+
+3. **Full scan — no new issues found.** Checked all 38 page files for: JSX text-node and attr-string unicode violations (0 found), Recharts charts missing `accessibilityLayer` (0 found), charts missing dark `contentStyle` (0 found), `key` props on `.map()` JSX renders (all clean), debug `console.log` calls (0 found). Pages audited in depth: SupplyChain, GeographicIntelligence, Companies, ReportBuilder, Financials, DepletionForecasting, VenueIntelligence, BrandPricing — all confirmed clean for null guards and rendering issues.
+
+4. **Build:** `vite build` ✓ — 0 errors (18.25s). Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 30 July 2026
 
 ## Session summary

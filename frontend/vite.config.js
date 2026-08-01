@@ -24,6 +24,12 @@ export default defineConfig({
           if (id.includes('/data/geographicData')) return 'data-geographic'
           if (id.includes('/data/spiritsDemographicsData')) return 'data-demographics'
           if (id.includes('/data/climateYieldData')) return 'data-climate'
+          if (id.includes('/data/profileChorusCocktails')) return 'data-chorus'
+          if (id.includes('/data/marketEntryData')) return 'data-market-entry'
+          if (id.includes('/data/commandCentreData')) return 'data-command-centre'
+          if (id.includes('/data/supplyChainData')) return 'data-supply-chain'
+          if (id.includes('/data/posData')) return 'data-pos'
+          if (id.includes('/data/w50bMenuIntel')) return 'data-w50b'
         }
       }
     }

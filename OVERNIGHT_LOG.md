@@ -1,3 +1,19 @@
+# Overnight Build Log — 1 August 2026
+
+## Session summary
+
+**Shipped:** 6 new `manualChunks` entries in `vite.config.js` — explicit bundle splits for 6 more data files. Recovered and re-committed the 31 July session's orphaned commits (they were made in detached HEAD and had never reached `origin/main`).
+
+1. **vite.config.js — 6 new `manualChunks` entries.** Five data files comparable in size to already-chunked files were missing from the split map, plus two files shared across multiple lazy-loaded pages. Added: `data-chorus` (profileChorusCocktails.js, 65KB — larger than climateYieldData.js which was already chunked), `data-market-entry` (marketEntryData.js, 33KB — shared by MarketEntryWizard and RegulatoryCompliance), `data-supply-chain` (supplyChainData.js, 30KB), `data-pos` (posData.js, 30KB), `data-command-centre` (commandCentreData.js, 24KB — shared by CommandCentre and MarketOverview), `data-w50b` (w50bMenuIntel.js, 31KB). All 6 new chunks appear in `dist/assets/` after build. Predictable chunk names mean browser cache is only invalidated when the data itself changes, not when surrounding page code changes.
+
+2. **31 July orphaned commits recovered.** The previous session's two commits (`85df8cf fix: Companies dual-axis chart + EUR→€ unit consistency` and `ffa3501 chore: overnight log 31 July`) were authored while HEAD was detached and never pushed to origin/main. Cherry-picked onto main this session. Railway will now receive those fixes for the first time.
+
+3. **Page audit — no new issues.** Reviewed PricePositioning.jsx (394 lines), TradeShows.jsx (239 lines), WalkIn.jsx (153 lines), CompetitorMonitor.jsx (partial), Valuations.jsx (partial). All clean — correct LI cards, DataFreshness badges, null guards, no Recharts violations.
+
+4. **Build:** `vite build` ✓ — 0 errors (21.83s). Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 31 July 2026
 
 ## Session summary

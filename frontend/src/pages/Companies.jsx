@@ -61,7 +61,7 @@ const totalRevenue = COMPANIES.reduce((s, c) => s + parseRevenue(c.revenue), 0)
 const avgMargin = COMPANIES.length
   ? (COMPANIES.reduce((s, c) => {
       const f = c.financials && c.financials['2025']
-      return s + (f ? f.operatingMargin : 0)
+      return s + (f && f.operatingMargin != null ? f.operatingMargin : 0)
     }, 0) / COMPANIES.length).toFixed(1)
   : '0.0'
 const highestGrowth = [...COMPANIES].sort((a, b) => {

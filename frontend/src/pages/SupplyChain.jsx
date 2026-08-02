@@ -492,13 +492,13 @@ export default function SupplyChain() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {Object.entries(CATEGORY_COGS).map(([cat, data]) => {
               const segments = [
-                { label: 'Raw Material', value: data.rawMaterial, color: '#dc2626' },
-                { label: 'Packaging', value: data.packaging, color: '#f59e0b' },
-                { label: 'Labor', value: data.labor, color: '#3b82f6' },
-                { label: 'Energy', value: data.energy, color: '#8b5cf6' },
-                { label: 'Logistics', value: data.logistics, color: '#06b6d4' },
-                { label: 'Duty/Tax', value: data.duty, color: '#ec4899' },
-                { label: 'Other', value: data.other, color: '#6b7280' },
+                { label: 'Raw Material', value: data.rawMaterial ?? 0, color: '#dc2626' },
+                { label: 'Packaging', value: data.packaging ?? 0, color: '#f59e0b' },
+                { label: 'Labor', value: data.labor ?? 0, color: '#3b82f6' },
+                { label: 'Energy', value: data.energy ?? 0, color: '#8b5cf6' },
+                { label: 'Logistics', value: data.logistics ?? 0, color: '#06b6d4' },
+                { label: 'Duty/Tax', value: data.duty ?? 0, color: '#ec4899' },
+                { label: 'Other', value: data.other ?? 0, color: '#6b7280' },
               ]
               return (
                 <Card key={cat} padding="p-3">

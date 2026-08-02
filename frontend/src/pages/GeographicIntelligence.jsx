@@ -242,7 +242,7 @@ function RegionTier2({ region, data, onClose, onViewFull }) {
                   <div className="flex items-baseline gap-1.5">
                     <span className="text-sm font-bold text-navy tabular-nums">{kpi.value}</span>
                     <span className={`text-xs font-medium ${kpi.changeDir === 'up' ? 'text-emerald-600' : kpi.changeDir === 'down' ? 'text-red-500' : 'text-gray-500'}`}>
-                      {kpi.change > 0 ? '+' : ''}{kpi.change}%
+                      {kpi.change != null ? `${kpi.change > 0 ? '+' : ''}${kpi.change}%` : '—'}
                     </span>
                   </div>
                 </div>

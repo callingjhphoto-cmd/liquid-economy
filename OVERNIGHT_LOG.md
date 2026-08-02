@@ -1,3 +1,19 @@
+# Overnight Build Log — 2 August 2026
+
+## Session summary
+
+**Shipped:** Null-guard audit across 3 priority pages — 3 defensive fixes preventing NaN/undefined renders.
+
+1. **GeographicIntelligence.jsx — kpi.change null guard.** Line 245: `kpi.change != null` check before rendering the `%` suffix. Without it, a null `change` value (valid in region KPI objects) would render a bare `%` instead of the intended `—` dash. Now consistent with the already-guarded quick-KPI row at line 205.
+
+2. **SupplyChain.jsx — CATEGORY_COGS segment ?? 0 fallbacks.** Lines 494–502: all 7 segment fields (`rawMaterial`, `packaging`, `labor`, `energy`, `logistics`, `duty`, `other`) now fall back to `0` via `?? 0`. Without this, any missing field produces `width: undefined%` in the stacked bar CSS and `Duty/Tax undefined%` in the legend. Current data is complete; fix is preventive for new category additions.
+
+3. **Companies.jsx — operatingMargin != null check in avgMargin reduce.** Lines 63–65: guard added before accumulating `f.operatingMargin`. Without it, a company whose 2025 financials object exists but lacks `operatingMargin` causes `s + undefined = NaN` to propagate through the entire reduce, rendering `avgMargin = NaN` on the MetricCard and breaking all LI signal comparisons that reference it.
+
+4. **Build:** `npm run build` ✓ — 0 errors (12.4s). Pushed to main; Railway auto-deploy triggered. (Session also rebased over 3 commits from 1 Aug that were missing from local branch before stash/checkout.)
+
+---
+
 # Overnight Build Log — 1 August 2026
 
 ## Session summary

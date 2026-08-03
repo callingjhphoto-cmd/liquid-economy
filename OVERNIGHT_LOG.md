@@ -1,3 +1,19 @@
+# Overnight Build Log — 3 August 2026
+
+## Session summary
+
+**Shipped:** 5 new `manualChunks` entries in `vite.config.js` + 1 null-guard fix in `Valuations.jsx`.
+
+1. **vite.config.js — 5 new `manualChunks` entries for medium-sized data files.** Five data files between 8–24KB were bundling into their respective page chunks with no stable cache key. Added: `data-scenario` (scenarioData.js, 23KB — ScenarioModeling page), `data-distributor` (distributorData.js, 23KB — DistributorDirectory page), `data-valuations` (valuationsData.js, 18KB — Valuations page), `data-margin-calc` (marginCalcData.js, 16KB — MarginCalculator page), `data-financials` (financialsData.js, 11KB — Financials page). All 5 appear in `dist/assets/` after build. Effect: ScenarioModeling chunk shrank from 69KB → 51KB, MarginCalculator from 41KB → 30KB. With data in a separate named chunk, a page-code-only change (bug fix) no longer invalidates the data cache — browsers can serve the 5 data files from cache while only re-fetching the changed page chunk.
+
+2. **Valuations.jsx:403 — `acq.keyBrands.map()` null guard added.** `KEY_ACQUIRERS.map(acq => acq.keyBrands.map(...))` accessed `keyBrands` without a fallback. All 6 current acquirer entries have the field, but a future entry added without it would crash the "Key Acquirers" card with `TypeError: acq.keyBrands is not iterable`. Fixed to `(acq.keyBrands || []).map(...)`, consistent with the defensive pattern used throughout Valuations.jsx for `BRAND_VALUATIONS` and `MA_VALUATION_BENCHMARKS` arrays (fixed July 16).
+
+3. **Full scan — 0 new issues found.** Unicode violations: 0 in all 38 page JSX files (text nodes and attr strings). Recharts `accessibilityLayer`: 100% coverage. Tooltip `contentStyle`: all dark-styled. DataFreshness badges: all 25 intelligence pages confirmed. Null guards: CategoryIntelligence (55 year-blocks), BrandPricing (260 entries, all fields present), ScenarioModeling (market `find()` calls already guarded), TradeShows (`mustAttendFor || []` in place), CompetitorMonitor (`recentMoves || []` in place), DossiersIndex, CategoryDossier, BrandDossier, WalkIn — all confirmed clean.
+
+4. **Build:** `npm run build` ✓ — 0 errors (15.50s, 14.87s). Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 2 August 2026
 
 ## Session summary

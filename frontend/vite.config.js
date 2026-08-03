@@ -30,6 +30,11 @@ export default defineConfig({
           if (id.includes('/data/supplyChainData')) return 'data-supply-chain'
           if (id.includes('/data/posData')) return 'data-pos'
           if (id.includes('/data/w50bMenuIntel')) return 'data-w50b'
+          if (id.includes('/data/scenarioData')) return 'data-scenario'
+          if (id.includes('/data/distributorData')) return 'data-distributor'
+          if (id.includes('/data/valuationsData')) return 'data-valuations'
+          if (id.includes('/data/marginCalcData')) return 'data-margin-calc'
+          if (id.includes('/data/financialsData')) return 'data-financials'
         }
       }
     }

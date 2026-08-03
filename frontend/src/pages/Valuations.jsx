@@ -400,7 +400,7 @@ export default function Valuations() {
               <p className="text-lg font-bold text-gold mb-1">{acq.totalSpent}</p>
               <p className="text-xs text-gray-500 mb-2">{acq.focus}</p>
               <div className="flex flex-wrap gap-1">
-                {acq.keyBrands.map((b) => (
+                {(acq.keyBrands || []).map((b) => (
                   <span key={b} className="text-xs bg-gray-50 text-gray-600 px-1.5 py-0.5 rounded border border-gray-100">{b}</span>
                 ))}
               </div>

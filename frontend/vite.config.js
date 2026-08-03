@@ -35,6 +35,12 @@ export default defineConfig({
           if (id.includes('/data/valuationsData')) return 'data-valuations'
           if (id.includes('/data/marginCalcData')) return 'data-margin-calc'
           if (id.includes('/data/financialsData')) return 'data-financials'
+          if (id.includes('/data/tradeShowData')) return 'data-trade-shows'
+          if (id.includes('/data/regulatoryData')) return 'data-regulatory'
+          if (id.includes('/data/competitorData')) return 'data-competitor'
+          if (id.includes('/data/reportBuilderData')) return 'data-report-builder'
+          if (id.includes('/data/brandHealthData')) return 'data-brand-health'
+          if (id.includes('/data/pitchGeneratorData')) return 'data-pitch-generator'
         }
       }
     }

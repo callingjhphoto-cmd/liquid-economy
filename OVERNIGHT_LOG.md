@@ -1,3 +1,17 @@
+# Overnight Build Log — 4 August 2026
+
+## Session summary
+
+**Shipped:** 6 more `manualChunks` entries in `vite.config.js`, completing the data-chunk split for all 26 eligible data files.
+
+1. **vite.config.js — 6 new `manualChunks` entries.** Six remaining single-use data files (5–11KB each) were still bundled into their page chunks with no stable cache key. Added: `data-trade-shows` (tradeShowData.js, 10.8KB — TradeShows page), `data-regulatory` (regulatoryData.js, 8.4KB — RegulatoryCompliance page), `data-competitor` (competitorData.js, 7.8KB — CompetitorMonitor page), `data-report-builder` (reportBuilderData.js, 7.6KB — ReportBuilder page), `data-brand-health` (brandHealthData.js, 6.8KB — BrandHealth page), `data-pitch-generator` (pitchGeneratorData.js, 5KB — PitchGenerator page). All 6 appear in `dist/assets/` after build. This completes the data-chunk split — every data file with its own import path now has a stable named chunk. Only `chartColors.js` (1KB) and `shareTokens.js` (490B) remain un-chunked, correctly omitted as trivially small.
+
+2. **Full audit — 0 new issues found.** Recharts `accessibilityLayer`: 40/40 charts confirmed. Tooltip `contentStyle` dark-styled: 100% (30 tooltips). JSX text node unicode violations: 0 across all 38 pages — special chars in JS strings are all in expression positions (`{...}`), not bare JSX text nodes. GeographicIntelligence, ReportBuilder, CompetitorMonitor pages inspected for null-guard and rendering issues — all clean.
+
+3. **Build:** `npm run build` ✓ — 0 errors (13.76s). Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 3 August 2026
 
 ## Session summary

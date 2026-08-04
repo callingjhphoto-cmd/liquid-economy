@@ -90,18 +90,19 @@ function HeroMarketCard() {
 }
 
 // ── Micro Sparkline (tiny area chart) ──
-function MicroSparkline({ data, positive = true }) {
+function MicroSparkline({ data, positive = true, uid = 0 }) {
   const color = positive ? '#22c55e' : '#ef4444'
+  const gradId = `micro-${uid}-${positive ? 'pos' : 'neg'}`
   return (
     <ResponsiveContainer width="100%" height={28}>
       <AreaChart data={data} margin={{ top: 2, right: 0, bottom: 0, left: 0 }} accessibilityLayer={true}>
         <defs>
-          <linearGradient id={`micro-${positive ? 'pos' : 'neg'}`} x1="0" y1="0" x2="0" y2="1">
+          <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor={color} stopOpacity={0.15} />
             <stop offset="100%" stopColor={color} stopOpacity={0.02} />
           </linearGradient>
         </defs>
-        <Area type="monotone" dataKey="v" stroke={color} strokeWidth={1.5} fill={`url(#micro-${positive ? 'pos' : 'neg'})`} dot={false} isAnimationActive={false} />
+        <Area type="monotone" dataKey="v" stroke={color} strokeWidth={1.5} fill={`url(#${gradId})`} dot={false} isAnimationActive={false} />
       </AreaChart>
     </ResponsiveContainer>
   )
@@ -150,19 +151,19 @@ function KpiSummaryCards() {
       value: '+4.8%',
       change: '+1.2pp YoY',
       dir: 'up',
-      sub: 'Across 208 tracked expressions',
+      sub: 'Across 260 tracked expressions',
       icon: DollarSign,
       sparkData: KPI_TRENDS.premium,
       onClick: () => navigate('/pricing'),
     },
     {
       label: 'Brands Tracked',
-      value: '208',
+      value: '260',
       change: '+12 this quarter',
       dir: 'up',
       sub: 'Across 11 categories',
       icon: BarChart3,
-      sparkData: KPI_TRENDS.market,
+      sparkData: KPI_TRENDS.brands,
       onClick: () => navigate('/pricing'),
     },
   ]
@@ -177,7 +178,7 @@ function KpiSummaryCards() {
         >
           {/* Background sparkline */}
           <div className="absolute bottom-0 left-0 right-0 h-7 opacity-30">
-            <MicroSparkline data={kpi.sparkData} positive={kpi.dir === 'up'} />
+            <MicroSparkline data={kpi.sparkData} positive={kpi.dir === 'up'} uid={i} />
           </div>
 
           <div className="relative z-10">
@@ -610,7 +611,7 @@ function DeepDiveCTAs() {
   const ctas = [
     { label: 'View Full Category Data', sub: '11 categories with 5-year trends', to: '/categories', icon: BarChart3 },
     { label: 'View All Companies', sub: '14 major companies tracked', to: '/companies', icon: Activity },
-    { label: 'Explore Pricing', sub: '208 brand expressions monitored', to: '/pricing', icon: DollarSign },
+    { label: 'Explore Pricing', sub: '260 brand expressions monitored', to: '/pricing', icon: DollarSign },
     { label: 'Geographic Intelligence', sub: '5 regions with market breakdowns', to: '/geographic', icon: Globe },
     { label: 'Venue Intelligence', sub: '50 Best Bars + 28 London venues', to: '/venues', icon: Target },
     { label: 'Generate Report', sub: 'Custom intelligence briefings', to: '/reports', icon: FileText },

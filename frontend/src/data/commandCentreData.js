@@ -17,6 +17,7 @@ export const KPI_TRENDS = {
   nolo:      [{ v: 5.1 }, { v: 5.8 }, { v: 6.4 }, { v: 7.1 }, { v: 7.5 }],
   ecomm:     [{ v: 8.5 }, { v: 10.1 }, { v: 11.8 }, { v: 12.9 }, { v: 14.2 }],
   cogs:      [{ v: 48 }, { v: 52 }, { v: 55 }, { v: 58 }, { v: 62 }],
+  brands:    [{ v: 200 }, { v: 220 }, { v: 235 }, { v: 248 }, { v: 260 }],
 }
 
 // ── Category Snapshot with mini-trend data ──

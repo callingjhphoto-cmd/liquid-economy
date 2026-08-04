@@ -1,3 +1,21 @@
+# Overnight Build Log — 5 August 2026
+
+## Session summary
+
+**Shipped:** 3 data-consistency fixes + 1 Firefox SVG bug fix across 2 files — CommandCentre.jsx and commandCentreData.js.
+
+1. **CommandCentre.jsx — 3× stale brand count updated (208 → 260).** Three user-visible strings still showed "208" after BrandPricing was updated to 260 brands on 28 July: the "Brands Tracked" KPI card value, the "Avg Price Change" KPI subtitle ("Across 208 tracked expressions"), and the DeepDiveCTAs "Explore Pricing" sub-label ("208 brand expressions monitored"). All three updated. BRAND_DATABASE in brandData.js has 260 entries (confirmed by count). BrandPricing page already showed 260 — CommandCentre was the only page left inconsistent.
+
+2. **commandCentreData.js — KPI_TRENDS.brands sparkline added.** The "Brands Tracked" KPI card was using `KPI_TRENDS.market` (total spirits industry market size in $B, 580–635) as its background sparkline — semantically mismatched. Added `brands: [{ v: 200 }, { v: 220 }, { v: 235 }, { v: 248 }, { v: 260 }]` matching the trajectory already in BrandPricing's MetricCard. The KPI now uses this correct series.
+
+3. **CommandCentre.jsx — MicroSparkline SVG gradient ID collision fixed.** Four KPI cards each rendered `<MicroSparkline positive={true}>`, all producing `<linearGradient id="micro-pos">` in separate SVG elements. Firefox's document-scoped gradient ID resolution means later definitions override earlier ones — the first three cards silently inherited a mismatched gradient from the fourth. Fixed by adding a `uid` prop (map index `i`) so each gradient gets a unique ID: `micro-0-pos`, `micro-1-pos`, etc. Same root cause as the SupplyChain sparkline bug fixed 14 July; same fix pattern.
+
+4. **Full audit — 0 additional issues.** Unicode violations: 0 (all attr-string non-ASCII confirmed inside `={...}` expressions or JS template literals). Tooltip dark styling: 100% (all `contentStyle` and `itemStyle` confirmed). Legend `wrapperStyle`: all 8 instances confirmed. accessibilityLayer: confirmed on all charts (SupplyChain:422 and CommandCentre hero chart already had it). Null guards: reviewed RegulatoryCompliance, CompetitorMonitor, DistributorDirectory — all clean. Company count (14), venue count (28 London / 250 FIFTY_BEST_BARS) — both match CTA labels.
+
+5. **Build:** `npm run build` ✓ — 0 errors (15.21s). Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 4 August 2026
 
 ## Session summary

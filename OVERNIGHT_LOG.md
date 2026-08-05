@@ -1,3 +1,23 @@
+# Overnight Build Log — 5 August 2026 (session 2)
+
+## Session summary
+
+**Shipped:** Accessibility fix — aria-label added to 6 unlabeled `<select>` filter elements across 4 pages.
+
+1. **CompetitorMonitor.jsx:189** — Alert type filter select had no accessible name. Added `aria-label="Filter by alert type"`.
+
+2. **DistributorDirectory.jsx:165,173,181** — Country, category, and channel filter selects all unlabeled. Added `aria-label="Filter by country"`, `"Filter by category"`, `"Filter by channel"` respectively.
+
+3. **TradeShows.jsx:177** — Category filter select unlabeled. Added `aria-label="Filter by category"`.
+
+4. **Financials.jsx:281** — Company selector rendered inside `action={}` slot of ChartCard (no surrounding `<label>` possible). Added `aria-label="Select company"`.
+
+5. **Confirmed OK — no changes needed:** MarginCalculator (category/bottle-size/channel selects have `<label>` siblings), PricePositioning (spirit category/target market have `<label>` siblings), DepletionForecasting (seasonality select has `<label>` sibling), CampaignPlanner (category/brand selects have `<label>` siblings), PitchGenerator (category/scenario/funding selects have `<label>` siblings).
+
+6. **Build:** `npm run build` ✓ — 0 errors (13.35s). Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 5 August 2026
 
 ## Session summary

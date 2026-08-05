@@ -163,6 +163,7 @@ export default function DistributorDirectory() {
             />
           </div>
           <select
+            aria-label="Filter by country"
             value={countryFilter}
             onChange={e => setCountryFilter(e.target.value)}
             className="px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm"
@@ -171,6 +172,7 @@ export default function DistributorDirectory() {
             {COUNTRIES.map(c => <option key={c} value={c}>{c}</option>)}
           </select>
           <select
+            aria-label="Filter by category"
             value={categoryFilter}
             onChange={e => setCategoryFilter(e.target.value)}
             className="px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm"
@@ -179,6 +181,7 @@ export default function DistributorDirectory() {
             {ALL_CATEGORIES.map(c => <option key={c} value={c}>{c.charAt(0).toUpperCase() + c.slice(1)}</option>)}
           </select>
           <select
+            aria-label="Filter by channel"
             value={channelFilter}
             onChange={e => setChannelFilter(e.target.value)}
             className="px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm"

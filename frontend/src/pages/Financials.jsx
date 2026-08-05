@@ -279,6 +279,7 @@ function DepletionShipmentChart() {
       source="Company reports, IWSR, Nielsen IQ"
       action={
         <select
+          aria-label="Select company"
           value={selectedCompany}
           onChange={e => setSelectedCompany(e.target.value)}
           className="text-xs border border-gray-200 rounded-lg px-2 py-1.5 bg-white text-navy font-medium focus:ring-2 focus:ring-gold/50"

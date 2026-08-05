@@ -186,6 +186,7 @@ export default function CompetitorMonitor() {
               <Bell size={14} /> Recent Competitor Moves
             </h3>
             <select
+              aria-label="Filter by alert type"
               value={alertFilter}
               onChange={e => setAlertFilter(e.target.value)}
               className="px-2 py-1 bg-gray-50 border border-gray-200 rounded-lg text-xs"

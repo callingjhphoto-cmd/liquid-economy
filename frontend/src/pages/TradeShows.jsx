@@ -175,6 +175,7 @@ export default function TradeShows() {
             </button>
           </div>
           <select
+            aria-label="Filter by category"
             value={categoryFilter}
             onChange={e => setCategoryFilter(e.target.value)}
             className="px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm"

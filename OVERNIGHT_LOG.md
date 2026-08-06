@@ -1,3 +1,19 @@
+# Overnight Build Log — 6 August 2026
+
+## Session summary
+
+**Shipped:** 2 UX improvements across 2 files — document title management (all 36 routes) + 6 missing pages added to Cmd+K global search.
+
+1. **App.jsx — TitleManager component + /market-overview added to routeMeta.** All routes now set a descriptive browser tab title via a new `TitleManager` component mounted alongside `FocusManager`. Static routes resolve through the existing `routeMeta` lookup; 7 dynamic patterns (`/brand/:slug`, `/group/:slug`, `/walk-in/:slug`, `/proposal/:slug`, `/category/:slug/dossier`, `/p/.../cocktail/:slug`, `/p/:slug`) produce appropriate labels. Title format: `"Page Name — Liquid Economy"`. The `/market-overview` route was in the router but missing from `routeMeta` — added with `{ label: 'Market Overview', group: 'Intelligence' }`, which also fixes its breadcrumb.
+
+2. **GlobalSearch.jsx — 6 pages added to PAGES search index.** Users who typed Cmd+K and searched for "financials", "margin", "dossiers", "profiles", "marketing", or "market overview" received zero results — no matches in the 23-page PAGES array. Added: Financials (`/financials`, keywords: revenue/earnings/inventory/quarterly), Margin Calculator (`/margin`, keywords: cogs/cost/gross margin/net margin/rrp), Dossiers (`/dossiers`, keywords: brand reports/intelligence files/aperol/campari/lillet), Market Overview (`/market-overview`, keywords: global market/spirits market/size/trends), Client Profiles (`/profiles`, keywords: client/chorus cocktails/eden mill), Marketing Thesis (`/marketing`, keywords: strategy/brand building/campaign/roi). All 6 use existing icon imports — no new lucide-react imports needed.
+
+3. **Full audit — 0 issues found.** unicode violations: 0. accessibilityLayer: 40/40 charts confirmed. Tooltip dark styling: 100%. DataFreshness badges: all 25 intelligence pages confirmed. Null guards: CompetitorMonitor, DepletionForecasting charts, MarginCalculator all confirmed clean. ScenarioModeling `|| '—'` fallback in expression context confirmed correct (false positive from scanner). All 6 chart pages with CartesianGrid gaps are sparklines/compact decorative charts — intentional design.
+
+4. **Build:** `vite build` — 0 errors (17.37s). 13 commits from prior detached HEAD sessions forwarded to origin/main (only 1 was actually missing — previous sessions had already pushed correctly). Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 5 August 2026 (session 2)
 
 ## Session summary

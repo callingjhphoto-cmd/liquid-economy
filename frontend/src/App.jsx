@@ -79,6 +79,29 @@ const routeMeta = {
   '/contact': { label: 'Contact', group: 'Tools' },
   '/profiles': { label: 'Client Profiles', group: 'Reports' },
   '/marketing': { label: 'Marketing Thesis', group: 'Intelligence' },
+  '/market-overview': { label: 'Market Overview', group: 'Intelligence' },
+}
+
+function getPageTitle(pathname) {
+  const meta = routeMeta[pathname]
+  if (meta) return meta.label
+  if (pathname.startsWith('/brand/')) return 'Brand Dossier'
+  if (pathname.startsWith('/group/')) return 'Group Dossier'
+  if (pathname.startsWith('/walk-in/')) return 'Walk-in Brief'
+  if (pathname.startsWith('/proposal/')) return 'Engagement Proposal'
+  if (pathname.startsWith('/category/') && pathname.endsWith('/dossier')) return 'Category Dossier'
+  if (pathname.includes('/cocktail/')) return 'Cocktail Detail'
+  if (pathname.startsWith('/p/')) return 'Client Profile'
+  return null
+}
+
+function TitleManager() {
+  const location = useLocation()
+  useEffect(() => {
+    const title = getPageTitle(location.pathname)
+    document.title = title ? title + ' — Liquid Economy' : 'Liquid Economy'
+  }, [location.pathname])
+  return null
 }
 
 function FocusManager() {
@@ -615,6 +638,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <FocusManager />
+      <TitleManager />
       <LiveDataProvider>
         <AppRouter onLogout={handleLogout} />
       </LiveDataProvider>

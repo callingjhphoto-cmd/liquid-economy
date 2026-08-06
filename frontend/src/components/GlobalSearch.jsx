@@ -30,6 +30,12 @@ const PAGES = [
   { type: 'page', label: 'Competitor Monitor', path: '/competitors', icon: Search, keywords: ['competitor', 'monitor', 'tracking', 'alerts', 'moves'] },
   { type: 'page', label: 'Pitch Generator', path: '/pitch-generator', icon: FileText, keywords: ['pitch', 'generator', 'investor', 'deck', 'fundraising'] },
   { type: 'page', label: 'Contact', path: '/contact', icon: Tag, keywords: ['contact', 'enquiry', 'get in touch'] },
+  { type: 'page', label: 'Financials', path: '/financials', icon: TrendingUp, keywords: ['financials', 'revenue', 'earnings', 'depletion', 'shipments', 'inventory', 'quarterly'] },
+  { type: 'page', label: 'Margin Calculator', path: '/margin', icon: DollarSign, keywords: ['margin', 'calculator', 'cogs', 'cost', 'gross margin', 'net margin', 'rrp'] },
+  { type: 'page', label: 'Dossiers', path: '/dossiers', icon: FileText, keywords: ['dossiers', 'brand reports', 'intelligence files', 'aperol', 'campari', 'lillet'] },
+  { type: 'page', label: 'Market Overview', path: '/market-overview', icon: Globe, keywords: ['market overview', 'global market', 'spirits market', 'size', 'trends'] },
+  { type: 'page', label: 'Client Profiles', path: '/profiles', icon: Building2, keywords: ['profiles', 'client', 'chorus cocktails', 'eden mill', 'portfolio'] },
+  { type: 'page', label: 'Marketing Thesis', path: '/marketing', icon: Target, keywords: ['marketing', 'thesis', 'strategy', 'brand building', 'campaign', 'roi'] },
 ]
 
 const CATEGORIES = [

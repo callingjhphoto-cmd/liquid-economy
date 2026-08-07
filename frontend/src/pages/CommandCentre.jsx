@@ -10,6 +10,7 @@ import {
   AreaChart, Area, ResponsiveContainer
 } from 'recharts'
 import LiveFeed from '../components/LiveFeed'
+import KeyMetricsWatchlist from '../components/KeyMetricsWatchlist'
 import {
   PageHeader, Card, SectionHeader, BentoGrid, DrillDown,
   SkeletonCard, SkeletonChart, BottomSheet, MethodologyTooltip, DataFreshness
@@ -978,6 +979,11 @@ export default function CommandCentre() {
           >
             <RecentlyUpdatedFeed />
           </DrillDown>
+
+          {/* ══════════════════════════════════════════════════════
+              KEY METRICS WATCHLIST
+             ══════════════════════════════════════════════════════ */}
+          <KeyMetricsWatchlist />
 
           {/* ══════════════════════════════════════════════════════
               TIER 3 — Deep Dive Navigation CTAs

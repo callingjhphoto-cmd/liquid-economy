@@ -1,3 +1,17 @@
+# Overnight Build Log — 7 August 2026
+
+## Session summary
+
+**Shipped:** KeyMetricsWatchlist integrated into CommandCentre dashboard — 1 file changed, 6 insertions.
+
+1. **CommandCentre.jsx — KeyMetricsWatchlist surfaced on main dashboard.** `KeyMetricsWatchlist` was a complete, polished 122-line component with four intelligence pillars (Global Macro & Category, Supply Chain & Input Costs, Corporate Financial Health, Alternative Assets & Luxury) that had never been imported or used anywhere in the codebase. Added `import KeyMetricsWatchlist from '../components/KeyMetricsWatchlist'` and rendered `<KeyMetricsWatchlist />` between the DrillDown panels and `DeepDiveCTAs`. The component's pillar tab switcher and 24-metric grid are now visible on the Command Centre page.
+
+2. **Full codebase audit — 0 actionable issues found.** unicode violations: 0 (4 apparent hits all confirmed false positives — chars already inside `{}` expressions). accessibilityLayer: 40/40 real Recharts charts confirmed (3 of 43 grep hits were `<BarChart3` lucide icons). Tooltip dark styling, DataFreshness badges, null guards, Legend wrapperStyle — all confirmed clean. .agent/next_task.md states all priority audits complete as of 29 July.
+
+3. **Build:** `vite build` — 0 errors (13.29s). Pushed to origin/main. Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 6 August 2026
 
 ## Session summary

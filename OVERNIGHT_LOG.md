@@ -1,3 +1,19 @@
+# Overnight Build Log — 8 August 2026
+
+## Session summary
+
+**Shipped:** 3 fixes across 11 files — email address audit, data accuracy correction, MarketOverview mobile nav gap.
+
+1. **Email audit — replaced 8+ instances of callingjhphoto@gmail.com with james@huertas.co.uk.** Found the old Gmail address scattered across 7 files: ProfilesIndex, BrandHealth, CompetitorMonitor, ClientProfile, ReportBuilder, profileChorusCocktails, chorus-cocktails profile, eden-mill profile. All replaced with the correct address. Verified clean with grep after each fix.
+
+2. **Data accuracy — Baltic Dry Index / Drewry WCI note transposition fixed.** KeyMetricsWatchlist was showing "+110% YoY" as the BDI note, which is actually the Drewry WCI (container freight) figure. Cross-referenced against supplyChainData.js: BDI change is +34%, WCI change is +110%. Both notes now correctly cite their own figures, with Red Sea / port congestion context on the WCI entry.
+
+3. **MarketOverview mobile nav gap fixed.** Market Overview was the only intelligence page not listed in SubPageNav's intelligence group, and the only page not rendering SubPageNav — mobile users had no way to reach it from the horizontal pill nav. Added "Market Overview" entry to SubPageNav.jsx and imported + rendered SubPageNav in MarketOverview.jsx.
+
+4. **Build:** `vite build` — 0 errors (21.26s). Pushed to origin/main. Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 7 August 2026
 
 ## Session summary

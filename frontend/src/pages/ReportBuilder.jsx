@@ -79,13 +79,13 @@ export default function ReportBuilder() {
             Typical reports: 20{'–'}40 pages. Starting from {'£'}2,500.
           </p>
           <a
-            href="mailto:callingjhphoto@gmail.com?subject=Liquid%20Economy%20%E2%80%94%20Custom%20Report%20Request&body=Hi%2C%0A%0AI%27d%20like%20to%20request%20a%20custom%20intelligence%20report.%0A%0ATemplate%3A%20%5Be.g.%20Category%20Entry%20Report%5D%0ACategories%3A%20%5Be.g.%20Gin%2C%20Tequila%5D%0AMarkets%3A%20%5Be.g.%20UK%2C%20US%5D%0ABrief%3A%20%5BDescribe%20your%20specific%20question%20or%20objective%5D%0A%0AThanks"
+            href="mailto:james@huertas.co.uk?subject=Liquid%20Economy%20%E2%80%94%20Custom%20Report%20Request&body=Hi%2C%0A%0AI%27d%20like%20to%20request%20a%20custom%20intelligence%20report.%0A%0ATemplate%3A%20%5Be.g.%20Category%20Entry%20Report%5D%0ACategories%3A%20%5Be.g.%20Gin%2C%20Tequila%5D%0AMarkets%3A%20%5Be.g.%20UK%2C%20US%5D%0ABrief%3A%20%5BDescribe%20your%20specific%20question%20or%20objective%5D%0A%0AThanks"
             className="inline-flex items-center gap-2 px-6 py-3 bg-navy text-white rounded-lg font-medium text-sm hover:bg-navy/90 transition-colors"
           >
             <Mail size={16} />
             Request a Custom Report
           </a>
-          <p className="text-xs text-gray-500 mt-3">callingjhphoto@gmail.com {'·'} Response within 24 hours</p>
+          <p className="text-xs text-gray-500 mt-3">james@huertas.co.uk {'·'} Response within 24 hours</p>
         </div>
       </AccentCard>
 
@@ -203,7 +203,7 @@ export default function ReportBuilder() {
                             </div>
                           </div>
                           <a
-                            href="mailto:callingjhphoto@gmail.com?subject=Liquid%20Economy%20%E2%80%94%20Custom%20Report%20Request"
+                            href="mailto:james@huertas.co.uk?subject=Liquid%20Economy%20%E2%80%94%20Custom%20Report%20Request"
                             className="w-full bg-navy text-white py-3 rounded-lg font-medium text-sm flex items-center justify-center gap-2 hover:bg-navy/90 transition-colors"
                           >
                             <Mail size={16} />
@@ -292,7 +292,7 @@ export default function ReportBuilder() {
 
             {/* Request report CTA */}
             <a
-              href="mailto:callingjhphoto@gmail.com?subject=Liquid%20Economy%20%E2%80%94%20Custom%20Report%20Request"
+              href="mailto:james@huertas.co.uk?subject=Liquid%20Economy%20%E2%80%94%20Custom%20Report%20Request"
               className="mt-4 w-full bg-navy text-white py-3 rounded-lg font-medium text-sm flex items-center justify-center gap-2 hover:bg-navy/90 transition-colors"
             >
               <Mail size={16} />

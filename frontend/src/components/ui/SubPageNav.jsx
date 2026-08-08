@@ -11,6 +11,7 @@ const groups = {
     { label: 'Geographic', to: '/geographic' },
     { label: 'Brand Health', to: '/brand-health' },
     { label: 'Competitors', to: '/competitors' },
+    { label: 'Market Overview', to: '/market-overview' },
   ],
   planning: [
     { label: 'Supply Chain', to: '/supply-chain' },

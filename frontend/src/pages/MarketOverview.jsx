@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import {
-  PageHeader, Card, MetricCard, BentoGrid, SectionHeader, DataFreshness,
+  PageHeader, Card, MetricCard, BentoGrid, SectionHeader, DataFreshness, SubPageNav,
 } from '../components/ui'
 import { Globe, TrendingUp, Wine, Beer, Grape, Sparkles, Package, AlertTriangle, Zap } from 'lucide-react'
 import { REGIONAL_PULSE_EXTENDED, CATEGORY_SNAPSHOT, MARKET_SIGNALS } from '../data/commandCentreData'
@@ -121,6 +121,7 @@ export default function MarketOverview() {
           { label: 'Market Overview' },
         ]}
       />
+      <SubPageNav group="intelligence" />
       <DataFreshness date="April 2026" source="IWSR, Euromonitor, Rabobank, DISCUS, OIV" />
 
       {/* Hero card */}

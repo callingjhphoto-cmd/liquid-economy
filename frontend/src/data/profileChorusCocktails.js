@@ -1184,5 +1184,5 @@ export const profileMeta = {
   lastUpdated: 'April 2026',
   dataFreshness: 'April 2026',
   sourcedFrom: 'DI World’s 50 Best Bars Brand Report, Difford’s Guide analytics, IWSR 2024–2026, Bacardi Cocktail Trends Report, World’s 50 Best Bars menu analysis, Tales of the Cocktail 2024–2025, Class Magazine, The Spirits Business, Imbibe',
-  contactEmail: 'callingjhphoto@gmail.com'
+  contactEmail: 'james@huertas.co.uk'
 }

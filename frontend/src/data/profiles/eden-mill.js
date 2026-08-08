@@ -269,7 +269,7 @@ const edenMillProfile = {
     lastUpdated: 'April 2026',
     dataFreshness: 'April 2026',
     sourcedFrom: 'Liquid Economy Gin Category Intelligence, IWSR, SWA, WSTA, Drinks International, YouGov, Eden Mill fitness review (16 April 2026)',
-    contactEmail: 'callingjhphoto@gmail.com',
+    contactEmail: 'james@huertas.co.uk',
   },
   modules: [
     { type: 'CategorySnapshot', data: categorySnapshot },

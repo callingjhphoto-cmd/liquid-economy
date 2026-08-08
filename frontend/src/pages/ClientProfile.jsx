@@ -813,7 +813,7 @@ function SourcesMethodologySection({ profile }) {
               )
             })}
           </div>
-          <p className="text-caption text-gray-500 mt-3">Internal research reports are available to Chorus stakeholders on request {'—'} <a href="mailto:callingjhphoto@gmail.com?subject=Chorus%20%E2%80%94%20Source%20Request" className="text-editorial hover:text-navy underline">request access</a>.</p>
+          <p className="text-caption text-gray-500 mt-3">Internal research reports are available to Chorus stakeholders on request {'—'} <a href="mailto:james@huertas.co.uk?subject=Chorus%20%E2%80%94%20Source%20Request" className="text-editorial hover:text-navy underline">request access</a>.</p>
         </div>
       )}
 

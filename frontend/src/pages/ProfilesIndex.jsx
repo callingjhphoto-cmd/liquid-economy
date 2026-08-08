@@ -103,7 +103,7 @@ export default function ProfilesIndex() {
           <p className="text-subsection font-display text-navy mb-2">Need a profile for your brand or use case?</p>
           <p className="text-caption text-gray-700 mb-3 leading-relaxed">Custom profiles built around a specific archetype, market or category brief.</p>
           <a
-            href="mailto:callingjhphoto@gmail.com?subject=Liquid%20Economy%20%E2%80%94%20Profile%20Request"
+            href="mailto:james@huertas.co.uk?subject=Liquid%20Economy%20%E2%80%94%20Profile%20Request"
             className="text-caption font-semibold text-editorial hover:text-navy transition-colors flex items-center gap-1 no-underline"
           >
             <Mail size={12} />

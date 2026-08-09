@@ -1,3 +1,17 @@
+# Overnight Build Log — 9 August 2026
+
+## Session summary
+
+**Shipped:** 1 fix — BrandPricing scatter chart YAxis currency symbol format.
+
+1. **BrandPricing.jsx:473 — Price Positioning Map YAxis currency prefix fixed.** Recharts `unit` prop appends its value AFTER tick labels (produces "100£" / "50€"), not before. The scatter chart YAxis was using `unit={config.currency}` which displayed currency symbols as suffixes in all 8 markets (UK, US, Spain, France, Germany, Italy, Netherlands, ME). Replaced with `tickFormatter={v => \`${config.currency}${v}\`}` to match the prefix format already in use on the XAxis (line 447) and Tooltip formatter (line 477). Output now reads £100 / $75 / €50 as expected.
+
+2. **Audit — no other issues found.** Full scan of outstanding task list confirmed: .agent/tasks.json shows all actionable frontend tasks complete; remaining items require external data access not available in this container. Codebase is in clean maintenance state.
+
+3. **Build:** `vite build` — 0 errors (11.88s). Pushed to origin/main. Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 8 August 2026
 
 ## Session summary

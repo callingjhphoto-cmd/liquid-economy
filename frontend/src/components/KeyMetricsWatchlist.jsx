@@ -79,7 +79,7 @@ export default function KeyMetricsWatchlist() {
       </div>
 
       {/* Pillar Tabs */}
-      <div className="grid grid-cols-4 gap-2 mb-4">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
         {PILLARS.map(p => {
           const Icon = p.icon
           const c = colorMap[p.color]
@@ -88,10 +88,10 @@ export default function KeyMetricsWatchlist() {
             <button
               key={p.id}
               onClick={() => setActivePillar(p.id)}
-              className={`flex items-center gap-2 p-3 rounded-lg border text-left transition-all ${isActive ? `${c.bg} ${c.border} ${c.text}` : 'bg-white border-gray-100 text-gray-500 hover:bg-gray-50'}`}
+              className={`flex items-center gap-2 p-3 rounded-lg border text-left transition-all min-h-[52px] ${isActive ? `${c.bg} ${c.border} ${c.text}` : 'bg-white border-gray-100 text-gray-500 hover:bg-gray-50'}`}
             >
-              <Icon className={`w-4 h-4 ${isActive ? c.icon : 'text-gray-400'}`} />
-              <span className="text-xs font-semibold">{p.label}</span>
+              <Icon className={`w-4 h-4 flex-shrink-0 ${isActive ? c.icon : 'text-gray-400'}`} />
+              <span className="text-xs font-semibold leading-tight">{p.label}</span>
             </button>
           )
         })}

@@ -42,6 +42,20 @@
 
 ---
 
+# Overnight Build Log — 10 August 2026
+
+## Session summary
+
+**Shipped:** 1 mobile layout fix — KeyMetricsWatchlist pillar tab grid now responsive on 375px screens.
+
+1. **KeyMetricsWatchlist.jsx — `grid-cols-4` → `grid-cols-2 sm:grid-cols-4` on pillar tab bar.** The 4-pillar selector tabs rendered at ~84px wide on 375px mobile screens — too narrow for labels like "Global Macro & Category" and "Supply Chain & Input Costs". Changed to a 2-column grid on mobile, 4-column on sm+ breakpoint. Also added `min-h-[52px]` touch target height to each button, `flex-shrink-0` to prevent icon squash, and `leading-tight` on the label span so text wraps cleanly rather than overflowing or truncating.
+
+2. **Full codebase audit — 0 new issues found.** Unicode violations: 0. `accessibilityLayer` coverage: 100%. Tooltip dark styling: 100%. DataFreshness badges: all 25 intelligence pages confirmed. Null guards: all previously audited pages still clean. categoryData.js channel percentage sums: all ~100%. No direction/sign mismatches across 55 year-blocks.
+
+3. **Build:** `npm run build` ✓ — 0 errors (12.36s). Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 6 August 2026
 
 ## Session summary

@@ -1,3 +1,23 @@
+# Overnight Build Log — 11 August 2026
+
+## Session summary
+
+**Shipped:** 4 bug fixes across Companies.jsx and SupplyChain.jsx — all found by automated overnight scan.
+
+1. **Companies.jsx:61-66 — avgMargin divisor fixed.** `avgMargin` was dividing by `COMPANIES.length` (12) rather than the count of companies that actually have 2025 financials with a non-null `operatingMargin`. Companies without 2025 data were contributing 0 to the sum but still counted in the denominator, understating the displayed sector average margin. Fixed to divide by `withData.length`.
+
+2. **Companies.jsx:278-285 — Op. Margin / Net Income tiles now null-guarded.** The quick metrics row inside the company card was rendering `{fin2025.operatingMargin}%` and `${fin2025.netIncome}B` whenever `fin2025` was truthy, even if the individual fields were null. This produced lone `%` and `$B` glyphs for companies with incomplete 2025 financials. Both tiles are now wrapped in `{field != null && (...)}`.
+
+3. **Companies.jsx:558-563 — chartData undefined values replaced with null.** `revenue`, `margin`, and `netIncome` were passed directly from the financials object without a fallback, so missing fields became `undefined` in the Recharts `<Line>` dataKey. Recharts treats `undefined` differently from `null` — it emits a console.error and renders the line as NaN. Fixed with `?? null` so Recharts skips the point cleanly.
+
+4. **SupplyChain.jsx:431 — YAxis tickFormatter unit length guard removed.** A `data.unit.length <= 8` condition silently dropped the unit label for `'$/short ton'` (11 chars) and `'€/t CO2e'` (8 chars border case), leaving bare numbers on the Corrugated Board and Carbon Price commodity charts. Condition removed — unit is now always appended when present.
+
+**Audit findings (no action needed):** CategoryIntelligence — all 11 categories × 5 years confirmed present with required fields (marketSize, growth, volumeCases, channels). BrandPricing and VenueIntelligence data confirmed intact. All Recharts Tooltip components across 10 pages confirmed with dark contentStyle (#1e293b). No raw unicode violations in JSX text nodes.
+
+**Build:** `vite build` — 0 errors (13.23s). Pushed to origin/main. Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 9 August 2026
 
 ## Session summary

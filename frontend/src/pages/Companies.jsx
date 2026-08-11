@@ -58,12 +58,11 @@ const OPP_VARIANTS = { Highest: 'green', High: 'blue', Moderate: 'orange' }
 /* ── Derived Stats ── */
 const totalCompanies = COMPANIES.length
 const totalRevenue = COMPANIES.reduce((s, c) => s + parseRevenue(c.revenue), 0)
-const avgMargin = COMPANIES.length
-  ? (COMPANIES.reduce((s, c) => {
-      const f = c.financials && c.financials['2025']
-      return s + (f && f.operatingMargin != null ? f.operatingMargin : 0)
-    }, 0) / COMPANIES.length).toFixed(1)
-  : '0.0'
+const avgMargin = (() => {
+  const withData = COMPANIES.filter(c => c.financials && c.financials['2025'] && c.financials['2025'].operatingMargin != null)
+  if (!withData.length) return '0.0'
+  return (withData.reduce((s, c) => s + c.financials['2025'].operatingMargin, 0) / withData.length).toFixed(1)
+})()
 const highestGrowth = [...COMPANIES].sort((a, b) => {
   const ag = parseFloat(String(a.revenueGrowth).replace(/[^-\d.]/g, '')) || 0
   const bg = parseFloat(String(b.revenueGrowth).replace(/[^-\d.]/g, '')) || 0
@@ -275,14 +274,18 @@ function CompanyTier2({ company, onViewFull, onClose }) {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-4">
           {fin2025 && (
             <>
-              <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                <div className="text-xs text-gray-500 uppercase tracking-wide">Op. Margin</div>
-                <div className="text-sm font-bold text-navy tabular-nums">{fin2025.operatingMargin}%</div>
-              </div>
-              <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-                <div className="text-xs text-gray-500 uppercase tracking-wide">Net Income</div>
-                <div className="text-sm font-bold text-navy tabular-nums">${fin2025.netIncome}B</div>
-              </div>
+              {fin2025.operatingMargin != null && (
+                <div className="bg-gray-50 rounded-lg p-2.5 text-center">
+                  <div className="text-xs text-gray-500 uppercase tracking-wide">Op. Margin</div>
+                  <div className="text-sm font-bold text-navy tabular-nums">{fin2025.operatingMargin}%</div>
+                </div>
+              )}
+              {fin2025.netIncome != null && (
+                <div className="bg-gray-50 rounded-lg p-2.5 text-center">
+                  <div className="text-xs text-gray-500 uppercase tracking-wide">Net Income</div>
+                  <div className="text-sm font-bold text-navy tabular-nums">${fin2025.netIncome}B</div>
+                </div>
+              )}
             </>
           )}
           {!company.isPrivate && company.marketCap && (
@@ -557,9 +560,9 @@ function CompanyTier3({ company, onClose }) {
   const years = Object.keys(financials).sort()
   const chartData = years.filter(y => financials[y]).map(y => ({
     year: y,
-    revenue: financials[y].revenue,
-    margin: financials[y].operatingMargin,
-    netIncome: financials[y].netIncome,
+    revenue: financials[y].revenue ?? null,
+    margin: financials[y].operatingMargin ?? null,
+    netIncome: financials[y].netIncome ?? null,
   }))
 
   const finColumns = [

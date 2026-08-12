@@ -1,3 +1,21 @@
+# Overnight Build Log — 12 August 2026
+
+## Session summary
+
+**Shipped:** 3 navigation consistency fixes in App.jsx — all found by systematic audit of routeMeta, BottomTabBar match arrays, and sidebar NavGroups.
+
+1. **App.jsx routeMeta /scenario label wrong.** The `/scenario` route (ScenarioModeling.jsx, sidebar label "Scenario Modeling") had `label: 'Market Entry'` in routeMeta. This caused both the browser tab title ("Market Entry — Liquid Economy") and the breadcrumb (Dashboard > Planning > **Market Entry**) to display the wrong page name. Fixed to `'Scenario Modeling'`. The actual Market Entry Wizard lives at `/market-entry`.
+
+2. **BottomTabBar Intelligence tab missing /marketing and /market-overview.** Both routes belong to the Intelligence group — Marketing Thesis (`/marketing`) appears in the sidebar Intelligence NavGroup, and Market Overview (`/market-overview`) appears in SubPageNav's intelligence group and routeMeta with `group: 'Intelligence'`. Neither was in the BottomTabBar `match` array, so mobile users on those pages saw no highlighted tab. Added both.
+
+3. **BottomTabBar Reports tab missing /profiles.** Client Profiles (`/profiles`) has `group: 'Reports'` in routeMeta and is logically a Reports page, but was absent from the Reports tab match array. Fixed — mobile users on Client Profiles now see the Reports tab highlighted.
+
+**Audit findings (no action needed):** 39 Recharts chart instances across all pages confirmed with `accessibilityLayer` and dark Tooltip `contentStyle`. Zero raw unicode violations in JSX attribute strings. Channel percentage sums within ±3% rounding tolerance. Growth direction flags all match sign of growth value.
+
+**Build:** `vite build` — 0 errors (13.82s). Pushed to origin/main. Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 11 August 2026
 
 ## Session summary

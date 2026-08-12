@@ -59,7 +59,7 @@ const routeMeta = {
   '/venues': { label: 'Venues', group: 'Intelligence' },
   '/geographic': { label: 'Geographic', group: 'Intelligence' },
   '/supply-chain': { label: 'Supply Chain', group: 'Planning' },
-  '/scenario': { label: 'Market Entry', group: 'Planning' },
+  '/scenario': { label: 'Scenario Modeling', group: 'Planning' },
   '/margin': { label: 'Margin Calculator', group: 'Planning' },
   '/campaigns': { label: 'Campaign Planner', group: 'Planning' },
   '/reports': { label: 'Report Builder', group: 'Reports' },
@@ -168,9 +168,9 @@ function BottomTabBar() {
 
   const tabs = [
     { to: '/', icon: LayoutDashboard, label: 'Dashboard', match: ['/'] },
-    { to: '/categories', icon: BarChart3, label: 'Intelligence', match: ['/dossiers', '/categories', '/companies', '/pricing', '/venues', '/geographic', '/price-positioning', '/brand-health', '/competitors'] },
+    { to: '/categories', icon: BarChart3, label: 'Intelligence', match: ['/dossiers', '/categories', '/companies', '/pricing', '/venues', '/geographic', '/price-positioning', '/brand-health', '/competitors', '/marketing', '/market-overview'] },
     { to: '/supply-chain', icon: Rocket, label: 'Planning', match: ['/supply-chain', '/scenario', '/margin', '/campaigns', '/market-entry', '/distributors', '/depletions'] },
-    { to: '/reports', icon: FileText, label: 'Reports', match: ['/reports', '/valuations', '/financials', '/pitch-generator'] },
+    { to: '/reports', icon: FileText, label: 'Reports', match: ['/reports', '/valuations', '/financials', '/pitch-generator', '/profiles'] },
     { to: '/climate', icon: MoreHorizontal, label: 'Tools', match: ['/climate', '/pos', '/trade-shows', '/regulatory', '/contact'] },
   ]
 

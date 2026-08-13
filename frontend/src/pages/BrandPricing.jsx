@@ -541,6 +541,7 @@ function FullPriceTable({ onClose }) {
       me: p.me,
       differential: p.differential,
       premiumPct: Math.round((p.premium_index || 0) * 100),
+      _search: `${p.company} ${p.brand} ${p.expression}`.toLowerCase(),
     }))
   }, [categoryFilter, segmentFilter])
 
@@ -640,7 +641,7 @@ function FullPriceTable({ onClose }) {
           data={tableData}
           searchable
           searchPlaceholder="Search brand, expression, or company..."
-          searchKey="brand"
+          searchKey="_search"
           emptyMessage="No brands match your filters."
           compact
           exportable

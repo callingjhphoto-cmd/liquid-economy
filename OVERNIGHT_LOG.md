@@ -1,3 +1,17 @@
+# Overnight Build Log — 13 August 2026
+
+## Session summary
+
+**Shipped:** BrandPricing DataTable search bug fix.
+
+1. **BrandPricing.jsx — search only matched `brand` field despite "brand, expression, or company" placeholder.** `searchKey="brand"` on the DataTable meant typing "Distiller's Select" (an expression) or "Brown-Forman" (a company) returned no results. Fixed by adding a `_search` compound field to the `tableData` useMemo — a lowercased concat of `company + brand + expression` — and changing `searchKey` to `"_search"`. The field is excluded from CSV exports (custom export handler enumerates explicit columns; built-in DataTable export also iterates `columns` array only).
+
+2. **Audit (no changes needed):** CategoryIntelligence data confirmed complete across all 11 categories × 5 years — channels sum within ±3%, growthDir matches sign, grossMarginPct and report fields all present. VenueIntelligence confirmed 250 FIFTY_BEST_BARS entries (50 per year) and exactly 28 LONDON_VENUES. Tooltip white-on-dark styling and chart `accessibilityLayer` confirmed already in place from prior sessions.
+
+**Build:** `vite build` — 0 errors (12.38s, 182 assets). Pushed to origin/main. Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 12 August 2026
 
 ## Session summary

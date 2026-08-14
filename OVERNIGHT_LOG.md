@@ -1,3 +1,17 @@
+# Overnight Build Log — 14 August 2026
+
+## Session summary
+
+**Shipped:** CampaignPlanner.jsx accessibility — WCAG 1.3.1 `id`/`htmlFor` pairings on all select elements.
+
+1. **CampaignPlanner.jsx — 17 `<select>` elements had adjacent `<label>` siblings but no programmatic association.** Screen readers and assistive tech depend on `<label htmlFor="id">` + `<select id="id">` pairing to identify form fields by name; a visual sibling is not sufficient per WCAG 1.3.1. Added matching `id` + `htmlFor` attributes to all selects in both the desktop render path (category, brand, segment, base-spirit, target-occasion, serve, market, start-month, end-month) and the mobile render path (same fields, same IDs). Desktop and mobile branches are rendered conditionally via `if (isMobile)` guard, so identical IDs across both JSX paths never produce duplicate DOM IDs at runtime.
+
+2. **Audit (no changes needed):** All pages reviewed for any remaining label/select pairing gaps — DistributorDirectory, CompetitorMonitor, MarginCalculator, Financials, DepletionForecasting, ScenarioModeling — all confirmed already carrying `aria-label` or proper `htmlFor`/`id` pairs from prior sessions.
+
+**Build:** `vite build` — 0 errors (16.92s, 182 assets). Pushed to origin/main. Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 13 August 2026
 
 ## Session summary

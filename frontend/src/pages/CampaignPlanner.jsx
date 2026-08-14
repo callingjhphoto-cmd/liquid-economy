@@ -383,16 +383,16 @@ const CampaignPlanner = () => {
       {campaignData.campaignType === 'existing' && (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-semibold text-gray-700 mb-2">Category</label>
-            <select name="category" value={campaignData.category} onChange={handleInputChange}
+            <label htmlFor="cp-category" className="block text-xs font-semibold text-gray-700 mb-2">Category</label>
+            <select id="cp-category" name="category" value={campaignData.category} onChange={handleInputChange}
               className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold">
               <option value="">Select Category</option>
               {CATEGORIES.map(c => <option key={c.id} value={c.id}>{c.label}</option>)}
             </select>
           </div>
           <div>
-            <label className="block text-xs font-semibold text-gray-700 mb-2">Brand</label>
-            <select name="brand" value={campaignData.brand} onChange={handleInputChange}
+            <label htmlFor="cp-brand" className="block text-xs font-semibold text-gray-700 mb-2">Brand</label>
+            <select id="cp-brand" name="brand" value={campaignData.brand} onChange={handleInputChange}
               className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold">
               <option value="">Select Brand</option>
               {campaignData.category && BRANDS_BY_CATEGORY[campaignData.category]?.map(b => <option key={b} value={b}>{b}</option>)}
@@ -410,16 +410,16 @@ const CampaignPlanner = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-2">Category</label>
-              <select name="category" value={campaignData.category} onChange={handleInputChange}
+              <label htmlFor="cp-category" className="block text-xs font-semibold text-gray-700 mb-2">Category</label>
+              <select id="cp-category" name="category" value={campaignData.category} onChange={handleInputChange}
                 className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold">
                 <option value="">Select Category</option>
                 {CATEGORIES.map(c => <option key={c.id} value={c.id}>{c.label}</option>)}
               </select>
             </div>
             <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-2">Segment</label>
-              <select name="segment" value={campaignData.segment} onChange={handleInputChange}
+              <label htmlFor="cp-segment" className="block text-xs font-semibold text-gray-700 mb-2">Segment</label>
+              <select id="cp-segment" name="segment" value={campaignData.segment} onChange={handleInputChange}
                 className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold">
                 <option value="">Select Segment</option>
                 {SEGMENTS.map(s => <option key={s} value={s}>{s}</option>)}
@@ -444,16 +444,16 @@ const CampaignPlanner = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-2">Base Spirit</label>
-              <select name="baseSpirit" value={campaignData.baseSpirit} onChange={handleInputChange}
+              <label htmlFor="cp-base-spirit" className="block text-xs font-semibold text-gray-700 mb-2">Base Spirit</label>
+              <select id="cp-base-spirit" name="baseSpirit" value={campaignData.baseSpirit} onChange={handleInputChange}
                 className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold">
                 <option value="">Select Base Spirit</option>
                 {BASE_SPIRITS.map(s => <option key={s} value={s}>{s}</option>)}
               </select>
             </div>
             <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-2">Target Occasion</label>
-              <select name="targetOccasion" value={campaignData.targetOccasion} onChange={handleInputChange}
+              <label htmlFor="cp-target-occasion" className="block text-xs font-semibold text-gray-700 mb-2">Target Occasion</label>
+              <select id="cp-target-occasion" name="targetOccasion" value={campaignData.targetOccasion} onChange={handleInputChange}
                 className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold">
                 <option value="">Select Occasion</option>
                 {COCKTAIL_OCCASIONS.map(o => <option key={o} value={o}>{o}</option>)}
@@ -471,8 +471,8 @@ const CampaignPlanner = () => {
 
       {campaignData.campaignType !== 'cocktail' && (
         <div>
-          <label className="block text-xs font-semibold text-gray-700 mb-2">Serve Style</label>
-          <select name="serve" value={campaignData.serve} onChange={handleInputChange}
+          <label htmlFor="cp-serve" className="block text-xs font-semibold text-gray-700 mb-2">Serve Style</label>
+          <select id="cp-serve" name="serve" value={campaignData.serve} onChange={handleInputChange}
             className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold">
             <option value="">Select Serve</option>
             {SERVES.map(s => <option key={s} value={s}>{s}</option>)}
@@ -482,8 +482,8 @@ const CampaignPlanner = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className="block text-xs font-semibold text-gray-700 mb-2">Market</label>
-          <select name="market" value={campaignData.market} onChange={handleInputChange}
+          <label htmlFor="cp-market" className="block text-xs font-semibold text-gray-700 mb-2">Market</label>
+          <select id="cp-market" name="market" value={campaignData.market} onChange={handleInputChange}
             className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold">
             <option value="">Select Market</option>
             {MARKETS.map(m => <option key={m.code} value={m.code}>{m.code}</option>)}
@@ -498,15 +498,15 @@ const CampaignPlanner = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className="block text-xs font-semibold text-gray-700 mb-2">Campaign Start</label>
-          <select name="startMonth" value={campaignData.startMonth} onChange={handleInputChange}
+          <label htmlFor="cp-start-month" className="block text-xs font-semibold text-gray-700 mb-2">Campaign Start</label>
+          <select id="cp-start-month" name="startMonth" value={campaignData.startMonth} onChange={handleInputChange}
             className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold">
             {MONTHS.map(m => <option key={m} value={m}>{m}</option>)}
           </select>
         </div>
         <div>
-          <label className="block text-xs font-semibold text-gray-700 mb-2">Campaign End</label>
-          <select name="endMonth" value={campaignData.endMonth} onChange={handleInputChange}
+          <label htmlFor="cp-end-month" className="block text-xs font-semibold text-gray-700 mb-2">Campaign End</label>
+          <select id="cp-end-month" name="endMonth" value={campaignData.endMonth} onChange={handleInputChange}
             className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold">
             {MONTHS.map(m => <option key={m} value={m}>{m}</option>)}
           </select>
@@ -1372,8 +1372,8 @@ const CampaignPlanner = () => {
 
       {/* Category */}
       <div>
-        <label className="block text-xs font-semibold text-gray-700 mb-2">Category</label>
-        <select name="category" value={campaignData.category} onChange={handleInputChange}
+        <label htmlFor="cp-category" className="block text-xs font-semibold text-gray-700 mb-2">Category</label>
+        <select id="cp-category" name="category" value={campaignData.category} onChange={handleInputChange}
           className="w-full px-3 py-3 text-sm border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold touch-manipulation">
           <option value="">Select Category</option>
           {CATEGORIES.map(c => <option key={c.id} value={c.id}>{c.label}</option>)}
@@ -1383,8 +1383,8 @@ const CampaignPlanner = () => {
       {/* Brand (existing) */}
       {campaignData.campaignType === 'existing' && campaignData.category && (
         <div>
-          <label className="block text-xs font-semibold text-gray-700 mb-2">Brand</label>
-          <select name="brand" value={campaignData.brand} onChange={handleInputChange}
+          <label htmlFor="cp-brand" className="block text-xs font-semibold text-gray-700 mb-2">Brand</label>
+          <select id="cp-brand" name="brand" value={campaignData.brand} onChange={handleInputChange}
             className="w-full px-3 py-3 text-sm border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold touch-manipulation">
             <option value="">Select Brand</option>
             {BRANDS_BY_CATEGORY[campaignData.category]?.map(b => <option key={b} value={b}>{b}</option>)}
@@ -1401,8 +1401,8 @@ const CampaignPlanner = () => {
               placeholder="e.g., Aurora Spirits" className="w-full px-3 py-3 text-sm border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold touch-manipulation" />
           </div>
           <div>
-            <label className="block text-xs font-semibold text-gray-700 mb-2">Segment</label>
-            <select name="segment" value={campaignData.segment} onChange={handleInputChange}
+            <label htmlFor="cp-segment" className="block text-xs font-semibold text-gray-700 mb-2">Segment</label>
+            <select id="cp-segment" name="segment" value={campaignData.segment} onChange={handleInputChange}
               className="w-full px-3 py-3 text-sm border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold touch-manipulation">
               <option value="">Select Segment</option>
               {SEGMENTS.map(s => <option key={s} value={s}>{s}</option>)}
@@ -1420,8 +1420,8 @@ const CampaignPlanner = () => {
               placeholder="e.g., Fino Spritz" className="w-full px-3 py-3 text-sm border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold touch-manipulation" />
           </div>
           <div>
-            <label className="block text-xs font-semibold text-gray-700 mb-2">Base Spirit</label>
-            <select name="baseSpirit" value={campaignData.baseSpirit} onChange={handleInputChange}
+            <label htmlFor="cp-base-spirit" className="block text-xs font-semibold text-gray-700 mb-2">Base Spirit</label>
+            <select id="cp-base-spirit" name="baseSpirit" value={campaignData.baseSpirit} onChange={handleInputChange}
               className="w-full px-3 py-3 text-sm border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold touch-manipulation">
               <option value="">Select Base Spirit</option>
               {BASE_SPIRITS.map(s => <option key={s} value={s}>{s}</option>)}
@@ -1432,8 +1432,8 @@ const CampaignPlanner = () => {
 
       {/* Market */}
       <div>
-        <label className="block text-xs font-semibold text-gray-700 mb-2">Market</label>
-        <select name="market" value={campaignData.market} onChange={handleInputChange}
+        <label htmlFor="cp-market" className="block text-xs font-semibold text-gray-700 mb-2">Market</label>
+        <select id="cp-market" name="market" value={campaignData.market} onChange={handleInputChange}
           className="w-full px-3 py-3 text-sm border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold touch-manipulation">
           <option value="">Select Market</option>
           {MARKETS.map(m => <option key={m.code} value={m.code}>{m.code}</option>)}
@@ -1488,15 +1488,15 @@ const CampaignPlanner = () => {
         {/* Date Range */}
         <div className="grid grid-cols-2 gap-3">
           <div>
-            <label className="block text-xs font-semibold text-gray-700 mb-2">Start</label>
-            <select name="startMonth" value={campaignData.startMonth} onChange={handleInputChange}
+            <label htmlFor="cp-start-month" className="block text-xs font-semibold text-gray-700 mb-2">Start</label>
+            <select id="cp-start-month" name="startMonth" value={campaignData.startMonth} onChange={handleInputChange}
               className="w-full px-3 py-3 text-sm border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold touch-manipulation">
               {MONTHS.map(m => <option key={m} value={m}>{m}</option>)}
             </select>
           </div>
           <div>
-            <label className="block text-xs font-semibold text-gray-700 mb-2">End</label>
-            <select name="endMonth" value={campaignData.endMonth} onChange={handleInputChange}
+            <label htmlFor="cp-end-month" className="block text-xs font-semibold text-gray-700 mb-2">End</label>
+            <select id="cp-end-month" name="endMonth" value={campaignData.endMonth} onChange={handleInputChange}
               className="w-full px-3 py-3 text-sm border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold touch-manipulation">
               {MONTHS.map(m => <option key={m} value={m}>{m}</option>)}
             </select>

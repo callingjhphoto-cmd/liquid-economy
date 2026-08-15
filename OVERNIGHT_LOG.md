@@ -1,3 +1,17 @@
+# Overnight Build Log — 15 August 2026
+
+## Session summary
+
+**Shipped:** DepletionForecasting.jsx and MarginCalculator.jsx accessibility — WCAG 1.3.1 `id`/`htmlFor` pairings on all form controls.
+
+1. **DepletionForecasting.jsx — `InputGroup` component had no `htmlFor`/`id` linkage.** All 5 numeric inputs (Distribution Points, Rate of Sale, Price Per Case, Cases Per Reorder, Annual Growth) were rendered with adjacent `<label>` siblings but no programmatic association. Fixed by generating a stable slug ID (`df-<label-slug>`) inside `InputGroup` and threading it through both the `<label htmlFor>` and `<input id>`. Standalone Seasonality `<select>` also now linked via `htmlFor="df-seasonality"` / `id="df-seasonality"`.
+
+2. **MarginCalculator.jsx — 4 Quick Inputs controls had no `htmlFor`/`id` pairs.** Category select, Bottle Size select, Channel select, and Target RRP number input all had visual `<label>` siblings without programmatic association. Added matching `id`/`htmlFor` pairs: `mc-category`, `mc-bottle-size`, `mc-channel`, `mc-rrp`. Aug 5 session had marked this file as OK based on visual adjacency, but WCAG 1.3.1 requires programmatic not visual linkage.
+
+**Build:** `vite build` — 0 errors (16.05s, 182 assets). Pushed to origin/main. Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 14 August 2026
 
 ## Session summary

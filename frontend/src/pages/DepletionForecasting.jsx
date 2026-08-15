@@ -23,11 +23,13 @@ const SEASONALITY_PROFILES = {
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
 function InputGroup({ label, value, onChange, type = 'number', placeholder, suffix, min }) {
+  const id = 'df-' + label.toLowerCase().replace(/[^a-z0-9]+/g, '-')
   return (
     <div>
-      <label className="block text-xs font-semibold text-navy mb-1">{label}</label>
+      <label htmlFor={id} className="block text-xs font-semibold text-navy mb-1">{label}</label>
       <div className="relative">
         <input
+          id={id}
           type={type}
           value={value}
           onChange={e => onChange(e.target.value)}
@@ -136,8 +138,9 @@ export default function DepletionForecasting() {
           <InputGroup label="Distribution Points" value={distPoints} onChange={setDistPoints} placeholder="150" suffix="outlets" min="1" />
           <InputGroup label="Rate of Sale" value={rateOfSale} onChange={setRateOfSale} placeholder="2.5" suffix="cases/mo" min="0.1" />
           <div>
-            <label className="block text-xs font-semibold text-navy mb-1">Seasonality</label>
+            <label htmlFor="df-seasonality" className="block text-xs font-semibold text-navy mb-1">Seasonality</label>
             <select
+              id="df-seasonality"
               value={seasonality}
               onChange={e => setSeasonality(e.target.value)}
               className="w-full px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm"

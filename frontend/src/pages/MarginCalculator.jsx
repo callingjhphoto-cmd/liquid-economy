@@ -314,29 +314,29 @@ export default function MarginCalculator() {
             {/* Quick inputs */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-4">
               <div>
-                <label className="text-xs font-medium text-gray-500 block mb-1">Category</label>
-                <select value={category} onChange={e => handleCategoryChange(e.target.value)}
+                <label htmlFor="mc-category" className="text-xs font-medium text-gray-500 block mb-1">Category</label>
+                <select id="mc-category" value={category} onChange={e => handleCategoryChange(e.target.value)}
                   className="w-full text-xs border border-gray-200 rounded-lg px-3 py-2 bg-white text-navy font-medium focus:ring-2 focus:ring-gold focus:border-transparent">
                   {Object.entries(CATEGORY_COGS).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
                 </select>
               </div>
               <div>
-                <label className="text-xs font-medium text-gray-500 block mb-1">Bottle Size</label>
-                <select value={bottleSize} onChange={e => setBottleSize(Number(e.target.value))}
+                <label htmlFor="mc-bottle-size" className="text-xs font-medium text-gray-500 block mb-1">Bottle Size</label>
+                <select id="mc-bottle-size" value={bottleSize} onChange={e => setBottleSize(Number(e.target.value))}
                   className="w-full text-xs border border-gray-200 rounded-lg px-3 py-2 bg-white text-navy font-medium focus:ring-2 focus:ring-gold focus:border-transparent">
                   {BOTTLE_SIZES.map((s, i) => <option key={i} value={i}>{s.label}</option>)}
                 </select>
               </div>
               <div>
-                <label className="text-xs font-medium text-gray-500 block mb-1">Channel</label>
-                <select value={channel} onChange={e => { setChannel(e.target.value); setTargetRRP(cat.avgRRP[e.target.value] || targetRRP) }}
+                <label htmlFor="mc-channel" className="text-xs font-medium text-gray-500 block mb-1">Channel</label>
+                <select id="mc-channel" value={channel} onChange={e => { setChannel(e.target.value); setTargetRRP(cat.avgRRP[e.target.value] || targetRRP) }}
                   className="w-full text-xs border border-gray-200 rounded-lg px-3 py-2 bg-white text-navy font-medium focus:ring-2 focus:ring-gold focus:border-transparent">
                   {CHANNELS.map(c => <option key={c} value={c}>{CHANNEL_LABELS[c]}</option>)}
                 </select>
               </div>
               <div>
-                <label className="text-xs font-medium text-gray-500 block mb-1">Target RRP ({'£'})</label>
-                <input type="number" value={targetRRP} onChange={e => setTargetRRP(Number(e.target.value))}
+                <label htmlFor="mc-rrp" className="text-xs font-medium text-gray-500 block mb-1">Target RRP ({'£'})</label>
+                <input id="mc-rrp" type="number" value={targetRRP} onChange={e => setTargetRRP(Number(e.target.value))}
                   className="w-full text-xs border border-gray-200 rounded-lg px-3 py-2 bg-white text-navy font-medium focus:ring-2 focus:ring-gold focus:border-transparent"
                   min={0} step={0.5} />
               </div>

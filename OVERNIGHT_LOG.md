@@ -1,3 +1,21 @@
+# Overnight Build Log — 16 August 2026
+
+## Session summary
+
+**Shipped:** WCAG 1.3.1 `id`/`htmlFor` pairings across 4 pages — 20 form controls and button groups fixed.
+
+1. **PitchGenerator.jsx — 6 form controls had no `htmlFor`/`id` linkage.** Brand Name, Category, Target Market, RRP, Scenario, and Funding Stage all had visual `<label>` siblings with no programmatic association. Added `pg-*` IDs throughout. Distribution Model was a button group labelled by a `<label>` — changed to `<p id="pg-dist-model-label">` + `role="group" aria-labelledby` on the wrapping div (buttons have visible text so the group label is advisory only).
+
+2. **PricePositioning.jsx — 3 form controls had no `htmlFor`/`id` linkage.** Spirit Category, Target Market, and Your RRP selects/input all lacked the pairing. Added `pp-category`, `pp-market`, `pp-rrp` IDs.
+
+3. **RegulatoryCompliance.jsx — "Select Market" `<label>` preceded a button group, not a form control.** Changed to `<p id="rc-market-group-label">` + `role="group" aria-labelledby="rc-market-group-label"` on the button group div — correctly marks the group without misusing `<label>` for non-form elements.
+
+4. **CampaignPlanner.jsx — 14 additional controls missed by the 14 Aug session.** The Aug 14 session fixed all `<select>` elements but left all `<input>` and `<textarea>` controls unlabelled, plus button group labels were still `<label>` elements. Fixed: custom brand name (text input), product description (textarea), cocktail name (text input), key ingredients (textarea), budget input (desktop + mobile paths), channel allocation sliders (4× in desktop DrillDown, 4× in mobile DrillDown — dynamic `cp-slider-${channel}` IDs). Campaign Type and Primary Objective button groups changed to `<p id>` / `role="group" aria-labelledby` pattern in both desktop and mobile render paths.
+
+**Build:** `vite build` — 0 errors (13.11s, 182 assets). Pushed to origin/main. Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 15 August 2026
 
 ## Session summary

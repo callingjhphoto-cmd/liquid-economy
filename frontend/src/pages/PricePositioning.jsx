@@ -203,8 +203,9 @@ export default function PricePositioning() {
       <Card className="p-6 mb-6">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
-            <label className="block text-xs font-semibold text-navy mb-1">Spirit Category</label>
+            <label htmlFor="pp-category" className="block text-xs font-semibold text-navy mb-1">Spirit Category</label>
             <select
+              id="pp-category"
               value={category}
               onChange={e => setCategory(e.target.value)}
               className="w-full px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm"
@@ -213,8 +214,9 @@ export default function PricePositioning() {
             </select>
           </div>
           <div>
-            <label className="block text-xs font-semibold text-navy mb-1">Target Market</label>
+            <label htmlFor="pp-market" className="block text-xs font-semibold text-navy mb-1">Target Market</label>
             <select
+              id="pp-market"
               value={market}
               onChange={e => setMarket(e.target.value)}
               className="w-full px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm"
@@ -223,8 +225,9 @@ export default function PricePositioning() {
             </select>
           </div>
           <div>
-            <label className="block text-xs font-semibold text-navy mb-1">Your RRP ({selectedMarket?.currency})</label>
+            <label htmlFor="pp-rrp" className="block text-xs font-semibold text-navy mb-1">Your RRP ({selectedMarket?.currency})</label>
             <input
+              id="pp-rrp"
               type="number"
               placeholder="e.g. 35"
               value={price}

@@ -302,34 +302,34 @@ export default function PitchGenerator() {
         <h3 className="text-sm font-bold text-navy mb-4">Configure Your Pitch</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           <div>
-            <label className="block text-xs font-semibold text-navy mb-1">Brand Name</label>
-            <input type="text" value={brandName} onChange={e => setBrandName(e.target.value)} placeholder="Your Brand" className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm" />
+            <label htmlFor="pg-brand-name" className="block text-xs font-semibold text-navy mb-1">Brand Name</label>
+            <input id="pg-brand-name" type="text" value={brandName} onChange={e => setBrandName(e.target.value)} placeholder="Your Brand" className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm" />
           </div>
           <div>
-            <label className="block text-xs font-semibold text-navy mb-1">Category</label>
-            <select value={category} onChange={e => setCategory(e.target.value)} className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm">
+            <label htmlFor="pg-category" className="block text-xs font-semibold text-navy mb-1">Category</label>
+            <select id="pg-category" value={category} onChange={e => setCategory(e.target.value)} className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm">
               {Object.keys(CATEGORY_MARKET_DATA).map(c => <option key={c} value={c}>{c.charAt(0).toUpperCase() + c.slice(1)}</option>)}
             </select>
           </div>
           <div>
-            <label className="block text-xs font-semibold text-navy mb-1">Target Market</label>
-            <input type="text" value={targetMarket} onChange={e => setTargetMarket(e.target.value)} placeholder="UK" className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm" />
+            <label htmlFor="pg-target-market" className="block text-xs font-semibold text-navy mb-1">Target Market</label>
+            <input id="pg-target-market" type="text" value={targetMarket} onChange={e => setTargetMarket(e.target.value)} placeholder="UK" className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm" />
           </div>
           <div>
-            <label className="block text-xs font-semibold text-navy mb-1">RRP ({'£'})</label>
-            <input type="number" value={rrp} onChange={e => setRrp(e.target.value)} placeholder="35" className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm" />
+            <label htmlFor="pg-rrp" className="block text-xs font-semibold text-navy mb-1">RRP ({'£'})</label>
+            <input id="pg-rrp" type="number" value={rrp} onChange={e => setRrp(e.target.value)} placeholder="35" className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm" />
           </div>
           <div>
-            <label className="block text-xs font-semibold text-navy mb-1">Scenario</label>
-            <select value={scenario} onChange={e => setScenario(e.target.value)} className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm">
+            <label htmlFor="pg-scenario" className="block text-xs font-semibold text-navy mb-1">Scenario</label>
+            <select id="pg-scenario" value={scenario} onChange={e => setScenario(e.target.value)} className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm">
               <option value="conservative">Conservative</option>
               <option value="moderate">Moderate</option>
               <option value="aggressive">Aggressive</option>
             </select>
           </div>
           <div>
-            <label className="block text-xs font-semibold text-navy mb-1">Funding Stage</label>
-            <select value={fundingStage} onChange={e => setFundingStage(e.target.value)} className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm">
+            <label htmlFor="pg-funding-stage" className="block text-xs font-semibold text-navy mb-1">Funding Stage</label>
+            <select id="pg-funding-stage" value={fundingStage} onChange={e => setFundingStage(e.target.value)} className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm">
               <option value="preSeed">Pre-Seed</option>
               <option value="seed">Seed</option>
               <option value="seriesA">Series A</option>
@@ -338,8 +338,8 @@ export default function PitchGenerator() {
           </div>
         </div>
         <div className="mt-4">
-          <label className="block text-xs font-semibold text-navy mb-1">Distribution Model</label>
-          <div className="flex flex-wrap gap-2">
+          <p id="pg-dist-model-label" className="block text-xs font-semibold text-navy mb-1">Distribution Model</p>
+          <div role="group" aria-labelledby="pg-dist-model-label" className="flex flex-wrap gap-2">
             {Object.entries(DISTRIBUTION_MODELS).map(([key, model]) => (
               <button
                 key={key}

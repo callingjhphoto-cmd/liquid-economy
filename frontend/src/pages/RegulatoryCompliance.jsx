@@ -72,8 +72,8 @@ export default function RegulatoryCompliance() {
 
       {/* Market selector */}
       <Card className="p-4 mb-6">
-        <label className="block text-xs font-semibold text-navy mb-2">Select Market</label>
-        <div className="flex flex-wrap gap-2">
+        <p id="rc-market-group-label" className="block text-xs font-semibold text-navy mb-2">Select Market</p>
+        <div role="group" aria-labelledby="rc-market-group-label" className="flex flex-wrap gap-2">
           {TARGET_MARKETS_WIZARD.map(m => (
             <button
               key={m.id}

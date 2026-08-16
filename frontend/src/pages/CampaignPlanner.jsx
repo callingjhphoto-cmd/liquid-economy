@@ -363,8 +363,8 @@ const CampaignPlanner = () => {
       </Card>
 
       <div>
-        <label className="block text-xs font-semibold text-gray-700 mb-3">Campaign Type</label>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <p id="cp-campaign-type-label" className="block text-xs font-semibold text-gray-700 mb-3">Campaign Type</p>
+        <div role="group" aria-labelledby="cp-campaign-type-label" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {CAMPAIGN_TYPES.map(type => {
             const IconComponent = ICON_MAP[type.iconName] || Target
             return (
@@ -404,8 +404,8 @@ const CampaignPlanner = () => {
       {campaignData.campaignType === 'newProduct' && (
         <div className="space-y-4">
           <div>
-            <label className="block text-xs font-semibold text-gray-700 mb-2">Brand Name</label>
-            <input type="text" name="customBrandName" value={campaignData.customBrandName} onChange={handleInputChange}
+            <label htmlFor="cp-custom-brand-name" className="block text-xs font-semibold text-gray-700 mb-2">Brand Name</label>
+            <input id="cp-custom-brand-name" type="text" name="customBrandName" value={campaignData.customBrandName} onChange={handleInputChange}
               placeholder="e.g., Aurora Spirits" className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold" />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -427,8 +427,8 @@ const CampaignPlanner = () => {
             </div>
           </div>
           <div>
-            <label className="block text-xs font-semibold text-gray-700 mb-2">Product Description</label>
-            <textarea name="productDescription" value={campaignData.productDescription} onChange={handleInputChange}
+            <label htmlFor="cp-product-desc" className="block text-xs font-semibold text-gray-700 mb-2">Product Description</label>
+            <textarea id="cp-product-desc" name="productDescription" value={campaignData.productDescription} onChange={handleInputChange}
               placeholder="Describe the product, key features, and positioning..."
               className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold h-20 resize-none" />
           </div>
@@ -438,8 +438,8 @@ const CampaignPlanner = () => {
       {campaignData.campaignType === 'cocktail' && (
         <div className="space-y-4">
           <div>
-            <label className="block text-xs font-semibold text-gray-700 mb-2">Cocktail Name</label>
-            <input type="text" name="cocktailName" value={campaignData.cocktailName} onChange={handleInputChange}
+            <label htmlFor="cp-cocktail-name" className="block text-xs font-semibold text-gray-700 mb-2">Cocktail Name</label>
+            <input id="cp-cocktail-name" type="text" name="cocktailName" value={campaignData.cocktailName} onChange={handleInputChange}
               placeholder="e.g., Fino Spritz, Tropical Sunset" className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold" />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -461,8 +461,8 @@ const CampaignPlanner = () => {
             </div>
           </div>
           <div>
-            <label className="block text-xs font-semibold text-gray-700 mb-2">Key Ingredients</label>
-            <textarea name="ingredients" value={campaignData.ingredients} onChange={handleInputChange}
+            <label htmlFor="cp-ingredients" className="block text-xs font-semibold text-gray-700 mb-2">Key Ingredients</label>
+            <textarea id="cp-ingredients" name="ingredients" value={campaignData.ingredients} onChange={handleInputChange}
               placeholder="e.g., Fino sherry, tonic water, orange peel, olive..."
               className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold h-16 resize-none" />
           </div>
@@ -490,8 +490,8 @@ const CampaignPlanner = () => {
           </select>
         </div>
         <div>
-          <label className="block text-xs font-semibold text-gray-700 mb-2">Budget ({getCurrency()})</label>
-          <input type="number" name="budget" value={campaignData.budget} onChange={handleInputChange}
+          <label htmlFor="cp-budget" className="block text-xs font-semibold text-gray-700 mb-2">Budget ({getCurrency()})</label>
+          <input id="cp-budget" type="number" name="budget" value={campaignData.budget} onChange={handleInputChange}
             placeholder="e.g., 50000" className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold" />
         </div>
       </div>
@@ -514,8 +514,8 @@ const CampaignPlanner = () => {
       </div>
 
       <div>
-        <label className="block text-xs font-semibold text-gray-700 mb-3">Primary Objective</label>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <p id="cp-objective-label" className="block text-xs font-semibold text-gray-700 mb-3">Primary Objective</p>
+        <div role="group" aria-labelledby="cp-objective-label" className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {OBJECTIVES.map(obj => (
             <div key={obj.id} onClick={() => setCampaignData(prev => ({ ...prev, objective: obj.id }))}
               className={`p-3 rounded-lg border-2 cursor-pointer transition ${
@@ -691,14 +691,14 @@ const CampaignPlanner = () => {
             return (
               <div key={channel} className="space-y-1">
                 <div className="flex items-center justify-between">
-                  <label className="text-xs font-semibold text-gray-900">{labels[channel]}</label>
+                  <label htmlFor={`cp-slider-${channel}`} className="text-xs font-semibold text-gray-900">{labels[channel]}</label>
                   <div className="flex items-center gap-2">
                     <span className="text-xs text-gray-500">{getCurrency()}{Math.round(budget * (value / 100)).toLocaleString()}</span>
                     <span className="text-xs font-bold text-gray-900 w-12 text-right">{value.toFixed(1)}%</span>
                   </div>
                 </div>
                 <div className="py-1">
-                  <input type="range" min="0" max="100" step="0.1" value={value}
+                  <input id={`cp-slider-${channel}`} type="range" min="0" max="100" step="0.1" value={value}
                     onChange={(e) => handleSliderChange(channel, parseFloat(e.target.value))}
                     className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gold touch-action-none" />
                 </div>
@@ -1352,8 +1352,8 @@ const CampaignPlanner = () => {
 
       {/* Campaign Type - simplified card selection */}
       <div>
-        <label className="block text-xs font-semibold text-gray-700 mb-3">Campaign Type</label>
-        <div className="grid grid-cols-1 gap-2">
+        <p id="cp-campaign-type-label" className="block text-xs font-semibold text-gray-700 mb-3">Campaign Type</p>
+        <div role="group" aria-labelledby="cp-campaign-type-label" className="grid grid-cols-1 gap-2">
           {CAMPAIGN_TYPES.map(type => {
             const IconComponent = ICON_MAP[type.iconName] || Target
             return (
@@ -1396,8 +1396,8 @@ const CampaignPlanner = () => {
       {campaignData.campaignType === 'newProduct' && (
         <div className="space-y-3">
           <div>
-            <label className="block text-xs font-semibold text-gray-700 mb-2">Brand Name</label>
-            <input type="text" name="customBrandName" value={campaignData.customBrandName} onChange={handleInputChange}
+            <label htmlFor="cp-custom-brand-name" className="block text-xs font-semibold text-gray-700 mb-2">Brand Name</label>
+            <input id="cp-custom-brand-name" type="text" name="customBrandName" value={campaignData.customBrandName} onChange={handleInputChange}
               placeholder="e.g., Aurora Spirits" className="w-full px-3 py-3 text-sm border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold touch-manipulation" />
           </div>
           <div>
@@ -1415,8 +1415,8 @@ const CampaignPlanner = () => {
       {campaignData.campaignType === 'cocktail' && (
         <div className="space-y-3">
           <div>
-            <label className="block text-xs font-semibold text-gray-700 mb-2">Cocktail Name</label>
-            <input type="text" name="cocktailName" value={campaignData.cocktailName} onChange={handleInputChange}
+            <label htmlFor="cp-cocktail-name" className="block text-xs font-semibold text-gray-700 mb-2">Cocktail Name</label>
+            <input id="cp-cocktail-name" type="text" name="cocktailName" value={campaignData.cocktailName} onChange={handleInputChange}
               placeholder="e.g., Fino Spritz" className="w-full px-3 py-3 text-sm border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold touch-manipulation" />
           </div>
           <div>
@@ -1442,8 +1442,8 @@ const CampaignPlanner = () => {
 
       {/* Objective */}
       <div>
-        <label className="block text-xs font-semibold text-gray-700 mb-3">Primary Objective</label>
-        <div className="grid grid-cols-1 gap-2">
+        <p id="cp-objective-label" className="block text-xs font-semibold text-gray-700 mb-3">Primary Objective</p>
+        <div role="group" aria-labelledby="cp-objective-label" className="grid grid-cols-1 gap-2">
           {OBJECTIVES.map(obj => (
             <div key={obj.id} onClick={() => setCampaignData(prev => ({ ...prev, objective: obj.id }))}
               className={`p-3 rounded-lg border-2 cursor-pointer transition touch-manipulation flex items-center gap-3 ${
@@ -1480,8 +1480,8 @@ const CampaignPlanner = () => {
 
         {/* Budget Input */}
         <div>
-          <label className="block text-xs font-semibold text-gray-700 mb-2">Total Budget ({getCurrency()})</label>
-          <input type="number" name="budget" value={campaignData.budget} onChange={handleInputChange}
+          <label htmlFor="cp-budget" className="block text-xs font-semibold text-gray-700 mb-2">Total Budget ({getCurrency()})</label>
+          <input id="cp-budget" type="number" name="budget" value={campaignData.budget} onChange={handleInputChange}
             placeholder="e.g., 50000" className="w-full px-3 py-3 text-sm border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:border-gold touch-manipulation" />
         </div>
 
@@ -1557,11 +1557,11 @@ const CampaignPlanner = () => {
               return (
                 <div key={channel} className="space-y-1">
                   <div className="flex items-center justify-between">
-                    <label className="text-xs font-semibold text-gray-900">{channelLabels[channel]}</label>
+                    <label htmlFor={`cp-slider-${channel}`} className="text-xs font-semibold text-gray-900">{channelLabels[channel]}</label>
                     <span className="text-xs font-bold text-gray-900">{value.toFixed(0)}%</span>
                   </div>
                   <div className="py-2">
-                    <input type="range" min="0" max="100" step="1" value={value}
+                    <input id={`cp-slider-${channel}`} type="range" min="0" max="100" step="1" value={value}
                       onChange={(e) => handleSliderChange(channel, parseFloat(e.target.value))}
                       className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gold touch-action-none" />
                   </div>

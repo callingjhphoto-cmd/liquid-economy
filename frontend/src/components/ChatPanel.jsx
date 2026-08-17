@@ -143,11 +143,13 @@ export default function ChatPanel({ isOpen, onClose }) {
               placeholder="Ask a question..."
               disabled={loading}
               rows="2"
+              aria-label="Message to Intelligence Analyst"
               className="flex-1 px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none resize-none text-sm disabled:opacity-50"
             />
             <button
               type="submit"
               disabled={loading || !input.trim()}
+              aria-label="Send message"
               className="bg-navy text-white px-3 py-2 rounded-lg hover:bg-navy-light transition-colors disabled:opacity-50 flex items-center justify-center h-12"
             >
               <Send size={18} />

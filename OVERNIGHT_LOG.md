@@ -1,3 +1,21 @@
+# Overnight Build Log — 17 August 2026
+
+## Session summary
+
+**Shipped:** 4 WCAG violations fixed across 3 shared components (ChatPanel, LiveFeed, KeyMetricsWatchlist). Also recovered and pushed 6 orphaned commits from 14-16 Aug that had never reached origin/main.
+
+1. **ChatPanel.jsx — textarea and Send button had no accessible names.** The message textarea had no `aria-label` (WCAG 1.3.1: form element without programmatic label). The Send button contained only `<Send size={18} />` icon with no `aria-label` (WCAG 1.1.1: non-text content). Fixed: `aria-label="Message to Intelligence Analyst"` on textarea, `aria-label="Send message"` on button.
+
+2. **LiveFeed.jsx — FeedItem div not keyboard-operable (WCAG 2.1.1) + icon-only link not labelled (WCAG 1.1.1).** The `FeedItem` expand/collapse was implemented as a plain `<div onClick>` — keyboard users had no way to trigger it (no `tabIndex`, no key handler). Fixed by adding `role="button"`, `tabIndex={0}`, `aria-expanded={expanded}`, and `onKeyDown` handler for Enter/Space. The compact external link icon `<ExternalLink size={10} />` appeared inside `<a>` with no text content and no `aria-label` — fixed with `aria-label={\`Read source for: \${item.title}\`}`.
+
+3. **KeyMetricsWatchlist.jsx — pillar selector had no tab-list semantics.** Four pillar buttons visually behaved like tabs but were plain `<button>` elements with no ARIA roles — screen readers could not identify the active state or the relationship between tabs and panel. Added `role="tablist"` / `aria-label="Intelligence pillars"` on the container, `role="tab"` / `aria-selected` / `aria-controls` on each button, and `role="tabpanel"` / `aria-labelledby` on the metrics grid.
+
+4. **Recovered 6 orphaned commits (14-16 Aug).** Sessions from 14-16 August had been committed in detached HEAD and never reached origin/main. Fast-forwarded main to include: CampaignPlanner 14 select fixes (14 Aug), DepletionForecasting + MarginCalculator id/htmlFor pairings (15 Aug), PitchGenerator/PricePositioning/RegulatoryCompliance/CampaignPlanner 20-control a11y pass (16 Aug). All now on main.
+
+**Build:** `vite build` — 0 errors (15.16s). Pushed to origin/main. Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 16 August 2026
 
 ## Session summary

@@ -79,7 +79,7 @@ export default function KeyMetricsWatchlist() {
       </div>
 
       {/* Pillar Tabs */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+      <div role="tablist" aria-label="Intelligence pillars" className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
         {PILLARS.map(p => {
           const Icon = p.icon
           const c = colorMap[p.color]
@@ -87,6 +87,10 @@ export default function KeyMetricsWatchlist() {
           return (
             <button
               key={p.id}
+              role="tab"
+              aria-selected={isActive}
+              aria-controls={`pillar-panel-${p.id}`}
+              id={`pillar-tab-${p.id}`}
               onClick={() => setActivePillar(p.id)}
               className={`flex items-center gap-2 p-3 rounded-lg border text-left transition-all min-h-[52px] ${isActive ? `${c.bg} ${c.border} ${c.text}` : 'bg-white border-gray-100 text-gray-500 hover:bg-gray-50'}`}
             >
@@ -98,7 +102,12 @@ export default function KeyMetricsWatchlist() {
       </div>
 
       {/* Metrics Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+      <div
+        role="tabpanel"
+        id={`pillar-panel-${pillar.id}`}
+        aria-labelledby={`pillar-tab-${pillar.id}`}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"
+      >
         {pillar.metrics.map((m, i) => (
           <div key={i} className="bg-white rounded-lg border border-gray-100 p-3 hover:shadow-sm transition-shadow">
             <div className="flex items-center justify-between mb-1">

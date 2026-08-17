@@ -86,8 +86,12 @@ function FeedItem({ item, expanded, onToggle }) {
 
   return (
     <div
+      role="button"
+      tabIndex={0}
+      aria-expanded={expanded}
       className={`border-l-2 ${sev.border} cursor-pointer transition-colors ${expanded ? 'bg-gray-50/80' : 'hover:bg-gray-50/50'}`}
       onClick={onToggle}
+      onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && onToggle()}
     >
       {/* Compressed row */}
       <div className="flex items-center gap-1.5 px-2.5 py-1.5">
@@ -97,7 +101,7 @@ function FeedItem({ item, expanded, onToggle }) {
         <span className="text-xs text-navy font-medium truncate flex-1 leading-tight">{item.title}</span>
         <div className="flex items-center gap-1 flex-shrink-0">
           {item.url && (
-            <a href={item.url} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-navy transition-colors" onClick={e => e.stopPropagation()}>
+            <a href={item.url} target="_blank" rel="noopener noreferrer" aria-label={`Read source for: ${item.title}`} className="text-gray-300 hover:text-navy transition-colors" onClick={e => e.stopPropagation()}>
               <ExternalLink size={10} />
             </a>
           )}

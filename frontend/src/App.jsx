@@ -508,7 +508,7 @@ function Layout({ onLogout }) {
           <div className="hidden lg:flex justify-end px-8 pt-4">
             <span className="inline-flex items-center gap-1.5 text-[10px] font-bold tracking-widest text-navy bg-navy/8 border border-navy/15 px-3 py-1.5 rounded-full uppercase">
               <Lock size={10} />
-              Chorus Preview &middot; Guest
+              Chorus Preview {'·'} Guest
             </span>
           </div>
         )}

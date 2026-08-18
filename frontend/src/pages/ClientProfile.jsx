@@ -218,7 +218,7 @@ function TopCocktailsModule({ data, profile }) {
           )
         })}
       </div>
-      <p className="text-caption text-gray-500 mt-3">Cards with &ldquo;View detail&rdquo; link to the full drill-down. Tap non-linked cards for the analyst note. DI = Drinks International survey of 100 elite bars; Difford's = 700k+ monthly consumer search panel.</p>
+      <p className="text-caption text-gray-500 mt-3">Cards with {'"'}View detail{'"'} link to the full drill-down. Tap non-linked cards for the analyst note. DI = Drinks International survey of 100 elite bars; Difford's = 700k+ monthly consumer search panel.</p>
     </section>
   )
 }
@@ -839,7 +839,7 @@ function ProfileNotFound({ slug }) {
       <Card padding="p-12" className="text-center">
         <p className="text-6xl font-display text-gray-300 mb-4">404</p>
         <p className="text-section font-display text-navy mb-2">Profile not found</p>
-        <p className="text-body text-gray-500 mb-6">No profile registered for &ldquo;{slug}&rdquo;</p>
+        <p className="text-body text-gray-500 mb-6">No profile registered for {'"'}{slug}{'"'}</p>
         <div className="flex gap-4 justify-center">
           <Link to="/profiles" className="text-body text-editorial hover:text-navy no-underline">
             View all profiles {'→'}
@@ -904,7 +904,7 @@ export default function ClientProfile({ profile, slug }) {
           if (!ModuleComponent) {
             return (
               <section key={i} id={id}>
-                <p className="text-caption text-gray-500">Module type &ldquo;{mod.type}&rdquo; not registered.</p>
+                <p className="text-caption text-gray-500">Module type {'"'}{mod.type}{'"'} not registered.</p>
               </section>
             )
           }

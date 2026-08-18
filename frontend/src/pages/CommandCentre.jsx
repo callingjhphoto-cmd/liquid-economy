@@ -879,7 +879,7 @@ export default function CommandCentre() {
       <div className="flex flex-col lg:flex-row lg:items-center gap-4 py-4 px-5 bg-navy/5 rounded-xl border border-navy/10">
         <div className="flex-1">
           <p className="font-display text-body-lg text-navy leading-snug">
-            Market intelligence for premium drinks brands &mdash; here&apos;s what the majors left on the table.
+            Market intelligence for premium drinks brands {'—'} here's what the majors left on the table.
           </p>
         </div>
         <div className="flex flex-col sm:flex-row lg:flex-row items-start sm:items-center gap-3 shrink-0">

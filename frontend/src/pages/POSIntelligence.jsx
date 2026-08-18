@@ -308,7 +308,7 @@ export default function POSIntelligence() {
         content: (
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-sm text-gray-500">
-              <MapPin size={14} />{factory.location} &middot; Est. {factory.founded} &middot; {factory.employees} staff
+              <MapPin size={14} />{factory.location} {'·'} Est. {factory.founded} {'·'} {factory.employees} staff
             </div>
             <div>
               <h4 className="text-xs font-semibold text-navy mb-1">Capabilities</h4>

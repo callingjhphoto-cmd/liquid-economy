@@ -22,7 +22,7 @@ export default function GuestLockedPage({ profile }) {
         Request full access from Liquid Creative
       </a>
       <p className="text-xs text-gray-400 mt-8">
-        Generated for Chorus &middot; April 2026 &middot; Liquid Creative
+        Generated for Chorus {'·'} April 2026 {'·'} Liquid Creative
       </p>
     </div>
   )

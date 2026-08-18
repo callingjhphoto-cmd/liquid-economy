@@ -221,7 +221,7 @@ export default function DepletionForecasting() {
               <Zap size={14} className="text-gold" />
             </div>
             <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
-            <span className="text-xs text-gray-400 ml-auto">Forecast Signals &middot; {seasonality === 'champagne' ? 'Champagne' : profile.label}</span>
+            <span className="text-xs text-gray-400 ml-auto">Forecast Signals {'·'} {seasonality === 'champagne' ? 'Champagne' : profile.label}</span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             {[liSig1, liSig2, liSig3].map((sig, i) => (

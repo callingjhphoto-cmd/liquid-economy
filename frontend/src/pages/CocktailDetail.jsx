@@ -332,7 +332,7 @@ function RecipeModule({ recipe }) {
             <Badge variant={recipe.difficulty <= 1 ? 'green' : recipe.difficulty === 2 ? 'gold' : 'red'}>
               {difficultyLabel(recipe.difficulty)}
             </Badge>
-            <span className="text-body font-semibold text-navy">{recipe.glass} &middot; {recipe.serveTemp}</span>
+            <span className="text-body font-semibold text-navy">{recipe.glass} {'·'} {recipe.serveTemp}</span>
           </div>
           {open ? <ChevronUp size={16} className="text-gray-400" /> : <ChevronDown size={16} className="text-gray-400" />}
         </button>
@@ -389,16 +389,16 @@ function CommercialModule({ commercial }) {
           <div className="space-y-3">
             <div className="flex items-center justify-between py-2 border-b border-gray-100">
               <span className="text-caption text-gray-600">At home (ingredients)</span>
-              <span className="text-body font-semibold text-navy">&pound;{commercial.priceHome?.[0]} &ndash; &pound;{commercial.priceHome?.[1]}</span>
+              <span className="text-body font-semibold text-navy">{'£'}{commercial.priceHome?.[0]} {'–'} {'£'}{commercial.priceHome?.[1]}</span>
             </div>
             <div className="flex items-center justify-between py-2 border-b border-gray-100">
               <span className="text-caption text-gray-600">On-trade (bar)</span>
-              <span className="text-body font-semibold text-navy">&pound;{commercial.priceOnTrade?.[0]} &ndash; &pound;{commercial.priceOnTrade?.[1]}</span>
+              <span className="text-body font-semibold text-navy">{'£'}{commercial.priceOnTrade?.[0]} {'–'} {'£'}{commercial.priceOnTrade?.[1]}</span>
             </div>
             {commercial.priceOnTradeLuxury && (
               <div className="flex items-center justify-between py-2">
                 <span className="text-caption text-gray-600">Luxury / event</span>
-                <span className="text-body font-semibold text-editorial">&pound;{commercial.priceOnTradeLuxury[0]} &ndash; &pound;{commercial.priceOnTradeLuxury[1]}</span>
+                <span className="text-body font-semibold text-editorial">{'£'}{commercial.priceOnTradeLuxury[0]} {'–'} {'£'}{commercial.priceOnTradeLuxury[1]}</span>
               </div>
             )}
           </div>

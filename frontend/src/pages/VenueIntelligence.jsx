@@ -411,7 +411,7 @@ export default function VenueIntelligence() {
       {/* Show search results if searching */}
       {venueSearch ? (
         <div className="space-y-3">
-          <p className="text-xs text-gray-500">{filteredVenues.length} venue{filteredVenues.length !== 1 ? 's' : ''} matching &ldquo;{venueSearch}&rdquo;</p>
+          <p className="text-xs text-gray-500">{filteredVenues.length} venue{filteredVenues.length !== 1 ? 's' : ''} matching {'“'}{venueSearch}{'”'}</p>
           {filteredVenues.map((venue, i) => (
             <VenueCard key={i} venue={venue} index={i} expanded={expandedVenue === i}
               onToggle={() => handleVenueToggle(venue, i)} />
@@ -675,7 +675,7 @@ export default function VenueIntelligence() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-gray-600">
                 <div><span className="font-bold text-purple-600">Luxury:</span> Notoriety-driven, marketing spend, menu placement</div>
                 <div><span className="font-bold text-green-600">Volume:</span> High-throughput, retros, aggressive pricing</div>
-                <div><span className="font-bold text-amber-600">Both:</span> Rare &mdash; high volume AND prestige (e.g. Annabel&rsquo;s)</div>
+                <div><span className="font-bold text-amber-600">Both:</span> Rare {'—'} high volume AND prestige (e.g. Annabel's)</div>
               </div>
 
               {/* Venue cards */}
@@ -1154,7 +1154,7 @@ export default function VenueIntelligence() {
                   <div className="space-y-2">
                     <div>
                       <h5 className="font-semibold text-navy">Entry Strategy {'—'} Luxury Accounts</h5>
-                      <p>Target independent-minded bars like Satan&rsquo;s Whiskers, Tay&#x113;r + Elementary, and Lyaness. These venues select on quality, not corporate spend.</p>
+                      <p>Target independent-minded bars like Satan's Whiskers, Tay{'ē'}r + Elementary, and Lyaness. These venues select on quality, not corporate spend.</p>
                     </div>
                     <div>
                       <h5 className="font-semibold text-navy">Visibility {'—'} 50 Best Bars</h5>

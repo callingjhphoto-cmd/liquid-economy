@@ -821,7 +821,7 @@ function StepProgress({ steps, current, onChange }) {
       {/* Mobile: simple text indicator */}
       <div className="flex sm:hidden items-center justify-between">
         <span className="text-xs font-medium text-navy">
-          Step {current + 1} of {steps.length} &mdash; {steps[current].label}
+          {`Step ${current + 1} of ${steps.length}`} {'—'} {steps[current].label}
         </span>
         <div className="flex items-center gap-1">
           {steps.map((_, idx) => (

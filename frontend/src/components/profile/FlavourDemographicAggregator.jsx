@@ -259,12 +259,12 @@ function FamilyCard({ family, aggregate, members, isOpen, onToggle }) {
             {aggregate && (
               <p className="text-caption text-gray-600">
                 <span className="font-semibold">{aggregate.topTwoAges.join(' / ')}</span>
-                {' '}&middot;{' '}
+                {' · '}
                 <span>{aggregate.dominantGender}</span>
-                {' '}&middot;{' '}
+                {' · '}
                 <span>{aggregate.incomeLabel}</span>
                 {aggregate.topGeos.length > 0 && (
-                  <> &middot; {aggregate.topGeos.slice(0, 2).join(' / ')}</>
+                  <>{' · '}{aggregate.topGeos.slice(0, 2).join(' / ')}</>
                 )}
               </p>
             )}

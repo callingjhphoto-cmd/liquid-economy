@@ -175,7 +175,7 @@ export default function DossiersIndex() {
         </div>
         <p className="text-sm text-gray-500 ml-[42px]">
           <span className="font-semibold text-navy">{total} intelligence reports</span>
-          {' '}&middot; categories, owner groups &amp; brands &mdash; every report is a full, source-cited dossier.
+          {' · '}categories, owner groups &amp; brands {'—'} every report is a full, source-cited dossier.
         </p>
       </div>
 
@@ -325,7 +325,7 @@ export default function DossiersIndex() {
 
       {/* Footer */}
       <div className="mt-12 pt-6 border-t border-gray-100 text-center">
-        <p className="text-[11px] text-gray-400">Powered by Liquid Agency &middot; Drinks Industry Intelligence</p>
+        <p className="text-[11px] text-gray-400">Powered by Liquid Agency {'·'} Drinks Industry Intelligence</p>
       </div>
     </div>
   )

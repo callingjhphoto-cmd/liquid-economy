@@ -118,7 +118,7 @@ export default function SourcesAuthoritiesModule({ data }) {
           Aggregated from <span className="font-semibold">{total}+ authoritative sources</span> across global syndicated data, specialist trade press, niche London consultancies, and academic research. Every data point on this profile links to its primary source.
         </p>
         <p className="text-caption text-gray-500 mt-2">
-          Data freshness: Q1 2026 &middot; Last sync: April 2026 &middot; Updated quarterly
+          Data freshness: Q1 2026 {'·'} Last sync: April 2026 {'·'} Updated quarterly
         </p>
       </Card>
 

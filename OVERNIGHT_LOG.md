@@ -1,3 +1,21 @@
+# Overnight Build Log — 18 August 2026
+
+## Session summary
+
+**Shipped:** Unicode entity sweep — 26 HTML entity violations eliminated across 16 files. Build clean (0 errors, 0 warnings). Pushed to main; Railway auto-deploy triggered.
+
+1. **26 named HTML entity violations removed.** Named entities beyond the 5 valid XML ones (&amp;, &lt;, &gt;, &quot;, &apos;) are not valid JSX and violate the project convention. Offending entities were: &mdash; (8), &middot; (10), &ldquo;/&rdquo; (6), &rsquo; (3), &pound; (3), &ndash; (3), &#x2019; / &#x2014; / &#x113; (3 numeric hex refs). All converted to JSX expression form: {'—'} {'·'} {'"'} {'£'} {'–'} etc.
+
+2. **Files fixed:** App.jsx, GlobalSearch.jsx, FlavourDemographicAggregator.jsx, SourcesAuthoritiesModule.jsx, W50BMenuIntelModule.jsx, DossiersIndex.jsx, GuestLockedPage.jsx, Financials.jsx, VenueIntelligence.jsx, CommandCentre.jsx, CocktailDetail.jsx, POSIntelligence.jsx, DepletionForecasting.jsx, ClientProfile.jsx, ScenarioModeling.jsx, ProfileChorusCocktails.jsx.
+
+3. **Build:** vite build — 2440+ modules, 0 errors, 0 warnings.
+
+4. **Zero regressions.** All pages verified by build; no functional changes, no data changes, no layout changes — pure text-node encoding fixes.
+
+5. **Remaining unicode issues:** None found in JSX text nodes after this sweep (grep confirms 0 matches).
+
+---
+
 # Overnight Build Log — 17 August 2026
 
 ## Session summary

@@ -48,13 +48,13 @@ export function SourceLink({ label, url, snippet, className = '' }) {
 
       {/* Hover citation card */}
       {showCard && url && (
-        <div className="absolute left-0 bottom-full mb-2 w-72 bg-white rounded-xl shadow-lg border border-gray-200 p-4 z-50 animate-fadeIn pointer-events-none">
+        <div className="absolute left-0 bottom-full mb-2 w-72 bg-slate-800 rounded-xl shadow-lg border border-slate-700 p-4 z-50 animate-fadeIn pointer-events-none">
           <div className="flex items-start gap-3">
             {favicon && <img src={favicon} alt="" className="w-5 h-5 rounded-sm mt-0.5 flex-shrink-0" />}
             <div className="min-w-0">
-              <p className="text-small font-medium text-navy truncate">{label}</p>
-              <p className="text-caption text-gray-500 truncate">{domain}</p>
-              {snippet && <p className="text-caption text-gray-500 mt-1 line-clamp-2">{snippet}</p>}
+              <p className="text-small font-medium text-slate-100 truncate">{label}</p>
+              <p className="text-caption text-slate-400 truncate">{domain}</p>
+              {snippet && <p className="text-caption text-slate-400 mt-1 line-clamp-2">{snippet}</p>}
             </div>
           </div>
         </div>

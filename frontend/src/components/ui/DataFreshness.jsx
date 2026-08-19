@@ -17,7 +17,7 @@ export function DataFreshness({ date = 'April 2026', source, className = '' }) {
       <span>Data as of {date}</span>
       {source && (
         <>
-          <span className="text-gray-300">&bull;</span>
+          <span className="text-gray-300">{'•'}</span>
           <span className="text-gray-400">{source}</span>
         </>
       )}

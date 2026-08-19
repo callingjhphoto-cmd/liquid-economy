@@ -15,7 +15,7 @@ export default function MethodologyTooltip({ text, className = '' }) {
         <Info size={14} />
       </button>
       {show && (
-        <div className="absolute left-0 bottom-full mb-2 w-72 bg-white rounded-xl shadow-lg border border-gray-200 p-4 z-50 text-sm text-gray-600 animate-fadeIn">
+        <div className="absolute left-0 bottom-full mb-2 w-72 bg-slate-800 rounded-xl shadow-lg border border-slate-700 p-4 z-50 text-sm text-slate-100 leading-relaxed animate-fadeIn">
           {text}
         </div>
       )}

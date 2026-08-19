@@ -1,3 +1,21 @@
+# Overnight Build Log — 19 August 2026
+
+## Session summary
+
+**Shipped:** Platform-wide tooltip styling — MethodologyTooltip and SourceLink hover cards converted to dark theme, matching all recharts Tooltip components. Also fixed `&bull;` HTML entity in DataFreshness.
+
+1. **MethodologyTooltip.jsx — light → dark background.** Hover card changed from `bg-white border-gray-200 text-gray-600` to `bg-slate-800 border-slate-700 text-slate-100 leading-relaxed`. Used on BrandPricing, CommandCentre, SupplyChain, CategoryIntelligence — all now consistent with the platform's dark tooltip convention.
+
+2. **SourceLink.jsx — hover citation card light → dark.** Popover card changed from `bg-white border-gray-200` with `text-navy / text-gray-500` to `bg-slate-800 border-slate-700` with `text-slate-100 / text-slate-400`. Used on GeographicIntelligence, ClientProfile, CategoryIntelligence, and anywhere `SourceList` appears.
+
+3. **DataFreshness.jsx — `&bull;` HTML entity replaced.** Named HTML entity `&bull;` is invalid in JSX beyond the 5 XML-safe entities. Replaced with `{'•'}` unicode expression form per project convention.
+
+4. **Build:** `npm run build` ✓ — 0 errors (2821 modules, 13.33s). All 3 shared UI components clean.
+
+5. **Audit findings (no action needed):** All 55 categoryData year-blocks complete, all channel %s sum to ~100%, all recharts Tooltip dark-styled, 28 London venues and 250 FIFTY_BEST_BARS entries intact.
+
+---
+
 # Overnight Build Log — 18 August 2026
 
 ## Session summary

@@ -888,14 +888,14 @@ export default function CommandCentre() {
             className="inline-flex items-center gap-2 bg-navy text-white text-sm font-semibold px-4 py-2.5 rounded-lg hover:bg-navy-light transition-colors whitespace-nowrap"
           >
             Walk into a brand
-            <span className="opacity-70">&rarr;</span>
+            <span className="opacity-70">{'→'}</span>
           </Link>
           <Link
             to="/brand/campari-group_aperol"
             className="inline-flex items-center gap-2 border border-navy/25 text-navy text-sm font-medium px-4 py-2.5 rounded-lg hover:bg-navy/5 transition-colors whitespace-nowrap"
           >
             See a sample dossier
-            <span className="opacity-50">&rarr;</span>
+            <span className="opacity-50">{'→'}</span>
           </Link>
         </div>
       </div>

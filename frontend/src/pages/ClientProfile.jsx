@@ -187,7 +187,7 @@ function TopCocktailsModule({ data, profile }) {
                   </Badge>
                 )}
                 {hasDetail && (
-                  <Badge variant="default">View detail &rarr;</Badge>
+                  <Badge variant="default">{'View detail →'}</Badge>
                 )}
               </div>
               {c.rankMove && (

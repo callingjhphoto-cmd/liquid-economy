@@ -331,7 +331,7 @@ export default function FlavourDemographicAggregator({ profile }) {
         size="lg"
         subtitle="Per flavour family: which cocktails belong, who drinks them, and the commercial implication for event programming. Thresholds: bitter/herbal/sour/sweet/spicy scored 6+/10; smoky 5+; savoury 4+ on the flavour radar."
       >
-        Flavour Family &rarr; Demographic Intelligence
+        {'Flavour Family → Demographic Intelligence'}
       </SectionHeader>
 
       <div className="flex flex-wrap items-center gap-2 mt-1 mb-4">

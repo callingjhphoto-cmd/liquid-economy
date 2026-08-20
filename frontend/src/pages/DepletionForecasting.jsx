@@ -186,10 +186,10 @@ export default function DepletionForecasting() {
           <h3 className="text-sm font-bold text-navy mb-3">Monthly Depletions</h3>
           <ResponsiveContainer width="100%" height={250}>
             <ComposedChart data={forecast} accessibilityLayer>
-              <CartesianGrid strokeDasharray="3 3" />
+              <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#9ca3af' }} />
-              <YAxis yAxisId="left" tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => v >= 1000 ? `${Math.round(v / 1000)}K` : String(v)} width={42} />
-              <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => v >= 1000 ? `£${Math.round(v / 1000)}K` : `£${v}`} width={52} />
+              <YAxis yAxisId="left" tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => v >= 1000 ? `${Math.round(v / 1000)}K` : String(v)} width={55} label={{ value: 'Cases', angle: -90, position: 'insideLeft', fontSize: 9, fill: '#9ca3af', dx: 10 }} />
+              <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => v >= 1000 ? `£${Math.round(v / 1000)}K` : `£${v}`} width={60} label={{ value: 'Revenue (£)', angle: 90, position: 'insideRight', fontSize: 9, fill: '#9ca3af', dx: -4 }} />
               <Tooltip formatter={(v, name) => name === 'revenue' ? `£${v.toLocaleString()}` : v.toLocaleString()} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
               <Legend wrapperStyle={{ fontSize: 11 }} />
               <Bar yAxisId="left" dataKey="depletions" name="Cases" fill={CHART_COLORS.primary} radius={[4, 4, 0, 0]} />
@@ -202,9 +202,9 @@ export default function DepletionForecasting() {
           <h3 className="text-sm font-bold text-navy mb-3">Cumulative Depletions</h3>
           <ResponsiveContainer width="100%" height={250}>
             <ComposedChart data={forecast} accessibilityLayer>
-              <CartesianGrid strokeDasharray="3 3" />
+              <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#9ca3af' }} />
-              <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => v >= 1000 ? `${Math.round(v / 1000)}K` : String(v)} width={42} />
+              <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => v >= 1000 ? `${Math.round(v / 1000)}K` : String(v)} width={55} label={{ value: 'Cases', angle: -90, position: 'insideLeft', fontSize: 9, fill: '#9ca3af', dx: 10 }} />
               <Tooltip formatter={v => v.toLocaleString()} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
               <Area type="monotone" dataKey="cumulativeDepletions" fill={CHART_COLORS.primary + '20'} stroke="none" legendType="none" />
               <Line type="monotone" dataKey="cumulativeDepletions" name="Cumulative Cases" stroke={CHART_COLORS.primary} strokeWidth={2} dot={{ r: 3 }} />

@@ -1,3 +1,21 @@
+# Overnight Build Log — 20 August 2026
+
+## Session summary
+
+**Shipped:** 4 `&rarr;` HTML entity violations eliminated (FlavourDemographicAggregator, CommandCentre ×2, ClientProfile). DepletionForecasting dual-axis chart gained Y-axis labels and consistent CartesianGrid stroke.
+
+1. **`&rarr;` entity sweep — 4 violations across 3 files.** Named entity `&rarr;` is outside the 5 valid XML entities allowed in JSX text nodes and renders as literal `&rarr;` text, not `→`. Converted all occurrences to `{'→'}` expression form: `FlavourDemographicAggregator.jsx` (SectionHeader text), `CommandCentre.jsx` (two CTA buttons: "Walk into a brand" and "See a sample dossier"), `ClientProfile.jsx` (Badge "View detail →").
+
+2. **DepletionForecasting.jsx — dual Y-axis labels added.** Monthly Depletions chart has left (cases) and right (revenue) axes but both were unlabelled — a reader seeing `0 / 50K / 100K` vs `£0 / £50K / £100K` could not tell which was cases and which was revenue without checking the Legend. Added `label={{ value: 'Cases', angle: -90, ... }}` on the left axis and `label={{ value: 'Revenue (£)', angle: 90, ... }}` on the right. Axis widths widened from 42/52 to 55/60 to prevent label clipping.
+
+3. **DepletionForecasting.jsx — CartesianGrid stroke normalised.** Both charts had `<CartesianGrid strokeDasharray="3 3" />` with no explicit stroke colour — recharts default is `#ccc` (darker than the platform standard `#f0f0f0`). Added `stroke="#f0f0f0"` to match every other chart in the codebase.
+
+4. **Build:** `npm run build` ✓ — 0 errors (14.75s). All 4 files clean.
+
+5. **Audit findings (no action needed):** categoryData all 55 year blocks confirmed, 31 LONDON_VENUES and 250 FIFTY_BEST_BARS entries intact, all recharts Tooltips dark-styled (#1e293b), no further `&rarr;`/`&mdash;`/`&middot;` entity violations found.
+
+---
+
 # Overnight Build Log — 19 August 2026
 
 ## Session summary

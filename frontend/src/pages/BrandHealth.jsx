@@ -193,7 +193,7 @@ export default function BrandHealth() {
             </div>
             <ResponsiveContainer width="100%" height={250}>
               <LineChart data={data[chartMetric]} accessibilityLayer>
-                <CartesianGrid strokeDasharray="3 3" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#9ca3af' }} />
                 <YAxis
                   tick={{ fontSize: 11, fill: '#9ca3af' }}

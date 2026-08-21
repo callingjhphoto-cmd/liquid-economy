@@ -312,7 +312,7 @@ function Playbook({ category, market }) {
           <div className="mb-4">
             <ResponsiveContainer width="100%" height={250}>
               <BarChart data={costChartData} layout="vertical" margin={{ left: 10, right: 20, top: 5, bottom: 5 }} accessibilityLayer>
-                <CartesianGrid strokeDasharray="3 3" horizontal={false} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" horizontal={false} />
                 <XAxis type="number" tickFormatter={v => `${currency}${(v/1000).toFixed(0)}k`} tick={{ fontSize: 11, fill: '#9ca3af' }} />
                 <YAxis type="category" dataKey="name" width={130} tick={{ fontSize: 10, fill: '#9ca3af' }} />
                 <Tooltip formatter={v => `${currency}${v.toLocaleString()}`} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />

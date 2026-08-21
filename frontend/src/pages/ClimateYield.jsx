@@ -227,7 +227,7 @@ function LiveWeatherPanel({ region }) {
       <div className="h-48 mt-4" role="figure" aria-label={"Chart: 30-day weather data — temperature and rainfall"}>
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart data={chartData} margin={{ top: 5, right: 5, bottom: 5, left: 0 }} accessibilityLayer={true}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+            <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis dataKey="date" tick={{ fontSize: 9, fill: '#9ca3af' }} interval={4} />
             <YAxis yAxisId="temp" tick={{ fontSize: 9, fill: '#9ca3af' }} domain={['auto', 'auto']} tickFormatter={v => `${v}°C`} />
             <YAxis yAxisId="precip" orientation="right" tick={{ fontSize: 9, fill: '#9ca3af' }} tickFormatter={v => `${v}mm`} />

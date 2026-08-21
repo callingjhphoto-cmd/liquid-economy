@@ -1,3 +1,21 @@
+# Overnight Build Log — 21 August 2026
+
+## Session summary
+
+**Shipped:** CartesianGrid `stroke` normalised to `#f0f0f0` across 3 files — BrandHealth, MarketEntryWizard, ClimateYield (30-day weather panel). All 3 were deviating from the platform standard already in use on 9 other chart pages.
+
+1. **BrandHealth.jsx:196 — CartesianGrid stroke gap fixed.** The 12-Month Trend chart had `<CartesianGrid strokeDasharray="3 3" />` with no explicit stroke — recharts default is `#ccc` (noticeably darker than the platform standard). Added `stroke="#f0f0f0"` to match all other data-rich charts in the codebase.
+
+2. **MarketEntryWizard.jsx:315 — CartesianGrid stroke gap fixed.** The Estimated Costs horizontal bar chart used `<CartesianGrid strokeDasharray="3 3" horizontal={false} />` with no stroke colour. Added `stroke="#f0f0f0"` to match platform standard. The `horizontal={false}` flag is intentionally preserved (only vertical grid lines make sense for a horizontal bar layout).
+
+3. **ClimateYield.jsx:230 — CartesianGrid stroke normalised from `#e5e7eb` to `#f0f0f0`.** The 30-day weather panel (ComposedChart with temperature + rainfall) used Tailwind `gray-200` (`#e5e7eb`) instead of the platform standard `#f0f0f0`. Both are light grays but `#f0f0f0` is the consistent value used across Financials, Valuations, Companies, ScenarioModeling, CategoryIntelligence, SupplyChain, BrandPricing, MarginCalculator, and DepletionForecasting. Aligned to match.
+
+4. **Full audit (no further action).** Scanned all 38 page files and confirmed: 0 remaining `CartesianGrid` without `stroke="#f0f0f0"` (or intentionally omitted on sparklines). Zero new HTML entity violations. All 40 chart instances have `accessibilityLayer`. All 25 intelligence pages have `DataFreshness`. All `Legend` components have `wrapperStyle={{ fontSize: 11 }}`. All Recharts `Tooltip` components use dark `contentStyle` (`#1e293b`). MarketOverview sparklines correctly omit `YAxis` (compact h-10/h-20 display, values shown in surrounding cards).
+
+5. **Build:** `vite build` ✓ — 0 errors (18.00s). Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 20 August 2026
 
 ## Session summary

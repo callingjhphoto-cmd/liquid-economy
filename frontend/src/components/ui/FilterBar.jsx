@@ -39,6 +39,7 @@ export function FilterBar({
           <select
             value={filter.value}
             onChange={e => onFilterChange(filter.key, e.target.value)}
+            aria-label={filter.label}
             className="text-xs bg-gray-50 border border-gray-200 rounded-lg px-2 py-2 min-h-[36px] text-navy focus:outline-none focus:border-navy/30 focus:bg-white transition-colors cursor-pointer touch-manipulation"
           >
             {filter.options.map(opt => (

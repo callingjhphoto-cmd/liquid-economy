@@ -270,6 +270,7 @@ export default function GlobalSearch({ isOpen, onClose }) {
             onChange={e => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Search categories, brands, venues, companies..."
+            aria-label="Search categories, brands, venues, and companies"
             className="flex-1 text-sm text-gray-900 placeholder-gray-400 outline-none bg-transparent"
             autoComplete="off"
             spellCheck="false"

@@ -157,6 +157,7 @@ export default function DistributorDirectory() {
             <input
               type="text"
               placeholder="Search distributors, brands..."
+              aria-label="Search distributors and brands"
               value={search}
               onChange={e => setSearch(e.target.value)}
               className="w-full pl-9 pr-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-gold/50 focus:border-gold"

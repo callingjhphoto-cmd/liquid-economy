@@ -85,6 +85,7 @@ export default function BrandHealth() {
               <input
                 type="text"
                 placeholder="Search brands..."
+                aria-label="Search brands"
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
                 className="w-full pl-9 pr-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm"

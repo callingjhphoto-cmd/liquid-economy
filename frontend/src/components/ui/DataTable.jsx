@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useId } from 'react'
 import { ArrowUpDown, ChevronUp, ChevronDown, Search, Download } from 'lucide-react'
 
 /**
@@ -33,6 +33,7 @@ export function DataTable({
   const [sortKey, setSortKey] = useState(null)
   const [sortDir, setSortDir] = useState('asc')
   const [search, setSearch] = useState('')
+  const searchId = useId()
 
   const effectiveSearchKey = searchKey || (columns[0] && columns[0].key)
 
@@ -75,6 +76,13 @@ export function DataTable({
     }
   }
 
+  const handleSortKeyDown = (e, key) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      handleSort(key)
+    }
+  }
+
   const exportCSV = () => {
     const headers = columns.map(c => c.label).join(',')
     const rows = filteredData.map(row =>
@@ -103,8 +111,10 @@ export function DataTable({
         <div className="px-4 py-3 border-b border-gray-100 flex items-center gap-3">
           {searchable && (
             <div className="relative flex-1">
-              <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+              <label htmlFor={searchId} className="sr-only">{searchPlaceholder}</label>
+              <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" aria-hidden="true" />
               <input
+                id={searchId}
                 type="text"
                 value={search}
                 onChange={e => setSearch(e.target.value)}
@@ -131,24 +141,33 @@ export function DataTable({
         <table className="w-full text-left">
           <thead>
             <tr className="border-b border-gray-100 bg-gray-50/50 sticky top-0 bg-white z-10">
-              {columns.map(col => (
-                <th
-                  key={col.key}
-                  className={`${cellPadding} text-[10px] font-semibold text-gray-500 uppercase tracking-wider ${col.align === 'right' ? 'text-right' : ''} ${col.width || ''} ${col.sortable !== false ? 'cursor-pointer select-none hover:text-navy' : ''}`}
-                  onClick={() => col.sortable !== false && handleSort(col.key)}
-                >
-                  <span className="inline-flex items-center gap-1">
-                    {col.label}
-                    {col.sortable !== false && (
-                      sortKey === col.key ? (
-                        sortDir === 'asc' ? <ChevronUp size={10} /> : <ChevronDown size={10} />
-                      ) : (
-                        <ArrowUpDown size={10} className="opacity-30" />
-                      )
-                    )}
-                  </span>
-                </th>
-              ))}
+              {columns.map(col => {
+                const sortable = col.sortable !== false
+                const isSorted = sortKey === col.key
+                const ariaSortValue = isSorted ? (sortDir === 'asc' ? 'ascending' : 'descending') : (sortable ? 'none' : undefined)
+                return (
+                  <th
+                    key={col.key}
+                    scope="col"
+                    aria-sort={ariaSortValue}
+                    tabIndex={sortable ? 0 : undefined}
+                    className={`${cellPadding} text-[10px] font-semibold text-gray-500 uppercase tracking-wider ${col.align === 'right' ? 'text-right' : ''} ${col.width || ''} ${sortable ? 'cursor-pointer select-none hover:text-navy focus:outline-none focus:text-navy' : ''}`}
+                    onClick={() => sortable && handleSort(col.key)}
+                    onKeyDown={sortable ? (e) => handleSortKeyDown(e, col.key) : undefined}
+                  >
+                    <span className="inline-flex items-center gap-1">
+                      {col.label}
+                      {sortable && (
+                        isSorted ? (
+                          sortDir === 'asc' ? <ChevronUp size={10} aria-hidden="true" /> : <ChevronDown size={10} aria-hidden="true" />
+                        ) : (
+                          <ArrowUpDown size={10} className="opacity-30" aria-hidden="true" />
+                        )
+                      )}
+                    </span>
+                  </th>
+                )
+              })}
             </tr>
           </thead>
           <tbody>

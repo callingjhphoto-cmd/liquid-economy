@@ -397,6 +397,7 @@ export default function VenueIntelligence() {
         <input
           type="text"
           placeholder="Search venues, areas, brands, or companies..."
+          aria-label="Search venues, areas, brands, or companies"
           value={venueSearch}
           onChange={e => setVenueSearch(e.target.value)}
           className="w-full pl-12 pr-4 py-3.5 bg-white border border-gray-200 rounded-xl text-sm shadow-sm focus:ring-2 focus:ring-navy/20 focus:border-navy transition-all"

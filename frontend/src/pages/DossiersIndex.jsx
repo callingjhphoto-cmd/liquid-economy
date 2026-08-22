@@ -187,6 +187,7 @@ export default function DossiersIndex() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search brands, groups or categories..."
+          aria-label="Search brands, groups or categories"
           className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-gold/40 focus:border-gold transition-colors"
         />
         {q && (

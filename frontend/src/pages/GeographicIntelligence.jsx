@@ -719,6 +719,7 @@ export default function GeographicIntelligence() {
         <input
           type="text"
           placeholder="Search markets..."
+          aria-label="Search markets"
           value={searchTerm}
           onChange={e => setSearchTerm(e.target.value)}
           className="w-full pl-11 pr-4 py-3 text-sm border border-gray-200 rounded-xl bg-white focus:outline-none focus:border-navy/30 focus:shadow-sm transition-all"

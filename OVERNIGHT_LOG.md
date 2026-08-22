@@ -1,3 +1,21 @@
+# Overnight Build Log — 22 August 2026
+
+## Session summary
+
+**Shipped:** WCAG 2.1 accessible-name sweep — 10 files, 0 regressions (build clean, 0 errors, pushed to main).
+
+1. **DataTable.jsx — full keyboard + screen-reader sort support.** Sortable column headers had `onClick` but no keyboard handler, making sort inaccessible to keyboard-only users. Fixed: added `tabIndex={0}` + `onKeyDown` (Enter/Space → sort) to every sortable `th`; added `aria-sort` attribute (`ascending`/`descending`/`none`) reflecting live sort state; added `scope="col"` to all `th` elements; added `aria-hidden="true"` to icon elements inside header cells. Also fixed the search input: added `useId()` for a stable element ID, a visually-hidden `<label htmlFor={searchId}>` programmatically associated with the input, and `aria-hidden="true"` on the decorative Search icon. DataTable is used across 8+ pages — this fix is platform-wide.
+
+2. **FilterBar.jsx — select controls now have accessible names.** The `label` element showing the filter name was only visually adjacent to its `select` — no `htmlFor`/`id` pair linking them. NVDA/VoiceOver had no announcement for what each dropdown controlled. Fixed by adding `aria-label={filter.label}` directly to every `select` element rendered by FilterBar. Used across Geographic, Companies, BrandPricing, and Distributor Directory.
+
+3. **GlobalSearch.jsx + 7 page search inputs — aria-label added.** WCAG 2.1 SC 1.3.5 and SC 4.1.2 both disallow `placeholder` as a sole accessible name for interactive controls (it vanishes when typing and has insufficient contrast). Added `aria-label` to: GlobalSearch (Cmd+K modal input), BrandHealth sidebar, Companies search bar, DistributorDirectory, DossiersIndex, GeographicIntelligence, POSIntelligence (dynamic label tracks active tab), and VenueIntelligence. All labels are human-readable descriptions matching or closely paraphrasing the placeholder text.
+
+4. **Full audit — no other issues found.** CartesianGrid strokes all `#f0f0f0` (confirmed, no regressions from Aug 21). All Tooltip contentStyle/labelStyle/itemStyle dark. All chart `accessibilityLayer` props present. Zero `\uXXXX` sequences (normalize script: 0 replacements). Zero non-ASCII in JSX text nodes.
+
+5. **Build:** `npm run build` ✓ — 0 errors, 0 warnings (18.19s). Pushed to main; Railway auto-deploy triggered.
+
+---
+
 # Overnight Build Log — 21 August 2026
 
 ## Session summary

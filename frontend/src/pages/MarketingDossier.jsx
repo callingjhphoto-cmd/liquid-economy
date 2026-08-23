@@ -4,6 +4,7 @@ import { getDossierEntry } from '../data/dossiers/index.js'
 import { MARKETING_RELATED_DOSSIERS } from '../data/dossiers/flagshipConfig.js'
 import { DossierLayout } from '../components/dossier/DossierLayout'
 import { MarkdownSection } from '../components/dossier/MarkdownSection'
+import { SubPageNav } from '../components/ui'
 
 /**
  * MarketingDossier — /marketing
@@ -59,7 +60,9 @@ export default function MarketingDossier() {
   }
 
   return (
-    <DossierLayout
+    <>
+      <SubPageNav group="intelligence" />
+      <DossierLayout
       entry={displayEntry}
       title="Alcohol Marketing Thesis"
       subtitle={"How success is proven — and the campaigns that delivered it"}
@@ -124,5 +127,6 @@ export default function MarketingDossier() {
         </div>
       )}
     </DossierLayout>
+    </>
   )
 }

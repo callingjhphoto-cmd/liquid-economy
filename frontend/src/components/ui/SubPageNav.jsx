@@ -12,6 +12,7 @@ const groups = {
     { label: 'Brand Health', to: '/brand-health' },
     { label: 'Competitors', to: '/competitors' },
     { label: 'Market Overview', to: '/market-overview' },
+    { label: 'Marketing', to: '/marketing' },
   ],
   planning: [
     { label: 'Supply Chain', to: '/supply-chain' },
@@ -27,6 +28,7 @@ const groups = {
     { label: 'Valuations', to: '/valuations' },
     { label: 'Financials', to: '/financials' },
     { label: 'Pitch Generator', to: '/pitch-generator' },
+    { label: 'Client Profiles', to: '/profiles' },
   ],
   tools: [
     { label: 'Climate & Yield', to: '/climate' },

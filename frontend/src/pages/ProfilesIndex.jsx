@@ -10,7 +10,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Mail } from 'lucide-react'
-import { PageHeader, Card, AccentCard, Badge } from '../components/ui'
+import { PageHeader, Card, AccentCard, Badge, SubPageNav } from '../components/ui'
 
 const PROFILES = [
   {
@@ -52,12 +52,13 @@ export default function ProfilesIndex() {
     <div className="max-w-7xl mx-auto">
       <PageHeader
         title="Client Profiles"
-        subtitle={"Each profile is a personalised lens over Liquid Economy’s full category intelligence. Curated for a specific client, archetype, and scope — linking through to the underlying data at every point."}
+        subtitle={"Each profile is a personalised lens over Liquid Economy's full category intelligence. Curated for a specific client, archetype, and scope — linking through to the underlying data at every point."}
         breadcrumbs={[
           { label: 'Dashboard', to: '/' },
           { label: 'Client Profiles' },
         ]}
       />
+      <SubPageNav group="reports" />
 
       {/* Archetype legend */}
       <div className="flex flex-wrap gap-2 mb-6">

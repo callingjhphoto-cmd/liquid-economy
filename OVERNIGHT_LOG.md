@@ -1,3 +1,21 @@
+# Overnight Build Log — 23 August 2026
+
+## Session summary
+
+**Shipped:** Mobile SubPageNav coverage for Marketing Thesis and Client Profiles pages; fixed pre-existing curly-quote parse error in ProfilesIndex.jsx (3 files, build clean, pushed to main).
+
+1. **SubPageNav.jsx — two routes were missing from mobile pill strips.** `/marketing` (Marketing Thesis) and `/profiles` (Client Profiles) were registered in `routeMeta` under the Intelligence and Reports groups respectively, but neither appeared in SubPageNav's group maps. Mobile users on those pages had no pill strip and no way to navigate to sibling pages. Added `{ label: 'Marketing', to: '/marketing' }` to the `intelligence` group and `{ label: 'Client Profiles', to: '/profiles' }` to the `reports` group.
+
+2. **MarketingDossier.jsx — SubPageNav wired in.** The page uses `DossierLayout` (its own layout container) with no SubPageNav. Added `import { SubPageNav }` and wrapped the return in a React fragment `<>...</>` with `<SubPageNav group="intelligence" />` as the first sibling before `<DossierLayout>`. The component is `lg:hidden` sticky so it only shows on mobile and positions correctly relative to the main content container padding.
+
+3. **ProfilesIndex.jsx — SubPageNav wired in + curly-quote parse error fixed.** Added `<SubPageNav group="reports" />` after `<PageHeader />`. Also fixed a pre-existing bug: U+2018/U+2019 curly single quotes were being used as JavaScript string delimiters in the breadcrumbs array and subtitle prop. The old cached vite tolerated them; vite 5.4.21 (installed fresh this session) caused esbuild to throw `Unexpected "'"` at line 57:19. Fixed by byte-level replacement to ASCII apostrophe (0x27).
+
+4. **Build:** `npm run build` ✓ — 0 errors, 0 warnings (13.29s). Pushed to main; Railway auto-deploy triggered.
+
+5. **Remaining priority work:** CategoryIntelligence data quality audit across 11 categories x 5 years; BrandPricing 208 expressions; VenueIntelligence 250 entries / 28 London profiles; tooltip styling; chart axis labels; euro character audit.
+
+---
+
 # Overnight Build Log — 22 August 2026
 
 ## Session summary

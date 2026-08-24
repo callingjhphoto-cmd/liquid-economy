@@ -1,3 +1,25 @@
+# Overnight Build Log — 24 August 2026
+
+## Session summary
+
+**Shipped:** WCAG accessibility pass — `role="figure"` wrappers on 5 substantive charts across 4 pages; `aria-hidden="true"` on 3 decorative sparklines (6 files, build clean, pushed to main).
+
+1. **BrandHealth.jsx** — wrapped the 12-Month Trend LineChart `ResponsiveContainer` in `div[role=figure][aria-label="Chart: {dynamic metric} — 12 Month Trend"]`. Label is computed from the active `chartMetric` key so it updates when the user switches between Social, Search, and Review metrics.
+
+2. **CocktailDetail.jsx** — wrapped the Flavour Profile RadarChart in `div[role=figure][aria-label="Chart: Flavour Profile radar — bartender-calibrated flavour dimensions"]`. Chart already had dark custom tooltip renderer; this adds the missing structural landmark.
+
+3. **DepletionForecasting.jsx** — wrapped both ComposedCharts: Monthly Depletions (cases + revenue dual-axis) and Cumulative Depletions. Each has its own descriptive `aria-label`.
+
+4. **MarketEntryWizard.jsx** — wrapped the horizontal Estimated Costs BarChart in `div[role=figure]`. Chart shows itemised cost breakdown; label describes the visualisation purpose.
+
+5. **CommandCentre.jsx + SupplyChain.jsx** — decorative sparklines (HeroCard background AreaChart, MicroSparkline, table-row Sparkline) are purely visual with no tooltips or data labels. Added `div[aria-hidden=true]` wrappers so screen readers skip them entirely rather than announcing empty chart structure.
+
+6. **Build:** `npm run build` ✓ — 0 errors, 0 warnings (16.07s). Pushed to main; Railway auto-deploy triggered.
+
+7. **Remaining priority work:** No outstanding accessibility gaps found in the chart audit. Standing watch: new unicode violations, null guard gaps, data anomalies from future edits. All 7 audits (categories 11×5, 259 brand expressions, 250 venues, 28 London profiles, tooltip styling, chart axes, SubPageNav coverage) confirmed clean as of this session.
+
+---
+
 # Overnight Build Log — 23 August 2026
 
 ## Session summary

@@ -22,6 +22,7 @@ function Sparkline({ data, positive, uid }) {
   const color = positive ? '#16a34a' : '#dc2626'
   const gradId = `sg_${uid}`
   return (
+    <div aria-hidden="true">
     <ResponsiveContainer width={100} height={28}>
       <AreaChart data={chartData} margin={{ top: 2, right: 2, bottom: 2, left: 2 }} accessibilityLayer={true}>
         <defs>
@@ -33,6 +34,7 @@ function Sparkline({ data, positive, uid }) {
         <Area type="monotone" dataKey="value" stroke={color} strokeWidth={1.5} fill={`url(#${gradId})`} dot={false} isAnimationActive={false} />
       </AreaChart>
     </ResponsiveContainer>
+    </div>
   )
 }
 

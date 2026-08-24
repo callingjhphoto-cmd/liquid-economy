@@ -184,6 +184,7 @@ export default function DepletionForecasting() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
         <Card className="p-4">
           <h3 className="text-sm font-bold text-navy mb-3">Monthly Depletions</h3>
+          <div role="figure" aria-label="Chart: Monthly Depletions — cases and revenue by month">
           <ResponsiveContainer width="100%" height={250}>
             <ComposedChart data={forecast} accessibilityLayer>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
@@ -196,10 +197,12 @@ export default function DepletionForecasting() {
               <Line yAxisId="right" type="monotone" dataKey="revenue" name="Revenue" stroke={CHART_COLORS.accent} strokeWidth={2} dot={false} />
             </ComposedChart>
           </ResponsiveContainer>
+          </div>
         </Card>
 
         <Card className="p-4">
           <h3 className="text-sm font-bold text-navy mb-3">Cumulative Depletions</h3>
+          <div role="figure" aria-label="Chart: Cumulative Depletions — total cases over time">
           <ResponsiveContainer width="100%" height={250}>
             <ComposedChart data={forecast} accessibilityLayer>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
@@ -210,6 +213,7 @@ export default function DepletionForecasting() {
               <Line type="monotone" dataKey="cumulativeDepletions" name="Cumulative Cases" stroke={CHART_COLORS.primary} strokeWidth={2} dot={{ r: 3 }} />
             </ComposedChart>
           </ResponsiveContainer>
+          </div>
         </Card>
       </div>
 

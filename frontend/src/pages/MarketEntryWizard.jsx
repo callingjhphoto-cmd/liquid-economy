@@ -310,6 +310,7 @@ function Playbook({ category, market }) {
 
         <PlaybookSection title="Estimated Costs" icon={DollarSign}>
           <div className="mb-4">
+            <div role="figure" aria-label="Chart: Estimated Costs breakdown by category">
             <ResponsiveContainer width="100%" height={250}>
               <BarChart data={costChartData} layout="vertical" margin={{ left: 10, right: 20, top: 5, bottom: 5 }} accessibilityLayer>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" horizontal={false} />
@@ -323,6 +324,7 @@ function Playbook({ category, market }) {
                 </Bar>
               </BarChart>
             </ResponsiveContainer>
+            </div>
           </div>
           <div className="text-right">
             <span className="text-sm text-gray-500">Total estimated: </span>

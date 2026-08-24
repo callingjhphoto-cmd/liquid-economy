@@ -42,7 +42,7 @@ function HeroMarketCard() {
       className="bg-gradient-to-br from-navy/[0.04] to-transparent bg-white rounded-xl border border-gray-100 p-6 hover:shadow-lg hover:border-gold/30 transition-all cursor-pointer relative overflow-hidden group"
     >
       {/* Background sparkline */}
-      <div className="absolute bottom-0 left-0 right-0 h-20 opacity-30">
+      <div className="absolute bottom-0 left-0 right-0 h-20 opacity-30" aria-hidden="true">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={sparkData} margin={{ top: 0, right: 0, bottom: 0, left: 0 }} accessibilityLayer={true}>
             <defs>
@@ -95,6 +95,7 @@ function MicroSparkline({ data, positive = true, uid = 0 }) {
   const color = positive ? '#22c55e' : '#ef4444'
   const gradId = `micro-${uid}-${positive ? 'pos' : 'neg'}`
   return (
+    <div aria-hidden="true">
     <ResponsiveContainer width="100%" height={28}>
       <AreaChart data={data} margin={{ top: 2, right: 0, bottom: 0, left: 0 }} accessibilityLayer={true}>
         <defs>
@@ -106,6 +107,7 @@ function MicroSparkline({ data, positive = true, uid = 0 }) {
         <Area type="monotone" dataKey="v" stroke={color} strokeWidth={1.5} fill={`url(#${gradId})`} dot={false} isAnimationActive={false} />
       </AreaChart>
     </ResponsiveContainer>
+    </div>
   )
 }
 

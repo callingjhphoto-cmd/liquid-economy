@@ -262,6 +262,7 @@ function FlavourModule({ flavour }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Card padding="p-5">
           <p className="text-caption text-gray-400 mb-3 italic">Bartender-calibrated estimate -- not instrument-measured</p>
+          <div role="figure" aria-label="Chart: Flavour Profile radar — bartender-calibrated flavour dimensions">
           <ResponsiveContainer width="100%" height={260}>
             <RadarChart data={radarData} cx="50%" cy="50%" outerRadius={90} accessibilityLayer>
               <PolarGrid stroke="#e2e8f0" />
@@ -279,6 +280,7 @@ function FlavourModule({ flavour }) {
               }} />
             </RadarChart>
           </ResponsiveContainer>
+          </div>
         </Card>
         <Card padding="p-5">
           <p className="text-label text-gray-500 uppercase tracking-wider mb-3">Flavour descriptors</p>

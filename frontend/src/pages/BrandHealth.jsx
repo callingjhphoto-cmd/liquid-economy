@@ -192,6 +192,7 @@ export default function BrandHealth() {
                 ))}
               </div>
             </div>
+            <div role="figure" aria-label={`Chart: ${chartLabels[chartMetric]} — 12 Month Trend`}>
             <ResponsiveContainer width="100%" height={250}>
               <LineChart data={data[chartMetric]} accessibilityLayer>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
@@ -210,6 +211,7 @@ export default function BrandHealth() {
                 <Line type="monotone" dataKey="value" stroke={CHART_COLORS.primary} strokeWidth={2} dot={{ r: 3 }} />
               </LineChart>
             </ResponsiveContainer>
+            </div>
           </Card>
 
           {/* Source breakdown */}

@@ -1013,7 +1013,7 @@ export default function VenueIntelligence() {
                 <ChartCard title="Top 5 Penetration Trend (%)" height={250}>
                   <LineChart data={penetrationTrend} accessibilityLayer={true}>
                     <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#9ca3af' }} />
-                    <YAxis tickFormatter={v => `${v}%`} tick={{ fontSize: 11, fill: '#9ca3af' }} />
+                    <YAxis tickFormatter={v => `${v}%`} tick={{ fontSize: 11, fill: '#9ca3af' }} width={42} />
                     <Tooltip formatter={(val) => [`${val}%`]} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
                     <Legend wrapperStyle={{ fontSize: 11 }} />
                     {overallDominance.slice(0, 5).map(d => (

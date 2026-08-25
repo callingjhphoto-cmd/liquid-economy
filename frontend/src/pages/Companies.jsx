@@ -171,7 +171,7 @@ function getRegion(hq) {
    ════════════════════════════════════════════ */
 function CompanyCardTier1({ company, onClick, isHighlighted }) {
   const revenue = parseRevenue(company.revenue)
-  const isGrowing = company.revenueGrowth && company.revenueGrowth.startsWith('+')
+  const isGrowing = company.revenueGrowth && String(company.revenueGrowth).startsWith('+')
   const brandCount = company.keyBrands ? company.keyBrands.length : 0
   const categoryCount = company.categoryPresence ? Object.keys(company.categoryPresence).length : 0
 
@@ -258,7 +258,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
               <div className="flex items-center gap-3 mt-0.5 text-xs text-gray-500">
                 <span>{company.hq}</span>
                 <span className="font-semibold text-navy">{company.revenue}</span>
-                <span className={company.revenueGrowth && company.revenueGrowth.startsWith('+') ? 'text-emerald-600 font-medium' : 'text-red-500 font-medium'}>
+                <span className={company.revenueGrowth && String(company.revenueGrowth).startsWith('+') ? 'text-emerald-600 font-medium' : 'text-red-500 font-medium'}>
                   {company.revenueGrowth}
                 </span>
               </div>
@@ -341,7 +341,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
                 <SectionHeader size="sm">Category Presence</SectionHeader>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
                   {Object.entries(company.categoryPresence)
-                    .sort((a, b) => b[1].share - a[1].share)
+                    .sort((a, b) => (b[1]?.share ?? 0) - (a[1]?.share ?? 0))
                     .slice(0, 6)
                     .map(([cat, info]) => (
                     <div key={cat} className="flex items-center justify-between bg-white rounded-lg p-2.5 border border-gray-100">
@@ -1106,7 +1106,7 @@ export default function Companies() {
               </div>
               <div className="bg-gray-50 rounded-lg p-2.5 text-center">
                 <div className="text-xs text-gray-500 uppercase">Growth</div>
-                <div className={`text-sm font-bold ${mobileSheet.revenueGrowth && mobileSheet.revenueGrowth.startsWith('+') ? 'text-emerald-600' : 'text-red-500'}`}>
+                <div className={`text-sm font-bold ${mobileSheet.revenueGrowth && String(mobileSheet.revenueGrowth).startsWith('+') ? 'text-emerald-600' : 'text-red-500'}`}>
                   {mobileSheet.revenueGrowth}
                 </div>
               </div>

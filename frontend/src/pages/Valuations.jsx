@@ -109,7 +109,7 @@ export default function Valuations() {
         ]}
       />
       <SubPageNav group="reports" />
-      <DataFreshness date="April 2026" source="SEC EDGAR, Bloomberg, PitchBook, IWSR M&amp;A database" />
+      <DataFreshness date="April 2026" source="SEC EDGAR, Bloomberg, PitchBook, IWSR M&A database" />
 
       {/* Year Selector */}
       <div className="flex items-center justify-between">

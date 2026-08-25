@@ -151,7 +151,7 @@ const Module3 = () => {
     <section id="venues">
       <SectionHeader
         title="Luxury Venue Intelligence"
-        sub="Signature cocktails, pricing bands &amp; theatre at elite global venues"
+        sub="Signature cocktails, pricing bands & theatre at elite global venues"
       />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {luxuryVenueIntel.map((v, i) => (
@@ -188,7 +188,7 @@ const Module3 = () => {
 const Module4 = () => (
   <section id="theatre">
     <SectionHeader
-      title="Presentation &amp; Theatre Library"
+      title="Presentation & Theatre Library"
       sub="Ice programme, glassware specs, and activation formats. Source: [R8] Cocktail Presentation Deep Research"
     />
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

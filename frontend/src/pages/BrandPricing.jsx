@@ -470,7 +470,7 @@ function CategoryExpanded({ category, onClose }) {
         <ScatterChart margin={{ top: 10, right: 30, bottom: 10, left: 10 }} accessibilityLayer={true}>
           <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
           <XAxis dataKey="volume" name="Volume (index)" type="number" tick={{ fontSize: 10, fill: '#9ca3af' }} label={{ value: 'Brand Index', position: 'insideBottom', offset: -5, fontSize: 10, fill: '#9ca3af' }} />
-          <YAxis dataKey="price" name="Avg Price" tickFormatter={v => `${config.currency}${v}`} type="number" tick={{ fontSize: 10, fill: '#9ca3af' }} />
+          <YAxis dataKey="price" name="Avg Price" tickFormatter={v => `${config.currency}${v}`} type="number" tick={{ fontSize: 10, fill: '#9ca3af' }} width={42} />
           <Tooltip
             cursor={{ strokeDasharray: '3 3' }}
             formatter={(value, name) => {

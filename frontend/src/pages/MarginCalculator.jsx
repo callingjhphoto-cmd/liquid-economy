@@ -587,7 +587,7 @@ export default function MarginCalculator() {
             <BarChart data={channelChartData} accessibilityLayer={true}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis dataKey="name" tick={{ fontSize: 10, fill: '#9ca3af' }} />
-              <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} tickFormatter={v => v + '%'} />
+              <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} tickFormatter={v => v + '%'} width={36} />
               <Tooltip formatter={(v, name) => name === 'margin' ? v + '%' : '£' + v} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
               <Bar dataKey="margin" name="Margin %" radius={[4, 4, 0, 0]}>
                 {channelChartData.map((entry, i) => (
@@ -625,7 +625,7 @@ export default function MarginCalculator() {
           <BarChart data={waterfallData} accessibilityLayer={true}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis dataKey="name" tick={{ fontSize: 9, fill: '#9ca3af' }} interval={0} angle={-20} textAnchor="end" height={50} />
-            <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} tickFormatter={v => '£' + v} />
+            <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} tickFormatter={v => '£' + v} width={42} />
             <Tooltip formatter={(v) => fmt(v)} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
             <Bar dataKey="cost" radius={[4, 4, 0, 0]}>
               {waterfallData.map((entry, i) => (

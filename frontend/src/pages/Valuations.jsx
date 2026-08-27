@@ -266,7 +266,7 @@ export default function Valuations() {
             <BarChart data={sectorChartData} margin={{ top: 5, right: 20, bottom: 5, left: 5 }} accessibilityLayer={true}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis dataKey="name" tick={{ fontSize: 9, fill: '#9ca3af' }} interval={0} angle={-15} textAnchor="end" height={50} />
-              <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} tickFormatter={v => `${v}x`} />
+              <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} tickFormatter={v => `${v}x`} width={36} />
               <Tooltip
                 formatter={(v, name) => [`${v}x`, name]}
                 contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
@@ -353,7 +353,7 @@ export default function Valuations() {
             <BarChart data={filteredMaYearChart} margin={{ top: 5, right: 20, bottom: 5, left: 5 }} accessibilityLayer={true}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#9ca3af' }} />
-              <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} tickFormatter={v => `$${v}M`} />
+              <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} tickFormatter={v => `$${v}M`} width={48} />
               <Tooltip
                 formatter={(v) => [`$${v}M`, 'Total Value']}
                 contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}

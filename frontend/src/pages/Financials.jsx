@@ -145,7 +145,7 @@ function CompanyCard({ company, isExpanded, onToggle }) {
                 <BarChart data={company.quarterlyRevenue ?? []} accessibilityLayer>
                   <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                   <XAxis dataKey="period" tick={{ fontSize: 11, fill: '#9ca3af' }} />
-                  <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => `${company.currency}${v}B`} />
+                  <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => `${company.currency}${v}B`} width={42} />
                   <Tooltip
                     formatter={(v) => [`${company.currency}${v}B`, 'Revenue']}
                     contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
@@ -210,7 +210,7 @@ function InventoryTrackerChart() {
       <ComposedChart data={data} accessibilityLayer>
         <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
         <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#9ca3af' }} />
-        <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => `$${v}B`} domain={[0, 25]} />
+        <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => `$${v}B`} domain={[0, 25]} width={42} />
         <Tooltip
           contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
           labelStyle={{ color: '#f1f5f9' }}

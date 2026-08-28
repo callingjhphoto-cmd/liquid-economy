@@ -35,6 +35,8 @@ const CATEGORY_COLORS = {
   'Whisky': '#D97706',
   'Scotch Whisky': '#D97706',
   'Bourbon & American': '#B45309',
+  'Irish Whiskey': '#78350F',
+  'Japanese Whisky': '#92400E',
   'Tequila': '#059669',
   'Gin': '#2563EB',
   'Vodka': '#7C3AED',

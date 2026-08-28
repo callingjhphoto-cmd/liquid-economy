@@ -1,3 +1,27 @@
+# Overnight Build Log — 28 August 2026
+
+## Session summary
+
+**Shipped:** BrandPricing category data fix — 21 whisky expressions reclassified from catch-all `'Whisky'` to correct sub-categories. Build clean (0 errors, 14.63s). Pushed to main.
+
+**Root cause found:** The Brand Pricing category filter was silently miscounting. Filtering by "Scotch Whisky" showed 7 brands when the correct count is 16; "Bourbon & American" showed 4 when the correct count is 12. All 21 under-counted expressions carried the generic `category: 'Whisky'` label from a batch data import that didn't distinguish sub-styles.
+
+**Changes:**
+1. **9 Scotch expressions** (Macallan 18yr Sherry Oak, Dalmore 12yr, Dalmore 18yr, Johnnie Walker Red Label, Chivas Regal 12yr, Famous Grouse Finest, Glenlivet 12yr, Glenmorangie Original 10yr, Monkey Shoulder) → `'Scotch Whisky'`
+2. **8 Bourbon/American expressions** (Bulleit, Jim Beam White Label, Maker's Mark Original, Crown Royal Deluxe, Woodford Reserve Bourbon, Pappy Van Winkle 20yr, Seagram's 7 Crown, Barton Blend) → `'Bourbon & American'`
+3. **1 Irish expression** (Jameson Original) → `'Irish Whiskey'` (new category)
+4. **3 Japanese expressions** (Yamazaki 12yr, Hakushu 12yr, Hibiki 21yr) → `'Japanese Whisky'` (new category)
+5. **BrandPricing.jsx** — added `'Irish Whiskey'` (`#78350F`) and `'Japanese Whisky'` (`#92400E`) to `CATEGORY_COLORS` so the new filter chips render with amber/brown tones rather than the gray fallback.
+
+**Audit also confirmed (no action needed):**
+- CategoryIntelligence: all 11 categories × 5 years (2021–2025) are fully populated, zero null values
+- VenueIntelligence: 250 total W50B entries, 28 London profiles — all required fields present, guard clauses handle the 11 venues missing `founders` safely
+- SupplyChain, GeographicIntelligence, Companies, ReportBuilder: no rendering issues found
+- All chart pages confirmed with `accessibilityLayer` — CampaignPlanner and GeographicIntelligence have no Recharts charts at all (only Lucide icons)
+- Zero JSX unicode violations — all special chars use `{'£'}` / `{'€'}` / `{'°C'}` pattern throughout
+
+---
+
 # Overnight Build Log — 27 August 2026
 
 ## Session summary

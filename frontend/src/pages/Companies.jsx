@@ -636,7 +636,7 @@ function CompanyTier3({ company, onClose }) {
                         <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#9ca3af' }} />
                         <YAxis yAxisId="left" tick={{ fontSize: 11, fill: '#9ca3af' }} width={40} tickFormatter={v => `$${v}B`} />
                         <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 11, fill: '#9ca3af' }} width={40} tickFormatter={v => `${v}%`} />
-                        <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
+                        <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11, color: '#f1f5f9' }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
                         <Legend wrapperStyle={{ fontSize: 11 }} />
                         <Line yAxisId="left" type="monotone" dataKey="revenue" stroke={CHART_COLORS.primary} strokeWidth={2} name="Revenue ($B)" dot={{ fill: CHART_COLORS.primary }} />
                         <Line yAxisId="right" type="monotone" dataKey="margin" stroke={CHART_COLORS.accent} strokeWidth={2} name="Op. Margin (%)" dot={{ fill: CHART_COLORS.accent }} />

@@ -105,12 +105,12 @@ function HeroModule({ cocktail }) {
           <Card padding="p-4">
             <p className="text-label text-gray-500 uppercase tracking-wider mb-1">Drinks International</p>
             <p className="text-display font-display text-navy">#{cocktail.diRank}</p>
-            <p className="text-caption text-gray-500">World's Best Bars 2025</p>
+            <p className="text-caption text-gray-500">World{'’'}s Best Bars 2025</p>
           </Card>
         )}
         {cocktail.diffordsRank && (
           <Card padding="p-4">
-            <p className="text-label text-gray-500 uppercase tracking-wider mb-1">Difford's Guide</p>
+            <p className="text-label text-gray-500 uppercase tracking-wider mb-1">Difford’s Guide</p>
             <p className="text-display font-display text-navy">#{cocktail.diffordsRank}</p>
             <p className="text-caption text-gray-500">Consumer search ranking 2025</p>
           </Card>

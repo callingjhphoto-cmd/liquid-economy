@@ -450,7 +450,7 @@ function CategoryExpanded({ category, onClose }) {
           <YAxis type="category" dataKey="name" tick={{ fontSize: 10, fill: '#9ca3af' }} width={140} />
           <Tooltip
             formatter={(value) => [`${config.currency}${value.toFixed(2)}`, 'Avg Price']}
-            contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
+            contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11, color: '#f1f5f9' }}
             labelStyle={{ color: '#f1f5f9' }}
             itemStyle={{ color: '#f1f5f9' }}
           />
@@ -479,7 +479,7 @@ function CategoryExpanded({ category, onClose }) {
               if (name === 'Avg Price') return [`${config.currency}${value}`, name]
               return [value, name]
             }}
-            contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
+            contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11, color: '#f1f5f9' }}
             labelStyle={{ color: '#f1f5f9' }}
             itemStyle={{ color: '#f1f5f9' }}
           />

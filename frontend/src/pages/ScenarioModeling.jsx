@@ -923,7 +923,7 @@ function CostWaterfall({ costs }) {
           <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
           <XAxis dataKey="name" tick={{ fontSize: 9, fill: '#9ca3af' }} />
           <YAxis tick={{ fontSize: 9, fill: '#9ca3af' }} tickFormatter={v => gbp(v)} width={42} />
-          <Tooltip formatter={(v) => [gbp(v), 'Cost']} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
+          <Tooltip formatter={(v) => [gbp(v), 'Cost']} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11, color: '#f1f5f9' }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
           <Bar dataKey="value" radius={[4, 4, 0, 0]}>
             {items.map((entry, i) => <Cell key={i} fill={entry.fill} />)}
           </Bar>

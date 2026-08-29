@@ -269,7 +269,7 @@ export default function Valuations() {
               <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} tickFormatter={v => `${v}x`} width={36} />
               <Tooltip
                 formatter={(v, name) => [`${v}x`, name]}
-                contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
+                contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11, color: '#f1f5f9' }}
                 labelStyle={{ color: '#f1f5f9' }}
                 itemStyle={{ color: '#f1f5f9' }}
               />
@@ -356,7 +356,7 @@ export default function Valuations() {
               <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} tickFormatter={v => `$${v}M`} width={48} />
               <Tooltip
                 formatter={(v) => [`$${v}M`, 'Total Value']}
-                contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
+                contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11, color: '#f1f5f9' }}
                 labelStyle={{ color: '#f1f5f9' }}
                 itemStyle={{ color: '#f1f5f9' }}
               />

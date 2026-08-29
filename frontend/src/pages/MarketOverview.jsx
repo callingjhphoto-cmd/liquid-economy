@@ -144,7 +144,7 @@ export default function MarketOverview() {
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={globalTrend} margin={{ top: 5, right: 5, bottom: 5, left: 5 }} accessibilityLayer>
                   <XAxis dataKey="year" tick={{ fontSize: 10, fill: '#9ca3af' }} />
-                  <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} formatter={(v) => [`$${v}B`, 'Drinks']} />
+                  <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11, color: '#f1f5f9' }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} formatter={(v) => [`$${v}B`, 'Drinks']} />
                   <Area type="monotone" dataKey="v" stroke="#C9A96E" strokeWidth={2} fill="#C9A96E22" dot={false} />
                 </AreaChart>
               </ResponsiveContainer>

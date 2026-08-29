@@ -820,11 +820,11 @@ function SourcesMethodologySection({ profile }) {
       <Card padding="p-5" className="bg-gray-50/50">
         <h3 className="text-subsection font-display text-navy mb-2">How to read this profile</h3>
         <ul className="space-y-2 text-caption text-gray-700 leading-relaxed list-disc pl-4">
-          <li><span className="font-semibold text-navy">Rank-based data</span> (DI / Difford's) is direct placement in each source's most recent annual list.</li>
-          <li><span className="font-semibold text-navy">"Move" deltas</span> (e.g. +19 from #23 in 2022) are year-over-year list position changes computed from the named source's historical rankings.</li>
+          <li><span className="font-semibold text-navy">Rank-based data</span> (DI / Difford’s) is direct placement in each source’s most recent annual list.</li>
+          <li><span className="font-semibold text-navy">{'“'}Move{'”'} deltas</span> (e.g. +19 from #23 in 2022) are year-over-year list position changes computed from the named source’s historical rankings.</li>
           <li><span className="font-semibold text-navy">Growth signals</span> on flavour families are headline figures from Bacardi Cocktail Trends Report and are qualitative unless marked with a specific percentage.</li>
           <li><span className="font-semibold text-navy">Pricing bands</span> combine on-menu capture (venue websites, press) with operator interview triangulation {'—'} converted to GBP/USD/AED at April 2026 rates.</li>
-          <li><span className="font-semibold text-navy">Unverified figures</span> are marked "TBD" rather than estimated.</li>
+          <li><span className="font-semibold text-navy">Unverified figures</span> are marked {'"'}TBD{'"'} rather than estimated.</li>
         </ul>
       </Card>
     </section>

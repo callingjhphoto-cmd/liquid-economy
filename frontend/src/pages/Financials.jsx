@@ -148,7 +148,7 @@ function CompanyCard({ company, isExpanded, onToggle }) {
                   <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => `${company.currency}${v}B`} width={42} />
                   <Tooltip
                     formatter={(v) => [`${company.currency}${v}B`, 'Revenue']}
-                    contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
+                    contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11, color: '#f1f5f9' }}
                     labelStyle={{ color: '#f1f5f9' }}
                     itemStyle={{ color: '#f1f5f9' }}
                   />
@@ -212,7 +212,7 @@ function InventoryTrackerChart() {
         <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#9ca3af' }} />
         <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => `$${v}B`} domain={[0, 25]} width={42} />
         <Tooltip
-          contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
+          contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11, color: '#f1f5f9' }}
           labelStyle={{ color: '#f1f5f9' }}
           itemStyle={{ color: '#f1f5f9' }}
           formatter={(v, name) => {
@@ -296,7 +296,7 @@ function DepletionShipmentChart() {
         <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#9ca3af' }} />
         <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} domain={[85, 125]} tickFormatter={v => String(v)} label={{ value: 'Index (2020=100)', angle: -90, position: 'insideLeft', fontSize: 8, fill: '#9ca3af', dx: 8 }} width={55} />
         <Tooltip
-          contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
+          contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11, color: '#f1f5f9' }}
           labelStyle={{ color: '#f1f5f9' }}
           itemStyle={{ color: '#f1f5f9' }}
           formatter={(v, name) => {

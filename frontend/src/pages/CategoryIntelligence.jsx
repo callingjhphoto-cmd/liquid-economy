@@ -349,7 +349,7 @@ function MarketTrendChart({ catKey }) {
         <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => `$${v}B`} width={55} />
         <Tooltip
           formatter={(val) => [`$${val.toFixed(1)}B`, 'Market Size']}
-          contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
+          contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11, color: '#f1f5f9' }}
           labelStyle={{ color: '#f1f5f9', fontWeight: 600 }}
           itemStyle={{ color: '#f1f5f9' }}
         />
@@ -396,7 +396,7 @@ function ChannelChart({ catKey }) {
             const labels = { onTrade: 'On-Trade', offTrade: 'Off-Trade', eCommerce: 'E-Commerce', travelRetail: 'Travel Retail' }
             return [val != null ? `${val}%` : '—', labels[name] || name]
           }}
-          contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
+          contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11, color: '#f1f5f9' }}
           labelStyle={{ color: '#f1f5f9' }}
           itemStyle={{ color: '#f1f5f9' }}
         />

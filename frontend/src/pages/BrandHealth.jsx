@@ -203,7 +203,7 @@ export default function BrandHealth() {
                   width={40}
                 />
                 <Tooltip
-                  contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }}
+                  contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11, color: '#f1f5f9' }}
                   labelStyle={{ color: '#f1f5f9' }}
                   itemStyle={{ color: '#f1f5f9' }}
                   formatter={v => chartMetric === 'socialMentions' ? [`${v.toLocaleString()}`, chartLabels[chartMetric]] : chartMetric === 'reviewSentiment' ? [`${v}%`, chartLabels[chartMetric]] : [v, chartLabels[chartMetric]]}

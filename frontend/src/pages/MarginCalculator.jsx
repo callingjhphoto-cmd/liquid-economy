@@ -574,7 +574,7 @@ export default function MarginCalculator() {
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis type="number" domain={[0, 70]} tick={{ fontSize: 10, fill: '#9ca3af' }} tickFormatter={v => v + '%'} />
               <YAxis type="category" dataKey="name" width={80} tick={{ fontSize: 10, fill: '#9ca3af' }} />
-              <Tooltip formatter={(v) => v + '%'} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
+              <Tooltip formatter={(v) => v + '%'} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11, color: '#f1f5f9' }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
               <Bar dataKey="margin" radius={[0, 4, 4, 0]}>
                 {comparisonData.map((entry, i) => (
                   <Cell key={i} fill={i === 0 ? '#C9A96E' : '#1e3a5f'} fillOpacity={i === 0 ? 1 : 0.6} />
@@ -588,7 +588,7 @@ export default function MarginCalculator() {
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis dataKey="name" tick={{ fontSize: 10, fill: '#9ca3af' }} />
               <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} tickFormatter={v => v + '%'} width={36} />
-              <Tooltip formatter={(v, name) => name === 'margin' ? v + '%' : '£' + v} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
+              <Tooltip formatter={(v, name) => name === 'margin' ? v + '%' : '£' + v} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11, color: '#f1f5f9' }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
               <Bar dataKey="margin" name="Margin %" radius={[4, 4, 0, 0]}>
                 {channelChartData.map((entry, i) => (
                   <Cell key={i} fill={entry.current ? '#C9A96E' : '#1e3a5f'} />
@@ -626,7 +626,7 @@ export default function MarginCalculator() {
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis dataKey="name" tick={{ fontSize: 9, fill: '#9ca3af' }} interval={0} angle={-20} textAnchor="end" height={50} />
             <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} tickFormatter={v => '£' + v} width={42} />
-            <Tooltip formatter={(v) => fmt(v)} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
+            <Tooltip formatter={(v) => fmt(v)} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11, color: '#f1f5f9' }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
             <Bar dataKey="cost" radius={[4, 4, 0, 0]}>
               {waterfallData.map((entry, i) => (
                 <Cell key={i} fill={entry.fill} />

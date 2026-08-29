@@ -191,7 +191,7 @@ export default function DepletionForecasting() {
               <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#9ca3af' }} />
               <YAxis yAxisId="left" tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => v >= 1000 ? `${Math.round(v / 1000)}K` : String(v)} width={55} label={{ value: 'Cases', angle: -90, position: 'insideLeft', fontSize: 9, fill: '#9ca3af', dx: 10 }} />
               <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => v >= 1000 ? `£${Math.round(v / 1000)}K` : `£${v}`} width={60} label={{ value: 'Revenue (£)', angle: 90, position: 'insideRight', fontSize: 9, fill: '#9ca3af', dx: -4 }} />
-              <Tooltip formatter={(v, name) => name === 'revenue' ? `£${v.toLocaleString()}` : v.toLocaleString()} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
+              <Tooltip formatter={(v, name) => name === 'revenue' ? `£${v.toLocaleString()}` : v.toLocaleString()} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11, color: '#f1f5f9' }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
               <Legend wrapperStyle={{ fontSize: 11 }} />
               <Bar yAxisId="left" dataKey="depletions" name="Cases" fill={CHART_COLORS.primary} radius={[4, 4, 0, 0]} />
               <Line yAxisId="right" type="monotone" dataKey="revenue" name="Revenue" stroke={CHART_COLORS.accent} strokeWidth={2} dot={false} />
@@ -208,7 +208,7 @@ export default function DepletionForecasting() {
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#9ca3af' }} />
               <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => v >= 1000 ? `${Math.round(v / 1000)}K` : String(v)} width={55} label={{ value: 'Cases', angle: -90, position: 'insideLeft', fontSize: 9, fill: '#9ca3af', dx: 10 }} />
-              <Tooltip formatter={v => v.toLocaleString()} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11 }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
+              <Tooltip formatter={v => v.toLocaleString()} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11, color: '#f1f5f9' }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
               <Area type="monotone" dataKey="cumulativeDepletions" fill={CHART_COLORS.primary + '20'} stroke="none" legendType="none" />
               <Line type="monotone" dataKey="cumulativeDepletions" name="Cumulative Cases" stroke={CHART_COLORS.primary} strokeWidth={2} dot={{ r: 3 }} />
             </ComposedChart>

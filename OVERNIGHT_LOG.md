@@ -1,3 +1,23 @@
+# Overnight Build Log — 29 August 2026
+
+## Session summary
+
+**Shipped:** Tooltip `color` prop sweep (30 instances, 14 files) + 7 curly-quote JSX text fixes. Build clean (0 errors, 11.48s). Pushed to main.
+
+**Root cause:** Every Recharts `<Tooltip>` had `contentStyle={{ background: '#1e293b', ... }}` (dark background) but was missing `color: '#f1f5f9'`. Without an explicit text colour on the container, tooltip text inherits the page's ambient colour (navy) which is near-invisible against the dark tooltip background. Fixed by adding `color: '#f1f5f9'` to all 30 contentStyle objects across 14 chart pages.
+
+**Changes:**
+1. **30 Tooltip contentStyle objects** across BrandHealth, BrandPricing (×2), CategoryIntelligence (×2), ClimateYield (×4), Companies, DepletionForecasting (×2), Financials (×3), MarginCalculator (×3), MarketEntryWizard, MarketOverview, ScenarioModeling, SupplyChain, Valuations (×2), VenueIntelligence (×6) — added `color: '#f1f5f9'` to guarantee all tooltip text is white-on-dark regardless of page ambient styling.
+2. **7 curly-quote JSX text violations** fixed: `World's` and `Difford's Guide` in CocktailDetail.jsx; `Difford's` in ProfileChorusCocktails.jsx; `Difford's`, `source's`, `"Move" deltas`, `"TBD"` in ClientProfile.jsx; `Satan's Whiskers` in VenueIntelligence.jsx — all brought into project standard (raw U+2019/U+201C/U+201D in JSX text, consistent with validated surrounding code).
+
+**Also audited (no action needed):**
+- VenueIntelligence: 250 W50B entries, 28 London profiles — zero null required fields, all chart configs valid
+- BrandPricing: 260 expressions, 0 bad categories, 0 all-null UK prices, 2 intentional no-US entries (Havana Club embargo; Celtic Soul no US distribution)
+- CategoryIntelligence: 11 categories present, data structure intact
+- YAxis width: zero new violations (confirmed by scan of all 38 pages)
+
+---
+
 # Overnight Build Log — 28 August 2026
 
 ## Session summary

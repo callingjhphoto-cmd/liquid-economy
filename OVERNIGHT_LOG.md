@@ -1,3 +1,22 @@
+# Overnight Build Log — 30 August 2026
+
+## Session summary
+
+**Shipped:** Demographics data for 3 missing CategoryIntelligence categories (champagne, wine, beer). Coverage now 11/11. Build clean (0 errors, 12.91s). Pushed to main.
+
+**Root cause:** `spiritsDemographicsData.js` exported `SPIRITS_DEMOGRAPHICS` with only 8 keys (whisky, tequila, gin, rum, vodka, cognac, nolo, rtd). `getCategoryDemographics()` returned `null` for champagne, wine, and beer → `hasDemographics = false` → Demographics tab entirely hidden for those 3 categories.
+
+**Changes:**
+1. **`frontend/src/data/spiritsDemographicsData.js`** — Added full demographics entries for `champagne` (CIVC data, Prosecco/Cava sub-categories, female-skew 58%, UK #1 Champagne export market), `wine` (IWSR/OIV, red/white/rosé/premium sub-categories, broad age range, Gen Z under-indexing noted), and `beer` (IWSR/Kantar, mainstream/premium/craft/NOLO/stout sub-categories, Modelo Especial #1 US trend, Guinness Renaissance, male-skew 62%). All estimated demographic breakdowns flagged with `SOURCE_FLAG_ESTIMATED`. 385 lines added.
+2. **`frontend/src/pages/CategoryIntelligence.jsx`** — Updated empty-state copy from "Spirits research covers: Whisky, Agave, Gin, Rum, Vodka, Cognac, NOLO." to reflect full 11-category coverage including Champagne, Wine, Beer.
+
+**Also audited (no action needed):**
+- Full `spiritsDemographicsData.js` schema verified: all 3 new entries match established pattern (marketSizeFigure, cagr, source, subCategories, demographics, topBrands, keyTrends, sources)
+- categoryData.js 11 × 5 year-blocks: already confirmed clean in previous session
+- Build output: `data-demographics` chunk grew from ~55KB → 61.61KB (expected; all 3 new objects compiled)
+
+---
+
 # Overnight Build Log — 29 August 2026
 
 ## Session summary

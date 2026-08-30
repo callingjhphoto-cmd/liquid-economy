@@ -938,6 +938,390 @@ export const SPIRITS_DEMOGRAPHICS = {
       'RTD formats are neutralizing historical gender splits across spirits categories.'
     ],
     sources: ['IWSR', 'Nielsen/Circana', 'spirits_04_rum_vodka_cognac.md', 'spirits_05_liqueurs_aperitifs.md']
+  },
+
+  // ---------------------------------------------------------------------------
+  // CHAMPAGNE & SPARKLING WINE
+  // Sources: Comité Champagne (CIVC) 2024 export data, IWSR, Wine Intelligence
+  // ---------------------------------------------------------------------------
+  champagne: {
+    marketSizeFigure: '€6.4B producer value (2023)',
+    cagr: '2.8%–3.5% CAGR through 2028',
+    source: 'Comité Champagne (CIVC) 2023 annual statistics; IWSR Sparkling Wine Report 2024',
+    subCategories: [
+      {
+        name: 'Champagne (AOC)',
+        share: '~45% of global sparkling value',
+        cagr: null,
+        notes: 'Shipments of 299M bottles in 2023, down 8% from 2022 record. UK #1 export market by volume (26.3M bottles). Source: CIVC 2023.'
+      },
+      {
+        name: 'Prosecco DOC/DOCG',
+        share: '~20% of global sparkling volume',
+        cagr: '4.2%',
+        notes: 'Prosecco DOC exceeded 600M bottles in 2023. Dominant in off-trade grocery. Source: Consorzio Prosecco DOC 2023.'
+      },
+      {
+        name: 'Cava',
+        share: '~8% of global sparkling volume',
+        cagr: null,
+        notes: 'Spanish sparkling; value positioning below Champagne and Prosecco. Export-driven; UK and Germany key markets.'
+      },
+      {
+        name: 'English Sparkling Wine',
+        share: '<1% of global volume',
+        cagr: '~15%',
+        notes: 'Fastest-growing premium sparkling segment in UK on-trade. WSTA reports record production 2023. Niche but influential on-trade.'
+      }
+    ],
+    demographics: {
+      age: [
+        {
+          bracket: '35–54',
+          share: '~42%',
+          notes: SOURCE_FLAG_ESTIMATED + ' — core champagne buyer; occasion-driven (anniversaries, milestone celebrations). Wine Intelligence Sparkling Tracker 2023.'
+        },
+        {
+          bracket: '25–34',
+          share: '~28%',
+          notes: 'Growing younger cohort driven by Prosecco and branded sparkling. Brunch and casual celebratory occasions. Wine Intelligence 2023.'
+        },
+        {
+          bracket: '55+',
+          share: '~25%',
+          notes: 'Heritage champagne loyalists; highest per-bottle spend. Gifting and fine dining occasions dominant.'
+        },
+        {
+          bracket: '18–24',
+          share: '~5%',
+          notes: SOURCE_FLAG_ESTIMATED + ' — limited purchasing power but high social media exposure to branded champagne imagery.'
+        }
+      ],
+      gender: [
+        {
+          segment: 'Female',
+          share: '~58%',
+          notes: 'Champagne and sparkling wine skew female across UK and US markets. Wine Intelligence Gender & Wine Report 2022; Mintel Sparkling Wine UK 2023.'
+        },
+        {
+          segment: 'Male',
+          share: '~42%',
+          notes: 'Male share higher in on-trade fine dining; female share dominant in off-trade gifting and grocery channels.'
+        }
+      ],
+      income: [
+        {
+          bracket: 'High income (£70k+ UK / $100k+ US)',
+          notes: 'True Champagne AOC buyers skew high income; premium and prestige cuvée (Dom Pérignon, Cristal) index heavily to top 20% income bracket. Source: Nielsen Homescan, Mintel.'
+        },
+        {
+          bracket: 'Mid income (£30k–70k UK)',
+          notes: 'Prosecco and entry Champagne brands (Lanson, Nicolas Feuillatte) accessible to middle-income buyers. Key driver of category volume growth.'
+        }
+      ],
+      region: [
+        {
+          name: 'United Kingdom',
+          share: '8.8% of global Champagne exports by volume (26.3M bottles)',
+          notes: 'Largest export market for Champagne by volume. Strong supermarket distribution; M&S, Waitrose dominant off-trade. CIVC 2023.'
+        },
+        {
+          name: 'United States',
+          share: '7.8% of global Champagne exports by volume',
+          notes: 'Highest-value export market for Champagne on per-bottle average. Fine dining and luxury gifting. CIVC 2023.'
+        },
+        {
+          name: 'Germany',
+          share: '6.4% of global Champagne exports by volume',
+          notes: 'Price-sensitive sparkling market; Prosecco and Sekt competition significant. CIVC 2023.'
+        },
+        {
+          name: 'Asia-Pacific (Japan, China, Australia)',
+          share: 'Combined ~10% and growing',
+          notes: 'Japan is a mature luxury sparkling market; China growing rapidly post-Covid restrictions lifted; Australia strong domestic sparkling production but imports Champagne for luxury occasions.'
+        }
+      ],
+      occasion: [
+        { name: 'Celebration / milestone', notes: 'Dominant occasion for Champagne AOC. Weddings, birthdays, New Year. Gifting format (gift boxes, magnums) drives premiumisation.' },
+        { name: 'Brunch / casual social', notes: 'Prosecco and NV Champagne entry brands. Weekend brunch culture driving off-trade sparkling growth in 25–44 demographic.' },
+        { name: 'Fine dining / on-trade', notes: 'Prestige cuvée and vintage Champagne. Restaurant and hotel on-trade anchor for high-value expressions. Sommelier recommendation critical.' },
+        { name: 'Gifting', notes: 'Champagne is the #1 gifted premium alcohol category in UK and US. December accounts for ~30–35% of annual volume. Nielsen seasonal data.' }
+      ]
+    },
+    topBrands: [
+      { rank: 1, name: 'Moët & Chandon', owner: 'LVMH', volumeCases: null, notes: 'Global #1 Champagne by volume. NV Brút Imperial flagship. Distributed in 150+ markets.' },
+      { rank: 2, name: 'Veuve Clicquot', owner: 'LVMH', volumeCases: null, notes: 'Yellow Label NV iconic. Strong female consumer affinity. «second largest Champagne brand globally.' },
+      { rank: 3, name: 'Laurent-Perrier', owner: 'Laurent-Perrier Group', volumeCases: null, notes: 'Rosé NV is world’s best-selling rosé Champagne. High on-trade hotel/restaurant presence.' },
+      { rank: 4, name: 'Dom Pérignon', owner: 'LVMH', volumeCases: null, notes: 'Prestige cuvée; vintage only. Highest ASP in mainstream prestige. Luxury gifting and collector market.' },
+      { rank: 5, name: 'Bollinger', owner: 'Bollinger Group (family)', volumeCases: null, notes: 'Gránde Année and Spécial Cuvée. Strong UK on-trade; James Bond association maintained.' }
+    ],
+    keyTrends: [
+      'Global Champagne shipments fell 8% in 2023 after record 2022; category returning to pre-pandemic baseline.',
+      'Prosecco DOC exceeding 600M bottles annual production — volume leader displacing Champagne in grocery.',
+      'Rosé Champagne growing faster than NV Blanc; now ~10% of Champagne volumes (CIVC 2023).',
+      'English sparkling wine disrupting premium on-trade; Ridgeview, Nyetimber winning blind tastings vs. Champagne.',
+      'Low/no-alcohol sparkling growing rapidly: Noughty Sparkling Chardonnay, Thomson & Scott Noughty leading.',
+      'Female consumers drive ~58% of sparkling purchases; gifting occasion remains the category’s growth engine.'
+    ],
+    sources: ['CIVC (Comité Champagne) 2023 Annual Statistics', 'IWSR Sparkling Wine Report 2024', 'Wine Intelligence Sparkling Tracker 2023', 'Mintel Sparkling Wine UK 2023', 'Consorzio Prosecco DOC 2023', 'WSTA Market Overview 2024']
+  },
+
+  // ---------------------------------------------------------------------------
+  // WINE (STILL)
+  // Sources: IWSR Wine Report 2024, Wine Intelligence, OIV (International Organisation of Vine and Wine)
+  // ---------------------------------------------------------------------------
+  wine: {
+    marketSizeFigure: '$364B global still wine market (2024)',
+    cagr: '2.1%–3.0% CAGR through 2029',
+    source: 'IWSR Wine Report 2024; OIV State of the World Vine and Wine Sector 2024',
+    subCategories: [
+      {
+        name: 'Red Wine',
+        share: '~50% of global still wine volume',
+        cagr: null,
+        notes: 'Declining in younger demographics; still dominant globally by volume. Bordeaux and Burgundy AOP value anchor. OIV 2024.'
+      },
+      {
+        name: 'White Wine',
+        share: '~35% of global still wine volume',
+        cagr: '2.5%',
+        notes: 'Sauvignon Blanc and Pinot Grigio growth categories. New Zealand SB (+8% export value 2023). IWSR 2024.'
+      },
+      {
+        name: 'Rosé Wine',
+        share: '~10% of global still wine volume',
+        cagr: '4.8%',
+        notes: 'Fastest-growing colour. Proven de Provence driving premium segment. Hampton Water and celebrity rosés elevating ASPs. IWSR 2024.'
+      },
+      {
+        name: 'Premium Still Wine (£15+/€18+ per bottle)',
+        share: '~18% of volume, ~45% of value',
+        cagr: '5.2%',
+        notes: 'Premiumisation driving value growth even as total volume declines in mature markets. SOURCE_FLAG_ESTIMATED — derived from IWSR premium wine segments.'
+      }
+    ],
+    demographics: {
+      age: [
+        {
+          bracket: '35–54',
+          share: '~38%',
+          notes: 'Core wine-drinking demographic. Broadest purchase frequency and category engagement. Wine Intelligence Drinking Portraits 2024.'
+        },
+        {
+          bracket: '55+',
+          share: '~32%',
+          notes: 'Highest per-occasion spend. Fine wine, cellar investment. On-trade fine dining occasion dominant. Wine Intelligence 2024.'
+        },
+        {
+          bracket: '25–34',
+          share: '~20%',
+          notes: 'Declining wine engagement vs. prior generations. Craft beer and spirits competition significant. Gen Z disrupting category. Wine Intelligence 2024.'
+        },
+        {
+          bracket: '18–24',
+          share: '~10%',
+          notes: SOURCE_FLAG_ESTIMATED + ' — Gen Z cohort shows lowest wine engagement of any age group in Wine Intelligence data; RTDs and spirits taking share.'
+        }
+      ],
+      gender: [
+        {
+          segment: 'Female',
+          share: '~54%',
+          notes: 'Still wine skews female in off-trade grocery (Mintel UK 2023). White wine and rosé index heavily female. Red wine more gender-balanced.'
+        },
+        {
+          segment: 'Male',
+          share: '~46%',
+          notes: 'Red wine and fine wine collecting skew male. On-trade sommelier-led occasions more balanced.'
+        }
+      ],
+      income: [
+        {
+          bracket: 'Mid–high income',
+          notes: 'Still wine consumption correlates with education and income; fine wine investment (en primeur, auction) restricted to high-net-worth consumers. Everyday wine (£8–15) more broadly accessible. Wine Intelligence Buying Corridors 2024.'
+        },
+        {
+          bracket: 'Value segment (<£8)',
+          notes: SOURCE_FLAG_ESTIMATED + ' — grocery own-label and branded value wines serve lower-income households; highest price sensitivity in this segment.'
+        }
+      ],
+      region: [
+        {
+          name: 'United States',
+          share: 'World’s largest wine market by value (~$60B)',
+          notes: 'California dominant domestic production. Import categories: Italy, New Zealand, France. 3-tier distribution. Silicon Valley Bank Wine Report 2024.'
+        },
+        {
+          name: 'European Union (France, Germany, Italy, Spain, UK)',
+          share: 'Collective ~45% of global consumption',
+          notes: 'Mature markets; total volume declining as younger consumers shift to other beverages. Value holding via premiumisation. OIV 2024.'
+        },
+        {
+          name: 'China',
+          share: '~5% of global wine consumption, recovering post-Covid',
+          notes: 'Imported still wine collapsed 2018–2023 (tariffs, pandemic); recovering 2024. Australian wine re-entering after tariff removal March 2024. IWSR China Wine Report 2024.'
+        },
+        {
+          name: 'United Kingdom',
+          share: 'Top 5 import market globally',
+          notes: 'New Zealand SB and Italian Pinot Grigio lead volume. Fine wine (Bordeaux, Burgundy) anchor on-trade. WSTA 2024.'
+        }
+      ],
+      occasion: [
+        { name: 'Dinner / food pairing', notes: 'Primary wine consumption occasion globally. Off-trade grocery with meal. On-trade restaurant with food. Consistent across age and income segments.' },
+        { name: 'Relaxation / unwinding', notes: 'Evening home occasion; single-serve format (187ml cans, small bottles) growing. Female-indexed occasion. Mintel UK Wines 2023.' },
+        { name: 'Social / entertaining at home', notes: 'Dinner party and entertaining; drives premium bottle spend. 35–54 primary hosting demographic.' },
+        { name: 'Fine dining / on-trade', notes: 'Premium and luxury wine occasion; sommelier recommendation drives discovery. Highest per-bottle spend; cellar and vintage expressions.' }
+      ]
+    },
+    topBrands: [
+      { rank: 1, name: 'Yellow Tail', owner: 'Casella Family Brands', volumeCases: null, notes: 'World’s best-selling imported wine in the US. Australian origin; accessible price point. Off-trade grocery dominant.' },
+      { rank: 2, name: 'Barefoot', owner: 'E&J Gallo Winery', volumeCases: null, notes: 'Largest wine brand in the US by volume. Broad varietal range; value to mid-price. Off-trade retail dominant.' },
+      { rank: 3, name: 'Hardy’s', owner: 'Accolade Wines', volumeCases: null, notes: 'Australia’s largest wine export brand. Key UK grocery distribution (Tesco, Asda). Multi-varietal range.' },
+      { rank: 4, name: 'Meiomi', owner: 'The Wine Group', volumeCases: null, notes: 'Premium California Pinot Noir; «fastest-growing US premium wine brand (Nielsen). $20–25 price point.' },
+      { rank: 5, name: 'Kim Crawford', owner: 'Constellation Brands', volumeCases: null, notes: 'New Zealand Sauvignon Blanc; dominant NZ import in US and UK. Consistent double-digit growth 2019–2023.' }
+    ],
+    keyTrends: [
+      'Global still wine volumes declining in mature markets (US, Europe) as Gen Z under-indexes vs. Millennials at same age.',
+      'Premiumisation sustaining value growth: premium+ wine (£15+) growing even as sub-£8 volume falls.',
+      'Rosé fastest-growing colour: Provençal rosé exports +12% in 2023; celebrity rosé (Brangelina’s Miraval, Hampton Water) driving luxury segment.',
+      'New Zealand Sauvignon Blanc consistently top import growth in UK and US; Australia returning to China post-tariff removal 2024.',
+      'Natural and organic wine: fastest-growing on-trade wine segment in Gen Z and Millennial consumers; biodynamic certification demand rising.',
+      'NOLO wine: de-alcoholised wine growing 20%+ annually; Torres Natureo, Leitz Eins-Zwei-Zero leading premium NOLO.'
+    ],
+    sources: ['IWSR Wine Report 2024', 'OIV State of the World Vine and Wine Sector 2024', 'Wine Intelligence Drinking Portraits 2024', 'Silicon Valley Bank Wine Report 2024', 'WSTA Market Overview 2024', 'Mintel UK Wines 2023']
+  },
+
+  // ---------------------------------------------------------------------------
+  // BEER
+  // Sources: IWSR Beer Report 2024, Kantar, GlobalData, Euromonitor, Brewers Association
+  // ---------------------------------------------------------------------------
+  beer: {
+    marketSizeFigure: '$623B global beer market (2024)',
+    cagr: '3.1%–3.8% CAGR through 2029',
+    source: 'IWSR Beer & Cider Report 2024; GlobalData Global Beer Market Outlook 2024',
+    subCategories: [
+      {
+        name: 'Mainstream Lager',
+        share: '~55% of global beer volume',
+        cagr: null,
+        notes: 'Declining in premium markets; growing in Asia, Africa, Latin America. AB InBev and Heineken dominant. IWSR 2024.'
+      },
+      {
+        name: 'Premium & Super-Premium Lager',
+        share: '~18% of global beer volume, ~28% of value',
+        cagr: '5.1%',
+        notes: 'Corona, Peroni, Stella Artois driving premium; Asahi Super Dry, Tiger in Asia-Pacific. IWSR Premium Beer 2024.'
+      },
+      {
+        name: 'Craft Beer',
+        share: '~12% of US market by volume (Brewers Association 2023)',
+        cagr: '2.8%',
+        notes: 'US craft beer market ~$28B retail value. 9,600+ craft breweries in US. Volume growth slowing post-pandemic boom; consolidation underway. Brewers Association 2023 Annual Report.'
+      },
+      {
+        name: 'Low / No-Alcohol Beer',
+        share: '~3% of global beer volume but fastest growing',
+        cagr: '8.4%',
+        notes: 'Heineken 0.0, Corona Cero, BrewDog Nanny State. NOLO beer growing 20%+ in UK (WSTA 2024). Mindful drinking trend driving on-trade and off-trade distribution.'
+      },
+      {
+        name: 'Stout & Dark Beer',
+        share: '~6% of global beer volume',
+        cagr: '2.1%',
+        notes: 'Guinness Draught global flagship; #1 beer brand in UK and Ireland (Nielsen 2023). Stout “surprise” renaissance with Gen Z via social media. Diageo FY2024.'
+      }
+    ],
+    demographics: {
+      age: [
+        {
+          bracket: '25–34',
+          share: '~30%',
+          notes: 'Millennial core beer drinker. Craft beer and premium lager over-index in this cohort. On-trade pub and bar occasion dominant. Kantar Worldpanel Beer 2024.'
+        },
+        {
+          bracket: '35–54',
+          share: '~35%',
+          notes: 'Highest volume consumption by age group. Home occasion (off-trade multipacks) and family pub dining. Brand loyalty established. Kantar 2024.'
+        },
+        {
+          bracket: '55+',
+          share: '~22%',
+          notes: 'Declining beer consumption vs. wine; traditional ale and stout loyalty. On-trade heritage pub occasion. Mintel Beer UK 2023.'
+        },
+        {
+          bracket: '18–24',
+          share: '~13%',
+          notes: 'Gen Z under-indexing vs. Millennials at same age. Sober-curious trend and RTD/spirits competition. Dryathlon and Dry January participation highest in this cohort. Mintel 2023.'
+        }
+      ],
+      gender: [
+        {
+          segment: 'Male',
+          share: '~62%',
+          notes: 'Beer consumption skews male globally; craft beer segment more balanced (~55% male). Pub on-trade most male-indexed occasion. Kantar / GlobalData 2024.'
+        },
+        {
+          segment: 'Female',
+          share: '~38%',
+          notes: 'Female beer consumption growing, driven by NOLO beer, craft sours/fruit beers, and Guinness Renaissance. Social media (Guinness TikTok trend 2023–2024) accelerating female recruitment.'
+        }
+      ],
+      income: [
+        {
+          bracket: 'Broad income distribution',
+          notes: 'Beer is the most democratic alcoholic category by income. Mainstream lager accessible across income ranges. Premium craft and import lager index higher income. Kantar Worldpanel 2024.'
+        },
+        {
+          bracket: 'High income — craft and premium segment',
+          notes: SOURCE_FLAG_ESTIMATED + ' — craft beer (£4–5+ per can/bottle) and premium import lager over-index in mid–high income, urban, educated demographics. Brewers Association 2023.'
+        }
+      ],
+      region: [
+        {
+          name: 'China',
+          share: '~24% of global beer volume',
+          notes: 'World’s largest beer market by volume. Dominated by Snow Beer (CR Beer/SABMiller), Tsingtao, Yanjing. Premiumisation rapid: Heineken, Budweiser growing fast. IWSR China Beer 2024.'
+        },
+        {
+          name: 'United States',
+          share: '~12% of global beer volume',
+          notes: 'Craft beer and import growth vs. declining domestic mainstream. Corona #1 import. Modelo Especial overtook Bud Light as #1 US beer brand (Nielsen 2023).'
+        },
+        {
+          name: 'Europe (Germany, UK, Czech Republic, Belgium)',
+          share: 'Combined ~18% of global volume',
+          notes: 'Mature markets with strong heritage brands (Heineken, Guinness, Budvar, Duvel). Craft and premium growth; NOLO beer fastest-growing sub-segment. IWSR Europe Beer 2024.'
+        },
+        {
+          name: 'Africa & Latin America',
+          share: 'Combined ~20% and growing',
+          notes: 'Fastest-growing beer regions by volume. AB InBev (Budweiser Africa, Brahma, Antarctica), Heineken, and regional players dominant. Growing middle class driving mainstream-to-premium trading up.'
+        }
+      ],
+      occasion: [
+        { name: 'Pub / bar on-trade', notes: 'Anchor occasion for beer consumption in UK and Ireland. Draught lager and stout dominant. Social, sport-watching, and live music occasions. Pub on-trade supports premium draught premiums.' },
+        { name: 'Home / off-trade (evening)', notes: 'Multipack lager and craft cans; fastest-growing format. Grocery and convenience channel dominant. Watching sport at home key occasion. Kantar 2024.' },
+        { name: 'Dining / food pairing', notes: 'Beer-and-food pairing growing, particularly craft beer with restaurant menus. Gastropub format driving trading-up to premium pint.' },
+        { name: 'Sport & events', notes: 'Official beer partner sponsorships (Heineken UEFA Champions League; Budweiser FIFA World Cup) define large-event occasions. Stadium beer dominated by mainstream lager agreements.' }
+      ]
+    },
+    topBrands: [
+      { rank: 1, name: 'Snow Beer', owner: 'CR Beer (49%) / SABMiller heritage', volumeCases: null, notes: 'World’s best-selling beer by volume (~100M hl). China-only distribution. Mainstream lager. CR Beer annual report 2023.' },
+      { rank: 2, name: 'Heineken', owner: 'Heineken N.V.', volumeCases: null, notes: 'Most international beer brand by geographic reach; 190+ markets. Premium positioning. Official Champions League partner.' },
+      { rank: 3, name: 'Guinness', owner: 'Diageo', volumeCases: null, notes: '#1 beer brand by value in UK (Nielsen 2023). Global stout renaissance via TikTok cultural moment 2023–2024. Diageo FY2024 beer growth +9%.' },
+      { rank: 4, name: 'Corona Extra', owner: 'Grupo Modelo / AB InBev', volumeCases: null, notes: '#1 imported beer in the US; top-3 globally by value. Beach/lifestyle positioning. Expanding beyond US to Asia-Pacific and Europe.' },
+      { rank: 5, name: 'Modelo Especial', owner: 'Grupo Modelo / AB InBev (US: Constellation Brands)', volumeCases: null, notes: 'Overtook Bud Light as #1 beer in the US by volume (Nielsen, June 2023). Fastest-growing major beer brand in US market.' }
+    ],
+    keyTrends: [
+      'Modelo Especial dethroning Bud Light as #1 US beer (2023) — driven by Hispanic consumer growth and Bud Light’s Dylan Mulvaney controversy.',
+      'Guinness Renaissance: TikTok-driven cultural moment 2023–2024 driving record female recruitment and on-trade growth; Diageo beer segment +9% FY2024.',
+      'NOLO beer fastest-growing sub-segment globally; Heineken 0.0 and Corona Cero leading. UK NOLO beer +20% (WSTA 2024).',
+      'Craft beer consolidation: 9,600+ US craft breweries but volume growth slowing; M&A by AB InBev (Goose Island, Camden Town) mainstream.',
+      'Premiumisation in emerging markets: China, Africa, Latin America trading up from mainstream to premium import lager (Heineken, Corona).',
+      'Gen Z sober-curious trend reducing beer’s historical dominance with 18–24s; RTDs and spirits outperforming beer in this cohort.'
+    ],
+    sources: ['IWSR Beer & Cider Report 2024', 'GlobalData Global Beer Market Outlook 2024', 'Kantar Worldpanel Beer 2024', 'Brewers Association State of the Craft Beer Industry 2023', 'Mintel Beer UK 2023', 'WSTA Market Overview 2024', 'Diageo FY2024 Annual Report', 'Nielsen US Beer Market Data 2023']
   }
 }
 

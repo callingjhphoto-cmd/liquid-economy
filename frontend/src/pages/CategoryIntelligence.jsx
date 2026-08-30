@@ -532,7 +532,7 @@ function DemographicsPanel({ categoryKey }) {
     <Card padding="p-6">
       <div className="text-center text-gray-400 text-sm py-4">
         <p>No demographics data available for this category.</p>
-        <p className="text-xs mt-1 text-gray-400">Spirits research covers: Whisky, Agave, Gin, Rum, Vodka, Cognac, NOLO.</p>
+        <p className="text-xs mt-1 text-gray-400">Demographics research covers: Whisky, Agave, Gin, Rum, Vodka, Cognac, NOLO, RTD, Champagne, Wine, Beer.</p>
       </div>
     </Card>
   )

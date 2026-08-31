@@ -1,3 +1,23 @@
+# Overnight Build Log — 31 August 2026
+
+## Session summary
+
+**Shipped:** France flag bug fix, brand search apostrophe normalisation, Artesian venue data correction, VenueIntelligence rendering fix, JSX unicode fixes. Build clean (0 errors, 17.27s). Pushed to main.
+
+**Changes:**
+1. **`frontend/src/data/brandData.js` — Critical: France flag emoji corrected.** The France market entry had flag `'🇫🇟'` — the second codepoint (U+1F1DF) is not a valid Regional Indicator Symbol Letter. Correct sequence is U+1F1EB + U+1F1F7 (F + R = 🇫🇷). Every France column header, tab, and market chip in BrandPricing was showing a broken/unrecognised glyph. Fixed.
+2. **`frontend/src/pages/BrandPricing.jsx` — Brand search apostrophe normalisation.** The `_search` key is built from brand names (e.g. `"Hendrick's"`, `"Gordon's"`) which contain U+2019 curly apostrophes from the data. Users typing from a keyboard produce U+0027 (ASCII apostrophe). Search for those brands was silently returning zero results. Fixed by adding `.replace(/’/g, "'")` to the search key computation — one line, covers all 260 brands.
+3. **`frontend/src/data/venueData.js` — Artesian at The Langham parentCompanies corrected.** Grey Goose is a Bacardi brand (not Pernod Ricard). Entry had `parentCompanies: ['Rémy Cointreau','LVMH','Pernod Ricard']`. Corrected to `['Rémy Cointreau','LVMH','Bacardi']`, consistent with the venue's own fiftyBest ranking mapping (`'Artesian': ['Bacardi','LVMH']`).
+4. **`frontend/src/pages/VenueIntelligence.jsx` — Missing fallback on penetration %.** Line 739: `{parentPenetration[selectedYear]?.[0]?.pct}% penetration` — when no data exists for the selected year, `pct` resolves to `undefined` and the card reads "% penetration" with a blank value. Fixed with `?? 0` nullish-coalescing fallback.
+5. **`frontend/src/pages/CocktailDetail.jsx`, `ProfileChorusCocktails.jsx` — JSX curly-apostrophe fixes.** "Difford's Guide" (CocktailDetail) and "Difford's" column header (ProfileChorusCocktails) had U+2019 in bare JSX text nodes. Replaced with `{"Difford's Guide"}` / `{"Difford's"}` JSX expression syntax using ASCII apostrophe.
+
+**Audited (no action needed):**
+- CategoryIntelligence: 11 × 5 year coverage confirmed complete, zero null values, `'0%'` Beer Germany values are legitimate flat-growth data
+- ReportBuilder: no JSX violations, all template/source/widget counts rendering correctly
+- SupplyChain, GeographicIntelligence, Companies: tooltips all complete with `color: '#f1f5f9'`, no YAxis width gaps, GeographicIntelligence YearSelector correctly initialises to most recent year
+
+---
+
 # Overnight Build Log — 30 August 2026
 
 ## Session summary

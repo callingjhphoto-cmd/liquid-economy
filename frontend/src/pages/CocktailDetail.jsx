@@ -110,7 +110,7 @@ function HeroModule({ cocktail }) {
         )}
         {cocktail.diffordsRank && (
           <Card padding="p-4">
-            <p className="text-label text-gray-500 uppercase tracking-wider mb-1">Difford’s Guide</p>
+            <p className="text-label text-gray-500 uppercase tracking-wider mb-1">{"Difford’s Guide"}</p>
             <p className="text-display font-display text-navy">#{cocktail.diffordsRank}</p>
             <p className="text-caption text-gray-500">Consumer search ranking 2025</p>
           </Card>

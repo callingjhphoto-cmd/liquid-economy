@@ -543,7 +543,7 @@ function FullPriceTable({ onClose }) {
       me: p.me,
       differential: p.differential,
       premiumPct: Math.round((p.premium_index || 0) * 100),
-      _search: `${p.company} ${p.brand} ${p.expression}`.toLowerCase(),
+      _search: `${p.company} ${p.brand} ${p.expression}`.toLowerCase().replace(/’/g, "'"),
     }))
   }, [categoryFilter, segmentFilter])
 

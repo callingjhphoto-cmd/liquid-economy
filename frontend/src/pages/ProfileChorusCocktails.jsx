@@ -62,7 +62,7 @@ const Module1 = () => {
               <th className="px-4 py-3">Cocktail</th>
               <th className="px-4 py-3 hidden sm:table-cell">Spirit Base</th>
               <th className="px-4 py-3 hidden md:table-cell">DI Rank</th>
-              <th className="px-4 py-3 hidden lg:table-cell">Difford’s</th>
+              <th className="px-4 py-3 hidden lg:table-cell">{"Difford's"}</th>
               <th className="px-4 py-3">Trend</th>
               <th className="px-4 py-3 hidden md:table-cell">Move</th>
             </tr>

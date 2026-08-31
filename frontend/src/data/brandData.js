@@ -15,7 +15,7 @@ export const MARKET_CONFIG = {
   uk: { flag: '🇬🇧', label: 'United Kingdom', currency: '£', bottleSize: '70cl', bottleMl: 700 },
   us: { flag: '🇺🇸', label: 'United States', currency: '$', bottleSize: '750ml', bottleMl: 750 },
   spain: { flag: '🇪🇸', label: 'Spain', currency: '€', bottleSize: '70cl', bottleMl: 700 },
-  france: { flag: '🇫🇟', label: 'France', currency: '€', bottleSize: '70cl', bottleMl: 700 },
+  france: { flag: '🇫🇷', label: 'France', currency: '€', bottleSize: '70cl', bottleMl: 700 },
   germany: { flag: '🇩🇪', label: 'Germany', currency: '€', bottleSize: '70cl', bottleMl: 700 },
   italy: { flag: '🇮🇹', label: 'Italy', currency: '€', bottleSize: '70cl', bottleMl: 700 },
   netherlands: { flag: '🇳🇱', label: 'Netherlands', currency: '€', bottleSize: '70cl', bottleMl: 700 },

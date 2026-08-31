@@ -736,7 +736,7 @@ export default function VenueIntelligence() {
                   <p className="text-lg font-bold mt-1" style={{ color: PARENT_COMPANIES[parentPenetration[selectedYear]?.[0]?.name]?.color || '#333' }}>
                     {parentPenetration[selectedYear]?.[0]?.name || '—'}
                   </p>
-                  <p className="text-xs text-gray-500">{parentPenetration[selectedYear]?.[0]?.pct}% penetration</p>
+                  <p className="text-xs text-gray-500">{parentPenetration[selectedYear]?.[0]?.pct ?? 0}% penetration</p>
                 </Card>
                 <Card>
                   <p className="text-label text-gray-500">Independent Bars ({selectedYear})</p>

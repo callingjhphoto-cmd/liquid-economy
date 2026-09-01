@@ -1,3 +1,20 @@
+# Overnight Build Log — 1 September 2026
+
+## Session summary
+
+**Shipped:** DataTable search apostrophe normalisation (affects all 9 searchable table pages); W50B source label fixes for 11 cocktail card records. Build clean (0 errors, 13.86s). Pushed to main.
+
+**Changes:**
+1. **`frontend/src/components/ui/DataTable.jsx` — Search apostrophe normalisation (all searchable pages).** The search `includes()` comparison was byte-exact: a mobile/tablet keyboard's autocorrect inserting U+2019 (curly apostrophe) into a query like "Hendrick's" or "Sainsbury's" would silently return zero results, even though the data has been normalised to ASCII apostrophes. The 31 Aug fix only normalised the `_search` key in BrandPricing; the query itself was not touched. Fixed by adding `.replace(/’/g, "'")` to both the query (`q`) and the data value (`val`) before the `includes()` call. Affects BrandPricing (brand search), VenueIntelligence (venue name search ×2), Valuations (target/brand search ×2), Companies (deal search), POSIntelligence (factory/platform search ×2), MarginCalculator (ingredient search).
+2. **`frontend/src/components/profile/W50BMenuIntelModule.jsx` — W50B cocktail card source labels.** `CocktailCard` transforms `record.source_type` to a human label via chained `.replace()` calls. Two source_type values were not covered: `scraped-official-website` (9 records) was falling through to the final `.replace('-', ' ')` producing "scraped official-website"; `scraped-diffordsguide` (2 records) producing "scraped diffordsguide". Added explicit mappings for both before the generic replacer. Also changed the final `.replace('-', ' ')` to `.replace(/-/g, ' ')` so all remaining dashes are converted (previously only the first was replaced), fixing "Difford's bar-profile" → "Difford's bar profile" correctly.
+
+**Audited (no action needed):**
+- ClientProfile.jsx lines 823–824: curly apostrophes in JSX text nodes — attempted fix caused esbuild parse error (curly chars in JSX expression string delimiters). Reverted; raw U+2019 in JSX text is within project standard per 29 Aug log and does not affect runtime.
+- All 9 DataTable `searchable=true` pages: search functionality verified; no other normalisation gaps found.
+- W50B heatmap panel: all 8 spirit rows × all flavour families render correctly with amber intensity shading.
+
+---
+
 # Overnight Build Log — 31 August 2026
 
 ## Session summary

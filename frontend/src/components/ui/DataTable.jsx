@@ -40,12 +40,12 @@ export function DataTable({
   const filteredData = useMemo(() => {
     let rows = [...data]
 
-    // Search filter
+    // Search filter — normalise curly apostrophes so mobile autocorrect matches ASCII data
     if (search && effectiveSearchKey) {
-      const q = search.toLowerCase()
+      const q = search.toLowerCase().replace(/’/g, "'")
       rows = rows.filter(row => {
         const val = row[effectiveSearchKey]
-        return val && String(val).toLowerCase().includes(q)
+        return val && String(val).toLowerCase().replace(/’/g, "'").includes(q)
       })
     }
 

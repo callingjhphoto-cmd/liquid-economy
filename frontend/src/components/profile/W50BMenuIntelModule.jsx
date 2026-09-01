@@ -154,12 +154,14 @@ const FLAVOUR_COLOR_MAP = {
 function CocktailCard({ record }) {
   const spiritColor = SPIRIT_COLORS[record.spirit_primary] || '#6b7280'
   const sourceLabel = record.source_type
+    .replace('scraped-diffordsguide', "Difford's")
+    .replace('scraped-official-website', 'Official Website')
     .replace('diffordsguide-', "Difford's ")
     .replace('punch-feature', 'Punch')
     .replace('imbibe-review', 'Imbibe')
     .replace('class-feature', 'Class')
     .replace('timeout-review', 'Time Out')
-    .replace('-', ' ')
+    .replace(/-/g, ' ')
 
   return (
     <Card padding="p-4" hover>

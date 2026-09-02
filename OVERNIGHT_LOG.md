@@ -1,3 +1,19 @@
+# Overnight Build Log — 2 September 2026
+
+## Session summary
+
+**Shipped:** 8 new brand expressions in two underrepresented whisky sub-categories (Irish Whiskey 1→6, Japanese Whisky 3→6); fixed 14 generic `'Whisky'` category labels; fixed curly-quote string delimiters on Seagram's and 5 other new entries. Build clean (13.54s). Pushed to main.
+
+**Changes:**
+1. **`frontend/src/data/brandData.js` — Irish Whiskey expansion (5 entries).** Category had only Jameson, making the filter chip nearly useless. Added: Bushmills Original (Jose Cuervo / Standard), Tullamore D.E.W. Original (William Grant / Standard), Redbreast 12yr (Pernod Ricard / Super Premium), Teeling Small Batch (Teeling / Premium), Slane Irish Whiskey (Brown-Forman / Premium). All 8 markets × 5 retailers priced.
+2. **`frontend/src/data/brandData.js` — Japanese Whisky expansion (3 entries).** Category had only Beam Suntory brands. Added: Suntory Toki (Standard), Nikka Coffey Grain (Super Premium), Nikka From The Barrel (Super Premium). All 8 markets × 5 retailers priced.
+3. **`frontend/src/data/brandData.js` — Category label fixes (14 entries).** 9 Scotch Whisky entries and 5 Bourbon & American entries were incorrectly labelled `'Whisky'`; fixed to correct sub-categories. Also fixed Jameson Original (`'Whisky'` → `'Irish Whiskey'`), Hakushu 12yr and Hibiki 21yr (`'Whisky'` → `'Japanese Whisky'`).
+4. **`frontend/src/data/brandData.js` — Curly quote string delimiter fix (6 lines).** New entries written by previous Edit calls had U+2018/U+2019 as JS string delimiters (Rollup rejects these). Fixed via byte-level replacement: all `\xe2\x80\x98`/`\xe2\x80\x99` pairs replaced with ASCII `'`; Seagram's brand field retained double-quote wrapper for the internal apostrophe.
+
+**Total brand expressions: 260 → 267. Zero generic 'Whisky' entries remain.**
+
+---
+
 # Overnight Build Log — 1 September 2026
 
 ## Session summary

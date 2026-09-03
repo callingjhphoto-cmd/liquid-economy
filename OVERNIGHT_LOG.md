@@ -1,3 +1,23 @@
+# Overnight Build Log — 3 September 2026
+
+## Session summary
+
+**Shipped:** 3 data-quality fixes in brandData.js (Bushmills company corrected, Louis XIII duplicate removed, expression renamed); 3 missing YAxis `width` props added in ClimateYield.jsx. Build clean (13.12s). Pushed to main.
+
+**Changes:**
+1. **`frontend/src/data/brandData.js` — Bushmills company corrected.** Entry had `company: 'Jose Cuervo'` — a brand name, not a company name, and inconsistent with Kraken Rum (also a Proximo Spirits brand under Becle/Casa Cuervo). Fixed to `company: 'Proximo Spirits'`. In BrandPricing the company filter column and company-grouping now correctly shows Proximo Spirits alongside Kraken.
+2. **`frontend/src/data/brandData.js` — Louis XIII duplicate removed.** The brand appeared twice: once as `brand: 'Rémy Martin', expression: 'Louis XIII'` and again as `brand: 'Louis XIII', expression: 'Cognac'` — both with identical prices across all 8 markets × 5 retailers. The Rémy Martin form is wrong (Louis XIII is its own distinct brand within Rémy Cointreau, not a sub-expression of Rémy Martin). Removed the Rémy Martin entry; updated the Louis XIII entry expression from the generic `'Cognac'` to the correct `'Grande Champagne Cognac'`. Total expressions: 268 → 267.
+3. **`frontend/src/pages/ClimateYield.jsx` — 3 YAxis `width` props added.** Three charts were missing explicit `width`: the 10-Year Yield History ComposedChart (`width={36}`), the Average Temperature (°C) LineChart (`width={28}`), and the bar charts rendering Rainfall/Frost Days/Sunshine Hours (`width={36}`). The dual-axis weather chart already had widths from the 27 Aug session; these three sub-charts were separate and had been missed. Prevents numeric axis labels being clipped at left edge of chart area.
+
+**Audited (no action needed):**
+- All 14 category colors in CATEGORY_COLORS confirmed present (including Irish Whiskey, Japanese Whisky added 28 Aug)
+- All tooltip contentStyles confirmed with `color: '#f1f5f9'` on all chart pages (Companies, SupplyChain, BrandHealth, Valuations, DepletionForecasting, PricePositioning)
+- VenueIntelligence: all 6 YAxis elements have explicit `width` props
+- DistributorDirectory, CompetitorMonitor, PricePositioning, RegulatoryCompliance: no rendering issues found
+- CategoryIntelligence: 11 × 5 year data confirmed intact
+
+---
+
 # Overnight Build Log — 2 September 2026
 
 ## Session summary

@@ -194,11 +194,12 @@ export default function GlobalSearch({ isOpen, onClose }) {
   /* Filter results */
   const results = useMemo(() => {
     if (!query.trim()) return PAGES
-    const q = query.toLowerCase()
+    const norm = s => s.toLowerCase().replace(/[‘’]/g, "'")
+    const q = norm(query)
     return ALL_ITEMS.filter(item => {
-      if (item.label.toLowerCase().includes(q)) return true
-      if (item.sub && item.sub.toLowerCase().includes(q)) return true
-      return item.keywords.some(k => k.includes(q))
+      if (norm(item.label).includes(q)) return true
+      if (item.sub && norm(item.sub).includes(q)) return true
+      return item.keywords.some(k => norm(k).includes(q))
     }).slice(0, 20)
   }, [query])
 

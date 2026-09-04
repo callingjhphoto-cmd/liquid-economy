@@ -1,3 +1,24 @@
+# Overnight Build Log — 4 September 2026
+
+## Session summary
+
+**Shipped:** 4 new Scotch Whisky brand expressions (Laphroaig 10yr, Lagavulin 16yr, The Balvenie DoubleWood 12yr, Highland Park 12yr Viking Honour); Woodford Reserve 'Bourbon' expression corrected to 'Double Oaked' (accurate distinct product, Super Premium segment); GlobalSearch apostrophe normalisation matching DataTable fix. Build clean (16.12s). Pushed to main.
+
+**Changes:**
+1. **`frontend/src/data/brandData.js` — 4 Scotch Whisky entries added.** Scotch Whisky was the most underrepresented major spirits category at 16 entries vs Beer (29), Tequila (28), Vodka (25), Gin (24). Added: Laphroaig 10yr (Beam Suntory / Super Premium), Lagavulin 16yr (Diageo / Super Premium), The Balvenie DoubleWood 12yr (William Grant / Premium), Highland Park 12yr Viking Honour (Edrington / Premium). All 8 markets × 5 retailers priced. Scotch Whisky: 16 → 20. Total expressions: 267 → 271.
+2. **`frontend/src/data/brandData.js` — Woodford Reserve 'Bourbon' corrected to 'Double Oaked'.** The BRAND_DATABASE had two Woodford Reserve entries: 'Distiller's Select' (line 117) and 'Bourbon' (line 469). 'Woodford Reserve Bourbon' is not a distinct product — Distiller's Select IS the flagship bourbon. Replaced with the legitimate 'Double Oaked' expression, correctly priced at Super Premium tier (~£46 UK, ~$49 US, ~15-20% above Distiller's Select). Segment corrected from 'Premium' to 'Super Premium'.
+3. **`frontend/src/components/GlobalSearch.jsx` — Apostrophe normalisation added.** The search `useMemo` was performing byte-exact lowercase comparison. Brands whose labels contain U+2019 curly apostrophes (Hendrick's, Jack Daniel's, Maker's Mark, Lyre's, Blanton's, Satan's Whiskers) returned zero results when typed with a keyboard U+0027 apostrophe. Fixed by adding `norm()` helper replacing U+2018/U+2019 with ASCII apostrophe, applied to both the query and all label/sub/keyword fields before comparison. Matches the DataTable.jsx fix shipped on 1 Sep.
+
+**Audited (no action needed):**
+- All 11 CategoryIntelligence categories: 11 × 5 year sections confirmed (2021–2025 each), zero null growth values
+- LONDON_VENUES: confirmed 28 entries — target already met before tonight
+- All pages: zero charts missing `accessibilityLayer` (SupplyChain.jsx false positive confirmed as regex artefact — both charts have it)
+- All pages with charts: 100% have DataFreshness badge
+- All chart pages: 100% tooltip `contentStyle` with `background: '#1e293b'` — no gaps found
+- GlobalSearch: 28 brand/venue/company labels audited for accuracy — all correct
+
+---
+
 # Overnight Build Log — 3 September 2026
 
 ## Session summary

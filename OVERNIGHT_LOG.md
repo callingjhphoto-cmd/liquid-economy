@@ -1,3 +1,23 @@
+# Overnight Build Log — 5 September 2026
+
+## Session summary
+
+**Shipped:** 6 new Bourbon & American brand expressions; category 12 → 18 entries. Build clean (11.48s). Pushed to main.
+
+**Changes:**
+1. **`frontend/src/data/brandData.js` — 6 Bourbon & American entries added.** Bourbon & American was the most underrepresented major spirits category at 12 entries. Added: Wild Turkey 101 (Campari Group / Standard), Elijah Craig Small Batch (Heaven Hill / Premium), Knob Creek Small Batch (Beam Suntory / Premium), Four Roses Small Batch (Kirin / Premium), Evan Williams Black Label (Heaven Hill / Value), Angel's Envy Bourbon (Bacardi / Super Premium). All 8 markets × 5 retailers priced. Bourbon & American: 12 → 18. Total expressions: 271 → 277.
+
+**Audited (no action needed):**
+- All 16 chart pages: 100% have `accessibilityLayer` on every Recharts chart — no gaps
+- All chart pages: 100% have YAxis `width` props on axes with currency/percentage formatters
+- All pages: zero bare unicode characters (€, £, °) in JSX text nodes — all clean
+- All chart tooltips: confirmed `contentStyle` with `color: '#f1f5f9'` across all pages
+- BrandPricing category distribution: zero `'Whisky'` generic labels remain; all 14 named sub-categories correct
+- GeographicIntelligence: DataFreshness badge present, no rendering issues
+- Japanese Whisky (6) and Irish Whiskey (6) remain most underrepresented — candidates for next session
+
+---
+
 # Overnight Build Log — 4 September 2026
 
 ## Session summary

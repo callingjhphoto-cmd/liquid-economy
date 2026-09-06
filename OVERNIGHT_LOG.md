@@ -1,3 +1,21 @@
+# Overnight Build Log — 6 September 2026
+
+## Session summary
+
+**Shipped:** 8 new brand expressions across Irish Whiskey (6 → 10) and Japanese Whisky (6 → 10). Build clean (11.20s). Pushed to main.
+
+**Changes:**
+1. **`frontend/src/data/brandData.js` — 4 Irish Whiskey entries added.** Irish Whiskey was joint-lowest category at 6. Added: Jameson Black Barrel (Pernod Ricard / Premium, double-matured in bourbon and virgin Irish oak), Powers Gold Label (Pernod Ricard / Standard, classic pot still filling the value-tier gap), Green Spot Single Pot Still (Pernod Ricard / Super Premium, Ireland’s flagship single pot still historically bottled at Mitchell & Son), Connemara Peated Single Malt (Beam Suntory / Premium, Ireland’s best-known peated expression). All 8 markets \xd7 5 retailers priced. Irish Whiskey: 6 → 10.
+2. **`frontend/src/data/brandData.js` — 4 Japanese Whisky entries added.** Japanese Whisky was joint-lowest at 6. Added: Hibiki Japanese Harmony (Beam Suntory / Premium, flagship NAS blended Japanese whisky, highest-volume Hibiki expression), Chita Single Grain (Beam Suntory / Premium, grain character distinct from the malt-led Yamazaki/Hakushu range), Nikka Coffey Malt (Nikka / Super Premium, 100% malted barley in a Coffey still, sister expression to the existing Coffey Grain), Yamazaki Distiller’s Reserve (Beam Suntory / Super Premium, NAS entry-point to the Yamazaki single malt range, more accessible than the 12yr). All 8 markets \xd7 5 retailers priced. Japanese Whisky: 6 → 10. Total expressions: 277 → 285.
+
+**Audited (no action needed):**
+- All existing Irish Whiskey entries (Jameson, Bushmills, Tullamore D.E.W., Redbreast, Teeling, Slane): company names consistent, segments correct, no duplicate expressions
+- All existing Japanese Whisky entries (Yamazaki 12yr, Hakushu 12yr, Hibiki 21yr, Suntory Toki, Nikka Coffey Grain, Nikka From The Barrel): no clashes with new additions
+- Nikka company naming: all Nikka entries (Coffey Grain, From The Barrel, Coffey Malt) use ‘Nikka’ consistently (subsidiary name, matching Beam Suntory pattern)
+- Category distribution: Irish Whiskey and Japanese Whisky now at 10 each; next lowest are Bourbon & American, Cognac, Champagne at 18 each
+
+---
+
 # Overnight Build Log — 5 September 2026
 
 ## Session summary

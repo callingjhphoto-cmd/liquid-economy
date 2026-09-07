@@ -1,3 +1,23 @@
+# Overnight Build Log — 7 September 2026
+
+## Session summary
+
+**Shipped:** 15 company name normalisations across `brandData.js` — eliminates split filtering caused by inconsistent parent company names. Build clean (13.89s). Pushed to main.
+
+**Changes:**
+1. **`frontend/src/data/brandData.js` — William Grant (8 entries) → William Grant & Sons.** The correct legal name is William Grant & Sons Ltd. Eight entries used the truncated form: Glenfiddich 12yr, Glenfiddich 18yr, Hendrick's Original, Hendrick's Orbium, Monkey Shoulder Blended Malt, The Balvenie DoubleWood 12yr, Milagro Silver, Milagro Select Barrel Reserve. The Tullamore D.E.W. entry (added 2 Sep) already used the full name. With the fix, all 9 William Grant & Sons expressions now group correctly in BrandPricing's company filter.
+2. **`frontend/src/data/brandData.js` — Campari (4 entries) → Campari Group.** Parent company is Campari Group SpA. Wild Turkey 101 (added 5 Sep) already used `'Campari Group'`; Espolon Blanco, Skyy Original, Appleton Estate Signature Blend and Appleton Estate 21yr used bare `'Campari'`. Fixed — all 5 Campari Group expressions now group together.
+3. **`frontend/src/data/brandData.js` — Anheuser-Busch (2 entries) → AB InBev.** Convention across all other Beer entries is the parent company AB InBev, not the US subsidiary. Fixed Cutwater Tequila Margarita 4pk and NÜTRL Vodka Seltzer 12pk.
+4. **`frontend/src/data/brandData.js` — Stoli Group: parenthetical editorial note removed.** Company field was `'Stoli Group (US arm Chapter 7 liquidation Jan 2026)'` — the parenthetical is editorial context, not a company name, and breaks company-level filtering. Fixed to `'Stoli Group'`.
+5. **`frontend/src/data/brandData.js` — Nolet Group: parenthetical removed.** Company field was `'Nolet Group (acquired Lucas Bols 2024)'`. Fixed to `'Nolet Group'`.
+6. **`frontend/src/data/brandData.js` — Domäne → Domäne Wachau.** Austrian gin entry had truncated company and brand as `'Domäne'`. Domäne Wachau is the full producer name (Wachau is the wine-growing region in Austria, not a style descriptor). Expression corrected from `'Wachau Gin'` (redundant) to `'Gin'`.
+
+**Audited (no action needed):**
+- All remaining company names cross-checked for parent vs subsidiary consistency: Becle (3 entries — correct; Becle is the parent of Casa Cuervo/Jose Cuervo), `'Various'` (8 entries — correct for generic/unbranded lines with no single owner), Diageo/Pernod Ricard/Brown-Forman/Beam Suntory all consistent
+- Line 368 byte-level fix: Edit tool introduced U+2018/U+2019 as string delimiters on the Hendrick's Orbium entry — caught by build failure, patched via Python byte replacement before commit; all other edited lines confirmed ASCII delimiters
+
+---
+
 # Overnight Build Log — 6 September 2026
 
 ## Session summary

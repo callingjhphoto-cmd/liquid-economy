@@ -1,3 +1,24 @@
+# Overnight Build Log — 8 September 2026
+
+## Session summary
+
+**Shipped:** 8 new brand expressions across Irish Whiskey (10 → 14) and Japanese Whisky (10 → 14). Build clean (14.31s). Pushed to main. Total expressions: 285 → 293.
+
+**Changes:**
+1. **`frontend/src/data/brandData.js` — 4 Irish Whiskey entries added.** Irish Whiskey was joint-lowest at 10. Added: Midleton Very Rare (Pernod Ricard / Ultra Premium, Ireland's flagship annual prestige release; specialist-only distribution so most supermarket slots null; ~£178-187 UK / $235-279 US), Yellow Spot 12yr (Pernod Ricard / Super Premium, Mitchell & Son single pot still aged expression, above Green Spot in the Spot range; ~£68-82 UK / $88-110 US), Teeling Single Grain (Teeling Whiskey Company / Premium, California Cabernet cask finish, widely available in UK supermarkets at ~£32-38, gives Teeling two entries alongside Small Batch), Writers' Tears Copper Pot (Walsh Whiskey / Premium, pot still + single malt blend from independent Irish producer; ~£27-32 UK / $35-44 US, covers the craft-independent tier with no other incumbent). Irish Whiskey: 10 → 14.
+2. **`frontend/src/data/brandData.js` — 4 Japanese Whisky entries added.** Japanese Whisky was joint-lowest at 10. Added: Mars Iwai Tradition (Hombo Shuzo / Standard, accessible entry from authentic Shinshu distillery; UK specialist-only ~£34-37, US $42 totalwine), Nikka Miyagikyo Single Malt (Nikka / Super Premium, NAS single malt from Miyagikyo distillery, specialist-only; ~£68-71 UK / $82-102 US), Fuji Single Grain (Kirin / Super Premium, Fuji Gotemba grain whisky, specialist-only; ~£56-59 UK / $70-88 US), Nikka Taketsuru Pure Malt (Nikka / Super Premium, blended pure malt from Yoichi and Miyagikyo named after Nikka's founder; ~£52-54 UK / $62-77 US). Japanese Whisky: 10 → 14. Total expressions: 285 → 293.
+
+**Audited (no action needed):**
+- CategoryIntelligence data: 11 categories × 5 years (2021-2025) confirmed intact, zero null growth values
+- All JSX unicode violations: scan complete, 13 flagged locations all confirmed as false positives (JS data strings, aria-labels, template literals) or existing accepted cases (ClientProfile curly apostrophes — known from 1 Sep log)
+- SupplyChain.jsx: both charts have accessibilityLayer, YAxis width=54, complete Tooltip contentStyle with color '#f1f5f9'
+- Companies.jsx: dual-axis LineChart has accessibilityLayer, width=40 on both YAxes, complete Tooltip contentStyle
+- GeographicIntelligence.jsx: no Recharts charts (Lucide icons only) — confirmed clean
+- ReportBuilder.jsx: no charts — confirmed clean
+- BrandPricing: 14 category filter chips verified (Scotch Whisky 20, Bourbon 18, Irish Whiskey 14, Japanese Whisky 14 after tonight)
+
+---
+
 # Overnight Build Log — 7 September 2026
 
 ## Session summary

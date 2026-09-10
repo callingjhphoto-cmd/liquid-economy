@@ -1,3 +1,23 @@
+# Overnight Build Log — 10 September 2026
+
+## Session summary
+
+**Shipped:** Zacapa duplicate removed and brand name corrected; 4 new Rum expressions added (Rum: 20 → 24, matching Gin). Build clean (13.11s). Pushed to main. Total expressions: 301 → 304.
+
+**Changes:**
+1. **`frontend/src/data/brandData.js` — Zacapa brand name fix.** The verified entry at line 184 used the legacy name `'Ron Zacapa'`. Diageo dropped "Ron" from the international brand name circa 2015; the product is now sold globally as simply "Zacapa". Updated to `brand: 'Zacapa'`.
+2. **`frontend/src/data/brandData.js` — Zacapa duplicate removed.** A second unverified `'Zacapa' 23 Centenario` entry existed at line 666 with lower prices (UK waitrose £44 vs £52 on the verified entry). Removed — one entry, correct name, verified prices. Net effect: 301 → 300 before new additions.
+3. **`frontend/src/data/brandData.js` — 4 Rum entries added.** Rum was at 20 (real, after duplicate removal), below Gin (24). Added: Gosling's Black Seal (Gosling Brothers / Standard, Bermuda dark rum, iconic Dark & Stormy base, null tesco/sainsburys — specialist/waitrose UK; ~£19-22 UK / $16-19 US), Angostura 1919 (Angostura Holdings / Premium, aged Trinidadian blend, strong Germany/Spain distribution; ~£23-26 UK / $24-28 US), El Dorado 15yr (Demerara Distillers / Super Premium, Guyanese Demerara gold rum, widely stocked at TWE/MoM/TotalWine; ~£40-44 UK / $42-48 US), Sailor Jerry Spiced (William Grant & Sons / Standard, global spiced rum brand, full 8-market coverage including continental European supermarkets; ~£17-19 UK / $18-21 US). Rum: 20 → 24. Total expressions: 300 → 304.
+
+**Audited (no action needed):**
+- All category labels: 0 generic 'Whisky' or unlabelled entries — all 304 entries in named sub-categories
+- All Rum entries (24): no null-required-field gaps, segment distribution covers Value through Ultra Premium
+- CommandCentre.jsx, CocktailDetail.jsx, MarketOverview.jsx: all confirmed — sparkline AreaCharts have no Tooltip (intentional), RadarChart in CocktailDetail has custom dark-background Tooltip (correct)
+- Unicode scan: all new entries use ASCII apostrophes; Gosling's outer delimiter is double-quote per project convention for brands with internal apostrophes
+- Category distribution after tonight: Rum 24, Gin 24 (now tied). Lowest remain: Japanese Whisky, Irish Whiskey, Cognac, Champagne, Bourbon & American (all 18)
+
+---
+
 # Overnight Build Log — 9 September 2026
 
 ## Session summary

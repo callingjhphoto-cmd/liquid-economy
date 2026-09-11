@@ -1,3 +1,21 @@
+# Overnight Build Log — 11 September 2026
+
+## Session summary
+
+**Shipped:** 6 new brand expressions across Cognac (18 → 21) and Champagne (18 → 21). Filled two segment gaps: Cognac had zero Super Premium entries; Champagne had only one Ultra Premium. Build clean (18.11s). Pushed to main. Total expressions: 304 → 310.
+
+**Changes:**
+1. **`frontend/src/data/brandData.js` — 3 Cognac entries added.** Cognac had no Super Premium tier at all, meaning segment-level analytics (and BrandPricing scatter chart) had a gap between Premium (~£36-48) and Ultra Premium (~£70-195). Added: Rémy Martin 1738 Accord Royal (Rémy Cointreau / Super Premium, Fins Bois aged blend, Sainsbury's £58 / Waitrose £60 / TotalWine $62 — fills the tier), Martell VSOP (Pernod Ricard / Premium, extends the Martell range above VS, ~£38-42 UK / $42-48 US with full 8-market coverage), Pierre Ferrand Ambre (Maison Ferrand / Premium, independent grower-producer from Cognac, specialist-only UK distribution via MoM £44 / TWE £46.75, also available US TotalWine $48). Cognac: 18 → 21.
+2. **`frontend/src/data/brandData.js` — 3 Champagne entries added.** Champagne had only Dom Pérignon Vintage 2015 at Ultra Premium and nothing else above Super Premium except Prestige tiers. Added: Laurent-Perrier Rosé (Laurent-Perrier / Super Premium, world's best-selling Champagne rosé, iconic pink bottle, Waitrose £69 / TotalWine $80 — extends the Laurent-Perrier range above La Cuvée Brut), Ruinart Blanc de Blancs (LVMH / Super Premium, oldest champagne house, 100% Chardonnay, Waitrose £72 / TotalWine $84), Perrier-Jouët Belle Epoque 2015 (Pernod Ricard / Ultra Premium, iconic Art Nouveau flower bottle, Waitrose £145 / TotalWine $180 — second Ultra Premium entry giving the tier analytical depth). Champagne: 18 → 21.
+
+**Audited (no action needed):**
+- Cognac segment distribution after tonight: Value 2, Standard 4, Premium 7, Super Premium 1, Ultra Premium 5, Prestige 2 — Super Premium gap closed
+- Champagne segment distribution after tonight: Value 1, Standard 4, Premium 3, Super Premium 6, Ultra Premium 2, Prestige 5 — Ultra Premium now has two distinct entries for meaningful comparison
+- Unicode in new entries: Rémy Martin (é raw UTF-8 matching existing convention), Rosé (é via é escape), Perrier-Jouët (ë via ë escape) — all build without error
+- Category distribution: lowest categories now Bourbon & American, Irish Whiskey, Japanese Whisky (all 18); next Cognac/Champagne/No-Lo at 19-21
+
+---
+
 # Overnight Build Log — 10 September 2026
 
 ## Session summary

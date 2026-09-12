@@ -1,3 +1,23 @@
+# Overnight Build Log — 12 September 2026
+
+## Session summary
+
+**Shipped:** 6 new brand expressions across Bourbon & American (18 → 21) and Scotch Whisky (20 → 23). Fixed a non-breaking hyphen data error in categoryData.js. Updated BrandPricing page metadata (tooltip, sparkData) to reflect the 316-entry portfolio. Build clean (11.49s). Pushed to main. Total: 310 → 316.
+
+**Changes:**
+1. **`frontend/src/data/brandData.js` — 3 Bourbon & American entries added.** The category had no Ultra Premium entry and only two Super Premium expressions (Blanton's, Angel's Envy). Added: Maker's Mark 46 (Brown-Forman / Super Premium, port-seasoned stave finish, Waitrose £44 / TotalWine $50), Wild Turkey Rare Breed (Campari Group / Super Premium, barrel-proof blend, MoM £46 / TotalWine $55), Booker's Bourbon (Beam Suntory / Ultra Premium, uncut/unfiltered straight from the barrel, MoM £78.95 / TotalWine $80 — fills the Ultra Premium tier gap). Bourbon & American: 18 → 21.
+2. **`frontend/src/data/brandData.js` — 3 Scotch Whisky entries added.** Category had strong coverage of luxury single malts but underrepresented blends and accessible premium malts. Added: Dewar's 12yr (Bacardi / Standard, world's #1 blended Scotch in US, Tesco £24 / TotalWine $29), Oban 14yr (Diageo / Super Premium, West Highlands classic, Waitrose £64 / TotalWine $70), Bruichladdich Classic Laddie (Rémy Cointreau / Premium, progressive Islay no-age-statement, Waitrose £42 / TotalWine $50). Scotch Whisky: 20 → 23.
+3. **`frontend/src/data/categoryData.js` — data typo fixed.** Non-breaking hyphen (U+2011) in Tequila 2021 keyEvents: `8‑0% YoY` → `80% YoY` (agave shortage price context).
+4. **`frontend/src/pages/BrandPricing.jsx` — metadata updated.** MethodologyTooltip portfolio count: 260 → 316. SparkData history updated to reflect actual growth trajectory ending at 316. Change percentage corrected to +21.5% (260→316).
+
+**Audited (no action needed):**
+- CategoryIntelligence structure: all 11 categories × 5 years have channels, tradeKPIs, trends, and report blocks present (55/55 each). No missing year coverage.
+- JSX unicode: all special chars in render output already use `{'—'}` / `{'…'}` JSX expression syntax. No bare text-node violations in pages.
+- Tooltip styling: all Recharts Tooltip components use `background: '#1e293b'`, `color: '#f1f5f9'` consistently across all pages.
+- Market size data: values checked for plausible trends. Cognac and Champagne showing 2022 peak then decline — consistent with US destocking cycle. RTD and No/Lo showing strong growth — accurate.
+
+---
+
 # Overnight Build Log — 11 September 2026
 
 ## Session summary

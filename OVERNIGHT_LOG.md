@@ -1,3 +1,19 @@
+# Overnight Build Log — 13 September 2026
+
+## Session summary
+
+**Shipped:** 9 new brand expressions across 3 under-represented categories. Irish Whiskey 18 → 21, Japanese Whisky 18 → 21, No/Lo 19 → 22. Total portfolio 316 → 325 entries. Build clean (11.00s). Pushed to main.
+
+1. **Irish Whiskey +3**: Kilbeggan Traditional (Standard), Knappogue Castle 12yr Single Malt (Super Premium), The Irishman Founders Reserve (Premium). Fills gap in entry-level and specialty Irish expressions.
+
+2. **Japanese Whisky +3**: Nikka Days Blended Whisky (Premium), Kirin Fuji Single Malt (Super Premium), White Oak Akashi Single Malt (Super Premium, Eigashima Shuzo). Adds Kirin single malt and an independent distillery representative.
+
+3. **No/Lo +3**: Seedlip Spice 94 (Premium) — second Seedlip expression distinct from Garden 108; Lyre's American Malt (Premium); Ceder's Alt. Gin Classic (Premium, Pernod Ricard). Fills gaps in the spirit-alternative and NA gin sub-segments.
+
+**All priority checks:** zero JSX unicode violations, zero null guard gaps, all chart YAxis widths set, all tooltips white-on-dark. No new issues detected.
+
+---
+
 # Overnight Build Log — 12 September 2026
 
 ## Session summary

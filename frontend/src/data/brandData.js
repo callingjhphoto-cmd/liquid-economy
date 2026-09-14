@@ -979,7 +979,7 @@ export const BRAND_DATABASE = [
     offers: {} },
 
   // === NO/LO (added) ===
-  { company: 'Lyre’s', brand: 'Lyre’s', expression: 'Italian Spritz', category: 'No/Lo', segment: 'Premium', verified: false,
+  { company: "Lyre's", brand: "Lyre's", expression: 'Italian Spritz', category: 'No/Lo', segment: 'Premium', verified: false,
     prices: { uk: { tesco: 24, sainsburys: 23, waitrose: 25, masterofmalt: 22.8, thewhiskyexchange: 23.52 }, us: { totalwine: 26.6, drizly: 30.24, bevmo: 28.56, costco: 24.64, reservebar: 33.04 }, spain: { elcorteingles: 21.54, carrefour_es: 20.06, lavinia_es: 22.81, bodeboca: 21.96, mercadona: 18.59 }, france: { carrefour_fr: 20.7, monoprix: 21.96, nicolas: 23.23, lavinia_fr: 22.39, auchan_fr: 19.85 }, germany: { edeka: 20.28, rewe: 21.12, kaufland: 19.43, weinquelle: 22.81, amazon_de: 21.54 }, italy: { esselunga: 20.7, tannico: 22.39, callmewine: 21.54, conad: 19.85, carrefour_it: 20.7 }, netherlands: { gall: 21.96, albert_heijn: 20.7, drankdozijn: 21.12, jumbo: 19.85, sligro: 19.01 }, me: { mmidubai: 32.2, africaneastern: 30.8, dutyfree_dxb: 26.6, lfrr: 35, centaurus: 31.36 } },
     offers: {} },
   { company: 'Monday', brand: 'Monday', expression: 'Gin', category: 'No/Lo', segment: 'Standard', verified: false,

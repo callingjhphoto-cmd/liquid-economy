@@ -1,3 +1,27 @@
+# Overnight Build Log — 16 September 2026
+
+## Session summary
+
+**Shipped:** 2 BrandPricing data corrections. Build clean (8.37s). Pushed to main. Total portfolio: 326 (count unchanged).
+
+1. **`frontend/src/data/brandData.js` — "Premium Vodka House Brand" placeholder replaced with Haku Japanese Rice Vodka.**
+   The entry used `company: 'Various', brand: 'Premium Vodka', expression: 'House Brand'` — a clear placeholder with index-generated filler prices. Replaced with `company: 'Beam Suntory', brand: 'Haku', expression: 'Japanese Rice Vodka'`, segment upgraded from Standard to Premium. Haku is Suntory's charcoal-filtered Japanese rice vodka, launched 2019, distributed globally through Beam Suntory's network. UK: Waitrose £29.99, Master of Malt £27.99, The Whisky Exchange £28.95. US: TotalWine $28.99, BevMo $31.99. Vodka Premium tier: 1 → 2; Standard: 8 → 7.
+
+2. **`frontend/src/data/brandData.js` — "E&J VS Brandy" (Gallo) removed from Cognac; replaced with D'USSÉ VSOP Cognac (Bacardi).**
+   E&J VS is an American brandy produced by E. & J. Gallo Winery in California — it carries no French AOC designation and is legally distinct from Cognac. Its presence in the Cognac category was a categorical data error. Replaced with `company: 'Bacardi', brand: "D'USSÉ", expression: 'VSOP Cognac'`, segment Super Premium. D'USSÉ is a genuine French Cognac (produced at Château de Cognac, Grande Champagne, AOC certified), co-owned by Bacardi Limited. Widely distributed in UK, US, Spain, and the Netherlands. UK: Waitrose £48, Master of Malt £44.99, The Whisky Exchange £46.95. US: TotalWine $39.99, Costco $34.99, BevMo $42.99. Cognac Super Premium tier: 1 → 2; Value: 2 → 1.
+
+**Audited (no action needed):**
+- All 11 CategoryIntelligence categories × 5 years (2021–2025): structural audit clean — all required fields (marketSize, growth, growthDir, volumeCases, topMarkets, channels) present for all 55 year-blocks.
+- All Tooltip contentStyles: confirmed dark-background (`background: '#1e293b'`, `color: '#f1f5f9'`) on all Recharts chart components across all pages.
+- BrandPricing metadata: 326 brands, +25.4% growth, sparkData [248, 260, 304, 316, 326] — all current.
+- VenueIntelligence: 50 bars × 5 years = 250 entries (no missing fields); 28 London district profiles (all have name, area, type, accountType, estRevenue, knownBrands, parentCompanies).
+- JSX unicode scan: `{'£'}`, `{'€'}` patterns confirmed correctly wrapped across all pages — no raw text node violations.
+- Companies data: all 14 companies have all required fields; no rendering issues found.
+- Supply Chain, GeographicIntelligence, ReportBuilder, Companies pages: no rendering issues found.
+- Post-fix category distribution: Beer 29, Tequila 28, Vodka 25, Gin 24, Rum 24, Wine 24, Scotch Whisky 23, Bourbon & American 21, Cognac 21, Champagne 21, Irish Whiskey 21, Japanese Whisky 21, RTD 22, No/Lo 22.
+
+---
+
 # Overnight Build Log — 15 September 2026
 
 ## Session summary
@@ -26,7 +50,7 @@
 
 ## Session summary
 
-**Shipped:** 2 data-quality fixes. (1) `Lyre's` Italian Spritz entry in `brandData.js` had a U+2019 curly apostrophe byte in its `company` and `brand` fields (`'Lyre’s'`), while the American Malt entry added 13 Sep used a double-quoted ASCII apostrophe (`"Lyre's"`). The two entries were therefore different strings and would have split into separate rows in BrandPricing's company-filter grouping. Fixed via Python byte replacement — Italian Spritz now uses `"Lyre's"` matching the convention. (2) BrandPricing.jsx metadata updated to reflect the 325-entry portfolio: MethodologyTooltip `316 brands` → `325 brands`; sparkData last datapoint `316` → `325`; growth badge `+21.5%` → `+25.0%` (260 → 325). Build clean (13.20s). Pushed to main.
+**Shipped:** 2 data-quality fixes. (1) `Lyre's` Italian Spritz entry in `brandData.js` had a U+2019 curly apostrophe byte in its `company` and `brand` fields (`'Lyre's'`), while the American Malt entry added 13 Sep used a double-quoted ASCII apostrophe (`"Lyre's"`). The two entries were therefore different strings and would have split into separate rows in BrandPricing's company-filter grouping. Fixed via Python byte replacement — Italian Spritz now uses `"Lyre's"` matching the convention. (2) BrandPricing.jsx metadata updated to reflect the 325-entry portfolio: MethodologyTooltip `316 brands` → `325 brands`; sparkData last datapoint `316` → `325`; growth badge `+21.5%` → `+25.0%` (260 → 325). Build clean (13.20s). Pushed to main.
 
 1. **`frontend/src/data/brandData.js` — Lyre's Italian Spritz byte fix.** The entry's `company` and `brand` fields contained `'Lyre\xe2\x80\x99s'` (U+2019 inside single-quoted string) while the Lyre's American Malt entry added 13 Sep used `"Lyre's"` (ASCII apostrophe inside double-quoted string). Without this fix, BrandPricing's company grouping would show two `Lyre's` rows rather than one, breaking the per-company filter view. Fixed to `"Lyre's"`.
 
@@ -48,341 +72,3 @@
 1. **Irish Whiskey +3**: Kilbeggan Traditional (Standard), Knappogue Castle 12yr Single Malt (Super Premium), The Irishman Founders Reserve (Premium). Fills gap in entry-level and specialty Irish expressions.
 
 2. **Japanese Whisky +3**: Nikka Days Blended Whisky (Premium), Kirin Fuji Single Malt (Super Premium), White Oak Akashi Single Malt (Super Premium, Eigashima Shuzo). Adds Kirin single malt and an independent distillery representative.
-
-3. **No/Lo +3**: Seedlip Spice 94 (Premium) — second Seedlip expression distinct from Garden 108; Lyre's American Malt (Premium); Ceder's Alt. Gin Classic (Premium, Pernod Ricard). Fills gaps in the spirit-alternative and NA gin sub-segments.
-
-**All priority checks:** zero JSX unicode violations, zero null guard gaps, all chart YAxis widths set, all tooltips white-on-dark. No new issues detected.
-
----
-
-# Overnight Build Log — 12 September 2026
-
-## Session summary
-
-**Shipped:** 6 new brand expressions across Bourbon & American (18 → 21) and Scotch Whisky (20 → 23). Fixed a non-breaking hyphen data error in categoryData.js. Updated BrandPricing page metadata (tooltip, sparkData) to reflect the 316-entry portfolio. Build clean (11.49s). Pushed to main. Total: 310 → 316.
-
-**Changes:**
-1. **`frontend/src/data/brandData.js` — 3 Bourbon & American entries added.** The category had no Ultra Premium entry and only two Super Premium expressions (Blanton's, Angel's Envy). Added: Maker's Mark 46 (Brown-Forman / Super Premium, port-seasoned stave finish, Waitrose £44 / TotalWine $50), Wild Turkey Rare Breed (Campari Group / Super Premium, barrel-proof blend, MoM £46 / TotalWine $55), Booker's Bourbon (Beam Suntory / Ultra Premium, uncut/unfiltered straight from the barrel, MoM £78.95 / TotalWine $80 — fills the Ultra Premium tier gap). Bourbon & American: 18 → 21.
-2. **`frontend/src/data/brandData.js` — 3 Scotch Whisky entries added.** Category had strong coverage of luxury single malts but underrepresented blends and accessible premium malts. Added: Dewar's 12yr (Bacardi / Standard, world's #1 blended Scotch in US, Tesco £24 / TotalWine $29), Oban 14yr (Diageo / Super Premium, West Highlands classic, Waitrose £64 / TotalWine $70), Bruichladdich Classic Laddie (Rémy Cointreau / Premium, progressive Islay no-age-statement, Waitrose £42 / TotalWine $50). Scotch Whisky: 20 → 23.
-3. **`frontend/src/data/categoryData.js` — data typo fixed.** Non-breaking hyphen (U+2011) in Tequila 2021 keyEvents: `8‑0% YoY` → `80% YoY` (agave shortage price context).
-4. **`frontend/src/pages/BrandPricing.jsx` — metadata updated.** MethodologyTooltip portfolio count: 260 → 316. SparkData history updated to reflect actual growth trajectory ending at 316. Change percentage corrected to +21.5% (260→316).
-
-**Audited (no action needed):**
-- CategoryIntelligence structure: all 11 categories × 5 years have channels, tradeKPIs, trends, and report blocks present (55/55 each). No missing year coverage.
-- JSX unicode: all special chars in render output already use `{'—'}` / `{'…'}` JSX expression syntax. No bare text-node violations in pages.
-- Tooltip styling: all Recharts Tooltip components use `background: '#1e293b'`, `color: '#f1f5f9'` consistently across all pages.
-- Market size data: values checked for plausible trends. Cognac and Champagne showing 2022 peak then decline — consistent with US destocking cycle. RTD and No/Lo showing strong growth — accurate.
-
----
-
-# Overnight Build Log — 11 September 2026
-
-## Session summary
-
-**Shipped:** 6 new brand expressions across Cognac (18 → 21) and Champagne (18 → 21). Filled two segment gaps: Cognac had zero Super Premium entries; Champagne had only one Ultra Premium. Build clean (18.11s). Pushed to main. Total expressions: 304 → 310.
-
-**Changes:**
-1. **`frontend/src/data/brandData.js` — 3 Cognac entries added.** Cognac had no Super Premium tier at all, meaning segment-level analytics (and BrandPricing scatter chart) had a gap between Premium (~£36-48) and Ultra Premium (~£70-195). Added: Rémy Martin 1738 Accord Royal (Rémy Cointreau / Super Premium, Fins Bois aged blend, Sainsbury's £58 / Waitrose £60 / TotalWine $62 — fills the tier), Martell VSOP (Pernod Ricard / Premium, extends the Martell range above VS, ~£38-42 UK / $42-48 US with full 8-market coverage), Pierre Ferrand Ambre (Maison Ferrand / Premium, independent grower-producer from Cognac, specialist-only UK distribution via MoM £44 / TWE £46.75, also available US TotalWine $48). Cognac: 18 → 21.
-2. **`frontend/src/data/brandData.js` — 3 Champagne entries added.** Champagne had only Dom Pérignon Vintage 2015 at Ultra Premium and nothing else above Super Premium except Prestige tiers. Added: Laurent-Perrier Rosé (Laurent-Perrier / Super Premium, world's best-selling Champagne rosé, iconic pink bottle, Waitrose £69 / TotalWine $80 — extends the Laurent-Perrier range above La Cuvée Brut), Ruinart Blanc de Blancs (LVMH / Super Premium, oldest champagne house, 100% Chardonnay, Waitrose £72 / TotalWine $84), Perrier-Jouët Belle Epoque 2015 (Pernod Ricard / Ultra Premium, iconic Art Nouveau flower bottle, Waitrose £145 / TotalWine $180 — second Ultra Premium entry giving the tier analytical depth). Champagne: 18 → 21.
-
-**Audited (no action needed):**
-- Cognac segment distribution after tonight: Value 2, Standard 4, Premium 7, Super Premium 1, Ultra Premium 5, Prestige 2 — Super Premium gap closed
-- Champagne segment distribution after tonight: Value 1, Standard 4, Premium 3, Super Premium 6, Ultra Premium 2, Prestige 5 — Ultra Premium now has two distinct entries for meaningful comparison
-- Unicode in new entries: Rémy Martin (é raw UTF-8 matching existing convention), Rosé (é via é escape), Perrier-Jouët (ë via ë escape) — all build without error
-- Category distribution: lowest categories now Bourbon & American, Irish Whiskey, Japanese Whisky (all 18); next Cognac/Champagne/No-Lo at 19-21
-
----
-
-# Overnight Build Log — 10 September 2026
-
-## Session summary
-
-**Shipped:** Zacapa duplicate removed and brand name corrected; 4 new Rum expressions added (Rum: 20 → 24, matching Gin). Build clean (13.11s). Pushed to main. Total expressions: 301 → 304.
-
-**Changes:**
-1. **`frontend/src/data/brandData.js` — Zacapa brand name fix.** The verified entry at line 184 used the legacy name `'Ron Zacapa'`. Diageo dropped "Ron" from the international brand name circa 2015; the product is now sold globally as simply "Zacapa". Updated to `brand: 'Zacapa'`.
-2. **`frontend/src/data/brandData.js` — Zacapa duplicate removed.** A second unverified `'Zacapa' 23 Centenario` entry existed at line 666 with lower prices (UK waitrose £44 vs £52 on the verified entry). Removed — one entry, correct name, verified prices. Net effect: 301 → 300 before new additions.
-3. **`frontend/src/data/brandData.js` — 4 Rum entries added.** Rum was at 20 (real, after duplicate removal), below Gin (24). Added: Gosling's Black Seal (Gosling Brothers / Standard, Bermuda dark rum, iconic Dark & Stormy base, null tesco/sainsburys — specialist/waitrose UK; ~£19-22 UK / $16-19 US), Angostura 1919 (Angostura Holdings / Premium, aged Trinidadian blend, strong Germany/Spain distribution; ~£23-26 UK / $24-28 US), El Dorado 15yr (Demerara Distillers / Super Premium, Guyanese Demerara gold rum, widely stocked at TWE/MoM/TotalWine; ~£40-44 UK / $42-48 US), Sailor Jerry Spiced (William Grant & Sons / Standard, global spiced rum brand, full 8-market coverage including continental European supermarkets; ~£17-19 UK / $18-21 US). Rum: 20 → 24. Total expressions: 300 → 304.
-
-**Audited (no action needed):**
-- All category labels: 0 generic 'Whisky' or unlabelled entries — all 304 entries in named sub-categories
-- All Rum entries (24): no null-required-field gaps, segment distribution covers Value through Ultra Premium
-- CommandCentre.jsx, CocktailDetail.jsx, MarketOverview.jsx: all confirmed — sparkline AreaCharts have no Tooltip (intentional), RadarChart in CocktailDetail has custom dark-background Tooltip (correct)
-- Unicode scan: all new entries use ASCII apostrophes; Gosling's outer delimiter is double-quote per project convention for brands with internal apostrophes
-- Category distribution after tonight: Rum 24, Gin 24 (now tied). Lowest remain: Japanese Whisky, Irish Whiskey, Cognac, Champagne, Bourbon & American (all 18)
-
----
-
-# Overnight Build Log — 9 September 2026
-
-## Session summary
-
-**Shipped:** 8 new brand expressions across Irish Whiskey (14 → 18) and Japanese Whisky (14 → 18). Build clean (12.69s). Pushed to main. Total expressions: 293 → 301.
-
-**Changes:**
-1. **`frontend/src/data/brandData.js` — 4 Irish Whiskey entries added.** Brings Irish Whiskey in line with other mid-tier categories (Cognac, Champagne, Bourbon all at 18). Added: Proper No. Twelve Original (Becle / Standard, Conor McGregor brand now fully Becle-owned, supermarket distribution across all 8 markets; ~£25-28 UK / $28-32 US), Tyrconnell Single Malt (Beam Suntory / Super Premium, Cooley Distillery unpeated single malt, specialist-only; ~£39-41 UK / $46-57 US), Redbreast 15yr (Pernod Ricard / Super Premium, natural extension alongside existing 12yr entry, sherry and bourbon cask; ~£68-72 UK / $85-106 US), Dingle Single Malt (Dingle Distillery / Super Premium, craft independent from Co. Kerry, specialist-only distribution; ~£59-62 UK / $68-85 US). Irish Whiskey: 14 → 18.
-2. **`frontend/src/data/brandData.js` — 4 Japanese Whisky entries added.** Brings Japanese Whisky in line with other mid-tier categories. Added: Nikka Yoichi Single Malt (Nikka / Super Premium, peated single malt from Hokkaido distillery, sister to Miyagikyo; ~£72-75 UK / $88-109 US), Hakushu Distiller's Reserve (Beam Suntory / Super Premium, NAS entry to Hakushu single malt range alongside 12yr; ~£63-66 UK / $78-97 US), Ichiro's Malt & Grain (Venture Whisky / Ultra Premium, Chichibu Distillery World Whisky blend, limited specialist distribution; ~£98-103 UK / $128-159 US), Togouchi Premium (Chugoku Jozo / Standard, cave-aged blended Japanese whisky from Hiroshima, accessible tier with UK supermarket placement; ~£25-28 UK / $34-42 US). Japanese Whisky: 14 → 18. Total expressions: 293 → 301.
-
-**Audited (no action needed):**
-- CategoryIntelligence data: 11 categories × 5 years (2021-2025) confirmed intact. Initial check flagged 'rtd' as missing yearData due to script logic issue with final-category boundary detection; confirmed all 5 years present on follow-up.
-- Unicode violations scan: 16 locations flagged — all confirmed false positives. `£` and `€` appearances in BrandPricing.jsx, MarginCalculator.jsx, DepletionForecasting.jsx, ScenarioModeling.jsx are in JS formatter functions and string literals, not JSX text nodes. Curly-apostrophe patterns in VenueIntelligence.jsx, CocktailDetail.jsx, CampaignPlanner.jsx, ClientProfile.jsx all use accepted `{'''}` JSX expression syntax.
-- YAxis width props: zero gaps — all formatters with currency/percentage outputs have explicit `width` props across all pages.
-- Category distribution after tonight: Irish Whiskey and Japanese Whisky both at 18, matching Cognac, Champagne, and Bourbon. Lowest is now Bourbon & American / Cognac / Champagne (all 18). Highest is Beer (29), Tequila (28).
-
----
-
-# Overnight Build Log — 8 September 2026
-
-## Session summary
-
-**Shipped:** 8 new brand expressions across Irish Whiskey (10 → 14) and Japanese Whisky (10 → 14). Build clean (14.31s). Pushed to main. Total expressions: 285 → 293.
-
-**Changes:**
-1. **`frontend/src/data/brandData.js` — 4 Irish Whiskey entries added.** Irish Whiskey was joint-lowest at 10. Added: Midleton Very Rare (Pernod Ricard / Ultra Premium, Ireland's flagship annual prestige release; specialist-only distribution so most supermarket slots null; ~£178-187 UK / $235-279 US), Yellow Spot 12yr (Pernod Ricard / Super Premium, Mitchell & Son single pot still aged expression, above Green Spot in the Spot range; ~£68-82 UK / $88-110 US), Teeling Single Grain (Teeling Whiskey Company / Premium, California Cabernet cask finish, widely available in UK supermarkets at ~£32-38, gives Teeling two entries alongside Small Batch), Writers' Tears Copper Pot (Walsh Whiskey / Premium, pot still + single malt blend from independent Irish producer; ~£27-32 UK / $35-44 US, covers the craft-independent tier with no other incumbent). Irish Whiskey: 10 → 14.
-2. **`frontend/src/data/brandData.js` — 4 Japanese Whisky entries added.** Japanese Whisky was joint-lowest at 10. Added: Mars Iwai Tradition (Hombo Shuzo / Standard, accessible entry from authentic Shinshu distillery; UK specialist-only ~£34-37, US $42 totalwine), Nikka Miyagikyo Single Malt (Nikka / Super Premium, NAS single malt from Miyagikyo distillery, specialist-only; ~£68-71 UK / $82-102 US), Fuji Single Grain (Kirin / Super Premium, Fuji Gotemba grain whisky, specialist-only; ~£56-59 UK / $70-88 US), Nikka Taketsuru Pure Malt (Nikka / Super Premium, blended pure malt from Yoichi and Miyagikyo named after Nikka's founder; ~£52-54 UK / $62-77 US). Japanese Whisky: 10 → 14. Total expressions: 285 → 293.
-
-**Audited (no action needed):**
-- CategoryIntelligence data: 11 categories × 5 years (2021-2025) confirmed intact, zero null growth values
-- All JSX unicode violations: scan complete, 13 flagged locations all confirmed as false positives (JS data strings, aria-labels, template literals) or existing accepted cases (ClientProfile curly apostrophes — known from 1 Sep log)
-- SupplyChain.jsx: both charts have accessibilityLayer, YAxis width=54, complete Tooltip contentStyle with color '#f1f5f9'
-- Companies.jsx: dual-axis LineChart has accessibilityLayer, width=40 on both YAxes, complete Tooltip contentStyle
-- GeographicIntelligence.jsx: no Recharts charts (Lucide icons only) — confirmed clean
-- ReportBuilder.jsx: no charts — confirmed clean
-- BrandPricing: 14 category filter chips verified (Scotch Whisky 20, Bourbon 18, Irish Whiskey 14, Japanese Whisky 14 after tonight)
-
----
-
-# Overnight Build Log — 7 September 2026
-
-## Session summary
-
-**Shipped:** 15 company name normalisations across `brandData.js` — eliminates split filtering caused by inconsistent parent company names. Build clean (13.89s). Pushed to main.
-
-**Changes:**
-1. **`frontend/src/data/brandData.js` — William Grant (8 entries) → William Grant & Sons.** The correct legal name is William Grant & Sons Ltd. Eight entries used the truncated form: Glenfiddich 12yr, Glenfiddich 18yr, Hendrick's Original, Hendrick's Orbium, Monkey Shoulder Blended Malt, The Balvenie DoubleWood 12yr, Milagro Silver, Milagro Select Barrel Reserve. The Tullamore D.E.W. entry (added 2 Sep) already used the full name. With the fix, all 9 William Grant & Sons expressions now group correctly in BrandPricing's company filter.
-2. **`frontend/src/data/brandData.js` — Campari (4 entries) → Campari Group.** Parent company is Campari Group SpA. Wild Turkey 101 (added 5 Sep) already used `'Campari Group'`; Espolon Blanco, Skyy Original, Appleton Estate Signature Blend and Appleton Estate 21yr used bare `'Campari'`. Fixed — all 5 Campari Group expressions now group together.
-3. **`frontend/src/data/brandData.js` — Anheuser-Busch (2 entries) → AB InBev.** Convention across all other Beer entries is the parent company AB InBev, not the US subsidiary. Fixed Cutwater Tequila Margarita 4pk and NÜTRL Vodka Seltzer 12pk.
-4. **`frontend/src/data/brandData.js` — Stoli Group: parenthetical editorial note removed.** Company field was `'Stoli Group (US arm Chapter 7 liquidation Jan 2026)'` — the parenthetical is editorial context, not a company name, and breaks company-level filtering. Fixed to `'Stoli Group'`.
-5. **`frontend/src/data/brandData.js` — Nolet Group: parenthetical removed.** Company field was `'Nolet Group (acquired Lucas Bols 2024)'`. Fixed to `'Nolet Group'`.
-6. **`frontend/src/data/brandData.js` — Domäne → Domäne Wachau.** Austrian gin entry had truncated company and brand as `'Domäne'`. Domäne Wachau is the full producer name (Wachau is the wine-growing region in Austria, not a style descriptor). Expression corrected from `'Wachau Gin'` (redundant) to `'Gin'`.
-
-**Audited (no action needed):**
-- All remaining company names cross-checked for parent vs subsidiary consistency: Becle (3 entries — correct; Becle is the parent of Casa Cuervo/Jose Cuervo), `'Various'` (8 entries — correct for generic/unbranded lines with no single owner), Diageo/Pernod Ricard/Brown-Forman/Beam Suntory all consistent
-- Line 368 byte-level fix: Edit tool introduced U+2018/U+2019 as string delimiters on the Hendrick's Orbium entry — caught by build failure, patched via Python byte replacement before commit; all other edited lines confirmed ASCII delimiters
-
----
-
-# Overnight Build Log — 6 September 2026
-
-## Session summary
-
-**Shipped:** 8 new brand expressions across Irish Whiskey (6 → 10) and Japanese Whisky (6 → 10). Build clean (11.20s). Pushed to main.
-
-**Changes:**
-1. **`frontend/src/data/brandData.js` — 4 Irish Whiskey entries added.** Irish Whiskey was joint-lowest category at 6. Added: Jameson Black Barrel (Pernod Ricard / Premium, double-matured in bourbon and virgin Irish oak), Powers Gold Label (Pernod Ricard / Standard, classic pot still filling the value-tier gap), Green Spot Single Pot Still (Pernod Ricard / Super Premium, Ireland's flagship single pot still historically bottled at Mitchell & Son), Connemara Peated Single Malt (Beam Suntory / Premium, Ireland's best-known peated expression). All 8 markets \xd7 5 retailers priced. Irish Whiskey: 6 → 10.
-2. **`frontend/src/data/brandData.js` — 4 Japanese Whisky entries added.** Japanese Whisky was joint-lowest at 6. Added: Hibiki Japanese Harmony (Beam Suntory / Premium, flagship NAS blended Japanese whisky, highest-volume Hibiki expression), Chita Single Grain (Beam Suntory / Premium, grain character distinct from the malt-led Yamazaki/Hakushu range), Nikka Coffey Malt (Nikka / Super Premium, 100% malted barley in a Coffey still, sister expression to the existing Coffey Grain), Yamazaki Distiller's Reserve (Beam Suntory / Super Premium, NAS entry-point to the Yamazaki single malt range, more accessible than the 12yr). All 8 markets \xd7 5 retailers priced. Japanese Whisky: 6 → 10. Total expressions: 277 → 285.
-
-**Audited (no action needed):**
-- All existing Irish Whiskey entries (Jameson, Bushmills, Tullamore D.E.W., Redbreast, Teeling, Slane): company names consistent, segments correct, no duplicate expressions
-- All existing Japanese Whisky entries (Yamazaki 12yr, Hakushu 12yr, Hibiki 21yr, Suntory Toki, Nikka Coffey Grain, Nikka From The Barrel): no clashes with new additions
-- Nikka company naming: all Nikka entries (Coffey Grain, From The Barrel, Coffey Malt) use 'Nikka' consistently (subsidiary name, matching Beam Suntory pattern)
-- Category distribution: Irish Whiskey and Japanese Whisky now at 10 each; next lowest are Bourbon & American, Cognac, Champagne at 18 each
-
----
-
-# Overnight Build Log — 5 September 2026
-
-## Session summary
-
-**Shipped:** 6 new Bourbon & American brand expressions; category 12 → 18 entries. Build clean (11.48s). Pushed to main.
-
-**Changes:**
-1. **`frontend/src/data/brandData.js` — 6 Bourbon & American entries added.** Bourbon & American was the most underrepresented major spirits category at 12 entries. Added: Wild Turkey 101 (Campari Group / Standard), Elijah Craig Small Batch (Heaven Hill / Premium), Knob Creek Small Batch (Beam Suntory / Premium), Four Roses Small Batch (Kirin / Premium), Evan Williams Black Label (Heaven Hill / Value), Angel's Envy Bourbon (Bacardi / Super Premium). All 8 markets × 5 retailers priced. Bourbon & American: 12 → 18. Total expressions: 271 → 277.
-
-**Audited (no action needed):**
-- All 16 chart pages: 100% have `accessibilityLayer` on every Recharts chart — no gaps
-- All chart pages: 100% have YAxis `width` props on axes with currency/percentage formatters
-- All pages: zero bare unicode characters (€, £, °) in JSX text nodes — all clean
-- All chart tooltips: confirmed `contentStyle` with `color: '#f1f5f9'` across all pages
-- BrandPricing category distribution: zero `'Whisky'` generic labels remain; all 14 named sub-categories correct
-- GeographicIntelligence: DataFreshness badge present, no rendering issues
-- Japanese Whisky (6) and Irish Whiskey (6) remain most underrepresented — candidates for next session
-
----
-
-# Overnight Build Log — 4 September 2026
-
-## Session summary
-
-**Shipped:** 4 new Scotch Whisky brand expressions (Laphroaig 10yr, Lagavulin 16yr, The Balvenie DoubleWood 12yr, Highland Park 12yr Viking Honour); Woodford Reserve 'Bourbon' expression corrected to 'Double Oaked' (accurate distinct product, Super Premium segment); GlobalSearch apostrophe normalisation matching DataTable fix. Build clean (16.12s). Pushed to main.
-
-**Changes:**
-1. **`frontend/src/data/brandData.js` — 4 Scotch Whisky entries added.** Scotch Whisky was the most underrepresented major spirits category at 16 entries vs Beer (29), Tequila (28), Vodka (25), Gin (24). Added: Laphroaig 10yr (Beam Suntory / Super Premium), Lagavulin 16yr (Diageo / Super Premium), The Balvenie DoubleWood 12yr (William Grant / Premium), Highland Park 12yr Viking Honour (Edrington / Premium). All 8 markets × 5 retailers priced. Scotch Whisky: 16 → 20. Total expressions: 267 → 271.
-2. **`frontend/src/data/brandData.js` — Woodford Reserve 'Bourbon' corrected to 'Double Oaked'.** The BRAND_DATABASE had two Woodford Reserve entries: 'Distiller's Select' (line 117) and 'Bourbon' (line 469). 'Woodford Reserve Bourbon' is not a distinct product — Distiller's Select IS the flagship bourbon. Replaced with the legitimate 'Double Oaked' expression, correctly priced at Super Premium tier (~£46 UK, ~$49 US, ~15-20% above Distiller's Select). Segment corrected from 'Premium' to 'Super Premium'.
-3. **`frontend/src/components/GlobalSearch.jsx` — Apostrophe normalisation added.** The search `useMemo` was performing byte-exact lowercase comparison. Brands whose labels contain U+2019 curly apostrophes (Hendrick's, Jack Daniel's, Maker's Mark, Lyre's, Blanton's, Satan's Whiskers) returned zero results when typed with a keyboard U+0027 apostrophe. Fixed by adding `norm()` helper replacing U+2018/U+2019 with ASCII apostrophe, applied to both the query and all label/sub/keyword fields before comparison. Matches the DataTable.jsx fix shipped on 1 Sep.
-
-**Audited (no action needed):**
-- All 11 CategoryIntelligence categories: 11 × 5 year sections confirmed (2021–2025 each), zero null growth values
-- LONDON_VENUES: confirmed 28 entries — target already met before tonight
-- All pages: zero charts missing `accessibilityLayer` (SupplyChain.jsx false positive confirmed as regex artefact — both charts have it)
-- All pages with charts: 100% have DataFreshness badge
-- All chart pages: 100% tooltip `contentStyle` with `background: '#1e293b'` — no gaps found
-- GlobalSearch: 28 brand/venue/company labels audited for accuracy — all correct
-
----
-
-# Overnight Build Log — 3 September 2026
-
-## Session summary
-
-**Shipped:** 3 data-quality fixes in brandData.js (Bushmills company corrected, Louis XIII duplicate removed, expression renamed); 3 missing YAxis `width` props added in ClimateYield.jsx. Build clean (13.12s). Pushed to main.
-
-**Changes:**
-1. **`frontend/src/data/brandData.js` — Bushmills company corrected.** Entry had `company: 'Jose Cuervo'` — a brand name, not a company name, and inconsistent with Kraken Rum (also a Proximo Spirits brand under Becle/Casa Cuervo). Fixed to `company: 'Proximo Spirits'`. In BrandPricing the company filter column and company-grouping now correctly shows Proximo Spirits alongside Kraken.
-2. **`frontend/src/data/brandData.js` — Louis XIII duplicate removed.** The brand appeared twice: once as `brand: 'Rémy Martin', expression: 'Louis XIII'` and again as `brand: 'Louis XIII', expression: 'Cognac'` — both with identical prices across all 8 markets × 5 retailers. The Rémy Martin form is wrong (Louis XIII is its own distinct brand within Rémy Cointreau, not a sub-expression of Rémy Martin). Removed the Rémy Martin entry; updated the Louis XIII entry expression from the generic `'Cognac'` to the correct `'Grande Champagne Cognac'`. Total expressions: 268 → 267.
-3. **`frontend/src/pages/ClimateYield.jsx` — 3 YAxis `width` props added.** Three charts were missing explicit `width`: the 10-Year Yield History ComposedChart (`width={36}`), the Average Temperature (°C) LineChart (`width={28}`), and the bar charts rendering Rainfall/Frost Days/Sunshine Hours (`width={36}`). The dual-axis weather chart already had widths from the 27 Aug session; these three sub-charts were separate and had been missed. Prevents numeric axis labels being clipped at left edge of chart area.
-
-**Audited (no action needed):**
-- All 14 category colors in CATEGORY_COLORS confirmed present (including Irish Whiskey, Japanese Whisky added 28 Aug)
-- All tooltip contentStyles confirmed with `color: '#f1f5f9'` on all chart pages (Companies, SupplyChain, BrandHealth, Valuations, DepletionForecasting, PricePositioning)
-- VenueIntelligence: all 6 YAxis elements have explicit `width` props
-- DistributorDirectory, CompetitorMonitor, PricePositioning, RegulatoryCompliance: no rendering issues found
-- CategoryIntelligence: 11 × 5 year data confirmed intact
-
----
-
-# Overnight Build Log — 2 September 2026
-
-## Session summary
-
-**Shipped:** 8 new brand expressions in two underrepresented whisky sub-categories (Irish Whiskey 1→6, Japanese Whisky 3→6); fixed 14 generic `'Whisky'` category labels; fixed curly-quote string delimiters on Seagram's and 5 other new entries. Build clean (13.54s). Pushed to main.
-
-**Changes:**
-1. **`frontend/src/data/brandData.js` — Irish Whiskey expansion (5 entries).** Category had only Jameson, making the filter chip nearly useless. Added: Bushmills Original (Jose Cuervo / Standard), Tullamore D.E.W. Original (William Grant / Standard), Redbreast 12yr (Pernod Ricard / Super Premium), Teeling Small Batch (Teeling / Premium), Slane Irish Whiskey (Brown-Forman / Premium). All 8 markets × 5 retailers priced.
-2. **`frontend/src/data/brandData.js` — Japanese Whisky expansion (3 entries).** Category had only Beam Suntory brands. Added: Suntory Toki (Standard), Nikka Coffey Grain (Super Premium), Nikka From The Barrel (Super Premium). All 8 markets × 5 retailers priced.
-3. **`frontend/src/data/brandData.js` — Category label fixes (14 entries).** 9 Scotch Whisky entries and 5 Bourbon & American entries were incorrectly labelled `'Whisky'`; fixed to correct sub-categories. Also fixed Jameson Original (`'Whisky'` → `'Irish Whiskey'`), Hakushu 12yr and Hibiki 21yr (`'Whisky'` → `'Japanese Whisky'`).
-4. **`frontend/src/data/brandData.js` — Curly quote string delimiter fix (6 lines).** New entries written by previous Edit calls had U+2018/U+2019 as JS string delimiters (Rollup rejects these). Fixed via byte-level replacement: all `\xe2\x80\x98`/`\xe2\x80\x99` pairs replaced with ASCII `'`; Seagram's brand field retained double-quote wrapper for the internal apostrophe.
-
-**Total brand expressions: 260 → 267. Zero generic 'Whisky' entries remain.**
-
----
-
-# Overnight Build Log — 1 September 2026
-
-## Session summary
-
-**Shipped:** DataTable search apostrophe normalisation (affects all 9 searchable table pages); W50B source label fixes for 11 cocktail card records. Build clean (0 errors, 13.86s). Pushed to main.
-
-**Changes:**
-1. **`frontend/src/components/ui/DataTable.jsx` — Search apostrophe normalisation (all searchable pages).** The search `includes()` comparison was byte-exact: a mobile/tablet keyboard's autocorrect inserting U+2019 (curly apostrophe) into a query like "Hendrick's" or "Sainsbury's" would silently return zero results, even though the data has been normalised to ASCII apostrophes. The 31 Aug fix only normalised the `_search` key in BrandPricing; the query itself was not touched. Fixed by adding `.replace(/'/g, "'")` to both the query (`q`) and the data value (`val`) before the `includes()` call. Affects BrandPricing (brand search), VenueIntelligence (venue name search ×2), Valuations (target/brand search ×2), Companies (deal search), POSIntelligence (factory/platform search ×2), MarginCalculator (ingredient search).
-2. **`frontend/src/components/profile/W50BMenuIntelModule.jsx` — W50B cocktail card source labels.** `CocktailCard` transforms `record.source_type` to a human label via chained `.replace()` calls. Two source_type values were not covered: `scraped-official-website` (9 records) was falling through to the final `.replace('-', ' ')` producing "scraped official-website"; `scraped-diffordsguide` (2 records) producing "scraped diffordsguide". Added explicit mappings for both before the generic replacer. Also changed the final `.replace('-', ' ')` to `.replace(/-/g, ' ')` so all remaining dashes are converted (previously only the first was replaced), fixing "Difford's bar-profile" → "Difford's bar profile" correctly.
-
-**Audited (no action needed):**
-- ClientProfile.jsx lines 823–824: curly apostrophes in JSX text nodes — attempted fix caused esbuild parse error (curly chars in JSX expression string delimiters). Reverted; raw U+2019 in JSX text is within project standard per 29 Aug log and does not affect runtime.
-- All 9 DataTable `searchable=true` pages: search functionality verified; no other normalisation gaps found.
-- W50B heatmap panel: all 8 spirit rows × all flavour families render correctly with amber intensity shading.
-
----
-
-# Overnight Build Log — 31 August 2026
-
-## Session summary
-
-**Shipped:** France flag bug fix, brand search apostrophe normalisation, Artesian venue data correction, VenueIntelligence rendering fix, JSX unicode fixes. Build clean (0 errors, 17.27s). Pushed to main.
-
-**Changes:**
-1. **`frontend/src/data/brandData.js` — Critical: France flag emoji corrected.** The France market entry had flag `'🇫🇟'` — the second codepoint (U+1F1DF) is not a valid Regional Indicator Symbol Letter. Correct sequence is U+1F1EB + U+1F1F7 (F + R = 🇫🇷). Every France column header, tab, and market chip in BrandPricing was showing a broken/unrecognised glyph. Fixed.
-2. **`frontend/src/pages/BrandPricing.jsx` — Brand search apostrophe normalisation.** The `_search` key is built from brand names (e.g. `"Hendrick's"`, `"Gordon's"`) which contain U+2019 curly apostrophes from the data. Users typing from a keyboard produce U+0027 (ASCII apostrophe). Search for those brands was silently returning zero results. Fixed by adding `.replace(/'/g, "'")` to the search key computation — one line, covers all 260 brands.
-3. **`frontend/src/data/venueData.js` — Artesian at The Langham parentCompanies corrected.** Grey Goose is a Bacardi brand (not Pernod Ricard). Entry had `parentCompanies: ['Rémy Cointreau','LVMH','Pernod Ricard']`. Corrected to `['Rémy Cointreau','LVMH','Bacardi']`, consistent with the venue's own fiftyBest ranking mapping (`'Artesian': ['Bacardi','LVMH']`).
-4. **`frontend/src/pages/VenueIntelligence.jsx` — Missing fallback on penetration %.** Line 739: `{parentPenetration[selectedYear]?.[0]?.pct}% penetration` — when no data exists for the selected year, `pct` resolves to `undefined` and the card reads "% penetration" with a blank value. Fixed with `?? 0` nullish-coalescing fallback.
-5. **`frontend/src/pages/CocktailDetail.jsx`, `ProfileChorusCocktails.jsx` — JSX curly-apostrophe fixes.** "Difford's Guide" (CocktailDetail) and "Difford's" column header (ProfileChorusCocktails) had U+2019 in bare JSX text nodes. Replaced with `{"Difford's Guide"}` / `{"Difford's"}` JSX expression syntax using ASCII apostrophe.
-
-**Audited (no action needed):**
-- CategoryIntelligence: 11 × 5 year coverage confirmed complete, zero null values, `'0%'` Beer Germany values are legitimate flat-growth data
-- ReportBuilder: no JSX violations, all template/source/widget counts rendering correctly
-- SupplyChain, GeographicIntelligence, Companies: tooltips all complete with `color: '#f1f5f9'`, no YAxis width gaps, GeographicIntelligence YearSelector correctly initialises to most recent year
-
----
-
-# Overnight Build Log — 30 August 2026
-
-## Session summary
-
-**Shipped:** Demographics data for 3 missing CategoryIntelligence categories (champagne, wine, beer). Coverage now 11/11. Build clean (0 errors, 12.91s). Pushed to main.
-
-**Root cause:** `spiritsDemographicsData.js` exported `SPIRITS_DEMOGRAPHICS` with only 8 keys (whisky, tequila, gin, rum, vodka, cognac, nolo, rtd). `getCategoryDemographics()` returned `null` for champagne, wine, and beer → `hasDemographics = false` → Demographics tab entirely hidden for those 3 categories.
-
-**Changes:**
-1. **`frontend/src/data/spiritsDemographicsData.js`** — Added full demographics entries for `champagne` (CIVC data, Prosecco/Cava sub-categories, female-skew 58%, UK #1 Champagne export market), `wine` (IWSR/OIV, red/white/rosé/premium sub-categories, broad age range, Gen Z under-indexing noted), and `beer` (IWSR/Kantar, mainstream/premium/craft/NOLO/stout sub-categories, Modelo Especial #1 US trend, Guinness Renaissance, male-skew 62%). All estimated demographic breakdowns flagged with `SOURCE_FLAG_ESTIMATED`. 385 lines added.
-2. **`frontend/src/pages/CategoryIntelligence.jsx`** — Updated empty-state copy from "Spirits research covers: Whisky, Agave, Gin, Rum, Vodka, Cognac, NOLO." to reflect full 11-category coverage including Champagne, Wine, Beer.
-
-**Also audited (no action needed):**
-- Full `spiritsDemographicsData.js` schema verified: all 3 new entries match established pattern (marketSizeFigure, cagr, source, subCategories, demographics, topBrands, keyTrends, sources)
-- categoryData.js 11 × 5 year-blocks: already confirmed clean in previous session
-- Build output: `data-demographics` chunk grew from ~55KB → 61.61KB (expected; all 3 new objects compiled)
-
----
-
-# Overnight Build Log — 29 August 2026
-
-## Session summary
-
-**Shipped:** Tooltip `color` prop sweep (30 instances, 14 files) + 7 curly-quote JSX text fixes. Build clean (0 errors, 11.48s). Pushed to main.
-
-**Root cause:** Every Recharts `<Tooltip>` had `contentStyle={{ background: '#1e293b', ... }}` (dark background) but was missing `color: '#f1f5f9'`. Without an explicit text colour on the container, tooltip text inherits the page's ambient colour (navy) which is near-invisible against the dark tooltip background. Fixed by adding `color: '#f1f5f9'` to all 30 contentStyle objects across 14 chart pages.
-
-**Changes:**
-1. **30 Tooltip contentStyle objects** across BrandHealth, BrandPricing (×2), CategoryIntelligence (×2), ClimateYield (×4), Companies, DepletionForecasting (×2), Financials (×3), MarginCalculator (×3), MarketEntryWizard, MarketOverview, ScenarioModeling, SupplyChain, Valuations (×2), VenueIntelligence (×6) — added `color: '#f1f5f9'` to guarantee all tooltip text is white-on-dark regardless of page ambient styling.
-2. **7 curly-quote JSX text violations** fixed: `World's` and `Difford's Guide` in CocktailDetail.jsx; `Difford's` in ProfileChorusCocktails.jsx; `Difford's`, `source's`, `"Move" deltas`, `"TBD"` in ClientProfile.jsx; `Satan's Whiskers` in VenueIntelligence.jsx — all brought into project standard (raw U+2019/U+201C/U+201D in JSX text, consistent with validated surrounding code).
-
-**Also audited (no action needed):**
-- VenueIntelligence: 250 W50B entries, 28 London profiles — zero null required fields, all chart configs valid
-- BrandPricing: 260 expressions, 0 bad categories, 0 all-null UK prices, 2 intentional no-US entries (Havana Club embargo; Celtic Soul no US distribution)
-- CategoryIntelligence: 11 categories present, data structure intact
-- YAxis width: zero new violations (confirmed by scan of all 38 pages)
-
----
-
-# Overnight Build Log — 28 August 2026
-
-## Session summary
-
-**Shipped:** BrandPricing category data fix — 21 whisky expressions reclassified from catch-all `'Whisky'` to correct sub-categories. Build clean (0 errors, 14.63s). Pushed to main.
-
-**Root cause found:** The Brand Pricing category filter was silently miscounting. Filtering by "Scotch Whisky" showed 7 brands when the correct count is 16; "Bourbon & American" showed 4 when the correct count is 12. All 21 under-counted expressions carried the generic `category: 'Whisky'` label from a batch data import that didn't distinguish sub-styles.
-
-**Changes:**
-1. **9 Scotch expressions** (Macallan 18yr Sherry Oak, Dalmore 12yr, Dalmore 18yr, Johnnie Walker Red Label, Chivas Regal 12yr, Famous Grouse Finest, Glenlivet 12yr, Glenmorangie Original 10yr, Monkey Shoulder) → `'Scotch Whisky'`
-2. **8 Bourbon/American expressions** (Bulleit, Jim Beam White Label, Maker's Mark Original, Crown Royal Deluxe, Woodford Reserve Bourbon, Pappy Van Winkle 20yr, Seagram's 7 Crown, Barton Blend) → `'Bourbon & American'`
-3. **1 Irish expression** (Jameson Original) → `'Irish Whiskey'` (new category)
-4. **3 Japanese expressions** (Yamazaki 12yr, Hakushu 12yr, Hibiki 21yr) → `'Japanese Whisky'` (new category)
-5. **BrandPricing.jsx** — added `'Irish Whiskey'` (`#78350F`) and `'Japanese Whisky'` (`#92400E`) to `CATEGORY_COLORS` so the new filter chips render with amber/brown tones rather than the gray fallback.
-
-**Audit also confirmed (no action needed):**
-- CategoryIntelligence: all 11 categories × 5 years (2021–2025) are fully populated, zero null values
-- VenueIntelligence: 250 total W50B entries, 28 London profiles — all required fields present, guard clauses handle the 11 venues missing `founders` safely
-- SupplyChain, GeographicIntelligence, Companies, ReportBuilder: no rendering issues found
-- All chart pages confirmed with `accessibilityLayer` — CampaignPlanner and GeographicIntelligence have no Recharts charts at all (only Lucide icons)
-- Zero JSX unicode violations — all special chars use `{'£'}` / `{'€'}` / `{'°C'}` pattern throughout
-
----
-
-# Overnight Build Log — 27 August 2026
-
-## Session summary
-
-**Shipped:** YAxis `width` prop added to 9 axis elements across 6 chart files — prevents currency/percent axis labels from being clipped in Recharts. Build clean (0 errors, 17.27s). Pushed to main.
-
-1. **Financials.jsx (×2)** — `YAxis` on the per-company Revenue Trend chart (`${company.currency}${v}B`) and the global Inventory Overhang chart (`$${v}B`) had no `width` prop. Without a set width, labels like "£12.5B" can clip against the chart boundary. Fixed with `width={42}` on both.
-
-2. **Valuations.jsx (×2)** — EV/Revenue multiples chart (`${v}x`) and M&A transaction value chart (`$${v}M`) both lacked `width`. Labels like "25x" and "$2,000M" need room. Fixed with `width={36}` (multiples) and `width={48}` (dollar-millions axis).
-
-3. **MarginCalculator.jsx (×2)** — Channel Margins chart (percentage axis) and Cost Waterfall chart (GBP axis) were missing `width`. Fixed with `width={36}` (`v + '%'`) and `width={42}` (`'£' + v`).
-
-4. **ScenarioModeling.jsx** — Unit Economics waterfall chart `YAxis` using `gbp(v)` formatter had no `width`. Fixed with `width={42}`.
-
-5. **ClimateYield.jsx (×2)** — Dual-axis weather chart was missing `width` on both the left temperature axis (`${v}°C`) and the right precipitation axis (`${v}mm`). Fixed with `width={36}` (°C) and `width={40}` (mm right axis).
-
-6. **BrandPricing.jsx** — ScatterChart (Price vs Volume) `YAxis` using `${config.currency}${v}` formatter lacked `width`. Fixed with `width={42}`.
-
-**Also confirmed:** All tooltip styles (white-on-dark contentStyle + labelStyle + itemStyle) are consistent across every chart page. Zero JSX text-node unicode violations remain. All 25 intelligence pages carry DataFreshness badges. All recharts charts have `accessibilityLayer`. YAxis width is now explicit on all formatters producing currency/percent labels.

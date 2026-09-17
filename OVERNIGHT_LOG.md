@@ -1,3 +1,26 @@
+# Overnight Build Log — 17 September 2026
+
+## Session summary
+
+**Shipped:** 4 `company: 'Various'` data-quality fixes — last phantom entries eliminated from brandData.js. Build clean (10.93s). Pushed to main. Total portfolio: 326 (count unchanged).
+
+1. **`frontend/src/data/brandData.js` — Krepkaya Original replaced with Sobieski Original (CEDC, Poland, Standard).** `Krepkaya` is a Russian generic term for "strong/potent" rather than a brand name, and `Various` is not a real company. Replaced with Sobieski, Poland's fourth-largest vodka brand owned by CEDC International (Beluga Group). Named after King John III Sobieski. Well-distributed across EU and US. Standard tier. UK: MoM £14, TWE £14.50. US: TotalWine $11.50, Drizly $13.50, BevMo $12.50, Costco $10.50. Segment corrected Value → Standard to reflect its actual market positioning.
+
+2. **`frontend/src/data/brandData.js` — Korn Traditional replaced with Eristoff Original (Bacardi, France, Standard).** `Korn` is a German grain spirit category designation, not a brand, and is not legally or commercially classified as Vodka in its home market. Replaced with Eristoff, a Georgian-origin vodka brand acquired by Bacardi Ltd in 2003. Produced in France from grain, distributed globally through Bacardi's network. Standard tier. UK: Tesco £15, Sainsbury's £14, Waitrose £16, MoM £14, TWE £14.50. US: TotalWine $12, BevMo $13. Strong Spain/France distribution via Bacardi. Segment corrected Value → Standard.
+
+3. **`frontend/src/data/brandData.js` — Kron Vodka replaced with Pinnacle Original (Beam Suntory, France, Value).** `Kron` had identical pricing to Krepkaya — a clear duplicate placeholder with no verified brand behind it. Replaced with Pinnacle, a French wheat vodka acquired by Jim Beam (now Beam Suntory) in 2012 for $605M. Primarily US market. US: TotalWine $10, Drizly $12, BevMo $11, Costco $9. UK/EU: specialist import only. Segment kept Value.
+
+4. **`frontend/src/data/brandData.js` — Royalty VS Cognac replaced with Meukow VS (La Martiniquaise, France, Standard).** No branded Cognac sells at £12 Tesco — that price point is exclusively own-label. `Royalty VS` with `company: 'Various'` was a fabricated entry with implausible pricing for AOC Cognac. Replaced with Meukow VS, owned by La Martiniquaise-Bardinet (France's largest independent spirits group). Grande Champagne Cognac with a distinctive leopard bottle. UK: Waitrose £32, MoM £28, TWE £30. US: TotalWine $28, BevMo $30. Strong France/Spain/Germany distribution. Segment corrected Value → Standard.
+
+**Audited (no action needed):**
+- All `company: 'Various'` entries: confirmed zero remaining across all 326 brandData.js entries.
+- Vodka segment distribution after fixes: Standard +2 (Sobieski, Eristoff), Value -2 (Krepkaya, Korn gone) + 1 new Value (Pinnacle) = net: Standard +2, Value -1. Total Vodka: still 25.
+- Cognac segment distribution after fix: Standard +1 (Meukow), Value -1 (Royalty gone). Total Cognac: still 21.
+- Portfolio count: 326 entries unchanged (4 replacements, not additions).
+- Build: 10.93s, 2821 modules, no errors or warnings.
+
+---
+
 # Overnight Build Log — 16 September 2026
 
 ## Session summary

@@ -1,3 +1,21 @@
+# Overnight Build Log — 18 September 2026
+
+## Session summary
+
+**Shipped:** RTD growth rate corrected in MarketOverview.jsx: `+16.4%` → `+8.5%`. Build clean (14.28s). Pushed to main.
+
+1. **`frontend/src/pages/MarketOverview.jsx` — RTD segment growth rate corrected from `+16.4%` to `+8.5%`.** The `+16.4%` figure is the US spirits-based RTD segment growth (DISCUS data), not the global total RTD market growth. Global total RTD market grew `+8.5%` in 2025 per categoryData.js (and `+8.2%` in commandCentreData.js). The segment note was updated to clarify: "Spirits-based RTDs now 47% of US RTD volume; +16.4% in US spirits-based segment" — preserving the accurate US figure while correctly attributing its scope. After fix, NoLo (+9.5%) is now the fastest-growing segment on the Market Overview LI signal panel, which is correct.
+
+**Audited (no action needed):**
+- categoryData.js: all 11 categories × 5 years = 55 year-blocks, channels sum to 100%, growth/growthDir consistent throughout.
+- venueData.js: FIFTY_BEST_BARS 250 entries (50 × 5 years) ✓, LONDON_VENUES 28 entries ✓.
+- supplyChainData.js: 0 null values, all historicalData and relevantCategories fields present ✓.
+- geographicData.js: 10 regions × 3 years (2023–2025) ✓.
+- brandData.js: 326 entries, 0 `company: 'Various'` remaining ✓.
+- Build: 14.28s, 2821 modules, no errors.
+
+---
+
 # Overnight Build Log — 17 September 2026
 
 ## Session summary

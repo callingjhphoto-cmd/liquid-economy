@@ -1,3 +1,25 @@
+# Overnight Build Log — 19 September 2026
+
+## Session summary
+
+**Shipped:** CommandCentre brand count synced to 326, RTD growth rate corrected to +8.5% across all 4 stale references in commandCentreData.js. Build clean (12.61s). Pushed to main.
+
+1. **`frontend/src/pages/CommandCentre.jsx` — Brands Tracked KPI corrected from 260 → 326.** The 'Brands Tracked' KPI card still showed `260` (the April 2026 baseline), while BrandPricing.jsx correctly showed 326. Fixed: value `260` → `326`, change badge `+12 this quarter` → `+10 this quarter` (reflecting 316→326 growth), sub-label on 'Avg Price Change' card `260 tracked expressions` → `326 tracked expressions`, and 'Explore Pricing' CTA `260 brand expressions monitored` → `326 brand expressions monitored`.
+
+2. **`frontend/src/data/commandCentreData.js` — KPI_TRENDS.brands sparkline updated.** The sparkline behind the Brands Tracked card used stale data `[200,220,235,248,260]` ending at the April 2026 starting point. Updated to `[248,260,304,316,326]` to match BrandPricing.jsx sparkData (matching the 5-quarter portfolio build trajectory).
+
+3. **`frontend/src/data/commandCentreData.js` — RTD growth corrected in 4 places: `+8.2%` → `+8.5%`.** The previous night's session fixed MarketOverview.jsx and categoryData.js, but commandCentreData.js still held the stale US-market figure (+8.2% is the US RTD growth; global is +8.5%). Fixed in: CATEGORY_SNAPSHOT entry, MARKET_SIGNALS headline, and RECENT_MOVERS change badge. CommandCentre now shows consistent +8.5% for global RTD across all panels.
+
+**Audited (no action needed):**
+- All Recharts `<Tooltip>` contentStyle: confirmed dark-background across all pages — 0 missing contentStyle.
+- All Recharts chart components: 40 `accessibilityLayer` confirmed, no gaps (BarChart3 Lucide icons accounted for discrepancy in prior count).
+- `CATEGORY_SNAPSHOT` NoLo still fastest at +9.5% → CommandCentre 'Top Growing Category' renders correctly as 'No/Low Alcohol'.
+- brandData.js category count: Beer 29, Tequila 28, Vodka 25, Gin 24, Rum 24, Wine 24, Scotch Whisky 23, Bourbon & American 21, Cognac 21, Champagne 21, Irish Whiskey 21, Japanese Whisky 21, RTD 22, No/Lo 22 = 326 total ✓.
+- KPI_TRENDS.nolo/ecomm/cogs/pe: none of these are referenced in any page — unused fields, no user-visible impact.
+- Build: 12.61s, no errors.
+
+---
+
 # Overnight Build Log — 18 September 2026
 
 ## Session summary

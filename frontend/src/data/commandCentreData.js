@@ -17,7 +17,7 @@ export const KPI_TRENDS = {
   nolo:      [{ v: 5.1 }, { v: 5.8 }, { v: 6.4 }, { v: 7.1 }, { v: 7.5 }],
   ecomm:     [{ v: 8.5 }, { v: 10.1 }, { v: 11.8 }, { v: 12.9 }, { v: 14.2 }],
   cogs:      [{ v: 48 }, { v: 52 }, { v: 55 }, { v: 58 }, { v: 62 }],
-  brands:    [{ v: 200 }, { v: 220 }, { v: 235 }, { v: 248 }, { v: 260 }],
+  brands:    [{ v: 248 }, { v: 260 }, { v: 304 }, { v: 316 }, { v: 326 }],
 }
 
 // ── Category Snapshot with mini-trend data ──
@@ -32,7 +32,7 @@ export const CATEGORY_SNAPSHOT = [
   { key: 'wine', name: 'Wine (Still)', size: '$38.2B', growth: '-1.2%', dir: 'down', signal: 'Structural volume decline continues', trend: [{ v: 40.1 }, { v: 39.5 }, { v: 39.0 }, { v: 38.6 }, { v: 38.2 }], channels: { onTrade: 30, offTrade: 55.1, eCommerce: 7.7, travelRetail: 7.2 } },
   { key: 'beer', name: 'Beer & Craft', size: '$880B', growth: '+1.4%', dir: 'up', signal: 'H1 2025 first premium volume decline in 4yrs; AB InBev 26.9% share', trend: [{ v: 810 }, { v: 830 }, { v: 850 }, { v: 865 }, { v: 880 }], channels: { onTrade: 34.8, offTrade: 57.4, eCommerce: 2.8, travelRetail: 5 } },
   { key: 'nolo', name: 'No/Low Alcohol', size: '$13B', growth: '+9.5%', dir: 'up', signal: 'Fastest-growing segment globally', trend: [{ v: 7.5 }, { v: 8.8 }, { v: 10.2 }, { v: 11.5 }, { v: 13 }], channels: { onTrade: 32.5, offTrade: 52.9, eCommerce: 11.8, travelRetail: 2.8 } },
-  { key: 'rtd', name: 'RTD / Ready-to-Drink', size: '$40B', growth: '+8.2%', dir: 'up', signal: 'Maturing from explosive growth phase', trend: [{ v: 25 }, { v: 29 }, { v: 33 }, { v: 37 }, { v: 40 }], channels: { onTrade: 24.4, offTrade: 68.3, eCommerce: 4.1, travelRetail: 3.2 } },
+  { key: 'rtd', name: 'RTD / Ready-to-Drink', size: '$40B', growth: '+8.5%', dir: 'up', signal: 'Maturing from explosive growth phase', trend: [{ v: 25 }, { v: 29 }, { v: 33 }, { v: 37 }, { v: 40 }], channels: { onTrade: 24.4, offTrade: 68.3, eCommerce: 4.1, travelRetail: 3.2 } },
 ]
 
 // ── Regional Pulse ──
@@ -51,7 +51,7 @@ export const MARKET_SIGNALS = [
   { type: 'Supply', urgency: 'medium', headline: 'Mexican agave surplus reaches 5-year high', date: 'Feb 15, 2026', source: 'CRT', impact: 'Tequila input costs may decline 15-20%; benefits Becle, Cuervo brands' },
   { type: 'Trade', urgency: 'high', headline: 'China maintains 30% import duty on EU spirits', date: 'Feb 12, 2026', source: 'Reuters', impact: 'Cognac exports to China remain depressed; Rémy Cointreau most exposed' },
   { type: 'M&A', urgency: 'medium', headline: 'Craft distillery consolidation accelerates — 47 acquisitions in Q4', date: 'Feb 10, 2026', source: 'Spirits Business', impact: 'Mid-tier brands being absorbed; entry multiples averaging 8-12x EBITDA' },
-  { type: 'Category', urgency: 'low', headline: 'RTD category growth decelerates to +8.2% (was +15% in 2023)', date: 'Feb 8, 2026', source: 'IWSR Global Spirits Report', impact: 'Market maturing; winners emerging (BuzzBallz, High Noon, Cutwater)' },
+  { type: 'Category', urgency: 'low', headline: 'RTD category growth decelerates to +8.5% (was +15% in 2023)', date: 'Feb 8, 2026', source: 'IWSR Global Spirits Report', impact: 'Market maturing; winners emerging (BuzzBallz, High Noon, Cutwater)' },
 ]
 
 // ── Market Pulse (progressive disclosure items) ──
@@ -156,7 +156,7 @@ export const RECENTLY_UPDATED = [
 // ── Recent Movers (biggest changes this period) ──
 export const RECENT_MOVERS = [
   { name: 'No/Low Alcohol', type: 'category', change: '+9.5%', dir: 'up', context: 'Fastest segment globally; GLP-1 tailwind', link: '/categories', entityType: 'category', entityId: 'nolo' },
-  { name: 'RTD / Ready-to-Drink', type: 'category', change: '+8.2%', dir: 'up', context: 'Consolidation accelerating; BuzzBallz $1.1B deal', link: '/categories', entityType: 'category', entityId: 'rtd' },
+  { name: 'RTD / Ready-to-Drink', type: 'category', change: '+8.5%', dir: 'up', context: 'Consolidation accelerating; BuzzBallz $1.1B deal', link: '/categories', entityType: 'category', entityId: 'rtd' },
   { name: 'Tequila & Mezcal', type: 'category', change: '+7.8%', dir: 'up', context: 'Agave surplus driving margin expansion', link: '/categories', entityType: 'category', entityId: 'tequila' },
   { name: 'Cognac & Brandy', type: 'category', change: '-2.4%', dir: 'down', context: 'China 30% duty persists through H1', link: '/categories', entityType: 'category', entityId: 'cognac' },
   { name: 'Wine (Still)', type: 'category', change: '-1.2%', dir: 'down', context: 'Structural decline; French production -16%', link: '/categories', entityType: 'category', entityId: 'wine' },

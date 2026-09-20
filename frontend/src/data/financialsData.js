@@ -313,7 +313,7 @@ export const FINANCIAL_COMPANIES = [
   },
 ]
 
-// Combined inventory for the $22B headline chart
+// Combined inventory headline chart (2025 total: $20.1B; peak 2024: $20.5B)
 export const COMBINED_INVENTORY = [
   { year: 2020, total: 15.2, dangerZone: 18 },
   { year: 2021, total: 16.5, dangerZone: 18 },

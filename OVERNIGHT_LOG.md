@@ -1,3 +1,25 @@
+# Overnight Build Log — 20 September 2026
+
+## Session summary
+
+**Shipped:** Stale `$22B` inventory overhang labels in Financials.jsx replaced with a dynamic value that reads directly from the data. Build clean (12.35s). Also cherry-picked 2 commits from a detached HEAD that the prior session left behind (Sep 19 fixes now on main). Pushed to main.
+
+1. **`frontend/src/pages/Financials.jsx` — two hardcoded `$22B` strings replaced with `$${Math.round(totalInventory)}B`.** The `COMBINED_INVENTORY` data shows a 2024 peak of $20.5B and a 2025 total of $20.1B. The chart subtitle and MetricCard `change` prop both displayed "The $22B overhang", overstating the figure by ~$2B. Both now evaluate dynamically so any future data update propagates automatically. Result: renders "The $20B overhang".
+
+2. **`frontend/src/data/financialsData.js` — stale comment updated.** Comment on line 316 previously referenced "$22B headline chart". Updated to: `// Combined inventory headline chart (2025 total: $20.1B; peak 2024: $20.5B)`.
+
+3. **Cherry-picked 2 orphaned Sep 19 commits.** Previous session committed `fix: sync CommandCentre brand count to 326 and RTD growth to +8.5%` and `docs: overnight log 19 September 2026` into detached HEAD, so they never reached main. Recovered via `git cherry-pick`.
+
+**Audited (no action needed):**
+- categoryData.js: 55 year-blocks verified, all channel splits (onTrade + offTrade + eCommerce + travelRetail) sum to 100% across all 11 categories × 5 years.
+- venueData.js: 250 FIFTY_BEST_BARS entries (50 × 5 years) + 28 LONDON_VENUES — 0 null values.
+- brandData.js: 326 brand entries, 134 nulls all in optional mass-market retail price fields — expected.
+- companyData.js: 14 companies; 1 null (`estimatedRevenue`) in an unreferenced field — no UI impact.
+- w50bMenuIntel.js: 14 null `price_gbp` values, all guarded in JSX — no rendering errors.
+- Build: 12.35s, no errors.
+
+---
+
 # Overnight Build Log — 19 September 2026
 
 ## Session summary

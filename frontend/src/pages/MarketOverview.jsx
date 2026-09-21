@@ -7,8 +7,8 @@ import { Globe, TrendingUp, Wine, Beer, Grape, Sparkles, Package, AlertTriangle,
 import { REGIONAL_PULSE_EXTENDED, CATEGORY_SNAPSHOT, MARKET_SIGNALS } from '../data/commandCentreData'
 import { ResponsiveContainer, AreaChart, Area, XAxis, Tooltip } from 'recharts'
 
-// Total drinks market as of 2025 — corrected from $1.1T headline to $1.6T
-// (original number was spirits-only; drinks market includes beer, wine, nolo, RTD)
+// Total drinks market as of 2025 — $1.9T (spirits $635B + beer $880B + wine $330B + NoLo $31B + RTD $40B)
+// Corrected from $1.1T (spirits-only) → $1.6T (pre-wine) → $1.9T (all 5 segments)
 const DRINKS_MARKET_SEGMENTS = [
   {
     key: 'spirits',
@@ -99,7 +99,7 @@ const liSig3 = liFastestPct >= 15
   : { dot: 'bg-amber-500', color: 'text-amber-700', label: 'Subdued Growth Leader', copy: `${liFastestSeg.label} (${liFastestSeg.growth} YoY) is the strongest performer in a broadly flat market. Focus on margin preservation and channel optimisation rather than volume growth.` }
 
 export default function MarketOverview() {
-  const totalValue = '$1.6T'
+  const totalValue = '$1.9T'
   const totalGrowth = '+1.5%'
   const cagr10 = '+3.4%'
 
@@ -276,7 +276,7 @@ export default function MarketOverview() {
             <p className="text-xs text-gray-600 leading-relaxed">
               Total market size combines IWSR Global Drinks Database 2025, Euromonitor Passport Alcoholic Drinks, Rabobank Beer Monitor, OIV Wine Report, and DISCUS Economic Briefing.
               Regional 10-year CAGR computed from 2016-2025 year-end values. Growth rates represent value change in USD at constant exchange rates.
-              Category values sum to $1.6T; note beer ($880B) and spirits ($635B) together comprise 95% of total.
+              Category values sum to $1.9T (spirits $635B + beer $880B + wine $330B + NoLo $31B + RTD $40B); beer and spirits together represent 79% of total.
             </p>
           </div>
         </div>

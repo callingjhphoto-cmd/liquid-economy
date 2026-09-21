@@ -1,3 +1,24 @@
+# Overnight Build Log — 21 September 2026
+
+## Session summary
+
+**Shipped:** MarketOverview global total corrected from `$1.6T` to `$1.9T`. The five displayed segments ($635B spirits + $880B beer + $330B wine + $31B NoLo + $40B RTD) always summed to ~$1.9T; the `$1.6T` and `95%` figures predated addition of the wine/NoLo/RTD values to the hero card. Methodology note and file-top comment updated to match. Build clean (13.60s). Pushed to main.
+
+1. **`frontend/src/pages/MarketOverview.jsx` — `totalValue` corrected: `$1.6T` → `$1.9T`.** The five displayed segments sum to $1,916B: spirits ($635B) + beer ($880B) + wine ($330B) + NoLo ($31B) + RTD ($40B) = $1,916B ≈ $1.9T. The `$1.6T` was the value from before wine, NoLo, and RTD segment values were added to the hero card; when those three were added (summing to $401B), the header total and methodology note were not updated.
+
+2. **`frontend/src/pages/MarketOverview.jsx` — methodology note corrected.** Previous wording: "Category values sum to $1.6T; note beer ($880B) and spirits ($635B) together comprise 95% of total." Both figures were wrong: correct total is $1.9T and beer+spirits represent 79% (not 95%) of that. Updated to: "Category values sum to $1.9T (spirits $635B + beer $880B + wine $330B + NoLo $31B + RTD $40B); beer and spirits together represent 79% of total."
+
+3. **`frontend/src/pages/MarketOverview.jsx` — file-top comment updated.** Previously read "corrected from $1.1T headline to $1.6T" — stale after second correction. Now traces full history: `$1.1T (spirits-only) → $1.6T (pre-wine) → $1.9T (all 5 segments)`.
+
+**Audited (no action needed):**
+- All 55 categoryData.js channel blocks: re-confirmed sum to 100% (11 categories × 5 years).
+- All JSX pages: Python full-scan for raw `£`/`€` in text nodes — 0 violations.
+- All Recharts chart components: multi-line brace-aware accessibilityLayer scan — 100% coverage (prior single-line regex false-positive on SupplyChain confirmed false; both AreaChart instances present).
+- All `<Tooltip>` instances across all pages: dark contentStyle confirmed on BrandHealth, BrandPricing, CocktailDetail, Financials, Valuations, ClimateYield, SupplyChain.
+- Build: 13.60s, no errors.
+
+---
+
 # Overnight Build Log — 20 September 2026
 
 ## Session summary

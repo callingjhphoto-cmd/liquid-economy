@@ -1,3 +1,24 @@
+# Overnight Build Log — 22 September 2026
+
+## Session summary
+
+**Shipped:** 3 fixes — DepletionForecasting winter seasonality sum corrected (11.30→12.00), VenueIntelligence axis decimal labels fixed, Financials dead constant removed. Build clean (11.90s). Pushed to main.
+
+1. **`frontend/src/pages/DepletionForecasting.jsx` — winter seasonality profile corrected from sum=11.30 to sum=12.00.** The `winter` profile factors `[0.90, 0.80, 0.75, 0.70, 0.75, 0.80, 0.85, 0.85, 0.90, 1.10, 1.40, 1.50]` summed to 11.30, causing a systematic 5.8% underforecast of annual depletions for Whisky and Cognac users. The other four profiles (standard, summer, champagne, flat) all correctly summed to 12.00. Fix: increased Sep/Oct/Nov/Dec from `[0.90, 1.10, 1.40, 1.50]` to `[0.95, 1.20, 1.55, 1.90]` — a proportional uplift of the Q4 peak (where winter spirits naturally over-index) that brings the total to exactly 12.00.
+
+2. **`frontend/src/pages/VenueIntelligence.jsx` — `allowDecimals={false}` added to two horizontal bar chart XAxes.** The Regional Distribution and Top Cities by Entries charts use `layout="vertical"` with `<XAxis type="number">`. Without `allowDecimals={false}`, Recharts auto-scales and can produce tick marks at 0.5, 1.5 etc. when bar counts are small integers. Both XAxis instances now have the prop applied.
+
+3. **`frontend/src/pages/Financials.jsx` — dead constant `totalMarketCap` removed.** `const totalMarketCap = '£125B+'` was declared at line 30 but never referenced in JSX. Removed as dead code.
+
+**Audited (no action needed):**
+- categoryData.js: all 55 channel blocks sum to 100%, all growth/growthDir pairs consistent ✓.
+- venueData.js: 250 FIFTY_BEST_BARS entries, 28 LONDON_VENUES profiles ✓.
+- brandData.js: 326 entries, 14 categories ✓. BrandPricing dark tooltips confirmed.
+- All Recharts Tooltip contentStyle across audited pages confirmed dark (background: #1e293b) ✓.
+- Build: 11.90s, 2821 modules, no errors.
+
+---
+
 # Overnight Build Log — 21 September 2026
 
 ## Session summary

@@ -27,7 +27,6 @@ const fmtB = (v, cur) => {
 
 /* ── Aggregate Stats ── */
 const totalInventory = FINANCIAL_COMPANIES.reduce((s, c) => s + (c.metrics?.inventory?.totalNum ?? 0), 0)
-const totalMarketCap = '£125B+'
 const avgDividend = (FINANCIAL_COMPANIES.reduce((s, c) => s + parseFloat(c.metrics.dividendYield), 0) / FINANCIAL_COMPANIES.length).toFixed(1)
 
 /* ══════════════════════════════════════

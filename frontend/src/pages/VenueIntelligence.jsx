@@ -580,7 +580,7 @@ export default function VenueIntelligence() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <ChartCard title={`Regional Distribution — ${selectedYear}`} height={240}>
                   <BarChart data={regionAnalysis} layout="vertical" accessibilityLayer={true}>
-                    <XAxis type="number" tick={{ fontSize: 11, fill: '#9ca3af' }} />
+                    <XAxis type="number" allowDecimals={false} tick={{ fontSize: 11, fill: '#9ca3af' }} />
                     <YAxis dataKey="name" type="category" width={120} tick={{ fontSize: 11, fill: '#9ca3af' }} />
                     <Tooltip formatter={(val) => [`${val} bars (${Math.round(val / 50 * 100)}%)`]} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11, color: '#f1f5f9' }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
                     <Bar dataKey="value" fill={CHART_COLORS.primary} radius={[0, 4, 4, 0]}>
@@ -591,7 +591,7 @@ export default function VenueIntelligence() {
 
                 <ChartCard title={`Top Cities by Entries — ${selectedYear}`} height={240}>
                   <BarChart data={cityData} layout="vertical" accessibilityLayer={true}>
-                    <XAxis type="number" tick={{ fontSize: 11, fill: '#9ca3af' }} />
+                    <XAxis type="number" allowDecimals={false} tick={{ fontSize: 11, fill: '#9ca3af' }} />
                     <YAxis dataKey="city" type="category" width={100} tick={{ fontSize: 11, fill: '#9ca3af' }} />
                     <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11, color: '#f1f5f9' }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
                     <Bar dataKey="count" fill={CHART_COLORS.primary} radius={[0, 4, 4, 0]} />

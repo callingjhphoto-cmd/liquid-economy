@@ -1,3 +1,24 @@
+# Overnight Build Log — 23 September 2026
+
+## Session summary
+
+**Shipped:** 4 brandData.js data quality fixes. Build clean (11.35s). Pushed to main.
+
+1. **Gin Mare company corrected:** Brown-Forman → William Grant & Sons (acquired 2021–22). Previous attribution was incorrect; Gin Mare is now part of William Grant & Sons.
+
+2. **Tanqueray RTD Gin & Tonic 10pk removed from Gin category:** RTD belongs only in the RTD category (retained at line ~1095). Replaced in Gin with a legitimate Super Premium entry: Tanqueray No. Ten, with realistic market pricing across all 8 markets.
+
+3. **Maker's Mark Original string encoding fixed:** Brand string changed from `'Maker’s Mark'` (curly apostrophe as literal escape) to `"Maker's Mark"` (double-quoted, ASCII apostrophe). An earlier edit had introduced U+2018/U+2019 curly quotes as string delimiters on the surrounding fields — fixed at byte level via Python replace to restore valid ASCII delimiters. Entry count confirmed at 326.
+
+4. **Maker's Mark 46 company corrected:** Brown-Forman → Beam Suntory. Both Maker's Mark expressions now share the correct owner.
+
+**Audited (no action needed):**
+- Total brand entries: 326 across 14 categories ✓.
+- categoryData.js: all 55 year-blocks already audited, no issues.
+- Build: 11.35s, 2821 modules, no errors.
+
+---
+
 # Overnight Build Log — 22 September 2026
 
 ## Session summary

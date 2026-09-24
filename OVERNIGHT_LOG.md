@@ -1,3 +1,22 @@
+# Overnight Build Log — 24 September 2026
+
+## Session summary
+
+**Shipped:** 2 data integrity fixes in commandCentreData.js and companyData.js. Build clean (14.29s). Pushed to main as `05990af`.
+
+1. **commandCentreData.js — MARKET_PULSE RTD badge corrected:** `change` field updated from `'+16.4%'` (US spirits-based RTD sub-segment, DISCUS) to `'+8.5%'` (global RTD, consistent with CATEGORY_SNAPSHOT/MARKET_SIGNALS). Event text updated to clarify US scope: "Spirits-based RTDs now 47% of US RTD volume; global RTD: +8.5%".
+
+2. **companyData.js — Brown-Forman fabrications removed (5 entries):** Removed Gin Mare/Diplomático from Brown-Forman `keyBrands`, `categoryPresence`, `recentMoves`, `maTimeline`, `recentDevelopments`, and `analystOutlook` — all fabricated; neither brand is owned or distributed by Brown-Forman.
+
+3. **companyData.js — William Grant & Sons updated for Gin Mare:** Added Gin Mare to `keyBrands`, updated Gin `categoryPresence` share 10 → 12 and brands list, and inserted 2022 acquisition entry in `maTimeline` — consistent with the Sept 23 brandData.js correction.
+
+**Audited (no action needed):**
+- categoryData.js: 0 growth/growthDir mismatches across all 11 categories × 5 years.
+- brandData.js: 0 mixed apostrophe encodings across 10 brands with curly apostrophes.
+- All Recharts Tooltips confirmed dark contentStyle; all chart components have accessibilityLayer.
+
+---
+
 # Overnight Build Log — 23 September 2026
 
 ## Session summary

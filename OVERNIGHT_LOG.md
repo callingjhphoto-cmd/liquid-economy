@@ -1,3 +1,31 @@
+# Overnight Build Log — 25 September 2026
+
+## Session summary
+
+**Shipped:** 7 data quality corrections across Beam Suntory and Campari in companyData.js. Build clean (11.67s). Pushed to main as `1830382`.
+
+1. **Beam Suntory — fabricated 2017 Pinnacle entry removed from maTimeline.** The timeline had `{"year": 2017, "deal": "Acquired Pinnacle Vodka brand"}` — a fabrication. Pinnacle was acquired by Beam in 2012 (correct entry preserved: "Beam acquired Pinnacle Vodka and Calico Jack Rum from White Rock Distilleries for $605M"). No 2017 re-acquisition occurred.
+
+2. **Beam Suntory — Courvoisier removed from keyBrands; replaced with Haku.** Courvoisier was divested to Campari Group in 2024 (correctly recorded in maTimeline). Haku Japanese Rice Vodka (added to brandData.js 16 Sep) is the correct replacement — a current Beam Suntory brand in their vodka portfolio.
+
+3. **Beam Suntory — categoryPresence corrected: Cognac/Courvoisier → Vodka/Haku+Pinnacle.** Post-divestiture, Beam Suntory has no cognac. The Vodka entry reflects their actual portfolio (Haku, Pinnacle) with "Craft Niche" positioning.
+
+4. **Beam Suntory — weaknessesForCompetitor updated.** Removed stale "Courvoisier underperforming vs Hennessy" line; replaced with accurate "No premium vodka play — Haku is niche, Pinnacle is value; no answer to Grey Goose or Absolut."
+
+5. **Beam Suntory — stale Courvoisier entries removed from recentMoves and recentDevelopments.** May 2025 recentMove "Courvoisier rebrand launched" and Sep 2025 development "Courvoisier VS redesigned" were both attributed to Beam Suntory after they had already sold the brand; replaced with accurate Haku market activity.
+
+6. **Campari — Courvoisier added to keyBrands; Cognac added to categoryPresence.** Campari completed the acquisition in Apr 2025. keyBrands now includes Courvoisier. categoryPresence gains `"Cognac": {"share": 6, "brands": ["Courvoisier"], "position": "New Entrant (2025)"}`.
+
+7. **Campari — Dec 2025 recentDevelopment corrected.** Previous text said "Announced acquisition of Courvoisier from Beam Suntory" (impossible — acquisition completed Apr 2025). Replaced with accurate Courvoisier post-acquisition integration news.
+
+**Audited (no action needed):**
+- All JSX text nodes: 0 raw £/€ violations across entire src tree.
+- brandData.js: 326 entries, 0 company='Various', correct category distribution.
+- All Recharts Tooltip components: all confirmed dark contentStyle (one false-positive from 6-line scanner window; manual verify confirmed clean).
+- Build: 11.67s, 2821 modules, no errors.
+
+---
+
 # Overnight Build Log — 24 September 2026
 
 ## Session summary

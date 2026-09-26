@@ -240,6 +240,7 @@ export const CATEGORY_ANALYSIS = {
 
 // Helper functions
 export function parseChange(change) {
+  if (!change) return 0
   const num = parseFloat(change.replace('%', '').replace('+', ''))
   return isNaN(num) ? 0 : num
 }

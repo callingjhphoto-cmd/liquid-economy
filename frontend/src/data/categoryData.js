@@ -2813,13 +2813,13 @@ export const CATEGORIES = [
     icon: 'C',
     iconColor: 'text-purple-700',
     iconBg: 'bg-purple-50',
-    trajectory: 'Cognac navigated post-pandemic volatility with a dynamic US luxury market offsetting China’s anti-corruption headwinds. Recovery in 2025 driven by emerging markets like Nigeria and stabilizing premiumization trends.',
+    trajectory: 'Cognac navigated post-pandemic volatility with a dynamic US luxury market offsetting China’s anti-corruption headwinds. China’s definitive anti-dumping tariffs (30.6-39%) on French cognac from September 2025 deepened the category’s contraction, though Nigeria and the US partially offset losses.',
     yearData: {
       2025: {
-        marketSize: '$12.5B',
-        growth: '+1.8%',
-        growthDir: 'up',
-        volumeCases: '12.8M',
+        marketSize: '$12.0B',
+        growth: '-2.4%',
+        growthDir: 'down',
+        volumeCases: '12.3M',
         topMarkets: [
           {
             name: 'United States',
@@ -2830,7 +2830,7 @@ export const CATEGORIES = [
               { name: 'California', share: '23.7%', growth: '+3.8%' },
               { name: 'Texas', share: '17.8%', growth: '+2.9%' },
               { name: 'Florida', share: '14.8%', growth: '+4.5%' },
-              { name: 'Illinois', share: '6.9%', growth: '+1.8%' },
+              { name: 'Illinois', share: '6.9%', growth: '-2.4%' },
               { name: 'Pennsylvania', share: '10.2%', growth: '+1.9%' },
             ],
             sources: [
@@ -2840,15 +2840,15 @@ export const CATEGORIES = [
           },
           {
             name: 'China',
-            growth: '+2.5%',
+            growth: '-15%',
             brands: ['Rémy Martin', 'Hennessy', 'Martell'],
             regions: [
-              { name: 'Beijing', share: '27.8%', growth: '+1.8%' },
-              { name: 'Shanghai', share: '24.0%', growth: '+2.1%' },
-              { name: 'Guangzhou', share: '18.9%', growth: '+3.2%' },
-              { name: 'Chongqing', share: '12.6%', growth: '+2.9%' },
-              { name: 'Shenzhen', share: '10.2%', growth: '+3.4%' },
-              { name: 'Hangzhou', share: '6.5%', growth: '+1.9%' },
+              { name: 'Beijing', share: '27.8%', growth: '-2.4%' },
+              { name: 'Shanghai', share: '24.0%', growth: '-16%' },
+              { name: 'Guangzhou', share: '18.9%', growth: '-13%' },
+              { name: 'Chongqing', share: '12.6%', growth: '-18%' },
+              { name: 'Shenzhen', share: '10.2%', growth: '-14%' },
+              { name: 'Hangzhou', share: '6.5%', growth: '-16%' },
             ],
             sources: [
               { name: 'Beverage Daily', url: 'https://beveragedaily.com' },
@@ -3068,7 +3068,7 @@ export const CATEGORIES = [
               { name: 'California', share: '22.0%', growth: '-3.1%' },
               { name: 'Texas', share: '17.4%', growth: '-2.9%' },
               { name: 'Florida', share: '15.8%', growth: '-4.2%' },
-              { name: 'Illinois', share: '6.9%', growth: '+1.8%' },
+              { name: 'Illinois', share: '6.9%', growth: '-2.4%' },
               { name: 'Pennsylvania', share: '10.3%', growth: '+2.7%' },
             ],
             sources: [
@@ -3175,7 +3175,7 @@ export const CATEGORIES = [
       2022: {
         marketSize: '$13.2B',
         growth: '+8.2%',
-        growthDir: 'up',
+        growthDir: 'down',
         volumeCases: '13.5M',
         topMarkets: [
           {
@@ -3293,7 +3293,7 @@ export const CATEGORIES = [
       2021: {
         marketSize: '$12.2B',
         growth: '+18.5%',
-        growthDir: 'up',
+        growthDir: 'down',
         volumeCases: '13.1M',
         topMarkets: [
           {

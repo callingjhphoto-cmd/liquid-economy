@@ -1,5 +1,11 @@
 # Overnight Build Log — 25 September 2026
 
+## 2026-09-26 (Overnight Session)
+- Fixed cognac 2025 data direction error: growth corrected from +1.8% → -2.4%, growthDir up → down
+- Updated marketSize $12.5B → $12.0B and volumeCases 12.8M → 12.3M to match commandCentreData.js
+- Corrected China market growth +2.5% → -15%, all 6 city regions flipped to negative (tariff impact)
+- Added null guard to supplyChainData.js parseChange() for defensive safety
+- Build clean, pushed to main (Railway auto-deploy triggered)
 ## Session summary
 
 **Shipped:** 7 data quality corrections across Beam Suntory and Campari in companyData.js. Build clean (11.67s). Pushed to main as `1830382`.

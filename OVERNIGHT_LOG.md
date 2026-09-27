@@ -1,3 +1,42 @@
+# Overnight Build Log — 27 September 2026
+
+## Session summary
+
+**Shipped:** 10 prestige brand UK price corrections in brandData.js. Build clean (11.91s). Pushed to main as `6561b95`.
+
+1. **Root cause identified:** The price generation script computed UK retailer prices (tesco, sainsburys, waitrose) for every entry using a fixed multiplier from the US `totalwine` field, without checking whether each retailer actually stocks the item. For Prestige-segment spirits and wines, this produced confident-looking but entirely fabricated distribution data — e.g. Pappy Van Winkle 20yr at Tesco £1,666, Louis XIII Cognac at Tesco £2,744, Screaming Eagle at Tesco £2,916, Château Lafite at Tesco £686.
+
+2. **Pappy Van Winkle 20yr (Bourbon):** All UK prices set to null. PVW 20yr is a lottery-allocation product that does not reach UK retail channels. Kept masterofmalt (£1,564) and thewhiskyexchange (£1,649) as specialist importers who occasionally stock it.
+
+3. **Hennessy Paradis (Cognac):** tesco/sainsburys/waitrose null. Available at MoM (£598) and TWE (£630.50) only — mainstream UK supermarkets do not carry Paradis.
+
+4. **Louis XIII Grande Champagne Cognac:** tesco/sainsburys/waitrose null. Available at MoM (£2,576) and TWE (£2,716) only.
+
+5. **Hibiki 21yr (Japanese Whisky):** tesco/sainsburys/waitrose null. Hibiki 21yr is allocated, not regularly stocked in UK supermarkets. Available at MoM (£414) and TWE (£436.50).
+
+6. **Salon Le Mesnil 2012 (Champagne):** tesco/sainsburys null. Salon is one of the rarest Champagnes produced; kept waitrose (£472, Waitrose fine wine) and MoM/TWE.
+
+7. **Opus One 2021 Vintage (Wine):** tesco/sainsburys null; MoM null (spirits retailer, not fine wine). Waitrose corrected to £259 (Waitrose fine wine section genuine price); TWE corrected to £249.95.
+
+8. **Penfolds Grange 2019 (Wine):** tesco/sainsburys null; MoM null. Waitrose £595 (fine wine section); TWE £582.
+
+9. **Sassicaia 2020 (Wine):** tesco/sainsburys null; MoM null. Waitrose £229; TWE £219.95.
+
+10. **Château Lafite Rothschild 2019 / Château Margaux 2019 (Wine):** All UK fields null. First Growth Bordeaux is sold exclusively through fine wine merchants (Berry Bros, Justerini & Brooks, Bordeaux Index) — none of which are represented in the UK retail fields. US prices (TotalWine, Costco, etc.) preserved intact.
+
+11. **Screaming Eagle Cab 2021 (Wine):** All UK fields null. Screaming Eagle is a US-only direct-mail allocation product and does not appear in UK retail channels.
+
+**Audited (no action needed):**
+- All JSX pages: no raw £/€ violations in text nodes (dossier-content files false-positives confirmed; BrandPricing template literal correctly inside `{}`).
+- All Recharts `<Tooltip>` blocks: multi-line brace-aware scan confirmed all tooltips have `contentStyle` — CocktailDetail uses custom render with inline dark styles (correct).
+- categoryData.js: all 55 year-blocks re-confirmed present; channels/growth/growthDir fields all consistent.
+- geographicData.js: 10 REGIONS + 10 REGION_DATA keys, no null values, all growth/growthDir consistent.
+- companyData.js: 14 companies, 1 null on unreferenced `estimatedRevenue` field — no UI impact.
+- brandData.js: 326 entries, 0 company='Various', correct category distribution unchanged.
+- Build: 11.91s, no errors.
+
+---
+
 # Overnight Build Log — 25 September 2026
 
 ## 2026-09-26 (Overnight Session)

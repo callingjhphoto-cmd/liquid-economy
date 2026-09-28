@@ -1,3 +1,33 @@
+# Overnight Build Log — 28 September 2026
+
+## Session summary
+
+**Shipped:** 5 specialty brand UK price corrections in brandData.js. Build clean (12.63s). Pushed to main as `8d4fa02`.
+
+1. **Westvleteren 12 (Beer):** All UK prices set to null. Sint-Sixtus Abbey sells only via telephone reservation at the monastery gate — no commercial distribution exists anywhere. Previous prices (tesco £15, sainsburys £14.25, waitrose £15.60, MoM £14.25, TWE £14.70) were all fabricated.
+
+2. **Cantillon Gueuze 375ml (Beer):** tesco/sainsburys/waitrose null. Cantillon is a traditional lambic brewery in Brussels with no UK supermarket distribution; kept MoM £23.75 and TWE £24.50 as specialist importers who genuinely carry Belgian lambics.
+
+3. **Hill Farmstead Susan 500ml (Beer):** All UK prices null. Hill Farmstead is a Vermont micro-brewery with near-zero distribution outside New England; entirely unreachable in UK retail channels including specialist importers.
+
+4. **Clase Azul Reposado (Tequila):** tesco/sainsburys/waitrose null. Hand-painted ceramic decanter ultra-premium tequila sold only through premium specialists in the UK (Harvey Nichols, Selfridges, MoM, TWE). Kept MoM £110 and TWE £116.40.
+
+5. **Foursquare ECS 2011 (Rum):** tesco/sainsburys/waitrose null. Foursquare Exceptional Cask Series is a limited distillery allocation sold through specialist rum retailers only; not at UK supermarkets. Kept MoM £78 and TWE £82.45.
+
+**Audited (no action needed):**
+- All 25 intelligence pages: DataFreshness badges confirmed — 25/25 present.
+- All Recharts Tooltip contentStyles: 16-flag scan resolved as false positives; all use dark background (#1e293b).
+- All Recharts chart components: accessibilityLayer confirmed on all BarChart/LineChart/AreaChart/etc. — 0 gaps.
+- JSX text node scan (all .jsx pages): 2 flags resolved as false positives (JS formatter functions, not JSX text nodes). 0 actual violations.
+- brandData.js: 326 entries, 0 company='Various', correct category distribution unchanged.
+- categoryData.js: 0 growth/growthDir mismatches; all fields consistent.
+- geographicData.js: 0 growth/growthDir mismatches.
+- supplyChainData.js: 0 null values, all 17 entries have historicalData and relevantCategories.
+- Null guard scan (SupplyChain, GeographicIntelligence, Companies, ReportBuilder): all .map() calls properly guarded by conditional renders.
+- Build: 12.63s, no errors.
+
+---
+
 # Overnight Build Log — 27 September 2026
 
 ## Session summary

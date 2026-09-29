@@ -1,3 +1,19 @@
+# Overnight Build Log — 29 September 2026
+
+## Session summary
+
+**Shipped:** 9 brand/tier placement corrections in PricePositioning.jsx PRICE_BENCHMARKS. Build clean (14.22s). Pushed to main as `ba46e05`.
+
+1. **Vodka:** Ciroc corrected £30→£32 (was below Super-Premium min £32); Beluga Noble £45 moved from Ultra-Premium (min £55) to Super-Premium — it sits squarely in the £32–50 band.
+2. **Gin:** Super-Premium min lowered 32→28 to correctly host Hendrick's £30; The Botanist Islay £35 and Gin Mare Capri £40 moved from Ultra-Premium (min £55 — where both were ~£20 below the floor) to Super-Premium; Ultra-Premium now holds only Cambridge Distillery £80.
+3. **Whisky:** Glenfiddich 12 £35 moved from Super-Premium (min £42 — £7 below floor) to Premium (£25–40 — correct tier).
+4. **Cognac:** Rémy Martin VSOP £38 removed from VS tier — wrong grade classification (VSOP ≠ VS) and above VS max £35; replaced with Martell VS £26, a genuine VS cognac in range.
+5. **Champagne:** Bollinger £40 moved from Prestige Cuvée (min £55) to Premium (£30–50); Special Cuvée NV at £38–45 is a classic Premium champagne, not a Prestige Cuvée. Prestige Cuvée now correctly contains only Dom Pérignon £150 and Krug Grande Cuvée £140.
+
+**Notes:** NoLo tier mixed-unit issue (per-can vs per-bottle prices) and Beer Craft tier boundary issues identified but deferred — require structural change with risk of new inconsistencies. Flagged for a future session.
+
+---
+
 # Overnight Build Log — 28 September 2026
 
 ## Session summary

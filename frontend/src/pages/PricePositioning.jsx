@@ -42,8 +42,8 @@ const PRICE_BENCHMARKS = {
     tiers: [
       { name: 'Value', min: 12, max: 18, brands: ['Smirnoff (£15)', 'Russian Standard (£16)'] },
       { name: 'Premium', min: 20, max: 30, brands: ['Absolut (£20)', 'Stolichnaya (£22)', 'Tito’s (£25)'] },
-      { name: 'Super-Premium', min: 32, max: 50, brands: ['Grey Goose (£35)', 'Belvedere (£32)', 'Ciroc (£30)'] },
-      { name: 'Ultra-Premium', min: 55, max: 150, brands: ['Crystal Head (£55)', 'Beluga Noble (£45)', 'Royal Dragon (£120)'] },
+      { name: 'Super-Premium', min: 32, max: 50, brands: ['Grey Goose (£35)', 'Belvedere (£32)', 'Ciroc (£32)', 'Beluga Noble (£45)'] },
+      { name: 'Ultra-Premium', min: 55, max: 150, brands: ['Crystal Head (£55)', 'Royal Dragon (£120)'] },
     ],
     avgOnTrade: 7.50,
     insight: 'Vodka differentiation comes from packaging and brand story, not liquid. Premium positioning requires exceptional design.',
@@ -52,8 +52,8 @@ const PRICE_BENCHMARKS = {
     tiers: [
       { name: 'Value', min: 12, max: 20, brands: ['Gordon’s (£14)', 'Beefeater (£18)'] },
       { name: 'Premium', min: 22, max: 32, brands: ['Tanqueray (£22)', 'Bombay Sapphire (£20)', 'Sipsmith (£28)'] },
-      { name: 'Super-Premium', min: 32, max: 50, brands: ['Hendrick’s (£30)', 'Monkey 47 (£38)', 'KI NO BI (£42)'] },
-      { name: 'Ultra-Premium', min: 55, max: 120, brands: ['The Botanist Islay (£35)', 'Gin Mare Capri (£40)', 'Cambridge Distillery (£80)'] },
+      { name: 'Super-Premium', min: 28, max: 50, brands: ['Hendrick’s (£30)', 'The Botanist Islay (£35)', 'Gin Mare Capri (£40)', 'Monkey 47 (£38)', 'KI NO BI (£42)'] },
+      { name: 'Ultra-Premium', min: 55, max: 120, brands: ['Cambridge Distillery (£80)'] },
     ],
     avgOnTrade: 8.00,
     insight: '900+ brands in UK market. New entrants must position at £28+ to be taken seriously in premium on-trade.',
@@ -61,8 +61,8 @@ const PRICE_BENCHMARKS = {
   whisky: {
     tiers: [
       { name: 'Value', min: 18, max: 25, brands: ['Famous Grouse (£20)', 'Bell’s (£18)', 'Grant’s (£19)'] },
-      { name: 'Premium', min: 25, max: 40, brands: ['Johnnie Walker Black (£30)', 'Jameson (£25)', 'Monkey Shoulder (£28)'] },
-      { name: 'Super-Premium', min: 42, max: 80, brands: ['Glenfiddich 12 (£35)', 'Macallan 12 (£48)', 'Oban 14 (£50)'] },
+      { name: 'Premium', min: 25, max: 40, brands: ['Johnnie Walker Black (£30)', 'Glenfiddich 12 (£35)', 'Jameson (£25)', 'Monkey Shoulder (£28)'] },
+      { name: 'Super-Premium', min: 42, max: 80, brands: ['Macallan 12 (£48)', 'Oban 14 (£50)'] },
       { name: 'Ultra-Premium', min: 85, max: 500, brands: ['Macallan 18 (£180)', 'JW Blue (£160)', 'Glenfiddich 21 (£140)'] },
     ],
     avgOnTrade: 9.00,
@@ -80,7 +80,7 @@ const PRICE_BENCHMARKS = {
   },
   cognac: {
     tiers: [
-      { name: 'VS', min: 25, max: 35, brands: ['Hennessy VS (£32)', 'Rémy Martin VSOP (£38)', 'Courvoisier VS (£25)'] },
+      { name: 'VS', min: 25, max: 35, brands: ['Hennessy VS (£32)', 'Martell VS (£26)', 'Courvoisier VS (£25)'] },
       { name: 'VSOP', min: 35, max: 55, brands: ['Hennessy VSOP (£48)', 'Rémy Martin VSOP (£40)', 'Martell VSOP (£35)'] },
       { name: 'XO', min: 90, max: 180, brands: ['Hennessy XO (£150)', 'Rémy Martin XO (£140)', 'Courvoisier XO (£90)'] },
       { name: 'Prestige', min: 200, max: 1000, brands: ['Hennessy Paradis (£500)', 'Rémy Martin Louis XIII (£2,500)', 'Martell L’Or (£300)'] },
@@ -91,8 +91,8 @@ const PRICE_BENCHMARKS = {
   champagne: {
     tiers: [
       { name: 'Value', min: 20, max: 30, brands: ['Nicolas Feuillatte (£22)', 'Piper-Heidsieck (£28)'] },
-      { name: 'Premium', min: 30, max: 50, brands: ['Moët Impérial (£35)', 'Veuve Clicquot (£40)', 'Laurent-Perrier (£35)'] },
-      { name: 'Prestige Cuvée', min: 55, max: 150, brands: ['Dom Pérignon (£150)', 'Krug Grande Cuvée (£140)', 'Bollinger (£40)'] },
+      { name: 'Premium', min: 30, max: 50, brands: ['Moët Impérial (£35)', 'Veuve Clicquot (£40)', 'Laurent-Perrier (£35)', 'Bollinger (£40)'] },
+      { name: 'Prestige Cuvée', min: 55, max: 150, brands: ['Dom Pérignon (£150)', 'Krug Grande Cuvée (£140)'] },
       { name: 'Ultra-Prestige', min: 150, max: 500, brands: ['Cristal (£200)', 'Salon (£400)', 'Krug Clos du Mesnil (£500)'] },
     ],
     avgOnTrade: 14.00,

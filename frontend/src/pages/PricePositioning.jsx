@@ -111,22 +111,22 @@ const PRICE_BENCHMARKS = {
   beer: {
     tiers: [
       { name: 'Value', min: 1, max: 2, brands: ['Carling (£1.20)', 'Foster’s (£1.30)'] },
-      { name: 'Premium', min: 2, max: 3.5, brands: ['Peroni (£2.20)', 'Heineken (£2.00)', 'Estrella Damm (£2.50)'] },
-      { name: 'Craft', min: 3, max: 6, brands: ['BrewDog Punk IPA (£2.50)', 'Camden Hells (£2.80)', 'Beavertown Neck Oil (£3.50)'] },
-      { name: 'Premium Craft', min: 5, max: 15, brands: ['Cloudwater (£5.50)', 'Deya (£5.00)', 'Verdant (£4.50)'] },
+      { name: 'Premium', min: 2, max: 3, brands: ['Peroni (£2.20)', 'Heineken (£2.00)', 'Estrella Damm (£2.50)', 'Camden Hells (£2.80)'] },
+      { name: 'Craft', min: 3, max: 5, brands: ['BrewDog Hazy Jane (£3.50)', 'Beavertown Neck Oil (£3.50)', 'Thornbridge Jaipur (£3.30)'] },
+      { name: 'Premium Craft', min: 5, max: 15, brands: ['Cloudwater (£5.50)', 'Deya (£5.00)', 'Verdant (£5.25)'] },
     ],
     avgOnTrade: 6.00,
     insight: 'World lager is the dominant trend. Craft consolidation continues. No/lo beer is fastest-growing sub-segment.',
   },
   nolo: {
     tiers: [
-      { name: 'Value', min: 2, max: 5, brands: ['Heineken 0.0 (£1.20)', 'Beck’s Blue (£1.00)'] },
-      { name: 'Premium', min: 5, max: 15, brands: ['Seedlip (£22)', 'Lucky Saint (£2.50)', 'Lyre’s (£18)'] },
-      { name: 'Super-Premium', min: 15, max: 30, brands: ['Three Spirit (£25)', 'Monday Gin (£18)', 'Caleno (£15)'] },
-      { name: 'Ultra-Premium', min: 25, max: 50, brands: ['Aecorn Aperitifs (£15)', 'Everleaf (£20)'] },
+      { name: 'Value', min: 7, max: 12, brands: ['Beck’s Blue 12pk (£8)', 'Heineken 0.0 12pk (£10)', 'Bavaria 0.0 12pk (£8)'] },
+      { name: 'Standard', min: 12, max: 22, brands: ['Gordon’s 0.0% Gin (£14)', 'Tanqueray 0.0% Gin (£16)', 'Ceder’s Alt. Gin (£18)'] },
+      { name: 'Premium', min: 22, max: 26, brands: ['Lyre’s American Malt (£24)', 'Monday Gin (£24)', 'Ritual Zero Proof (£22)'] },
+      { name: 'Super-Premium', min: 26, max: 40, brands: ['Seedlip Spice 94 (£27)', 'Three Spirit Livener (£27)', 'Seedlip Garden 108 (£27)'] },
     ],
     avgOnTrade: 6.50,
-    insight: 'Zero duty = margin advantage. 75% purchases are first-time. Invest in sampling. Category grew 31% in 2025.',
+    insight: 'Zero duty = margin advantage. 75% purchases are first-time. Invest in sampling. Category grew 31% in 2025. Beer-format 12-packs (£7–12) and spirit-format bottles (£12–40) reflect two distinct positioning occasions.',
   },
   rtd: {
     tiers: [

@@ -1,3 +1,17 @@
+# Overnight Build Log — 30 September 2026
+
+## Session summary
+
+**Shipped:** PricePositioning Beer and No/Lo tier overhaul. Build clean (13.05s). Pushed to main as `3244f49`.
+
+1. **Beer — tier boundary fixes (3 issues):** Premium max lowered 3.5→3 to close overlap with Craft (min 3). Craft max lowered 6→5 to close overlap with Premium Craft (min 5). Camden Hells (£2.80) moved from Craft to Premium since it was 20p below the Craft floor. Craft now correctly holds BrewDog Hazy Jane (£3.50), Beavertown Neck Oil (£3.50), Thornbridge Jaipur (£3.30). Premium Craft: Verdant corrected £4.50→£5.25 (was below min of £5).
+
+2. **No/Lo — full tier rebuild (4 tiers, all brands wrong):** Old structure had critical errors: Heineken 0.0 (£1.20) listed in a tier with min:2; Seedlip (£22) in Premium with max:15; Aecorn Aperitifs (£15) and Everleaf (£20) in Ultra-Premium with min:25. Entirely rebuilt from brandData.js UK retail prices: Value = Beck's Blue/Heineken 0.0/Bavaria 0.0 12-packs (£8–10, min:7 max:12); Standard = Gordon's 0.0%/Tanqueray 0.0%/Ceder's bottles (£14–18, min:12 max:22); Premium = Lyre's/Monday Gin/Ritual Zero Proof bottles (£22–24, min:22 max:26); Super-Premium = Seedlip/Three Spirit bottles (£27, min:26 max:40). Insight updated to note the bimodal price structure (12-packs vs bottles).
+
+**Notes:** All prices sourced from brandData.js UK fields — no hallucinations. Build 13.05s, clean.
+
+---
+
 # Overnight Build Log — 29 September 2026
 
 ## Session summary

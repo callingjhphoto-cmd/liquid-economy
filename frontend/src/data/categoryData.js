@@ -3175,7 +3175,7 @@ export const CATEGORIES = [
       2022: {
         marketSize: '$13.2B',
         growth: '+8.2%',
-        growthDir: 'down',
+        growthDir: 'up',
         volumeCases: '13.5M',
         topMarkets: [
           {
@@ -3293,7 +3293,7 @@ export const CATEGORIES = [
       2021: {
         marketSize: '$12.2B',
         growth: '+18.5%',
-        growthDir: 'down',
+        growthDir: 'up',
         volumeCases: '13.1M',
         topMarkets: [
           {

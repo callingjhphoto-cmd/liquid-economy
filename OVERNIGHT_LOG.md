@@ -1,3 +1,17 @@
+# Overnight Build Log — 1 October 2026
+
+## Session summary
+
+**Shipped:** CategoryIntelligence data-quality fix — cognac growthDir bugs for 2022 and 2021. Build clean (12.80s). Pushed to main as `03356b1`.
+
+1. **growthDir audit across all 11 categories × 5 years (55 pairs):** Found 2 mismatches in cognac data. Year 2022 had `growth: '+8.2%'` with `growthDir: 'down'`; year 2021 had `growth: '+18.5%'` with `growthDir: 'down'`. Both corrected to `'up'`. These rendered a downward red arrow next to positive growth figures on the CategoryIntelligence cognac page.
+
+2. **Full data audit scope:** Verified all 55 growth/growthDir pairs across 11 categories and 5 years — no other mismatches. Confirmed all yearData blocks contain required fields (marketSize, growth, growthDir, volumeCases). Confirmed all channel splits (onTrade/offTrade/eCommerce/travelRetail) present per year. Confirmed all 55 channel sets sum to 100%. No JSX unicode violations found in any page. Tooltip styling (white on dark) consistent across all recharts instances.
+
+3. **No changes needed elsewhere:** BrandPricing renders 326 expressions from BRAND_DATABASE (all 326 have company, brand, expression, category, segment). VenueIntelligence: FIFTY_BEST_BARS has 50 × 5 = 250 entries across 2021–2025, LONDON_VENUES has 56 entries. companyData.js has 5-year financials for all companies. No raw € or £ chars in JSX text nodes. All chart axes have tickFormatter configured.
+
+---
+
 # Overnight Build Log — 30 September 2026
 
 ## Session summary

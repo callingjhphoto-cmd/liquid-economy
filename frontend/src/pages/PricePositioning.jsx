@@ -31,9 +31,9 @@ const PRICE_BENCHMARKS = {
   tequila: {
     tiers: [
       { name: 'Value', min: 15, max: 22, brands: ['Olmeca Blanco (£18)', 'Jose Cuervo (£20)'] },
-      { name: 'Premium', min: 25, max: 38, brands: ['Altos Plata (£26)', '1800 Silver (£28)', 'Casamigos (£38)'] },
-      { name: 'Super-Premium', min: 40, max: 65, brands: ['Patrón Silver (£45)', 'Don Julio Blanco (£42)', 'Clase Azul Plata (£60)'] },
-      { name: 'Ultra-Premium', min: 70, max: 200, brands: ['Don Julio 1942 (£125)', 'Patrón Gran Piedra (£160)', 'Clase Azul Añejo (£180)'] },
+      { name: 'Premium', min: 25, max: 38, brands: ['Altos Plata (£29)', '1800 Silver (£28)', 'Casamigos (£38)'] },
+      { name: 'Super-Premium', min: 40, max: 65, brands: ['Patrón Silver (£49)', 'Don Julio Blanco (£48)', 'Clase Azul Plata (£60)'] },
+      { name: 'Ultra-Premium', min: 70, max: 200, brands: ['Don Julio 1942 (£165)', 'Patrón Gran Piedra (£160)', 'Clase Azul Añejo (£180)'] },
     ],
     avgOnTrade: 9.50,
     insight: 'Super-premium tequila is the fastest-growing tier. Entry below £25 faces fierce competition from established value brands.',
@@ -51,8 +51,8 @@ const PRICE_BENCHMARKS = {
   gin: {
     tiers: [
       { name: 'Value', min: 12, max: 20, brands: ['Gordon’s (£14)', 'Beefeater (£18)'] },
-      { name: 'Premium', min: 22, max: 32, brands: ['Tanqueray (£22)', 'Bombay Sapphire (£20)', 'Sipsmith (£28)'] },
-      { name: 'Super-Premium', min: 28, max: 50, brands: ['Hendrick’s (£30)', 'The Botanist Islay (£35)', 'Gin Mare Capri (£40)', 'Monkey 47 (£38)', 'KI NO BI (£42)'] },
+      { name: 'Premium', min: 22, max: 27, brands: ['Tanqueray (£22)', 'Bombay Sapphire (£22)', 'Sipsmith (£25)'] },
+      { name: 'Super-Premium', min: 28, max: 50, brands: ['Hendrick\'s (£28)', 'The Botanist Islay (£30)', 'Gin Mare (£33)', 'Monkey 47 (£37)', 'KI NO BI (£47)'] },
       { name: 'Ultra-Premium', min: 55, max: 120, brands: ['Cambridge Distillery (£80)'] },
     ],
     avgOnTrade: 8.00,
@@ -61,9 +61,9 @@ const PRICE_BENCHMARKS = {
   whisky: {
     tiers: [
       { name: 'Value', min: 18, max: 25, brands: ['Famous Grouse (£20)', 'Bell’s (£18)', 'Grant’s (£19)'] },
-      { name: 'Premium', min: 25, max: 40, brands: ['Johnnie Walker Black (£30)', 'Glenfiddich 12 (£35)', 'Jameson (£25)', 'Monkey Shoulder (£28)'] },
-      { name: 'Super-Premium', min: 42, max: 80, brands: ['Macallan 12 (£48)', 'Oban 14 (£50)'] },
-      { name: 'Ultra-Premium', min: 85, max: 500, brands: ['Macallan 18 (£180)', 'JW Blue (£160)', 'Glenfiddich 21 (£140)'] },
+      { name: 'Premium', min: 25, max: 40, brands: ['Johnnie Walker Black (£32)', 'Jameson Black Barrel (£33)', 'Chivas Regal 12 (£27)', 'Monkey Shoulder (£24)'] },
+      { name: 'Super-Premium', min: 41, max: 85, brands: ['Glenfiddich 12 (£41)', 'Macallan 12 (£81)', 'Oban 14 (£50)'] },
+      { name: 'Ultra-Premium', min: 90, max: 500, brands: ['Macallan 18 (£304)', 'JW Blue (£168)', 'Glenfiddich 21 (£140)'] },
     ],
     avgOnTrade: 9.00,
     insight: 'Age statements still command premiums but NAS (No Age Statement) is growing. Scotch, Irish, Japanese, and American segments have different dynamics.',
@@ -80,8 +80,8 @@ const PRICE_BENCHMARKS = {
   },
   cognac: {
     tiers: [
-      { name: 'VS', min: 25, max: 35, brands: ['Hennessy VS (£32)', 'Martell VS (£26)', 'Courvoisier VS (£25)'] },
-      { name: 'VSOP', min: 35, max: 55, brands: ['Hennessy VSOP (£48)', 'Rémy Martin VSOP (£40)', 'Martell VSOP (£35)'] },
+      { name: 'VS', min: 25, max: 39, brands: ['Hennessy VS (£38)', 'Martell VS (£30)', 'Courvoisier VS (£25)'] },
+      { name: 'VSOP', min: 40, max: 60, brands: ['Hennessy VSOP (£48)', 'Rémy Martin VSOP (£46)', 'Martell VSOP (£39)'] },
       { name: 'XO', min: 90, max: 180, brands: ['Hennessy XO (£150)', 'Rémy Martin XO (£140)', 'Courvoisier XO (£90)'] },
       { name: 'Prestige', min: 200, max: 1000, brands: ['Hennessy Paradis (£500)', 'Rémy Martin Louis XIII (£2,500)', 'Martell L’Or (£300)'] },
     ],

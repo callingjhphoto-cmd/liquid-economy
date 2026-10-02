@@ -1,3 +1,17 @@
+# Overnight Build Log — 2 October 2026
+
+## Session summary
+
+**Shipped:** PricePositioning tier overlap fix + stale brand prices across gin, tequila, cognac, whisky. Build clean (14.92s). Pushed to main as `ee21655`.
+
+1. **Gin tier range overlap (critical bug):** Premium max was 32, Super-Premium min was 28 — `getTierForPrice` checks tiers in order so any price £28–£32 misclassified as Premium. Fixed Premium max 32→27 so tiers no longer overlap. Hendrick's (£28) now correctly classifies as Super-Premium.
+2. **Gin brand prices updated from brandData.js:** Bombay Sapphire £20→£22, Sipsmith £28→£25, Hendrick's £30→£28, Botanist £35→£30, Gin Mare £40→£33, Monkey 47 £38→£37. KI NO BI moved from Ultra-Premium (wrong grade) to Super-Premium at correct price £47.
+3. **Cognac VS/VSOP boundary:** VS max extended 35→39 so Hennessy VS (£38) classifies correctly as VS instead of VSOP. VSOP min raised to 40. Brand prices: Hennessy VS £32→£38, Martell VS £26→£30, Rémy Martin VSOP £40→£46, Martell VSOP £35→£39.
+4. **Tequila stale prices:** Patrón Silver £45→£49, Don Julio Blanco £42→£48, Altos Plata £26→£29, Don Julio 1942 £125→£165.
+5. **Whisky gap and stale prices:** Glenfiddich 12 (£41) fell in the gap between Premium max (40) and Super-Premium min (42) — moved to Super-Premium with min lowered to 41. Macallan 12 updated to £81 (was £48) and moved to Super-Premium; Macallan 18 updated to £304, JW Blue to £168. Replaced Jameson Original (£24, below Premium floor) with Jameson Black Barrel (£33).
+
+---
+
 # Overnight Build Log — 1 October 2026
 
 ## Session summary

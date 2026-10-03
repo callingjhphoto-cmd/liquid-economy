@@ -1,3 +1,30 @@
+# Overnight Build Log — 3 October 2026
+
+## Session summary
+
+**Shipped:** 3 PricePositioning data corrections — cognac Prestige tier max, Martell VSOP price, Whisky Premium brand list. Build clean (12.61s). Pushed to main as `ab19b4d`.
+
+1. **Cognac Prestige tier max corrected (1000→3500).** The tier listed Rémy Martin Louis XIII at £2,500, which exceeded the max of £1,000. brandData shows masterofmalt=£2,576 and TWE=£2,716 for Louis XIII — UK average £2,646. Updated display price to £2,650 and tier max to £3,500.
+
+2. **Cognac VSOP: Martell VSOP price corrected (£39→£42).** The Oct 2 session set VSOP tier minimum to £40 but left Martell VSOP at £39 — one pound below the tier floor. brandData Waitrose price is £42, which is the appropriate representative price for VSOP positioning.
+
+3. **Whisky Premium: Monkey Shoulder removed from brands list.** The Oct 2 session replaced Monkey Shoulder as the Premium anchor with Chivas Regal 12, but failed to remove Monkey Shoulder from the brands array. Monkey Shoulder's brandData average UK price is £24.45, below the Premium tier minimum of £25.
+
+**Audited (no action needed):**
+- All 11 CategoryIntelligence categories × 5 years: all 55 year-blocks present and complete (marketSize, growth, growthDir, volumeCases, topMarkets, channels). All growth/growthDir pairs consistent.
+- All channels data: all 55 year-blocks sum to ~100% within tolerance.
+- VenueIntelligence: 50 bars × 5 years confirmed (250 entries). LONDON_VENUES: 28 entries, all have name/type/area/accountType/estRevenue/knownBrands/parentCompanies.
+- BrandPricing: 326 entries across 14 categories; pricing logic correct (PRICING map correctly computes market averages from prices.uk/us/etc. objects).
+- JSX unicode: zero raw text node violations for £/€/° across all 36 pages.
+- Tooltip contentStyle: all Recharts Tooltip instances have dark background (#1e293b).
+- Chart axis labels: no unlabeled or un-styled axis issues found.
+- GeographicIntelligence: all 10 regions (us/uk/eu27/meafrica/china/india/japan/brazil/australia/seasia) have kpis/channels/trends.
+- SupplyChain data: 15 exports, no null values, no undefined values.
+- CompanyData: 14 companies with full financial/M&A data.
+- ScenarioData, reportBuilderData: structure clean.
+
+---
+
 # Overnight Build Log — 2 October 2026
 
 ## Session summary

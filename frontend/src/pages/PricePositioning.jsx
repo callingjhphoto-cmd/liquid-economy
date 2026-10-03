@@ -61,7 +61,7 @@ const PRICE_BENCHMARKS = {
   whisky: {
     tiers: [
       { name: 'Value', min: 18, max: 25, brands: ['Famous Grouse (£20)', 'Bell’s (£18)', 'Grant’s (£19)'] },
-      { name: 'Premium', min: 25, max: 40, brands: ['Johnnie Walker Black (£32)', 'Jameson Black Barrel (£33)', 'Chivas Regal 12 (£27)', 'Monkey Shoulder (£24)'] },
+      { name: 'Premium', min: 25, max: 40, brands: ['Johnnie Walker Black (£32)', 'Jameson Black Barrel (£33)', 'Chivas Regal 12 (£27)'] },
       { name: 'Super-Premium', min: 41, max: 85, brands: ['Glenfiddich 12 (£41)', 'Macallan 12 (£81)', 'Oban 14 (£50)'] },
       { name: 'Ultra-Premium', min: 90, max: 500, brands: ['Macallan 18 (£304)', 'JW Blue (£168)', 'Glenfiddich 21 (£140)'] },
     ],
@@ -81,9 +81,9 @@ const PRICE_BENCHMARKS = {
   cognac: {
     tiers: [
       { name: 'VS', min: 25, max: 39, brands: ['Hennessy VS (£38)', 'Martell VS (£30)', 'Courvoisier VS (£25)'] },
-      { name: 'VSOP', min: 40, max: 60, brands: ['Hennessy VSOP (£48)', 'Rémy Martin VSOP (£46)', 'Martell VSOP (£39)'] },
+      { name: 'VSOP', min: 40, max: 60, brands: ['Hennessy VSOP (£48)', 'Rémy Martin VSOP (£46)', 'Martell VSOP (£42)'] },
       { name: 'XO', min: 90, max: 180, brands: ['Hennessy XO (£150)', 'Rémy Martin XO (£140)', 'Courvoisier XO (£90)'] },
-      { name: 'Prestige', min: 200, max: 1000, brands: ['Hennessy Paradis (£500)', 'Rémy Martin Louis XIII (£2,500)', 'Martell L’Or (£300)'] },
+      { name: 'Prestige', min: 200, max: 3500, brands: ['Hennessy Paradis (£500)', 'Rémy Martin Louis XIII (£2,650)', "Martell L’Or (£300)"] },
     ],
     avgOnTrade: 12.00,
     insight: 'Big four houses dominate 85%+ of market. Estate/grower cognacs gaining interest from cocktail bartenders.',

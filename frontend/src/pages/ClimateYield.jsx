@@ -303,10 +303,10 @@ function ClimateChart({ region }) {
       <h3 className="font-display text-sm font-semibold text-navy mb-3">Climate Metrics (10-Year)</h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {[
-          { key: 'rainfall', label: 'Annual Rainfall (mm)', color: '#3b82f6' },
-          { key: 'avgTemp', label: 'Avg Temperature (°C)', color: '#ef4444', isLine: true },
-          { key: 'frostDays', label: 'Frost Days', color: '#06b6d4' },
-          { key: 'sunHours', label: 'Sunshine Hours', color: '#eab308' },
+          { key: 'rainfall', label: 'Annual Rainfall (mm)', unit: 'mm', color: '#3b82f6' },
+          { key: 'avgTemp', label: 'Avg Temperature (°C)', unit: '°C', color: '#ef4444', isLine: true },
+          { key: 'frostDays', label: 'Frost Days', unit: 'd', color: '#06b6d4' },
+          { key: 'sunHours', label: 'Sunshine Hours', unit: 'h', color: '#eab308' },
         ].map(m => (
           <div key={m.key}>
             <SectionLabel>{m.label}</SectionLabel>
@@ -315,14 +315,14 @@ function ClimateChart({ region }) {
                 {m.isLine ? (
                   <LineChart data={data} accessibilityLayer={true}>
                     <XAxis dataKey="year" tick={{ fontSize: 9, fill: '#9ca3af' }} />
-                    <YAxis tick={{ fontSize: 9, fill: '#9ca3af' }} domain={['auto', 'auto']} width={28} />
+                    <YAxis tick={{ fontSize: 9, fill: '#9ca3af' }} domain={['auto', 'auto']} width={32} tickFormatter={v => `${v}${m.unit}`} />
                     <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 10, color: '#f1f5f9' }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
                     <Line dataKey={m.key} stroke={m.color} strokeWidth={2} dot={{ r: 3 }} />
                   </LineChart>
                 ) : (
                   <BarChart data={data} accessibilityLayer={true}>
                     <XAxis dataKey="year" tick={{ fontSize: 9, fill: '#9ca3af' }} />
-                    <YAxis tick={{ fontSize: 9, fill: '#9ca3af' }} width={36} />
+                    <YAxis tick={{ fontSize: 9, fill: '#9ca3af' }} width={36} tickFormatter={v => `${v}${m.unit}`} />
                     <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 10, color: '#f1f5f9' }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
                     <Bar dataKey={m.key} fill={m.color} radius={[3, 3, 0, 0]} opacity={0.7} />
                   </BarChart>

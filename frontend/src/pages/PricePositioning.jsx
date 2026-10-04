@@ -130,8 +130,8 @@ const PRICE_BENCHMARKS = {
   },
   rtd: {
     tiers: [
-      { name: 'Value', min: 1.5, max: 2.5, brands: ['Smirnoff Ice (£1.80)', 'WKD (£1.50)'] },
-      { name: 'Premium', min: 2.5, max: 4, brands: ['White Claw (£2.50)', 'Gordon’s G&T (£2.20)', 'JD & Cola (£2.50)'] },
+      { name: 'Value', min: 1.5, max: 2.5, brands: ['Smirnoff Ice (£1.80)', 'WKD (£1.50)', "Gordon's G&T (£1.80)"] },
+      { name: 'Premium', min: 2.5, max: 4, brands: ['White Claw (£2.80)', 'JD & Cola (£2.50)', 'Kopparberg (£2.80)'] },
       { name: 'Super-Premium', min: 4, max: 6, brands: ['NIO Cocktails (£5)', 'Moth (£4.50)', 'Served (£4)'] },
       { name: 'Ultra-Premium', min: 6, max: 12, brands: ['On The Rocks (£6)', 'Tip Top (£7)'] },
     ],

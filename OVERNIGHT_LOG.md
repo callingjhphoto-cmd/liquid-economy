@@ -1,3 +1,23 @@
+# Overnight Build Log — 4 October 2026
+
+## Session summary
+
+**Shipped:** 2 fixes — RTD tier brand/price mismatch in PricePositioning, and missing axis tickFormatters on 4 ClimateYield charts. Build clean (19.88s). Pushed to main as `910769d`.
+
+1. **`frontend/src/pages/PricePositioning.jsx` — RTD Premium tier: Gordon's G&T removed, prices corrected.** Gordon's G&T (£2.20) was listed in the RTD Premium tier (min: £2.50, max: £4.00) despite its price being £0.30 below the tier floor. A brand in a tier's brand list that is priced below that tier's minimum creates a contradiction that could mislead users positioning their RTD at the Premium boundary. Fix: moved Gordon's G&T to Value tier at £1.80 (correct per-can Tesco/retail positioning). Replaced in Premium with Kopparberg (£2.80), a well-known UK cider-based RTD correctly within the Premium band. White Claw corrected from £2.50 to £2.80 (the realistic UK per-can price from multi-pack). Value tier now: Smirnoff Ice £1.80, WKD £1.50, Gordon's G&T £1.80. Premium tier now: White Claw £2.80, JD & Cola £2.50, Kopparberg £2.80. All four RTD tier brand/price pairs now fall within stated min/max bounds.
+
+2. **`frontend/src/pages/ClimateYield.jsx` — 4 chart YAxes now show unit labels.** The Climate Metrics (10-Year) section renders 4 small charts (Rainfall, Temperature, Frost Days, Sunshine Hours). All 4 YAxes were missing `tickFormatter` — axis ticks showed raw numbers like "12", "45", "900" with no unit context. Added a `unit` property to the metric map objects (`'mm'`, `'°C'`, `'d'`, `'h'`), then applied `tickFormatter={v => \`\${v}\${m.unit}\`}` to both the LineChart YAxis (temperature) and the BarChart YAxis (rainfall, frost days, sun hours). Temperature width widened from 28→32 to accommodate the `°C` suffix. Axis ticks now read "12°C", "450mm", "15d", "900h".
+
+**Audited (no action needed):**
+- All 14 RTD tier brand/price pairs (4 tiers × updated): all now within stated min/max bounds. Super-Premium and Ultra-Premium tiers were already correct.
+- ClimateYield 10-Year Yield History chart: YAxis shows raw values without unit — acceptable since yieldUnit is displayed as a text subtitle above the chart, and yieldUnit strings are too varied and long (e.g., "hl/ha (pure alcohol)") to use as axis formatters.
+- PricePositioning remaining tiers: all other categories (Tequila, Vodka, Gin, Whisky, Rum, Cognac, Champagne, Wine, Beer, No/Lo) confirmed — all brand/price pairs in tier lists fall within their stated min/max bounds.
+- categoryData.js: 55/55 growth/growthDir pairs consistent (0 mismatches), 55/55 channel blocks sum to 100 ±2%.
+- brandData.js: 326 entries confirmed, 14 categories, all entries have company/brand/expression/category/segment.
+- JSX unicode: no raw £/€/° text node violations across any page.
+
+---
+
 # Overnight Build Log — 3 October 2026
 
 ## Session summary

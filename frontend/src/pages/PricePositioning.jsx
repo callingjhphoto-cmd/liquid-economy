@@ -71,7 +71,7 @@ const PRICE_BENCHMARKS = {
   rum: {
     tiers: [
       { name: 'Value', min: 14, max: 20, brands: ['Bacardi Carta Blanca (£16)', 'Captain Morgan (£16)'] },
-      { name: 'Premium', min: 22, max: 35, brands: ['Havana Club 7 (£25)', 'Kraken (£25)', 'Plantation 5 (£28)'] },
+      { name: 'Premium', min: 22, max: 34, brands: ['Havana Club 7 (£25)', 'Kraken (£25)', 'Plantation 5 (£28)'] },
       { name: 'Super-Premium', min: 35, max: 60, brands: ['Diplomatico Reserva (£38)', 'Appleton Estate 12 (£35)', 'Foursquare (£45)'] },
       { name: 'Ultra-Premium', min: 65, max: 200, brands: ['Ron Zacapa XO (£80)', 'Diplomatico SFE (£70)', 'Appleton 21 (£100)'] },
     ],
@@ -103,7 +103,7 @@ const PRICE_BENCHMARKS = {
       { name: 'Value', min: 5, max: 8, brands: ['Blossom Hill (£5.50)', 'Hardy’s (£6)', 'Echo Falls (£5.50)'] },
       { name: 'Premium', min: 8, max: 15, brands: ['Casillero del Diablo (£8)', 'Meiomi (£15)', 'Kim Crawford (£12)'] },
       { name: 'Super-Premium', min: 15, max: 30, brands: ['Cloudy Bay (£20)', 'Chablis Premier Cru (£25)', 'Nyetimber (£28)'] },
-      { name: 'Fine Wine', min: 30, max: 200, brands: ['Opus One (£200)', 'Dom Pérignon Rosé (£300)', 'Château Margaux (£400+)'] },
+      { name: 'Fine Wine', min: 30, max: 500, brands: ['Opus One (£200)', 'Penfolds Grange (£235)', 'Château Margaux (£400)'] },
     ],
     avgOnTrade: 9.00,
     insight: 'UK duty increase (Aug 2023) hit wine hard. English sparkling is the standout growth story at 30% CAGR.',

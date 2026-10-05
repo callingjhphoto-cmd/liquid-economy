@@ -1,3 +1,28 @@
+# Overnight Build Log — 5 October 2026
+
+## Session summary
+
+**Shipped:** 3 fixes — Rum Premium/Super-Premium tier boundary overlap in PricePositioning, Wine Fine Wine tier max and wrong category brand, and two `sunHours` key typos in ClimateYield data. Build clean (13.14s). Pushed to main as `377db82`.
+
+1. **`frontend/src/pages/PricePositioning.jsx` — Rum Premium tier max corrected 35→34.** Premium max=35 and Super-Premium min=35 created a shared boundary. The `getTierForPrice` function iterates tiers in order and returns on first match — so any user entering £35 for rum received "Premium", yet "Appleton Estate 12 (£35)" was listed in the Super-Premium section. The display contradiction would cause users to see their product positioned in Premium while the Super-Premium competitors list showed Appleton at the same price. Fix: Premium max changed 35→34. Now £35 matches Super-Premium (35 >= 35 && 35 <= 60). All remaining Premium brands (Havana Club 7 £25, Kraken £25, Plantation 5 £28) remain within the corrected 22–34 range.
+
+2. **`frontend/src/pages/PricePositioning.jsx` — Wine Fine Wine tier max corrected 200→500, Dom Pérignon Rosé replaced.** The Fine Wine tier listed three brands: Opus One (£200, borderline), Dom Pérignon Rosé (£300, wrong category — champagne not wine), and Château Margaux (£400+, 100% above max). If a user entered any price above £200 for wine, their price indicator rendered at >100% offset from the right edge of the tier bar — visually broken. Also "Dom Pérignon Rosé" is a champagne brand, not a still wine, making it an incorrect example for the Wine category. Fixes: max extended 200→500 to cover actual brand price range; Dom Pérignon Rosé removed and replaced with "Penfolds Grange (£235)" (verified from brandData.js); "Château Margaux (£400+)" changed to "Château Margaux (£400)" to remove the "+" notation.
+
+3. **`frontend/src/data/climate_fragments/climate_yield_botanicals_fragment.js` — Two `sunHorus` key typos corrected.** Two entries had the field named `sunHorus` instead of `sunHours`: portugal-cork 2018 (value: 2900 — the Sunshine Hours bar chart would show an undefined data gap for that year, appearing as a missing bar) and iran-saffron 2025 (null, less visible but same schema inconsistency). Both corrected to `sunHours`. Verified: full audit of all 57 climate regions × all historical years shows zero undefined sunHours, rainfall, avgTemp, frostDays, or yield fields in non-2025 rows.
+
+**Audited (no action needed):**
+- CategoryIntelligence: all 11 categories × 5 years re-confirmed — 0 growthDir mismatches, 0 channel sum deviations.
+- All PricePositioning tiers (all 11 categories): brand/price pairs now all within stated tier min/max bounds.
+- ClimateYield: 57 regions × all years — 0 undefined field keys outside of intentional 2025 null rows.
+- Companies.jsx: financials chart confirmed — operatingMargin/netIncome fields present and rendered with null-safe checks.
+- SupplyChain data: 15 exports, no null values.
+- Geographic data: 10 regions all confirmed with kpis (object) and channels (object with onTrade/offTrade/eCommerce/travelRetail).
+- BrandData: 326 entries, 14 categories, all have company/brand/expression/category/segment/prices.
+- JSX unicode: zero raw text node violations confirmed across all 36 pages.
+- Tooltip styling: all Recharts Tooltip instances have dark background (#1e293b) with white label/item styles.
+
+---
+
 # Overnight Build Log — 4 October 2026
 
 ## Session summary

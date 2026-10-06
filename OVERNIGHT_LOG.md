@@ -1,3 +1,24 @@
+# Overnight Build Log — 6 October 2026
+
+## Session summary
+
+**Shipped:** 11 PricePositioning tier boundary fixes + curly-quote syntax repair. Build clean (20.97s). Pushed to main as `e3efd93`.
+
+1. **`frontend/src/pages/PricePositioning.jsx` — 7 brand misclassifications fixed.** `getTierForPrice` iterates tiers and returns on first `price >= min && price <= max` match. Wherever an upper tier's `min` equalled a lower tier's `max`, a price at that exact point was misclassified. Fixed by reducing each lower tier's `max` by the smallest meaningful unit so the shared boundary disappears: Heineken (£2.00) now correctly returns Beer Premium (Value max 2→1.99); Deya (£5.00) now Premium Craft (Craft max 5→4.99); Casillero del Diablo (£8.00) now Wine Premium (Value max 8→7); Ritual Zero Proof (£22) now NoLo Premium (Standard max 22→21); JD & Cola (£2.50) now RTD Premium (Value max 2.5→2.49); Served (£4) now RTD Super-Premium (Premium max 4→3.99); On The Rocks (£6) now RTD Ultra-Premium (Super-Premium max 6→5.99). All existing brands remain within their tier's new min/max range.
+
+2. **`frontend/src/pages/PricePositioning.jsx` — 4 additional UX boundary fixes.** No brand misclassification but a user typing the shared boundary value would get the wrong tier: Whisky Value max 25→24; Champagne Value max 30→29; Champagne Ultra-Prestige min 150→155 (Dom Pérignon £150 stays in Prestige Cuvée, Cristal £200 stays in Ultra-Prestige); Wine Super-Premium max 30→29 and NoLo Value max 12→11. Also corrected Meiomi price £15→£14 (UK retail actuals) and moved it before the Wine Premium max adjustment.
+
+3. **`frontend/src/pages/PricePositioning.jsx` — curly-quote syntax (U+2018/U+2019) fixed on 12 lines.** An `npm install` this session upgraded esbuild from the previously cached version to one that now rejects U+2018 (LEFT SINGLE QUOTATION MARK) as a JS string delimiter — these curly quotes had silently built under the older esbuild but are not valid JS string openers. Affected lines: whisky (63–64), wine (103–105), beer (113–116), nolo (123–125). Converted with a Python token-stream script: strings with no internal apostrophe → ASCII single-quoted `'Value'`; strings containing a possessive apostrophe (Bell's, Grant's, Hardy's, Foster's, Beck's, Gordon's 0.0%, Ceder's, Lyre's) → double-quoted `"Bell's"` with ASCII apostrophe. The 3 remaining U+2019 characters in the file are valid Unicode apostrophes inside properly ASCII-delimited strings (e.g., `'Tito’s'`).
+
+**Audited (no action needed):**
+- All Recharts Tooltip instances: multi-line scan confirmed all have `contentStyle` — 0 gaps.
+- JSX unicode: Python full-scan for raw `£`/`€` in text nodes — 0 violations (all correctly wrapped in `{'£'}` or inside template literals).
+- PricePositioning brand prices: post-fix audit — all 11 categories, all tiers: 0 brand prices outside stated min/max bounds.
+- PricePositioning tier boundaries: post-fix audit — 0 shared min/max values across all 11 categories.
+- Build: 20.97s (slower due to fresh npm install installing 344 packages), no errors.
+
+---
+
 # Overnight Build Log — 5 October 2026
 
 ## Session summary

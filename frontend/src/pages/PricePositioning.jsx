@@ -60,7 +60,7 @@ const PRICE_BENCHMARKS = {
   },
   whisky: {
     tiers: [
-      { name: 'Value', min: 18, max: 25, brands: ['Famous Grouse (£20)', 'Bell’s (£18)', 'Grant’s (£19)'] },
+      { name: 'Value', min: 18, max: 24, brands: ['Famous Grouse (£20)', "Bell's (£18)", "Grant's (£19)"] },
       { name: 'Premium', min: 25, max: 40, brands: ['Johnnie Walker Black (£32)', 'Jameson Black Barrel (£33)', 'Chivas Regal 12 (£27)'] },
       { name: 'Super-Premium', min: 41, max: 85, brands: ['Glenfiddich 12 (£41)', 'Macallan 12 (£81)', 'Oban 14 (£50)'] },
       { name: 'Ultra-Premium', min: 90, max: 500, brands: ['Macallan 18 (£304)', 'JW Blue (£168)', 'Glenfiddich 21 (£140)'] },
@@ -90,19 +90,19 @@ const PRICE_BENCHMARKS = {
   },
   champagne: {
     tiers: [
-      { name: 'Value', min: 20, max: 30, brands: ['Nicolas Feuillatte (£22)', 'Piper-Heidsieck (£28)'] },
+      { name: 'Value', min: 20, max: 29, brands: ['Nicolas Feuillatte (£22)', 'Piper-Heidsieck (£28)'] },
       { name: 'Premium', min: 30, max: 50, brands: ['Moët Impérial (£35)', 'Veuve Clicquot (£40)', 'Laurent-Perrier (£35)', 'Bollinger (£40)'] },
       { name: 'Prestige Cuvée', min: 55, max: 150, brands: ['Dom Pérignon (£150)', 'Krug Grande Cuvée (£140)'] },
-      { name: 'Ultra-Prestige', min: 150, max: 500, brands: ['Cristal (£200)', 'Salon (£400)', 'Krug Clos du Mesnil (£500)'] },
+      { name: 'Ultra-Prestige', min: 155, max: 500, brands: ['Cristal (£200)', 'Salon (£400)', 'Krug Clos du Mesnil (£500)'] },
     ],
     avgOnTrade: 14.00,
     insight: 'Grower Champagnes (RM) trending in top bars and restaurants. Gift occasions drive 40% of sales.',
   },
   wine: {
     tiers: [
-      { name: 'Value', min: 5, max: 8, brands: ['Blossom Hill (£5.50)', 'Hardy’s (£6)', 'Echo Falls (£5.50)'] },
-      { name: 'Premium', min: 8, max: 15, brands: ['Casillero del Diablo (£8)', 'Meiomi (£15)', 'Kim Crawford (£12)'] },
-      { name: 'Super-Premium', min: 15, max: 30, brands: ['Cloudy Bay (£20)', 'Chablis Premier Cru (£25)', 'Nyetimber (£28)'] },
+      { name: 'Value', min: 5, max: 7, brands: ['Blossom Hill (£5.50)', "Hardy's (£6)", 'Echo Falls (£5.50)'] },
+      { name: 'Premium', min: 8, max: 14, brands: ['Casillero del Diablo (£8)', 'Kim Crawford (£12)', 'Meiomi (£14)'] },
+      { name: 'Super-Premium', min: 15, max: 29, brands: ['Cloudy Bay (£20)', 'Chablis Premier Cru (£25)', 'Nyetimber (£28)'] },
       { name: 'Fine Wine', min: 30, max: 500, brands: ['Opus One (£200)', 'Penfolds Grange (£235)', 'Château Margaux (£400)'] },
     ],
     avgOnTrade: 9.00,
@@ -110,9 +110,9 @@ const PRICE_BENCHMARKS = {
   },
   beer: {
     tiers: [
-      { name: 'Value', min: 1, max: 2, brands: ['Carling (£1.20)', 'Foster’s (£1.30)'] },
-      { name: 'Premium', min: 2, max: 3, brands: ['Peroni (£2.20)', 'Heineken (£2.00)', 'Estrella Damm (£2.50)', 'Camden Hells (£2.80)'] },
-      { name: 'Craft', min: 3, max: 5, brands: ['BrewDog Hazy Jane (£3.50)', 'Beavertown Neck Oil (£3.50)', 'Thornbridge Jaipur (£3.30)'] },
+      { name: 'Value', min: 1, max: 1.99, brands: ['Carling (£1.20)', "Foster's (£1.30)"] },
+      { name: 'Premium', min: 2, max: 2.99, brands: ['Peroni (£2.20)', 'Heineken (£2.00)', 'Estrella Damm (£2.50)', 'Camden Hells (£2.80)'] },
+      { name: 'Craft', min: 3, max: 4.99, brands: ['BrewDog Hazy Jane (£3.50)', 'Beavertown Neck Oil (£3.50)', 'Thornbridge Jaipur (£3.30)'] },
       { name: 'Premium Craft', min: 5, max: 15, brands: ['Cloudwater (£5.50)', 'Deya (£5.00)', 'Verdant (£5.25)'] },
     ],
     avgOnTrade: 6.00,
@@ -120,9 +120,9 @@ const PRICE_BENCHMARKS = {
   },
   nolo: {
     tiers: [
-      { name: 'Value', min: 7, max: 12, brands: ['Beck’s Blue 12pk (£8)', 'Heineken 0.0 12pk (£10)', 'Bavaria 0.0 12pk (£8)'] },
-      { name: 'Standard', min: 12, max: 22, brands: ['Gordon’s 0.0% Gin (£14)', 'Tanqueray 0.0% Gin (£16)', 'Ceder’s Alt. Gin (£18)'] },
-      { name: 'Premium', min: 22, max: 26, brands: ['Lyre’s American Malt (£24)', 'Monday Gin (£24)', 'Ritual Zero Proof (£22)'] },
+      { name: 'Value', min: 7, max: 11, brands: ["Beck's Blue 12pk (£8)", 'Heineken 0.0 12pk (£10)', 'Bavaria 0.0 12pk (£8)'] },
+      { name: 'Standard', min: 12, max: 21, brands: ["Gordon's 0.0% Gin (£14)", 'Tanqueray 0.0% Gin (£16)', "Ceder's Alt. Gin (£18)"] },
+      { name: 'Premium', min: 22, max: 26, brands: ["Lyre's American Malt (£24)", 'Monday Gin (£24)', 'Ritual Zero Proof (£22)'] },
       { name: 'Super-Premium', min: 26, max: 40, brands: ['Seedlip Spice 94 (£27)', 'Three Spirit Livener (£27)', 'Seedlip Garden 108 (£27)'] },
     ],
     avgOnTrade: 6.50,
@@ -130,9 +130,9 @@ const PRICE_BENCHMARKS = {
   },
   rtd: {
     tiers: [
-      { name: 'Value', min: 1.5, max: 2.5, brands: ['Smirnoff Ice (£1.80)', 'WKD (£1.50)', "Gordon's G&T (£1.80)"] },
-      { name: 'Premium', min: 2.5, max: 4, brands: ['White Claw (£2.80)', 'JD & Cola (£2.50)', 'Kopparberg (£2.80)'] },
-      { name: 'Super-Premium', min: 4, max: 6, brands: ['NIO Cocktails (£5)', 'Moth (£4.50)', 'Served (£4)'] },
+      { name: 'Value', min: 1.5, max: 2.49, brands: ['Smirnoff Ice (£1.80)', 'WKD (£1.50)', "Gordon's G&T (£1.80)"] },
+      { name: 'Premium', min: 2.5, max: 3.99, brands: ['White Claw (£2.80)', 'JD & Cola (£2.50)', 'Kopparberg (£2.80)'] },
+      { name: 'Super-Premium', min: 4, max: 5.99, brands: ['NIO Cocktails (£5)', 'Moth (£4.50)', 'Served (£4)'] },
       { name: 'Ultra-Premium', min: 6, max: 12, brands: ['On The Rocks (£6)', 'Tip Top (£7)'] },
     ],
     avgOnTrade: 8.00,

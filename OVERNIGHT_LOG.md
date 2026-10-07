@@ -1,3 +1,19 @@
+# Overnight Build Log — 7 October 2026
+
+## Session summary
+
+**Shipped:** 1 data typo fix in GLASS_SUPPLIERS. Build clean (12.37s). Pushed to main.
+
+1. **`frontend/src/data/supplyChainData.js` — Constellation spelling corrected.** GLASS_SUPPLIERS entry had `'Constelation (Screwcap)'` (missing one 'l'). Fixed to `'Constellation (Screwcap)'`. This is the Australian aluminium screwcap supplier with 18% market share.
+
+**Audited (no action needed):**
+- Full codebase audit: CategoryIntelligence (11 categories × 5 years), BrandPricing (326 entries), VenueIntelligence (28 London profiles + 250 bar entries), all Recharts Tooltip/YAxis instances, JSX unicode violations, DataFreshness components on all 25 pages — all clean, 0 issues found.
+- Climate data fragments (5 files): all fields correctly camelCased (`avgTemp`, `frostDays`, `sunHours`) — prior report was a false alarm from case-insensitive grep.
+- Companies, SupplyChain, Geographic, ReportBuilder pages: charts, null guards, tickFormatters — all clean.
+- Build: 12.37s, no errors.
+
+---
+
 # Overnight Build Log — 6 October 2026
 
 ## Session summary

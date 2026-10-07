@@ -150,7 +150,7 @@ export const GLASS_SUPPLIERS = [
 export const CLOSURE_SUPPLIERS = [
   { name: 'Amorim (Cork)', hq: 'Portugal', product: 'Natural cork stoppers', marketShare: 38, leadTime: '8-10 weeks', quality: 'Variable — ~3% defect rate' },
   { name: 'Nomacorc (Synthetic)', hq: 'France', product: 'Synthetic screw closures', marketShare: 22, leadTime: '6-8 weeks', quality: 'Consistent — <1% defect' },
-  { name: 'Constelation (Screwcap)', hq: 'Australia', product: 'Aluminium screwcaps', marketShare: 18, leadTime: '8-10 weeks', quality: 'Premium for fine wine' },
+  { name: 'Constellation (Screwcap)', hq: 'Australia', product: 'Aluminium screwcaps', marketShare: 18, leadTime: '8-10 weeks', quality: 'Premium for fine wine' },
   { name: 'Hemet (Crown Caps)', hq: 'Czech Republic', product: 'Beer crown caps', marketShare: 12, leadTime: '6-8 weeks', quality: 'Commodity standard' },
 ]
 

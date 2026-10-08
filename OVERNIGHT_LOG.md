@@ -1,3 +1,25 @@
+# Overnight Build Log — 8 October 2026
+
+## Session summary
+
+**Shipped:** 2 World's 50 Best Bar rank corrections in LONDON_VENUES. Build clean (16.45s). Recovered 3 orphaned commits from prior detached-HEAD sessions. Pushed to main.
+
+1. **`frontend/src/data/venueData.js` — Tayēr + Elementary fiftyBest corrected [2,4,8,2,5] → [2,2,8,4,5].** The 2022 and 2024 entries were transposed. The bar's actual W50B history is: 2021 #2, 2022 #2, 2023 #8, 2024 #4, 2025 #5. Confirmed by cross-referencing against the FIFTY_BEST_BARS data in the same file. The VenueIntelligence page renders the fiftyBest array as year-tagged rank chips (green for top-10, blue otherwise) — the swap would show 2022 as #4 and 2024 as #2, contradicting the authoritative list.
+
+2. **`frontend/src/data/venueData.js` — Lyaness fiftyBest corrected [null,null,null,38,null] → [].** Lyaness does not appear in the FIFTY_BEST_BARS 2024 ranking; rank 38 in 2024 is Moebius Milano. The phantom rank caused the VenueIntelligence card to display a "50 Best: 1x" badge with the wrong year and rank. Empty array suppresses the badge entirely since `.some(r => r)` returns false.
+
+**Also recovered:** Prior sessions committed in detached HEAD state — 3 commits (e3efd93, 4c424ea, 2ee591d) were orphaned from main. Cherry-picked all 3 onto main before tonight's commit so nothing from Oct 6-7 is lost.
+
+**Audited (no action needed):**
+- All 8 LONDON_VENUES entries with fiftyBest arrays: cross-referenced against FIFTY_BEST_BARS for all 5 years — 6 correct, 2 fixed above.
+- FIFTY_BEST_BARS: 50 entries per year confirmed (250 total across 2021–2025).
+- LONDON_VENUES: 28 entries confirmed.
+- All 43 Recharts chart instances: accessibilityLayer present on all. All Tooltip instances: contentStyle with dark bg confirmed.
+- JSX text nodes: 0 raw unicode violations (£/€/°) in pages.
+- Build: 16.45s, no errors.
+
+---
+
 # Overnight Build Log — 7 October 2026
 
 ## Session summary

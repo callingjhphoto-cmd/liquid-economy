@@ -1,3 +1,24 @@
+# Overnight Build Log — 9 October 2026
+
+## Session summary
+
+**Shipped:** Comprehensive data-quality audit across all major codebase dimensions — zero issues found. Recovered 5 orphaned commits (Oct 6–8) from detached-HEAD sessions and pushed them to main for the first time. Build clean (15.50s).
+
+1. **Recovered orphaned commits (e3efd93, 4c424ea, 2ee591d, 81ba6af, 4fa6694).** Same root cause as Oct 8: overnight sessions commit in detached HEAD state, so the commits exist locally but never land on refs/heads/main. Cherry-picked all 5 onto main so Oct 6–8 work (PricePositioning tier fixes, Constellation spelling, W50B rank corrections) is finally in the remote.
+
+2. **Full audit — all clean.** Checked: (a) 326 brand entries in brandData.js, distribution confirmed, BrandPricing sparkData metadata matches; (b) all 11 × 5 = 55 category/year growthDir pairs in categoryData.js; (c) all 5 SEASONALITY_PROFILES in DepletionForecasting.jsx sum to exactly 12.00; (d) all PRICE_BENCHMARKS tier boundaries and brand placements in PricePositioning.jsx; (e) FIFTY_BEST_BARS 50 entries per year × 5 years; (f) all 28 LONDON_VENUES fiftyBest cross-references; (g) 0 raw unicode (£/€/°) violations in JSX text nodes; (h) all Recharts chart instances have accessibilityLayer; (i) all Tooltip instances use dark contentStyle.
+
+**Audited (no action needed):**
+- brandData.js: 326 expressions across 14 categories; BrandPricing metadata sparkData current.
+- categoryData.js: 55 growthDir/growth-sign pairs all consistent.
+- DepletionForecasting.jsx: 5 seasonality profiles all sum to 12.00.
+- PricePositioning.jsx: all tier boundaries non-overlapping, all brands within tier bounds.
+- venueData.js: FIFTY_BEST_BARS 250 entries (50/year), LONDON_VENUES 28 entries, all cross-refs correct.
+- JSX unicode, accessibilityLayer, Tooltip dark theme: all clean.
+- Build: 15.50s, no errors.
+
+---
+
 # Overnight Build Log — 8 October 2026
 
 ## Session summary

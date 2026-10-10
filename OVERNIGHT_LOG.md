@@ -1,3 +1,19 @@
+# Overnight Build Log — 10 October 2026
+
+## Session summary
+
+**Shipped:** 2 bug fixes — JSX unicode violations in ClientProfile and a tier boundary overlap in PricePositioning. Build clean (21.30s).
+
+1. **`frontend/src/pages/ClientProfile.jsx` lines 823–824 — JSX text node apostrophe escapes.** Two bare U+2019 curly-apostrophe characters sat directly in JSX text content (between `<li>...</li>` tags), violating the platform unicode-escape rule. Replaced both with `{'’'}` expressions. Discovered by Python regex scan `>([^<>{}]*[\u0080-￿][^<>{}]*)<` across all JSX files.
+
+2. **`frontend/src/pages/PricePositioning.jsx` NoLo Premium tier — boundary overlap fix.** Premium tier had `max: 26` while Super-Premium had `min: 26`, creating an inclusive overlap at £26. Corrected Premium `max` to `25`; all three sample brands in that tier (Lyre's American Malt £24, Monday Gin £24, Ritual Zero Proof £22) sit safely within the new bound. This was the last remaining tier overlap after last week's session fixed the others.
+
+3. **Recovered detached-HEAD commits.** Session opened in detached HEAD again. Ran `git checkout main` then cherry-picked commit 3a2588a onto origin/main (remote already held the Oct 6–9 cherry-picks from a prior push).
+
+**Audited (no new issues):** GeographicIntelligence, SupplyChain, Companies, ReportBuilder pages — unicode chars in those files are in JS `{}` expressions, not bare JSX text, so no violations. Build: 21.30s, 0 errors.
+
+---
+
 # Overnight Build Log — 9 October 2026
 
 ## Session summary

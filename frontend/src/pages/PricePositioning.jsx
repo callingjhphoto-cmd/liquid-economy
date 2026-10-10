@@ -122,7 +122,7 @@ const PRICE_BENCHMARKS = {
     tiers: [
       { name: 'Value', min: 7, max: 11, brands: ["Beck's Blue 12pk (£8)", 'Heineken 0.0 12pk (£10)', 'Bavaria 0.0 12pk (£8)'] },
       { name: 'Standard', min: 12, max: 21, brands: ["Gordon's 0.0% Gin (£14)", 'Tanqueray 0.0% Gin (£16)', "Ceder's Alt. Gin (£18)"] },
-      { name: 'Premium', min: 22, max: 26, brands: ["Lyre's American Malt (£24)", 'Monday Gin (£24)', 'Ritual Zero Proof (£22)'] },
+      { name: 'Premium', min: 22, max: 25, brands: ["Lyre's American Malt (£24)", 'Monday Gin (£24)', 'Ritual Zero Proof (£22)'] },
       { name: 'Super-Premium', min: 26, max: 40, brands: ['Seedlip Spice 94 (£27)', 'Three Spirit Livener (£27)', 'Seedlip Garden 108 (£27)'] },
     ],
     avgOnTrade: 6.50,

@@ -28,7 +28,7 @@ function StepIndicator({ current }) {
     <div className="flex items-center gap-2 mb-6">
       {STEPS.map((step, i) => (
         <React.Fragment key={step.id}>
-          {i > 0 && <div className={`h-px flex-1 ${current > step.id ? 'bg-navy' : 'bg-gray-200'}`} />}
+          {i > 0 && <div className={`h-px flex-1 ${current >= step.id ? 'bg-navy' : 'bg-gray-200'}`} />}
           <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium ${current === step.id ? 'bg-navy text-white' : current > step.id ? 'bg-navy/10 text-navy' : 'bg-gray-100 text-gray-500'}`}>
             {current > step.id ? <Check size={12} /> : <step.icon size={12} />}
             <span className="hidden sm:inline">{step.label}</span>

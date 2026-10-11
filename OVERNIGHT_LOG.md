@@ -1,3 +1,27 @@
+# Overnight Build Log — 11 October 2026
+
+## Session summary
+
+**Shipped:** 1 rendering bug fix — MarketEntryWizard step-connector off-by-one. Build clean (15.15s).
+
+1. **`frontend/src/pages/MarketEntryWizard.jsx` line 31 — StepIndicator connector colour off-by-one.** The connector segment between steps was coloured with `current > step.id ? 'bg-navy' : 'bg-gray-200'`. Because the connector appears *before* the step it leads to, the condition must be `>=`, not `>`. With `>`, reaching step 2 left the connector between steps 1 and 2 gray even though step 1 was already complete. Same fault on the last connector when reaching step 3. Fixed to `current >= step.id`. (Bug found by subagent review of less-audited pages.)
+
+2. **Recovered 8 orphaned commits (e3efd93 → ef4fe80).** Same recurring detached-HEAD pattern: prior sessions committed in detached HEAD and the commits never landed on `refs/heads/main`. Cherry-picked all 8 onto main in chronological order — Oct 6 PricePositioning tier boundary fixes, Oct 7 Constellation spelling fix, Oct 8 W50B rank corrections, Oct 9 audit log, Oct 10 ClientProfile apostrophe escapes and NoLo tier boundary fix are now in the remote for the first time.
+
+**Audited (no new issues):**
+- All 11 CategoryIntelligence categories × 5 years: all 55 growthDir values consistent with growth sign. All 55 channel distributions sum to 100. ✓
+- All 326 brand expressions in BRAND_DATABASE: all have prices, category, segment fields. Price range £4–£4,025 all valid for segment. ✓
+- All 28 LONDON_VENUES: fiftyBest arrays cross-referenced against FIFTY_BEST_BARS — all correct (50 entries confirmed per year 2021–2025). All ranks in 1–50 range. ✓
+- PricePositioning.jsx tier boundaries: no overlaps across all 11 categories. All brand prices within tier bounds. ✓
+- All pages: 0 raw unicode in JSX text nodes, all Tooltip instances have dark contentStyle, all YAxis instances have tickFormatter. ✓
+- geographicData.js: all 10 region channel distributions sum to 100. ✓
+- companyData.js: all 14 geoRevenue distributions sum to 100. ✓
+- valuationsData.js: revenue multiples 2.2x–6.2x (realistic). ✓
+- ScenarioModeling, MarketEntryWizard, RegulatoryCompliance, Valuations, POSIntelligence, TradeShows, CampaignPlanner, CompetitorMonitor: all imports valid, no map/filter crashes, all charts have accessibilityLayer and dark Tooltips. ✓
+- Build: 15.15s, no errors.
+
+---
+
 # Overnight Build Log — 10 October 2026
 
 ## Session summary

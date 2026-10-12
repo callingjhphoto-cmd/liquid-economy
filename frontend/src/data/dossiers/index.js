@@ -1047,7 +1047,11 @@ export const DOSSIER_MANIFEST = [
     "breadcrumbParent": "categories",
     "synthesisProse": "**STRATEGIC PURPOSE:** This dossier provides comprehensive, data-driven insights into the global Bourbon whiskey market for Liquid, a drinks intelligence platform and creative agency. The objective is to identify untapped opportunities, critical vulnerabilities, and strategic pathways for brand owners (e.g., Pernod Ricard re Lillet) to maximize profitability and market share. This analysis will inform Liquid's pitch for integrated creative and analytics packages, highlighting 'what has been left",
     "brandsInCategory": [
-      "diageo_johnnie-walker"
+      "brown-forman_jack-daniel-s",
+      "brown-forman_woodford-reserve",
+      "diageo_bulleit",
+      "bacardi_angel-s-envy",
+      "campari-group_wild-turkey"
     ],
     "relatedSlugs": []
   },
@@ -1060,14 +1064,11 @@ export const DOSSIER_MANIFEST = [
     "breadcrumbParent": "categories",
     "synthesisProse": "This is the section a client buys. Everything below traces to the cited findings above — and where prior figures were wrong, the corrected, defensible versions are used.",
     "brandsInCategory": [
-      "campari-group_aperol",
-      "campari-group_campari",
-      "william-grant_hendricks",
       "diageo_tanqueray",
       "bacardi_bombay-sapphire",
+      "pernod-ricard_beefeater",
       "pernod-ricard_monkey-47",
-      "pernod-ricard_chivas-regal",
-      "pernod-ricard_jameson"
+      "campari-group_bulldog-gin"
     ],
     "relatedSlugs": []
   },
@@ -1104,13 +1105,11 @@ export const DOSSIER_MANIFEST = [
     "breadcrumbParent": "categories",
     "synthesisProse": "This is the costed angle of attack. Every recommendation below traces to a cited finding above.",
     "brandsInCategory": [
-      "bacardi_patron",
-      "diageo_don-julio",
-      "campari-group_aperol",
-      "campari-group_campari",
-      "diageo_tanqueray",
-      "bacardi_havana-club",
-      "bacardi_grey-goose"
+      "bacardi_bacardi-rum",
+      "campari-group_appleton-estate",
+      "diageo_captain-morgan",
+      "pernod-ricard_havana-club",
+      "campari-group_wray-nephew"
     ],
     "relatedSlugs": []
   },
@@ -1122,7 +1121,17 @@ export const DOSSIER_MANIFEST = [
     "synthesisVerifiedSourceCount": 0,
     "breadcrumbParent": "categories",
     "synthesisProse": "**STRATEGIC PURPOSE:** This dossier feeds Liquid — a drinks intelligence platform (Liquid Economy analytics) AND a creative agency (Liquid Agency). End-game: tell a brand/owner (e.g. Pernod Ricard re Lillet) 'here is what you have left on the table', then pitch+shoot+run the creative as a costed package with analytics. Always surface, with hard cited data: profitability pools, supply-chain choke points, geopolitical/tariff exposure (sized), white-space markets, format shifts (esp. RTDs and no/lo",
-    "brandsInCategory": [],
+    "brandsInCategory": [
+      "diageo_johnnie-walker",
+      "pernod-ricard_chivas-regal",
+      "pernod-ricard_ballantine-s",
+      "bacardi_dewar-s",
+      "pernod-ricard_the-glenlivet",
+      "lvmh-moet-hennessy_ardbeg",
+      "lvmh-moet-hennessy_glenmorangie",
+      "brown-forman_glenglassaugh",
+      "diageo_buchanan-s"
+    ],
     "relatedSlugs": []
   },
   {
@@ -1137,10 +1146,7 @@ export const DOSSIER_MANIFEST = [
       "bacardi_patron",
       "diageo_don-julio",
       "diageo_casamigos",
-      "tequila_jose-cuervo",
-      "tequila_avion",
-      "tequila_teremana",
-      "campari-group_campari"
+      "lvmh-moet-hennessy_volcan-de-mi-tierra"
     ],
     "relatedSlugs": [
       "group/campari-group",
@@ -1158,15 +1164,16 @@ export const DOSSIER_MANIFEST = [
     "breadcrumbParent": "categories",
     "synthesisProse": "This is the section a brand owner reads first and last. It lands the verified findings on the commercial questions: *where is the money left on the table, and how does Liquid go and get it?*",
     "brandsInCategory": [
-      "diageo_don-julio",
-      "diageo_casamigos",
-      "campari-group_campari",
-      "diageo_tanqueray",
       "diageo_johnnie-walker",
-      "william-grant_glenfiddich",
-      "edrington_macallan",
+      "pernod-ricard_chivas-regal",
+      "pernod-ricard_ballantine-s",
+      "bacardi_dewar-s",
       "pernod-ricard_jameson",
-      "brown-forman_jack-daniel-s"
+      "brown-forman_jack-daniel-s",
+      "brown-forman_woodford-reserve",
+      "campari-group_wild-turkey",
+      "lvmh-moet-hennessy_ardbeg",
+      "lvmh-moet-hennessy_glenmorangie"
     ],
     "relatedSlugs": []
   }

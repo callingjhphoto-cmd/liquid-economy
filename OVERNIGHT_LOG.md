@@ -1,3 +1,19 @@
+# Overnight Build Log — 12 October 2026
+
+## Session summary
+
+**Shipped:** Data quality fix — corrected `brandsInCategory` cross-links in 5 category dossiers. Build clean (14.61s). 1 commit pushed to origin/main (76cfa1c).
+
+1. **`frontend/src/data/dossiers/index.js` — brandsInCategory arrays had catastrophically wrong brands.** The `CategoryDossier` page renders a "Brands referenced" grid from `brandsInCategory`; wrong entries would show tequila brands under Rum, Scotch brands under Bourbon, aperitifs under Gin, and non-existent slugs causing silent 404s. Fixed 5 categories: (a) **Bourbon**: was `[johnnie-walker]` (Scotch); now 5 correct bourbon/American-whiskey slugs. (b) **Gin**: removed aperol, campari, chivas-regal, jameson, william-grant_hendricks (4 wrong-category, 1 missing from manifest); replaced with tanqueray + bombay-sapphire + beefeater + monkey-47 + bulldog-gin. (c) **Rum**: replaced entirely — all 7 existing brands were wrong category (patron, don-julio, aperol, campari, tanqueray, grey-goose) or non-existent slug (bacardi_havana-club); now bacardi-rum, appleton-estate, captain-morgan, havana-club, wray-nephew. (d) **Scotch**: was empty; now 9 Scotch brand slugs from the manifest. (e) **Whisky all-styles**: removed tequila, aperitif and gin brands plus 2 slugs not in manifest; now 10 whisky slugs. (f) **Tequila**: removed 3 slugs not in manifest + campari (wrong category); added volcan-de-mi-tierra.
+
+2. **Resolved recurring detached-HEAD push blocker.** Origin/main was 10 sessions behind (f82c43f, Oct 5) because every session commits in detached HEAD. Local cherry-pick recovery from the previous session had created duplicate-SHA commits. Resolved by resetting to origin/main and cherry-picking only the new commit cleanly — origin/main now current.
+
+**Audited (no new issues):**
+- `brown-forman_gin-mare.js`: Gin Mare ownership correctly attributed to Brown-Forman (acquired Nov 2022, $520M); content accurate and sourced. ✓
+- `brandsInCategory` slug integrity: all 5 corrected arrays verified against DOSSIER_MANIFEST before committing — every slug resolves. ✓
+
+---
+
 # Overnight Build Log — 11 October 2026
 
 ## Session summary

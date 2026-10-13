@@ -272,7 +272,7 @@ function YieldChart({ region }) {
           <ComposedChart data={data} margin={{ top: 5, right: 5, bottom: 5, left: 0 }} accessibilityLayer={true}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis dataKey="year" tick={{ fontSize: 10, fill: '#9ca3af' }} />
-            <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} domain={['auto', 'auto']} width={36} />
+            <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} domain={['auto', 'auto']} width={40} tickFormatter={v => v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v} />
             <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11, color: '#f1f5f9' }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
             <ReferenceLine y={region.avgYield} stroke="#C9A96E" strokeDasharray="5 5" label={{ value: '10yr Avg', position: 'right', fontSize: 9, fill: '#C9A96E' }} />
             <Bar dataKey="yield" name="Yield" radius={[4, 4, 0, 0]}>

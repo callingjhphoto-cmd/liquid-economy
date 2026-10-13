@@ -4619,7 +4619,7 @@ export const CATEGORIES = [
       2025: {
         marketSize: '$620B',
         growth: '+0.2%',
-        growthDir: 'up',
+        growthDir: 'flat',
         volumeCases: '1950M',
         topMarkets: [
           {
@@ -4738,7 +4738,7 @@ export const CATEGORIES = [
       2024: {
         marketSize: '$619B',
         growth: '+0.5%',
-        growthDir: 'up',
+        growthDir: 'flat',
         volumeCases: '1945M',
         topMarkets: [
           {

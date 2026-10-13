@@ -1,3 +1,30 @@
+# Overnight Build Log — 13 October 2026
+
+## Session summary
+
+**Shipped:** 3 fixes — 2 `growthDir` data errors in Beer category (2024 and 2025) corrected from `'up'` to `'flat'`, plus a `tickFormatter` added to the ClimateYield 10-Year Yield History YAxis. Build clean (12.52s). 1 commit pushed to origin/main.
+
+1. **`frontend/src/data/categoryData.js` — Beer 2025 `growthDir` corrected `'up'` → `'flat'`.** Beer 2025 growth is `+0.2%`, which is effectively flat. A `growthDir: 'up'` caused the CategoryIntelligence MetricCard to show a green upward arrow, misleadingly presenting near-zero growth as momentum. The platform convention is: `growthDir: 'up'` only when `growth > +0.5%`. Beer 2025 at +0.2% maps to `'flat'` (gray horizontal bar). The beer category trajectory text already states "growth has dramatically slowed from 4.5% in 2021 to just 0.2% in 2025", so this corrects the mismatch between text and indicator.
+
+2. **`frontend/src/data/categoryData.js` — Beer 2024 `growthDir` corrected `'up'` → `'flat'`.** Same issue: Beer 2024 growth is `+0.5%`, which sits exactly at the platform's `>'flat'` threshold — not above it. Corrected to `'flat'`. These were the only 2 `growthDir` inconsistencies across all 55 category × year entries (found by automated scan of all top-level yearData blocks).
+
+3. **`frontend/src/pages/ClimateYield.jsx` line 275 — YAxis `tickFormatter` added.** The `YieldChart` component's 10-Year Yield History chart had a numeric YAxis without any `tickFormatter`. For regions with large yield values (e.g., grain spirits at 10,500 hl/ha, agave at 1,280M tonnes), unformatted numbers were crammed into the narrow 36px axis column. Added `tickFormatter={v => v >= 1000 ? \`\${(v / 1000).toFixed(0)}k\` : v}` and widened the axis to 40px. Small values (1.8 tonnes/acre) pass through unchanged; large values get compact notation (10500 → "10k", 4800 → "5k"). Also normalises with the other YAxis instances in the same file which all use tickFormatters.
+
+**Audited (no new issues):**
+- All 55 category × year `growthDir`/`growth` pairs: only 2 inconsistencies found (fixed above). ✓
+- DepletionForecasting seasonality profiles: all 5 sum to exactly 12.00. ✓
+- geographicData 10 channel distributions: all sum to 100. ✓
+- companyData 14 geoRevenue distributions: all sum to 100. ✓
+- All 324 BRAND_DATABASE entries: all have company, brand, category, segment; all prices in valid range £4.75–£4,130. ✓
+- Dossier manifest: all 78 slugs have matching content files (0 missing, 0 orphaned). ✓
+- BrandHealth: 15 entries, all scores 0–85. ✓
+- All Tooltips: 1 custom content renderer (CocktailDetail RadarChart) — correctly dark-styled inline. All others have contentStyle. ✓
+- All charts: accessibilityLayer present on all BarChart, LineChart, AreaChart, ComposedChart, ScatterChart, RadarChart instances. ✓
+- JSX unicode: 0 non-ASCII characters in JSX text nodes (pages + components). ✓
+- Build: 12.52s, 0 errors.
+
+---
+
 # Overnight Build Log — 12 October 2026
 
 ## Session summary

@@ -261,7 +261,7 @@ function FlavourModule({ flavour }) {
       </SectionHeader>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Card padding="p-5">
-          <p className="text-caption text-gray-400 mb-3 italic">Bartender-calibrated estimate -- not instrument-measured</p>
+          <p className="text-caption text-gray-400 mb-3 italic">Bartender-calibrated estimate {'—'} not instrument-measured</p>
           <div role="figure" aria-label="Chart: Flavour Profile radar — bartender-calibrated flavour dimensions">
           <ResponsiveContainer width="100%" height={260}>
             <RadarChart data={radarData} cx="50%" cy="50%" outerRadius={90} accessibilityLayer>
@@ -269,15 +269,12 @@ function FlavourModule({ flavour }) {
               <PolarAngleAxis dataKey="axis" tick={{ fontSize: 11, fill: '#475569' }} />
               <PolarRadiusAxis angle={30} domain={[0, 10]} tick={{ fontSize: 9, fill: '#94a3b8' }} tickCount={3} />
               <Radar name="Flavour" dataKey="value" stroke="#1e3a5f" fill="#1e3a5f" fillOpacity={0.35} />
-              <Tooltip content={({ active, payload }) => {
-                if (!active || !payload?.length) return null
-                return (
-                  <div style={{ background: '#1e293b', borderRadius: 8, padding: '8px 12px' }}>
-                    <p style={{ color: '#f1f5f9', fontWeight: 600, fontSize: 12 }}>{payload[0]?.payload?.axis}</p>
-                    <p style={{ color: '#94a3b8', fontSize: 11 }}>{payload[0]?.value} / 10</p>
-                  </div>
-                )
-              }} />
+              <Tooltip
+                contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11, color: '#f1f5f9' }}
+                labelStyle={{ color: '#f1f5f9', fontWeight: 600, fontSize: 12 }}
+                itemStyle={{ color: '#94a3b8' }}
+                formatter={(value) => [`${value} / 10`, '']}
+              />
             </RadarChart>
           </ResponsiveContainer>
           </div>

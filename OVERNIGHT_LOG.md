@@ -1,3 +1,21 @@
+# Overnight Build Log — 14 October 2026
+
+## Session summary
+
+**Shipped:** 2 fixes in `CocktailDetail.jsx` — standardised the RadarChart Tooltip to use `contentStyle`/`labelStyle`/`itemStyle` props (matching the dark tooltip pattern on all 14 other chart pages), and fixed a bare `--` double-dash in a JSX text node to `{'—'}` unicode escape. Build clean (12.09s). 1 commit pushed to origin/main.
+
+1. **`frontend/src/pages/CocktailDetail.jsx` line 272 — Tooltip standardised.** The flavour-profile RadarChart used a custom `content` render prop to produce dark tooltip styling, while every other chart page (14 of them) uses `contentStyle`/`labelStyle`/`itemStyle` props. Replaced the 9-line custom renderer with the standard 4-line prop pattern: `contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11, color: '#f1f5f9' }}` + `labelStyle` + `itemStyle`. Visual result is identical; pattern is now consistent across all chart pages.
+
+2. **`frontend/src/pages/CocktailDetail.jsx` line 264 — Double-dash `--` → `{'—'}`.** The disclaimer text `"Bartender-calibrated estimate -- not instrument-measured"` had a bare `--` double-dash in a JSX text node. House style requires em-dashes in JSX text to use unicode escape form `{'—'}` to prevent accidental HTML entity interpretation. Fixed to `{'—'}`.
+
+**Audited (no new issues):**
+- Recharts `<Tooltip>` instances across all 15 chart pages: all now have `contentStyle` (custom renderer in CocktailDetail was the only outlier, now fixed). ✓
+- `accessibilityLayer` prop: present on all 16 Recharts chart component instances across 16 files. ✓
+- Files with PageHeader but no DataFreshness: ClientProfile (uses inline `<p>` for freshness — data-driven, intentional) and ProfilesIndex (index page, not an intelligence data page). Neither requires the standard badge. ✓
+- TODO/FIXME scan: only occurrence is auto-generated dossier prose in `pernod-ricard_absolut.js` (not code). ✓
+
+---
+
 # Overnight Build Log — 13 October 2026
 
 ## Session summary

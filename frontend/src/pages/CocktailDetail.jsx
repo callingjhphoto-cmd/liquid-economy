@@ -134,7 +134,7 @@ function DemographicsModule({ data }) {
   const items = data[view] || []
   return (
     <section>
-      <SectionHeader size="lg" subtitle="Category-level consumer profile -- qualitative, cited from research files">
+      <SectionHeader size="lg" subtitle={'Category-level consumer profile — qualitative, cited from research files'}>
         Demographics
       </SectionHeader>
       <div className="flex gap-2 mb-4 flex-wrap">
@@ -187,7 +187,7 @@ function DemographicsModule({ data }) {
 function GeographicsModule({ data }) {
   return (
     <section>
-      <SectionHeader size="lg" subtitle="Key markets -- qualitative presence notes, no percentage breakdown">
+      <SectionHeader size="lg" subtitle={'Key markets — qualitative presence notes, no percentage breakdown'}>
         Key Markets
       </SectionHeader>
       <Card padding="p-5">
@@ -200,7 +200,7 @@ function GeographicsModule({ data }) {
           ))}
         </div>
         <p className="text-caption text-gray-400 mt-4 pt-3 border-t border-gray-100">
-          Market presence shown qualitatively. Per-cocktail market share data is not currently licensed -- percentage breakdowns removed.
+          Market presence shown qualitatively. Per-cocktail market share data is not currently licensed {'—'} percentage breakdowns removed.
         </p>
       </Card>
     </section>
@@ -211,7 +211,7 @@ function GeographicsModule({ data }) {
 function PersonasModule({ personas }) {
   return (
     <section>
-      <SectionHeader size="lg" subtitle="Drinker archetypes -- illustrative, not survey-validated">
+      <SectionHeader size="lg" subtitle={'Drinker archetypes — illustrative, not survey-validated'}>
         Drinker Profiles
       </SectionHeader>
       <div className="rounded-lg border border-amber-200 bg-amber-50 p-3 mb-4 flex gap-2">
@@ -262,7 +262,7 @@ function FlavourModule({ flavour }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Card padding="p-5">
           <p className="text-caption text-gray-400 mb-3 italic">Bartender-calibrated estimate {'—'} not instrument-measured</p>
-          <div role="figure" aria-label="Chart: Flavour Profile radar — bartender-calibrated flavour dimensions">
+          <div role="figure" aria-label={'Chart: Flavour Profile radar — bartender-calibrated flavour dimensions'}>
           <ResponsiveContainer width="100%" height={260}>
             <RadarChart data={radarData} cx="50%" cy="50%" outerRadius={90} accessibilityLayer>
               <PolarGrid stroke="#e2e8f0" />
@@ -379,12 +379,12 @@ function RecipeModule({ recipe }) {
 function CommercialModule({ commercial }) {
   return (
     <section>
-      <SectionHeader size="lg" subtitle="Estimated price range by channel -- volume trend removed pending licensed data">
+      <SectionHeader size="lg" subtitle={'Estimated price range by channel — volume trend removed pending licensed data'}>
         Commercial Context
       </SectionHeader>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Card padding="p-5">
-          <p className="text-label text-gray-500 uppercase tracking-wider mb-3">Price range (GBP) -- estimated</p>
+          <p className="text-label text-gray-500 uppercase tracking-wider mb-3">Price range (GBP) {'—'} estimated</p>
           <div className="space-y-3">
             <div className="flex items-center justify-between py-2 border-b border-gray-100">
               <span className="text-caption text-gray-600">At home (ingredients)</span>
@@ -418,7 +418,7 @@ function CommercialModule({ commercial }) {
 function AdjacentsModule({ adjacents }) {
   return (
     <section>
-      <SectionHeader size="lg" subtitle="Frequently cross-ordered -- click to explore">
+      <SectionHeader size="lg" subtitle={'Frequently cross-ordered — click to explore'}>
         Cross-Ordered With
       </SectionHeader>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -473,7 +473,7 @@ function MethodologyModule({ cocktail }) {
             <strong className="text-navy">What is sourced:</strong> Rankings from Drinks International Brand &amp; Bar Report 2025 and Difford's Guide Top 100 Cocktails 2025 are published primary sources. Category-level demographic data (age index, gender split, income profile) is drawn from IWSR-cited research held in Liquid Economy's internal intelligence files (spirits_01 through spirits_05). Any direct quotes from IWSR, CGA, SWA, CRT or DISCUS are identified in the note field of each demographic entry.
           </p>
           <p>
-            <strong className="text-navy">What is estimated:</strong> Price ranges are market estimates based on observed UK on-trade and retail pricing as of April 2026. The flavour radar is a bartender-calibrated qualitative estimate on a 0-10 scale -- it is not derived from sensory analysis instruments. These are defensible editorial judgements, not claimed data.
+            <strong className="text-navy">What is estimated:</strong> Price ranges are market estimates based on observed UK on-trade and retail pricing as of April 2026. The flavour radar is a bartender-calibrated qualitative estimate on a 0-10 scale {'—'} it is not derived from sensory analysis instruments. These are defensible editorial judgements, not claimed data.
           </p>
           <p>
             <strong className="text-navy">What is illustrative:</strong> Drinker persona archetypes are editorial constructs built from category-level research patterns. They are not derived from cocktail-level survey data and should not be presented to clients as primary research findings.

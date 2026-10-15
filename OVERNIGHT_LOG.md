@@ -1,3 +1,25 @@
+# Overnight Build Log — 15 October 2026
+
+## Session summary
+
+**Shipped:** 11 unicode-escape fixes across `CocktailDetail.jsx` (8 fixes) and `DepletionForecasting.jsx` (2 fixes). Build clean (13.18s). 1 commit pushed to origin/main (2669f4c).
+
+1. **`CocktailDetail.jsx` — 3 bare JSX text-node `--` → `{'—'}`.** Lines 203, 387, 476 each had an ASCII double-dash in a raw JSX text node (between `<p>` tags, not inside `{}`). House rule: bare non-ASCII and unescaped dashes in JSX text must use unicode escapes. All three fixed to `{'—'}`.
+
+2. **`CocktailDetail.jsx` — 5 `subtitle="…--…"` string attrs → `{'—'}` expression.** SectionHeader `subtitle` props on lines 137, 190, 214, 382, 421 all used bare ASCII `--` inside a JSX string attribute. Changed from `subtitle="…--…"` to `subtitle={'… — …'}` (JS string with unicode escape). Acceptance criterion: zero JSX attr string violations.
+
+3. **`CocktailDetail.jsx:265` and `DepletionForecasting.jsx:187,205` — 3 `aria-label` attrs with raw U+2014 → `{'—'}` expression.** `aria-label="Chart: … — …"` had the U+2014 em-dash character directly in a JSX HTML attribute string (not inside `{}`). Each changed to `aria-label={'Chart: … — …'}` (JS expression), making the encoding explicit.
+
+**Context — orphaned commits recovered:** The Oct 13 and Oct 14 sessions committed their fixes while in a detached HEAD state; those commits were already pushed to origin/main (711cfea, 38e1973, 408475a) but the local main branch wasn't updated. Tonight's session started from the correct origin/main HEAD (408475a) and applied only the new fix on top.
+
+**Audited (no new issues):**
+- All JSX text nodes in `CocktailDetail.jsx` and `DepletionForecasting.jsx`: 0 remaining bare `--` or raw non-ASCII. ✓
+- All `aria-label` attribute strings in scanned pages: 0 remaining raw U+2014 or other non-ASCII. ✓
+- `subtitle=` attribute strings in `CocktailDetail.jsx`: 0 remaining `--` or non-ASCII. ✓
+- Build: 13.18s, 0 errors.
+
+---
+
 # Overnight Build Log — 14 October 2026
 
 ## Session summary

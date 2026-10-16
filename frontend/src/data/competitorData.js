@@ -55,7 +55,7 @@ export const COMPETITOR_SETS = {
       { name: 'Captain Morgan', parent: 'Diageo', segment: 'Standard', avgPrice: '£16', marketShare: '22%' },
       { name: 'Havana Club', parent: 'Pernod Ricard', segment: 'Premium', avgPrice: '£20', marketShare: '8%' },
       { name: 'Kraken', parent: 'Proximo', segment: 'Premium', avgPrice: '£25', marketShare: '7%' },
-      { name: 'Diplomatico', parent: 'DUSA', segment: 'Super-Premium', avgPrice: '£38', marketShare: '3%' },
+      { name: 'Diplomatico', parent: 'Brown-Forman', segment: 'Super-Premium', avgPrice: '£38', marketShare: '3%' },
     ],
     recentMoves: [
       { date: '2025-10', brand: 'Bacardi', type: 'New Launch', detail: 'Bacardi Reserva Ocho Sherry Cask Finish. Premium aged rum range expansion.', impact: 'medium' },

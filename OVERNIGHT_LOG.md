@@ -1,3 +1,30 @@
+# Overnight Build Log — 16 October 2026
+
+## Session summary
+
+**Shipped:** 5 brand ownership corrections across `brandData.js` and `companyData.js` — Gin Mare and Diplomático ownership fixed for Brown-Forman and William Grant & Sons. Build clean (12.31s). 1 commit pushed to origin/main.
+
+1. **`frontend/src/data/brandData.js` line 386 — Gin Mare company corrected: `William Grant & Sons` → `Brown-Forman`.** Brown-Forman acquired Gin Mare from Global Premium Brands in November 2022 for $520M. The Sep 23 session had incorrectly reassigned it to William Grant & Sons; the Sep 24 session then removed it from Brown-Forman entirely while citing it as "fabricated". Both were errors. The brand dossier `brown-forman_gin-mare.js` cites the Brown-Forman press release directly. Fixed.
+
+2. **`frontend/src/data/brandData.js` line 681 — Diplomático company corrected: `DUSA` → `Brown-Forman`.** DUSA (Destilerías Unidas SA) is the Venezuelan distillery that produces Diplomático, not the brand owner. Brown-Forman acquired the Diplomático brand in January 2023 for $725M. The brand dossier `brown-forman_diplomatico.js` cites the Brown-Forman 10-K directly. Fixed.
+
+3. **`frontend/src/data/companyData.js` — William Grant & Sons: Gin Mare removed from keyBrands, categoryPresence, and maTimeline.** WG&S had incorrectly listed `"Gin Mare"` in `keyBrands`, had Gin share at 12 with both `Hendrick's` and `Gin Mare`, and had a fabricated 2022 acquisition entry `"Acquired Gin Mare (Mediterranean premium gin, Barcelona)"`. All three removed: `keyBrands` now 8 brands, Gin `categoryPresence` now Hendrick's only with share 10, 2022 Gin Mare entry deleted from maTimeline.
+
+4. **`frontend/src/data/companyData.js` — Brown-Forman: Gin Mare and Diplomático added to keyBrands, categoryPresence, and maTimeline.** Added both to `keyBrands` (now 10 brands). Added `"Gin": {"share": 1, "brands": ["Gin Mare"], "position": "Super-Premium Niche"}` and `"Super Premium Rum": {"share": 2, "brands": ["Diplomático"], "position": "Category Entry (2023)"}` to `categoryPresence`. Added both acquisition entries to `maTimeline` (2022 Gin Mare $520M, 2023 Diplomático $725M). Also updated `weaknessesForCompetitor` to remove the incorrect "No presence in... gin" and replace with accurate language about the $1.245B in new acquisitions still to be scaled.
+
+5. **`frontend/src/data/companyData.js` — Brown-Forman: `howToCompeteAgainst` updated.** The entry "Vodka, gin, Irish whiskey, mezcal, no/lo, premium RTD — Brown-Forman isn't competing in any of these growth segments" incorrectly listed gin. Updated to reflect Gin Mare's presence while highlighting remaining real gaps (vodka, Irish whiskey, no/lo).
+
+**Audited (no new issues):**
+- All 326 brand entries: `company` fields all now resolve to a real company (zero 'DUSA', 'Various', or misattributed entries). ✓
+- All 14 companies in companyData.js: `keyBrands` and `categoryPresence` cross-checked for consistency. ✓
+- All Recharts chart components: 0 missing `accessibilityLayer` (brace-aware check, confirmed no BarChart3 false positives). ✓
+- All Tooltip instances: brace-aware check — 0 missing `contentStyle`. ✓
+- All YAxis instances: brace-aware check — 0 missing `tickFormatter` on numeric axes. ✓
+- All JSX text nodes: 0 raw non-ASCII chars or bare `--` double-dashes. ✓
+- Build: 12.31s, 0 errors.
+
+---
+
 # Overnight Build Log — 15 October 2026
 
 ## Session summary

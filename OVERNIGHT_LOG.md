@@ -14,6 +14,10 @@
 
 5. **`frontend/src/data/companyData.js` — Brown-Forman: `howToCompeteAgainst` updated.** The entry "Vodka, gin, Irish whiskey, mezcal, no/lo, premium RTD — Brown-Forman isn't competing in any of these growth segments" incorrectly listed gin. Updated to reflect Gin Mare's presence while highlighting remaining real gaps (vodka, Irish whiskey, no/lo).
 
+**Also fixed (found during push cycle):**
+
+6. **`frontend/src/data/competitorData.js` line 58 — Diplomatico parent corrected: `DUSA` → `Brown-Forman`.** The Competitor Monitor rum set still had the old DUSA attribution. Fixed to match the corrected brandData/companyData. Build: 12.45s, 0 errors. 2 commits pushed to origin/main (1fb2b9d, e7e06dc).
+
 **Audited (no new issues):**
 - All 326 brand entries: `company` fields all now resolve to a real company (zero 'DUSA', 'Various', or misattributed entries). ✓
 - All 14 companies in companyData.js: `keyBrands` and `categoryPresence` cross-checked for consistency. ✓
@@ -21,7 +25,7 @@
 - All Tooltip instances: brace-aware check — 0 missing `contentStyle`. ✓
 - All YAxis instances: brace-aware check — 0 missing `tickFormatter` on numeric axes. ✓
 - All JSX text nodes: 0 raw non-ASCII chars or bare `--` double-dashes. ✓
-- Build: 12.31s, 0 errors.
+- Build: 12.45s, 0 errors.
 
 ---
 

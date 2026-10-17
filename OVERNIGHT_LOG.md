@@ -1,3 +1,17 @@
+# Overnight Build Log — 17 October 2026
+
+## Session summary
+
+**Shipped:** Data quality fix — corrected Admiral Nelson's Spiced Rum parent company attribution. Build clean (13.80s). 1 commit pushed to origin/main.
+
+1. **`frontend/src/data/brandData.js` line 705 — Admiral Nelson's Spiced Rum misattributed to Sazerac.** Sazerac is a bourbon-focused company (Buffalo Trace, Blanton's, Fireball); Admiral Nelson's is a Heaven Hill brand, consistent with three other Heaven Hill entries already correct in the same file: Elijah Craig (l.631), Evan Williams (l.640), Burnett's Vodka (l.318). Changed `company: 'Sazerac'` → `company: 'Heaven Hill'`.
+
+2. **Full audit pass across all priority areas — no additional issues found.** CategoryIntelligence: all 55 year-blocks present (11 categories × 5 years), growthDir values all consistent with growth sign. BrandPricing: all 326 brand entries have required fields; brand count metadata (38 verified, 326 total, +25.4% growth) correct. VenueIntelligence: 250 FIFTY_BEST_BARS entries (50 per year × 5 years) and 28 LONDON_VENUES confirmed. Tooltip styling: all chart Tooltips have dark `contentStyle`. Unicode: no bare £/€/°/— in JSX text nodes.
+
+3. **Session also audited:** competitorData.js (5 categories, all brand-to-parent attributions correct), geographicData.js (10 REGIONS and 10 REGION_DATA entries, all matching), companyData.js (14 top-level company entries, all correct).
+
+---
+
 # Overnight Build Log — 16 October 2026
 
 ## Session summary

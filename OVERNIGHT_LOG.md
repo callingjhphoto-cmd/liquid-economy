@@ -1,3 +1,15 @@
+# Overnight Build Log — 18 October 2026
+
+## Session summary
+
+**Shipped:** Bug fix — company cross-page navigation now correctly highlights LVMH Wines & Spirits, Edrington Group, and Sazerac Company when linked from VenueIntelligence or SupplyChain. Build clean (13.79s). 1 commit pushed to origin/main (f755b83).
+
+1. **`frontend/src/pages/Companies.jsx` — company slug alias resolution.** VenueIntelligence `parentCompanies` arrays and SupplyChain `alert.company` fields use short names (`'LVMH'`, `'Edrington'`, `'Sazerac'`). These were slugified to `'lvmh'`, `'edrington'`, `'sazerac'` and passed as `?company=` query params. The Companies page matched these against full slugs derived from companyData.js names (`'lvmh-wines-spirits'`, `'edrington-group'`, `'sazerac-company'`), so no company card was ever expanded or scrolled to. Fixed by adding `COMPANY_SLUG_ALIASES` map and normalizing the raw URL param in an IIFE before it touches any expand/scroll/highlight logic.
+
+2. **Full audit pass — no additional issues found.** CategoryIntelligence: all 55 year-blocks (11 × 5 years, 2021–2025) confirmed; growthDir values all consistent with growth sign at category level (earlier false positives traced to market-level `growth:` fields mismatched by overly broad regex). BrandPricing: 326 BRAND_DATABASE entries, all required fields present. VenueIntelligence: 250 FIFTY_BEST_BARS entries (confirmed via `rank:` field count), 28 LONDON_VENUES confirmed. Tooltips: all instances have `contentStyle` (brace-aware multi-line parser, 0 missing). JSX text nodes: 0 non-ASCII chars outside `{}` across all 38 pages. growthDir: brace-precise re-audit shows all 55 year-blocks correct. CompanyData cross-ref: 14 companies in companyData, 112 unique companies referenced in brandData — scope mismatch is intentional (companyData covers top 14 only). Edrington/LVMH/Sazerac short-name mismatch is display-only in most pages (BrandHealth parent text, competitorData labels) and only a navigation bug in Companies deep-link — fixed above.
+
+---
+
 # Overnight Build Log — 17 October 2026
 
 ## Session summary

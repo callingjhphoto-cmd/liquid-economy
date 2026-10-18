@@ -37,6 +37,13 @@ const parseRevenue = (str) => {
 
 const slugify = (name) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
 
+// Short-name aliases used in venueData/supplyChainData → full companyData slugs
+const COMPANY_SLUG_ALIASES = {
+  'lvmh': 'lvmh-wines-spirits',
+  'edrington': 'edrington-group',
+  'sazerac': 'sazerac-company',
+}
+
 const THREAT_COLORS = {
   high: 'bg-red-50 text-red-700 border-red-200',
   medium: 'bg-amber-50 text-amber-700 border-amber-200',
@@ -830,8 +837,12 @@ export default function Companies() {
   const [filterRegion, setFilterRegion] = useState('all')
   const [filterRevenue, setFilterRevenue] = useState('all')
 
-  // URL param highlighting
-  const highlightedCompany = searchParams.get('company')
+  // URL param highlighting — resolve short-name aliases (e.g. 'lvmh' → 'lvmh-wines-spirits')
+  const highlightedCompany = (() => {
+    const raw = searchParams.get('company')
+    if (!raw) return null
+    return COMPANY_SLUG_ALIASES[raw] ?? raw
+  })()
 
   // Auto-expand and scroll to deep-linked company
   useEffect(() => {

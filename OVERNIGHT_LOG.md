@@ -1,3 +1,17 @@
+# Overnight Build Log — 19 October 2026
+
+## Session summary
+
+**Shipped:** Two bug fixes — Beer category MetricCard now shows correct green up-arrow for 2024/2025 near-flat growth, and MetricCard component now handles `direction='flat'` gracefully with grey Minus icon instead of red TrendingDown. Build clean (13.79s). 1 commit pushed to origin/main (56b7db8).
+
+1. **`frontend/src/data/categoryData.js` — Beer growthDir mismatch.** Beer 2025 (`growth: '+0.2%'`) and Beer 2024 (`growth: '+0.5%'`) both had `growthDir: 'flat'`. `MetricCard` has no `'flat'` branch and falls through to `isUp = false`, which applies red colour and `TrendingDown` icon. Both years were displaying a misleading red down-arrow despite positive YoY growth. Fixed both to `growthDir: 'up'`. Audit confirmed these were the only two `'flat'` values in all 55 category year-blocks.
+
+2. **`frontend/src/components/ui/MetricCard.jsx` — flat direction support.** Added explicit `'flat'` case to both `MetricCard` and `MetricInline` exports. `direction='flat'` now shows a grey `Minus` icon with neutral grey colour text, rather than falling to the red TrendingDown path. Imported `Minus` from lucide-react. Defensive fix prevents future data bugs from producing misleading red indicators for zero-growth metrics.
+
+3. **Full audit pass — all data confirmed clean.** CategoryIntelligence: 11 categories × 5 years all present, all required fields (marketSize, growth, growthDir, volumeCases) populated, zero growthDir inconsistencies remaining. VenueIntelligence: 250 FIFTY_BEST_BARS entries with ranks 1–50 intact per year, 28 LONDON_VENUES confirmed with all fields (name, type, area, estRevenue). BrandPricing: 326 BRAND_DATABASE entries across 14 categories. Geographic, SupplyChain, Companies, Reports: no JSX text node unicode violations, all chart tooltips have dark styling, all axis labels use `fill: '#9ca3af'`.
+
+---
+
 # Overnight Build Log — 18 October 2026
 
 ## Session summary

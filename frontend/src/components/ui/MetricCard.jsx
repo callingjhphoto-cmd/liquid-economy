@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { TrendingUp, TrendingDown, Copy, Check } from 'lucide-react'
+import { TrendingUp, TrendingDown, Minus, Copy, Check } from 'lucide-react'
 import { AreaChart, Area, ResponsiveContainer } from 'recharts'
 
 /**
@@ -19,10 +19,11 @@ export function MetricCard({
   className = '',
 }) {
   const [copied, setCopied] = useState(false)
+  const isFlat = direction === 'flat'
   const isUp = direction === 'up'
-  const changeColor = isUp ? 'text-emerald-600' : 'text-red-500'
-  const TrendIcon = isUp ? TrendingUp : TrendingDown
-  const sparkColor = isUp ? '#059669' : '#DC2626'
+  const changeColor = isUp ? 'text-emerald-600' : isFlat ? 'text-gray-500' : 'text-red-500'
+  const TrendIcon = isUp ? TrendingUp : isFlat ? Minus : TrendingDown
+  const sparkColor = isUp ? '#059669' : isFlat ? '#9CA3AF' : '#DC2626'
 
   const handleCopy = (e) => {
     e.stopPropagation()
@@ -97,13 +98,14 @@ export function MetricCard({
  */
 export function MetricInline({ label, value, change, direction = 'up' }) {
   const isUp = direction === 'up'
+  const isFlat = direction === 'flat'
   return (
     <div className="flex items-center justify-between py-2">
       <span className="text-sm text-gray-600">{label}</span>
       <div className="flex items-center gap-2">
         <span className="text-sm font-semibold text-navy">{value}</span>
         {change && (
-          <span className={`text-xs font-medium ${isUp ? 'text-emerald-600' : 'text-red-500'}`}>
+          <span className={`text-xs font-medium ${isUp ? 'text-emerald-600' : isFlat ? 'text-gray-500' : 'text-red-500'}`}>
             {change}
           </span>
         )}

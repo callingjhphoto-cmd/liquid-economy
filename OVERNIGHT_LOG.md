@@ -1,3 +1,15 @@
+# Overnight Build Log — 20 October 2026
+
+## Session summary
+
+**Shipped:** Data integrity fix — Command Centre CATEGORY_SNAPSHOT growth rates now match authoritative 2025 values in categoryData.js. Build clean (15.43s). 1 commit pushed to origin/main (24c8941).
+
+1. **`frontend/src/data/commandCentreData.js` — 6 stale CATEGORY_SNAPSHOT growth values corrected.** Full cross-audit of all 11 CATEGORY_SNAPSHOT entries against 2025 categoryData.js source found 6 mismatches: Vodka (-0.8% → -1.2%), Whisky (+4.2% → +2.8%), Rum (+3.1% → +4.5%), Champagne & Sparkling (+2.8% → +2.1%), Wine Still (-1.2% → -1.8%), Beer & Craft (+1.4% → +0.2%). All 5 unchanged values (Tequila, Gin, Cognac, No/Low Alcohol, RTD) were already correct. The Command Centre KPI dashboard now shows consistent figures with all other pages.
+
+2. **Full audit pass — all other data areas confirmed clean.** CategoryIntelligence: all 55 year-blocks clean, no new issues. VenueIntelligence: 250 FIFTY_BEST_BARS, 28 LONDON_VENUES — counts confirmed. BrandPricing: 326 entries clean. competitorData: 5 category sets with correct brand-parent attributions.
+
+---
+
 # Overnight Build Log — 19 October 2026
 
 ## Session summary

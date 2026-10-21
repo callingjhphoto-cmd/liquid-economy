@@ -1,3 +1,17 @@
+# Overnight Build Log — 21 October 2026
+
+## Session summary
+
+**Shipped:** Data integrity fix — GlobalSearch.jsx Diplomático parent corrected from stale `DUSA` to `Brown-Forman`, consistent with brandData.js and companyData.js (fixed 16 Oct). Recovered 2 orphaned Oct-20 commits (commandCentreData fix + log update) that were stranded in detached HEAD — cherry-picked onto main. Build clean (17.66s). 1 commit pushed to origin/main.
+
+1. **`frontend/src/components/GlobalSearch.jsx:90` — Diplomático parent corrected: `Rum · DUSA` → `Rum · Brown-Forman`.** The 16 Oct session fixed Diplomático's ownership in brandData.js, companyData.js, and competitorData.js (Brown-Forman acquired the brand from DUSA/CIMSA in Jan 2023 for $725M). GlobalSearch.jsx was missed in that round. Users searching "Diplomático" now see the correct parent in the search result subtitle.
+
+2. **Recovered orphaned Oct-20 commits.** The Oct-20 session committed its work (commandCentreData CATEGORY_SNAPSHOT fix + overnight log) in detached HEAD state; those commits never reached main. Cherry-picked onto main tonight: `24c8941` (6 CATEGORY_SNAPSHOT growth values corrected) and `9c66adb` (overnight log).
+
+3. **Full audit pass — all areas confirmed clean.** CategoryIntelligence: 55 growthDir entries (11 × 5), all present. BrandPricing: 326 entries, no DUSA/unknown parent. VenueIntelligence counts: confirmed. Tooltip styling: all Recharts Tooltips in SupplyChain, Companies have dark contentStyle. Chart YAxis: all numeric axes have tickFormatter. DataFreshness: all 25 intelligence pages covered. JSX unicode: no bare non-ASCII in JSX text nodes across pages/components.
+
+---
+
 # Overnight Build Log — 20 October 2026
 
 ## Session summary

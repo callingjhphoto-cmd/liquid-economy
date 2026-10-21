@@ -87,7 +87,7 @@ const BRANDS = [
   { type: 'brand', label: 'Bacardi', sub: 'Rum · Bacardi', path: '/pricing', keywords: ['bacardi', 'rum', 'carta blanca', 'ocho'] },
   { type: 'brand', label: 'Havana Club', sub: 'Rum · Pernod Ricard', path: '/pricing', keywords: ['havana club', 'pernod ricard', 'rum', 'cuban'] },
   { type: 'brand', label: 'Ron Zacapa', sub: 'Rum · Diageo', path: '/pricing', keywords: ['ron zacapa', 'diageo', 'rum', 'guatemalan', 'centenario'] },
-  { type: 'brand', label: 'Diplomático', sub: 'Rum · DUSA', path: '/pricing', keywords: ['diplomatico', 'rum', 'venezuelan', 'reserva exclusiva'] },
+  { type: 'brand', label: 'Diplomático', sub: 'Rum · Brown-Forman', path: '/pricing', keywords: ['diplomatico', 'rum', 'venezuelan', 'reserva exclusiva'] },
   { type: 'brand', label: 'Appleton Estate', sub: 'Rum · Campari', path: '/pricing', keywords: ['appleton', 'campari', 'rum', 'jamaican'] },
   // Cognac
   { type: 'brand', label: 'Hennessy', sub: 'Cognac · LVMH', path: '/pricing', keywords: ['hennessy', 'lvmh', 'cognac', 'vs', 'vsop', 'xo'] },

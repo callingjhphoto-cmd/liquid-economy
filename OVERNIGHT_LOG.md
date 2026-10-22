@@ -1,3 +1,17 @@
+# Overnight Build Log — 22 October 2026
+
+## Session summary
+
+**Shipped:** Unicode escape sweep — replaced all bare non-ASCII characters with `\uXXXX` escape sequences across 48 JSX component and page files (747 replacements). Eliminated all JSX text node Unicode violations per standing rule. Build clean at 18.89s. 1 commit pushed to origin/main (caba81f).
+
+1. **Unicode escape sweep across 48 JSX files.** Replaced `—` (—), `–` (–), `·` (·), `£` (£), `▲` (▲), `▼` (▼), `•` (•), `✓` (✓) and others with their `\uXXXX` equivalents in all non-comment lines. 747 total replacements across pages/ and components/. All characters now render identically but via explicit JS unicode escapes, consistent with the standing rule.
+
+2. **Merge conflict resolved in GlobalSearch.jsx.** Repo was in detached HEAD; stash+checkout revealed the Oct-21 Diplomático fix (`DUSA` → `Brown-Forman`) hadn't propagated to origin/main. Resolved the rebase conflict keeping the unicode-escaped + Brown-Forman version (correct on both counts). Rebased onto origin/main cleanly.
+
+3. **Remaining data/ file violations are out of scope.** 18,990 non-ASCII chars remain in `.js` data files (brand names like Patrón, Moët, price strings like £45). These are JavaScript string literals, not JSX text nodes — the standing rule doesn’t require escaping them, and doing so would risk corrupting brand names.
+
+---
+
 # Overnight Build Log — 21 October 2026
 
 ## Session summary

@@ -67,13 +67,13 @@ export default function PitchGenerator() {
     const grossMarginPct = Math.round(finTemplate.grossMargin * 100)
 
     const momentum = cagrNum >= 8
-      ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'EXPLOSIVE GROWTH', copy: `${catLabel} is growing at ${catData.cagr} CAGR — investor appetite for this category is at peak. Lead with market size and category tailwinds; the macro story almost writes itself.` }
+      ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'EXPLOSIVE GROWTH', copy: `${catLabel} is growing at ${catData.cagr} CAGR \u2014 investor appetite for this category is at peak. Lead with market size and category tailwinds; the macro story almost writes itself.` }
       : cagrNum >= 4
       ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'STEADY EXPANSION', copy: `${catLabel} at ${catData.cagr} CAGR is a proven growth market, not a speculative bet. Investors want clear differentiation and path to category leadership rather than macro alone.` }
-      : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'MATURE CATEGORY', copy: `${catLabel} at ${catData.cagr} CAGR means the market is established, not exploding. Your differentiation story and gross margin must carry the pitch — category tailwind alone won’t close the round.` }
+      : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'MATURE CATEGORY', copy: `${catLabel} at ${catData.cagr} CAGR means the market is established, not exploding. Your differentiation story and gross margin must carry the pitch \u2014 category tailwind alone won’t close the round.` }
 
     const stageSignal = fundingStage === 'preSeed'
-      ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'CONCEPT STAGE', copy: `Pre-seed investors fund people, not products. Lead with founder credentials and market insight. Revenue not expected — evidence of consumer demand (surveys, letters of intent) is your strongest asset.` }
+      ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'CONCEPT STAGE', copy: `Pre-seed investors fund people, not products. Lead with founder credentials and market insight. Revenue not expected \u2014 evidence of consumer demand (surveys, letters of intent) is your strongest asset.` }
       : fundingStage === 'seed'
       ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'VALIDATION STAGE', copy: `Seed investors want proof-of-market-fit: first sales, key account wins, and a repeatable acquisition cost. Your opening three pitch slides should answer “why now, why you, why this category.”` }
       : fundingStage === 'seriesA'
@@ -81,10 +81,10 @@ export default function PitchGenerator() {
       : { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'GROWTH & EXIT STAGE', copy: `Series B investors are buying a category leadership story and a credible exit path. Lead with international expansion potential, M&A comparables, and strategic acquirer interest. Financial rigour is assumed.` }
 
     const marginSignal = grossMarginPct >= 55
-      ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'STRONG MARGIN PROFILE', copy: `${grossMarginPct}% gross margin in the ${scenario} scenario is above-sector average. Highlight in your financials slide — premium spirits investors benchmark 50–55% as the floor for a credible premium brand.` }
+      ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'STRONG MARGIN PROFILE', copy: `${grossMarginPct}% gross margin in the ${scenario} scenario is above-sector average. Highlight in your financials slide \u2014 premium spirits investors benchmark 50\u201355% as the floor for a credible premium brand.` }
       : grossMarginPct >= 45
-      ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'VIABLE MARGINS', copy: `${grossMarginPct}% gross margin meets the minimum threshold for a serious spirits investor conversation. Verify your RRP and channel mix are optimal — moving to hybrid or DTC model can add 5–10pts.` }
-      : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'MARGIN PRESSURE', copy: `${grossMarginPct}% gross margin is below the premium-spirits benchmark. Consider revising RRP upward or shifting distribution mix before presenting financials — this number will be the first flag investors raise.` }
+      ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'VIABLE MARGINS', copy: `${grossMarginPct}% gross margin meets the minimum threshold for a serious spirits investor conversation. Verify your RRP and channel mix are optimal \u2014 moving to hybrid or DTC model can add 5\u201310pts.` }
+      : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'MARGIN PRESSURE', copy: `${grossMarginPct}% gross margin is below the premium-spirits benchmark. Consider revising RRP upward or shifting distribution mix before presenting financials \u2014 this number will be the first flag investors raise.` }
 
     return [momentum, stageSignal, marginSignal]
   }, [catData, category, fundingStage, scenario, finTemplate])
@@ -101,7 +101,7 @@ export default function PitchGenerator() {
           <li>Complex regulatory landscapes across target markets</li>
           <li>Distribution gatekeepers favouring established brands</li>
           <li>High marketing costs with uncertain ROI</li>
-          <li>Limited access to market intelligence (IWSR reports cost {'£'}10,000+)</li>
+          <li>Limited access to market intelligence (IWSR reports cost {'\u00A3'}10,000+)</li>
         </ul>
         <p className="font-medium text-navy">New brands need a smarter approach to compete with the giants.</p>
       </div>,
@@ -140,10 +140,10 @@ export default function PitchGenerator() {
 
       // Product
       <div key="product" className="space-y-2 text-sm text-gray-700">
-        <p><strong>{name}</strong> is positioned at {'£'}{numRRP.toFixed(0)} RRP in the {targetMarket} market, targeting the premium segment.</p>
+        <p><strong>{name}</strong> is positioned at {'\u00A3'}{numRRP.toFixed(0)} RRP in the {targetMarket} market, targeting the premium segment.</p>
         <div className="p-3 bg-gray-50 rounded-lg">
           <div className="text-xs font-semibold text-navy mb-1">Positioning</div>
-          <p>At {'£'}{numRRP.toFixed(0)}, {name} sits in the premium tier, competing with established brands while offering clear differentiation through [your unique proposition].</p>
+          <p>At {'\u00A3'}{numRRP.toFixed(0)}, {name} sits in the premium tier, competing with established brands while offering clear differentiation through [your unique proposition].</p>
         </div>
         <p className="italic text-gray-500">[Add: your liquid story, production method, unique ingredients, provenance narrative, packaging innovation]</p>
       </div>,
@@ -204,15 +204,15 @@ export default function PitchGenerator() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div className="text-center">
               <div className="text-xs text-gray-500">Year 1</div>
-              <div className="text-lg font-bold text-navy">{'£'}{yearlyRevenue.year1.toLocaleString()}</div>
+              <div className="text-lg font-bold text-navy">{'\u00A3'}{yearlyRevenue.year1.toLocaleString()}</div>
             </div>
             <div className="text-center">
               <div className="text-xs text-gray-500">Year 2</div>
-              <div className="text-lg font-bold text-navy">{'£'}{yearlyRevenue.year2.toLocaleString()}</div>
+              <div className="text-lg font-bold text-navy">{'\u00A3'}{yearlyRevenue.year2.toLocaleString()}</div>
             </div>
             <div className="text-center">
               <div className="text-xs text-gray-500">Year 3</div>
-              <div className="text-lg font-bold text-navy">{'£'}{yearlyRevenue.year3.toLocaleString()}</div>
+              <div className="text-lg font-bold text-navy">{'\u00A3'}{yearlyRevenue.year3.toLocaleString()}</div>
             </div>
           </div>
         </div>
@@ -238,15 +238,15 @@ export default function PitchGenerator() {
         <p className="italic text-gray-500">[Add your team members:]</p>
         <div className="space-y-2">
           <div className="p-3 bg-gray-50 rounded-lg">
-            <div className="font-medium text-navy">[Founder/CEO] {'—'} [Background]</div>
+            <div className="font-medium text-navy">[Founder/CEO] {'\u2014'} [Background]</div>
             <div className="text-xs text-gray-500">[Previous experience, industry connections, relevant skills]</div>
           </div>
           <div className="p-3 bg-gray-50 rounded-lg">
-            <div className="font-medium text-navy">[Co-Founder/COO] {'—'} [Background]</div>
+            <div className="font-medium text-navy">[Co-Founder/COO] {'\u2014'} [Background]</div>
             <div className="text-xs text-gray-500">[Operations, supply chain, distribution experience]</div>
           </div>
           <div className="p-3 bg-gray-50 rounded-lg">
-            <div className="font-medium text-navy">[Advisor] {'—'} [Background]</div>
+            <div className="font-medium text-navy">[Advisor] {'\u2014'} [Background]</div>
             <div className="text-xs text-gray-500">[Industry veteran, investor connections, brand-building track record]</div>
           </div>
         </div>
@@ -267,7 +267,7 @@ export default function PitchGenerator() {
             </div>
           </div>
           <div className="mt-2 text-xs text-gray-500">
-            <span className="font-medium">Stage:</span> {funding.stage} {'•'} <span className="font-medium">Typical investors:</span> {funding.typical}
+            <span className="font-medium">Stage:</span> {funding.stage} {'\u2022'} <span className="font-medium">Typical investors:</span> {funding.typical}
           </div>
         </div>
         <p className="italic text-gray-500">[Customise: your specific ask amount, use of funds breakdown, investor proposition]</p>
@@ -280,7 +280,7 @@ export default function PitchGenerator() {
   }, [brandName, category, targetMarket, numRRP, scenario, fundingStage, distModel, catData, finTemplate, funding, dist, yearlyRevenue])
 
   const handleCopy = () => {
-    const text = `${brandName || '[Your Brand]'} — Investor Pitch Outline\n\nCategory: ${category}\nMarket: ${targetMarket}\nRRP: £${numRRP}\nMarket Size: ${catData.globalMarketSize}\nCAGR: ${catData.cagr}\n\n${PITCH_SECTIONS.map((s, i) => `${i + 1}. ${s.title}`).join('\n')}\n\nGenerated by Liquid Economy Intelligence Platform`
+    const text = `${brandName || '[Your Brand]'} \u2014 Investor Pitch Outline\n\nCategory: ${category}\nMarket: ${targetMarket}\nRRP: \u00A3${numRRP}\nMarket Size: ${catData.globalMarketSize}\nCAGR: ${catData.cagr}\n\n${PITCH_SECTIONS.map((s, i) => `${i + 1}. ${s.title}`).join('\n')}\n\nGenerated by Liquid Economy Intelligence Platform`
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
@@ -316,7 +316,7 @@ export default function PitchGenerator() {
             <input id="pg-target-market" type="text" value={targetMarket} onChange={e => setTargetMarket(e.target.value)} placeholder="UK" className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm" />
           </div>
           <div>
-            <label htmlFor="pg-rrp" className="block text-xs font-semibold text-navy mb-1">RRP ({'£'})</label>
+            <label htmlFor="pg-rrp" className="block text-xs font-semibold text-navy mb-1">RRP ({'\u00A3'})</label>
             <input id="pg-rrp" type="number" value={rrp} onChange={e => setRrp(e.target.value)} placeholder="35" className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm" />
           </div>
           <div>
@@ -360,7 +360,7 @@ export default function PitchGenerator() {
             <Zap size={14} className="text-gold" />
           </div>
           <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
-          <span className="text-xs text-gray-400 ml-auto">Pitch signals {'·'} {category.charAt(0).toUpperCase() + category.slice(1)} {'·'} {fundingStage.replace(/([A-Z])/g, ' $1').trim()}</span>
+          <span className="text-xs text-gray-400 ml-auto">Pitch signals {'\u00B7'} {category.charAt(0).toUpperCase() + category.slice(1)} {'\u00B7'} {fundingStage.replace(/([A-Z])/g, ' $1').trim()}</span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           {[

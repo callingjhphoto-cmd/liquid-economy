@@ -10,10 +10,10 @@ import { ExternalLink } from 'lucide-react'
 import { Card, AccentCard, SectionHeader, Badge } from '../ui'
 
 const TIER_CONFIG = {
-  1: { label: 'Tier 1 — Global Syndicated Data', badgeVariant: 'gold', description: 'Enterprise syndicated research — $10k-200k/year. The sources every major producer cites in their annual report.' },
-  2: { label: 'Tier 2 — Specialist Trade Press', badgeVariant: 'blue', description: 'Trade publishers and specialist databases covering regulatory, M&A and distribution intelligence.' },
-  3: { label: 'Tier 3 — London Niche Specialists', badgeVariant: 'green', description: 'London-based consultancies with deep on-premise, luxury and consumer trend specialism.' },
-  4: { label: 'Tier 4 — Academic & Regulatory', badgeVariant: 'default', description: 'Public health bodies, industry associations and academic institutions providing population-level benchmarks.' },
+  1: { label: 'Tier 1 \u2014 Global Syndicated Data', badgeVariant: 'gold', description: 'Enterprise syndicated research \u2014 $10k-200k/year. The sources every major producer cites in their annual report.' },
+  2: { label: 'Tier 2 \u2014 Specialist Trade Press', badgeVariant: 'blue', description: 'Trade publishers and specialist databases covering regulatory, M&A and distribution intelligence.' },
+  3: { label: 'Tier 3 \u2014 London Niche Specialists', badgeVariant: 'green', description: 'London-based consultancies with deep on-premise, luxury and consumer trend specialism.' },
+  4: { label: 'Tier 4 \u2014 Academic & Regulatory', badgeVariant: 'default', description: 'Public health bodies, industry associations and academic institutions providing population-level benchmarks.' },
 }
 
 const ACCESS_LABELS = {
@@ -118,7 +118,7 @@ export default function SourcesAuthoritiesModule({ data }) {
           Aggregated from <span className="font-semibold">{total}+ authoritative sources</span> across global syndicated data, specialist trade press, niche London consultancies, and academic research. Every data point on this profile links to its primary source.
         </p>
         <p className="text-caption text-gray-500 mt-2">
-          Data freshness: Q1 2026 {'·'} Last sync: April 2026 {'·'} Updated quarterly
+          Data freshness: Q1 2026 {'\u00B7'} Last sync: April 2026 {'\u00B7'} Updated quarterly
         </p>
       </Card>
 

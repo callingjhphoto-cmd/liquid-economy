@@ -14,22 +14,22 @@ const liCatSet = new Set(TRADE_SHOWS.flatMap(s => s.mustAttendFor || []))
 const liCatCount = liCatSet.size
 
 const liH2Signal = liH2Count >= 6
-  ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'ACTIVE H2 CALENDAR', copy: `${liH2Count} events from July onwards — strong second-half pipeline for brand activations, new market launches, and distributor relationship-building.` }
+  ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'ACTIVE H2 CALENDAR', copy: `${liH2Count} events from July onwards \u2014 strong second-half pipeline for brand activations, new market launches, and distributor relationship-building.` }
   : liH2Count >= 4
-  ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'MODERATE H2 DENSITY', copy: `${liH2Count} events in the second half of the year. Selective attendance strategy recommended — prioritise by market and ROI tier.` }
+  ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'MODERATE H2 DENSITY', copy: `${liH2Count} events in the second half of the year. Selective attendance strategy recommended \u2014 prioritise by market and ROI tier.` }
   : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'LIGHT H2 CALENDAR', copy: `Only ${liH2Count} events from July onwards. Front-load activation and distributor meetings into H1 shows; supplementary digital engagement for H2.` }
 
 const liROISignal = liVeryHighROI >= 4
-  ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'MULTIPLE TOP-TIER EVENTS', copy: `${liVeryHighROI} events rated Very High ROI — strong return potential across the calendar. Budget for all four to maximise brand visibility and listing velocity.` }
+  ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'MULTIPLE TOP-TIER EVENTS', copy: `${liVeryHighROI} events rated Very High ROI \u2014 strong return potential across the calendar. Budget for all four to maximise brand visibility and listing velocity.` }
   : liVeryHighROI >= 2
   ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'STRONG ROI OPTIONS', copy: `${liVeryHighROI} Very High ROI events identified. Anchor your spend here and supplement with targeted category shows to extend reach.` }
-  : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'LIMITED TOP-ROI SHOWS', copy: `${liVeryHighROI} Very High ROI event${liVeryHighROI === 1 ? '' : 's'} in the calendar. Evaluate High ROI events carefully — cost-per-contact metrics become critical at this density.` }
+  : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'LIMITED TOP-ROI SHOWS', copy: `${liVeryHighROI} Very High ROI event${liVeryHighROI === 1 ? '' : 's'} in the calendar. Evaluate High ROI events carefully \u2014 cost-per-contact metrics become critical at this density.` }
 
 const liCatSignal = liCatCount >= 10
-  ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'FULL CATEGORY REPRESENTATION', copy: `${liCatCount} spirit categories covered across the event calendar — every major drinks segment has at least one dedicated or relevant show.` }
+  ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'FULL CATEGORY REPRESENTATION', copy: `${liCatCount} spirit categories covered across the event calendar \u2014 every major drinks segment has at least one dedicated or relevant show.` }
   : liCatCount >= 7
   ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'BROAD CATEGORY COVERAGE', copy: `${liCatCount} categories represented. Core spirits, wine, and champagne all covered. Niche categories may need supplementary outreach beyond the calendar.` }
-  : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'SPECIALIST FOCUS', copy: `${liCatCount} categories on the calendar. Curated but narrow — check that your specific category has a dedicated event before committing budget.` }
+  : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'SPECIALIST FOCUS', copy: `${liCatCount} categories on the calendar. Curated but narrow \u2014 check that your specific category has a dedicated event before committing budget.` }
 
 function ShowCard({ show, expanded, onToggle }) {
   return (
@@ -90,7 +90,7 @@ function ShowCard({ show, expanded, onToggle }) {
           </div>
           {show.dates['2025'] && show.dates['2026'] && (
             <div className="mt-2 text-xs text-gray-500">
-              <span className="font-medium">2025:</span> {show.dates['2025']} {'•'} <span className="font-medium">2026:</span> {show.dates['2026']}
+              <span className="font-medium">2025:</span> {show.dates['2025']} {'\u2022'} <span className="font-medium">2026:</span> {show.dates['2026']}
             </div>
           )}
         </div>

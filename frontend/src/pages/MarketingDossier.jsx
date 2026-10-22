@@ -65,7 +65,7 @@ export default function MarketingDossier() {
       <DossierLayout
       entry={displayEntry}
       title="Alcohol Marketing Thesis"
-      subtitle={"How success is proven — and the campaigns that delivered it"}
+      subtitle={"How success is proven \u2014 and the campaigns that delivered it"}
       breadcrumbs={breadcrumbs}
       crossLinks={crossLinks}
       relatedTools={[
@@ -79,7 +79,7 @@ export default function MarketingDossier() {
       <div className="mb-8 p-5 bg-navy/5 rounded-bento border border-navy/10">
         <p className="text-label text-gray-400 mb-2 uppercase tracking-wider">About this thesis</p>
         <p className="text-body text-gray-700 leading-relaxed">
-          A strategic dossier mapping how premium drinks brands prove marketing ROI {'—'} the measurement systems,
+          A strategic dossier mapping how premium drinks brands prove marketing ROI {'\u2014'} the measurement systems,
           the campaign deep-dives, and the structural white spaces left on the table. The Aperol RTD finding
           and the Lillet canned format opportunity both originate here.
         </p>

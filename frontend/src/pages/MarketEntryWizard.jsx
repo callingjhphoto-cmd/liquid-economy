@@ -103,7 +103,7 @@ function Playbook({ category, market }) {
   const competitors = COMPETITOR_LANDSCAPE[market]?.[category] || COMPETITOR_LANDSCAPE['uk']?.[category] || {}
   const costs = COST_BREAKDOWN_WIZARD
   const marketCosts = costs.estimates[market] || costs.estimates['uk'] || []
-  const currency = costs.currency[market] || '£'
+  const currency = costs.currency[market] || '\u00A3'
   const totalCost = marketCosts.reduce((a, b) => a + b, 0)
   const marketName = TARGET_MARKETS_WIZARD.find(m => m.id === market)?.name || market
   const catName = SPIRIT_CATEGORIES_WIZARD.find(c => c.id === category)?.label || category
@@ -120,22 +120,22 @@ function Playbook({ category, market }) {
   const liCompCount = (competitors.leader ? 1 : 0) + (competitors.challengers ? competitors.challengers.length : 0)
 
   const liCostSignal = totalCost >= 50000
-    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'SIGNIFICANT INVESTMENT', copy: `Estimated ${currency}${totalCost.toLocaleString()} to establish in ${marketName}. Build a 12-month capital plan before committing — allow 20% contingency for regulatory delays.` }
+    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'SIGNIFICANT INVESTMENT', copy: `Estimated ${currency}${totalCost.toLocaleString()} to establish in ${marketName}. Build a 12-month capital plan before committing \u2014 allow 20% contingency for regulatory delays.` }
     : totalCost >= 20000
-    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'MODERATE ENTRY COST', copy: `${currency}${totalCost.toLocaleString()} estimated — achievable for a well-capitalised brand. Phased spend across compliance, logistics, and activation reduces cashflow risk.` }
-    : { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'ACCESSIBLE ENTRY POINT', copy: `${currency}${totalCost.toLocaleString()} estimated — one of the lower-cost entry paths. Low upfront barrier makes this a strong first export market for emerging brands.` }
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'MODERATE ENTRY COST', copy: `${currency}${totalCost.toLocaleString()} estimated \u2014 achievable for a well-capitalised brand. Phased spend across compliance, logistics, and activation reduces cashflow risk.` }
+    : { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'ACCESSIBLE ENTRY POINT', copy: `${currency}${totalCost.toLocaleString()} estimated \u2014 one of the lower-cost entry paths. Low upfront barrier makes this a strong first export market for emerging brands.` }
 
   const liTimelineSignal = liTimelineMonths <= 3
-    ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'FAST-TRACK MARKET', copy: `${reg.timeline || '1–3 months'} to clear approvals — first shipment possible within a single quarter of application. Prioritise this market for near-term revenue.` }
+    ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'FAST-TRACK MARKET', copy: `${reg.timeline || '1\u20133 months'} to clear approvals \u2014 first shipment possible within a single quarter of application. Prioritise this market for near-term revenue.` }
     : liTimelineMonths <= 6
-    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'STANDARD TIMELINE', copy: `${reg.timeline || '3–6 months'} approval window. Start compliance work 6 months ahead of target launch date to avoid back-to-back delays.` }
-    : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'EXTENDED TIMELINE', copy: `${reg.timeline || '6+ months'} to full market access. Plan 9–12 months from first application to first shipment. Run label, permit, and distributor processes in parallel.` }
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'STANDARD TIMELINE', copy: `${reg.timeline || '3\u20136 months'} approval window. Start compliance work 6 months ahead of target launch date to avoid back-to-back delays.` }
+    : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'EXTENDED TIMELINE', copy: `${reg.timeline || '6+ months'} to full market access. Plan 9\u201312 months from first application to first shipment. Run label, permit, and distributor processes in parallel.` }
 
   const liCompSignal = liCompCount >= 6
-    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'CROWDED COMPETITIVE FIELD', copy: `${liCompCount} established players in ${catName} in ${marketName}. Differentiation on origin story, provenance, or format is essential — premium positioning is table stakes.` }
+    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'CROWDED COMPETITIVE FIELD', copy: `${liCompCount} established players in ${catName} in ${marketName}. Differentiation on origin story, provenance, or format is essential \u2014 premium positioning is table stakes.` }
     : liCompCount >= 3
-    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'MODERATE COMPETITION', copy: `${liCompCount} key brands already active. Market is competitive but not saturated — a clear positioning and strong on-trade seeding strategy will carve space.` }
-    : { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'EMERGING OPPORTUNITY', copy: `${liCompCount || 'Minimal'} major ${catName} brands tracked in ${marketName} — limited established competition creates a window for early-mover brand equity building.` }
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'MODERATE COMPETITION', copy: `${liCompCount} key brands already active. Market is competitive but not saturated \u2014 a clear positioning and strong on-trade seeding strategy will carve space.` }
+    : { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'EMERGING OPPORTUNITY', copy: `${liCompCount || 'Minimal'} major ${catName} brands tracked in ${marketName} \u2014 limited established competition creates a window for early-mover brand equity building.` }
 
   return (
     <div>
@@ -147,7 +147,7 @@ function Playbook({ category, market }) {
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
         <Card className="p-3 text-center">
           <div className="text-xs text-gray-500 mb-1">Timeline</div>
-          <div className="text-sm font-bold text-navy">{reg.timeline || '3–6 months'}</div>
+          <div className="text-sm font-bold text-navy">{reg.timeline || '3\u20136 months'}</div>
         </Card>
         <Card className="p-3 text-center">
           <div className="text-xs text-gray-500 mb-1">Est. Cost</div>

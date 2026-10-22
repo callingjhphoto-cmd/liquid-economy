@@ -16,7 +16,7 @@ import { CHART_COLORS } from '../data/chartColors'
 
 /* ── Helpers ── */
 const fmt = (n) => {
-  if (n == null) return '—'
+  if (n == null) return '\u2014'
   if (typeof n === 'string') return n
   if (n >= 1000) return `$${(n / 1).toFixed(1)}B`
   if (n >= 1) return `$${n.toFixed(1)}B`
@@ -95,28 +95,28 @@ const liRecentAcqNames = COMPANIES
 /* ── Liquid Intelligence card for Companies page ── */
 function CompaniesLiCard() {
   const growthSignal = liGrowingPct >= 75
-    ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'BROAD SECTOR GROWTH', copy: `${liGrowingCount} of ${COMPANIES.length} tracked companies growing — expansion window open across the premium spirits landscape.` }
+    ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'BROAD SECTOR GROWTH', copy: `${liGrowingCount} of ${COMPANIES.length} tracked companies growing \u2014 expansion window open across the premium spirits landscape.` }
     : liGrowingPct >= 50
-    ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'BIFURCATED GROWTH', copy: `${liGrowingCount} of ${COMPANIES.length} companies growing — market diverging between volume leaders and premium challengers.` }
+    ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'BIFURCATED GROWTH', copy: `${liGrowingCount} of ${COMPANIES.length} companies growing \u2014 market diverging between volume leaders and premium challengers.` }
     : liGrowingPct >= 25
-    ? { color: 'text-amber-600', dot: 'bg-amber-500', label: 'GROWTH DIVERGENCE', copy: `Only ${liGrowingCount} of ${COMPANIES.length} companies growing — selective portfolio pruning and cost discipline now critical for independents.` }
-    : { color: 'text-red-600', dot: 'bg-red-500', label: 'BROAD CONTRACTION', copy: 'Fewer than a quarter of tracked majors growing — category-level headwinds dominant.' }
+    ? { color: 'text-amber-600', dot: 'bg-amber-500', label: 'GROWTH DIVERGENCE', copy: `Only ${liGrowingCount} of ${COMPANIES.length} companies growing \u2014 selective portfolio pruning and cost discipline now critical for independents.` }
+    : { color: 'text-red-600', dot: 'bg-red-500', label: 'BROAD CONTRACTION', copy: 'Fewer than a quarter of tracked majors growing \u2014 category-level headwinds dominant.' }
 
   const marginSignal = liAvgMargin >= 28
-    ? { color: 'text-emerald-600', dot: 'bg-emerald-500', label: 'PREMIUM MARGIN ENVIRONMENT', copy: `${liAvgMargin}% sector average operating margin — pricing power intact. Premiumisation thesis still supported by financials.` }
+    ? { color: 'text-emerald-600', dot: 'bg-emerald-500', label: 'PREMIUM MARGIN ENVIRONMENT', copy: `${liAvgMargin}% sector average operating margin \u2014 pricing power intact. Premiumisation thesis still supported by financials.` }
     : liAvgMargin >= 22
-    ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'HEALTHY MARGIN BASE', copy: `${liAvgMargin}% average operating margin — room for brand investment and selective M&A at current multiples.` }
+    ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'HEALTHY MARGIN BASE', copy: `${liAvgMargin}% average operating margin \u2014 room for brand investment and selective M&A at current multiples.` }
     : liAvgMargin >= 15
-    ? { color: 'text-amber-600', dot: 'bg-amber-500', label: 'MARGIN COMPRESSION', copy: `${liAvgMargin}% average operating margin — cost structure and pricing discipline critical for mid-tier players.` }
-    : { color: 'text-red-600', dot: 'bg-red-500', label: 'COMPRESSED MARGINS', copy: `${liAvgMargin}% sector average — further consolidation likely as scale becomes a survival requirement.` }
+    ? { color: 'text-amber-600', dot: 'bg-amber-500', label: 'MARGIN COMPRESSION', copy: `${liAvgMargin}% average operating margin \u2014 cost structure and pricing discipline critical for mid-tier players.` }
+    : { color: 'text-red-600', dot: 'bg-red-500', label: 'COMPRESSED MARGINS', copy: `${liAvgMargin}% sector average \u2014 further consolidation likely as scale becomes a survival requirement.` }
 
   const maSignal = liRecentAcqCount >= 4
-    ? { color: 'text-emerald-600', dot: 'bg-emerald-500', label: 'ACTIVE CONSOLIDATION WINDOW', copy: `${liRecentAcqCount} acquisitions logged since 2024 — highest-deal cycle in recent history signals accelerating portfolio concentration.` }
+    ? { color: 'text-emerald-600', dot: 'bg-emerald-500', label: 'ACTIVE CONSOLIDATION WINDOW', copy: `${liRecentAcqCount} acquisitions logged since 2024 \u2014 highest-deal cycle in recent history signals accelerating portfolio concentration.` }
     : liRecentAcqCount >= 2
-    ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'SELECTIVE DEAL PACE', copy: `${liRecentAcqCount} acquisitions since 2024${liRecentAcqNames.length ? ` — ${liRecentAcqNames.join(' and ')} among active acquirers` : ''}. Targets in premium RTD, craft spirits, and adjacent categories.` }
+    ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'SELECTIVE DEAL PACE', copy: `${liRecentAcqCount} acquisitions since 2024${liRecentAcqNames.length ? ` \u2014 ${liRecentAcqNames.join(' and ')} among active acquirers` : ''}. Targets in premium RTD, craft spirits, and adjacent categories.` }
     : liRecentAcqCount === 1
-    ? { color: 'text-amber-600', dot: 'bg-amber-500', label: 'QUIET DEAL ENVIRONMENT', copy: 'Only 1 acquisition completed since 2024 — majors deploying capital cautiously; window for challenger brand positioning.' }
-    : { color: 'text-amber-600', dot: 'bg-amber-500', label: 'M&A PAUSE', copy: 'No acquisitions completed since 2024 — majors in hold posture; organic portfolio development and divestiture more likely near-term.' }
+    ? { color: 'text-amber-600', dot: 'bg-amber-500', label: 'QUIET DEAL ENVIRONMENT', copy: 'Only 1 acquisition completed since 2024 \u2014 majors deploying capital cautiously; window for challenger brand positioning.' }
+    : { color: 'text-amber-600', dot: 'bg-amber-500', label: 'M&A PAUSE', copy: 'No acquisitions completed since 2024 \u2014 majors in hold posture; organic portfolio development and divestiture more likely near-term.' }
 
   const signals = [growthSignal, marginSignal, maSignal]
   const signalLabels = ['Revenue Growth Distribution', 'Sector Margin Environment', 'Recent M&A Activity']
@@ -160,7 +160,7 @@ const allRegions = [...new Set(COMPANIES.map(c => {
 const revenueRanges = [
   { value: 'all', label: 'All Revenue' },
   { value: '0-5', label: 'Under $5B' },
-  { value: '5-20', label: '$5B – $20B' },
+  { value: '5-20', label: '$5B \u2013 $20B' },
   { value: '20+', label: '$20B+' },
 ]
 
@@ -174,7 +174,7 @@ function getRegion(hq) {
 
 
 /* ════════════════════════════════════════════
-   TIER 1 — Company Card (Bento Grid)
+   TIER 1 \u2014 Company Card (Bento Grid)
    ════════════════════════════════════════════ */
 function CompanyCardTier1({ company, onClick, isHighlighted }) {
   const revenue = parseRevenue(company.revenue)
@@ -217,11 +217,11 @@ function CompanyCardTier1({ company, onClick, isHighlighted }) {
 
       <div className="flex items-center gap-3 text-xs text-gray-500">
         <span>{brandCount} brands</span>
-        <span>{'·'}</span>
+        <span>{'\u00B7'}</span>
         <span>{categoryCount} categories</span>
         {company.employees && (
           <>
-            <span>{'·'}</span>
+            <span>{'\u00B7'}</span>
             <span>{company.employees}</span>
           </>
         )}
@@ -232,7 +232,7 @@ function CompanyCardTier1({ company, onClick, isHighlighted }) {
 
 
 /* ════════════════════════════════════════════
-   TIER 2 — Expanded Company Panel
+   TIER 2 \u2014 Expanded Company Panel
    ════════════════════════════════════════════ */
 function CompanyTier2({ company, onViewFull, onClose }) {
   const [activeSection, setActiveSection] = useState('overview')
@@ -340,7 +340,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
 
       {/* Section content */}
       <div className="p-5 bg-gray-50/30">
-        {/* Overview — Category presence + geo revenue */}
+        {/* Overview \u2014 Category presence + geo revenue */}
         {activeSection === 'overview' && (
           <div className="space-y-4">
             {company.categoryPresence && (
@@ -418,7 +418,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
                         {brand.trend}
                       </Badge>
                     </div>
-                    <div className="text-xs text-gray-500 mb-1">{brand.position} {'·'} {brand.marketShare}</div>
+                    <div className="text-xs text-gray-500 mb-1">{brand.position} {'\u00B7'} {brand.marketShare}</div>
                     <p className="text-xs text-gray-600 leading-relaxed">{brand.latest}</p>
                   </div>
                 ))}
@@ -486,7 +486,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
           </div>
         )}
 
-        {/* Activity — Recent moves + developments */}
+        {/* Activity \u2014 Recent moves + developments */}
         {activeSection === 'recent' && (
           <div className="space-y-4">
             {company.recentMoves && (
@@ -531,7 +531,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
           )}
           {company.maTimeline && (
             <>
-              <span>{'·'}</span>
+              <span>{'\u00B7'}</span>
               <span>{company.maTimeline.length} M&A events</span>
             </>
           )}
@@ -550,7 +550,7 @@ function CompanyTier2({ company, onViewFull, onClose }) {
 
 
 /* ════════════════════════════════════════════
-   TIER 3 — Full Company Deep Dive
+   TIER 3 \u2014 Full Company Deep Dive
    ════════════════════════════════════════════ */
 function CompanyTier3({ company, onClose }) {
   const [deepTab, setDeepTab] = useState('financials')
@@ -574,12 +574,12 @@ function CompanyTier3({ company, onClose }) {
 
   const finColumns = [
     { key: 'year', label: 'Year', sortable: true, width: 'w-16' },
-    { key: 'revenue', label: 'Revenue ($B)', sortable: true, align: 'right', render: (v) => v ? `$${v}B` : '—' },
-    { key: 'operatingMargin', label: 'Op. Margin', sortable: true, align: 'right', render: (v) => v ? `${v}%` : '—' },
-    { key: 'netIncome', label: 'Net Income ($B)', sortable: true, align: 'right', render: (v) => v ? `$${v}B` : '—' },
-    { key: 'ebitda', label: 'EBITDA ($B)', sortable: true, align: 'right', render: (v) => v ? `$${v}B` : '—' },
-    { key: 'eps', label: 'EPS', sortable: true, align: 'right', render: (v) => v != null ? (typeof v === 'number' ? `$${v}` : v) : '—' },
-    { key: 'roic', label: 'ROIC', sortable: true, align: 'right', render: (v) => v ? `${v}%` : '—' },
+    { key: 'revenue', label: 'Revenue ($B)', sortable: true, align: 'right', render: (v) => v ? `$${v}B` : '\u2014' },
+    { key: 'operatingMargin', label: 'Op. Margin', sortable: true, align: 'right', render: (v) => v ? `${v}%` : '\u2014' },
+    { key: 'netIncome', label: 'Net Income ($B)', sortable: true, align: 'right', render: (v) => v ? `$${v}B` : '\u2014' },
+    { key: 'ebitda', label: 'EBITDA ($B)', sortable: true, align: 'right', render: (v) => v ? `$${v}B` : '\u2014' },
+    { key: 'eps', label: 'EPS', sortable: true, align: 'right', render: (v) => v != null ? (typeof v === 'number' ? `$${v}` : v) : '\u2014' },
+    { key: 'roic', label: 'ROIC', sortable: true, align: 'right', render: (v) => v ? `${v}%` : '\u2014' },
   ]
 
   const finData = years.map(y => ({ year: y, ...financials[y] }))
@@ -603,7 +603,7 @@ function CompanyTier3({ company, onClose }) {
             </div>
             <div>
               <h2 className="font-display text-lg text-navy">{company.name}</h2>
-              <div className="text-xs text-gray-500">{company.hq} {'·'} {company.revenue} {'·'} Est. {company.founded}</div>
+              <div className="text-xs text-gray-500">{company.hq} {'\u00B7'} {company.revenue} {'\u00B7'} Est. {company.founded}</div>
             </div>
           </div>
           <button onClick={onClose} aria-label="Close" className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-600 hover:text-gray-700 transition-colors touch-manipulation">
@@ -635,7 +635,7 @@ function CompanyTier3({ company, onClose }) {
             <div className="space-y-6">
               {chartData.length > 0 && (
                 <div>
-                  <SectionHeader size="md">{'5-Year Financial Trend (Revenue $B · Margin %)'}</SectionHeader>
+                  <SectionHeader size="md">{'5-Year Financial Trend (Revenue $B \u00B7 Margin %)'}</SectionHeader>
                   <div className="h-56 mt-3" role="figure" aria-label="Chart: 5-Year Financial Trend">
                     <ResponsiveContainer width="100%" height="100%">
                       <LineChart data={chartData} accessibilityLayer={true}>
@@ -791,7 +791,7 @@ function CompanyTier3({ company, onClose }) {
    ════════════════════════════════════════════ */
 function WhiteSpaceSection() {
   return (
-    <DrillDown title="Category White Space Analysis" summary={"Where the major companies are NOT competing — your biggest opportunities"}>
+    <DrillDown title="Category White Space Analysis" summary={"Where the major companies are NOT competing \u2014 your biggest opportunities"}>
       <div className="space-y-2">
         {Object.entries(WHITE_SPACE).map(([cat, info]) => (
           <div key={cat} className="bg-white rounded-lg p-3 border border-gray-100 hover:border-emerald-200 transition-colors">
@@ -955,7 +955,7 @@ export default function Companies() {
       {/* Page Header */}
       <PageHeader
         title="Competitive Intelligence"
-        subtitle={`${totalCompanies} companies tracked · $${totalRevenue.toFixed(0)}B+ combined revenue · Data as of April 2026`}
+        subtitle={`${totalCompanies} companies tracked \u00B7 $${totalRevenue.toFixed(0)}B+ combined revenue \u00B7 Data as of April 2026`}
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Companies' },
@@ -970,7 +970,7 @@ export default function Companies() {
           <MetricCard
             label="Companies Tracked"
             value={String(totalCompanies)}
-            subtitle={`$${totalRevenue.toFixed(0)}B+ combined revenue · Data as of April 2026`}
+            subtitle={`$${totalRevenue.toFixed(0)}B+ combined revenue \u00B7 Data as of April 2026`}
             icon={Building2}
             sparkData={COMPANIES.slice(0, 5).map((c, i) => ({ v: parseRevenue(c.revenue) }))}
           />
@@ -984,7 +984,7 @@ export default function Companies() {
         />
         <MetricCard
           label="Highest Growth"
-          value={highestGrowth ? highestGrowth.revenueGrowth : '—'}
+          value={highestGrowth ? highestGrowth.revenueGrowth : '\u2014'}
           subtitle={highestGrowth ? highestGrowth.name : ''}
           icon={TrendingUp}
           direction="up"
@@ -992,7 +992,7 @@ export default function Companies() {
         />
         <MetricCard
           label="Most Acquisitive"
-          value={mostMACompany ? `${(mostMACompany.maTimeline || []).filter(m => m.type === 'acquisition').length} deals` : '—'}
+          value={mostMACompany ? `${(mostMACompany.maTimeline || []).filter(m => m.type === 'acquisition').length} deals` : '\u2014'}
           subtitle={mostMACompany ? mostMACompany.name : ''}
           icon={Briefcase}
           onClick={() => mostMACompany && handleCardClick(mostMACompany)}
@@ -1009,7 +1009,7 @@ export default function Companies() {
       {/* Liquid Intelligence signals */}
       <CompaniesLiCard />
 
-      {/* Search bar — prominent */}
+      {/* Search bar \u2014 prominent */}
       <div className="relative mb-4">
         <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
         <input
@@ -1054,7 +1054,7 @@ export default function Companies() {
                 isHighlighted={isHighlighted}
               />
 
-              {/* Tier 2 — expanded inline (desktop only) */}
+              {/* Tier 2 \u2014 expanded inline (desktop only) */}
               {isExpanded && (
                 <BentoGrid.Full>
                   <ErrorBoundary message="Company detail failed to load.">

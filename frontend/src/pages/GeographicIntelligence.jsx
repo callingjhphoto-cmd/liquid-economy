@@ -88,7 +88,7 @@ const liSig1 = highGrowthCount >= 6
   ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Strong Global Tailwind', copy: `${highGrowthCount} of ${totalMarkets} tracked markets growing >5% YoY. Broad-based expansion signals a favourable export and activation window across all major regions.` }
   : highGrowthCount >= 4
   ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Selective Momentum', copy: `${highGrowthCount} high-growth markets identified. Concentrate portfolio activation in leading performers to maximise return on market investment.` }
-  : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Concentrated Opportunities', copy: `Growth is narrowly concentrated. Focus on ${fastestGrowing ? fastestGrowing.name : 'leading markets'} and other outliers — broad multi-market activation is premature this cycle.` }
+  : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Concentrated Opportunities', copy: `Growth is narrowly concentrated. Focus on ${fastestGrowing ? fastestGrowing.name : 'leading markets'} and other outliers \u2014 broad multi-market activation is premature this cycle.` }
 
 const liSig2 = ecomLeader && ecomLeader.pct >= 30
   ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Digital Disruption Critical', copy: `${ecomLeader.region.name} leads at ${ecomLeader.pct}% e-commerce share. Digital-first distribution strategy now essential for full-market penetration in key growth regions.` }
@@ -104,13 +104,13 @@ const liSig3 = negativeRegCount >= 5
 
 
 /* ════════════════════════════════════════════
-   TIER 1 — Region Card (Bento Grid)
+   TIER 1 \u2014 Region Card (Bento Grid)
    ════════════════════════════════════════════ */
 function RegionCardTier1({ region, data, onClick, isHighlighted }) {
-  const marketSize = data && data.kpis && data.kpis[0] ? data.kpis[0].value : '—'
+  const marketSize = data && data.kpis && data.kpis[0] ? data.kpis[0].value : '\u2014'
   const growth = data && data.kpis && data.kpis[0] ? data.kpis[0].change : 0
   const isGrowing = growth > 0
-  const topBrand = data?.topBrands?.[0] || '—'
+  const topBrand = data?.topBrands?.[0] || '\u2014'
   const topCategory = data && data.kpis && data.kpis[2] ? data.kpis[2].label : ''
 
   return (
@@ -143,7 +143,7 @@ function RegionCardTier1({ region, data, onClick, isHighlighted }) {
         <span>Top: {topBrand}</span>
         {data && data.channels && (
           <>
-            <span>{'·'}</span>
+            <span>{'\u00B7'}</span>
             <span>E-com: {data.channels.eCommerce}%</span>
           </>
         )}
@@ -154,7 +154,7 @@ function RegionCardTier1({ region, data, onClick, isHighlighted }) {
 
 
 /* ════════════════════════════════════════════
-   TIER 2 — Expanded Region Panel
+   TIER 2 \u2014 Expanded Region Panel
    ════════════════════════════════════════════ */
 function RegionTier2({ region, data, onClose, onViewFull }) {
   const [section, setSection] = useState('kpis')
@@ -202,7 +202,7 @@ function RegionTier2({ region, data, onClose, onViewFull }) {
                 <div className="text-xs text-gray-500 uppercase tracking-wide">{kpi.label}</div>
                 <div className="text-sm font-bold text-navy tabular-nums">{kpi.value}</div>
                 <div className={`text-xs font-medium ${kpi.changeDir === 'up' ? 'text-emerald-600' : 'text-red-500'}`}>
-                  {kpi.change != null ? `${kpi.change > 0 ? '+' : ''}${kpi.change}%` : '—'}
+                  {kpi.change != null ? `${kpi.change > 0 ? '+' : ''}${kpi.change}%` : '\u2014'}
                 </div>
               </div>
             ))}
@@ -242,7 +242,7 @@ function RegionTier2({ region, data, onClose, onViewFull }) {
                   <div className="flex items-baseline gap-1.5">
                     <span className="text-sm font-bold text-navy tabular-nums">{kpi.value}</span>
                     <span className={`text-xs font-medium ${kpi.changeDir === 'up' ? 'text-emerald-600' : kpi.changeDir === 'down' ? 'text-red-500' : 'text-gray-500'}`}>
-                      {kpi.change != null ? `${kpi.change > 0 ? '+' : ''}${kpi.change}%` : '—'}
+                      {kpi.change != null ? `${kpi.change > 0 ? '+' : ''}${kpi.change}%` : '\u2014'}
                     </span>
                   </div>
                 </div>
@@ -376,7 +376,7 @@ function RegionTier2({ region, data, onClose, onViewFull }) {
 
 
 /* ════════════════════════════════════════════
-   TIER 3 — Full Region Deep Dive
+   TIER 3 \u2014 Full Region Deep Dive
    ════════════════════════════════════════════ */
 function RegionTier3({ region, data, onClose }) {
   const [deepTab, setDeepTab] = useState('regulatory')
@@ -661,7 +661,7 @@ export default function GeographicIntelligence() {
       {/* Page Header */}
       <PageHeader
         title="Geographic Intelligence"
-        subtitle={`${totalMarkets} markets tracked · Global spirits market insights · Data as of April 2026`}
+        subtitle={`${totalMarkets} markets tracked \u00B7 Global spirits market insights \u00B7 Data as of April 2026`}
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Geographic Intelligence' },
@@ -686,7 +686,7 @@ export default function GeographicIntelligence() {
         </BentoGrid.Hero>
         <MetricCard
           label="Fastest Growing"
-          value={fastestGrowing ? `+${REGION_DATA[fastestGrowing.key]?.kpis?.[0]?.change ?? '—'}%` : '—'}
+          value={fastestGrowing ? `+${REGION_DATA[fastestGrowing.key]?.kpis?.[0]?.change ?? '\u2014'}%` : '\u2014'}
           subtitle={fastestGrowing ? fastestGrowing.name : ''}
           icon={TrendingUp}
           direction="up"
@@ -694,13 +694,13 @@ export default function GeographicIntelligence() {
         />
         <MetricCard
           label="Largest Market"
-          value={largestByValue ? (REGION_DATA[largestByValue.key]?.kpis?.[0]?.value ?? '—') : '—'}
+          value={largestByValue ? (REGION_DATA[largestByValue.key]?.kpis?.[0]?.value ?? '\u2014') : '\u2014'}
           subtitle={largestByValue ? largestByValue.name : ''}
           icon={BarChart3}
         />
         <MetricCard
           label="E-Commerce Leader"
-          value={ecomLeader ? `${ecomLeader.pct}%` : '—'}
+          value={ecomLeader ? `${ecomLeader.pct}%` : '\u2014'}
           subtitle={ecomLeader ? ecomLeader.region.name : ''}
           icon={Globe}
           direction="up"
@@ -742,7 +742,7 @@ export default function GeographicIntelligence() {
             <Zap size={14} className="text-gold" />
           </div>
           <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
-          <span className="text-xs text-gray-400 ml-auto">Geographic Signals {'·'} 2025</span>
+          <span className="text-xs text-gray-400 ml-auto">Geographic Signals {'\u00B7'} 2025</span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           {[liSig1, liSig2, liSig3].map((sig, i) => (
@@ -775,7 +775,7 @@ export default function GeographicIntelligence() {
                 />
               </div>
 
-              {/* Tier 2 — expanded inline */}
+              {/* Tier 2 \u2014 expanded inline */}
               {isExpanded && data && (
                 <BentoGrid.Full>
                   <RegionTier2

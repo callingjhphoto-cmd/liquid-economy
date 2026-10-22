@@ -21,7 +21,7 @@ const CATEGORIES = [
 ]
 
 const MARKETS = [
-  { id: 'uk', label: 'UK', currency: '£' },
+  { id: 'uk', label: 'UK', currency: '\u00A3' },
   { id: 'us', label: 'US', currency: '$' },
   { id: 'eu', label: 'EU', currency: '€' },
 ]
@@ -30,110 +30,110 @@ const MARKETS = [
 const PRICE_BENCHMARKS = {
   tequila: {
     tiers: [
-      { name: 'Value', min: 15, max: 22, brands: ['Olmeca Blanco (£18)', 'Jose Cuervo (£20)'] },
-      { name: 'Premium', min: 25, max: 38, brands: ['Altos Plata (£29)', '1800 Silver (£28)', 'Casamigos (£38)'] },
-      { name: 'Super-Premium', min: 40, max: 65, brands: ['Patrón Silver (£49)', 'Don Julio Blanco (£48)', 'Clase Azul Plata (£60)'] },
-      { name: 'Ultra-Premium', min: 70, max: 200, brands: ['Don Julio 1942 (£165)', 'Patrón Gran Piedra (£160)', 'Clase Azul Añejo (£180)'] },
+      { name: 'Value', min: 15, max: 22, brands: ['Olmeca Blanco (\u00A318)', 'Jose Cuervo (\u00A320)'] },
+      { name: 'Premium', min: 25, max: 38, brands: ['Altos Plata (\u00A329)', '1800 Silver (\u00A328)', 'Casamigos (\u00A338)'] },
+      { name: 'Super-Premium', min: 40, max: 65, brands: ['Patrón Silver (\u00A349)', 'Don Julio Blanco (\u00A348)', 'Clase Azul Plata (\u00A360)'] },
+      { name: 'Ultra-Premium', min: 70, max: 200, brands: ['Don Julio 1942 (\u00A3165)', 'Patrón Gran Piedra (\u00A3160)', 'Clase Azul Añejo (\u00A3180)'] },
     ],
     avgOnTrade: 9.50,
-    insight: 'Super-premium tequila is the fastest-growing tier. Entry below £25 faces fierce competition from established value brands.',
+    insight: 'Super-premium tequila is the fastest-growing tier. Entry below \u00A325 faces fierce competition from established value brands.',
   },
   vodka: {
     tiers: [
-      { name: 'Value', min: 12, max: 18, brands: ['Smirnoff (£15)', 'Russian Standard (£16)'] },
-      { name: 'Premium', min: 20, max: 30, brands: ['Absolut (£20)', 'Stolichnaya (£22)', 'Tito’s (£25)'] },
-      { name: 'Super-Premium', min: 32, max: 50, brands: ['Grey Goose (£35)', 'Belvedere (£32)', 'Ciroc (£32)', 'Beluga Noble (£45)'] },
-      { name: 'Ultra-Premium', min: 55, max: 150, brands: ['Crystal Head (£55)', 'Royal Dragon (£120)'] },
+      { name: 'Value', min: 12, max: 18, brands: ['Smirnoff (\u00A315)', 'Russian Standard (\u00A316)'] },
+      { name: 'Premium', min: 20, max: 30, brands: ['Absolut (\u00A320)', 'Stolichnaya (\u00A322)', 'Tito’s (\u00A325)'] },
+      { name: 'Super-Premium', min: 32, max: 50, brands: ['Grey Goose (\u00A335)', 'Belvedere (\u00A332)', 'Ciroc (\u00A332)', 'Beluga Noble (\u00A345)'] },
+      { name: 'Ultra-Premium', min: 55, max: 150, brands: ['Crystal Head (\u00A355)', 'Royal Dragon (\u00A3120)'] },
     ],
     avgOnTrade: 7.50,
     insight: 'Vodka differentiation comes from packaging and brand story, not liquid. Premium positioning requires exceptional design.',
   },
   gin: {
     tiers: [
-      { name: 'Value', min: 12, max: 20, brands: ['Gordon’s (£14)', 'Beefeater (£18)'] },
-      { name: 'Premium', min: 22, max: 27, brands: ['Tanqueray (£22)', 'Bombay Sapphire (£22)', 'Sipsmith (£25)'] },
-      { name: 'Super-Premium', min: 28, max: 50, brands: ['Hendrick\'s (£28)', 'The Botanist Islay (£30)', 'Gin Mare (£33)', 'Monkey 47 (£37)', 'KI NO BI (£47)'] },
-      { name: 'Ultra-Premium', min: 55, max: 120, brands: ['Cambridge Distillery (£80)'] },
+      { name: 'Value', min: 12, max: 20, brands: ['Gordon’s (\u00A314)', 'Beefeater (\u00A318)'] },
+      { name: 'Premium', min: 22, max: 27, brands: ['Tanqueray (\u00A322)', 'Bombay Sapphire (\u00A322)', 'Sipsmith (\u00A325)'] },
+      { name: 'Super-Premium', min: 28, max: 50, brands: ['Hendrick\'s (\u00A328)', 'The Botanist Islay (\u00A330)', 'Gin Mare (\u00A333)', 'Monkey 47 (\u00A337)', 'KI NO BI (\u00A347)'] },
+      { name: 'Ultra-Premium', min: 55, max: 120, brands: ['Cambridge Distillery (\u00A380)'] },
     ],
     avgOnTrade: 8.00,
-    insight: '900+ brands in UK market. New entrants must position at £28+ to be taken seriously in premium on-trade.',
+    insight: '900+ brands in UK market. New entrants must position at \u00A328+ to be taken seriously in premium on-trade.',
   },
   whisky: {
     tiers: [
-      { name: 'Value', min: 18, max: 24, brands: ['Famous Grouse (£20)', "Bell's (£18)", "Grant's (£19)"] },
-      { name: 'Premium', min: 25, max: 40, brands: ['Johnnie Walker Black (£32)', 'Jameson Black Barrel (£33)', 'Chivas Regal 12 (£27)'] },
-      { name: 'Super-Premium', min: 41, max: 85, brands: ['Glenfiddich 12 (£41)', 'Macallan 12 (£81)', 'Oban 14 (£50)'] },
-      { name: 'Ultra-Premium', min: 90, max: 500, brands: ['Macallan 18 (£304)', 'JW Blue (£168)', 'Glenfiddich 21 (£140)'] },
+      { name: 'Value', min: 18, max: 24, brands: ['Famous Grouse (\u00A320)', "Bell's (\u00A318)", "Grant's (\u00A319)"] },
+      { name: 'Premium', min: 25, max: 40, brands: ['Johnnie Walker Black (\u00A332)', 'Jameson Black Barrel (\u00A333)', 'Chivas Regal 12 (\u00A327)'] },
+      { name: 'Super-Premium', min: 41, max: 85, brands: ['Glenfiddich 12 (\u00A341)', 'Macallan 12 (\u00A381)', 'Oban 14 (\u00A350)'] },
+      { name: 'Ultra-Premium', min: 90, max: 500, brands: ['Macallan 18 (\u00A3304)', 'JW Blue (\u00A3168)', 'Glenfiddich 21 (\u00A3140)'] },
     ],
     avgOnTrade: 9.00,
     insight: 'Age statements still command premiums but NAS (No Age Statement) is growing. Scotch, Irish, Japanese, and American segments have different dynamics.',
   },
   rum: {
     tiers: [
-      { name: 'Value', min: 14, max: 20, brands: ['Bacardi Carta Blanca (£16)', 'Captain Morgan (£16)'] },
-      { name: 'Premium', min: 22, max: 34, brands: ['Havana Club 7 (£25)', 'Kraken (£25)', 'Plantation 5 (£28)'] },
-      { name: 'Super-Premium', min: 35, max: 60, brands: ['Diplomatico Reserva (£38)', 'Appleton Estate 12 (£35)', 'Foursquare (£45)'] },
-      { name: 'Ultra-Premium', min: 65, max: 200, brands: ['Ron Zacapa XO (£80)', 'Diplomatico SFE (£70)', 'Appleton 21 (£100)'] },
+      { name: 'Value', min: 14, max: 20, brands: ['Bacardi Carta Blanca (\u00A316)', 'Captain Morgan (\u00A316)'] },
+      { name: 'Premium', min: 22, max: 34, brands: ['Havana Club 7 (\u00A325)', 'Kraken (\u00A325)', 'Plantation 5 (\u00A328)'] },
+      { name: 'Super-Premium', min: 35, max: 60, brands: ['Diplomatico Reserva (\u00A338)', 'Appleton Estate 12 (\u00A335)', 'Foursquare (\u00A345)'] },
+      { name: 'Ultra-Premium', min: 65, max: 200, brands: ['Ron Zacapa XO (\u00A380)', 'Diplomatico SFE (\u00A370)', 'Appleton 21 (\u00A3100)'] },
     ],
     avgOnTrade: 8.00,
     insight: 'Premium aged rum is the growth engine. Spiced dominates volume but premium dark/aged drives value growth and margin.',
   },
   cognac: {
     tiers: [
-      { name: 'VS', min: 25, max: 39, brands: ['Hennessy VS (£38)', 'Martell VS (£30)', 'Courvoisier VS (£25)'] },
-      { name: 'VSOP', min: 40, max: 60, brands: ['Hennessy VSOP (£48)', 'Rémy Martin VSOP (£46)', 'Martell VSOP (£42)'] },
-      { name: 'XO', min: 90, max: 180, brands: ['Hennessy XO (£150)', 'Rémy Martin XO (£140)', 'Courvoisier XO (£90)'] },
-      { name: 'Prestige', min: 200, max: 3500, brands: ['Hennessy Paradis (£500)', 'Rémy Martin Louis XIII (£2,650)', "Martell L’Or (£300)"] },
+      { name: 'VS', min: 25, max: 39, brands: ['Hennessy VS (\u00A338)', 'Martell VS (\u00A330)', 'Courvoisier VS (\u00A325)'] },
+      { name: 'VSOP', min: 40, max: 60, brands: ['Hennessy VSOP (\u00A348)', 'Rémy Martin VSOP (\u00A346)', 'Martell VSOP (\u00A342)'] },
+      { name: 'XO', min: 90, max: 180, brands: ['Hennessy XO (\u00A3150)', 'Rémy Martin XO (\u00A3140)', 'Courvoisier XO (\u00A390)'] },
+      { name: 'Prestige', min: 200, max: 3500, brands: ['Hennessy Paradis (\u00A3500)', 'Rémy Martin Louis XIII (\u00A32,650)', "Martell L’Or (\u00A3300)"] },
     ],
     avgOnTrade: 12.00,
     insight: 'Big four houses dominate 85%+ of market. Estate/grower cognacs gaining interest from cocktail bartenders.',
   },
   champagne: {
     tiers: [
-      { name: 'Value', min: 20, max: 29, brands: ['Nicolas Feuillatte (£22)', 'Piper-Heidsieck (£28)'] },
-      { name: 'Premium', min: 30, max: 50, brands: ['Moët Impérial (£35)', 'Veuve Clicquot (£40)', 'Laurent-Perrier (£35)', 'Bollinger (£40)'] },
-      { name: 'Prestige Cuvée', min: 55, max: 150, brands: ['Dom Pérignon (£150)', 'Krug Grande Cuvée (£140)'] },
-      { name: 'Ultra-Prestige', min: 155, max: 500, brands: ['Cristal (£200)', 'Salon (£400)', 'Krug Clos du Mesnil (£500)'] },
+      { name: 'Value', min: 20, max: 29, brands: ['Nicolas Feuillatte (\u00A322)', 'Piper-Heidsieck (\u00A328)'] },
+      { name: 'Premium', min: 30, max: 50, brands: ['Moët Impérial (\u00A335)', 'Veuve Clicquot (\u00A340)', 'Laurent-Perrier (\u00A335)', 'Bollinger (\u00A340)'] },
+      { name: 'Prestige Cuvée', min: 55, max: 150, brands: ['Dom Pérignon (\u00A3150)', 'Krug Grande Cuvée (\u00A3140)'] },
+      { name: 'Ultra-Prestige', min: 155, max: 500, brands: ['Cristal (\u00A3200)', 'Salon (\u00A3400)', 'Krug Clos du Mesnil (\u00A3500)'] },
     ],
     avgOnTrade: 14.00,
     insight: 'Grower Champagnes (RM) trending in top bars and restaurants. Gift occasions drive 40% of sales.',
   },
   wine: {
     tiers: [
-      { name: 'Value', min: 5, max: 7, brands: ['Blossom Hill (£5.50)', "Hardy's (£6)", 'Echo Falls (£5.50)'] },
-      { name: 'Premium', min: 8, max: 14, brands: ['Casillero del Diablo (£8)', 'Kim Crawford (£12)', 'Meiomi (£14)'] },
-      { name: 'Super-Premium', min: 15, max: 29, brands: ['Cloudy Bay (£20)', 'Chablis Premier Cru (£25)', 'Nyetimber (£28)'] },
-      { name: 'Fine Wine', min: 30, max: 500, brands: ['Opus One (£200)', 'Penfolds Grange (£235)', 'Château Margaux (£400)'] },
+      { name: 'Value', min: 5, max: 7, brands: ['Blossom Hill (\u00A35.50)', "Hardy's (\u00A36)", 'Echo Falls (\u00A35.50)'] },
+      { name: 'Premium', min: 8, max: 14, brands: ['Casillero del Diablo (\u00A38)', 'Kim Crawford (\u00A312)', 'Meiomi (\u00A314)'] },
+      { name: 'Super-Premium', min: 15, max: 29, brands: ['Cloudy Bay (\u00A320)', 'Chablis Premier Cru (\u00A325)', 'Nyetimber (\u00A328)'] },
+      { name: 'Fine Wine', min: 30, max: 500, brands: ['Opus One (\u00A3200)', 'Penfolds Grange (\u00A3235)', 'Château Margaux (\u00A3400)'] },
     ],
     avgOnTrade: 9.00,
     insight: 'UK duty increase (Aug 2023) hit wine hard. English sparkling is the standout growth story at 30% CAGR.',
   },
   beer: {
     tiers: [
-      { name: 'Value', min: 1, max: 1.99, brands: ['Carling (£1.20)', "Foster's (£1.30)"] },
-      { name: 'Premium', min: 2, max: 2.99, brands: ['Peroni (£2.20)', 'Heineken (£2.00)', 'Estrella Damm (£2.50)', 'Camden Hells (£2.80)'] },
-      { name: 'Craft', min: 3, max: 4.99, brands: ['BrewDog Hazy Jane (£3.50)', 'Beavertown Neck Oil (£3.50)', 'Thornbridge Jaipur (£3.30)'] },
-      { name: 'Premium Craft', min: 5, max: 15, brands: ['Cloudwater (£5.50)', 'Deya (£5.00)', 'Verdant (£5.25)'] },
+      { name: 'Value', min: 1, max: 1.99, brands: ['Carling (\u00A31.20)', "Foster's (\u00A31.30)"] },
+      { name: 'Premium', min: 2, max: 2.99, brands: ['Peroni (\u00A32.20)', 'Heineken (\u00A32.00)', 'Estrella Damm (\u00A32.50)', 'Camden Hells (\u00A32.80)'] },
+      { name: 'Craft', min: 3, max: 4.99, brands: ['BrewDog Hazy Jane (\u00A33.50)', 'Beavertown Neck Oil (\u00A33.50)', 'Thornbridge Jaipur (\u00A33.30)'] },
+      { name: 'Premium Craft', min: 5, max: 15, brands: ['Cloudwater (\u00A35.50)', 'Deya (\u00A35.00)', 'Verdant (\u00A35.25)'] },
     ],
     avgOnTrade: 6.00,
     insight: 'World lager is the dominant trend. Craft consolidation continues. No/lo beer is fastest-growing sub-segment.',
   },
   nolo: {
     tiers: [
-      { name: 'Value', min: 7, max: 11, brands: ["Beck's Blue 12pk (£8)", 'Heineken 0.0 12pk (£10)', 'Bavaria 0.0 12pk (£8)'] },
-      { name: 'Standard', min: 12, max: 21, brands: ["Gordon's 0.0% Gin (£14)", 'Tanqueray 0.0% Gin (£16)', "Ceder's Alt. Gin (£18)"] },
-      { name: 'Premium', min: 22, max: 25, brands: ["Lyre's American Malt (£24)", 'Monday Gin (£24)', 'Ritual Zero Proof (£22)'] },
-      { name: 'Super-Premium', min: 26, max: 40, brands: ['Seedlip Spice 94 (£27)', 'Three Spirit Livener (£27)', 'Seedlip Garden 108 (£27)'] },
+      { name: 'Value', min: 7, max: 11, brands: ["Beck's Blue 12pk (\u00A38)", 'Heineken 0.0 12pk (\u00A310)', 'Bavaria 0.0 12pk (\u00A38)'] },
+      { name: 'Standard', min: 12, max: 21, brands: ["Gordon's 0.0% Gin (\u00A314)", 'Tanqueray 0.0% Gin (\u00A316)', "Ceder's Alt. Gin (\u00A318)"] },
+      { name: 'Premium', min: 22, max: 25, brands: ["Lyre's American Malt (\u00A324)", 'Monday Gin (\u00A324)', 'Ritual Zero Proof (\u00A322)'] },
+      { name: 'Super-Premium', min: 26, max: 40, brands: ['Seedlip Spice 94 (\u00A327)', 'Three Spirit Livener (\u00A327)', 'Seedlip Garden 108 (\u00A327)'] },
     ],
     avgOnTrade: 6.50,
-    insight: 'Zero duty = margin advantage. 75% purchases are first-time. Invest in sampling. Category grew 31% in 2025. Beer-format 12-packs (£7–12) and spirit-format bottles (£12–40) reflect two distinct positioning occasions.',
+    insight: 'Zero duty = margin advantage. 75% purchases are first-time. Invest in sampling. Category grew 31% in 2025. Beer-format 12-packs (\u00A37\u201312) and spirit-format bottles (\u00A312\u201340) reflect two distinct positioning occasions.',
   },
   rtd: {
     tiers: [
-      { name: 'Value', min: 1.5, max: 2.49, brands: ['Smirnoff Ice (£1.80)', 'WKD (£1.50)', "Gordon's G&T (£1.80)"] },
-      { name: 'Premium', min: 2.5, max: 3.99, brands: ['White Claw (£2.80)', 'JD & Cola (£2.50)', 'Kopparberg (£2.80)'] },
-      { name: 'Super-Premium', min: 4, max: 5.99, brands: ['NIO Cocktails (£5)', 'Moth (£4.50)', 'Served (£4)'] },
-      { name: 'Ultra-Premium', min: 6, max: 12, brands: ['On The Rocks (£6)', 'Tip Top (£7)'] },
+      { name: 'Value', min: 1.5, max: 2.49, brands: ['Smirnoff Ice (\u00A31.80)', 'WKD (\u00A31.50)', "Gordon's G&T (\u00A31.80)"] },
+      { name: 'Premium', min: 2.5, max: 3.99, brands: ['White Claw (\u00A32.80)', 'JD & Cola (\u00A32.50)', 'Kopparberg (\u00A32.80)'] },
+      { name: 'Super-Premium', min: 4, max: 5.99, brands: ['NIO Cocktails (\u00A35)', 'Moth (\u00A34.50)', 'Served (\u00A34)'] },
+      { name: 'Ultra-Premium', min: 6, max: 12, brands: ['On The Rocks (\u00A36)', 'Tip Top (\u00A37)'] },
     ],
     avgOnTrade: 8.00,
     insight: 'Spirits-based RTDs outpacing hard seltzers. Premium cocktail cans trending. Can format preferred over glass.',
@@ -173,10 +173,10 @@ export default function PricePositioning() {
   const highestTier = benchmarks?.tiers[benchmarks.tiers.length - 1]
   const tierCount = benchmarks?.tiers.length || 0
   const avgOnTrade = benchmarks?.avgOnTrade || 0
-  const curr = selectedMarket?.currency || '£'
+  const curr = selectedMarket?.currency || '\u00A3'
 
   const liSig1 = tierCount >= 4
-    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Complex Pricing Landscape', copy: `${catLabel} has ${tierCount} price tiers spanning ${curr}${lowestTier?.min}–${curr}${highestTier?.max}. Each tier has established incumbents — strong brand story and distinctive packaging are essential to carve a position.` }
+    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Complex Pricing Landscape', copy: `${catLabel} has ${tierCount} price tiers spanning ${curr}${lowestTier?.min}\u2013${curr}${highestTier?.max}. Each tier has established incumbents \u2014 strong brand story and distinctive packaging are essential to carve a position.` }
     : tierCount === 3
     ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Structured Market Tiers', copy: `${catLabel} has ${tierCount} clear price tiers from ${curr}${lowestTier?.min} to ${curr}${highestTier?.max}. Entry above ${curr}${lowestTier?.max} signals premium intent and unlocks on-trade placement opportunities.` }
     : { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Defined Price Architecture', copy: `${catLabel} operates in ${tierCount} tier bands from ${curr}${lowestTier?.min} to ${curr}${highestTier?.max}. Pricing at or above the mid-tier floor is the minimum threshold for serious on-premise listings.` }
@@ -184,8 +184,8 @@ export default function PricePositioning() {
   const liSig2 = avgOnTrade >= 12
     ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Premium On-Trade Economics', copy: `Average on-trade pour price for ${catLabel} is ${curr}${avgOnTrade.toFixed(2)}. Category economics reward premium positioning with above-average serve margins and stronger venue listing priority.` }
     : avgOnTrade >= 8
-    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Standard On-Trade Economics', copy: `Average ${catLabel} on-trade pour is ${curr}${avgOnTrade.toFixed(2)}. Standard margins apply — premium brands can negotiate better placement by demonstrating category growth credentials and consumer demand.` }
-    : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Volume-Led On-Trade', copy: `Average ${catLabel} on-trade pour is ${curr}${avgOnTrade.toFixed(2)}. Category economics favour rate-of-sale over margin — robust distribution network and listed accounts are the primary value drivers.` }
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Standard On-Trade Economics', copy: `Average ${catLabel} on-trade pour is ${curr}${avgOnTrade.toFixed(2)}. Standard margins apply \u2014 premium brands can negotiate better placement by demonstrating category growth credentials and consumer demand.` }
+    : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Volume-Led On-Trade', copy: `Average ${catLabel} on-trade pour is ${curr}${avgOnTrade.toFixed(2)}. Category economics favour rate-of-sale over margin \u2014 robust distribution network and listed accounts are the primary value drivers.` }
 
   const liSig3 = { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Category Signal', copy: benchmarks?.insight || `${catLabel} market intelligence unavailable.` }
 
@@ -245,7 +245,7 @@ export default function PricePositioning() {
             <Zap size={14} className="text-gold" />
           </div>
           <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
-          <span className="text-xs text-gray-400 ml-auto">Pricing Signals {'·'} {catLabel}</span>
+          <span className="text-xs text-gray-400 ml-auto">Pricing Signals {'\u00B7'} {catLabel}</span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           {[liSig1, liSig2, liSig3].map((sig, i) => (
@@ -275,7 +275,7 @@ export default function PricePositioning() {
                 </h3>
                 <p className="text-sm text-gray-500">
                   {selectedMarket?.currency}{numPrice.toFixed(2)} positions you in the {tier.name.toLowerCase()} segment
-                  ({selectedMarket?.currency}{tier.min}{'–'}{selectedMarket?.currency}{tier.max})
+                  ({selectedMarket?.currency}{tier.min}{'\u2013'}{selectedMarket?.currency}{tier.max})
                 </p>
               </div>
             </div>
@@ -283,7 +283,7 @@ export default function PricePositioning() {
             {tier.position === 'below' && (
               <div className="p-3 bg-red-50 border border-red-200 rounded-lg flex gap-2 mb-4">
                 <AlertTriangle size={14} className="text-red-600 mt-0.5 flex-shrink-0" />
-                <span className="text-red-800 text-xs">Your price is below the lowest tier. You may face perception issues {'—'} consumers often associate very low prices with poor quality in premium spirits categories.</span>
+                <span className="text-red-800 text-xs">Your price is below the lowest tier. You may face perception issues {'\u2014'} consumers often associate very low prices with poor quality in premium spirits categories.</span>
               </div>
             )}
 
@@ -298,7 +298,7 @@ export default function PricePositioning() {
 
           {/* All tiers visual */}
           <Card className="p-6">
-            <h3 className="text-sm font-bold text-navy mb-4">Price Tier Map {'—'} {CATEGORIES.find(c => c.id === category)?.label}</h3>
+            <h3 className="text-sm font-bold text-navy mb-4">Price Tier Map {'\u2014'} {CATEGORIES.find(c => c.id === category)?.label}</h3>
             <div className="space-y-3">
               {benchmarks.tiers.map((t, i) => {
                 const isActive = t.name === tier.name && !tier.position
@@ -311,7 +311,7 @@ export default function PricePositioning() {
                   <div key={i}>
                     <div className="flex items-center justify-between mb-1">
                       <span className={`text-xs font-medium ${isActive ? 'text-navy' : 'text-gray-500'}`}>{t.name}</span>
-                      <span className="text-xs text-gray-400">{selectedMarket?.currency}{t.min}{'–'}{selectedMarket?.currency}{t.max}</span>
+                      <span className="text-xs text-gray-400">{selectedMarket?.currency}{t.min}{'\u2013'}{selectedMarket?.currency}{t.max}</span>
                     </div>
                     <div className="relative h-6 bg-gray-100 rounded-full overflow-hidden">
                       <div
@@ -354,13 +354,13 @@ export default function PricePositioning() {
                 <TrendingUp size={14} className="text-navy mt-0.5 flex-shrink-0" />
                 <span className="text-sm text-gray-700">
                   Average on-trade pour price: {selectedMarket?.currency}{benchmarks.avgOnTrade.toFixed(2)}.
-                  At {selectedMarket?.currency}{numPrice.toFixed(2)} RRP, your on-trade price should be approximately {selectedMarket?.currency}{(numPrice * 0.3).toFixed(2)}{'–'}{selectedMarket?.currency}{(numPrice * 0.4).toFixed(2)} per serve to maintain standard margins.
+                  At {selectedMarket?.currency}{numPrice.toFixed(2)} RRP, your on-trade price should be approximately {selectedMarket?.currency}{(numPrice * 0.3).toFixed(2)}{'\u2013'}{selectedMarket?.currency}{(numPrice * 0.4).toFixed(2)} per serve to maintain standard margins.
                 </span>
               </div>
               <div className="p-3 bg-gray-50 rounded-lg flex gap-2">
                 <Target size={14} className="text-navy mt-0.5 flex-shrink-0" />
                 <span className="text-sm text-gray-700">
-                  Off-trade margin at this price: approximately {selectedMarket?.currency}{(numPrice * 0.35).toFixed(2)}{'–'}{selectedMarket?.currency}{(numPrice * 0.45).toFixed(2)} per unit (35{'–'}45% gross margin after duty and distribution).
+                  Off-trade margin at this price: approximately {selectedMarket?.currency}{(numPrice * 0.35).toFixed(2)}{'\u2013'}{selectedMarket?.currency}{(numPrice * 0.45).toFixed(2)} per unit (35{'\u2013'}45% gross margin after duty and distribution).
                 </span>
               </div>
             </div>
@@ -370,7 +370,7 @@ export default function PricePositioning() {
 
       {/* Always show full benchmark table */}
       <Card className="p-6">
-        <h3 className="text-sm font-bold text-navy mb-4">Full Price Benchmarks {'—'} {CATEGORIES.find(c => c.id === category)?.label}</h3>
+        <h3 className="text-sm font-bold text-navy mb-4">Full Price Benchmarks {'\u2014'} {CATEGORIES.find(c => c.id === category)?.label}</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
@@ -384,7 +384,7 @@ export default function PricePositioning() {
               {benchmarks?.tiers.map((t, i) => (
                 <tr key={i} className={`border-b border-gray-100 ${tier && t.name === tier.name && !tier.position ? 'bg-navy/5' : ''}`}>
                   <td className="py-2 font-medium text-navy">{t.name}</td>
-                  <td className="py-2 text-gray-600">{selectedMarket?.currency}{t.min}{'–'}{selectedMarket?.currency}{t.max}</td>
+                  <td className="py-2 text-gray-600">{selectedMarket?.currency}{t.min}{'\u2013'}{selectedMarket?.currency}{t.max}</td>
                   <td className="py-2 text-gray-600">{t.brands.join(', ')}</td>
                 </tr>
               ))}

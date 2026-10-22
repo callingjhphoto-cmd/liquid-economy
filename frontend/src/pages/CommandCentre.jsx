@@ -65,7 +65,7 @@ function HeroMarketCard() {
             <span className="text-label text-gray-500 uppercase tracking-wider">Global Spirits Market
               <MethodologyTooltip text="Distilled spirits market size, excluding beer, wine & cider. Source: IWSR 2025." />
             </span>
-            <p className="text-micro text-gray-500">Distilled spirits excl. beer, wine &amp; cider {'·'} IWSR 2025</p>
+            <p className="text-micro text-gray-500">Distilled spirits excl. beer, wine &amp; cider {'\u00B7'} IWSR 2025</p>
           </div>
         </div>
 
@@ -354,7 +354,7 @@ function PriceAlertsSummary() {
 
   return (
     <div>
-      <SectionHeader size="md" subtitle={`${alerts.length} alerts · ${opportunities.length} opportunities`}>
+      <SectionHeader size="md" subtitle={`${alerts.length} alerts \u00B7 ${opportunities.length} opportunities`}>
         Price Alerts
       </SectionHeader>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -368,7 +368,7 @@ function PriceAlertsSummary() {
                   <div className="flex-1 min-w-0">
                     <span className={`text-micro font-bold uppercase px-1.5 py-0.5 rounded-full ${sev.bg} ${sev.text}`}>{sev.label}</span>
                     <div className="text-xs font-semibold text-navy mt-1 group-hover:text-gold transition-colors">{alert.product}</div>
-                    <div className="text-xs text-gray-500">{alert.category} {'·'} {alert.channel}</div>
+                    <div className="text-xs text-gray-500">{alert.category} {'\u00B7'} {alert.channel}</div>
                   </div>
                   <div className="text-right flex-shrink-0 ml-2">
                     <div className="text-sm font-bold text-navy">{alert.pricePoint}</div>
@@ -868,7 +868,7 @@ export default function CommandCentre() {
       {/* ── Page Header ── */}
       <PageHeader
         title="Command Centre"
-        subtitle={`Global beverage alcohol intelligence ${'—'} real-time market monitoring`}
+        subtitle={`Global beverage alcohol intelligence ${'\u2014'} real-time market monitoring`}
         action={
           <div className="text-right space-y-1">
             <DataFreshness date="April 2026" source="IWSR, Euromonitor, Industry" />
@@ -881,7 +881,7 @@ export default function CommandCentre() {
       <div className="flex flex-col lg:flex-row lg:items-center gap-4 py-4 px-5 bg-navy/5 rounded-xl border border-navy/10">
         <div className="flex-1">
           <p className="font-display text-body-lg text-navy leading-snug">
-            Market intelligence for premium drinks brands {'—'} here's what the majors left on the table.
+            Market intelligence for premium drinks brands {'\u2014'} here's what the majors left on the table.
           </p>
         </div>
         <div className="flex flex-col sm:flex-row lg:flex-row items-start sm:items-center gap-3 shrink-0">
@@ -903,7 +903,7 @@ export default function CommandCentre() {
       </div>
 
       {/* ══════════════════════════════════════════════════════
-          TIER 1 — Executive Dashboard Bento Grid
+          TIER 1 \u2014 Executive Dashboard Bento Grid
           F-pattern: Hero top-left, KPIs right + below
          ══════════════════════════════════════════════════════ */}
       <div className="flex gap-6">
@@ -922,12 +922,12 @@ export default function CommandCentre() {
           <MarketPulseBanner />
 
           {/* ══════════════════════════════════════════════════════
-              TIER 2 — Expandable Sections (DrillDown panels)
+              TIER 2 \u2014 Expandable Sections (DrillDown panels)
              ══════════════════════════════════════════════════════ */}
 
           <DrillDown
             title="Category Performance"
-            summary={`${CATEGORY_SNAPSHOT.length} categories tracked — ${CATEGORY_SNAPSHOT.filter(c => c.dir === 'up').length} growing`}
+            summary={`${CATEGORY_SNAPSHOT.length} categories tracked \u2014 ${CATEGORY_SNAPSHOT.filter(c => c.dir === 'up').length} growing`}
             defaultOpen={true}
           >
             <CategoryPerformance />
@@ -942,7 +942,7 @@ export default function CommandCentre() {
 
           <DrillDown
             title="Price Alerts"
-            summary={`${PRICE_ALERTS.filter(a => a.severity === 'alert').length} alerts · ${PRICE_ALERTS.filter(a => a.severity === 'opportunity').length} opportunities`}
+            summary={`${PRICE_ALERTS.filter(a => a.severity === 'alert').length} alerts \u00B7 ${PRICE_ALERTS.filter(a => a.severity === 'opportunity').length} opportunities`}
           >
             <PriceAlertsSummary />
           </DrillDown>
@@ -988,13 +988,13 @@ export default function CommandCentre() {
           <KeyMetricsWatchlist />
 
           {/* ══════════════════════════════════════════════════════
-              TIER 3 — Deep Dive Navigation CTAs
+              TIER 3 \u2014 Deep Dive Navigation CTAs
              ══════════════════════════════════════════════════════ */}
           <DeepDiveCTAs />
 
         </div>
 
-        {/* Live Feed sidebar — right side (desktop only) */}
+        {/* Live Feed sidebar \u2014 right side (desktop only) */}
         <div className="hidden xl:block w-80 flex-shrink-0">
           <div className="sticky top-6">
             <LiveFeed maxItems={12} compact={true} />

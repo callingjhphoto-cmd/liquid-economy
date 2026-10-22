@@ -38,7 +38,7 @@ export function ChartCard({
   const [showDataTable, setShowDataTable] = useState(false)
 
   const handleCopy = () => {
-    const text = copyData || `${title}${subtitle ? ' — ' + subtitle : ''}${source ? '\nSource: ' + source : ''}`
+    const text = copyData || `${title}${subtitle ? ' \u2014 ' + subtitle : ''}${source ? '\nSource: ' + source : ''}`
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true)
       setTimeout(() => setCopied(false), 1500)

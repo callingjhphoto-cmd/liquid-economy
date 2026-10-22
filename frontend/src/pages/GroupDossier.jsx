@@ -70,7 +70,7 @@ export default function GroupDossier() {
     <DossierLayout
       entry={entry}
       title={displayName}
-      subtitle={`Group dossier — ${entry.synthesisVerifiedSourceCount ?? 0} verified sources`}
+      subtitle={`Group dossier \u2014 ${entry.synthesisVerifiedSourceCount ?? 0} verified sources`}
       breadcrumbs={breadcrumbs}
       crossLinks={crossLinks}
       relatedTools={[

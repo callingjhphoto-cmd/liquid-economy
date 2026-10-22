@@ -44,7 +44,7 @@ export function LeftOnTheTable({
 
       {isFlagship ? (
         <>
-          {/* Finding cards — 1 col mobile, 2-3 col lg */}
+          {/* Finding cards \u2014 1 col mobile, 2-3 col lg */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-8">
             {heroFindings.map((finding, i) => (
               <FindingCard key={i} finding={finding} index={i} brandSlug={brandSlug} />
@@ -114,7 +114,7 @@ function FindingCard({ finding, index, brandSlug }) {
 
   return (
     <div className="bg-white border border-gray-200 rounded-bento p-5 flex flex-col gap-3 hover:shadow-sm transition-shadow">
-      {/* Dollar figure — gold, prominent */}
+      {/* Dollar figure \u2014 gold, prominent */}
       {dollarChip && (
         <div className="flex items-baseline gap-2">
           <span className="font-display text-[22px] text-gold font-bold leading-none">
@@ -134,7 +134,7 @@ function FindingCard({ finding, index, brandSlug }) {
         <p className="text-small text-gray-600 leading-relaxed">{body}</p>
       )}
 
-      {/* Derivation basis — always visible, self-verifying */}
+      {/* Derivation basis \u2014 always visible, self-verifying */}
       {derivationBasis && (
         <p className="text-[11px] text-gray-400 italic leading-snug border-t border-gray-100 pt-2">
           {derivationBasis}

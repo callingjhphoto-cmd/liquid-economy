@@ -189,7 +189,7 @@ export function DataTable({
                       key={col.key}
                       className={`${cellPadding} text-xs text-gray-700 ${col.align === 'right' ? 'text-right' : ''}`}
                     >
-                      {col.render ? col.render(row[col.key], row) : (row[col.key] ?? '—')}
+                      {col.render ? col.render(row[col.key], row) : (row[col.key] ?? '\u2014')}
                     </td>
                   ))}
                 </tr>

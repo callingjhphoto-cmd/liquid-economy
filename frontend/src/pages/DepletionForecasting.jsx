@@ -104,21 +104,21 @@ export default function DepletionForecasting() {
     : numDist >= 150
     ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Mid-Tier Distribution', copy: `${numDist} points puts this brand on track for mainstream visibility. Prioritise top-performing accounts for activation spend to lift the average rate of sale above ${numROS} cases/month.` }
     : numDist >= 50
-    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Building Distribution', copy: `${numDist} points is a healthy seeding-phase network. Target 20–30% quarterly growth in account count while maintaining quality — minimum ${numROS} cases/month rate of sale per account.` }
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Building Distribution', copy: `${numDist} points is a healthy seeding-phase network. Target 20\u201330% quarterly growth in account count while maintaining quality \u2014 minimum ${numROS} cases/month rate of sale per account.` }
     : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Limited Distribution', copy: `${numDist} distribution points is a focused seeding phase. Prioritise account quality and reorder frequency over breadth. Use proof-of-concept data to drive distributor conversations.` }
 
   const liSig2 = annualRevenue >= 200000
-    ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Strong Revenue Forecast', copy: `£${(annualRevenue / 1000).toFixed(0)}k annual revenue forecast justifies premium listing investment and brand-building spend. Consider dedicated field sales resource.` }
+    ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Strong Revenue Forecast', copy: `\u00A3${(annualRevenue / 1000).toFixed(0)}k annual revenue forecast justifies premium listing investment and brand-building spend. Consider dedicated field sales resource.` }
     : annualRevenue >= 50000
-    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Healthy Revenue Run Rate', copy: `£${(annualRevenue / 1000).toFixed(0)}k annual revenue supports continued distribution build and targeted activation. Suitable for distributor partnership conversations.` }
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Healthy Revenue Run Rate', copy: `\u00A3${(annualRevenue / 1000).toFixed(0)}k annual revenue supports continued distribution build and targeted activation. Suitable for distributor partnership conversations.` }
     : annualRevenue >= 10000
-    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Growing Revenue Base', copy: `£${(annualRevenue / 1000).toFixed(0)}k annual run rate. Viable if in investment phase. Focus on account quality and reorder frequency to build the revenue foundation before scaling accounts.` }
-    : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Early Stage Revenue', copy: `£${(annualRevenue / 1000).toFixed(1)}k annual revenue forecast reflects early-stage distribution. Acceptable for brand seeding; target minimum £10k before seeking wider distributor listings.` }
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Growing Revenue Base', copy: `\u00A3${(annualRevenue / 1000).toFixed(0)}k annual run rate. Viable if in investment phase. Focus on account quality and reorder frequency to build the revenue foundation before scaling accounts.` }
+    : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Early Stage Revenue', copy: `\u00A3${(annualRevenue / 1000).toFixed(1)}k annual revenue forecast reflects early-stage distribution. Acceptable for brand seeding; target minimum \u00A310k before seeking wider distributor listings.` }
 
   const liSig3 = liPeakRatio >= 2
-    ? { dot: 'bg-red-500', color: 'text-red-600', label: 'High Seasonal Spike Risk', copy: `${peakMonth.month} peak is ${liPeakRatio.toFixed(1)}× average monthly volume. Ensure 6–8 weeks buffer stock pre-peak. Communicate forecast to distributor by ${peakMonth.month === 'Dec' ? 'Oct' : 'Apr'} to avoid lost sales.` }
+    ? { dot: 'bg-red-500', color: 'text-red-600', label: 'High Seasonal Spike Risk', copy: `${peakMonth.month} peak is ${liPeakRatio.toFixed(1)}\u00D7 average monthly volume. Ensure 6\u20138 weeks buffer stock pre-peak. Communicate forecast to distributor by ${peakMonth.month === 'Dec' ? 'Oct' : 'Apr'} to avoid lost sales.` }
     : liPeakRatio >= 1.5
-    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Moderate Seasonality', copy: `${peakMonth.month} peak is ${liPeakRatio.toFixed(1)}× average monthly volume. Plan 4–6 weeks of buffer stock ahead of the peak window. Align reorder schedule with the ${totalReorders}-order annual cadence.` }
+    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Moderate Seasonality', copy: `${peakMonth.month} peak is ${liPeakRatio.toFixed(1)}\u00D7 average monthly volume. Plan 4\u20136 weeks of buffer stock ahead of the peak window. Align reorder schedule with the ${totalReorders}-order annual cadence.` }
     : { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Low Seasonal Variance', copy: `Consistent depletion profile across the year. Standard 4-week reorder cycle applies. ${totalReorders} annual reorders at ${numReorder} cases/order provides a manageable logistics cadence.` }
 
   return (
@@ -150,7 +150,7 @@ export default function DepletionForecasting() {
               ))}
             </select>
           </div>
-          <InputGroup label="Price Per Case" value={pricePerCase} onChange={setPricePerCase} placeholder="120" suffix={"£"} min="1" />
+          <InputGroup label="Price Per Case" value={pricePerCase} onChange={setPricePerCase} placeholder="120" suffix={"\u00A3"} min="1" />
           <InputGroup label="Cases Per Reorder" value={casesPerReorder} onChange={setCasesPerReorder} placeholder="50" suffix="cases" min="1" />
           <InputGroup label="Annual Growth" value={growthRate} onChange={setGrowthRate} placeholder="5" suffix="%" />
         </div>
@@ -165,7 +165,7 @@ export default function DepletionForecasting() {
         </Card>
         <Card className="p-4 text-center">
           <div className="text-xs text-gray-500 mb-1">Annual Revenue</div>
-          <div className="text-xl font-bold text-navy">{'£'}{annualRevenue.toLocaleString()}</div>
+          <div className="text-xl font-bold text-navy">{'\u00A3'}{annualRevenue.toLocaleString()}</div>
           <div className="text-xs text-gray-400">forecast</div>
         </Card>
         <Card className="p-4 text-center">
@@ -184,14 +184,14 @@ export default function DepletionForecasting() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
         <Card className="p-4">
           <h3 className="text-sm font-bold text-navy mb-3">Monthly Depletions</h3>
-          <div role="figure" aria-label={'Chart: Monthly Depletions — cases and revenue by month'}>
+          <div role="figure" aria-label={'Chart: Monthly Depletions \u2014 cases and revenue by month'}>
           <ResponsiveContainer width="100%" height={250}>
             <ComposedChart data={forecast} accessibilityLayer>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#9ca3af' }} />
               <YAxis yAxisId="left" tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => v >= 1000 ? `${Math.round(v / 1000)}K` : String(v)} width={55} label={{ value: 'Cases', angle: -90, position: 'insideLeft', fontSize: 9, fill: '#9ca3af', dx: 10 }} />
-              <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => v >= 1000 ? `£${Math.round(v / 1000)}K` : `£${v}`} width={60} label={{ value: 'Revenue (£)', angle: 90, position: 'insideRight', fontSize: 9, fill: '#9ca3af', dx: -4 }} />
-              <Tooltip formatter={(v, name) => name === 'revenue' ? `£${v.toLocaleString()}` : v.toLocaleString()} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11, color: '#f1f5f9' }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
+              <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => v >= 1000 ? `\u00A3${Math.round(v / 1000)}K` : `\u00A3${v}`} width={60} label={{ value: 'Revenue (\u00A3)', angle: 90, position: 'insideRight', fontSize: 9, fill: '#9ca3af', dx: -4 }} />
+              <Tooltip formatter={(v, name) => name === 'revenue' ? `\u00A3${v.toLocaleString()}` : v.toLocaleString()} contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11, color: '#f1f5f9' }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
               <Legend wrapperStyle={{ fontSize: 11 }} />
               <Bar yAxisId="left" dataKey="depletions" name="Cases" fill={CHART_COLORS.primary} radius={[4, 4, 0, 0]} />
               <Line yAxisId="right" type="monotone" dataKey="revenue" name="Revenue" stroke={CHART_COLORS.accent} strokeWidth={2} dot={false} />
@@ -202,7 +202,7 @@ export default function DepletionForecasting() {
 
         <Card className="p-4">
           <h3 className="text-sm font-bold text-navy mb-3">Cumulative Depletions</h3>
-          <div role="figure" aria-label={'Chart: Cumulative Depletions — total cases over time'}>
+          <div role="figure" aria-label={'Chart: Cumulative Depletions \u2014 total cases over time'}>
           <ResponsiveContainer width="100%" height={250}>
             <ComposedChart data={forecast} accessibilityLayer>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
@@ -225,7 +225,7 @@ export default function DepletionForecasting() {
               <Zap size={14} className="text-gold" />
             </div>
             <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
-            <span className="text-xs text-gray-400 ml-auto">Forecast Signals {'·'} {seasonality === 'champagne' ? 'Champagne' : profile.label}</span>
+            <span className="text-xs text-gray-400 ml-auto">Forecast Signals {'\u00B7'} {seasonality === 'champagne' ? 'Champagne' : profile.label}</span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             {[liSig1, liSig2, liSig3].map((sig, i) => (
@@ -260,7 +260,7 @@ export default function DepletionForecasting() {
                 <tr key={i} className="border-b border-gray-50">
                   <td className="py-2 font-medium text-navy">{f.month}</td>
                   <td className="py-2 text-right text-gray-600">{f.depletions.toLocaleString()}</td>
-                  <td className="py-2 text-right text-gray-600">{'£'}{f.revenue.toLocaleString()}</td>
+                  <td className="py-2 text-right text-gray-600">{'\u00A3'}{f.revenue.toLocaleString()}</td>
                   <td className="py-2 text-right">
                     <Badge>{f.reordersNeeded}x {numReorder} cases</Badge>
                   </td>
@@ -272,7 +272,7 @@ export default function DepletionForecasting() {
               <tr className="border-t border-gray-300 font-bold">
                 <td className="py-2 text-navy">Total</td>
                 <td className="py-2 text-right text-navy">{annualDepletions.toLocaleString()}</td>
-                <td className="py-2 text-right text-navy">{'£'}{annualRevenue.toLocaleString()}</td>
+                <td className="py-2 text-right text-navy">{'\u00A3'}{annualRevenue.toLocaleString()}</td>
                 <td className="py-2 text-right text-navy">{totalReorders} reorders</td>
                 <td className="py-2 text-right text-navy">{annualDepletions.toLocaleString()}</td>
               </tr>

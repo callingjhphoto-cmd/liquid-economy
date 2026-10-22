@@ -131,7 +131,7 @@ export default function BrandDossier() {
         </div>
       )}
 
-      {/* Full dossier sections — all content */}
+      {/* Full dossier sections \u2014 all content */}
       {loadError && (
         <div className="mb-6 p-4 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-800">
           Content could not be loaded. Run <code>npm run build-dossiers</code> to regenerate.

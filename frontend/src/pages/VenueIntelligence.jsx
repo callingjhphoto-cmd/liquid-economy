@@ -36,7 +36,7 @@ function useVenueMetrics(selectedYear) {
       cityCount[b.city] = (cityCount[b.city] || 0) + 1
     })
     const sorted = Object.entries(cityCount).sort((a, b) => b[1] - a[1])
-    return sorted[0] ? `${sorted[0][0]} (${sorted[0][1]})` : '—'
+    return sorted[0] ? `${sorted[0][0]} (${sorted[0][1]})` : '\u2014'
   }, [selectedYear])
 
   const topParentCompany = useMemo(() => {
@@ -48,7 +48,7 @@ function useVenueMetrics(selectedYear) {
       })
     })
     const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1])
-    return sorted[0] ? sorted[0][0] : '—'
+    return sorted[0] ? sorted[0][0] : '\u2014'
   }, [])
 
   const perennialBars = useMemo(() => {
@@ -326,7 +326,7 @@ export default function VenueIntelligence() {
                 <div className="flex gap-1.5 flex-wrap">
                   {YEARS.map((y, idx) => (
                     <span key={y} className={`px-1.5 py-0.5 rounded text-micro ${venue.fiftyBest[idx] ? (venue.fiftyBest[idx] <= 10 ? 'bg-green-100 text-green-700 font-bold' : 'bg-blue-100 text-blue-700') : 'bg-gray-100 text-gray-500'}`}>
-                      {y}: {venue.fiftyBest[idx] ? `#${venue.fiftyBest[idx]}` : '—'}
+                      {y}: {venue.fiftyBest[idx] ? `#${venue.fiftyBest[idx]}` : '\u2014'}
                     </span>
                   ))}
                 </div>
@@ -381,7 +381,7 @@ export default function VenueIntelligence() {
     <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto space-y-6">
       <PageHeader
         title="Venue & On-Trade Intelligence"
-        subtitle={`${LONDON_VENUES.length} London venues · World’s 50 Best Bars 2021–2025 · ${Object.keys(COMPANY_PROFILES).length} company profiles · Data as of April 2026`}
+        subtitle={`${LONDON_VENUES.length} London venues \u00B7 World’s 50 Best Bars 2021\u20132025 \u00B7 ${Object.keys(COMPANY_PROFILES).length} company profiles \u00B7 Data as of April 2026`}
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Venue Intelligence' },
@@ -477,7 +477,7 @@ export default function VenueIntelligence() {
             <Card hover onClick={() => toggleSection('venues')}>
               <MetricCard
                 label="Avg Budget Range"
-                value={BUDGET_BENCHMARKS?.luxury?.marketingSpend || '£15-50k'}
+                value={BUDGET_BENCHMARKS?.luxury?.marketingSpend || '\u00A315-50k'}
                 subtitle="Luxury account marketing/yr"
                 icon={DollarSign}
               />
@@ -493,7 +493,7 @@ export default function VenueIntelligence() {
             </Card>
           </BentoGrid>
 
-          {/* ═══════ VENUE INTELLIGENCE — Liquid Intelligence ═══════ */}
+          {/* ═══════ VENUE INTELLIGENCE \u2014 Liquid Intelligence ═══════ */}
           <div className="border-l-4 border-gold bg-gradient-to-r from-gold/5 to-transparent rounded-xl p-5">
             <div className="flex items-center gap-2 mb-4">
               <Zap size={16} className="text-gold" />
@@ -512,10 +512,10 @@ export default function VenueIntelligence() {
                     </div>
                     <p className={`text-xs leading-relaxed ${hi ? 'text-emerald-600' : lo ? 'text-amber-600' : 'text-blue-600'}`}>
                       {hi
-                        ? 'Strong London window — multiple tier-1 venues available for on-trade entry and perennial brand partnerships.'
+                        ? 'Strong London window \u2014 multiple tier-1 venues available for on-trade entry and perennial brand partnerships.'
                         : lo
-                        ? 'Thin London footprint — single flagship raises dependency risk; consider Edinburgh or Bristol as complementary markets.'
-                        : 'Selective access — viable entry routes exist; focus on perennial bars for resilient long-term on-trade positioning.'}
+                        ? 'Thin London footprint \u2014 single flagship raises dependency risk; consider Edinburgh or Bristol as complementary markets.'
+                        : 'Selective access \u2014 viable entry routes exist; focus on perennial bars for resilient long-term on-trade positioning.'}
                     </p>
                   </div>
                 )
@@ -533,10 +533,10 @@ export default function VenueIntelligence() {
                     </div>
                     <p className={`text-xs leading-relaxed ${lo ? 'text-emerald-600' : hi ? 'text-amber-600' : 'text-blue-600'}`}>
                       {lo
-                        ? 'Independent-friendly landscape — bartender community open to quality-led brands; credibility-first entry is the winning play.'
+                        ? 'Independent-friendly landscape \u2014 bartender community open to quality-led brands; credibility-first entry is the winning play.'
                         : hi
-                        ? 'High corporate lock-in — majority of top bars tied to major groups; target independent accounts and 50 Best perennial venues.'
-                        : 'Mixed environment — significant corporate presence but independent placement is achievable for differentiated products.'}
+                        ? 'High corporate lock-in \u2014 majority of top bars tied to major groups; target independent accounts and 50 Best perennial venues.'
+                        : 'Mixed environment \u2014 significant corporate presence but independent placement is achievable for differentiated products.'}
                     </p>
                   </div>
                 )
@@ -545,7 +545,7 @@ export default function VenueIntelligence() {
               {/* Signal 3: Market leader concentration */}
               {(() => {
                 const topPct = parentPenetration[selectedYear]?.[0]?.pct || 0
-                const topName = parentPenetration[selectedYear]?.[0]?.name || '—'
+                const topName = parentPenetration[selectedYear]?.[0]?.name || '\u2014'
                 const lo = topPct < 25
                 const hi = topPct >= 40
                 return (
@@ -555,10 +555,10 @@ export default function VenueIntelligence() {
                     </div>
                     <p className={`text-xs leading-relaxed ${lo ? 'text-emerald-600' : hi ? 'text-amber-700' : 'text-blue-600'}`}>
                       {lo
-                        ? 'Fragmented field — no dominant lock; well-positioned quality brands can self-select into multiple venues without displacement risk.'
+                        ? 'Fragmented field \u2014 no dominant lock; well-positioned quality brands can self-select into multiple venues without displacement risk.'
                         : hi
-                        ? `Dominant concentration — ${topName} controls ${topPct}% of top bars; back-bar space is contested. Focus on 5–10 independent flagship accounts.`
-                        : `Strong player present — ${topName} leads but the field remains contestable; 5–8 key account relationships build credible on-trade presence.`}
+                        ? `Dominant concentration \u2014 ${topName} controls ${topPct}% of top bars; back-bar space is contested. Focus on 5\u201310 independent flagship accounts.`
+                        : `Strong player present \u2014 ${topName} leads but the field remains contestable; 5\u20138 key account relationships build credible on-trade presence.`}
                     </p>
                   </div>
                 )
@@ -572,13 +572,13 @@ export default function VenueIntelligence() {
           <ErrorBoundary message="50 Best Bars section failed to load.">
           <DrillDown
             title="50 Best Bars Rankings"
-            summary={`London: ${londonCount} bars · ${citiesCount} cities · ${perennialBars.length} perennial bars`}
+            summary={`London: ${londonCount} bars \u00B7 ${citiesCount} cities \u00B7 ${perennialBars.length} perennial bars`}
             defaultOpen={false}
           >
             <div className="space-y-6">
               {/* Region + City charts */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <ChartCard title={`Regional Distribution — ${selectedYear}`} height={240}>
+                <ChartCard title={`Regional Distribution \u2014 ${selectedYear}`} height={240}>
                   <BarChart data={regionAnalysis} layout="vertical" accessibilityLayer={true}>
                     <XAxis type="number" allowDecimals={false} tick={{ fontSize: 11, fill: '#9ca3af' }} />
                     <YAxis dataKey="name" type="category" width={120} tick={{ fontSize: 11, fill: '#9ca3af' }} />
@@ -589,7 +589,7 @@ export default function VenueIntelligence() {
                   </BarChart>
                 </ChartCard>
 
-                <ChartCard title={`Top Cities by Entries — ${selectedYear}`} height={240}>
+                <ChartCard title={`Top Cities by Entries \u2014 ${selectedYear}`} height={240}>
                   <BarChart data={cityData} layout="vertical" accessibilityLayer={true}>
                     <XAxis type="number" allowDecimals={false} tick={{ fontSize: 11, fill: '#9ca3af' }} />
                     <YAxis dataKey="city" type="category" width={100} tick={{ fontSize: 11, fill: '#9ca3af' }} />
@@ -601,7 +601,7 @@ export default function VenueIntelligence() {
 
               {/* Perennial bars */}
               <Card>
-                <h4 className="text-sm font-semibold text-navy mb-1">Perennial Bars {'—'} Appeared 4+ Years</h4>
+                <h4 className="text-sm font-semibold text-navy mb-1">Perennial Bars {'\u2014'} Appeared 4+ Years</h4>
                 <p className="text-xs text-gray-500 mb-3">Key accounts for brand partnerships</p>
                 <div className="max-h-72 overflow-y-auto overflow-x-auto">
                   <div className="min-w-[480px]">
@@ -615,7 +615,7 @@ export default function VenueIntelligence() {
                       <div className="flex gap-1.5 flex-1">
                         {YEARS.map(y => (
                           <span key={y} className={`text-micro w-10 text-center ${bar.ranks[y] ? (bar.ranks[y] <= 10 ? 'font-bold text-green-600' : 'text-gray-600') : 'text-gray-300'}`}>
-                            {bar.ranks[y] ? `#${bar.ranks[y]}` : '—'}
+                            {bar.ranks[y] ? `#${bar.ranks[y]}` : '\u2014'}
                           </span>
                         ))}
                       </div>
@@ -659,7 +659,7 @@ export default function VenueIntelligence() {
           <ErrorBoundary message="London venues section failed to load.">
           <DrillDown
             title="London Key Accounts"
-            summary={`${LONDON_VENUES.length} venues profiled · Search by name, area, or brand`}
+            summary={`${LONDON_VENUES.length} venues profiled \u00B7 Search by name, area, or brand`}
           >
             <div className="space-y-4">
               {/* Filter pills */}
@@ -676,7 +676,7 @@ export default function VenueIntelligence() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-gray-600">
                 <div><span className="font-bold text-purple-600">Luxury:</span> Notoriety-driven, marketing spend, menu placement</div>
                 <div><span className="font-bold text-green-600">Volume:</span> High-throughput, retros, aggressive pricing</div>
-                <div><span className="font-bold text-amber-600">Both:</span> Rare {'—'} high volume AND prestige (e.g. Annabel's)</div>
+                <div><span className="font-bold text-amber-600">Both:</span> Rare {'\u2014'} high volume AND prestige (e.g. Annabel's)</div>
               </div>
 
               {/* Venue cards */}
@@ -721,7 +721,7 @@ export default function VenueIntelligence() {
           <ErrorBoundary message="Corporate penetration section failed to load.">
           <DrillDown
             title="Corporate Penetration"
-            summary={`${Object.keys(COMPANY_PROFILES).length} companies profiled · Corporate vs independent trends`}
+            summary={`${Object.keys(COMPANY_PROFILES).length} companies profiled \u00B7 Corporate vs independent trends`}
           >
             <div className="space-y-6">
               {/* Headline stats */}
@@ -734,7 +734,7 @@ export default function VenueIntelligence() {
                 <Card>
                   <p className="text-label text-gray-500">Top Company ({selectedYear})</p>
                   <p className="text-lg font-bold mt-1" style={{ color: PARENT_COMPANIES[parentPenetration[selectedYear]?.[0]?.name]?.color || '#333' }}>
-                    {parentPenetration[selectedYear]?.[0]?.name || '—'}
+                    {parentPenetration[selectedYear]?.[0]?.name || '\u2014'}
                   </p>
                   <p className="text-xs text-gray-500">{parentPenetration[selectedYear]?.[0]?.pct ?? 0}% penetration</p>
                 </Card>
@@ -808,7 +808,7 @@ export default function VenueIntelligence() {
           <ErrorBoundary message="Brand venue mapping failed to load.">
           <DrillDown
             title="Brand & Venue Mapping"
-            summary={`${Object.keys(BRAND_VENUE_MAP).length}+ brands mapped · Category density across London venues`}
+            summary={`${Object.keys(BRAND_VENUE_MAP).length}+ brands mapped \u00B7 Category density across London venues`}
           >
             <div className="space-y-6">
               {/* Brand-to-Venue Mapping */}
@@ -913,7 +913,7 @@ export default function VenueIntelligence() {
           {/* --- Longitudinal Trends --- */}
           <ErrorBoundary message="Longitudinal trends failed to load.">
           <DrillDown
-            title={"Longitudinal Trends (2021–2025)"}
+            title={"Longitudinal Trends (2021\u20132025)"}
             summary="Regional shifts, city dominance heatmap, geographic trends"
           >
             <div className="space-y-6">
@@ -955,7 +955,7 @@ export default function VenueIntelligence() {
                                 <span className={`inline-block w-7 h-5 leading-5 rounded text-micro font-bold ${row[y] >= 4 ? 'bg-green-500 text-white' : row[y] >= 3 ? 'bg-green-300 text-green-900' : row[y] >= 2 ? 'bg-blue-200 text-blue-800' : 'bg-gray-100 text-gray-600'}`}>
                                   {row[y]}
                                 </span>
-                              ) : <span className="text-gray-300">{'—'}</span>}
+                              ) : <span className="text-gray-300">{'\u2014'}</span>}
                             </td>
                           ))}
                           <td className="py-1.5 text-center font-bold text-navy">{row.total}</td>
@@ -975,7 +975,7 @@ export default function VenueIntelligence() {
           <ErrorBoundary message="Market entry playbooks failed to load.">
           <DrillDown
             title="Market Entry Playbooks & Budget Benchmarks"
-            summary={`${Object.keys(ENTRY_PLAYBOOKS).length} category playbooks · ${Object.keys(DISTRIBUTORS).length} distributors · On-trade spend benchmarks`}
+            summary={`${Object.keys(ENTRY_PLAYBOOKS).length} category playbooks \u00B7 ${Object.keys(DISTRIBUTORS).length} distributors \u00B7 On-trade spend benchmarks`}
           >
             <div className="space-y-6">
               {/* Budget Benchmarks */}
@@ -999,7 +999,7 @@ export default function VenueIntelligence() {
 
               {/* Corporate vs Independent + Penetration charts */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <ChartCard title={"Corporate vs Independent (2021–2025)"} height={250}>
+                <ChartCard title={"Corporate vs Independent (2021\u20132025)"} height={250}>
                   <BarChart data={independentVsCorporate} accessibilityLayer={true}>
                     <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#9ca3af' }} />
                     <YAxis domain={[0, 50]} tick={{ fontSize: 11, fill: '#9ca3af' }} tickFormatter={v => String(v)} label={{ value: '# Bars', angle: -90, position: 'insideLeft', fontSize: 9, fill: '#9ca3af', dx: -2 }} width={42} />
@@ -1154,11 +1154,11 @@ export default function VenueIntelligence() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-gray-700">
                   <div className="space-y-2">
                     <div>
-                      <h5 className="font-semibold text-navy">Entry Strategy {'—'} Luxury Accounts</h5>
+                      <h5 className="font-semibold text-navy">Entry Strategy {'\u2014'} Luxury Accounts</h5>
                       <p>Target independent-minded bars like Satan{'’'}s Whiskers, Tay{'ē'}r + Elementary, and Lyaness. These venues select on quality, not corporate spend.</p>
                     </div>
                     <div>
-                      <h5 className="font-semibold text-navy">Visibility {'—'} 50 Best Bars</h5>
+                      <h5 className="font-semibold text-navy">Visibility {'\u2014'} 50 Best Bars</h5>
                       <p>Perennial bars (Tay{'ē'}r, Connaught, Jigger &amp; Pony, Paradiso) offer global bartender community visibility through long-term partnerships.</p>
                     </div>
                   </div>
@@ -1182,7 +1182,7 @@ export default function VenueIntelligence() {
 
       {/* Data Source Footer */}
       <SourceList sources={[
-        { label: "World’s 50 Best Bars (2021–2025)", url: 'https://www.worlds50bestbars.com/' },
+        { label: "World’s 50 Best Bars (2021\u20132025)", url: 'https://www.worlds50bestbars.com/' },
         { label: 'Companies House UK', url: 'https://www.gov.uk/government/organisations/companies-house' },
         { label: 'Venue menus & industry sources' },
       ]} />
@@ -1237,7 +1237,7 @@ function VenueCard({ venue, index, expanded, onToggle }) {
               <div className="flex gap-1.5">
                 {YEARS.map((y, idx) => (
                   <span key={y} className={`px-1.5 py-0.5 rounded text-micro ${venue.fiftyBest[idx] ? (venue.fiftyBest[idx] <= 10 ? 'bg-green-100 text-green-700 font-bold' : 'bg-blue-100 text-blue-700') : 'bg-gray-100 text-gray-500'}`}>
-                    {y}: {venue.fiftyBest[idx] ? `#${venue.fiftyBest[idx]}` : '—'}
+                    {y}: {venue.fiftyBest[idx] ? `#${venue.fiftyBest[idx]}` : '\u2014'}
                   </span>
                 ))}
               </div>
@@ -1284,7 +1284,7 @@ function CompanyCard({ name, profile, expanded, onToggle }) {
         <span className="text-xs text-gray-500 ml-auto">{profile.revenue}</span>
         {expanded ? <ChevronUp size={14} className="text-gray-500" /> : <ChevronDown size={14} className="text-gray-500" />}
       </div>
-      <p className="text-xs text-gray-500">{profile.headquarters} {'·'} CEO: {profile.ceo}</p>
+      <p className="text-xs text-gray-500">{profile.headquarters} {'\u00B7'} CEO: {profile.ceo}</p>
       <p className="text-xs text-gray-500 mt-0.5">On-trade share: {profile.onTradeShare}</p>
 
       {expanded && (

@@ -43,7 +43,7 @@ function CompetitorCard({ brand, expanded, onToggle }) {
             <span className="text-sm font-bold text-navy">{brand.name}</span>
             <Badge>{brand.segment}</Badge>
           </div>
-          <div className="text-xs text-gray-500">{brand.parent} {'•'} {brand.avgPrice} avg {'•'} {brand.marketShare} share</div>
+          <div className="text-xs text-gray-500">{brand.parent} {'\u2022'} {brand.avgPrice} avg {'\u2022'} {brand.marketShare} share</div>
         </div>
         <ChevronDown size={14} className={`text-gray-400 transition-transform ${expanded ? '' : '-rotate-90'}`} />
       </button>
@@ -95,22 +95,22 @@ export default function CompetitorMonitor() {
   const liTopParentName = liTopParent ? liTopParent[0] : ''
 
   const activitySignal = liHighMoves >= 3
-    ? { color: 'text-red-600', dot: 'bg-red-500', label: 'ELEVATED COMPETITOR ACTIVITY', copy: `${liHighMoves} high-impact moves in this category — accelerated competitive response required. Review distribution agreements and on-trade activations.` }
+    ? { color: 'text-red-600', dot: 'bg-red-500', label: 'ELEVATED COMPETITOR ACTIVITY', copy: `${liHighMoves} high-impact moves in this category \u2014 accelerated competitive response required. Review distribution agreements and on-trade activations.` }
     : liHighMoves >= 1
     ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'NORMAL ACTIVITY', copy: `${liHighMoves} high-impact move${liHighMoves > 1 ? 's' : ''} tracked in this category. Monitor closely but no immediate escalation required.` }
     : { color: 'text-emerald-600', dot: 'bg-emerald-500', label: 'QUIET COMPETITIVE PERIOD', copy: 'No high-impact competitor moves recorded recently. Window open for proactive market-share capture without reactive competition.' }
 
   const pricingSignal = liPricingMoves >= 2
-    ? { color: 'text-amber-600', dot: 'bg-amber-500', label: 'PRICING WAR RISK', copy: `${liPricingMoves} pricing moves active — category entering a promotional cycle. Hold RRP and lead on value story rather than matching discounts.` }
+    ? { color: 'text-amber-600', dot: 'bg-amber-500', label: 'PRICING WAR RISK', copy: `${liPricingMoves} pricing moves active \u2014 category entering a promotional cycle. Hold RRP and lead on value story rather than matching discounts.` }
     : liPricingMoves === 1
     ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'ACTIVE PRICING MOVE', copy: '1 competitor repricing tracked. Assess impact on your relative price position before next trade review.' }
-    : { color: 'text-emerald-600', dot: 'bg-emerald-500', label: 'PRICE STABILITY', copy: 'No competitor pricing changes logged. Category price architecture intact — maintain current positioning.' }
+    : { color: 'text-emerald-600', dot: 'bg-emerald-500', label: 'PRICE STABILITY', copy: 'No competitor pricing changes logged. Category price architecture intact \u2014 maintain current positioning.' }
 
   const concentrationSignal = liTopParentPct >= 40
-    ? { color: 'text-amber-600', dot: 'bg-amber-500', label: 'HIGH CORPORATE CONCENTRATION', copy: `${liTopParentName} controls ${liTopParentPct}% of tracked brands in this category — distribution and on-trade access heavily influenced by one group.` }
+    ? { color: 'text-amber-600', dot: 'bg-amber-500', label: 'HIGH CORPORATE CONCENTRATION', copy: `${liTopParentName} controls ${liTopParentPct}% of tracked brands in this category \u2014 distribution and on-trade access heavily influenced by one group.` }
     : liTopParentPct >= 25
     ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'MODERATE CONCENTRATION', copy: `${liTopParentName} leads with ${liTopParentPct}% of category brands. Competitive but one group has meaningful shelf and listing influence.` }
-    : { color: 'text-emerald-600', dot: 'bg-emerald-500', label: 'FRAGMENTED MARKET', copy: `No single group controls more than ${liTopParentPct}% of tracked brands — level playing field for independent challenger brand positioning.` }
+    : { color: 'text-emerald-600', dot: 'bg-emerald-500', label: 'FRAGMENTED MARKET', copy: `No single group controls more than ${liTopParentPct}% of tracked brands \u2014 level playing field for independent challenger brand positioning.` }
 
   const liSignals = [activitySignal, pricingSignal, concentrationSignal]
   const liLabels = ['Alert Activity Level', 'Pricing Pressure', 'Market Concentration']
@@ -225,7 +225,7 @@ export default function CompetitorMonitor() {
       </div>
 
       <div className="mt-6 p-3 bg-blue-50 border border-blue-200 rounded-lg text-xs text-blue-800">
-        <strong>Intelligence sourced</strong> from public press releases, trade press, and regulatory filings {'—'} April 2026.{' '}
+        <strong>Intelligence sourced</strong> from public press releases, trade press, and regulatory filings {'\u2014'} April 2026.{' '}
         <a href="mailto:james@huertas.co.uk?subject=Liquid%20Economy%20%E2%80%94%20Competitor%20Monitor%20Live%20Data" className="underline font-medium">Contact us for real-time monitoring</a>
       </div>
     </div>

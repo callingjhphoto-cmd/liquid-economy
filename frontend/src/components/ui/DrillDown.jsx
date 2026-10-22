@@ -50,7 +50,7 @@ export function DrillDown({ title, summary, children, defaultOpen = false }) {
         />
       </div>
 
-      {/* Expandable content — grid-rows trick for smooth animation */}
+      {/* Expandable content \u2014 grid-rows trick for smooth animation */}
       <div
         id={panelId}
         role="region"

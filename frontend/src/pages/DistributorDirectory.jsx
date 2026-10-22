@@ -15,22 +15,22 @@ const liDualChCount = DISTRIBUTORS.filter(d => d.onTrade && d.offTrade).length
 const liDualChPct = Math.round(liDualChCount / DISTRIBUTORS.length * 100)
 
 const liMarketSignal = liMarketCount >= 8
-  ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'WIDE GLOBAL REACH', copy: `${liMarketCount} markets covered — strong options across North America, Europe, APAC, Middle East, and LatAm. Multi-market launch feasible from day one.` }
+  ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'WIDE GLOBAL REACH', copy: `${liMarketCount} markets covered \u2014 strong options across North America, Europe, APAC, Middle East, and LatAm. Multi-market launch feasible from day one.` }
   : liMarketCount >= 5
   ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'SOLID REGIONAL COVERAGE', copy: `${liMarketCount} markets represented. Core priority markets well-served; frontier and emerging markets will need supplementary partner identification.` }
-  : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'LIMITED COVERAGE', copy: `${liMarketCount} markets listed. Directory is focused on primary markets — validate distributor landscape independently before committing to any unlisted territory.` }
+  : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'LIMITED COVERAGE', copy: `${liMarketCount} markets listed. Directory is focused on primary markets \u2014 validate distributor landscape independently before committing to any unlisted territory.` }
 
 const liIndepSignal = liIndepPct >= 40
-  ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'STRONG INDEPENDENT OPTIONS', copy: `${liIndepPct}% of listed distributors are independently owned — healthy choice of partners not beholden to a single supplier's category priorities.` }
+  ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'STRONG INDEPENDENT OPTIONS', copy: `${liIndepPct}% of listed distributors are independently owned \u2014 healthy choice of partners not beholden to a single supplier's category priorities.` }
   : liIndepPct >= 20
   ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'MIXED LANDSCAPE', copy: `${liIndepPct}% independents, ${100 - liIndepPct}% corporate-owned. Evaluate whether a corporate parent's existing portfolio conflicts with your brand before signing.` }
-  : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'CORPORATE-DOMINATED CHANNEL', copy: `Only ${liIndepPct}% independently owned. Most distributors are subsidiaries of major drinks groups — expect category conflicts and volume-minimum requirements to be significant.` }
+  : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'CORPORATE-DOMINATED CHANNEL', copy: `Only ${liIndepPct}% independently owned. Most distributors are subsidiaries of major drinks groups \u2014 expect category conflicts and volume-minimum requirements to be significant.` }
 
 const liDualChSignal = liDualChPct >= 60
-  ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'FULL-CHANNEL FLEXIBILITY', copy: `${liDualChPct}% of distributors cover both on- and off-trade — most partners can support a full launch strategy without needing separate route-to-market for each channel.` }
+  ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'FULL-CHANNEL FLEXIBILITY', copy: `${liDualChPct}% of distributors cover both on- and off-trade \u2014 most partners can support a full launch strategy without needing separate route-to-market for each channel.` }
   : liDualChPct >= 40
-  ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'GOOD CHANNEL MIX', copy: `${liDualChPct}% dual-channel. Some distributors are channel-specialist — clarify on-trade vs off-trade focus in early conversations to match your go-to-market.` }
-  : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'CHANNEL FRAGMENTATION RISK', copy: `${liDualChPct}% dual-channel. Many listed distributors are single-channel — budget for two separate partner relationships if you need both on- and off-trade in a single market.` }
+  ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'GOOD CHANNEL MIX', copy: `${liDualChPct}% dual-channel. Some distributors are channel-specialist \u2014 clarify on-trade vs off-trade focus in early conversations to match your go-to-market.` }
+  : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'CHANNEL FRAGMENTATION RISK', copy: `${liDualChPct}% dual-channel. Many listed distributors are single-channel \u2014 budget for two separate partner relationships if you need both on- and off-trade in a single market.` }
 
 function DistributorCard({ d, expanded, onToggle }) {
   return (
@@ -47,7 +47,7 @@ function DistributorCard({ d, expanded, onToggle }) {
               <span className="text-xs text-gray-500">({d.parentCompany})</span>
             )}
           </div>
-          <div className="text-xs text-gray-500 mt-0.5">{d.speciality} {'•'} {d.region}</div>
+          <div className="text-xs text-gray-500 mt-0.5">{d.speciality} {'\u2022'} {d.region}</div>
           <div className="flex flex-wrap gap-1 mt-1.5">
             {(d.categories || []).slice(0, 5).map(c => (
               <span key={c} className="text-xs bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">{c}</span>
@@ -75,8 +75,8 @@ function DistributorCard({ d, expanded, onToggle }) {
             <div>
               <div className="text-xs font-semibold text-navy mb-1">Channels</div>
               <div className="text-xs text-gray-600">
-                {d.onTrade && <span className="mr-2">On-Trade {'✓'}</span>}
-                {d.offTrade && <span>Off-Trade {'✓'}</span>}
+                {d.onTrade && <span className="mr-2">On-Trade {'\u2713'}</span>}
+                {d.offTrade && <span>Off-Trade {'\u2713'}</span>}
               </div>
             </div>
           </div>

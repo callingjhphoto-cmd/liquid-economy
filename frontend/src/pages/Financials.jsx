@@ -20,7 +20,7 @@ import {
 
 /* ── Helpers ── */
 const fmtB = (v, cur) => {
-  if (v == null) return '—'
+  if (v == null) return '\u2014'
   if (v >= 1) return `${cur}${v.toFixed(1)}B`
   return `${cur}${(v * 1000).toFixed(0)}M`
 }
@@ -128,7 +128,7 @@ function CompanyCard({ company, isExpanded, onToggle }) {
               <MetricMini label="Finished Goods" value={m.inventory.finishedGoods} />
               <MetricMini
                 label="Volume vs Value"
-                value={m.volumeSplit ? `Vol ${m.volumeSplit.volume > 0 ? '+' : ''}${m.volumeSplit.volume}% / Val +${m.volumeSplit.value}%` : '—'}
+                value={m.volumeSplit ? `Vol ${m.volumeSplit.volume > 0 ? '+' : ''}${m.volumeSplit.volume}% / Val +${m.volumeSplit.value}%` : '\u2014'}
               />
               <MetricMini label="Net Debt" value={m.netDebt} />
               <MetricMini label="Net Debt/EBITDA" value={m.netDebtToEbitda} />
@@ -201,7 +201,7 @@ function InventoryTrackerChart() {
   return (
     <ChartCard
       title="Global Spirits Inventory Tracker"
-      subtitle={`Combined inventory across 5 major public companies (2020–2025). The $${Math.round(totalInventory)}B overhang.`}
+      subtitle={`Combined inventory across 5 major public companies (2020\u20132025). The $${Math.round(totalInventory)}B overhang.`}
       height={320}
       source="Company annual reports, FT analysis"
       sourceUrl="https://www.ft.com"
@@ -349,10 +349,10 @@ export default function Financials() {
   const liPeakGap = Math.max(...AGGREGATE_DEPLETION_GAP.map(d => d.gap))
 
   const liSig1 = liInv.total >= 20
-    ? { dot: 'bg-red-500', color: 'text-red-600', label: 'Inventory Overhang Critical', copy: `$${liInv.total}B combined inventory — $${liOverhang}B above the $18B danger threshold. Distributor destocking is ongoing; pricing power and new listing negotiations remain constrained.` }
+    ? { dot: 'bg-red-500', color: 'text-red-600', label: 'Inventory Overhang Critical', copy: `$${liInv.total}B combined inventory \u2014 $${liOverhang}B above the $18B danger threshold. Distributor destocking is ongoing; pricing power and new listing negotiations remain constrained.` }
     : liInv.total >= 18
     ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Inventory Danger Zone', copy: `$${liInv.total}B combined inventory is above the $18B sector danger threshold. Monitor quarterly filings for clearance signals before committing to new listing programmes.` }
-    : { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Inventory Below Danger Zone', copy: `Combined inventory at $${liInv.total}B — below the $18B danger threshold. Improved conditions for distributor re-stocking and new product introductions.` }
+    : { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Inventory Below Danger Zone', copy: `Combined inventory at $${liInv.total}B \u2014 below the $18B danger threshold. Improved conditions for distributor re-stocking and new product introductions.` }
 
   const liSig2 = liGrowingCount >= 4
     ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Sector Recovery Underway', copy: `${liGrowingCount} of ${FINANCIAL_COMPANIES.length} tracked companies reporting positive organic growth. Broad-based momentum supports investment in new distribution and listing activity.` }
@@ -360,15 +360,15 @@ export default function Financials() {
     ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Mixed Sector Recovery', copy: `${liGrowingCount} of ${FINANCIAL_COMPANIES.length} companies growing organically. Selective opportunities in stronger performers; cautious posture warranted on categories under structural pressure.` }
     : liGrowingCount >= 2
     ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Majority Sector Declining', copy: `${liDecliningCount} of ${FINANCIAL_COMPANIES.length} major spirits companies reporting negative organic growth. Target growing-company portfolios for new business development; avoid volume-led strategies in declining categories.` }
-    : { dot: 'bg-red-500', color: 'text-red-600', label: 'Sector Under Broad Pressure', copy: `${liDecliningCount} of ${FINANCIAL_COMPANIES.length} companies in organic decline. Macro headwinds dominate — focus on category and format innovation rather than volume-led growth strategies.` }
+    : { dot: 'bg-red-500', color: 'text-red-600', label: 'Sector Under Broad Pressure', copy: `${liDecliningCount} of ${FINANCIAL_COMPANIES.length} companies in organic decline. Macro headwinds dominate \u2014 focus on category and format innovation rather than volume-led growth strategies.` }
 
   const liSig3 = liLatestGap <= 1
-    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Depletion Gap Near-Resolved', copy: `Aggregate shipment-to-depletion gap has narrowed to +${liLatestGap}pt from peak +${liPeakGap}pt (2022). Inventory build rate has stabilised — the key prerequisite for sector pricing normalisation in 2026.` }
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Depletion Gap Near-Resolved', copy: `Aggregate shipment-to-depletion gap has narrowed to +${liLatestGap}pt from peak +${liPeakGap}pt (2022). Inventory build rate has stabilised \u2014 the key prerequisite for sector pricing normalisation in 2026.` }
     : liLatestGap <= 3
-    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Gap Narrowing', copy: `Shipment-to-depletion gap at +${liLatestGap}pts, down from peak +${liPeakGap}pts. Positive trajectory — continued monitoring required before pricing leverage returns to brand owners.` }
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Gap Narrowing', copy: `Shipment-to-depletion gap at +${liLatestGap}pts, down from peak +${liPeakGap}pts. Positive trajectory \u2014 continued monitoring required before pricing leverage returns to brand owners.` }
     : liLatestGap <= 6
     ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Gap Persisting', copy: `Shipment-to-depletion gap remains elevated at +${liLatestGap}pts. Distributors still hold excess stock; avoid aggressive price increases until the gap falls below 3pts.` }
-    : { dot: 'bg-red-500', color: 'text-red-600', label: 'Gap Widening', copy: `Shipment-to-depletion gap at +${liLatestGap}pts. Inventories accumulating faster than sell-through — hold back on new SKU launches until the gap narrows materially.` }
+    : { dot: 'bg-red-500', color: 'text-red-600', label: 'Gap Widening', copy: `Shipment-to-depletion gap at +${liLatestGap}pts. Inventories accumulating faster than sell-through \u2014 hold back on new SKU launches until the gap narrows materially.` }
 
   if (loading) {
     return (
@@ -442,7 +442,7 @@ export default function Financials() {
             <Zap size={14} className="text-gold" />
           </div>
           <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
-          <span className="text-xs text-gray-400 ml-auto">Financial Sector Signals {'·'} 2026</span>
+          <span className="text-xs text-gray-400 ml-auto">Financial Sector Signals {'\u00B7'} 2026</span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           {[liSig1, liSig2, liSig3].map((sig, i) => (
@@ -493,8 +493,8 @@ export default function Financials() {
             <ul className="space-y-0.5 list-disc list-inside">
               <li>IWSR Global Spirits Database</li>
               <li>Nielsen IQ Off-Trade Panel Data</li>
-              <li>Financial Times {'—'} Spirits Inventory Analysis</li>
-              <li>Euromonitor International {'—'} Alcoholic Drinks</li>
+              <li>Financial Times {'\u2014'} Spirits Inventory Analysis</li>
+              <li>Euromonitor International {'\u2014'} Alcoholic Drinks</li>
               <li>Company investor presentations & earnings calls</li>
             </ul>
           </div>

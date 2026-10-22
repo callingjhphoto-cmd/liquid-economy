@@ -64,7 +64,7 @@ function categoryName(slug) {
     'the-global-rum-market': 'Rum',
     'the-global-scotch-whisky-market': 'Scotch Whisky',
     'the-global-tequila-market': 'Tequila',
-    'the-global-whisky-market-all-styles': 'Whisky — All Styles',
+    'the-global-whisky-market-all-styles': 'Whisky \u2014 All Styles',
   }
   return map[slug] || titleCase(slug.replace(/^the-global-/, '').replace(/-market$/, ''))
 }
@@ -175,7 +175,7 @@ export default function DossiersIndex() {
         </div>
         <p className="text-sm text-gray-500 ml-[42px]">
           <span className="font-semibold text-navy">{total} intelligence reports</span>
-          {' · '}categories, owner groups &amp; brands {'—'} every report is a full, source-cited dossier.
+          {' \u00B7 '}categories, owner groups &amp; brands {'\u2014'} every report is a full, source-cited dossier.
         </p>
       </div>
 
@@ -197,7 +197,7 @@ export default function DossiersIndex() {
         )}
       </div>
 
-      {/* Marketing thesis — featured */}
+      {/* Marketing thesis \u2014 featured */}
       {marketingVisible && marketing && (
         <Link
           to="/marketing"
@@ -213,7 +213,7 @@ export default function DossiersIndex() {
                 <h2 className="font-display text-lg text-navy font-semibold leading-tight">The Marketing Thesis</h2>
                 <p className="text-sm text-gray-600 mt-1 max-w-2xl">
                   {teaser(marketing.synthesisProse, 200) ||
-                    'Where spend is deployed without measurement — the category’s defining inefficiency.'}
+                    'Where spend is deployed without measurement \u2014 the category’s defining inefficiency.'}
                 </p>
               </div>
             </div>
@@ -326,7 +326,7 @@ export default function DossiersIndex() {
 
       {/* Footer */}
       <div className="mt-12 pt-6 border-t border-gray-100 text-center">
-        <p className="text-[11px] text-gray-400">Powered by Liquid Agency {'·'} Drinks Industry Intelligence</p>
+        <p className="text-[11px] text-gray-400">Powered by Liquid Agency {'\u00B7'} Drinks Industry Intelligence</p>
       </div>
     </div>
   )

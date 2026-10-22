@@ -85,7 +85,7 @@ const FAMILIES = [
     color: '#dc2626',
     bgClass: 'bg-red-50',
     borderClass: 'border-red-200',
-    icon: '▲',
+    icon: '\u25B2',
     commercialContext: 'spicy-heat serves are the fastest-growing flavour trend 2024-2026 (Bacardi Trends Report) and skew strongly to Gen Z and younger Millennials',
   },
   {
@@ -219,7 +219,7 @@ function buildEventSuggestion(family) {
     herbal: 'premium garden party, wellness brand activation, or premium gin-led sponsorship',
     smoky: 'bespoke VIP whisky tasting event or Michelin-star dining partnership',
     sour: 'large-scale premium outdoor event or brand activation with broad demographic reach',
-    sweet: 'inclusive celebration event — wedding, gala, milestone birthday — with mixed age groups',
+    sweet: 'inclusive celebration event \u2014 wedding, gala, milestone birthday \u2014 with mixed age groups',
     spicy: 'Gen Z / Millennial-heavy event, festival, or agave brand activation',
     savoury: 'Michelin-starred culinary pairing event or ultra-premium hospitality programme',
   }
@@ -259,17 +259,17 @@ function FamilyCard({ family, aggregate, members, isOpen, onToggle }) {
             {aggregate && (
               <p className="text-caption text-gray-600">
                 <span className="font-semibold">{aggregate.topTwoAges.join(' / ')}</span>
-                {' · '}
+                {' \u00B7 '}
                 <span>{aggregate.dominantGender}</span>
-                {' · '}
+                {' \u00B7 '}
                 <span>{aggregate.incomeLabel}</span>
                 {aggregate.topGeos.length > 0 && (
-                  <>{' · '}{aggregate.topGeos.slice(0, 2).join(' / ')}</>
+                  <>{' \u00B7 '}{aggregate.topGeos.slice(0, 2).join(' / ')}</>
                 )}
               </p>
             )}
           </div>
-          <span className="text-label text-gray-400 flex-shrink-0 mt-1">{isOpen ? '▲' : '▼'}</span>
+          <span className="text-label text-gray-400 flex-shrink-0 mt-1">{isOpen ? '\u25B2' : '\u25BC'}</span>
         </div>
       </button>
 

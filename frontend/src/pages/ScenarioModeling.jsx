@@ -27,21 +27,21 @@ const NAVY = CHART_COLORS.primary
 const PIE_COLORS = [CHART_COLORS.primary, CHART_COLORS.accent, CHART_COLORS.blue, CHART_COLORS.emerald, CHART_COLORS.amber]
 
 /* ── Helpers ── */
-const gbp = (v) => '£' + v.toFixed(2)
+const gbp = (v) => '\u00A3' + v.toFixed(2)
 
 /* ── Category insight data (shown when user selects a category in Step 1) ── */
 const CATEGORY_INSIGHTS = {
-  rtd: { headline: 'RTD is the fastest-growing spirits category globally', insight: 'UK RTD market grew 14% YoY (2025). Packaging costs dominate unit economics — canning lines vs glass significantly affects margin. The category is shifting from vodka-soda to premium cocktail formats.', keyMetric: '+14% YoY growth', tip: 'Canned format reduces logistics cost by ~30% vs glass bottles.' },
-  tequila: { headline: 'Tequila overtook vodka in US revenue (2025)', insight: 'Agave sourcing is the single biggest cost variable. Prices fluctuate 40–60% depending on harvest cycles (4–7 year maturation). NOM certification is mandatory. EU market growing at 18% CAGR.', keyMetric: '18% EU CAGR', tip: 'Secure agave supply contracts 12+ months ahead to lock pricing.' },
-  gin: { headline: 'UK gin market is mature but premiumisation continues', insight: 'Over 900 gin brands in the UK. Differentiation is critical. Liquid cost is relatively low but marketing spend must be high to cut through. Flavoured gin declining; London Dry and contemporary styles growing.', keyMetric: '900+ UK brands', tip: 'Focus on provenance storytelling — generic “botanical” messaging no longer differentiates.' },
-  vodka: { headline: 'Vodka remains the global volume leader', insight: 'Lowest liquid cost of all spirits categories. Competition is fierce at every price point. Premiumisation is the only viable strategy for new entrants. Flavoured vodka seeing resurgence via RTD crossover.', keyMetric: '£0.60 liquid cost', tip: 'Packaging and brand design carry outsized weight when liquid differentiation is minimal.' },
-  whisky: { headline: 'Scotch whisky exports hit £6.1B in 2025', insight: 'Aged stock requirements mean high capital lock-up (3–12+ years). New-make spirit or grain whisky can launch faster. Japanese and Irish whisky categories growing fastest. US bourbon faces 25% EU tariff.', keyMetric: '£6.1B Scotch exports', tip: 'Consider sourcing aged stock from independent bottlers to reduce time-to-market.' },
-  rum: { headline: 'Premium rum is the category’s growth engine', insight: 'Caribbean production benefits from duty-free access to UK/EU. Spiced rum dominates volume but premium aged rum drives value growth. Sugar content labeling becoming a regulatory flashpoint.', keyMetric: '0% UK duty (Caribbean)', tip: 'Caribbean origin gives duty advantages — leverage GSP/EPA trade agreements.' },
-  wine: { headline: 'UK is the world’s 2nd largest wine importer', insight: 'Duty increase in Aug 2023 hit wine harder than spirits (proportionally). English sparkling wine growing at 30% CAGR. Bag-in-box and canned wine gaining share in off-trade.', keyMetric: '30% CAGR (English sparkling)', tip: 'Post-Brexit, EU wine faces same duty as rest-of-world — consider non-EU sourcing.' },
-  beer: { headline: 'Craft beer consolidation accelerating', insight: 'Packaging cost is the dominant variable: bottles vs cans vs keg. Cold chain logistics add 15–25% to distribution costs. Draught recovery post-COVID now at 95% of 2019 levels. Low/no beer fastest growing sub-segment.', keyMetric: '95% draught recovery', tip: 'Canned format is now preferred by 62% of craft beer consumers over bottles.' },
-  nolo: { headline: 'No/Lo category grew 31% in 2025', insight: 'Zero duty liability is a significant margin advantage. However, consumer trial remains the biggest barrier — 75% of purchases are first-time. Shelf placement often poor in off-trade. DTC and health/wellness channels outperform.', keyMetric: '31% YoY growth', tip: 'Invest heavily in sampling — first-taste conversion rate is 3x higher than spirits.' },
-  cognac: { headline: 'Cognac exports to Asia rebounding post-2024 dip', insight: 'Highest liquid cost of any spirits category due to double distillation and ageing requirements. VS/VSOP accessible; XO requires 10+ year aged stock. US and China account for 75% of global demand.', keyMetric: '£8.00 liquid cost/unit', tip: 'VS cognac offers fastest route-to-market; partner with established houses for aged stock.' },
-  champagne: { headline: 'Champagne shipments stable despite economic headwinds', insight: 'Appellation rules mean you must source from Champagne region. Grower-producer (RM) route offers differentiation vs négociant brands. Gift-giving occasions drive 40% of sales. Travel retail is a key channel.', keyMetric: '40% gift-driven sales', tip: 'Consider grower Champagne positioning — higher margins than big house distribution.' },
+  rtd: { headline: 'RTD is the fastest-growing spirits category globally', insight: 'UK RTD market grew 14% YoY (2025). Packaging costs dominate unit economics \u2014 canning lines vs glass significantly affects margin. The category is shifting from vodka-soda to premium cocktail formats.', keyMetric: '+14% YoY growth', tip: 'Canned format reduces logistics cost by ~30% vs glass bottles.' },
+  tequila: { headline: 'Tequila overtook vodka in US revenue (2025)', insight: 'Agave sourcing is the single biggest cost variable. Prices fluctuate 40\u201360% depending on harvest cycles (4\u20137 year maturation). NOM certification is mandatory. EU market growing at 18% CAGR.', keyMetric: '18% EU CAGR', tip: 'Secure agave supply contracts 12+ months ahead to lock pricing.' },
+  gin: { headline: 'UK gin market is mature but premiumisation continues', insight: 'Over 900 gin brands in the UK. Differentiation is critical. Liquid cost is relatively low but marketing spend must be high to cut through. Flavoured gin declining; London Dry and contemporary styles growing.', keyMetric: '900+ UK brands', tip: 'Focus on provenance storytelling \u2014 generic “botanical” messaging no longer differentiates.' },
+  vodka: { headline: 'Vodka remains the global volume leader', insight: 'Lowest liquid cost of all spirits categories. Competition is fierce at every price point. Premiumisation is the only viable strategy for new entrants. Flavoured vodka seeing resurgence via RTD crossover.', keyMetric: '\u00A30.60 liquid cost', tip: 'Packaging and brand design carry outsized weight when liquid differentiation is minimal.' },
+  whisky: { headline: 'Scotch whisky exports hit \u00A36.1B in 2025', insight: 'Aged stock requirements mean high capital lock-up (3\u201312+ years). New-make spirit or grain whisky can launch faster. Japanese and Irish whisky categories growing fastest. US bourbon faces 25% EU tariff.', keyMetric: '\u00A36.1B Scotch exports', tip: 'Consider sourcing aged stock from independent bottlers to reduce time-to-market.' },
+  rum: { headline: 'Premium rum is the category’s growth engine', insight: 'Caribbean production benefits from duty-free access to UK/EU. Spiced rum dominates volume but premium aged rum drives value growth. Sugar content labeling becoming a regulatory flashpoint.', keyMetric: '0% UK duty (Caribbean)', tip: 'Caribbean origin gives duty advantages \u2014 leverage GSP/EPA trade agreements.' },
+  wine: { headline: 'UK is the world’s 2nd largest wine importer', insight: 'Duty increase in Aug 2023 hit wine harder than spirits (proportionally). English sparkling wine growing at 30% CAGR. Bag-in-box and canned wine gaining share in off-trade.', keyMetric: '30% CAGR (English sparkling)', tip: 'Post-Brexit, EU wine faces same duty as rest-of-world \u2014 consider non-EU sourcing.' },
+  beer: { headline: 'Craft beer consolidation accelerating', insight: 'Packaging cost is the dominant variable: bottles vs cans vs keg. Cold chain logistics add 15\u201325% to distribution costs. Draught recovery post-COVID now at 95% of 2019 levels. Low/no beer fastest growing sub-segment.', keyMetric: '95% draught recovery', tip: 'Canned format is now preferred by 62% of craft beer consumers over bottles.' },
+  nolo: { headline: 'No/Lo category grew 31% in 2025', insight: 'Zero duty liability is a significant margin advantage. However, consumer trial remains the biggest barrier \u2014 75% of purchases are first-time. Shelf placement often poor in off-trade. DTC and health/wellness channels outperform.', keyMetric: '31% YoY growth', tip: 'Invest heavily in sampling \u2014 first-taste conversion rate is 3x higher than spirits.' },
+  cognac: { headline: 'Cognac exports to Asia rebounding post-2024 dip', insight: 'Highest liquid cost of any spirits category due to double distillation and ageing requirements. VS/VSOP accessible; XO requires 10+ year aged stock. US and China account for 75% of global demand.', keyMetric: '\u00A38.00 liquid cost/unit', tip: 'VS cognac offers fastest route-to-market; partner with established houses for aged stock.' },
+  champagne: { headline: 'Champagne shipments stable despite economic headwinds', insight: 'Appellation rules mean you must source from Champagne region. Grower-producer (RM) route offers differentiation vs négociant brands. Gift-giving occasions drive 40% of sales. Travel retail is a key channel.', keyMetric: '40% gift-driven sales', tip: 'Consider grower Champagne positioning \u2014 higher margins than big house distribution.' },
 }
 
 /* ── Market-specific timeline adjustments ── */
@@ -66,17 +66,17 @@ const MARKET_TIMELINE_EXTRAS = {
 
 /* ── Category-specific cost highlights ── */
 const CATEGORY_COST_HIGHLIGHTS = {
-  beer: { primary: 'packaging', label: 'Packaging Format', detail: 'Bottles (£0.35/unit) vs cans (£0.22/unit) vs kegs (£0.18/serve). Format choice drives 25% of total COGS difference. Cans preferred for off-trade; kegs essential for on-trade.', items: ['Canning line access', 'Label/shrink sleeve', 'Multipacks vs singles', 'Cold chain logistics'] },
-  tequila: { primary: 'liquid', label: 'Agave Sourcing', detail: 'Agave prices range ₱15–45/kg depending on harvest cycle. A single jimador can harvest 50–100 piñas/day. 100% agave tequila requires ~7kg per litre. Mixto allows 49% other sugars but limits premium positioning.', items: ['Agave price contracts', 'NOM distillery partnership', 'Additive-free certification', 'Organic agave premium (+40%)'] },
-  gin: { primary: 'marketing', label: 'Marketing & Differentiation', detail: 'In a 900+ brand market, marketing per unit (£1.20) often exceeds liquid cost (£1.80). Trade listing fees, sampling programs, and influencer partnerships are essential launch costs.', items: ['Trade sampling budget', 'Bar staff training program', 'Influencer partnerships', 'POS / menu presence'] },
-  vodka: { primary: 'packaging', label: 'Packaging & Design', detail: 'With liquid cost at just £0.60/unit, the bottle is the brand. Premium vodka packaging can cost 3–5x the liquid. Crystal/frosted glass, custom closures, and embossing drive shelf standout.', items: ['Bottle mould investment', 'Premium closure options', 'Foiling / embossing', 'Outer case design'] },
-  whisky: { primary: 'liquid', label: 'Aged Stock Sourcing', detail: 'New-make spirit is £2–3/unit; aged 12-year stock is £8–15/unit. Independent bottlers can supply aged stock without owning a distillery. Minimum 3-year ageing required for Scotch.', items: ['Age statement strategy', 'Cask sourcing (ex-bourbon/sherry)', 'Independent bottler partnerships', 'Warehouse / insurance costs'] },
-  rum: { primary: 'logistics', label: 'Shipping & Origin', detail: 'Caribbean production offers duty-free UK/EU access but 10–14 week shipping. Cold chain not required for spirits. Container costs have normalised post-COVID but MOQs remain high (1,200+ cases).', items: ['Shipping lead times', 'Container booking', 'Port handling / customs', 'Insurance in transit'] },
-  wine: { primary: 'duty', label: 'Duty & Regulation', detail: 'UK wine duty rose significantly in Aug 2023 (£2.67/bottle for still wine). ABV-based duty means higher-alcohol wines pay more. This reshapes which wines are commercially viable at entry-level.', items: ['ABV optimisation', 'Bulk vs bottled import', 'Duty drawback schemes', 'Organic / biodynamic premiums'] },
-  nolo: { primary: 'marketing', label: 'Sampling & Trial', detail: 'Zero duty is a huge margin advantage, but 75% of consumers need to taste before buying. Sampling costs (£1.50–3.00/trial) are the biggest launch investment. DTC channels offer best ROI.', items: ['Sampling programme', 'Health/wellness channel partnerships', 'DTC website & fulfilment', 'Subscription model setup'] },
-  cognac: { primary: 'liquid', label: 'Distillation & Ageing', detail: 'Double distillation in copper pot stills. VS minimum 2 years, VSOP minimum 4, XO minimum 10. Liquid cost (£8.00) is highest of any category. Eaux-de-vie sourcing from established houses is the fastest route.', items: ['Eaux-de-vie sourcing contracts', 'Ageing warehouse costs', 'Blending expertise', '“Fine Champagne” cru premium'] },
-  champagne: { primary: 'liquid', label: 'Appellation & Production', detail: 'Grapes must come from Champagne AOC (€6–8/kg). Méthode champenoise requires 15+ months on lees (36 for vintage). Grower-producer (RM) route offers differentiation at lower volumes.', items: ['Grape sourcing contracts', 'Contract winemaker partnership', 'Lees ageing timeline', 'Disgorgement scheduling'] },
-  rtd: { primary: 'packaging', label: 'Canning & Co-Packing', detail: 'Canning line access is the critical bottleneck. Co-packers charge £0.15–0.30/can for filling. Sleeve vs direct-print affects minimum runs. 250ml vs 330ml format impacts duty calculation.', items: ['Co-packer selection', 'Can format (slim vs standard)', 'Sleeve printing MOQs', 'Pasteurisation requirements'] },
+  beer: { primary: 'packaging', label: 'Packaging Format', detail: 'Bottles (\u00A30.35/unit) vs cans (\u00A30.22/unit) vs kegs (\u00A30.18/serve). Format choice drives 25% of total COGS difference. Cans preferred for off-trade; kegs essential for on-trade.', items: ['Canning line access', 'Label/shrink sleeve', 'Multipacks vs singles', 'Cold chain logistics'] },
+  tequila: { primary: 'liquid', label: 'Agave Sourcing', detail: 'Agave prices range ₱15\u201345/kg depending on harvest cycle. A single jimador can harvest 50\u2013100 piñas/day. 100% agave tequila requires ~7kg per litre. Mixto allows 49% other sugars but limits premium positioning.', items: ['Agave price contracts', 'NOM distillery partnership', 'Additive-free certification', 'Organic agave premium (+40%)'] },
+  gin: { primary: 'marketing', label: 'Marketing & Differentiation', detail: 'In a 900+ brand market, marketing per unit (\u00A31.20) often exceeds liquid cost (\u00A31.80). Trade listing fees, sampling programs, and influencer partnerships are essential launch costs.', items: ['Trade sampling budget', 'Bar staff training program', 'Influencer partnerships', 'POS / menu presence'] },
+  vodka: { primary: 'packaging', label: 'Packaging & Design', detail: 'With liquid cost at just \u00A30.60/unit, the bottle is the brand. Premium vodka packaging can cost 3\u20135x the liquid. Crystal/frosted glass, custom closures, and embossing drive shelf standout.', items: ['Bottle mould investment', 'Premium closure options', 'Foiling / embossing', 'Outer case design'] },
+  whisky: { primary: 'liquid', label: 'Aged Stock Sourcing', detail: 'New-make spirit is \u00A32\u20133/unit; aged 12-year stock is \u00A38\u201315/unit. Independent bottlers can supply aged stock without owning a distillery. Minimum 3-year ageing required for Scotch.', items: ['Age statement strategy', 'Cask sourcing (ex-bourbon/sherry)', 'Independent bottler partnerships', 'Warehouse / insurance costs'] },
+  rum: { primary: 'logistics', label: 'Shipping & Origin', detail: 'Caribbean production offers duty-free UK/EU access but 10\u201314 week shipping. Cold chain not required for spirits. Container costs have normalised post-COVID but MOQs remain high (1,200+ cases).', items: ['Shipping lead times', 'Container booking', 'Port handling / customs', 'Insurance in transit'] },
+  wine: { primary: 'duty', label: 'Duty & Regulation', detail: 'UK wine duty rose significantly in Aug 2023 (\u00A32.67/bottle for still wine). ABV-based duty means higher-alcohol wines pay more. This reshapes which wines are commercially viable at entry-level.', items: ['ABV optimisation', 'Bulk vs bottled import', 'Duty drawback schemes', 'Organic / biodynamic premiums'] },
+  nolo: { primary: 'marketing', label: 'Sampling & Trial', detail: 'Zero duty is a huge margin advantage, but 75% of consumers need to taste before buying. Sampling costs (\u00A31.50\u20133.00/trial) are the biggest launch investment. DTC channels offer best ROI.', items: ['Sampling programme', 'Health/wellness channel partnerships', 'DTC website & fulfilment', 'Subscription model setup'] },
+  cognac: { primary: 'liquid', label: 'Distillation & Ageing', detail: 'Double distillation in copper pot stills. VS minimum 2 years, VSOP minimum 4, XO minimum 10. Liquid cost (\u00A38.00) is highest of any category. Eaux-de-vie sourcing from established houses is the fastest route.', items: ['Eaux-de-vie sourcing contracts', 'Ageing warehouse costs', 'Blending expertise', '“Fine Champagne” cru premium'] },
+  champagne: { primary: 'liquid', label: 'Appellation & Production', detail: 'Grapes must come from Champagne AOC (€6\u20138/kg). Méthode champenoise requires 15+ months on lees (36 for vintage). Grower-producer (RM) route offers differentiation at lower volumes.', items: ['Grape sourcing contracts', 'Contract winemaker partnership', 'Lees ageing timeline', 'Disgorgement scheduling'] },
+  rtd: { primary: 'packaging', label: 'Canning & Co-Packing', detail: 'Canning line access is the critical bottleneck. Co-packers charge \u00A30.15\u20130.30/can for filling. Sleeve vs direct-print affects minimum runs. 250ml vs 330ml format impacts duty calculation.', items: ['Co-packer selection', 'Can format (slim vs standard)', 'Sleeve printing MOQs', 'Pasteurisation requirements'] },
 }
 
 /* ── Pre-built scenario templates ── */
@@ -185,7 +185,7 @@ export default function ScenarioModeling() {
                     <p className="text-2xl font-bold text-navy">Plan Your Market Entry</p>
                     <p className="text-xs text-gray-500 mt-2 max-w-md">
                       Model unit economics, assess go-to-market risks, compare manufacturing origins,
-                      and plan regional activation campaigns {'—'} all from the perspective of a new-to-market brand.
+                      and plan regional activation campaigns {'\u2014'} all from the perspective of a new-to-market brand.
                     </p>
                   </div>
                   <div className="p-3 rounded-xl bg-gold/10">
@@ -214,7 +214,7 @@ export default function ScenarioModeling() {
             <MetricCard
               label="Risk Register"
               value={`${totalRisks} risks`}
-              subtitle={`${criticalRisks} critical · 4 categories`}
+              subtitle={`${criticalRisks} critical \u00B7 4 categories`}
               icon={ShieldAlert}
               change={`${criticalRisks} critical`}
               direction="down"
@@ -308,7 +308,7 @@ export default function ScenarioModeling() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 <Card padding="p-3">
                   <p className="text-micro font-semibold text-gray-500 uppercase mb-1">Duty Basis</p>
-                  <p className="text-xs text-gray-700">UK spirits duty: {'£'}28.74/litre of pure alcohol (2025 rates). RTD duty calculated at 5% ABV unless specified.</p>
+                  <p className="text-xs text-gray-700">UK spirits duty: {'\u00A3'}28.74/litre of pure alcohol (2025 rates). RTD duty calculated at 5% ABV unless specified.</p>
                 </Card>
                 <Card padding="p-3">
                   <p className="text-micro font-semibold text-gray-500 uppercase mb-1">Cost Models</p>
@@ -404,7 +404,7 @@ export default function ScenarioModeling() {
                 </div>
               </Card>
 
-              {/* Category Insight Card — instant feedback on selection */}
+              {/* Category Insight Card \u2014 instant feedback on selection */}
               {CATEGORY_INSIGHTS[selectedCategory] && (
                 <Card padding="p-4" className="border-l-3 border-l-gold bg-gold/5">
                   <div className="flex items-start gap-3">
@@ -429,7 +429,7 @@ export default function ScenarioModeling() {
 
               <BentoGrid>
                 <MetricCard label="COGS per Unit" value={gbp(costs.total_cogs)} subtitle={`${PRODUCT_CATEGORIES.find(c => c.id === selectedCategory)?.label || selectedCategory}`} icon={DollarSign} />
-                <MetricCard label="RRP Range" value={`${gbp(costs.rrp_low)}–${gbp(costs.rrp_high)}`} subtitle={`Mid: ${gbp(costs.rrp_mid)}`} icon={Package} />
+                <MetricCard label="RRP Range" value={`${gbp(costs.rrp_low)}\u2013${gbp(costs.rrp_high)}`} subtitle={`Mid: ${gbp(costs.rrp_mid)}`} icon={Package} />
                 <MetricCard label="Gross Margin" value={`${margin}%`} subtitle="At mid-range RRP" icon={TrendingUp} direction={Number(margin) > 50 ? 'up' : 'down'} />
                 <MetricCard label="Risk Level" value={archetype.riskLevel} subtitle={`Success rate: ${archetype.successRate}`} icon={ShieldAlert} />
               </BentoGrid>
@@ -499,7 +499,7 @@ export default function ScenarioModeling() {
                       return (
                         <Card key={mId} padding="p-3">
                           <p className="text-xs font-semibold text-navy mb-0.5">{m.flag} {m.label}</p>
-                          <p className="text-xs text-gray-500 mb-2">Pop: {m.pop} {'·'} Market: {m.spiritsMarket}</p>
+                          <p className="text-xs text-gray-500 mb-2">Pop: {m.pop} {'\u00B7'} Market: {m.spiritsMarket}</p>
                           <div className="space-y-1.5">
                             {channelData.map((c, j) => (
                               <div key={j}>
@@ -523,7 +523,7 @@ export default function ScenarioModeling() {
                 </div>
               )}
 
-              <DrillDown title="Manufacturing Origin Comparison" summary={`${MANUFACTURING_ORIGINS.length} production origins — duty rates, lead times & costs`}>
+              <DrillDown title="Manufacturing Origin Comparison" summary={`${MANUFACTURING_ORIGINS.length} production origins \u2014 duty rates, lead times & costs`}>
                 <DataTable
                   columns={[
                     { key: 'label', label: 'Origin', sortable: true, render: (v) => <span className="font-medium text-navy">{v}</span> },
@@ -570,7 +570,7 @@ export default function ScenarioModeling() {
                     <div className="space-y-2 text-xs">
                       <div className="flex justify-between border-b border-gray-100 pb-2"><span className="text-gray-500">Category</span><span className="font-medium text-navy">{PRODUCT_CATEGORIES.find(c => c.id === selectedCategory)?.label}</span></div>
                       <div className="flex justify-between border-b border-gray-100 pb-2"><span className="text-gray-500">Archetype</span><span className="font-medium text-navy">{archetype.label}</span></div>
-                      <div className="flex justify-between border-b border-gray-100 pb-2"><span className="text-gray-500">Markets</span><span className="font-medium text-navy">{selectedMarkets.map(m => TARGET_MARKETS.find(t => t.id === m)?.label).join(', ') || '—'}</span></div>
+                      <div className="flex justify-between border-b border-gray-100 pb-2"><span className="text-gray-500">Markets</span><span className="font-medium text-navy">{selectedMarkets.map(m => TARGET_MARKETS.find(t => t.id === m)?.label).join(', ') || '\u2014'}</span></div>
                       <div className="flex justify-between border-b border-gray-100 pb-2"><span className="text-gray-500">COGS / Unit</span><span className="font-medium text-navy">{gbp(costs.total_cogs)}</span></div>
                       <div className="flex justify-between border-b border-gray-100 pb-2"><span className="text-gray-500">Gross Margin</span><span className={`font-medium ${marginGood ? 'text-emerald-600' : marginOk ? 'text-amber-500' : 'text-red-500'}`}>{margin}%</span></div>
                       <div className="flex justify-between"><span className="text-gray-500">Success Rate</span><span className={`font-medium ${successGood ? 'text-emerald-600' : successOk ? 'text-amber-500' : 'text-red-500'}`}>{archetype.successRate}</span></div>
@@ -578,7 +578,7 @@ export default function ScenarioModeling() {
                   </Card>
                 </div>
 
-                {/* Liquid Intelligence — interpretation card */}
+                {/* Liquid Intelligence \u2014 interpretation card */}
                 <Card padding="p-4" className="border-l-4 border-gold bg-gold/5">
                   <div className="flex items-start gap-3">
                     <div className="p-2 rounded-lg bg-gold/10 flex-shrink-0">
@@ -594,16 +594,16 @@ export default function ScenarioModeling() {
                               ? `Strong ${margin}% margin gives headroom for ${archetype.marketingWeight.toLowerCase()} spend. You can absorb on-trade listing fees and sampling without compromising unit economics.`
                               : marginOk
                               ? `${margin}% margin is viable but tight for a ${archetype.label} launch. Build off-trade volume first to generate cashflow before investing in on-trade activation.`
-                              : `${margin}% margin creates profitability pressure. Target the ${gbp(costs.rrp_high)} price point or reduce packaging cost before committing to launch — especially under the ${archetype.label} model.`}
+                              : `${margin}% margin creates profitability pressure. Target the ${gbp(costs.rrp_high)} price point or reduce packaging cost before committing to launch \u2014 especially under the ${archetype.label} model.`}
                           </p>
                         </div>
                         <div className="flex items-start gap-2">
                           <Star size={12} className={`mt-0.5 flex-shrink-0 ${successGood ? 'text-emerald-600' : successOk ? 'text-amber-500' : 'text-red-500'}`} />
                           <p className="text-xs text-gray-700 leading-relaxed">
                             {successGood
-                              ? `${archetype.label} has the strongest archetype success rate at ${archetype.successRate}. Prioritise distribution depth over breadth — secure 50 quality on-trade accounts before pursuing national listings.`
+                              ? `${archetype.label} has the strongest archetype success rate at ${archetype.successRate}. Prioritise distribution depth over breadth \u2014 secure 50 quality on-trade accounts before pursuing national listings.`
                               : successOk
-                              ? `${archetype.label} brands succeed ${archetype.successRate} of the time. Lead with ${archetype.marketingWeight.toLowerCase()} to differentiate. Win 3–5 key accounts as proof-of-concept before scaling spend.`
+                              ? `${archetype.label} brands succeed ${archetype.successRate} of the time. Lead with ${archetype.marketingWeight.toLowerCase()} to differentiate. Win 3\u20135 key accounts as proof-of-concept before scaling spend.`
                               : `The ${archetype.label} archetype carries ${archetype.riskLevel} risk (${archetype.successRate} success rate). Secure anchor distribution commitments and validate demand before committing marketing budget.`}
                           </p>
                         </div>
@@ -613,10 +613,10 @@ export default function ScenarioModeling() {
                             {selectedMarkets.length === 0
                               ? `Select a target market to generate market-specific channel and distribution recommendations.`
                               : selectedMarkets.length === 1
-                              ? `Single-market focus is optimal for launch. Dominate ${primaryMarket?.label || 'your target market'} before adding distribution complexity — use this market to build distributor references.`
+                              ? `Single-market focus is optimal for launch. Dominate ${primaryMarket?.label || 'your target market'} before adding distribution complexity \u2014 use this market to build distributor references.`
                               : selectedMarkets.length >= 3
                               ? `Entering ${selectedMarkets.length} markets simultaneously is high-risk for a new entrant. Phase the rollout: establish your primary market first, then use distributor pull to validate demand before expanding.`
-                              : `Dual-market entry is achievable. Ensure each market has a dedicated importer with proven ${PRODUCT_CATEGORIES.find(c => c.id === selectedCategory)?.label || 'category'} expertise — ask for references from their current portfolio.`}
+                              : `Dual-market entry is achievable. Ensure each market has a dedicated importer with proven ${PRODUCT_CATEGORIES.find(c => c.id === selectedCategory)?.label || 'category'} expertise \u2014 ask for references from their current portfolio.`}
                           </p>
                         </div>
                       </div>
@@ -711,7 +711,7 @@ export default function ScenarioModeling() {
                 <MetricCard
                   label="Budget Tiers"
                   value={`${CAMPAIGN_BUDGET_TIERS.length}`}
-                  subtitle={"£15K to £350K"}
+                  subtitle={"\u00A315K to \u00A3350K"}
                   icon={DollarSign}
                 />
               </BentoGrid>
@@ -730,7 +730,7 @@ export default function ScenarioModeling() {
             <>
               <DrillDown
                 title="UK Region Analysis"
-                summary={`${UK_REGIONS.length} cities — ranked by cocktail index and activation potential`}
+                summary={`${UK_REGIONS.length} cities \u2014 ranked by cocktail index and activation potential`}
                 defaultOpen
               >
                 <RegionAnalysis regions={UK_REGIONS} expanded={expandedRegion} setExpanded={setExpandedRegion} />
@@ -788,7 +788,7 @@ export default function ScenarioModeling() {
             <>
               <DrillDown
                 title="Campaign Budget Tiers & ROI"
-                summary={`${CAMPAIGN_BUDGET_TIERS.length} tiers from £15K to £350K with projected ROI`}
+                summary={`${CAMPAIGN_BUDGET_TIERS.length} tiers from \u00A315K to \u00A3350K with projected ROI`}
                 defaultOpen
               >
                 <BudgetTierCards />
@@ -821,7 +821,7 @@ function StepProgress({ steps, current, onChange }) {
       {/* Mobile: simple text indicator */}
       <div className="flex sm:hidden items-center justify-between">
         <span className="text-xs font-medium text-navy">
-          {`Step ${current + 1} of ${steps.length}`} {'—'} {steps[current].label}
+          {`Step ${current + 1} of ${steps.length}`} {'\u2014'} {steps[current].label}
         </span>
         <div className="flex items-center gap-1">
           {steps.map((_, idx) => (
@@ -932,11 +932,11 @@ function CostWaterfall({ costs }) {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         <Card padding="p-3" className="text-center">
           <p className="text-xs text-gray-500">Total COGS</p>
-          <p className="text-lg font-bold text-navy">{'£'}{costs.total_cogs.toFixed(2)}</p>
+          <p className="text-lg font-bold text-navy">{'\u00A3'}{costs.total_cogs.toFixed(2)}</p>
         </Card>
         <Card padding="p-3" className="text-center">
           <p className="text-xs text-gray-500">RRP Range</p>
-          <p className="text-lg font-bold text-gold">{'£'}{costs.rrp_low}{'–'}{'£'}{costs.rrp_high}</p>
+          <p className="text-lg font-bold text-gold">{'\u00A3'}{costs.rrp_low}{'\u2013'}{'\u00A3'}{costs.rrp_high}</p>
         </Card>
         <Card padding="p-3" className="text-center">
           <p className="text-xs text-gray-500">Gross Margin</p>
@@ -1060,7 +1060,7 @@ function RegionAnalysis({ regions, expanded, setExpanded }) {
           >
             <div>
               <p className="text-xs font-semibold text-navy text-left">{region.name}</p>
-              <p className="text-xs text-gray-500">Pop: {region.pop} {'·'} Avg spend: {region.avgSpend}/head</p>
+              <p className="text-xs text-gray-500">Pop: {region.pop} {'\u00B7'} Avg spend: {region.avgSpend}/head</p>
             </div>
             <div className="flex items-center gap-3">
               <div className="text-right">

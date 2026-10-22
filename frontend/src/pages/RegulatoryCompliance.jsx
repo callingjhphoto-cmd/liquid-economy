@@ -43,22 +43,22 @@ export default function RegulatoryCompliance() {
     : 6
 
   const liComplexitySignal = liStepCount <= 3
-    ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'STREAMLINED PROCESS', copy: `${liStepCount} import steps — one of the simpler compliance pathways. Lean teams can manage in-house; broker optional.` }
+    ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'STREAMLINED PROCESS', copy: `${liStepCount} import steps \u2014 one of the simpler compliance pathways. Lean teams can manage in-house; broker optional.` }
     : liStepCount <= 5
     ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'STANDARD COMPLEXITY', copy: `${liStepCount} steps to clear import approval. Engage a local compliance agent to manage excise, label, and customs concurrently.` }
-    : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'HIGH COMPLIANCE BURDEN', copy: `${liStepCount} distinct import steps — this market demands specialist local counsel. Budget an additional 2–3 months for approval cycles.` }
+    : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'HIGH COMPLIANCE BURDEN', copy: `${liStepCount} distinct import steps \u2014 this market demands specialist local counsel. Budget an additional 2\u20133 months for approval cycles.` }
 
   const liLabelSignal = liUpcomingCount === 0
-    ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'STABLE REQUIREMENTS', copy: 'No upcoming labelling changes flagged. Current label artwork is future-proof for the near term — no reprint risk.' }
+    ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'STABLE REQUIREMENTS', copy: 'No upcoming labelling changes flagged. Current label artwork is future-proof for the near term \u2014 no reprint risk.' }
     : liUpcomingCount <= 2
-    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'MINOR UPDATES INCOMING', copy: `${liUpcomingCount} upcoming labelling change${liUpcomingCount > 1 ? 's' : ''} — low disruption but plan for artwork revisions before the next print run.` }
-    : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'SIGNIFICANT LABEL OVERHAUL', copy: `${liUpcomingCount} upcoming changes including EU-wide ingredient and calorie labelling from June 2026. New artwork mandatory — build label redesign into your launch timeline.` }
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'MINOR UPDATES INCOMING', copy: `${liUpcomingCount} upcoming labelling change${liUpcomingCount > 1 ? 's' : ''} \u2014 low disruption but plan for artwork revisions before the next print run.` }
+    : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'SIGNIFICANT LABEL OVERHAUL', copy: `${liUpcomingCount} upcoming changes including EU-wide ingredient and calorie labelling from June 2026. New artwork mandatory \u2014 build label redesign into your launch timeline.` }
 
   const liTimelineSignal = liTimelineMonths <= 3
-    ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'FAST-TRACK MARKET', copy: `${reg.timeline || '1–3 months'} to approve. Among the fastest-entry markets — achievable within one quarter from application to first shipment.` }
+    ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'FAST-TRACK MARKET', copy: `${reg.timeline || '1\u20133 months'} to approve. Among the fastest-entry markets \u2014 achievable within one quarter from application to first shipment.` }
     : liTimelineMonths <= 6
-    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'STANDARD TIMELINE', copy: `${reg.timeline || '3–6 months'} estimated. Allow one full quarter of pre-launch compliance work. Engage local counsel in month one.` }
-    : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'EXTENDED TIMELINE', copy: `${reg.timeline || '6+ months'} to full approval. Start regulatory groundwork well ahead of commercial launch — permits, COLAs, and licences run in parallel but queue behind each other.` }
+    ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'STANDARD TIMELINE', copy: `${reg.timeline || '3\u20136 months'} estimated. Allow one full quarter of pre-launch compliance work. Engage local counsel in month one.` }
+    : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'EXTENDED TIMELINE', copy: `${reg.timeline || '6+ months'} to full approval. Start regulatory groundwork well ahead of commercial launch \u2014 permits, COLAs, and licences run in parallel but queue behind each other.` }
 
   return (
     <div className="max-w-7xl mx-auto">

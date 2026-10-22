@@ -102,22 +102,22 @@ const liFullMktPct = Math.round(liFullMktCount / PRICING.length * 100)
 // ── Liquid Intelligence card ──
 function BrandPricingLiCard() {
   const arbSignal = liAvgDiff >= 30
-    ? { color: 'text-amber-600', dot: 'bg-amber-500', label: 'HIGH ARBITRAGE RISK', copy: `${liAvgDiff} average cross-market spread — parallel import risk elevated. ${liTopDiffBrand ? `${liTopDiffBrand.brand} ${liTopDiffBrand.expression} shows the widest gap at $${liTopDiffBrand.differential}.` : ''} Monitor key account pricing closely.` }
+    ? { color: 'text-amber-600', dot: 'bg-amber-500', label: 'HIGH ARBITRAGE RISK', copy: `${liAvgDiff} average cross-market spread \u2014 parallel import risk elevated. ${liTopDiffBrand ? `${liTopDiffBrand.brand} ${liTopDiffBrand.expression} shows the widest gap at $${liTopDiffBrand.differential}.` : ''} Monitor key account pricing closely.` }
     : liAvgDiff >= 15
-    ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'MODERATE PRICE VARIANCE', copy: `$${liAvgDiff} average cross-market spread — manageable, but regional pricing policies should be reviewed annually to prevent grey market leakage.` }
-    : { color: 'text-emerald-600', dot: 'bg-emerald-500', label: 'STABLE CROSS-MARKET PRICING', copy: `$${liAvgDiff} average cross-market spread — pricing parity largely maintained across markets. Strong distributor alignment indicated.` }
+    ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'MODERATE PRICE VARIANCE', copy: `$${liAvgDiff} average cross-market spread \u2014 manageable, but regional pricing policies should be reviewed annually to prevent grey market leakage.` }
+    : { color: 'text-emerald-600', dot: 'bg-emerald-500', label: 'STABLE CROSS-MARKET PRICING', copy: `$${liAvgDiff} average cross-market spread \u2014 pricing parity largely maintained across markets. Strong distributor alignment indicated.` }
 
   const premiumSignal = liHighEndPct >= 25
-    ? { color: 'text-emerald-600', dot: 'bg-emerald-500', label: 'STRONG PREMIUM MIX', copy: `${liHighEndPct}% of tracked expressions (${liHighEndCount} brands) sit in Ultra Premium or Prestige tiers — premiumisation thesis well supported in this dataset.` }
+    ? { color: 'text-emerald-600', dot: 'bg-emerald-500', label: 'STRONG PREMIUM MIX', copy: `${liHighEndPct}% of tracked expressions (${liHighEndCount} brands) sit in Ultra Premium or Prestige tiers \u2014 premiumisation thesis well supported in this dataset.` }
     : liHighEndPct >= 15
-    ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'BALANCED PORTFOLIO', copy: `${liHighEndPct}% premium-and-above expressions — healthy blend of volume and value-led brands. Room to grow the prestige tier.` }
-    : { color: 'text-amber-600', dot: 'bg-amber-500', label: 'VOLUME-LED CATEGORY', copy: `${liHighEndPct}% premium-tier expressions — dataset skews toward mainstream price points. Prestige positioning commands scarcity premium in this environment.` }
+    ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'BALANCED PORTFOLIO', copy: `${liHighEndPct}% premium-and-above expressions \u2014 healthy blend of volume and value-led brands. Room to grow the prestige tier.` }
+    : { color: 'text-amber-600', dot: 'bg-amber-500', label: 'VOLUME-LED CATEGORY', copy: `${liHighEndPct}% premium-tier expressions \u2014 dataset skews toward mainstream price points. Prestige positioning commands scarcity premium in this environment.` }
 
   const globalSignal = liFullMktPct >= 60
-    ? { color: 'text-emerald-600', dot: 'bg-emerald-500', label: 'GLOBAL PRICING COVERAGE', copy: `${liFullMktPct}% of tracked expressions (${liFullMktCount} brands) priced across US, UK, and EU — strong global visibility for export brand benchmarking.` }
+    ? { color: 'text-emerald-600', dot: 'bg-emerald-500', label: 'GLOBAL PRICING COVERAGE', copy: `${liFullMktPct}% of tracked expressions (${liFullMktCount} brands) priced across US, UK, and EU \u2014 strong global visibility for export brand benchmarking.` }
     : liFullMktPct >= 35
-    ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'MULTI-MARKET COVERAGE', copy: `${liFullMktPct}% of expressions tracked across all key markets. Regional gaps exist — particularly in Middle East coverage for super-premium spirits.` }
-    : { color: 'text-amber-600', dot: 'bg-amber-500', label: 'MARKET COVERAGE GAPS', copy: `${liFullMktPct}% of expressions fully priced across major markets — significant data gaps. Cross-market comparison limited for less-distributed brands.` }
+    ? { color: 'text-blue-600', dot: 'bg-blue-500', label: 'MULTI-MARKET COVERAGE', copy: `${liFullMktPct}% of expressions tracked across all key markets. Regional gaps exist \u2014 particularly in Middle East coverage for super-premium spirits.` }
+    : { color: 'text-amber-600', dot: 'bg-amber-500', label: 'MARKET COVERAGE GAPS', copy: `${liFullMktPct}% of expressions fully priced across major markets \u2014 significant data gaps. Cross-market comparison limited for less-distributed brands.` }
 
   const signals = [arbSignal, premiumSignal, globalSignal]
   const signalLabels = ['Market Arbitrage Risk', 'Portfolio Premium Density', 'Global Market Coverage']
@@ -155,7 +155,7 @@ function getSegmentTier(segment) {
 
 // ── Helper: format currency ──
 function fmtPrice(value, currency = '$') {
-  if (value === null || value === undefined) return '—'
+  if (value === null || value === undefined) return '\u2014'
   return `${currency}${typeof value === 'number' ? value.toFixed(0) : value}`
 }
 
@@ -213,7 +213,7 @@ function useGlobalStats() {
         avgUs,
         avgUk,
         maxDiff,
-        topBrand: topBrand ? `${topBrand.brand} ${topBrand.expression}` : '—',
+        topBrand: topBrand ? `${topBrand.brand} ${topBrand.expression}` : '\u2014',
         topBrandCompany: topBrand ? topBrand.company : '',
         tiers,
         color: CATEGORY_COLORS[cat] || '#6B7280',
@@ -254,13 +254,13 @@ function CategorySummaryCard({ stat, isExpanded, onToggle }) {
         <div>
           <SectionLabel>Avg (US)</SectionLabel>
           <p className="text-lg font-bold text-navy font-mono">
-            {stat.avgUs !== null ? `$${stat.avgUs}` : '—'}
+            {stat.avgUs !== null ? `$${stat.avgUs}` : '\u2014'}
           </p>
         </div>
         <div>
           <SectionLabel>Avg (UK)</SectionLabel>
           <p className="text-lg font-bold text-navy font-mono">
-            {stat.avgUk !== null ? `£${stat.avgUk}` : '—'}
+            {stat.avgUk !== null ? `\u00A3${stat.avgUk}` : '\u2014'}
           </p>
         </div>
       </div>
@@ -416,7 +416,7 @@ function CategoryExpanded({ category, onClose }) {
                               <Link to="/companies" className="hover:text-navy hover:underline transition-colors">{brand.company}</Link>
                             </td>
                             <td className="px-3 py-2 text-right text-xs font-mono font-bold text-navy">
-                              {price !== null && price !== undefined ? `${config.currency}${price.toFixed(2)}` : '—'}
+                              {price !== null && price !== undefined ? `${config.currency}${price.toFixed(2)}` : '\u2014'}
                             </td>
                             <td className="px-3 py-2 text-right">
                               <span className={`text-xs font-mono font-medium ${brand.differential > 30 ? 'text-red-500' : brand.differential > 15 ? 'text-amber-500' : 'text-green-500'}`}>
@@ -440,7 +440,7 @@ function CategoryExpanded({ category, onClose }) {
       {/* Price Comparison Chart */}
       <ChartCard
         title={`Top 10 ${category} by Price`}
-        subtitle={`${config.flag} ${config.label} market · ${config.bottleSize} bottle · ${config.currency} pricing`}
+        subtitle={`${config.flag} ${config.label} market \u00B7 ${config.bottleSize} bottle \u00B7 ${config.currency} pricing`}
         height={280}
         source="Aggregated retailer pricing"
       >
@@ -462,10 +462,10 @@ function CategoryExpanded({ category, onClose }) {
         </BarChart>
       </ChartCard>
 
-      {/* Price Positioning Map — Scatter Plot */}
+      {/* Price Positioning Map \u2014 Scatter Plot */}
       <ChartCard
         title="Price Positioning Map"
-        subtitle={`Volume vs Retail Price · ${config.flag} ${config.label} market`}
+        subtitle={`Volume vs Retail Price \u00B7 ${config.flag} ${config.label} market`}
         height={300}
         source="Liquid Economy Analysis"
       >
@@ -548,7 +548,7 @@ function FullPriceTable({ onClose }) {
   }, [categoryFilter, segmentFilter])
 
   const handleExportCSV = useCallback(() => {
-    const headers = ['Company', 'Brand', 'Expression', 'Category', 'Segment', 'USA ($)', 'UK (£)', 'EU (€)', 'ME ($)', 'Spread ($)', 'Premium %']
+    const headers = ['Company', 'Brand', 'Expression', 'Category', 'Segment', 'USA ($)', 'UK (\u00A3)', 'EU (€)', 'ME ($)', 'Spread ($)', 'Premium %']
     const rows = tableData.map(r => [
       r.company, r.brand, r.expression, r.category, r.segment,
       r.usa || '', r.uk || '', r.eu || '', r.me || '',
@@ -577,10 +577,10 @@ function FullPriceTable({ onClose }) {
       const info = SEGMENT_INFO[v] || { color: 'bg-gray-50 text-gray-500' }
       return <span className={`text-xs px-1.5 py-0.5 rounded font-medium ${info.color}`}>{v}</span>
     }},
-    { key: 'usa', label: 'USA ($)', align: 'right', render: (v) => v ? <span className="font-mono">${v}</span> : '—' },
-    { key: 'uk', label: 'UK (£)', align: 'right', render: (v) => v ? <span className="font-mono">{'£'}{v}</span> : '—' },
-    { key: 'eu', label: 'EU (€)', align: 'right', render: (v) => v ? <span className="font-mono">{'€'}{v}</span> : '—' },
-    { key: 'me', label: 'ME ($)', align: 'right', render: (v) => v ? <span className="font-mono">${v}</span> : '—' },
+    { key: 'usa', label: 'USA ($)', align: 'right', render: (v) => v ? <span className="font-mono">${v}</span> : '\u2014' },
+    { key: 'uk', label: 'UK (\u00A3)', align: 'right', render: (v) => v ? <span className="font-mono">{'\u00A3'}{v}</span> : '\u2014' },
+    { key: 'eu', label: 'EU (€)', align: 'right', render: (v) => v ? <span className="font-mono">{'€'}{v}</span> : '\u2014' },
+    { key: 'me', label: 'ME ($)', align: 'right', render: (v) => v ? <span className="font-mono">${v}</span> : '\u2014' },
     { key: 'differential', label: 'Spread', align: 'right', render: (v) => (
       <span className={`font-mono font-medium ${v > 30 ? 'text-red-500' : v > 15 ? 'text-amber-500' : 'text-green-500'}`}>
         {'±'}{v}
@@ -595,7 +595,7 @@ function FullPriceTable({ onClose }) {
         <div className="flex items-center justify-between mb-4">
           <div>
             <h2 className="font-display text-lg font-semibold text-navy">Full Brand Pricing Table</h2>
-            <p className="text-xs text-gray-500">{tableData.length} expressions {'·'} {TOTAL_MARKETS} markets {'·'} {TOTAL_RETAILERS} retailers</p>
+            <p className="text-xs text-gray-500">{tableData.length} expressions {'\u00B7'} {TOTAL_MARKETS} markets {'\u00B7'} {TOTAL_RETAILERS} retailers</p>
           </div>
           <div className="flex items-center gap-2">
             <button
@@ -655,7 +655,7 @@ function FullPriceTable({ onClose }) {
             <AlertCircle size={12} className="text-gray-500 mt-0.5 flex-shrink-0" />
             <p className="text-xs text-gray-500 leading-relaxed">
               Prices represent recommended retail prices (RRP). Bottle sizes vary by market: UK and EU use 70cl (700ml); US and Middle East use 750ml.
-              UK prices in GBP ({'£'}), EU in EUR ({'€'}), US and ME in USD ($). Market averages calculated from available retailer prices.
+              UK prices in GBP ({'\u00A3'}), EU in EUR ({'€'}), US and ME in USD ($). Market averages calculated from available retailer prices.
               EU average aggregates Spain, France, Germany, Italy, and Netherlands. Prices updated via automated scraping.
             </p>
           </div>
@@ -726,11 +726,11 @@ export default function BrandPricing() {
                 </div>
                 <div className="bg-gray-50 rounded-lg p-2.5 text-center">
                   <div className="text-xs text-gray-500 uppercase">Avg US</div>
-                  <div className="text-sm font-bold text-navy">{stat.avgUs !== null ? `$${stat.avgUs}` : '—'}</div>
+                  <div className="text-sm font-bold text-navy">{stat.avgUs !== null ? `$${stat.avgUs}` : '\u2014'}</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-2.5 text-center">
                   <div className="text-xs text-gray-500 uppercase">Avg UK</div>
-                  <div className="text-sm font-bold text-navy">{stat.avgUk !== null ? `£${stat.avgUk}` : '—'}</div>
+                  <div className="text-sm font-bold text-navy">{stat.avgUk !== null ? `\u00A3${stat.avgUk}` : '\u2014'}</div>
                 </div>
               </div>
               <div className="flex flex-wrap gap-1.5">
@@ -788,7 +788,7 @@ export default function BrandPricing() {
     <div className="space-y-6 max-w-7xl mx-auto">
       <PageHeader
         title={<span className="inline-flex items-center">Brand Pricing Monitor<MethodologyTooltip text="38 core brands verified against retailer websites (April 2026). Extended portfolio of 326 brands uses index-estimated regional pricing derived from UK anchor prices and local market differentials." /></span>}
-        subtitle={`Cross-market RRP comparison — ${PRICING.length} expressions across ${TOTAL_RETAILERS} retailers in ${TOTAL_MARKETS} markets · Data as of April 2026`}
+        subtitle={`Cross-market RRP comparison \u2014 ${PRICING.length} expressions across ${TOTAL_RETAILERS} retailers in ${TOTAL_MARKETS} markets \u00B7 Data as of April 2026`}
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Brand Pricing' },
@@ -923,7 +923,7 @@ export default function BrandPricing() {
             <div>
               <p className="text-xs font-medium text-navy">Real-Time Pricing Monitor</p>
               <p className="text-xs text-gray-500">
-                Prices sourced from {TOTAL_RETAILERS} retailers across {TOTAL_MARKETS} markets. Seed data {'—'} live scraping every 3 days.
+                Prices sourced from {TOTAL_RETAILERS} retailers across {TOTAL_MARKETS} markets. Seed data {'\u2014'} live scraping every 3 days.
               </p>
             </div>
           </div>
@@ -946,7 +946,7 @@ export default function BrandPricing() {
               <span className="text-sm">{cfg.flag}</span>
               <div>
                 <p className="font-medium">{cfg.label}</p>
-                <p className="text-gray-500">{(RETAILERS[key] || []).length} retailers {'·'} {cfg.bottleSize} {'·'} {cfg.currency}</p>
+                <p className="text-gray-500">{(RETAILERS[key] || []).length} retailers {'\u00B7'} {cfg.bottleSize} {'\u00B7'} {cfg.currency}</p>
               </div>
             </div>
           ))}

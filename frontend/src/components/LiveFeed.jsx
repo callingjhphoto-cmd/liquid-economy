@@ -59,7 +59,7 @@ function ConnectionBadge({ connected, mode, clientCount }) {
         <span className="text-green-700 font-medium">
           LIVE{mode === 'sse' ? '' : ' (polling)'}
         </span>
-        {clientCount > 1 && <span className="text-gray-500">{'·'} {clientCount} viewers</span>}
+        {clientCount > 1 && <span className="text-gray-500">{'\u00B7'} {clientCount} viewers</span>}
       </div>
     )
   }
@@ -67,7 +67,7 @@ function ConnectionBadge({ connected, mode, clientCount }) {
     return (
       <div className="flex items-center gap-1.5 text-xs text-gray-500">
         <WifiOff size={10} />
-        <span>Offline {'—'} backend not connected</span>
+        <span>Offline {'\u2014'} backend not connected</span>
       </div>
     )
   }
@@ -185,7 +185,7 @@ export default function LiveFeed({ maxItems = 30, compact = false }) {
           </div>
         </div>
 
-        {/* Filters — severity + category */}
+        {/* Filters \u2014 severity + category */}
         {showFilters && (
           <div className="mt-2 space-y-1.5">
             {/* Severity row */}

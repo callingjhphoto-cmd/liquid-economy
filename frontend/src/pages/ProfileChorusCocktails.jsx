@@ -51,8 +51,8 @@ const Module1 = () => {
   return (
     <section id="top20">
       <SectionHeader
-        title={"Top 20 Cocktails — Global Ranking 2024–2026"}
-        sub={"Sources: Drinks International World’s 50 Best Bars Brand Report · Difford’s Guide (700k+ monthly searches) · IWSR"}
+        title={"Top 20 Cocktails \u2014 Global Ranking 2024\u20132026"}
+        sub={"Sources: Drinks International World’s 50 Best Bars Brand Report \u00B7 Difford’s Guide (700k+ monthly searches) \u00B7 IWSR"}
       />
       <Card className="overflow-x-auto p-0">
         <table className="w-full text-body">
@@ -107,8 +107,8 @@ const Module1 = () => {
 const Module2 = () => (
   <section id="flavours">
     <SectionHeader
-      title={"Flavour Families — 2025–2026 Intelligence"}
-      sub={"Sources: Bacardi Cocktail Trends Report · Tales of the Cocktail 2025 · W50B menu analysis"}
+      title={"Flavour Families \u2014 2025\u20132026 Intelligence"}
+      sub={"Sources: Bacardi Cocktail Trends Report \u00B7 Tales of the Cocktail 2025 \u00B7 W50B menu analysis"}
     />
     <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
       {flavourFamilies.map((f) => (
@@ -249,8 +249,8 @@ const Module4 = () => (
 const Module5 = () => (
   <section id="trend-arc">
     <SectionHeader
-      title={"20-Year Cocktail Trend Arc — 2006–2026"}
-      sub={"Six eras of luxury on-premise evolution · Source: Drinks International, Difford’s Guide, IWSR, World’s 50 Best Bars, Tales of the Cocktail, CGA by NIQ"}
+      title={"20-Year Cocktail Trend Arc \u2014 2006\u20132026"}
+      sub={"Six eras of luxury on-premise evolution \u00B7 Source: Drinks International, Difford’s Guide, IWSR, World’s 50 Best Bars, Tales of the Cocktail, CGA by NIQ"}
     />
 
     {/* Era timeline cards */}
@@ -302,7 +302,7 @@ const Module6 = () => (
   <section id="opportunity-radar">
     <SectionHeader
       title="Opportunity Radar"
-      sub={"Three actionable signals — each with migration path, product, brief, and reallocation logic"}
+      sub={"Three actionable signals \u2014 each with migration path, product, brief, and reallocation logic"}
     />
     <div className="space-y-4">
       {opportunityRadar.map((o) => (
@@ -312,7 +312,7 @@ const Module6 = () => (
               <span className={STEP_CHIP} style={{ background: '#C9A96E', color: '#1A1F36' }}>Signal</span>
               <h3 className="text-subsection font-display text-navy mt-1">{o.signal}</h3>
             </div>
-            <span className="text-caption text-accent-red font-semibold shrink-0 ml-3">{o.urgency.split(' —')[0]}</span>
+            <span className="text-caption text-accent-red font-semibold shrink-0 ml-3">{o.urgency.split(' \u2014')[0]}</span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-caption text-gray-700 leading-relaxed">
             <div>
@@ -358,7 +358,7 @@ export default function ProfileChorusCocktails() {
 
   return (
     <div className="min-h-screen bg-surface text-navy font-body">
-      {/* Header — light editorial (dark band removed to match main site) */}
+      {/* Header \u2014 light editorial (dark band removed to match main site) */}
       <header className="border-b border-gray-200 bg-white/95 sticky top-0 z-30 backdrop-blur">
         <div className="bg-white">
           <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
@@ -369,7 +369,7 @@ export default function ProfileChorusCocktails() {
                 <span className="text-label text-gray-500 uppercase tracking-wider">Client Intelligence</span>
               </div>
               <h1 className="text-page font-display text-navy mt-1">
-                {profileMeta.clientName} {'—'} {profileMeta.profileTitle}
+                {profileMeta.clientName} {'\u2014'} {profileMeta.profileTitle}
               </h1>
               <p className="text-caption text-gray-600 mt-1">{profileMeta.subtitle}</p>
             </div>
@@ -413,12 +413,12 @@ export default function ProfileChorusCocktails() {
             Sources: {profileMeta.sourcedFrom}
           </p>
           <p className="text-caption text-gray-500 mt-2">
-            Prepared by Liquid Economy {'·'} {profileMeta.lastUpdated} {'·'}{' '}
+            Prepared by Liquid Economy {'\u00B7'} {profileMeta.lastUpdated} {'\u00B7'}{' '}
             <a href={`mailto:${profileMeta.contactEmail}`} className="underline hover:text-navy">
               {profileMeta.contactEmail}
             </a>
           </p>
-          <p className="text-caption text-gray-400 mt-3">Powered by Liquid Agency {'·'} Drinks Industry Intelligence</p>
+          <p className="text-caption text-gray-400 mt-3">Powered by Liquid Agency {'\u00B7'} Drinks Industry Intelligence</p>
         </footer>
       </main>
     </div>

@@ -1,3 +1,17 @@
+# Overnight Build Log — 23 October 2026
+
+## Session summary
+
+**Shipped:** Unicode escape sweep (round 2) — 165 replacements across 25 JSX/component files. Oct-22 swept 747 chars but missed smart quotes, accented brand letters, €/₱ currency, arrows, °, ≥, −, ±, …, and narrow no-break space. All now escaped with `\uXXXX` in JS string and template literal contexts; block comments and line comments left untouched. Build clean at 12.08s. 1 commit pushed to origin/main (10a9186).
+
+1. **Unicode escape sweep round 2 — 165 replacements across 25 files.** The Oct-22 sweep targeted the most common chars (—, –, ·, £, ▲, ▼, •, ✓) but missed several character classes. Fixed all remaining violations with a state-machine Python script that correctly tracks `/* */` and `{/* */}` block comment context and leaves comment bodies untouched.
+
+2. **Characters fixed this session:** smart apostrophe/quotes (`’` `“` `”`), accented brand letters (`é`, `á`, `ë`, `ó`, `ò`, `ñ`, `ē`, `â`, `í`), currency symbols (`€` `₱`), arrows (`→` `←` `▶`), degree sign (`°`), mathematical symbols (`≥` `−` `±`), ellipsis (`…`), narrow no-break space. Notable files: GlobalSearch.jsx (30 — brand labels like Patrón, José Cuervo, Moët, Tayēr, market cap €s), ClimateYield.jsx (15 — `°C` in axis formatters and template literals), VenueIntelligence.jsx (15 — smart apostrophes and ē in Tayēr), PricePositioning.jsx (16 — accented market/brand labels), ScenarioModeling.jsx (11 — €/₱ in detail strings), SupplyChain.jsx (5 — `≥15%` thresholds in template literals).
+
+3. **Full audit pass — all priority areas confirmed clean.** CategoryIntelligence: all 55 growthDir entries intact. BrandPricing: 326 entries, all tooltips dark-styled, €/± now escaped. VenueIntelligence: 250 FIFTY_BEST_BARS, 28 LONDON_VENUES. All page Tooltips have `contentStyle` dark background. All numeric YAxes have `tickFormatter`. Zero remaining non-ASCII chars in code/data contexts of JSX files (one `→` in a block comment body at ClimateYield.jsx:105 is intentionally left — inside `/* */`, not a JSX text node).
+
+---
+
 # Overnight Build Log — 22 October 2026
 
 ## Session summary

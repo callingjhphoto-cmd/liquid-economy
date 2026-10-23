@@ -100,7 +100,7 @@ const CampaignPlanner = () => {
       }
       if (cocktailName.includes('margarita')) {
         return [
-          { name: 'Tommy’s Margarita (Patrón)', position: 'Premium margarita benchmark, dominant in cocktail bars', threat: 'high' },
+          { name: 'Tommy\u2019s Margarita (Patr\u00f3n)', position: 'Premium margarita benchmark, dominant in cocktail bars', threat: 'high' },
           { name: 'Classic Margarita (Cuervo)', position: 'Volume leader at value-mid tier, strong off-trade RTD', threat: 'high' },
           { name: 'Casamigos Margarita', position: 'Celebrity-backed, strong social media presence 25-35 demo', threat: 'medium' },
         ]
@@ -1248,7 +1248,7 @@ const CampaignPlanner = () => {
                 {campaignData.objective === 'awareness'
                   ? `This is a brand-building campaign. Creative should prioritise memorability and brand association over direct response. Aim for high-impact visual storytelling that positions ${getBrandDisplay()} distinctively within ${CATEGORIES.find(c => c.id === campaignData.category)?.label || 'the category'}.`
                   : campaignData.objective === 'trial'
-                  ? 'Focus creative on lowering the trial barrier. Show the serve, make it approachable, and include a clear call-to-action. Sampling and “first drink free” mechanics should be central.'
+                  ? 'Focus creative on lowering the trial barrier. Show the serve, make it approachable, and include a clear call-to-action. Sampling and \u201cfirst drink free\u201d mechanics should be central.'
                   : campaignData.objective === 'premium'
                   ? 'Creative should elevate the brand perception. Use premium production values, aspirational settings, and emphasise craftsmanship/heritage. Avoid price messaging.'
                   : 'Drive urgency and volume. Promotional mechanics, limited-time offers, and clear value propositions should be front and centre in all creative.'
@@ -1473,7 +1473,7 @@ const CampaignPlanner = () => {
             <DollarSign className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
             <div>
               <h3 className="font-display font-bold text-sm text-green-900 mb-1">Step 2: Budget & Timing</h3>
-              <p className="text-xs text-green-700">Set your total budget and date range. We{'’'}ll show the recommended channel split.</p>
+              <p className="text-xs text-green-700">Set your total budget and date range. We{'\u2019'}ll show the recommended channel split.</p>
             </div>
           </div>
         </Card>

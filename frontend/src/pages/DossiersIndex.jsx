@@ -16,7 +16,7 @@ function titleCase(str) {
 
 function groupName(slug) {
   const overrides = {
-    'lvmh-moet-hennessy': 'LVMH Moët Hennessy',
+    'lvmh-moet-hennessy': 'LVMH Mo\u00ebt Hennessy',
     'brown-forman': 'Brown-Forman',
     'campari-group': 'Campari Group',
     'pernod-ricard': 'Pernod Ricard',
@@ -29,8 +29,8 @@ function groupName(slug) {
 function brandName(slug) {
   // slug = "campari-group_aperol" -> "Aperol"
   const overrides = {
-    'lvmh-moet-hennessy_moet-chandon': 'Moët & Chandon',
-    'lvmh-moet-hennessy_dom-perignon': 'Dom Pérignon',
+    'lvmh-moet-hennessy_moet-chandon': 'Mo\u00ebt & Chandon',
+    'lvmh-moet-hennessy_dom-perignon': 'Dom P\u00e9rignon',
     'lvmh-moet-hennessy_veuve-clicquot': 'Veuve Clicquot',
     'campari-group_wray-nephew': 'Wray & Nephew',
     'campari-group_grand-marnier': 'Grand Marnier',
@@ -40,10 +40,10 @@ function brandName(slug) {
     'brown-forman_jack-daniel-s': "Jack Daniel's",
     'diageo_buchanan-s': "Buchanan's",
     'pernod-ricard_ballantine-s': "Ballantine's",
-    'brown-forman_diplomatico': 'Diplomático',
-    'campari-group_espolon': 'Espolòn',
+    'brown-forman_diplomatico': 'Diplom\u00e1tico',
+    'campari-group_espolon': 'Espol\u00f2n',
     'diageo_don-julio': 'Don Julio',
-    'lvmh-moet-hennessy_volcan-de-mi-tierra': 'Volcán de Mi Tierra',
+    'lvmh-moet-hennessy_volcan-de-mi-tierra': 'Volc\u00e1n de Mi Tierra',
   }
   if (overrides[slug]) return overrides[slug]
   const tail = slug.includes('_') ? slug.split('_').slice(1).join(' ') : slug
@@ -83,7 +83,7 @@ function teaser(prose, max = 150) {
   if (/^(A note on method|This dossier is compiled|STRATEGIC PURPOSE|This strategic dossier|This is the section|This is the costed)/i.test(t)) {
     return ''
   }
-  if (t.length > max) t = t.slice(0, max).replace(/\s+\S*$/, '') + '…'
+  if (t.length > max) t = t.slice(0, max).replace(/\s+\S*$/, '') + '\u2026'
   return t
 }
 
@@ -213,7 +213,7 @@ export default function DossiersIndex() {
                 <h2 className="font-display text-lg text-navy font-semibold leading-tight">The Marketing Thesis</h2>
                 <p className="text-sm text-gray-600 mt-1 max-w-2xl">
                   {teaser(marketing.synthesisProse, 200) ||
-                    'Where spend is deployed without measurement \u2014 the category’s defining inefficiency.'}
+                    'Where spend is deployed without measurement \u2014 the category\u2019s defining inefficiency.'}
                 </p>
               </div>
             </div>

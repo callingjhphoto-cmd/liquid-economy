@@ -179,7 +179,7 @@ export default function MarginCalculator() {
 
   // Waterfall data for Tier 2 chart
   const waterfallData = costLabels.map(e => ({
-    name: e.label.length > 12 ? e.label.substring(0, 12) + '…' : e.label,
+    name: e.label.length > 12 ? e.label.substring(0, 12) + '\u2026' : e.label,
     cost: parseFloat(computed.costs[e.key].toFixed(2)),
     fill: e.color,
   }))
@@ -271,8 +271,8 @@ export default function MarginCalculator() {
     ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Tight Margin', copy: `Your ${computed.margin.toFixed(1)}% is ${marginBelow}pp below the ${cat.label} average (${benchmarks.avgMargin}%). Limited headroom \u2014 review RRP or focus on reducing the highest input cost component.` }
     : { dot: 'bg-red-500', color: 'text-red-600', label: 'Critical Margin', copy: `At ${computed.margin.toFixed(1)}%, you are significantly below the ${cat.label} average (${benchmarks.avgMargin}%). A pricing or cost structure review is required before a viable commercial launch.` }
   const liSig2 = bestScenario.impact > 0
-    ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: `Best Lever: ${bestScenario.label}`, copy: `Activating “${bestScenario.label}” adds +${bestScenario.impact.toFixed(1)}pp, bringing gross margin to ${(computed.baseMargin + bestScenario.impact).toFixed(1)}%. Use Advanced Mode to stack multiple scenarios and model the combined impact.` }
-    : { dot: 'bg-gray-400', color: 'text-gray-500', label: 'No Positive Scenarios', copy: `No available scenario improves this category’s margin at the current RRP. Consider raising the RRP target or exploring direct sourcing to reduce input costs before launch.` }
+    ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: `Best Lever: ${bestScenario.label}`, copy: `Activating \u201c${bestScenario.label}\u201d adds +${bestScenario.impact.toFixed(1)}pp, bringing gross margin to ${(computed.baseMargin + bestScenario.impact).toFixed(1)}%. Use Advanced Mode to stack multiple scenarios and model the combined impact.` }
+    : { dot: 'bg-gray-400', color: 'text-gray-500', label: 'No Positive Scenarios', copy: `No available scenario improves this category\u2019s margin at the current RRP. Consider raising the RRP target or exploring direct sourcing to reduce input costs before launch.` }
   const liSig3 = readinessScore >= 70
     ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Strong Launch Timing', copy: `${cat.label} scores ${readinessScore}/100 on launch readiness. Category growth, COGS trajectory, and geographic opportunity all support a market entry in the next 12 months.` }
     : readinessScore >= 50

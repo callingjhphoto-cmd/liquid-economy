@@ -52,7 +52,7 @@ const Module1 = () => {
     <section id="top20">
       <SectionHeader
         title={"Top 20 Cocktails \u2014 Global Ranking 2024\u20132026"}
-        sub={"Sources: Drinks International World’s 50 Best Bars Brand Report \u00B7 Difford’s Guide (700k+ monthly searches) \u00B7 IWSR"}
+        sub={"Sources: Drinks International World\u2019s 50 Best Bars Brand Report \u00B7 Difford\u2019s Guide (700k+ monthly searches) \u00B7 IWSR"}
       />
       <Card className="overflow-x-auto p-0">
         <table className="w-full text-body">
@@ -250,7 +250,7 @@ const Module5 = () => (
   <section id="trend-arc">
     <SectionHeader
       title={"20-Year Cocktail Trend Arc \u2014 2006\u20132026"}
-      sub={"Six eras of luxury on-premise evolution \u00B7 Source: Drinks International, Difford’s Guide, IWSR, World’s 50 Best Bars, Tales of the Cocktail, CGA by NIQ"}
+      sub={"Six eras of luxury on-premise evolution \u00B7 Source: Drinks International, Difford\u2019s Guide, IWSR, World\u2019s 50 Best Bars, Tales of the Cocktail, CGA by NIQ"}
     />
 
     {/* Era timeline cards */}

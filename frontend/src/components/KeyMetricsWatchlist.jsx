@@ -25,9 +25,9 @@ const PILLARS = [
       { name: 'Baltic Dry Index', value: '2,112', period: 'pts', note: '+34% YoY \u2014 bulk carrier recovery', trend: 'up' },
       { name: 'Glass Container PPI (US)', value: '216.38', period: 'Index (2003=100)', note: 'Historically high \u2014 energy-driven', trend: 'up' },
       { name: 'Drewry WCI (40ft)', value: '$3,421', period: 'per container', note: '+110% YoY \u2014 Red Sea & port congestion', trend: 'up' },
-      { name: 'EU Natural Gas (TTF)', value: '€48.2/MWh', period: 'Feb 2026', note: 'Glass furnace cost driver', trend: 'up' },
+      { name: 'EU Natural Gas (TTF)', value: '\u20ac48.2/MWh', period: 'Feb 2026', note: 'Glass furnace cost driver', trend: 'up' },
       { name: 'French Wine Production', value: '-16%', period: 'vs 5yr avg', note: 'Heat and drought impact', trend: 'down' },
-      { name: 'Barley (EU)', value: '€224/t', period: '+12% YoY', note: 'Whisky input cost pressure', trend: 'up' },
+      { name: 'Barley (EU)', value: '\u20ac224/t', period: '+12% YoY', note: 'Whisky input cost pressure', trend: 'up' },
     ]
   },
   {

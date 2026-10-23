@@ -72,13 +72,13 @@ export default function SupplyChain() {
   const liCompressionPp = 4.1
 
   const liSig1 = criticalCount >= 5
-    ? { dot: 'bg-red-500', color: 'text-red-600', label: 'Acute Input Pressure', copy: `${criticalCount} commodities tracking ≥15% YoY inflation. Immediate pricing review recommended. Highest exposure: ${highestRisk.label} at ${highestRisk.change}.` }
+    ? { dot: 'bg-red-500', color: 'text-red-600', label: 'Acute Input Pressure', copy: `${criticalCount} commodities tracking \u226515% YoY inflation. Immediate pricing review recommended. Highest exposure: ${highestRisk.label} at ${highestRisk.change}.` }
     : criticalCount >= 2
-    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Elevated Input Costs', copy: `${criticalCount} commodities in critical range (≥15% YoY). Monitor COGS buffer and review supplier contracts. Highest risk: ${highestRisk.label} at ${highestRisk.change}.` }
+    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Elevated Input Costs', copy: `${criticalCount} commodities in critical range (\u226515% YoY). Monitor COGS buffer and review supplier contracts. Highest risk: ${highestRisk.label} at ${highestRisk.change}.` }
     : { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Contained Pressure', copy: `Critical commodity alerts are limited. ${highCount} inputs in elevated range (8\u201314% YoY). Standard monitoring protocols apply.` }
 
   const liSig2 = liCompressionPp >= 4
-    ? { dot: 'bg-red-500', color: 'text-red-600', label: 'Significant Margin Squeeze', copy: `Input costs rising ${liPressureIndex}% vs ${liRetailRise}% average retail pass-through. Estimated −4.1pp gross margin compression in 2025. Price uplift and cost recovery strategies are material.` }
+    ? { dot: 'bg-red-500', color: 'text-red-600', label: 'Significant Margin Squeeze', copy: `Input costs rising ${liPressureIndex}% vs ${liRetailRise}% average retail pass-through. Estimated \u22124.1pp gross margin compression in 2025. Price uplift and cost recovery strategies are material.` }
     : liCompressionPp >= 2
     ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Moderate Margin Pressure', copy: `Input cost inflation (${liPressureIndex}%) partially offset by ${liRetailRise}% retail price increases. Monitor gross margin buffers closely.` }
     : { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Manageable Spread', copy: `Input cost rise (${liPressureIndex}%) broadly matched by retail price increases (${liRetailRise}%). Margin resilience intact.` }
@@ -226,7 +226,7 @@ export default function SupplyChain() {
             <p className="text-label text-gray-500">Critical Alerts</p>
           </div>
           <p className="text-xl sm:text-2xl font-bold text-red-600">{criticalCount}</p>
-          <p className="text-xs text-gray-500">{'≥'}15% YoY change</p>
+          <p className="text-xs text-gray-500">{'\u2265'}15% YoY change</p>
         </Card>
 
         <Card hover onClick={() => {}}>
@@ -295,7 +295,7 @@ export default function SupplyChain() {
               </div>
               <p className="text-xs text-gray-500 mb-1">{stage.summary}</p>
               <p className="text-sm font-bold text-navy">{stage.kpi}</p>
-              <p className="text-xs text-gray-500 mt-1">Click to explore {'→'}</p>
+              <p className="text-xs text-gray-500 mt-1">Click to explore {'\u2192'}</p>
             </Card>
           )
         })}

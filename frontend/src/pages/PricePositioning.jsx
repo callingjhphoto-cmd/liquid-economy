@@ -23,7 +23,7 @@ const CATEGORIES = [
 const MARKETS = [
   { id: 'uk', label: 'UK', currency: '\u00A3' },
   { id: 'us', label: 'US', currency: '$' },
-  { id: 'eu', label: 'EU', currency: '€' },
+  { id: 'eu', label: 'EU', currency: '\u20ac' },
 ]
 
 // Price tiers with competitor benchmarks per category (UK prices)
@@ -32,8 +32,8 @@ const PRICE_BENCHMARKS = {
     tiers: [
       { name: 'Value', min: 15, max: 22, brands: ['Olmeca Blanco (\u00A318)', 'Jose Cuervo (\u00A320)'] },
       { name: 'Premium', min: 25, max: 38, brands: ['Altos Plata (\u00A329)', '1800 Silver (\u00A328)', 'Casamigos (\u00A338)'] },
-      { name: 'Super-Premium', min: 40, max: 65, brands: ['Patrón Silver (\u00A349)', 'Don Julio Blanco (\u00A348)', 'Clase Azul Plata (\u00A360)'] },
-      { name: 'Ultra-Premium', min: 70, max: 200, brands: ['Don Julio 1942 (\u00A3165)', 'Patrón Gran Piedra (\u00A3160)', 'Clase Azul Añejo (\u00A3180)'] },
+      { name: 'Super-Premium', min: 40, max: 65, brands: ['Patr\u00f3n Silver (\u00A349)', 'Don Julio Blanco (\u00A348)', 'Clase Azul Plata (\u00A360)'] },
+      { name: 'Ultra-Premium', min: 70, max: 200, brands: ['Don Julio 1942 (\u00A3165)', 'Patr\u00f3n Gran Piedra (\u00A3160)', 'Clase Azul A\u00f1ejo (\u00A3180)'] },
     ],
     avgOnTrade: 9.50,
     insight: 'Super-premium tequila is the fastest-growing tier. Entry below \u00A325 faces fierce competition from established value brands.',
@@ -41,7 +41,7 @@ const PRICE_BENCHMARKS = {
   vodka: {
     tiers: [
       { name: 'Value', min: 12, max: 18, brands: ['Smirnoff (\u00A315)', 'Russian Standard (\u00A316)'] },
-      { name: 'Premium', min: 20, max: 30, brands: ['Absolut (\u00A320)', 'Stolichnaya (\u00A322)', 'Tito’s (\u00A325)'] },
+      { name: 'Premium', min: 20, max: 30, brands: ['Absolut (\u00A320)', 'Stolichnaya (\u00A322)', 'Tito\u2019s (\u00A325)'] },
       { name: 'Super-Premium', min: 32, max: 50, brands: ['Grey Goose (\u00A335)', 'Belvedere (\u00A332)', 'Ciroc (\u00A332)', 'Beluga Noble (\u00A345)'] },
       { name: 'Ultra-Premium', min: 55, max: 150, brands: ['Crystal Head (\u00A355)', 'Royal Dragon (\u00A3120)'] },
     ],
@@ -50,7 +50,7 @@ const PRICE_BENCHMARKS = {
   },
   gin: {
     tiers: [
-      { name: 'Value', min: 12, max: 20, brands: ['Gordon’s (\u00A314)', 'Beefeater (\u00A318)'] },
+      { name: 'Value', min: 12, max: 20, brands: ['Gordon\u2019s (\u00A314)', 'Beefeater (\u00A318)'] },
       { name: 'Premium', min: 22, max: 27, brands: ['Tanqueray (\u00A322)', 'Bombay Sapphire (\u00A322)', 'Sipsmith (\u00A325)'] },
       { name: 'Super-Premium', min: 28, max: 50, brands: ['Hendrick\'s (\u00A328)', 'The Botanist Islay (\u00A330)', 'Gin Mare (\u00A333)', 'Monkey 47 (\u00A337)', 'KI NO BI (\u00A347)'] },
       { name: 'Ultra-Premium', min: 55, max: 120, brands: ['Cambridge Distillery (\u00A380)'] },
@@ -81,9 +81,9 @@ const PRICE_BENCHMARKS = {
   cognac: {
     tiers: [
       { name: 'VS', min: 25, max: 39, brands: ['Hennessy VS (\u00A338)', 'Martell VS (\u00A330)', 'Courvoisier VS (\u00A325)'] },
-      { name: 'VSOP', min: 40, max: 60, brands: ['Hennessy VSOP (\u00A348)', 'Rémy Martin VSOP (\u00A346)', 'Martell VSOP (\u00A342)'] },
-      { name: 'XO', min: 90, max: 180, brands: ['Hennessy XO (\u00A3150)', 'Rémy Martin XO (\u00A3140)', 'Courvoisier XO (\u00A390)'] },
-      { name: 'Prestige', min: 200, max: 3500, brands: ['Hennessy Paradis (\u00A3500)', 'Rémy Martin Louis XIII (\u00A32,650)', "Martell L’Or (\u00A3300)"] },
+      { name: 'VSOP', min: 40, max: 60, brands: ['Hennessy VSOP (\u00A348)', 'R\u00e9my Martin VSOP (\u00A346)', 'Martell VSOP (\u00A342)'] },
+      { name: 'XO', min: 90, max: 180, brands: ['Hennessy XO (\u00A3150)', 'R\u00e9my Martin XO (\u00A3140)', 'Courvoisier XO (\u00A390)'] },
+      { name: 'Prestige', min: 200, max: 3500, brands: ['Hennessy Paradis (\u00A3500)', 'R\u00e9my Martin Louis XIII (\u00A32,650)', "Martell L\u2019Or (\u00A3300)"] },
     ],
     avgOnTrade: 12.00,
     insight: 'Big four houses dominate 85%+ of market. Estate/grower cognacs gaining interest from cocktail bartenders.',
@@ -91,8 +91,8 @@ const PRICE_BENCHMARKS = {
   champagne: {
     tiers: [
       { name: 'Value', min: 20, max: 29, brands: ['Nicolas Feuillatte (\u00A322)', 'Piper-Heidsieck (\u00A328)'] },
-      { name: 'Premium', min: 30, max: 50, brands: ['Moët Impérial (\u00A335)', 'Veuve Clicquot (\u00A340)', 'Laurent-Perrier (\u00A335)', 'Bollinger (\u00A340)'] },
-      { name: 'Prestige Cuvée', min: 55, max: 150, brands: ['Dom Pérignon (\u00A3150)', 'Krug Grande Cuvée (\u00A3140)'] },
+      { name: 'Premium', min: 30, max: 50, brands: ['Mo\u00ebt Imp\u00e9rial (\u00A335)', 'Veuve Clicquot (\u00A340)', 'Laurent-Perrier (\u00A335)', 'Bollinger (\u00A340)'] },
+      { name: 'Prestige Cuv\u00e9e', min: 55, max: 150, brands: ['Dom P\u00e9rignon (\u00A3150)', 'Krug Grande Cuv\u00e9e (\u00A3140)'] },
       { name: 'Ultra-Prestige', min: 155, max: 500, brands: ['Cristal (\u00A3200)', 'Salon (\u00A3400)', 'Krug Clos du Mesnil (\u00A3500)'] },
     ],
     avgOnTrade: 14.00,
@@ -103,7 +103,7 @@ const PRICE_BENCHMARKS = {
       { name: 'Value', min: 5, max: 7, brands: ['Blossom Hill (\u00A35.50)', "Hardy's (\u00A36)", 'Echo Falls (\u00A35.50)'] },
       { name: 'Premium', min: 8, max: 14, brands: ['Casillero del Diablo (\u00A38)', 'Kim Crawford (\u00A312)', 'Meiomi (\u00A314)'] },
       { name: 'Super-Premium', min: 15, max: 29, brands: ['Cloudy Bay (\u00A320)', 'Chablis Premier Cru (\u00A325)', 'Nyetimber (\u00A328)'] },
-      { name: 'Fine Wine', min: 30, max: 500, brands: ['Opus One (\u00A3200)', 'Penfolds Grange (\u00A3235)', 'Château Margaux (\u00A3400)'] },
+      { name: 'Fine Wine', min: 30, max: 500, brands: ['Opus One (\u00A3200)', 'Penfolds Grange (\u00A3235)', 'Ch\u00e2teau Margaux (\u00A3400)'] },
     ],
     avgOnTrade: 9.00,
     insight: 'UK duty increase (Aug 2023) hit wine hard. English sparkling is the standout growth story at 30% CAGR.',

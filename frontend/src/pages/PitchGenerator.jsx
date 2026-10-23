@@ -70,12 +70,12 @@ export default function PitchGenerator() {
       ? { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'EXPLOSIVE GROWTH', copy: `${catLabel} is growing at ${catData.cagr} CAGR \u2014 investor appetite for this category is at peak. Lead with market size and category tailwinds; the macro story almost writes itself.` }
       : cagrNum >= 4
       ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'STEADY EXPANSION', copy: `${catLabel} at ${catData.cagr} CAGR is a proven growth market, not a speculative bet. Investors want clear differentiation and path to category leadership rather than macro alone.` }
-      : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'MATURE CATEGORY', copy: `${catLabel} at ${catData.cagr} CAGR means the market is established, not exploding. Your differentiation story and gross margin must carry the pitch \u2014 category tailwind alone won’t close the round.` }
+      : { dot: 'bg-amber-500', color: 'text-amber-600', label: 'MATURE CATEGORY', copy: `${catLabel} at ${catData.cagr} CAGR means the market is established, not exploding. Your differentiation story and gross margin must carry the pitch \u2014 category tailwind alone won\u2019t close the round.` }
 
     const stageSignal = fundingStage === 'preSeed'
       ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'CONCEPT STAGE', copy: `Pre-seed investors fund people, not products. Lead with founder credentials and market insight. Revenue not expected \u2014 evidence of consumer demand (surveys, letters of intent) is your strongest asset.` }
       : fundingStage === 'seed'
-      ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'VALIDATION STAGE', copy: `Seed investors want proof-of-market-fit: first sales, key account wins, and a repeatable acquisition cost. Your opening three pitch slides should answer “why now, why you, why this category.”` }
+      ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'VALIDATION STAGE', copy: `Seed investors want proof-of-market-fit: first sales, key account wins, and a repeatable acquisition cost. Your opening three pitch slides should answer \u201cwhy now, why you, why this category.\u201d` }
       : fundingStage === 'seriesA'
       ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'SCALING PHASE', copy: `Series A investors expect proven PMF, positive gross margin, and a clear distribution roadmap. Unit economics and path to profitability must appear in the financials slide. Show the machine, not just the vision.` }
       : { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'GROWTH & EXIT STAGE', copy: `Series B investors are buying a category leadership story and a credible exit path. Lead with international expansion potential, M&A comparables, and strategic acquirer interest. Financial rigour is assumed.` }

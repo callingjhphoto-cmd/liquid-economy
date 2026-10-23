@@ -181,7 +181,7 @@ function LiveWeatherPanel({ region }) {
     <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200 animate-pulse">
       <div className="flex items-center gap-2 mb-3">
         <RefreshCw size={14} className="animate-spin text-blue-500" />
-        <span className="text-xs text-blue-600 font-medium">Loading live weather data from Open-Meteo{'…'}</span>
+        <span className="text-xs text-blue-600 font-medium">Loading live weather data from Open-Meteo{'\u2026'}</span>
       </div>
       <div className="h-40 bg-blue-100 rounded-lg" />
     </Card>
@@ -212,15 +212,15 @@ function LiveWeatherPanel({ region }) {
         <div className="flex items-center gap-2">
           <Globe size={14} className="text-blue-600" />
           <span className="text-xs font-semibold text-blue-800 uppercase tracking-wider">Live Weather {'\u2014'} Last 30 Days</span>
-          <span className="text-xs text-blue-500">{region.lat}{'°N'}, {region.lon}{'°E'}</span>
+          <span className="text-xs text-blue-500">{region.lat}{'\u00b0N'}, {region.lon}{'\u00b0E'}</span>
         </div>
         <span className="text-xs text-blue-400">Source: Open-Meteo API (real-time)</span>
       </div>
 
       <BentoGrid>
         <MetricCard label="30-Day Rainfall" value={`${last30Precip}mm`} icon={Droplets} />
-        <MetricCard label="Avg High" value={`${avgMax}°C`} icon={Thermometer} />
-        <MetricCard label="Avg Low" value={`${avgMin}°C`} icon={Thermometer} />
+        <MetricCard label="Avg High" value={`${avgMax}\u00b0C`} icon={Thermometer} />
+        <MetricCard label="Avg Low" value={`${avgMin}\u00b0C`} icon={Thermometer} />
         <MetricCard label="Frost Days (30d)" value={String(frostDays30)} icon={Snowflake} />
       </BentoGrid>
 
@@ -229,12 +229,12 @@ function LiveWeatherPanel({ region }) {
           <ComposedChart data={chartData} margin={{ top: 5, right: 5, bottom: 5, left: 0 }} accessibilityLayer={true}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis dataKey="date" tick={{ fontSize: 9, fill: '#9ca3af' }} interval={4} />
-            <YAxis yAxisId="temp" tick={{ fontSize: 9, fill: '#9ca3af' }} domain={['auto', 'auto']} tickFormatter={v => `${v}°C`} width={36} />
+            <YAxis yAxisId="temp" tick={{ fontSize: 9, fill: '#9ca3af' }} domain={['auto', 'auto']} tickFormatter={v => `${v}\u00b0C`} width={36} />
             <YAxis yAxisId="precip" orientation="right" tick={{ fontSize: 9, fill: '#9ca3af' }} tickFormatter={v => `${v}mm`} width={40} />
             <Tooltip contentStyle={{ background: '#1e293b', border: 'none', borderRadius: 8, fontSize: 11, color: '#f1f5f9' }} labelStyle={{ color: '#f1f5f9' }} itemStyle={{ color: '#f1f5f9' }} />
             <Bar yAxisId="precip" dataKey="precip" fill={CHART_COLORS.blue} opacity={0.4} name="Rainfall (mm)" />
-            <Line yAxisId="temp" dataKey="maxTemp" stroke={CHART_COLORS.rose} dot={false} strokeWidth={1.5} name={"Max Temp (°C)"} />
-            <Line yAxisId="temp" dataKey="minTemp" stroke={CHART_COLORS.blue} dot={false} strokeWidth={1.5} name={"Min Temp (°C)"} />
+            <Line yAxisId="temp" dataKey="maxTemp" stroke={CHART_COLORS.rose} dot={false} strokeWidth={1.5} name={"Max Temp (\u00b0C)"} />
+            <Line yAxisId="temp" dataKey="minTemp" stroke={CHART_COLORS.blue} dot={false} strokeWidth={1.5} name={"Min Temp (\u00b0C)"} />
           </ComposedChart>
         </ResponsiveContainer>
       </div>
@@ -246,7 +246,7 @@ function LiveWeatherPanel({ region }) {
             {Object.entries(comparison).map(([yr, d]) => (
               <div key={yr} className={`rounded-lg p-2 text-center ${parseInt(yr) === new Date().getFullYear() ? 'bg-blue-200/50 ring-1 ring-blue-300' : 'bg-white/60'}`}>
                 <p className="text-xs font-bold text-navy">{yr}</p>
-                <p className="text-xs text-gray-600">{d.avgTemp}{'°C'} avg</p>
+                <p className="text-xs text-gray-600">{d.avgTemp}{'\u00b0C'} avg</p>
                 <p className="text-xs text-blue-600">{d.totalPrecip}mm rain</p>
                 <p className="text-xs text-gray-500">{d.daysTracked} days</p>
               </div>
@@ -304,7 +304,7 @@ function ClimateChart({ region }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {[
           { key: 'rainfall', label: 'Annual Rainfall (mm)', unit: 'mm', color: '#3b82f6' },
-          { key: 'avgTemp', label: 'Avg Temperature (°C)', unit: '°C', color: '#ef4444', isLine: true },
+          { key: 'avgTemp', label: 'Avg Temperature (\u00b0C)', unit: '\u00b0C', color: '#ef4444', isLine: true },
           { key: 'frostDays', label: 'Frost Days', unit: 'd', color: '#06b6d4' },
           { key: 'sunHours', label: 'Sunshine Hours', unit: 'h', color: '#eab308' },
         ].map(m => (
@@ -349,7 +349,7 @@ function SeasonDetail({ region, year }) {
         <BentoGrid className="mb-4">
           <MetricCard label="Yield" value={typeof d.yield === 'number' && d.yield > 100 ? d.yield.toLocaleString() : String(d.yield)} subtitle={region.yieldUnit} icon={Sprout} />
           <MetricCard label="Rainfall" value={`${d.rainfall}mm`} subtitle={d.rainfall > 700 ? 'Above avg' : d.rainfall < 500 ? 'Below avg' : 'Normal'} icon={CloudRain} />
-          <MetricCard label="Avg Temp" value={`${d.avgTemp}°C`} icon={Thermometer} />
+          <MetricCard label="Avg Temp" value={`${d.avgTemp}\u00b0C`} icon={Thermometer} />
           <MetricCard label="Sun Hours" value={d.sunHours != null ? d.sunHours.toLocaleString() : '\u2014'} icon={Sun} />
         </BentoGrid>
       )}
@@ -374,7 +374,7 @@ function RegionDetailPanel({ region, onClose }) {
   return (
     <div className="space-y-4">
       <button onClick={onClose} className="text-xs text-gray-500 hover:text-navy flex items-center gap-1 mb-2">
-        {'←'} Back to all regions
+        {'\u2190'} Back to all regions
       </button>
 
       <div className="flex items-center gap-3">
@@ -427,7 +427,7 @@ function RegionDetailPanel({ region, onClose }) {
             { key: 'year', label: 'Year', width: 'w-16' },
             { key: 'yield', label: `Yield (${region.yieldUnit})`, render: v => v !== null ? (typeof v === 'number' && v > 100 ? v.toLocaleString() : v) : '\u2014' },
             { key: 'rainfall', label: 'Rainfall (mm)', render: v => v !== null ? v : '\u2014' },
-            { key: 'avgTemp', label: 'Avg Temp (°C)', render: v => v !== null ? v : '\u2014' },
+            { key: 'avgTemp', label: 'Avg Temp (\u00b0C)', render: v => v !== null ? v : '\u2014' },
             { key: 'frostDays', label: 'Frost Days', render: v => v !== null ? v : '\u2014' },
             { key: 'sunHours', label: 'Sun Hours', render: v => v !== null ? v?.toLocaleString() : '\u2014' },
             { key: 'outlook', label: 'Outlook', render: v => <OutlookBadge outlook={v} /> },
@@ -579,7 +579,7 @@ export default function ClimateYield() {
   const liSig1 = liHighRiskCount >= 3
     ? { dot: 'bg-red-500', color: 'text-red-600', label: 'Critical Climate Alert', copy: `${liHighRiskCount} high-risk agricultural signals active. Immediate supply chain review recommended across all exposed categories.` }
     : liHighRiskCount >= 2
-    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Elevated Climate Risk', copy: `${liHighRiskCount} high-risk signals active this season. Champagne spring frost (April) and Mediterranean juniper wildfire season (summer) require active monitoring. Confirm 12\u201318 month inventory buffers.` }
+    ? { dot: 'bg-amber-500', color: 'text-amber-600', label: 'Elevated Climate Risk', copy: `${liHighRiskCount} high-risk signals active this season. Champagne spring frost (April) and Mediterranean juniper wildfire season (summer) require active monitoring. Confirm 12\u201318\u202fmonth inventory buffers.` }
     : liHighRiskCount >= 1
     ? { dot: 'bg-blue-500', color: 'text-blue-600', label: 'Single Risk In Focus', copy: `${liHighRiskCount} high-risk climate signal active this cycle, plus ${liMediumCount} medium-risk signals in monitoring. Targeted sourcing vigilance recommended.` }
     : { dot: 'bg-emerald-500', color: 'text-emerald-600', label: 'Low Climate Risk', copy: `No high-risk climate signals flagged across monitored regions. ${liMediumCount} signals in medium-risk monitoring. Business-as-usual sourcing conditions apply.` }

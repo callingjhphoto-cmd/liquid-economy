@@ -42,10 +42,10 @@ export function DataTable({
 
     // Search filter — normalise curly apostrophes so mobile autocorrect matches ASCII data
     if (search && effectiveSearchKey) {
-      const q = search.toLowerCase().replace(/’/g, "'")
+      const q = search.toLowerCase().replace(/\u2019/g, "'")
       rows = rows.filter(row => {
         const val = row[effectiveSearchKey]
-        return val && String(val).toLowerCase().replace(/’/g, "'").includes(q)
+        return val && String(val).toLowerCase().replace(/\u2019/g, "'").includes(q)
       })
     }
 

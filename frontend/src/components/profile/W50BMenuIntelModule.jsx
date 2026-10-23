@@ -271,7 +271,7 @@ export default function W50BMenuIntelModule({ data, profile }) {
         size="lg"
         subtitle={"17 years of flagship-bar menu data \u2014 spirit usage, flavour evolution, and signature cocktails from W50B-ranked venues (2009-2026)"}
       >
-        World{'’'}s 50 Best Bars {'\u2014'} Menu Intelligence
+        World{'\u2019'}s 50 Best Bars {'\u2014'} Menu Intelligence
       </SectionHeader>
 
       <AccentCard padding="p-4" className="mb-6">

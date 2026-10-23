@@ -140,7 +140,7 @@ function Playbook({ category, market }) {
   return (
     <div>
       <div className="mb-6">
-        <h2 className="text-lg font-bold text-navy">{catName} {'→'} {marketName}</h2>
+        <h2 className="text-lg font-bold text-navy">{catName} {'\u2192'} {marketName}</h2>
         <p className="text-sm text-gray-500">Your complete market entry playbook</p>
       </div>
 
@@ -168,7 +168,7 @@ function Playbook({ category, market }) {
         <div className="flex items-center gap-2 mb-3">
           <Zap size={14} className="text-gold" />
           <span className="text-xs font-bold text-gold uppercase tracking-wider">Liquid Intelligence</span>
-          <span className="text-xs text-gray-400 ml-auto">{catName} {'→'} {marketName} signals</span>
+          <span className="text-xs text-gray-400 ml-auto">{catName} {'\u2192'} {marketName} signals</span>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {[

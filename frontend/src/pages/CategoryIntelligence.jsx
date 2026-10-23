@@ -470,7 +470,7 @@ function CategoryCard({ cat, year, isHero, onClick }) {
       </div>
       <div className="px-4 sm:px-5 py-2.5 flex items-center justify-between gap-2">
         <span className="text-xs text-gray-500 min-w-0 truncate">{yd.topMarkets.length} markets {'\u00B7'} {brandCount} brands {'\u00B7'} {yd.trends.length} trends</span>
-        <span className="text-xs font-semibold text-gold group-hover:underline flex-shrink-0">Explore {'→'}</span>
+        <span className="text-xs font-semibold text-gold group-hover:underline flex-shrink-0">Explore {'\u2192'}</span>
       </div>
     </button>
   )
@@ -651,7 +651,7 @@ function DemographicsPanel({ categoryKey }) {
           <div className="mt-3 space-y-1.5">
             {demographics.occasion.map((occ, i) => (
               <div key={i} className="flex items-start gap-2">
-                <span className="text-blue-500 mt-0.5 shrink-0">{'▶'}</span>
+                <span className="text-blue-500 mt-0.5 shrink-0">{'\u25b6'}</span>
                 <div>
                   <span className="text-xs font-semibold text-gray-800">{occ.name}: </span>
                   <span className="text-xs text-gray-600">{occ.notes}</span>
@@ -950,7 +950,7 @@ function CategoryDetail({ cat, year, onBack }) {
               </div>
               <button onClick={() => setActiveTab('markets')}
                 className="mt-3 text-xs font-semibold text-gold hover:underline">
-                View all {yd.topMarkets.length} markets {'→'}
+                View all {yd.topMarkets.length} markets {'\u2192'}
               </button>
             </Card>
             <Card>

@@ -32,7 +32,7 @@ const highestYoy = [...BRAND_VALUATIONS].sort((a, b) => b.yoyNum - a.yoyNum)[0] 
 
 /* ── Chart data: sector multiples comparison ── */
 const sectorChartData = SECTOR_MULTIPLES.map(s => ({
-  name: s.category.length > 12 ? s.category.slice(0, 12) + '…' : s.category,
+  name: s.category.length > 12 ? s.category.slice(0, 12) + '\u2026' : s.category,
   fullName: s.category,
   'EV/Revenue': s.evRevenueNum,
   'EV/EBITDA': s.evEbitdaNum,

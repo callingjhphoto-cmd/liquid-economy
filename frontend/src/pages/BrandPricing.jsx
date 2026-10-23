@@ -51,10 +51,10 @@ const CATEGORY_COLORS = {
 
 const PRICING_SOURCES = [
   { label: 'Tesco', url: 'https://www.tesco.com' },
-  { label: 'Sainsbury’s', url: 'https://www.sainsburys.co.uk' },
+  { label: 'Sainsbury\u2019s', url: 'https://www.sainsburys.co.uk' },
   { label: 'Total Wine', url: 'https://www.totalwine.com' },
   { label: 'Master of Malt', url: 'https://www.masterofmalt.com' },
-  { label: 'El Corte Inglés', url: 'https://www.elcorteingles.es' },
+  { label: 'El Corte Ingl\u00e9s', url: 'https://www.elcorteingles.es' },
   { label: 'Carrefour', url: 'https://www.carrefour.fr' },
   { label: 'MMI Dubai', url: 'https://mmidubai.com' },
 ]
@@ -317,7 +317,7 @@ function CategoryExpanded({ category, onClose }) {
     return items
       .map(p => ({
         name: `${p.brand} ${p.expression}`.length > 20
-          ? `${p.brand} ${p.expression}`.slice(0, 18) + '…'
+          ? `${p.brand} ${p.expression}`.slice(0, 18) + '\u2026'
           : `${p.brand} ${p.expression}`,
         price: p.marketAvgs[selectedMarket] || 0,
         tier: getSegmentTier(p.segment),
@@ -420,7 +420,7 @@ function CategoryExpanded({ category, onClose }) {
                             </td>
                             <td className="px-3 py-2 text-right">
                               <span className={`text-xs font-mono font-medium ${brand.differential > 30 ? 'text-red-500' : brand.differential > 15 ? 'text-amber-500' : 'text-green-500'}`}>
-                                {'±'}{brand.differential}
+                                {'\u00b1'}{brand.differential}
                               </span>
                             </td>
                           </tr>
@@ -543,12 +543,12 @@ function FullPriceTable({ onClose }) {
       me: p.me,
       differential: p.differential,
       premiumPct: Math.round((p.premium_index || 0) * 100),
-      _search: `${p.company} ${p.brand} ${p.expression}`.toLowerCase().replace(/’/g, "'"),
+      _search: `${p.company} ${p.brand} ${p.expression}`.toLowerCase().replace(/\u2019/g, "'"),
     }))
   }, [categoryFilter, segmentFilter])
 
   const handleExportCSV = useCallback(() => {
-    const headers = ['Company', 'Brand', 'Expression', 'Category', 'Segment', 'USA ($)', 'UK (\u00A3)', 'EU (€)', 'ME ($)', 'Spread ($)', 'Premium %']
+    const headers = ['Company', 'Brand', 'Expression', 'Category', 'Segment', 'USA ($)', 'UK (\u00A3)', 'EU (\u20ac)', 'ME ($)', 'Spread ($)', 'Premium %']
     const rows = tableData.map(r => [
       r.company, r.brand, r.expression, r.category, r.segment,
       r.usa || '', r.uk || '', r.eu || '', r.me || '',
@@ -579,11 +579,11 @@ function FullPriceTable({ onClose }) {
     }},
     { key: 'usa', label: 'USA ($)', align: 'right', render: (v) => v ? <span className="font-mono">${v}</span> : '\u2014' },
     { key: 'uk', label: 'UK (\u00A3)', align: 'right', render: (v) => v ? <span className="font-mono">{'\u00A3'}{v}</span> : '\u2014' },
-    { key: 'eu', label: 'EU (€)', align: 'right', render: (v) => v ? <span className="font-mono">{'€'}{v}</span> : '\u2014' },
+    { key: 'eu', label: 'EU (\u20ac)', align: 'right', render: (v) => v ? <span className="font-mono">{'\u20ac'}{v}</span> : '\u2014' },
     { key: 'me', label: 'ME ($)', align: 'right', render: (v) => v ? <span className="font-mono">${v}</span> : '\u2014' },
     { key: 'differential', label: 'Spread', align: 'right', render: (v) => (
       <span className={`font-mono font-medium ${v > 30 ? 'text-red-500' : v > 15 ? 'text-amber-500' : 'text-green-500'}`}>
-        {'±'}{v}
+        {'\u00b1'}{v}
       </span>
     )},
     { key: 'premiumPct', label: 'Premium %', align: 'right', render: (v) => <span className="font-mono font-medium text-navy">{v}%</span> },
@@ -655,7 +655,7 @@ function FullPriceTable({ onClose }) {
             <AlertCircle size={12} className="text-gray-500 mt-0.5 flex-shrink-0" />
             <p className="text-xs text-gray-500 leading-relaxed">
               Prices represent recommended retail prices (RRP). Bottle sizes vary by market: UK and EU use 70cl (700ml); US and Middle East use 750ml.
-              UK prices in GBP ({'\u00A3'}), EU in EUR ({'€'}), US and ME in USD ($). Market averages calculated from available retailer prices.
+              UK prices in GBP ({'\u00A3'}), EU in EUR ({'\u20ac'}), US and ME in USD ($). Market averages calculated from available retailer prices.
               EU average aggregates Spain, France, Germany, Italy, and Netherlands. Prices updated via automated scraping.
             </p>
           </div>
@@ -795,7 +795,7 @@ export default function BrandPricing() {
         ]}
       />
       <SubPageNav group="intelligence" />
-      <DataFreshness date="April 2026" source={"Retailer websites: Tesco, Waitrose, Total Wine, El Corte Inglés, Gall & Gall"} />
+      <DataFreshness date="April 2026" source={"Retailer websites: Tesco, Waitrose, Total Wine, El Corte Ingl\u00e9s, Gall & Gall"} />
 
       {/* ── TIER 1: Executive Metrics ── */}
       <BentoGrid>

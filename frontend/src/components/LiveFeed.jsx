@@ -74,7 +74,7 @@ function ConnectionBadge({ connected, mode, clientCount }) {
   return (
     <div className="flex items-center gap-1.5 text-xs text-gray-500">
       <WifiOff size={10} />
-      <span>Connecting{'…'}</span>
+      <span>Connecting{'\u2026'}</span>
     </div>
   )
 }
@@ -234,7 +234,7 @@ export default function LiveFeed({ maxItems = 30, compact = false }) {
           <div className="py-10 text-center">
             <Radio size={20} className="text-gray-300 mx-auto mb-2" />
             <p className="text-xs text-gray-500">
-              {connected ? 'No intelligence items match filters' : mode === 'offline' ? 'Live feed requires backend deployment' : 'Connecting to live feed…'}
+              {connected ? 'No intelligence items match filters' : mode === 'offline' ? 'Live feed requires backend deployment' : 'Connecting to live feed\u2026'}
             </p>
           </div>
         ) : (

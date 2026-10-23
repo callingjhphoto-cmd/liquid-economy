@@ -60,21 +60,21 @@ const BRANDS = [
   { type: 'brand', label: 'Monkey Shoulder', sub: 'Scotch Whisky \u00B7 William Grant', path: '/pricing', keywords: ['monkey shoulder', 'william grant', 'blended malt', 'scotch'] },
   { type: 'brand', label: 'Highland Park', sub: 'Scotch Whisky \u00B7 Edrington', path: '/pricing', keywords: ['highland park', 'edrington', 'scotch', 'orkney'] },
   // Bourbon
-  { type: 'brand', label: 'Jack Daniel’s', sub: 'Bourbon \u00B7 Brown-Forman', path: '/pricing', keywords: ['jack daniels', 'brown forman', 'bourbon', 'tennessee'] },
+  { type: 'brand', label: 'Jack Daniel\u2019s', sub: 'Bourbon \u00B7 Brown-Forman', path: '/pricing', keywords: ['jack daniels', 'brown forman', 'bourbon', 'tennessee'] },
   { type: 'brand', label: 'Buffalo Trace', sub: 'Bourbon \u00B7 Sazerac', path: '/pricing', keywords: ['buffalo trace', 'sazerac', 'bourbon'] },
   { type: 'brand', label: 'Woodford Reserve', sub: 'Bourbon \u00B7 Brown-Forman', path: '/pricing', keywords: ['woodford reserve', 'brown forman', 'bourbon', 'premium'] },
-  { type: 'brand', label: 'Blanton’s', sub: 'Bourbon \u00B7 Sazerac', path: '/pricing', keywords: ['blantons', 'sazerac', 'bourbon', 'single barrel'] },
-  { type: 'brand', label: 'Maker’s Mark', sub: 'Bourbon \u00B7 Beam Suntory', path: '/pricing', keywords: ['makers mark', 'beam suntory', 'bourbon', 'wheated'] },
+  { type: 'brand', label: 'Blanton\u2019s', sub: 'Bourbon \u00B7 Sazerac', path: '/pricing', keywords: ['blantons', 'sazerac', 'bourbon', 'single barrel'] },
+  { type: 'brand', label: 'Maker\u2019s Mark', sub: 'Bourbon \u00B7 Beam Suntory', path: '/pricing', keywords: ['makers mark', 'beam suntory', 'bourbon', 'wheated'] },
   // Tequila
   { type: 'brand', label: 'Don Julio', sub: 'Tequila \u00B7 Diageo', path: '/pricing', keywords: ['don julio', 'diageo', 'tequila', '1942', 'blanco', 'anejo'] },
-  { type: 'brand', label: 'José Cuervo', sub: 'Tequila \u00B7 Becle', path: '/pricing', keywords: ['jose cuervo', 'becle', 'tequila', 'especial'] },
-  { type: 'brand', label: 'Patrón', sub: 'Tequila \u00B7 Bacardi', path: '/pricing', keywords: ['patron', 'bacardi', 'tequila', 'silver', 'anejo'] },
+  { type: 'brand', label: 'Jos\u00e9 Cuervo', sub: 'Tequila \u00B7 Becle', path: '/pricing', keywords: ['jose cuervo', 'becle', 'tequila', 'especial'] },
+  { type: 'brand', label: 'Patr\u00f3n', sub: 'Tequila \u00B7 Bacardi', path: '/pricing', keywords: ['patron', 'bacardi', 'tequila', 'silver', 'anejo'] },
   { type: 'brand', label: 'Casamigos', sub: 'Tequila \u00B7 Diageo', path: '/pricing', keywords: ['casamigos', 'diageo', 'tequila', 'blanco', 'reposado'] },
   { type: 'brand', label: 'Altos', sub: 'Tequila \u00B7 Pernod Ricard', path: '/pricing', keywords: ['altos', 'pernod ricard', 'tequila', 'plata'] },
   // Gin
   { type: 'brand', label: 'Tanqueray', sub: 'Gin \u00B7 Diageo', path: '/pricing', keywords: ['tanqueray', 'diageo', 'gin', 'london dry'] },
   { type: 'brand', label: 'Beefeater', sub: 'Gin \u00B7 Pernod Ricard', path: '/pricing', keywords: ['beefeater', 'pernod ricard', 'gin', 'london dry'] },
-  { type: 'brand', label: 'Hendrick’s', sub: 'Gin \u00B7 William Grant', path: '/pricing', keywords: ['hendricks', 'william grant', 'gin', 'cucumber', 'rose'] },
+  { type: 'brand', label: 'Hendrick\u2019s', sub: 'Gin \u00B7 William Grant', path: '/pricing', keywords: ['hendricks', 'william grant', 'gin', 'cucumber', 'rose'] },
   { type: 'brand', label: 'Bombay Sapphire', sub: 'Gin \u00B7 Bacardi', path: '/pricing', keywords: ['bombay sapphire', 'bacardi', 'gin'] },
   { type: 'brand', label: 'Monkey 47', sub: 'Gin \u00B7 Pernod Ricard', path: '/pricing', keywords: ['monkey 47', 'pernod ricard', 'gin', 'schwarzwald'] },
   // Vodka
@@ -87,24 +87,24 @@ const BRANDS = [
   { type: 'brand', label: 'Bacardi', sub: 'Rum \u00B7 Bacardi', path: '/pricing', keywords: ['bacardi', 'rum', 'carta blanca', 'ocho'] },
   { type: 'brand', label: 'Havana Club', sub: 'Rum \u00B7 Pernod Ricard', path: '/pricing', keywords: ['havana club', 'pernod ricard', 'rum', 'cuban'] },
   { type: 'brand', label: 'Ron Zacapa', sub: 'Rum \u00B7 Diageo', path: '/pricing', keywords: ['ron zacapa', 'diageo', 'rum', 'guatemalan', 'centenario'] },
-  { type: 'brand', label: 'Diplomático', sub: 'Rum \u00B7 Brown-Forman', path: '/pricing', keywords: ['diplomatico', 'rum', 'venezuelan', 'reserva exclusiva'] },
+  { type: 'brand', label: 'Diplom\u00e1tico', sub: 'Rum \u00B7 Brown-Forman', path: '/pricing', keywords: ['diplomatico', 'rum', 'venezuelan', 'reserva exclusiva'] },
   { type: 'brand', label: 'Appleton Estate', sub: 'Rum \u00B7 Campari', path: '/pricing', keywords: ['appleton', 'campari', 'rum', 'jamaican'] },
   // Cognac
   { type: 'brand', label: 'Hennessy', sub: 'Cognac \u00B7 LVMH', path: '/pricing', keywords: ['hennessy', 'lvmh', 'cognac', 'vs', 'vsop', 'xo'] },
-  { type: 'brand', label: 'Rémy Martin', sub: 'Cognac \u00B7 Rémy Cointreau', path: '/pricing', keywords: ['remy martin', 'remy cointreau', 'cognac', 'vsop', 'louis xiii'] },
+  { type: 'brand', label: 'R\u00e9my Martin', sub: 'Cognac \u00B7 R\u00e9my Cointreau', path: '/pricing', keywords: ['remy martin', 'remy cointreau', 'cognac', 'vsop', 'louis xiii'] },
   { type: 'brand', label: 'Martell', sub: 'Cognac \u00B7 Pernod Ricard', path: '/pricing', keywords: ['martell', 'pernod ricard', 'cognac', 'vs', 'cordon bleu'] },
   { type: 'brand', label: 'Courvoisier', sub: 'Cognac \u00B7 Campari', path: '/pricing', keywords: ['courvoisier', 'campari', 'cognac', 'vs', 'vsop'] },
   // Champagne
-  { type: 'brand', label: 'Moët & Chandon', sub: 'Champagne \u00B7 LVMH', path: '/pricing', keywords: ['moet', 'chandon', 'lvmh', 'champagne', 'imperial'] },
+  { type: 'brand', label: 'Mo\u00ebt & Chandon', sub: 'Champagne \u00B7 LVMH', path: '/pricing', keywords: ['moet', 'chandon', 'lvmh', 'champagne', 'imperial'] },
   { type: 'brand', label: 'Veuve Clicquot', sub: 'Champagne \u00B7 LVMH', path: '/pricing', keywords: ['veuve clicquot', 'lvmh', 'champagne', 'yellow label'] },
-  { type: 'brand', label: 'Dom Pérignon', sub: 'Champagne \u00B7 LVMH', path: '/pricing', keywords: ['dom perignon', 'lvmh', 'champagne', 'vintage', 'prestige'] },
+  { type: 'brand', label: 'Dom P\u00e9rignon', sub: 'Champagne \u00B7 LVMH', path: '/pricing', keywords: ['dom perignon', 'lvmh', 'champagne', 'vintage', 'prestige'] },
   { type: 'brand', label: 'Krug', sub: 'Champagne \u00B7 LVMH', path: '/pricing', keywords: ['krug', 'lvmh', 'champagne', 'grande cuvee'] },
   { type: 'brand', label: 'Laurent-Perrier', sub: 'Champagne', path: '/pricing', keywords: ['laurent perrier', 'champagne', 'rose', 'grand siecle'] },
   // Wine
   { type: 'brand', label: 'Campo Viejo', sub: 'Wine \u00B7 Pernod Ricard', path: '/pricing', keywords: ['campo viejo', 'pernod ricard', 'wine', 'rioja', 'tempranillo'] },
   // No/Lo
   { type: 'brand', label: 'Seedlip', sub: 'No/Lo \u00B7 Diageo', path: '/pricing', keywords: ['seedlip', 'diageo', 'non alcoholic', 'nolo', 'garden 108'] },
-  { type: 'brand', label: 'Lyre’s', sub: 'No/Lo', path: '/pricing', keywords: ['lyres', 'non alcoholic', 'nolo', 'spirit alternatives'] },
+  { type: 'brand', label: 'Lyre\u2019s', sub: 'No/Lo', path: '/pricing', keywords: ['lyres', 'non alcoholic', 'nolo', 'spirit alternatives'] },
   // Beer
   { type: 'brand', label: 'Stella Artois', sub: 'Beer \u00B7 AB InBev', path: '/pricing', keywords: ['stella artois', 'ab inbev', 'beer', 'lager', 'belgian'] },
   { type: 'brand', label: 'Guinness', sub: 'Beer \u00B7 Diageo', path: '/pricing', keywords: ['guinness', 'diageo', 'beer', 'stout', 'irish'] },
@@ -119,10 +119,10 @@ const VENUES = [
   { type: 'venue', label: 'Sips', sub: 'Barcelona \u00B7 #1 (2023)', path: '/venues', keywords: ['sips', 'barcelona', 'spain'] },
   { type: 'venue', label: 'Paradiso', sub: 'Barcelona \u00B7 #1 (2022)', path: '/venues', keywords: ['paradiso', 'barcelona', 'spain', 'speakeasy'] },
   { type: 'venue', label: 'Connaught Bar', sub: 'London \u00B7 #1 (2021)', path: '/venues', keywords: ['connaught', 'london', 'hotel bar', 'mayfair'] },
-  { type: 'venue', label: 'Tayēr + Elementary', sub: 'London \u00B7 Top 5', path: '/venues', keywords: ['tayer', 'elementary', 'london', 'dalston'] },
+  { type: 'venue', label: 'Tay\u0113r + Elementary', sub: 'London \u00B7 Top 5', path: '/venues', keywords: ['tayer', 'elementary', 'london', 'dalston'] },
   { type: 'venue', label: 'Jigger & Pony', sub: 'Singapore \u00B7 Top 10', path: '/venues', keywords: ['jigger', 'pony', 'singapore'] },
   { type: 'venue', label: 'Tres Monos', sub: 'Buenos Aires \u00B7 Top 10', path: '/venues', keywords: ['tres monos', 'buenos aires', 'argentina'] },
-  { type: 'venue', label: 'Alquímico', sub: 'Cartagena \u00B7 Top 15', path: '/venues', keywords: ['alquimico', 'cartagena', 'colombia'] },
+  { type: 'venue', label: 'Alqu\u00edmico', sub: 'Cartagena \u00B7 Top 15', path: '/venues', keywords: ['alquimico', 'cartagena', 'colombia'] },
   { type: 'venue', label: 'Himkok', sub: 'Oslo \u00B7 Top 15', path: '/venues', keywords: ['himkok', 'oslo', 'norway', 'scandinavian'] },
   { type: 'venue', label: 'Line', sub: 'Athens \u00B7 Top 10', path: '/venues', keywords: ['line', 'athens', 'greece'] },
   { type: 'venue', label: 'Moebius Milano', sub: 'Milan \u00B7 Top 10', path: '/venues', keywords: ['moebius', 'milan', 'italy'] },
@@ -132,14 +132,14 @@ const VENUES = [
   { type: 'venue', label: 'Zest', sub: 'Seoul \u00B7 Top 20', path: '/venues', keywords: ['zest', 'seoul', 'south korea'] },
   { type: 'venue', label: 'Bar Nouveau', sub: 'Paris \u00B7 Top 20', path: '/venues', keywords: ['bar nouveau', 'paris', 'france'] },
   { type: 'venue', label: 'Bar Benfiddich', sub: 'Tokyo \u00B7 Top 20', path: '/venues', keywords: ['benfiddich', 'tokyo', 'japan'] },
-  { type: 'venue', label: 'Satan’s Whiskers', sub: 'London \u00B7 Top 25', path: '/venues', keywords: ['satans whiskers', 'london', 'bethnal green'] },
+  { type: 'venue', label: 'Satan\u2019s Whiskers', sub: 'London \u00B7 Top 25', path: '/venues', keywords: ['satans whiskers', 'london', 'bethnal green'] },
   { type: 'venue', label: 'Scarfes Bar', sub: 'London \u00B7 Top 35', path: '/venues', keywords: ['scarfes', 'london', 'hotel bar', 'rosewood'] },
   { type: 'venue', label: 'Panda & Sons', sub: 'Edinburgh \u00B7 Top 35', path: '/venues', keywords: ['panda', 'sons', 'edinburgh', 'scotland'] },
   { type: 'venue', label: 'Salmon Guru', sub: 'Madrid \u00B7 Top 40', path: '/venues', keywords: ['salmon guru', 'madrid', 'spain'] },
   { type: 'venue', label: 'Drink Kong', sub: 'Rome \u00B7 Top 40', path: '/venues', keywords: ['drink kong', 'rome', 'italy'] },
   { type: 'venue', label: 'Mimi Kakushi', sub: 'Dubai \u00B7 Top 40', path: '/venues', keywords: ['mimi kakushi', 'dubai', 'uae'] },
   { type: 'venue', label: 'Coa', sub: 'Hong Kong \u00B7 Top 40', path: '/venues', keywords: ['coa', 'hong kong', 'agave bar'] },
-  { type: 'venue', label: 'Licorería Limantour', sub: 'Mexico City \u00B7 Top 50', path: '/venues', keywords: ['limantour', 'licoreria', 'mexico city'] },
+  { type: 'venue', label: 'Licorer\u00eda Limantour', sub: 'Mexico City \u00B7 Top 50', path: '/venues', keywords: ['limantour', 'licoreria', 'mexico city'] },
   { type: 'venue', label: 'Maybe Sammy', sub: 'Sydney \u00B7 Top 45', path: '/venues', keywords: ['maybe sammy', 'sydney', 'australia'] },
   { type: 'venue', label: 'Baba au Rum', sub: 'Athens \u00B7 Top 30', path: '/venues', keywords: ['baba au rum', 'athens', 'greece', 'rum bar'] },
   { type: 'venue', label: 'Danico', sub: 'Paris \u00B7 Top 30', path: '/venues', keywords: ['danico', 'paris', 'france'] },
@@ -148,17 +148,17 @@ const VENUES = [
 
 const COMPANIES = [
   { type: 'company', label: 'Diageo', sub: '\u00A358B market cap \u00B7 London', path: '/companies', keywords: ['diageo', 'johnnie walker', 'guinness', 'smirnoff', 'tanqueray', 'don julio', 'casamigos'] },
-  { type: 'company', label: 'LVMH (Moët Hennessy)', sub: '€380B market cap \u00B7 Paris', path: '/companies', keywords: ['lvmh', 'moet', 'hennessy', 'dom perignon', 'veuve clicquot', 'glenmorangie', 'belvedere'] },
-  { type: 'company', label: 'Pernod Ricard', sub: '€38B market cap \u00B7 Paris', path: '/companies', keywords: ['pernod ricard', 'absolut', 'jameson', 'beefeater', 'havana club', 'martell', 'altos'] },
+  { type: 'company', label: 'LVMH (Mo\u00ebt Hennessy)', sub: '\u20ac380B market cap \u00B7 Paris', path: '/companies', keywords: ['lvmh', 'moet', 'hennessy', 'dom perignon', 'veuve clicquot', 'glenmorangie', 'belvedere'] },
+  { type: 'company', label: 'Pernod Ricard', sub: '\u20ac38B market cap \u00B7 Paris', path: '/companies', keywords: ['pernod ricard', 'absolut', 'jameson', 'beefeater', 'havana club', 'martell', 'altos'] },
   { type: 'company', label: 'Bacardi', sub: 'Private \u00B7 Hamilton', path: '/companies', keywords: ['bacardi', 'grey goose', 'bombay sapphire', 'dewar', 'patron'] },
   { type: 'company', label: 'Brown-Forman', sub: '$22B market cap \u00B7 Louisville', path: '/companies', keywords: ['brown forman', 'jack daniels', 'woodford reserve', 'old forester'] },
   { type: 'company', label: 'Beam Suntory', sub: 'Private \u00B7 Tokyo/Chicago', path: '/companies', keywords: ['beam suntory', 'jim beam', 'makers mark', 'roku', 'hibiki', 'yamazaki'] },
-  { type: 'company', label: 'Campari Group', sub: '€12B market cap \u00B7 Milan', path: '/companies', keywords: ['campari', 'aperol', 'wild turkey', 'grand marnier', 'appleton'] },
-  { type: 'company', label: 'Rémy Cointreau', sub: '€7B market cap \u00B7 Paris', path: '/companies', keywords: ['remy cointreau', 'remy martin', 'cointreau', 'mount gay', 'bruichladdich'] },
+  { type: 'company', label: 'Campari Group', sub: '\u20ac12B market cap \u00B7 Milan', path: '/companies', keywords: ['campari', 'aperol', 'wild turkey', 'grand marnier', 'appleton'] },
+  { type: 'company', label: 'R\u00e9my Cointreau', sub: '\u20ac7B market cap \u00B7 Paris', path: '/companies', keywords: ['remy cointreau', 'remy martin', 'cointreau', 'mount gay', 'bruichladdich'] },
   { type: 'company', label: 'William Grant & Sons', sub: 'Private \u00B7 Dufftown', path: '/companies', keywords: ['william grant', 'glenfiddich', 'hendricks', 'monkey shoulder', 'balvenie'] },
   { type: 'company', label: 'Edrington', sub: 'Private \u00B7 Glasgow', path: '/companies', keywords: ['edrington', 'macallan', 'highland park', 'famous grouse'] },
   { type: 'company', label: 'AB InBev', sub: '$115B market cap \u00B7 Leuven', path: '/companies', keywords: ['ab inbev', 'budweiser', 'stella artois', 'corona', 'beer'] },
-  { type: 'company', label: 'Heineken', sub: '€45B market cap \u00B7 Amsterdam', path: '/companies', keywords: ['heineken', 'beer', 'amstel', 'tiger'] },
+  { type: 'company', label: 'Heineken', sub: '\u20ac45B market cap \u00B7 Amsterdam', path: '/companies', keywords: ['heineken', 'beer', 'amstel', 'tiger'] },
 ]
 
 const ALL_ITEMS = [...PAGES, ...CATEGORIES, ...BRANDS, ...VENUES, ...COMPANIES]
@@ -194,7 +194,7 @@ export default function GlobalSearch({ isOpen, onClose }) {
   /* Filter results */
   const results = useMemo(() => {
     if (!query.trim()) return PAGES
-    const norm = s => s.toLowerCase().replace(/[‘’]/g, "'")
+    const norm = s => s.toLowerCase().replace(/[\u2018\u2019]/g, "'")
     const q = norm(query)
     return ALL_ITEMS.filter(item => {
       if (norm(item.label).includes(q)) return true
@@ -290,7 +290,7 @@ export default function GlobalSearch({ isOpen, onClose }) {
         <div ref={listRef} className="max-h-[60vh] overflow-y-auto py-1">
           {grouped.flatList.length === 0 && (
             <div className="px-5 py-10 text-center">
-              <p className="text-sm text-gray-500">No results for {'“'}{query}{'”'}</p>
+              <p className="text-sm text-gray-500">No results for {'\u201c'}{query}{'\u201d'}</p>
               <p className="text-xs text-gray-300 mt-1">Try searching for a brand, category, venue, or company</p>
             </div>
           )}
@@ -343,12 +343,12 @@ export default function GlobalSearch({ isOpen, onClose }) {
         <div className="px-5 py-2.5 border-t border-gray-100 flex items-center justify-between bg-gray-50/40">
           <div className="flex items-center gap-3">
             <span className="text-xs text-gray-500">
-              <kbd className="px-1 py-0.5 bg-white border border-gray-200 rounded text-[10px] font-mono shadow-sm">{'↑'}</kbd>
-              <kbd className="px-1 py-0.5 bg-white border border-gray-200 rounded text-[10px] font-mono shadow-sm ml-0.5">{'↓'}</kbd>
+              <kbd className="px-1 py-0.5 bg-white border border-gray-200 rounded text-[10px] font-mono shadow-sm">{'\u2191'}</kbd>
+              <kbd className="px-1 py-0.5 bg-white border border-gray-200 rounded text-[10px] font-mono shadow-sm ml-0.5">{'\u2193'}</kbd>
               <span className="ml-1">navigate</span>
             </span>
             <span className="text-xs text-gray-500">
-              <kbd className="px-1.5 py-0.5 bg-white border border-gray-200 rounded text-[10px] font-mono shadow-sm">{'↵'}</kbd>
+              <kbd className="px-1.5 py-0.5 bg-white border border-gray-200 rounded text-[10px] font-mono shadow-sm">{'\u21b5'}</kbd>
               <span className="ml-1">select</span>
             </span>
           </div>

@@ -322,7 +322,7 @@ export default function VenueIntelligence() {
             </div>
             {venue.fiftyBest && venue.fiftyBest.some(r => r) && (
               <div>
-                <p className="text-micro font-semibold text-gray-500 uppercase mb-1">50 Best Rankings (2021{'→'}2025)</p>
+                <p className="text-micro font-semibold text-gray-500 uppercase mb-1">50 Best Rankings (2021{'\u2192'}2025)</p>
                 <div className="flex gap-1.5 flex-wrap">
                   {YEARS.map((y, idx) => (
                     <span key={y} className={`px-1.5 py-0.5 rounded text-micro ${venue.fiftyBest[idx] ? (venue.fiftyBest[idx] <= 10 ? 'bg-green-100 text-green-700 font-bold' : 'bg-blue-100 text-blue-700') : 'bg-gray-100 text-gray-500'}`}>
@@ -381,7 +381,7 @@ export default function VenueIntelligence() {
     <div className="min-h-screen bg-surface p-3 sm:p-4 lg:p-6 max-w-7xl mx-auto space-y-6">
       <PageHeader
         title="Venue & On-Trade Intelligence"
-        subtitle={`${LONDON_VENUES.length} London venues \u00B7 World’s 50 Best Bars 2021\u20132025 \u00B7 ${Object.keys(COMPANY_PROFILES).length} company profiles \u00B7 Data as of April 2026`}
+        subtitle={`${LONDON_VENUES.length} London venues \u00B7 World\u2019s 50 Best Bars 2021\u20132025 \u00B7 ${Object.keys(COMPANY_PROFILES).length} company profiles \u00B7 Data as of April 2026`}
         breadcrumbs={[
           { label: 'Command Centre', to: '/' },
           { label: 'Venue Intelligence' },
@@ -389,7 +389,7 @@ export default function VenueIntelligence() {
         action={<YearSelector activeYear={selectedYear} onChange={setSelectedYear} years={YEARS} />}
       />
       <SubPageNav group="intelligence" />
-      <DataFreshness date="April 2026" source={"World’s 50 Best Bars, Imbibe, Difford’s Guide, venue intel"} />
+      <DataFreshness date="April 2026" source={"World\u2019s 50 Best Bars, Imbibe, Difford\u2019s Guide, venue intel"} />
 
       {/* ═══════ SEARCH BAR (Search-First UX) ═══════ */}
       <div className="relative">
@@ -412,7 +412,7 @@ export default function VenueIntelligence() {
       {/* Show search results if searching */}
       {venueSearch ? (
         <div className="space-y-3">
-          <p className="text-xs text-gray-500">{filteredVenues.length} venue{filteredVenues.length !== 1 ? 's' : ''} matching {'“'}{venueSearch}{'”'}</p>
+          <p className="text-xs text-gray-500">{filteredVenues.length} venue{filteredVenues.length !== 1 ? 's' : ''} matching {'\u201c'}{venueSearch}{'\u201d'}</p>
           {filteredVenues.map((venue, i) => (
             <VenueCard key={i} venue={venue} index={i} expanded={expandedVenue === i}
               onToggle={() => handleVenueToggle(venue, i)} />
@@ -427,7 +427,7 @@ export default function VenueIntelligence() {
               <Card className="h-full" hover onClick={() => toggleSection('50best')}>
                 <div className="flex items-start justify-between mb-3">
                   <div>
-                    <p className="text-label text-gray-500">World{'’'}s 50 Best Bars {selectedYear}</p>
+                    <p className="text-label text-gray-500">World{'\u2019'}s 50 Best Bars {selectedYear}</p>
                     <p className="text-3xl font-bold text-navy mt-1">{londonCount}</p>
                     <p className="text-sm text-gray-500 mt-0.5">London bars in Top 50</p>
                   </div>
@@ -451,7 +451,7 @@ export default function VenueIntelligence() {
                     <span className="font-semibold text-navy">{perennialBars.length}</span>
                   </div>
                 </div>
-                <p className="text-xs text-gray-500 mt-3">Click to explore rankings {'→'}</p>
+                <p className="text-xs text-gray-500 mt-3">Click to explore rankings {'\u2192'}</p>
               </Card>
             </BentoGrid.Hero>
 
@@ -649,7 +649,7 @@ export default function VenueIntelligence() {
               )}
 
               <SourceList sources={[
-                { label: "World’s 50 Best Bars", url: 'https://www.worlds50bestbars.com/' },
+                { label: "World\u2019s 50 Best Bars", url: 'https://www.worlds50bestbars.com/' },
               ]} />
             </div>
           </DrillDown>
@@ -1155,11 +1155,11 @@ export default function VenueIntelligence() {
                   <div className="space-y-2">
                     <div>
                       <h5 className="font-semibold text-navy">Entry Strategy {'\u2014'} Luxury Accounts</h5>
-                      <p>Target independent-minded bars like Satan{'’'}s Whiskers, Tay{'ē'}r + Elementary, and Lyaness. These venues select on quality, not corporate spend.</p>
+                      <p>Target independent-minded bars like Satan{'\u2019'}s Whiskers, Tay{'\u0113'}r + Elementary, and Lyaness. These venues select on quality, not corporate spend.</p>
                     </div>
                     <div>
                       <h5 className="font-semibold text-navy">Visibility {'\u2014'} 50 Best Bars</h5>
-                      <p>Perennial bars (Tay{'ē'}r, Connaught, Jigger &amp; Pony, Paradiso) offer global bartender community visibility through long-term partnerships.</p>
+                      <p>Perennial bars (Tay{'\u0113'}r, Connaught, Jigger &amp; Pony, Paradiso) offer global bartender community visibility through long-term partnerships.</p>
                     </div>
                   </div>
                   <div className="space-y-2">
@@ -1169,7 +1169,7 @@ export default function VenueIntelligence() {
                     </div>
                     <div>
                       <h5 className="font-semibold text-navy">Geographic Trend</h5>
-                      <p>Asia{'’'}s share has grown to match Europe. London remains the strongest single-city hub for on-trade credibility globally.</p>
+                      <p>Asia{'\u2019'}s share has grown to match Europe. London remains the strongest single-city hub for on-trade credibility globally.</p>
                     </div>
                   </div>
                 </div>
@@ -1182,7 +1182,7 @@ export default function VenueIntelligence() {
 
       {/* Data Source Footer */}
       <SourceList sources={[
-        { label: "World’s 50 Best Bars (2021\u20132025)", url: 'https://www.worlds50bestbars.com/' },
+        { label: "World\u2019s 50 Best Bars (2021\u20132025)", url: 'https://www.worlds50bestbars.com/' },
         { label: 'Companies House UK', url: 'https://www.gov.uk/government/organisations/companies-house' },
         { label: 'Venue menus & industry sources' },
       ]} />
@@ -1233,7 +1233,7 @@ function VenueCard({ venue, index, expanded, onToggle }) {
         <div className="border-t border-gray-100 mt-3 pt-3 space-y-2.5">
           {venue.fiftyBest && venue.fiftyBest.some(r => r) && (
             <div>
-              <p className="text-micro font-semibold text-gray-500 uppercase mb-1">50 Best Rankings (2021{'→'}2025)</p>
+              <p className="text-micro font-semibold text-gray-500 uppercase mb-1">50 Best Rankings (2021{'\u2192'}2025)</p>
               <div className="flex gap-1.5">
                 {YEARS.map((y, idx) => (
                   <span key={y} className={`px-1.5 py-0.5 rounded text-micro ${venue.fiftyBest[idx] ? (venue.fiftyBest[idx] <= 10 ? 'bg-green-100 text-green-700 font-bold' : 'bg-blue-100 text-blue-700') : 'bg-gray-100 text-gray-500'}`}>

@@ -30,7 +30,7 @@ const FAMILIES = [
     color: '#b45309',
     bgClass: 'bg-amber-50',
     borderClass: 'border-amber-200',
-    icon: '⚫',
+    icon: '\u26ab',
     commercialContext: 'bitter, Negroni-family serves signal maximum palate sophistication and premium on-trade credibility',
   },
   {
@@ -41,7 +41,7 @@ const FAMILIES = [
     color: '#4d7c0f',
     bgClass: 'bg-green-50',
     borderClass: 'border-green-200',
-    icon: '♣',
+    icon: '\u2663',
     commercialContext: 'botanical and herb-forward serves align with wellness-adjacent premium positioning and gin-culture markets',
   },
   {
@@ -52,7 +52,7 @@ const FAMILIES = [
     color: '#374151',
     bgClass: 'bg-gray-50',
     borderClass: 'border-gray-200',
-    icon: '☁',
+    icon: '\u2601',
     commercialContext: 'smoky serves create sensory theatre and signal connoisseur-level mixology programming',
   },
   {
@@ -63,7 +63,7 @@ const FAMILIES = [
     color: '#d97706',
     bgClass: 'bg-yellow-50',
     borderClass: 'border-yellow-200',
-    icon: '☀',
+    icon: '\u2600',
     commercialContext: 'citrus-forward serves are the most universally accessible flavour family and drive highest volume at events',
   },
   {
@@ -74,7 +74,7 @@ const FAMILIES = [
     color: '#0369a1',
     bgClass: 'bg-sky-50',
     borderClass: 'border-sky-200',
-    icon: '♥',
+    icon: '\u2665',
     commercialContext: 'sweet-forward serves are the gateway flavour family and recruit non-cocktail drinkers into premium occasions',
   },
   {
@@ -96,7 +96,7 @@ const FAMILIES = [
     color: '#7c3aed',
     bgClass: 'bg-violet-50',
     borderClass: 'border-violet-200',
-    icon: '◆',
+    icon: '\u25c6',
     commercialContext: 'savoury-umami serves are the frontier of culinary mixology, commanding the highest price points and drawing Michelin-star dining audiences',
   },
 ]
@@ -331,7 +331,7 @@ export default function FlavourDemographicAggregator({ profile }) {
         size="lg"
         subtitle="Per flavour family: which cocktails belong, who drinks them, and the commercial implication for event programming. Thresholds: bitter/herbal/sour/sweet/spicy scored 6+/10; smoky 5+; savoury 4+ on the flavour radar."
       >
-        {'Flavour Family → Demographic Intelligence'}
+        {'Flavour Family \u2192 Demographic Intelligence'}
       </SectionHeader>
 
       <div className="flex flex-wrap items-center gap-2 mt-1 mb-4">

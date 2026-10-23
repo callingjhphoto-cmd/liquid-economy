@@ -410,7 +410,7 @@ export default function Financials() {
           label="Companies Tracked"
           value={FINANCIAL_COMPANIES.length}
           icon={Building2}
-          subtitle={"Diageo, Pernod, Campari, BF, Rémy"}
+          subtitle={"Diageo, Pernod, Campari, BF, R\u00e9my"}
         />
         <MetricCard
           label="Avg Dividend Yield"
@@ -485,7 +485,7 @@ export default function Financials() {
               <li>Pernod Ricard Universal Registration Document</li>
               <li>Campari Group Annual Report & Investor Presentations</li>
               <li>Brown-Forman 10-K and 10-Q SEC Filings</li>
-              <li>R{'é'}my Cointreau Document de R{'é'}f{'é'}rence</li>
+              <li>R{'\u00e9'}my Cointreau Document de R{'\u00e9'}f{'\u00e9'}rence</li>
             </ul>
           </div>
           <div>

@@ -75,7 +75,7 @@ const trendVariant = (t = '') => {
   const s = t || ''
   if (s === 'rising' || s === 'fast-rising' || s.includes('rising') || s.includes('+')) return 'green'
   if (s === 'stable-dominant' || s === 'dominant' || s === 'dominant-consumer' || s === 'leading' || s.includes('dominant')) return 'blue'
-  if (s === 'fatigue' || s === 'decline' || s.includes('decline') || s.includes('caution') || s.includes('−')) return 'red'
+  if (s === 'fatigue' || s === 'decline' || s.includes('decline') || s.includes('caution') || s.includes('\u2212')) return 'red'
   if (s.includes('watch')) return 'orange'
   if (t === 'resurgent' || t === 'established-growing') return 'gold'
   return 'default'
@@ -128,7 +128,7 @@ const COCKTAIL_SLUG_MAP = {
   'Moscow Mule': 'moscow-mule',
   'Gin Basil Smash': 'gin-basil-smash',
   'Manhattan': 'manhattan',
-  'Vieux Carré': 'vieux-carre',
+  'Vieux Carr\u00e9': 'vieux-carre',
   'Mai Tai': 'mai-tai',
   'The Last Word': 'the-last-word',
   'Amaretto Sour': 'amaretto-sour',
@@ -187,7 +187,7 @@ function TopCocktailsModule({ data, profile }) {
                   </Badge>
                 )}
                 {hasDetail && (
-                  <Badge variant="default">{'View detail →'}</Badge>
+                  <Badge variant="default">{'View detail \u2192'}</Badge>
                 )}
               </div>
               {c.rankMove && (
@@ -820,8 +820,8 @@ function SourcesMethodologySection({ profile }) {
       <Card padding="p-5" className="bg-gray-50/50">
         <h3 className="text-subsection font-display text-navy mb-2">How to read this profile</h3>
         <ul className="space-y-2 text-caption text-gray-700 leading-relaxed list-disc pl-4">
-          <li><span className="font-semibold text-navy">Rank-based data</span> (DI / Difford{'’'}s) is direct placement in each source{'’'}s most recent annual list.</li>
-          <li><span className="font-semibold text-navy">{'“'}Move{'”'} deltas</span> (e.g. +19 from #23 in 2022) are year-over-year list position changes computed from the named source{'’'}s historical rankings.</li>
+          <li><span className="font-semibold text-navy">Rank-based data</span> (DI / Difford{'\u2019'}s) is direct placement in each source{'\u2019'}s most recent annual list.</li>
+          <li><span className="font-semibold text-navy">{'\u201c'}Move{'\u201d'} deltas</span> (e.g. +19 from #23 in 2022) are year-over-year list position changes computed from the named source{'\u2019'}s historical rankings.</li>
           <li><span className="font-semibold text-navy">Growth signals</span> on flavour families are headline figures from Bacardi Cocktail Trends Report and are qualitative unless marked with a specific percentage.</li>
           <li><span className="font-semibold text-navy">Pricing bands</span> combine on-menu capture (venue websites, press) with operator interview triangulation {'\u2014'} converted to GBP/USD/AED at April 2026 rates.</li>
           <li><span className="font-semibold text-navy">Unverified figures</span> are marked {'"'}TBD{'"'} rather than estimated.</li>
@@ -842,7 +842,7 @@ function ProfileNotFound({ slug }) {
         <p className="text-body text-gray-500 mb-6">No profile registered for {'"'}{slug}{'"'}</p>
         <div className="flex gap-4 justify-center">
           <Link to="/profiles" className="text-body text-editorial hover:text-navy no-underline">
-            View all profiles {'→'}
+            View all profiles {'\u2192'}
           </Link>
           <Link to="/" className="text-body text-gray-500 hover:text-navy no-underline">
             Back to dashboard

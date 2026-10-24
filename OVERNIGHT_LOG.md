@@ -1,3 +1,21 @@
+# Overnight Build Log — 24 October 2026
+
+## Session summary
+
+**Shipped:** Corrected 5 stale CATEGORY_SNAPSHOT market sizes and trend arrays in commandCentreData.js to match authoritative categoryData.js 2025 values. Build clean at 14.04s. 1 commit pushed to origin/main.
+
+1. **5 stale market sizes corrected in CATEGORY_SNAPSHOT.** Cross-checked all 11 entries against categoryData.js 2025 `marketSize` fields. Found whisky ($6.3B→$68.5B), rum ($15.8B→$14.8B), cognac ($4.1B→$12.0B), wine ($38.2B→$340B), and beer ($880B→$620B) carrying values from an earlier/different scope definition. Growth rates and growthDir were all already correct (Oct-20 session fixed those). Sizes and trend arrays now mirror the authoritative 5-year series from categoryData.js.
+
+2. **Trend arrays updated to match categoryData.js historical series.** Each corrected entry's 5-point sparkline now reads from the same 2021–2025 source data used by CategoryIntelligence: whisky [57.0,61.5,64.3,66.5,68.5], rum [11.9,12.6,13.5,14.2,14.8], cognac [12.2,13.2,12.6,12.3,12.0], wine [355,360,355,346,340], beer [585,604,616,619,620].
+
+3. **Tequila, vodka, gin, champagne, nolo, rtd all clean.** Six of eleven CATEGORY_SNAPSHOT entries matched categoryData exactly and were left unchanged.
+
+4. **No hallucinations.** All replacement values read directly from categoryData.js yearData[2021..2025].marketSize. No external sources consulted.
+
+5. **Build verified clean at 14.04s. Zero errors.**
+
+---
+
 # Overnight Build Log — 23 October 2026
 
 ## Session summary
